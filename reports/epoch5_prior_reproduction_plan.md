@@ -564,3 +564,21 @@ Decision: `X_VLA_LIBERO10_TASK1_RESIDUAL_FOUND_MATCHED_BASE_PENDING`.
 Next step: run the matched Base/Prior diagnostic on this exact task/reset
 window. Do not design, train, or retune Ours until the matched base result and
 residual headroom are verified.
+
+## Completed Matched Base/Prior Diagnostic: Task 1
+
+Execution status: `COMPLETE_HEADROOM_PENDING`
+
+| Policy | Successes | Failures | Infrastructure failures |
+|---|---:|---|---:|
+| X-VLA-Libero | 6/8 | `20260725`, `20260727` | 0 |
+| SmolVLA frozen base | 3/8 | `20260724`, `20260727`, `20260728`, `20260729`, `20260730` | 0 |
+
+Base artifact:
+`runs/xvla_prior/diagnostic_smolvla_base_libero10_task1_id20260724_20260731_officialenv_20260717T1739KST/result.json`.
+
+Decision: `TASK1_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_PENDING`.
+
+Next step: run residual headroom before any Ours design. Prioritize shared
+failure `20260727`; treat `20260725` separately because SmolVLA base already
+succeeds there.

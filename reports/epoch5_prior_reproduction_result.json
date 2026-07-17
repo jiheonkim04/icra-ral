@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_xvla_libero10_task1_residual_candidate_found",
-  "decision": "X_VLA_LIBERO10_TASK1_RESIDUAL_FOUND_MATCHED_BASE_PENDING",
+  "stage": "epoch_5_xvla_task1_matched_base_prior_complete",
+  "decision": "TASK1_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_PENDING",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "third_pass_selected_prior_ecosystem": "X-VLA-Libero on LIBERO",
@@ -1221,6 +1221,83 @@
     "ours_design_happened": false,
     "interpretation": "This is a valid official-prior residual candidate, but it is not yet an Ours target. Next required step is matched Base/Prior diagnostic on the same task/reset window and then headroom verification."
   },
+  "xvla_task1_matched_base_prior": {
+    "status": "COMPLETE",
+    "decision": "TASK1_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_PENDING",
+    "task_suite": "libero_10",
+    "task_id": 1,
+    "task_description": "put both the cream cheese box and the butter in the basket",
+    "reset_identities": [
+      20260724,
+      20260725,
+      20260726,
+      20260727,
+      20260728,
+      20260729,
+      20260730,
+      20260731
+    ],
+    "initial_state_indices": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "xvla_prior": {
+      "artifact": "runs/xvla_prior/diagnostic_xvla_libero10_task1_id20260724_20260731_20260717T1729KST/result.json",
+      "artifact_sha256": "279807f3b729032e55a921bda03d512cda243b6fbd1e4db76dd5b97384fee77d",
+      "successes": 6,
+      "completed": 8,
+      "infrastructure_failures": 0,
+      "failures": [
+        20260725,
+        20260727
+      ]
+    },
+    "smolvla_base": {
+      "failed_openvla_env_attempt": {
+        "artifact": "runs/xvla_prior/diagnostic_smolvla_base_libero10_task1_id20260724_20260731_20260717T1736KST/result.json",
+        "artifact_sha256": "f8f307f4056ac092851ee90f5dc9219b955c23c644edf18b0b3c17c8b39bcf66",
+        "blocker": "OpenVLA-compatible transformers 4.40.1 lacks AutoModelForImageTextToText"
+      },
+      "artifact": "runs/xvla_prior/diagnostic_smolvla_base_libero10_task1_id20260724_20260731_officialenv_20260717T1739KST/result.json",
+      "artifact_sha256": "bf20b5433c889e9be61ef8b6e0701ca495e4a27df1df10070f8a897a56791e83",
+      "runtime": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python",
+      "successes": 3,
+      "completed": 8,
+      "infrastructure_failures": 0,
+      "failures": [
+        20260724,
+        20260727,
+        20260728,
+        20260729,
+        20260730
+      ]
+    },
+    "identity_comparison": {
+      "both_success": [
+        20260726,
+        20260731
+      ],
+      "xvla_only_success": [
+        20260724,
+        20260728,
+        20260729,
+        20260730
+      ],
+      "base_only_success": [
+        20260725
+      ],
+      "both_fail": [
+        20260727
+      ]
+    },
+    "interpretation": "X-VLA is a valid stronger official prior overall but leaves residual failures. The shared failure 20260727 is the cleanest next headroom target; 20260725 is an X-VLA regression that base already solves and must not be treated as an Ours target without additional governance."
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -1272,5 +1349,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Run a matched Base/Prior diagnostic on the new libero_10/task_1 residual candidate using the same reset identities 20260724..20260731. Do not design Ours, train, or retune until the matched base result and residual headroom are verified."
+  "next_action": "Run residual headroom on the matched libero_10/task_1 Base/Prior condition before any Ours design. Prioritize the shared failure 20260727; handle 20260725 separately because SmolVLA base already succeeds there."
 }

@@ -940,3 +940,38 @@ Interpretation: this is a valid official-prior residual candidate, but it is
 not yet an Ours target. The next required step is a matched Base/Prior
 diagnostic on this same task/reset window, followed by residual headroom
 verification before any method design.
+
+## Matched Base/Prior Diagnostic: LIBERO-10 Task 1
+
+Decision: `TASK1_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_PENDING`.
+
+The matched Base run used the same task/reset window as X-VLA. The first attempt
+in the OpenVLA-compatible runtime failed before rollout because that environment
+pins `transformers 4.40.1`, which lacks `AutoModelForImageTextToText`. The
+rerun in the direct official SmolVLA environment completed cleanly.
+
+| Policy | Artifact | Completed | Successes | Infrastructure failures | Failures |
+|---|---|---:|---:|---:|---|
+| X-VLA-Libero | `runs/xvla_prior/diagnostic_xvla_libero10_task1_id20260724_20260731_20260717T1729KST/result.json` | 8 | 6 | 0 | `20260725`, `20260727` |
+| SmolVLA frozen base | `runs/xvla_prior/diagnostic_smolvla_base_libero10_task1_id20260724_20260731_officialenv_20260717T1739KST/result.json` | 8 | 3 | 0 | `20260724`, `20260727`, `20260728`, `20260729`, `20260730` |
+
+Base artifact SHA-256:
+`bf20b5433c889e9be61ef8b6e0701ca495e4a27df1df10070f8a897a56791e83`.
+
+Identity-level comparison:
+
+| Identity | X-VLA | SmolVLA base | Classification |
+|---:|---:|---:|---|
+| 20260724 | true | false | X-VLA-only success |
+| 20260725 | false | true | Base-only success / X-VLA regression |
+| 20260726 | true | true | Both success |
+| 20260727 | false | false | Shared residual failure |
+| 20260728 | true | false | X-VLA-only success |
+| 20260729 | true | false | X-VLA-only success |
+| 20260730 | true | false | X-VLA-only success |
+| 20260731 | true | true | Both success |
+
+Interpretation: X-VLA is a valid stronger official prior overall, but it leaves
+two residual failures. The cleanest headroom target is the shared failure
+`20260727`; `20260725` must be handled separately because the base policy
+already succeeds there. Do not design Ours until residual headroom is verified.

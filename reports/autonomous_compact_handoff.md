@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_xvla_libero10_task1_residual_candidate_found`
-- Current decision: `X_VLA_LIBERO10_TASK1_RESIDUAL_FOUND_MATCHED_BASE_PENDING`
+- Current stage: `epoch_5_xvla_task1_matched_base_prior_complete`
+- Current decision: `TASK1_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_PENDING`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -223,11 +223,15 @@ Post-X-VLA residual search:
 - focused task-1 sweep artifact:
   `runs/xvla_prior/diagnostic_xvla_libero10_task1_id20260724_20260731_20260717T1729KST/result.json`;
   X-VLA result 6/8, failures `20260725`, `20260727`, infra failures 0.
+- matched SmolVLA Base artifact:
+  `runs/xvla_prior/diagnostic_smolvla_base_libero10_task1_id20260724_20260731_officialenv_20260717T1739KST/result.json`;
+  Base result 3/8, failures `20260724`, `20260727`, `20260728`, `20260729`,
+  `20260730`, infra failures 0.
 - task-1 description: put both the cream cheese box and the butter in the
   basket; identities `20260724..20260731`, initial-state indices `13..20`.
 
-Next: run matched Base/Prior diagnostic on `libero_10/task_1` identities
-`20260724..20260731`, then headroom. Do not design/train/retune Ours yet.
+Next: run residual headroom before Ours; prioritize shared failure `20260727`.
+Treat `20260725` separately because SmolVLA Base already succeeds there.
 
 ## Prohibitions
 
