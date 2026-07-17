@@ -157,8 +157,81 @@ identity mismatch must be carried into Ours design and claims.
 
 ## Current Gate Result
 
-Decision: `RESIDUAL_FOUND_PRIOR_POSITIVE_TASK_LEVEL_HEADROOM_POSITIVE`.
+Decision: `R2R_OFT_QLORA_GRADIENT_SMOKE_PASS`.
 
 Ours design is now permitted only for the exact task-8 residual limitation and
 must generate at most two candidates. Do not broaden into a generic method
 search.
+
+## Completed Ours Candidate Selection
+
+Execution status: `COMPLETE`
+
+Exactly two candidates were generated after the Base/Prior/headroom gate:
+
+1. `R2R-OFT`: Residual Remaining-object Reweighted OFT.
+2. `MPC-OFT`: Moka-pair Counterfactual Phase OFT.
+
+Selected method: `R2R-OFT`.
+
+The selected mechanism is a narrow prior extension of OpenVLA-OFT: preserve the
+same two-image, proprioceptive, continuous action-chunk inference path, and use
+LoRA/QLoRA only as implementation infrastructure for a phase-balanced imitation
+objective focused on the one-pot-complete / one-pot-remaining task-8 phase.
+
+Next frozen pre-training step: run a CPU/local data-health audit for phase
+labels, record counts, split integrity, action validity, and non-privileged
+deployment inputs before any training.
+
+## Completed `R2R-OFT` Data-Health Audit
+
+Execution status: `COMPLETE_PASS`
+
+Artifact:
+`runs/openvla_oft_int4/epoch5_r2r_oft_pretraining_data_audit.json`.
+
+Summary:
+
+- HDF5 demos: 50.
+- Train/validation split: 40 / 10 demos.
+- Total action steps: 20,794.
+- Total 8-step chunks: 20,444.
+- Train one-pot-remaining chunks: 9,152.
+- Validation one-pot-remaining chunks: 2,332.
+- Action shape/range: 7D, finite, within [-1.0, 1.0].
+- Residual failure init-state hash overlap: 0.
+- Privileged simulator/HDF5 state is used only for training phase labels, not
+  deployment inputs.
+
+Decision: `R2R_OFT_DATA_HEALTH_PASS_PRETRAINING_READY`.
+
+## Completed `R2R-OFT` One-Batch QLoRA Gradient Smoke
+
+Execution status: `COMPLETE_PASS`
+
+Artifact:
+`runs/openvla_oft_int4/epoch5_r2r_oft_qlora_gradient_smoke.json`.
+
+Scope: mechanism/feasibility only. This loaded the quantized OpenVLA-OFT prior,
+attached a rank-4 LoRA adapter, selected one audited one-pot-remaining HDF5
+chunk, computed the phase-weighted chunk L1 loss, and ran backward. It did not
+take an optimizer step and did not write a checkpoint.
+
+Summary:
+
+- LoRA rank/alpha: 4 / 8.
+- Phase-weight lambda: 2.0.
+- Sample: `demo_0`, timestep 147.
+- Weighted loss: 0.99609375.
+- Trainable LoRA parameters: 13,853,536.
+- Nonzero-gradient parameter tensors: 425.
+- Gradient global norm: 4.082890925442449.
+- CUDA allocated/peak allocated: 5,917.196 / 8,121.43 MiB.
+- Training run happened: false.
+- Optimizer step happened: false.
+- Checkpoint written: false.
+
+Decision: `R2R_OFT_QLORA_GRADIENT_SMOKE_PASS`.
+
+Next step: freeze bounded `R2R-OFT` training configuration, resumability, and
+validation-selection rules before any optimizer-step training.

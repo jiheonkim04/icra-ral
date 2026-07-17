@@ -7,8 +7,8 @@ Updated: 2026-07-17 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Current epoch: 5
 - Current cycle: 0
-- Current stage: `epoch_5_prior_residual_headroom_complete`
-- Current decision: `RESIDUAL_FOUND_PRIOR_POSITIVE_TASK_LEVEL_HEADROOM_POSITIVE`
+- Current stage: `epoch_5_r2r_oft_data_audit_passed`
+- Current decision: `R2R_OFT_DATA_HEALTH_PASS_PRETRAINING_READY`
 - Previous method: `MCI-VLA`
 - Previous decision: `MCI_STAGE_0_IMPLEMENTATION_FAILURE`
 - MCI rescue/retune: prohibited and not performed
@@ -84,19 +84,60 @@ so Ours claims must stay narrow and explicitly carry that caveat.
 
 ## Next Action
 
-Generate at most two Ours method candidates around the exact task-8 residual
-limitation. Do not restart broad search. Each candidate must specify:
+Freeze bounded `R2R-OFT` training configuration, resumability, and
+validation-selection rules before any optimizer-step training.
 
-- the precise OpenVLA-OFT residual limitation;
-- the actual prior mechanism being extended;
-- one core new mechanism;
-- supervision and deployment inputs;
-- LoRA/QLoRA role as infrastructure only;
-- key ablation;
-- strongest simple alternative explanation;
-- second-backbone path.
+Selected method:
 
-Select exactly one method before implementation.
+- `R2R-OFT`: Residual Remaining-object Reweighted OFT.
+- Prior extended: OpenVLA-OFT two-image + proprio + continuous L1 8x7 action
+  chunks, LoRA fine-tuning.
+- Exact residual: task 8 second-object completion after one moka pot is on/near
+  the stove; failures are reset `20260721` index 10 and reset `20260722` index
+  11.
+- Core mechanism: phase-balanced imitation objective that upweights successful
+  expert chunks where exactly one moka pot is already on/near the stove and a
+  remaining moka pot still needs pickup/placement.
+- Deployment inputs: same OpenVLA-OFT RGB, wrist RGB, proprio, instruction.
+- Training-only labels may use HDF5/simulator state; privileged state is not an
+  inference input.
+- Key ablation: same LoRA/QLoRA scaffold with uniform task-8 weighting.
+- Simple alternative: shorter OpenVLA-OFT action-chunk requery without
+  training.
+- Second-backbone path: same phase-weighted sampler/objective on SmolVLA
+  adapter/QLoRA path.
+
+Audit must report phase counts, demo coverage, split integrity, action ranges,
+chunk validity, and whether phase labels are decodable without privileged
+deployment inputs.
+
+Audit result:
+
+- artifact:
+  `runs/openvla_oft_int4/epoch5_r2r_oft_pretraining_data_audit.json`;
+- pass: true;
+- demos: 50;
+- steps/chunks: 20,794 / 20,444;
+- train/validation demos: 40 / 10;
+- train one-pot chunks: 9,152;
+- validation one-pot chunks: 2,332;
+- action range: [-1.0, 1.0], 7D finite;
+- residual init-state hash overlap: 0.
+
+QLoRA gradient smoke result:
+
+- artifact:
+  `runs/openvla_oft_int4/epoch5_r2r_oft_qlora_gradient_smoke.json`;
+- pass: true;
+- scope: one-batch backward-pass feasibility only;
+- LoRA rank/alpha: 4 / 8;
+- phase-weight lambda: 2.0;
+- weighted loss: 0.99609375;
+- trainable LoRA parameters: 13,853,536;
+- nonzero-gradient parameter tensors: 425;
+- gradient global norm: 4.082890925442449;
+- CUDA allocated/peak: 5,917.196 / 8,121.43 MiB;
+- training run / optimizer step / checkpoint written: false / false / false.
 
 ## Prohibitions
 

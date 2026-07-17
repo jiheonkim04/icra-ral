@@ -4,7 +4,7 @@ Selected prior ecosystem: OpenVLA-OFT on LIBERO.
 
 ## Result
 
-Decision: `RESIDUAL_FOUND_PRIOR_POSITIVE_TASK_LEVEL_HEADROOM_POSITIVE`
+Decision: `R2R_OFT_QLORA_GRADIENT_SMOKE_PASS`
 
 Epoch 5 has now completed the selected-prior-first diagnostic sequence without
 designing Ours, training, downloading assets, or attempting full-BF16
@@ -131,9 +131,166 @@ identity mismatch must remain visible in any Ours design.
 | OpenVLA-OFT does not fully solve it | COMPLETE on task 8 |
 | Upper/headroom indicates recoverability | PARTIAL-COMPLETE: task-level expert replay positive; same-reset expert unavailable |
 
+## Ours Candidate Generation
+
+Status: `EXACTLY_TWO_CANDIDATES_GENERATED_ONE_SELECTED`
+
+Candidate generation happened only after the Base/Prior/headroom gate above.
+The residual limitation is not generic LIBERO weakness: visual review of the
+two OpenVLA-OFT failures shows a repeated second-object completion pattern.
+OpenVLA-OFT places or reaches the stove phase for one moka pot, then times out
+while trying to recover the remaining moka pot. This matches the quantitative
+residual: both failures are `libero_10/task_8` reset identities `20260721`
+and `20260722`.
+
+Local supervision exists for this exact task: the task-8 HDF5 file has 50
+successful demos, 20,794 total action steps, terminal reward/done in every
+demo, and actions in valid 7D LIBERO range. Object/phase labels still require a
+pre-training data-health audit because object poses are not directly named in
+the HDF5 `obs`; they must be decoded from simulator state or bounded replay.
+
+| Candidate | Contribution type | Core mechanism | Score | Decision |
+|---|---|---|---:|---|
+| `R2R-OFT`: Residual Remaining-object Reweighted OFT | `PRIOR_EXTENSION` | Keep OpenVLA-OFT's two-image + proprio + 8x7 continuous action chunk path, but LoRA/QLoRA-finetune with a phase-balanced imitation objective that upweights successful expert chunks where exactly one moka pot is already on/near the stove and the remaining pot still needs pickup/placement. | 84/100 | SELECTED |
+| `MPC-OFT`: Moka-pair Counterfactual Phase OFT | `PRIOR_EXTENSION` | Build object-order/paraphrase augmentation for two visually similar moka pots so the policy sees balanced "remaining pot" and left/right object-role variants during LoRA/QLoRA fine-tuning. | 75/100 | NOT SELECTED |
+
+Selected method: `R2R-OFT`.
+
+Selection rationale: `R2R-OFT` is the narrowest extension of the selected
+prior and directly targets the observed residual phase. `MPC-OFT` is plausible
+but adds a broader object-role augmentation hypothesis and depends more heavily
+on reliable object identity synthesis.
+
+## Selected Method Sketch: `R2R-OFT`
+
+Prior mechanism being extended:
+
+- OpenVLA-OFT fine-tunes OpenVLA via LoRA.
+- The selected checkpoint uses two image inputs, proprioception, continuous L1
+  action regression, LIBERO no-noop action normalization, and 8-step action
+  chunks.
+- The local prior is Quantized OpenVLA-OFT INT4, not a full-precision
+  reproduction.
+
+Scientific method:
+
+- Learn a residual-state-biased OFT update for the exact task-8 second-object
+  completion phase.
+- Training labels may use simulator/HDF5 state to identify phase, but
+  deployment must use only the same OpenVLA-OFT inputs: RGB, wrist RGB,
+  proprio, and instruction.
+- LoRA/QLoRA is implementation infrastructure only. The scientific claim is
+  phase-balanced remaining-object supervision for strong VLA residual failures.
+
+Mathematical form, to be audited before training:
+
+Let `x_t = (I_t, W_t, p_t, l)` be the deployment input, `a*_{t:t+7}` the expert
+7D action chunk, and `pi_theta` the OpenVLA-OFT action head. Let
+`m_t = 1` when training-only phase labels indicate exactly one moka pot is
+already on/near the stove and at least one moka pot remains off-target.
+
+The primary objective is weighted chunk imitation:
+
+`L(theta) = mean_t (1 + lambda * m_t) * ||pi_theta(x_t) - a*_{t:t+7}||_1`.
+
+Identity preservation comes from zero/near-zero initialized LoRA/QLoRA
+updates, bounded validation action-delta checks, and retaining non-residual
+task-8 phases in the sampler. A clean-retention regularizer may be added only
+if the data audit shows the weighted sampler alone causes global action drift.
+
+Key ablation:
+
+- Same LoRA/QLoRA scaffold and same task-8 data, but with `m_t = 0` for all
+  samples or uniform weights. This tests whether residual-phase weighting, not
+  generic extra task-8 adaptation, explains any gain.
+
+Strongest simple alternative explanation:
+
+- Shorter OpenVLA-OFT action-chunk requery on task 8, with no new training.
+  This tests whether the failure is merely stale 8-step open-loop execution.
+
+Second-backbone path:
+
+- Apply the same phase-weighted sampler/objective to the SmolVLA adapter/QLoRA
+  path using the same task-8 HDF5 phase labels and the same held-out reset
+  manifest, then compare SmolVLA versus SmolVLA+`R2R-OFT`.
+
+Pre-training gate:
+
+- Run a CPU/local data-health audit before any training: records, phase counts,
+  positive/negative phase balance, demo coverage, train/validation split, no
+  overlap with confirmatory reset identities, action ranges, chunk validity,
+  and whether phase labels are decodable without privileged deployment inputs.
+
+## `R2R-OFT` Pre-Training Data-Health Audit
+
+Status: `PASS`
+
+Artifact:
+`runs/openvla_oft_int4/epoch5_r2r_oft_pretraining_data_audit.json`.
+
+The audit used the verified HDF5 state layout:
+
+- `moka_pot_1_pos = state[10:13]`;
+- `moka_pot_2_pos = state[17:20]`;
+- verification source: exact-init LIBERO observation for `demo_0`, where the
+  decoded positions matched `moka_pot_1_pos` and `moka_pot_2_pos`.
+
+The stove/target region was inferred only from training-demo final pot
+positions. The resulting phase labels are training labels only; inference
+remains RGB, wrist RGB, proprioception, and instruction.
+
+| Audit item | Result |
+|---|---:|
+| HDF5 demos | 50 |
+| Train/validation demos | 40 / 10 |
+| Total action steps | 20,794 |
+| Total 8-step chunks | 20,444 |
+| Terminal reward demos | 50 |
+| Terminal done demos | 50 |
+| Action dimension | 7 |
+| Action range | [-1.0, 1.0] |
+| Train one-pot-remaining chunks | 9,152 |
+| Validation one-pot-remaining chunks | 2,332 |
+| Residual failure init-state hash overlap | 0 |
+
+Gate result: `R2R_OFT_DATA_HEALTH_PASS_PRETRAINING_READY`.
+
+## `R2R-OFT` One-Batch QLoRA Gradient Smoke
+
+Status: `PASS`
+
+Artifact:
+`runs/openvla_oft_int4/epoch5_r2r_oft_qlora_gradient_smoke.json`.
+
+This was a mechanism/feasibility smoke only, not a training run. It loaded the
+quantized OpenVLA-OFT prior, attached a rank-4 LoRA adapter, selected one
+audited one-pot-remaining HDF5 chunk, computed the phase-weighted chunk L1
+loss, and ran backward to verify that LoRA parameters receive finite nonzero
+gradients within local VRAM.
+
+| Smoke item | Result |
+|---|---:|
+| LoRA rank / alpha | 4 / 8 |
+| Phase-weight lambda | 2.0 |
+| Sample | `demo_0`, timestep 147 |
+| Sample phase count on stove | 1 |
+| Base L1 | 0.33203125 |
+| Phase weight | 3.0 |
+| Weighted loss | 0.99609375 |
+| Trainable LoRA parameters | 13,853,536 |
+| Nonzero-gradient parameter tensors | 425 |
+| Gradient global norm | 4.082890925442449 |
+| CUDA allocated / peak allocated | 5,917.196 / 8,121.43 MiB |
+| Optimizer step happened | false |
+| Checkpoint written | false |
+| Training run happened | false |
+
+Gate result: `R2R_OFT_QLORA_GRADIENT_SMOKE_PASS`.
+
 ## Next Decision
 
-Ours design is now allowed only around the exact task-8 residual limitation and
-must preserve the caveat that the current upper bound is task-level, not
-same-reset. Generate at most two method candidates, select one, and keep LoRA or
-QLoRA strictly as implementation infrastructure.
+The next action is to freeze a bounded `R2R-OFT` training configuration,
+resumability contract, and validation-selection metric before any optimizer-step
+training. Preserve the caveat that current upper/headroom evidence is
+task-level, not same-reset.

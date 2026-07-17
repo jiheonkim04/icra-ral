@@ -1,15 +1,19 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_prior_residual_headroom_complete",
-  "decision": "RESIDUAL_FOUND_PRIOR_POSITIVE_TASK_LEVEL_HEADROOM_POSITIVE",
+  "stage": "epoch_5_r2r_oft_qlora_gradient_smoke_passed",
+  "decision": "R2R_OFT_QLORA_GRADIENT_SMOKE_PASS",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "ordinary_cycle_39_method_search_superseded": true,
   "mci_rescue_or_retune_happened": false,
-  "new_method_candidate_generated": false,
+  "new_method_candidate_generated": true,
+  "selected_ours_method": "R2R-OFT",
   "training_happened": false,
+  "qlora_gradient_smoke_happened": true,
+  "optimizer_step_happened": false,
+  "checkpoint_written": false,
   "new_download_happened": false,
   "residual_simulator_rollout_happened_after_preregistration": true,
   "headroom_simulator_replay_happened": true,
@@ -19,6 +23,17 @@
     "command": "C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m pytest tests\\test_openvla_oft_int4_gate.py -q",
     "exit_code": 0,
     "stdout_summary": "5 passed"
+  },
+  "validation_after_qlora_smoke_report_update": {
+    "json_parse": "PASS",
+    "compact_handoff_lines": 117,
+    "py_compile": "PASS",
+    "pytest_command": "C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe -m pytest tests\\test_r2r_oft_data_audit.py tests\\test_openvla_oft_int4_gate.py -q",
+    "pytest_exit_code": 0,
+    "pytest_stdout_summary": "7 passed",
+    "git_diff_check": "PASS",
+    "governance_check": "PASS",
+    "tree_check": "PASS"
   },
   "official_sources": {
     "project_page": "https://openvla-oft.github.io/",
@@ -168,6 +183,158 @@
     "openvla_oft_does_not_fully_solve_task8": true,
     "upper_headroom_indicates_recoverability": "TASK_LEVEL_POSITIVE_SAME_RESET_UNAVAILABLE"
   },
+  "ours_candidate_generation": {
+    "status": "EXACTLY_TWO_CANDIDATES_GENERATED_ONE_SELECTED",
+    "happened_after_base_prior_headroom_gate": true,
+    "residual_limitation": "OpenVLA-OFT INT4 residual on libero_10/task_8 after one-pot completion; failures time out during remaining-moka-pot pickup/placement.",
+    "visual_review_artifacts": [
+      "runs/openvla_oft_int4/epoch5_visual_review/task8_openvla_residual_contact_sheet.png",
+      "runs/openvla_oft_int4/epoch5_visual_review/fail_110005_idx10_dense_sheet.png",
+      "runs/openvla_oft_int4/epoch5_visual_review/fail_110006_idx11_dense_sheet.png"
+    ],
+    "direct_hdf5_supervision_audit_seed": {
+      "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo.hdf5",
+      "demo_count": 50,
+      "total_action_steps": 20794,
+      "length_min": 341,
+      "length_max": 517,
+      "length_mean": 415.88,
+      "terminal_reward_demos": 50,
+      "terminal_done_demos": 50,
+      "phase_labels_need_pretraining_audit": true,
+      "reason": "object poses are not directly named in HDF5 obs; phase labels must be decoded from simulator state or bounded replay for training labels only"
+    },
+    "candidates": [
+      {
+        "name": "R2R-OFT",
+        "full_name": "Residual Remaining-object Reweighted OFT",
+        "contribution_type": "PRIOR_EXTENSION",
+        "closest_prior": "OpenVLA-OFT on LIBERO",
+        "prior_positive_result": "Quantized OpenVLA-OFT INT4 improves matched SmolVLA Base from 7/16 to 14/16 and from 3/8 to 6/8 on task 8.",
+        "prior_mechanism": "OpenVLA-OFT LoRA fine-tuning with two images, proprioception, continuous L1 regression, LIBERO no-noop normalization, and 8-step 7D action chunks.",
+        "proposed_difference": "Phase-balanced chunk imitation that upweights successful expert chunks where exactly one moka pot is already on/near the stove and the remaining moka pot still needs pickup/placement.",
+        "deployment_inputs": [
+          "agentview RGB",
+          "wrist RGB",
+          "proprioception",
+          "instruction"
+        ],
+        "training_supervision": "HDF5 expert action chunks plus training-only phase labels decoded from HDF5/simulator state or bounded replay.",
+        "lora_qlora_role": "implementation infrastructure only",
+        "key_ablation": "same LoRA/QLoRA scaffold and task-8 data with uniform weights / m_t=0",
+        "simple_alternative": "shorter OpenVLA-OFT action-chunk requery without training",
+        "second_backbone_path": "same phase-weighted sampler/objective for SmolVLA adapter/QLoRA",
+        "score": 84,
+        "decision": "SELECTED"
+      },
+      {
+        "name": "MPC-OFT",
+        "full_name": "Moka-pair Counterfactual Phase OFT",
+        "contribution_type": "PRIOR_EXTENSION",
+        "closest_prior": "OpenVLA-OFT on LIBERO",
+        "prior_positive_result": "Quantized OpenVLA-OFT INT4 improves matched SmolVLA Base but leaves two task-8 failures.",
+        "prior_mechanism": "OpenVLA-OFT LoRA fine-tuning with continuous action chunks.",
+        "proposed_difference": "Object-order and paraphrase augmentation for visually similar moka pots, emphasizing remaining-pot and left/right role variants during LoRA/QLoRA fine-tuning.",
+        "deployment_inputs": [
+          "agentview RGB",
+          "wrist RGB",
+          "proprioception",
+          "instruction"
+        ],
+        "training_supervision": "HDF5 expert actions plus object identity/order labels if decodable.",
+        "lora_qlora_role": "implementation infrastructure only",
+        "key_ablation": "same LoRA/QLoRA scaffold without counterfactual object-role augmentation",
+        "simple_alternative": "uniform task-8 LoRA fine-tuning",
+        "second_backbone_path": "same augmentation on SmolVLA adapter/QLoRA",
+        "score": 75,
+        "decision": "NOT_SELECTED"
+      }
+    ],
+    "selected": "R2R-OFT",
+    "selection_rationale": "R2R-OFT is the narrowest extension of the selected prior and directly targets the observed second-object residual phase; MPC-OFT adds a broader object-role augmentation hypothesis."
+  },
+  "r2r_oft_pretraining_data_audit": {
+    "status": "PASS",
+    "artifact": "runs/openvla_oft_int4/epoch5_r2r_oft_pretraining_data_audit.json",
+    "hdf5_path": "C:\\assets\\data\\libero\\libero_10\\KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo.hdf5",
+    "state_layout": {
+      "moka_pot_1_pos_slice": [
+        10,
+        13
+      ],
+      "moka_pot_2_pos_slice": [
+        17,
+        20
+      ],
+      "layout_evidence": "verified against LIBERO env observation for demo_0 exact init on 2026-07-17 KST"
+    },
+    "demo_count": 50,
+    "train_demo_count": 40,
+    "validation_demo_count": 10,
+    "total_steps": 20794,
+    "total_chunks": 20444,
+    "terminal_reward_demos": 50,
+    "terminal_done_demos": 50,
+    "action_dim_values": [
+      7
+    ],
+    "action_min": -1.0,
+    "action_max": 1.0,
+    "actions_finite": true,
+    "train_phase_chunk_counts": {
+      "0": 6209,
+      "1": 9152,
+      "2": 1070
+    },
+    "validation_phase_chunk_counts": {
+      "0": 1475,
+      "1": 2332,
+      "2": 206
+    },
+    "residual_initial_state_overlap_count": 0,
+    "privileged_state_at_inference": false,
+    "training_happened_after_audit": false,
+    "decision": "R2R_OFT_DATA_HEALTH_PASS_PRETRAINING_READY"
+  },
+  "r2r_oft_qlora_gradient_smoke": {
+    "status": "PASS",
+    "artifact": "runs/openvla_oft_int4/epoch5_r2r_oft_qlora_gradient_smoke.json",
+    "smoke_type": "one_batch_qlora_gradient",
+    "method": "R2R-OFT",
+    "checkpoint_dir": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+    "hdf5_path": "/mnt/c/assets/data/libero/libero_10/KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo.hdf5",
+    "lora_rank": 4,
+    "lora_alpha": 8,
+    "phase_weight_lambda": 2.0,
+    "sample": {
+      "demo_name": "demo_0",
+      "timestep": 147,
+      "phase_count_on": 1,
+      "raw_action_min": -0.6133928571428572,
+      "raw_action_max": 1.0,
+      "normalized_action_min": -0.8016528487205505,
+      "normalized_action_max": 1.0
+    },
+    "loss": {
+      "base_l1": 0.33203125,
+      "phase_weight": 3.0,
+      "weighted_loss": 0.99609375
+    },
+    "lora": {
+      "trainable_params": 13853536,
+      "gradient_nonzero_param_tensors": 425,
+      "gradient_global_norm": 4.082890925442449
+    },
+    "cuda_memory": {
+      "allocated_mib": 5917.196,
+      "max_allocated_mib": 8121.43
+    },
+    "elapsed_seconds": 45.827,
+    "training_run_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "decision": "R2R_OFT_QLORA_GRADIENT_SMOKE_PASS"
+  },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Generate at most two Ours method candidates around the exact task-8 residual limitation, preserving the task-level-not-same-reset headroom caveat."
+  "next_action": "Freeze bounded R2R-OFT training configuration, resumability contract, and validation-selection metric before any optimizer-step training, preserving the task-level-not-same-reset headroom caveat."
 }
