@@ -3,8 +3,8 @@
   "date_kst": "2026-07-17",
   "branch": "codex/epoch5-official-prior-first",
   "audit_commit": "b0ecb6ea5f6eba2953b5bd842883c0474d634dff",
-  "stage": "epoch_5_post_mpr_xvla_cross_suite_residual_found_base_match_pending",
-  "decision": "POST_MPR_XVLA_LIBERO_SPATIAL_TASK5_RESIDUAL_FOUND_BASE_MATCH_PENDING",
+  "stage": "epoch_5_xvla_spatial_task5_residual_confirmed_headroom_positive_second_prior_pending",
+  "decision": "XVLA_SPATIAL_TASK5_MATCHED_RESIDUAL_CONFIRMED_HEADROOM_POSITIVE_SECOND_PRIOR_PENDING",
   "selected_prior_ecosystem": "OpenVLA-OFT on LIBERO",
   "second_pass_selected_prior_ecosystem": "LightVLA on LIBERO-10",
   "third_pass_selected_prior_ecosystem": "X-VLA-Libero on LIBERO",
@@ -62,6 +62,8 @@
   "post_mpr_xvla_prior_failure_scan_libero_goal_20260724_happened": true,
   "post_mpr_xvla_prior_failure_scan_libero_object_20260724_happened": true,
   "post_mpr_xvla_prior_failure_scan_libero_spatial_20260724_happened": true,
+  "xvla_spatial_task5_matched_base_prior_diagnostic_happened": true,
+  "xvla_spatial_task5_headroom_diagnostic_happened": true,
   "full_bf16_attempted": false,
   "ours_design_authorized_before_base_prior_headroom": false,
   "focused_validation": {
@@ -2918,6 +2920,110 @@
     "closed_loop_ours_evaluation_happened": false,
     "interpretation": "The scan found a fresh X-VLA prior residual on libero_spatial task 5 at identity 20260724. Task 7 was a long-tail infrastructure stall terminated with SIGTERM after more than 15 minutes without a result file and is not counted as a policy failure. Before any Ours proposal, run matched base/prior and headroom diagnostics for task 5."
   },
+  "xvla_spatial_task5_matched_base_prior_diagnostic": {
+    "status": "COMPLETE_RESIDUAL_STRUCTURE_CONFIRMED",
+    "decision": "XVLA_SPATIAL_TASK5_MATCHED_BASE_PRIOR_RESIDUAL_CONFIRMED_HEADROOM_PENDING",
+    "task_suite": "libero_spatial",
+    "task_id": 5,
+    "reset_identity": 20260724,
+    "initial_state_index": 13,
+    "task_description": "pick up the black bowl on the ramekin and place it on the plate",
+    "xvla_prior_scan": {
+      "artifact": "runs/xvla_prior/failure_scan_libero_spatial_identity20260724_post_mpr_20260717T230355KST/scan_summary.json",
+      "sha256": "596ecd11212f4de4019b171b2809b0242b1d8e734ec9807fe45cb0ab176ec4fd",
+      "valid_result_file_count": 9,
+      "successes": 8,
+      "policy_failure_task_ids": [
+        5
+      ],
+      "excluded_infrastructure_stall_task_ids": [
+        7
+      ]
+    },
+    "smolvla_base_full_scan": {
+      "artifact": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_tasks0_9_id20260724_officialenv_20260717T232953KST/result.json",
+      "sha256": "322cd732b2c2aec3e1dec1e56918fc073318c13ce425c320c47073641ffea8c9",
+      "completed_episode_count": 10,
+      "successful_episode_count": 3,
+      "infrastructure_failure_count": 0,
+      "failure_task_ids": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "smolvla_base_focused_task5": {
+      "artifact": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task5_id20260724_officialenv_20260717T232734KST/result.json",
+      "sha256": "064a5819755df6aed742a57a666e784f3985f35909b55a2b692ceb798a4ce5db",
+      "success": false,
+      "episode_length": 280,
+      "reward": 0.0,
+      "infrastructure_failure_count": 0
+    },
+    "matched_comparable_tasks_excluding_xvla_task7_infra": {
+      "task_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "xvla_successes": 8,
+      "smolvla_base_successes": 3,
+      "shared_residual_task_ids": [
+        5
+      ],
+      "xvla_only_success_task_ids": [
+        0,
+        1,
+        3,
+        4,
+        6
+      ],
+      "both_success_task_ids": [
+        2,
+        8,
+        9
+      ]
+    },
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "interpretation": "X-VLA improves the matched spatial identity slice strongly over SmolVLA base while leaving a shared residual on task 5. This is not an Ours result."
+  },
+  "xvla_spatial_task5_headroom_diagnostic": {
+    "status": "COMPLETE_TASK_LEVEL_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE",
+    "decision": "TASK5_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE",
+    "script": "scripts/epoch5_expert_headroom.py",
+    "artifact": "runs/xvla_prior/diagnostic_spatial_task5_expert_headroom_20260724_20260717T233633KST/result.json",
+    "sha256": "4b1107cdeda0044cf53bb0b3656c3b52ca516c6c52b8a7ac1ae991bfb1d0ebdc",
+    "task_suite": "libero_spatial",
+    "task_id": 5,
+    "reset_identity": 20260724,
+    "computed_initial_state_sha256": "3731069406dc50d234dfc8e8cdff9b2a4e2e00970ebd0d000af7dea9884a4236",
+    "same_reset_demo_match_count": 0,
+    "selected_demo": "demo_9",
+    "selection_reason": "nearest_hdf5_demo_init_state_by_l2_no_hash_match",
+    "selected_demo_l2_to_benchmark_residual_init": 2.984425805,
+    "zero_action_success": false,
+    "expert_replay_exact_selected_demo_success": true,
+    "expert_replay_default_reset_success": true,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "vla_model_loaded": false,
+    "ours_design_happened": false,
+    "interpretation": "Task-level expert replay indicates recoverable headroom for the spatial task-5 residual, but no same-reset HDF5 demonstration matches the benchmark initial-state hash. This avoids a no-headroom stop but is not same-reset oracle evidence."
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -2969,5 +3075,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection because the primary did not beat the uniform-weight X-VLA LoRA ablation on phase-1 validation loss. PRC-XVLA is not elevated because there is no independent evidence that red-mug distractor confusion is the residual mechanism. Post-MPR X-VLA LIBERO-10, libero_goal, and libero_object scans found no fresh target, but libero_spatial identity 20260724 exposed a fresh prior failure on task 5: pick up the black bowl on the ramekin and place it on the plate. Task 7 in that scan is infrastructure-stalled/no-result, not a policy failure. Next action: run matched SmolVLA base/prior and headroom diagnostics for libero_spatial task 5 before any Ours proposal."
+  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection; PRC-XVLA is not elevated. Post-MPR X-VLA LIBERO-10, libero_goal, and libero_object scans found no fresh target, but libero_spatial identity 20260724 exposed a fresh shared residual on task 5: pick up the black bowl on the ramekin and place it on the plate. Matched SmolVLA base is 3/10 on the spatial identity slice while X-VLA is 8/9 on valid comparable tasks, with task 5 the shared residual; task 7 in the X-VLA scan is infrastructure-stalled/no-result. Task-level expert headroom is positive but same-reset HDF5 is unavailable. Next action: run a Quantized OpenVLA-OFT INT4 second-prior screen for libero_spatial task 5 before any Ours proposal."
 }

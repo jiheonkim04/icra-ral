@@ -1843,3 +1843,36 @@ Interpretation: `libero_goal` and `libero_object` at identity `20260724` are
 saturated for X-VLA, but `libero_spatial` exposes a fresh prior failure on task
 5. The next required step is matched base/prior and headroom diagnostics for
 this exact spatial task before any Ours proposal.
+
+## Spatial Task-5 Matched Base/Prior and Headroom Diagnostic
+
+Status: `COMPLETE_RESIDUAL_STRUCTURE_CONFIRMED_HEADROOM_POSITIVE`.
+
+Decision:
+`XVLA_SPATIAL_TASK5_MATCHED_RESIDUAL_CONFIRMED_HEADROOM_POSITIVE_SECOND_PRIOR_PENDING`.
+
+Task: `libero_spatial/task_5`, "pick up the black bowl on the ramekin and
+place it on the plate", reset identity `20260724`, initial-state index `13`.
+
+| Policy / diagnostic | Completed | Successes | Failures / caveats | Artifact | SHA-256 |
+|---|---:|---:|---|---|---|
+| X-VLA prior scan | 9 valid results | 8 | task 5 failed; task 7 infrastructure-stalled/no-result and excluded | `runs/xvla_prior/failure_scan_libero_spatial_identity20260724_post_mpr_20260717T230355KST/scan_summary.json` | `596ecd11212f4de4019b171b2809b0242b1d8e734ec9807fe45cb0ab176ec4fd` |
+| SmolVLA frozen base full scan | 10 | 3 | tasks 0,1,3,4,5,6,7 failed | `runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_tasks0_9_id20260724_officialenv_20260717T232953KST/result.json` | `322cd732b2c2aec3e1dec1e56918fc073318c13ce425c320c47073641ffea8c9` |
+| SmolVLA frozen base focused task 5 | 1 | 0 | 280 steps, reward 0.0, no infrastructure failure | `runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task5_id20260724_officialenv_20260717T232734KST/result.json` | `064a5819755df6aed742a57a666e784f3985f35909b55a2b692ceb798a4ce5db` |
+| Expert replay headroom | 3 variants | task-level positive | no same-reset HDF5 match; nearest demo `demo_9`, L2 `2.984425805` | `runs/xvla_prior/diagnostic_spatial_task5_expert_headroom_20260724_20260717T233633KST/result.json` | `4b1107cdeda0044cf53bb0b3656c3b52ca516c6c52b8a7ac1ae991bfb1d0ebdc` |
+
+Comparable tasks excluding the X-VLA task-7 infrastructure stall are
+`0,1,2,3,4,5,6,8,9`: X-VLA succeeds on 8/9 and SmolVLA base succeeds on 3/9.
+The shared residual is task 5. X-VLA-only successes are tasks `0,1,3,4,6`;
+both policies succeed on tasks `2,8,9`.
+
+Headroom result: zero-action replay fails, HDF5 expert replay from the selected
+nearest demo succeeds under exact selected-demo init and default reset. This is
+positive task-level recoverability evidence, but not same-reset oracle evidence
+because the benchmark residual init-state hash has zero matching HDF5 demos.
+
+Interpretation: the spatial task-5 condition now satisfies the official-prior
+structure up to the second-prior gate: Base has meaningful failures, X-VLA
+improves the matched slice, a measurable shared residual remains, and
+task-level expert headroom is positive. Before any Ours proposal, run a
+Quantized OpenVLA-OFT INT4 screen on this exact residual.

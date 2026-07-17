@@ -210,8 +210,17 @@ Task 7 stalled >15min, was SIGTERM'd, exit 143, no result; classify as infra,
 not policy failure. No cross-suite scan trained, optimized, checkpointed, or
 evaluated Ours.
 
-Do not retune/rescue MPR-XVLA. Next: matched SmolVLA base/prior and headroom
-diagnostics for `libero_spatial` task 5 before any Ours proposal.
+Matched diagnostics: SmolVLA base full scan on same spatial identity is 3/10
+(`322cd732b2c2aec3e1dec1e56918fc073318c13ce425c320c47073641ffea8c9`);
+focused base task5 is 0/1, reward 0.0
+(`064a5819755df6aed742a57a666e784f3985f35909b55a2b692ceb798a4ce5db`).
+On comparable tasks excluding X-VLA infra-stalled task7, X-VLA is 8/9 vs base
+3/9; shared residual is task5. Expert headroom is task-level positive but
+same-reset HDF5 unavailable: nearest `demo_9`, L2 2.984425805, SHA
+`4b1107cdeda0044cf53bb0b3656c3b52ca516c6c52b8a7ac1ae991bfb1d0ebdc`.
+
+Do not retune/rescue MPR-XVLA. Next: Quantized OpenVLA-OFT INT4 second-prior
+screen for `libero_spatial` task 5 before any Ours proposal.
 
 ## Report Set
 
@@ -231,7 +240,7 @@ diagnostics for `libero_spatial` task 5 before any Ours proposal.
   - `scripts/99_tree_check.ps1`: pass
 - Repaired offline run completed under official WSL env in 50.325s.
 - Handoff line count remains under 250; recheck before committing.
-- Cross-suite residual report update validation passed: JSON parse, `git diff --check`
-  warnings only, tree check pass, handoff 237 lines.
+- Matched spatial residual/headroom report update validation passed: JSON parse,
+  `git diff --check` warnings only, tree check pass, handoff 246 lines.
 
 Do not add `rollouts/2026_07_17/` or ignored run directories.
