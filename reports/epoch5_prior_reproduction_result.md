@@ -1876,3 +1876,26 @@ Interpretation: the spatial task-5 condition passed the matched Base/Prior and
 task-level headroom gates, but it fails the second-prior gate because Quantized
 OpenVLA-OFT INT4 solves the exact residual. No Ours proposal is authorized for
 this condition.
+
+## Post-Second-Prior LIBERO-90 X-VLA Scan
+
+Status: `COMPLETE_NO_FRESH_TARGET`.
+
+After spatial task 5 failed the second-prior gate, a bounded local official
+`libero_90` shard was scanned with the same X-VLA prior-only worker at identity
+`20260724`, tasks `0..9`.
+
+| Suite | Summary artifact | SHA-256 | Result |
+|---|---|---|---|
+| `libero_90` | `runs/xvla_prior/failure_scan_libero90_identity20260724_tasks0_9_post_secondprior_20260717T234613KST/scan_summary.json` | `2b0fb345a88dd7fbe0baab488cfed35a924e8e54e7291144e8df0d488825af5f` | 10/10 succeeded, zero infrastructure failures |
+
+Manifest SHA-256:
+`aa6e77ec348f44e635c36fe5ff84cf83a56598ed074209a22a026b9cd113e503`.
+Task-0 result SHA-256:
+`63537f78ae6459924e6e11bb700f0cb4a1345f41f20249de5aae2a0cd6e07478`.
+Task-9 result SHA-256:
+`024ec54fa5703240faf19e4fac36b6fc5c0b3386874cff21b7a774d7d8f74291`.
+
+No training, optimizer step, checkpoint, or closed-loop Ours evaluation
+happened. Interpretation: this LIBERO-90 shard is saturated for X-VLA and does
+not provide a fresh residual target.

@@ -62,6 +62,7 @@
   "post_mpr_xvla_prior_failure_scan_libero_goal_20260724_happened": true,
   "post_mpr_xvla_prior_failure_scan_libero_object_20260724_happened": true,
   "post_mpr_xvla_prior_failure_scan_libero_spatial_20260724_happened": true,
+  "post_mpr_xvla_prior_failure_scan_libero90_20260724_happened": true,
   "xvla_spatial_task5_matched_base_prior_diagnostic_happened": true,
   "xvla_spatial_task5_headroom_diagnostic_happened": true,
   "xvla_spatial_task5_openvla_int4_second_prior_screen_happened": true,
@@ -3049,6 +3050,35 @@
     "closed_loop_ours_evaluation_happened": false,
     "interpretation": "The exact spatial task-5 residual is solved by Quantized OpenVLA-OFT INT4. Under the official-prior-first gate, this condition is not eligible for Ours design."
   },
+  "post_mpr_xvla_prior_failure_scan_libero90_20260724": {
+    "status": "COMPLETE_NO_FRESH_TARGET",
+    "decision": "POST_SECOND_PRIOR_XVLA_LIBERO90_IDENTITY20260724_TASKS0_9_SATURATED",
+    "purpose": "Additional local official-prior residual mining after the spatial task-5 condition was rejected by the second-prior gate; no training or Ours evaluation.",
+    "launcher": "Windows Start-Process wsl.exe hidden foreground-worker",
+    "worker_script": "scripts/run_xvla_prior_failure_scan_identity_worker.sh",
+    "output_root": "runs/xvla_prior/failure_scan_libero90_identity20260724_tasks0_9_post_secondprior_20260717T234613KST",
+    "manifest": "runs/xvla_prior/failure_scan_libero90_identity20260724_tasks0_9_post_secondprior_20260717T234613KST/scan_manifest.json",
+    "manifest_sha256": "aa6e77ec348f44e635c36fe5ff84cf83a56598ed074209a22a026b9cd113e503",
+    "summary": "runs/xvla_prior/failure_scan_libero90_identity20260724_tasks0_9_post_secondprior_20260717T234613KST/scan_summary.json",
+    "summary_sha256": "2b0fb345a88dd7fbe0baab488cfed35a924e8e54e7291144e8df0d488825af5f",
+    "reset_identity": 20260724,
+    "initial_state_index": 13,
+    "task_suite": "libero_90",
+    "tasks": "0..9",
+    "scan_status": "complete",
+    "scan_exit_code": 0,
+    "completed_task_count": 10,
+    "successful_task_count": 10,
+    "failure_task_ids": [],
+    "infrastructure_failure_task_ids": [],
+    "task0_result_sha256": "63537f78ae6459924e6e11bb700f0cb4a1345f41f20249de5aae2a0cd6e07478",
+    "task9_result_sha256": "024ec54fa5703240faf19e4fac36b6fc5c0b3386874cff21b7a774d7d8f74291",
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "interpretation": "X-VLA-Libero succeeded on all ten scanned libero_90 tasks at identity 20260724, so this local official LIBERO-90 shard does not provide a fresh post-second-prior residual target."
+  },
   "atcd_teacher_signal_audit": {
     "status": "COMPLETE_NO_GO",
     "method": "ATCD",
@@ -3100,5 +3130,5 @@
     "decision": "ATCD_TEACHER_SIGNAL_NOT_ENOUGH"
   },
   "quantization_caveat": "INT4 OpenVLA-OFT is a locally feasible quantized prior diagnostic and is not claimed numerically identical to full-precision OpenVLA-OFT.",
-  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection; PRC-XVLA is not elevated. Post-MPR X-VLA LIBERO-10, libero_goal, and libero_object scans found no fresh target. Libero_spatial identity 20260724 exposed a fresh X-VLA/SmolVLA shared residual on task 5 with positive task-level headroom, but Quantized OpenVLA-OFT INT4 solved that exact condition in 136 steps. Therefore no Ours design is authorized for spatial task 5. Next action: select a new preregistered residual source or prior ecosystem; do not retune MPR-XVLA, do not revive PRC-XVLA, and do not treat the solved spatial task5 condition as an Ours target."
+  "next_action": "Task 6 MPR-XVLA completed the frozen two-arm training/offline-validation gate and did not pass selection; PRC-XVLA is not elevated. Post-MPR X-VLA LIBERO-10, libero_goal, libero_object, and the post-second-prior libero_90 shard found no fresh target. Libero_spatial identity 20260724 exposed a fresh X-VLA/SmolVLA shared residual on task 5 with positive task-level headroom, but Quantized OpenVLA-OFT INT4 solved that exact condition in 136 steps. Therefore no Ours design is authorized for spatial task 5. Next action: select a new preregistered residual source or prior ecosystem; do not retune MPR-XVLA, do not revive PRC-XVLA, and do not treat the solved spatial task5 condition as an Ours target."
 }

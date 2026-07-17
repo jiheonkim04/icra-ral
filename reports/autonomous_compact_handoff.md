@@ -193,11 +193,10 @@ MPR-XVLA candidate/training:
 
 ## Immediate Next Decision
 
-Post-MPR scans: X-VLA `libero_10` grid is exhausted for fresh targets
+Post-MPR scans: X-VLA `libero_10` grid exhausted for fresh targets
 (`20260731` only archived task6; `20260726..30` saturated). `libero_goal`
-identity `20260724` saturated 10/10 (summary
-`77065303dfecc5fd170d9ca00fae1dfa95ea2fb1f87143eab1b5663bc94281f4`) and
-`libero_object` identity `20260724` saturated 10/10 (summary
+and `libero_object` identity `20260724` saturated 10/10 (summary SHAs
+`77065303dfecc5fd170d9ca00fae1dfa95ea2fb1f87143eab1b5663bc94281f4`,
 `5c521e9f229a5e046e06d389e33bd72888e354a4e98e794bff3c7c10097c2808`).
 
 Fresh residual: `libero_spatial`, identity `20260724`, task 5 failed:
@@ -218,9 +217,12 @@ On comparable tasks excluding X-VLA infra-stalled task7, X-VLA is 8/9 vs base
 3/9; shared residual is task5. Expert headroom is task-level positive but
 same-reset HDF5 unavailable: nearest `demo_9`, L2 2.984425805, SHA
 `4b1107cdeda0044cf53bb0b3656c3b52ca516c6c52b8a7ac1ae991bfb1d0ebdc`.
-Quantized OpenVLA-OFT INT4 solves the exact task5 residual: 1/1 success, 136
+Quantized OpenVLA-OFT INT4 solves exact task5 residual: 1/1 success, 136
 steps, reward 1.0, SHA
 `6da4ea2e072b0a227d19dc25aa18c1f0a61ad22602be22a68f5d59a3f23740e4`.
+Post-second-prior `libero_90` tasks 0..9 at identity `20260724` saturated
+10/10, zero infra; summary SHA
+`2b0fb345a88dd7fbe0baab488cfed35a924e8e54e7291144e8df0d488825af5f`.
 
 Do not design Ours for spatial task5. Do not retune/rescue MPR-XVLA. Next:
 select a new preregistered residual source or prior ecosystem.
@@ -242,7 +244,6 @@ select a new preregistered residual source or prior ecosystem.
   - `git diff --check`: pass with LF/CRLF warnings only
   - `scripts/99_tree_check.ps1`: pass
 - Repaired offline run completed under official WSL env in 50.325s.
-- Handoff line count remains under 250; recheck before committing.
-- Validation passed; handoff 248 lines.
+- Handoff must remain under 250 lines; recheck before committing.
 
 Do not add `rollouts/2026_07_17/` or ignored run directories.
