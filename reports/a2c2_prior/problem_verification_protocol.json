@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "campaign": "PIVOT_EPOCH_1",
+  "thesis": "ASYNC_DELAY_REACTIVITY",
+  "stage": "OFFICIAL_PRIOR_FIRST_PROBLEM_VERIFICATION",
+  "frozen_before_empirical_execution": true,
+  "selection_commit": "33a20b01f0a00f1bb9c6c5a5462e678692bbc073",
+  "steer_sha256": "FCFDE6371541CDB635F1B2D660A80379D227F2B0D32C14B38BBDD9BE7FFD68CC",
+  "fidelity_label": "MECHANISM_FAITHFUL_A2C2_LOCAL_PORT",
+  "not_official_reproduction": true,
+  "official_prior": {
+    "name": "Asynchronous Action Chunk Correction (A2C2)",
+    "paper": "https://arxiv.org/abs/2509.23224",
+    "official_repository": "https://github.com/k1000dai/a2c2-libero",
+    "official_commit": "54dd088302a0ef3f50c4add3ec927ab94d76a406",
+    "local_clone": "/home/jiheon/assets/repos/a2c2-libero",
+    "local_clone_tree": "056b92be4ae2eff65df09062910eb8e7ee334b7a",
+    "submodules_initialized": false,
+    "github_reported_source_size_kib": 5844,
+    "local_shallow_clone_size_mib": 15,
+    "license": "Apache-2.0",
+    "released_source_hashes": {
+      "eval_libero/create_dataset_for_residualpolicy.py": "68BFA8BF9124361A3A1D203D0FAC2A7B67562827300964F49326A616D469E7AD",
+      "eval_libero/evaluation_libero.py": "941E5894CC0A607F35E0295F174BA27E88B957F51E24154CBAB26B75D6CCF400",
+      "src/lerobot/scripts/train_residual_transformer.py": "41747019C55FE61A7FB8242EEFD6D661139FCF577378E7CFBB2E3D61703AB1FE",
+      "src/lerobot/policies/residual_transformer/modeling_residual_transformer.py": "190093422E71A59633F4C101619392CE53864B8C75079F053BB98154A7E352DF"
+    }
+  },
+  "download_and_install_risk": {
+    "completed_download": "shallow filtered source clone only",
+    "official_submodule_download": false,
+    "package_installation": false,
+    "environment_mutation": false,
+    "checkpoint_download": false,
+    "future_bounded_download": "torchvision ResNet-18 ImageNet weights only if absent from cache, approximately 45 MiB",
+    "unbounded_or_recursive_download_forbidden": true,
+    "existing_assets_reused": [
+      "/mnt/c/assets/checkpoints/smolvla_libero",
+      "/mnt/c/assets/datasets/lerobot_libero",
+      "/mnt/c/assets/hf_home/HuggingFaceTB/SmolVLM2-500M-Video-Instruct",
+      "installed LIBERO simulator and official init states"
+    ]
+  },
+  "base": {
+    "name": "frozen official SmolVLA LIBERO checkpoint",
+    "checkpoint": "/mnt/c/assets/checkpoints/smolvla_libero",
+    "checkpoint_repository_identity": "pepijn223/smolvla_libero",
+    "checkpoint_trainable": false,
+    "checkpoint_action_chunk_size": 50,
+    "installed_lerobot_version": "0.4.4",
+    "python": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python",
+    "device": "cuda:0",
+    "amp": false
+  },
+  "prior_mechanism": {
+    "latest_observation_each_control_step": true,
+    "inputs": [
+      "latest top RGB image",
+      "latest wrist RGB image",
+      "latest 8D robot state",
+      "selected stale base action",
+      "entire stale 50x7 base action chunk",
+      "sin/cos action-offset phase",
+      "SmolVLA prefix VLM latent from the chunk-generating observation",
+      "task instruction through the released SHA1 scalar token"
+    ],
+    "output": "normalized additive 7D action residual, unnormalized into the base/expert action space",
+    "vision": "shared ImageNet-pretrained frozen ResNet-18 layer4 feature map for two views",
+    "transformer": {
+      "model_dimension": 512,
+      "heads": 8,
+      "encoder_layers": 6,
+      "feedforward_dimension": 2048,
+      "dropout": 0.1
+    },
+    "residual_head": "three linear layers with 1024-wide hidden layers, GELU, and dropout",
+    "loss": "MSE between predicted and expert-minus-base residual in normalized action space",
+    "optimizer": "AdamW",
+    "base_smolvla_frozen": true,
+    "resnet18_frozen": true,
+    "expert_action_used_only_for_training_supervision": true,
+    "expert_or_future_action_at_live_inference": false,
+    "ours_method": false
+  },
+  "official_release_deviations": [
+    "The released A2C2 repository declares LeRobot 0.2.0 and cannot parse the runnable checkpoint's LeRobot 0.4.x fields use_peft, pretrained_path, and rtc_config.",
+    "The local port keeps the runnable LeRobot 0.4.4 SmolVLA graph and captures the same first prefix token with a read-only forward hook instead of replacing the installed SmolVLA source.",
+    "No official A2C2 correction-head checkpoint is available; the prior module is trained locally.",
+    "The paper specifies 200000 correction-head steps, whereas the official repository README specifies 400000; the bounded local port freezes 40000 steps.",
+    "The paper uses all 432 LIBERO Spatial episodes and 52970 frames; the bounded local port uses 40 predeclared episodes, four per task.",
+    "The released trainer samples offsets online from every cached base-policy frame; the local port uses anchor stride 8 and four deterministic offsets per anchor while preserving the same stale-chunk/current-observation supervision.",
+    "The paper evaluates all 10 tasks with 10 or 50 rollouts per task; problem verification uses three deterministic tasks and five official reset states per task.",
+    "Frozen ResNet feature maps are cached for prior training; the live prior still executes the frozen ResNet on each latest observation.",
+    "The local port uses the released code's SHA1 scalar task token, even though the paper describes language embedding by the SmolVLM encoder."
+  ],
+  "training_data": {
+    "suite": "libero_spatial",
+    "global_task_indices": [30, 31, 32, 33, 34, 35, 36, 37, 38, 39],
+    "episode_selection_rule": "first four episode_index values per task after ascending sort",
+    "episodes_by_global_task_index": {
+      "30": [1261, 1274, 1277, 1291],
+      "31": [1262, 1263, 1268, 1276],
+      "32": [1264, 1265, 1266, 1271],
+      "33": [1267, 1269, 1270, 1308],
+      "34": [1272, 1273, 1275, 1282],
+      "35": [1278, 1279, 1303, 1319],
+      "36": [1280, 1285, 1293, 1307],
+      "37": [1281, 1286, 1294, 1297],
+      "38": [1283, 1287, 1289, 1299],
+      "39": [1290, 1295, 1296, 1306]
+    },
+    "anchor_stride": 8,
+    "offset_rule": "sorted unique {0, floor(max_offset/3), floor(2*max_offset/3), max_offset}, max_offset=min(49, remaining episode steps)",
+    "outcome_dependent_selection": false,
+    "confirmatory_identity_tuning": false
+  },
+  "prior_training_budget": {
+    "job_classification": "PRIOR_MODULE_TRAINING",
+    "optimizer_steps": 40000,
+    "microbatch": 4,
+    "allowed_microbatch_set": [1, 2, 4, 8],
+    "learning_rate": 0.00001,
+    "weight_decay": 0.00001,
+    "gradient_clip_norm": 10.0,
+    "precision": "float32",
+    "amp": false,
+    "checkpoint_steps": [20000, 40000],
+    "seed": 2026071903,
+    "no_swap_or_cpu_offload": true,
+    "acceptance_requires": [
+      "positive trainable parameter count",
+      "40000 optimizer steps",
+      "finite nonzero gradient norms",
+      "changed trainable weights",
+      "unchanged frozen ResNet weights",
+      "written checkpoint hashes",
+      "exact disk reload output",
+      "CUDA PID and peak VRAM",
+      "peak RSS and exceptions"
+    ],
+    "not_vla_training": true
+  },
+  "evaluation_panel": {
+    "suite": "libero_spatial",
+    "task_selection_rule": "preselected evenly spaced official-manifest spread 0,4,8",
+    "tasks": [
+      {
+        "task_id": 0,
+        "global_task_index": 34,
+        "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+      },
+      {
+        "task_id": 4,
+        "global_task_index": 31,
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate"
+      },
+      {
+        "task_id": 8,
+        "global_task_index": 36,
+        "instruction": "pick up the black bowl next to the plate and place it on the plate"
+      }
+    ],
+    "official_init_state_ids": [0, 1, 2, 3, 4],
+    "episodes_per_condition": 15,
+    "max_steps": 220,
+    "success": "official LIBERO environment is_success/check_success",
+    "matched_task_reset_identities": true,
+    "outcome_dependent_task_selection": false,
+    "expert_replay_counted_as_policy_success": false,
+    "confirmatory_tuning": false
+  },
+  "conditions": {
+    "BASE_STANDARD_E10_D0": {
+      "execution_horizon": 10,
+      "inference_delay": 0,
+      "role": "Base competence"
+    },
+    "BASE_DELAYED_E40_D10": {
+      "execution_horizon": 40,
+      "inference_delay": 10,
+      "role": "claim-specific repeated failure"
+    },
+    "PRIOR_DELAYED_E40_D10": {
+      "execution_horizon": 40,
+      "inference_delay": 10,
+      "role": "closest external Prior on the identical condition"
+    }
+  },
+  "queue_semantics": {
+    "source": "official A2C2 eval_libero/evaluation_libero.py",
+    "first_chunk": "execute entries [0:e), retain [e:e+d)",
+    "subsequent_chunk": "execute d retained entries from the prior chunk then new entries [d:e), retain new [e:e+d)",
+    "base_chunk_noise": "deterministic SHA256 schedule over base seed, task id, init-state id, and chunk generation index",
+    "same_noise_schedule_for_delayed_base_and_prior": true
+  },
+  "frozen_decision_rules": {
+    "evaluation_validity": "all three 15-row arms complete with identical identities, no exceptions, finite actions, nonzero Base forwards, and nonzero Prior forwards for the Prior arm",
+    "base_competent": "standard successes >=8/15 and >=1 success on every task",
+    "repeatable_problem": "standard minus delayed Base >=3/15, >=3 matched standard-success/delayed-failure identities, spanning >=2 tasks",
+    "prior_improves": "Prior minus delayed Base >=2/15, >=2 delayed failures recovered, <=1 delayed success regressed, and nonzero live Prior correction",
+    "prior_saturates": "Prior improves and Prior successes >= standard successes - 1, or <=1 matched standard-success/Prior-failure identity remains",
+    "residual_remains": "Prior improves and standard minus Prior >=2/15, with >=2 matched residual identities spanning >=2 tasks",
+    "decision_order": [
+      "EVALUATION_INVALID on identity or completeness invalidity",
+      "PRIOR_INFRASTRUCTURE_BLOCKED on invalid cache/training/rollout infrastructure",
+      "BASE_NOT_COMPETENT when Base competence fails",
+      "NO_REPEATABLE_PROBLEM when the repeated delay gap fails",
+      "NO_DIAGNOSTIC_HEADROOM when the local prior improvement gate fails",
+      "PRIOR_SATURATES_PROBLEM when saturation passes",
+      "VERIFIED_PRIOR_RESIDUAL when improvement and residual/headroom pass",
+      "NO_DIAGNOSTIC_HEADROOM for a remaining ambiguous or underpowered pattern"
+    ],
+    "allowed_final_decisions": [
+      "VERIFIED_PRIOR_RESIDUAL",
+      "PRIOR_SATURATES_PROBLEM",
+      "BASE_NOT_COMPETENT",
+      "NO_REPEATABLE_PROBLEM",
+      "NO_DIAGNOSTIC_HEADROOM",
+      "PRIOR_INFRASTRUCTURE_BLOCKED",
+      "EVALUATION_INVALID"
+    ]
+  },
+  "empirical_job_order": [
+    "SETUP_PREFLIGHT",
+    "CACHED_FEATURE_PROBE",
+    "PRIOR_MODULE_TRAINING",
+    "VLA_CLOSED_LOOP_ROLLOUT for Base standard and delayed arms",
+    "VLA_CLOSED_LOOP_ROLLOUT for the trained Prior delayed arm",
+    "REPORT_ONLY adjudication"
+  ],
+  "resource_contract": {
+    "gpu": "NVIDIA GeForce RTX 5080 16GB",
+    "vram_reserved_fraction_max": 0.88,
+    "system_ram_used_fraction_max": 0.82,
+    "swap_or_cpu_offload_forbidden": true,
+    "physical_robot_forbidden": true,
+    "active_time_budget_hours": 4,
+    "durable_partial_outputs_and_heartbeats_required": true
+  },
+  "repair_contract": {
+    "scientific_repairs_allowed": 0,
+    "infrastructure_repairs": "only the governing steer's narrow infrastructure-null recovery; preserve the failed attempt and do not alter tasks, identities, conditions, mechanism, training budget, or thresholds"
+  },
+  "ours_boundary": {
+    "ours_candidates_allowed_before_verified_residual": 0,
+    "ours_training_allowed_before_verified_residual": false,
+    "ours_rollout_allowed_before_verified_residual": false,
+    "if_prior_saturates": "close this thesis without Ours design",
+    "if_verified_prior_residual": "generate at most two technically distinct Ours candidates around only the verified residual"
+  },
+  "implementation": {
+    "module": "tca_map/smolvla/a2c2_local_prior.py",
+    "module_sha256": "E58E8068FA9E78E3BBCAC5C38A1E3A3E898ECDF25681E2EFA5FD50D995E5C52A",
+    "runner": "scripts/run_a2c2_problem_verification.py",
+    "runner_sha256": "B69A0F818B8591550DF489A61AEA26587F2733E09E2F07F2C2BBF84D6E90BC4F",
+    "unit_test": "tests/test_a2c2_local_prior.py"
+  },
+  "current_decision": "A2C2_PROBLEM_VERIFICATION_PROTOCOL_FROZEN_READY_FOR_PREFLIGHT"
+}

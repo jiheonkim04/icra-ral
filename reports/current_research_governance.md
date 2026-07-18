@@ -828,3 +828,32 @@ Ours may not be designed or executed unless the result is
 `VERIFIED_PRIOR_RESIDUAL`. The authoritative selection records are
 `reports/strategic_pivot_epoch1_selection_result.json` and
 `reports/strategic_pivot_epoch1_selection_result.md`.
+
+## A2C2 Official-Prior-First Protocol Authority
+
+Effective `2026-07-19`, the selected asynchronous-delay thesis has a frozen
+problem-verification protocol. The external Prior is always labelled
+`MECHANISM_FAITHFUL_A2C2_LOCAL_PORT`, never an official reproduction. Its
+official source is pinned to `k1000dai/a2c2-libero` commit
+`54dd088302a0ef3f50c4add3ec927ab94d76a406`.
+
+The matched evaluation panel is LIBERO Spatial task ids `0`, `4`, and `8`,
+official init-state ids `0..4`, with 15 episodes per arm. Base competence uses
+`e=10,d=0`; the claim-specific Base and Prior condition uses `e=40,d=10`.
+The queue semantics, 220-step cap, base-noise schedule, training identities,
+40,000-step Prior-module budget, numerical gates, and seven-decision mapping
+are frozen before any model preflight or empirical result.
+
+Execution order is `SETUP_PREFLIGHT`, `CACHED_FEATURE_PROBE`,
+`PRIOR_MODULE_TRAINING`, matched Base `VLA_CLOSED_LOOP_ROLLOUT`, trained-Prior
+`VLA_CLOSED_LOOP_ROLLOUT`, then report-only adjudication. Neither feature
+generation nor Prior training is VLA training. SmolVLA and the Prior's
+ResNet-18 stay frozen during Prior-module optimization. Expert actions are
+training supervision only and are forbidden at live inference.
+
+No Ours method may be generated, selected, trained, or rolled out unless the
+frozen adjudication returns `VERIFIED_PRIOR_RESIDUAL`. If it returns
+`PRIOR_SATURATES_PROBLEM`, close the thesis without designing Ours. The
+authoritative contract is
+`reports/a2c2_prior/problem_verification_protocol.json` and its readable
+companion is `reports/a2c2_prior/problem_verification_protocol.md`.

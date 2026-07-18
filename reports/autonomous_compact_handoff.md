@@ -116,11 +116,15 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 ## Immediate next action
 
 `PIVOT_EPOCH_1` returned `PIVOT_SELECTED` for asynchronous-delay action
-reactivity, anchored to official A2C2/SmolVLA code. Freeze and execute the
-matched Base/Prior problem-verification protocol. Establish synchronous Base
-competence, a repeated delay gap, A2C2 improvement on that same condition, and
-a residual before any Ours design. All wrist-dropout methods remain archived;
-no current or historical formulation may be reopened or renamed.
+reactivity, anchored to official A2C2/SmolVLA code. The matched Base/Prior
+problem-verification protocol is now frozen in
+`reports/a2c2_prior/problem_verification_protocol.json`. Execute its exact
+order beginning with `SETUP_PREFLIGHT`, then cached features, Prior-module
+training, the two Base arms, the trained Prior arm, and report-only
+adjudication. Establish Base competence, a repeated delay gap, A2C2 improvement
+on that same condition, and a multi-identity residual before any Ours design.
+All wrist-dropout methods remain archived; no current or historical
+formulation may be reopened or renamed.
 
 ## Final preflight boundary
 
