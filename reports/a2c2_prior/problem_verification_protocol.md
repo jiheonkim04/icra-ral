@@ -119,3 +119,10 @@ The previously absent `.wslconfig` is bounded to 3,584 MiB with swap disabled
 and immediate cache reclaim, following Microsoft's official WSL interface.
 The exact attempt is
 `reports/a2c2_prior/cache_wsl_default_memory_failure_1.json`.
+
+The first Base rollout stopped before any episode or model forward on a
+distinct simulator-path `RESOURCE_COMPATIBILITY_DEFECT`. The 3,584 MiB cache
+cap OOM-killed Python at about 2.77 GiB anonymous RSS plus 256 MiB WSLg shared
+memory. The single simulator-path correction raises the cap to 4,096 MiB,
+keeps swap disabled, and disables unused WSL GUI support. The failed attempt
+is preserved in `reports/a2c2_prior/base_rollout_oom_failed_attempt_1.json`.

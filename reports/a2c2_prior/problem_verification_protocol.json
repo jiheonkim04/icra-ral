@@ -290,6 +290,15 @@
         "failed_attempt": "reports/a2c2_prior/cache_wsl_default_memory_failure_1.json",
         "official_configuration_source": "https://learn.microsoft.com/en-us/windows/wsl/wsl-config",
         "scientific_contract_changed": false
+      },
+      {
+        "attempt": 5,
+        "classification": "RESOURCE_COMPATIBILITY_DEFECT",
+        "defect": "the 3584MB cache-path WSL cap OOM-killed Python during the distinct first LIBERO simulator construction at 2.77GiB anonymous plus 256MiB WSLg shared memory",
+        "repair": "increase the simulator actual-path cap once to 4096MB, retain swap=0, disable unused WSL GUI support, restart WSL, and rerun the identical Base stage",
+        "failed_attempt": "reports/a2c2_prior/base_rollout_oom_failed_attempt_1.json",
+        "official_configuration_source": "https://learn.microsoft.com/en-us/windows/wsl/wsl-config",
+        "scientific_contract_changed": false
       }
     ]
   },

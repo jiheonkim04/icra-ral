@@ -887,3 +887,10 @@ valid at 533 anchors and 2,115 rows. The previously absent global WSL2 config
 is bounded to 3,584 MiB with swap disabled and immediate cache reclaim. This
 environment-only correction changes no scientific field and must be verified
 on the same actual path before the cache may continue.
+
+The first Base rollout was OOM-killed during initial LIBERO construction,
+before any episode or model forward. This distinct simulator-path
+`RESOURCE_COMPATIBILITY_DEFECT` showed about 2.77 GiB anonymous RSS plus 256
+MiB WSLg shared memory under the 3,584 MiB cache cap. The one bounded repair
+raises the cap to 4,096 MiB, retains zero swap, and disables unused WSL GUI
+support; EGL simulator semantics and every scientific field remain unchanged.
