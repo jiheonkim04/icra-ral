@@ -1,0 +1,260 @@
+{
+  "action_history_only_baseline_separates": true,
+  "action_history_only_best_separation": {
+    "clean_retention_success_values": [
+      2.0,
+      4.0
+    ],
+    "feature": "action_history_chunk_count_window",
+    "gap": 1.0,
+    "normalized_gap": 0.33333322222225925,
+    "residual_failure_values": [
+      5.0,
+      5.0,
+      5.0
+    ],
+    "strictly_separates": true,
+    "success_should_be_higher": false
+  },
+  "bounded_conclusion": {
+    "ocr_candidate_archived_if_failed": true,
+    "ocr_candidate_can_advance_to_action_bounds": false,
+    "ocr_trigger_observability_passed": false,
+    "result_interpretation": "The one permitted trace test did not identify a legal no-progress trigger above the action-history-only baseline; OCR is archived under the user steer."
+  },
+  "candidate_id": "OCR-XVLA",
+  "candidate_name": "Observation-Consistency Retry for X-VLA",
+  "control_rollout_happened": false,
+  "decision": "OCR_TRIGGER_OBSERVABILITY_FAIL",
+  "discovery_identities_only": true,
+  "frozen_ocr_mechanism_changed": false,
+  "held_out_confirmatory_identities_not_used": [
+    20260734,
+    20260735,
+    20260736,
+    20260737
+  ],
+  "inference_feature_policy": {
+    "allowed_trace_inputs": [
+      "per-step RGB observations",
+      "per-step proprioception",
+      "per-step issued env actions",
+      "chunk indices",
+      "step/timestamps"
+    ],
+    "forbidden_inference_inputs_not_used": [
+      "reward",
+      "done",
+      "success oracle",
+      "simulator object state",
+      "privileged contact/pose",
+      "future observation",
+      "reset identity label as a trigger feature"
+    ],
+    "success_labels_used_only_for_offline_observability_scoring": true
+  },
+  "legal_observation_proprio_above_action_history_baseline": false,
+  "legal_observation_proprio_best_separation": {
+    "clean_retention_success_values": [
+      0.018828239291906357,
+      0.01746908761560917
+    ],
+    "feature": "agentview_mean_frame_delta_from_attempt",
+    "gap": 0.0012453515082597733,
+    "normalized_gap": 0.3044140909296114,
+    "residual_failure_values": [
+      0.014738260768353939,
+      0.015652811154723167,
+      0.016223736107349396
+    ],
+    "strictly_separates": true,
+    "success_should_be_higher": true
+  },
+  "legal_observation_proprio_separates": true,
+  "ours_rollout_happened": false,
+  "policy_checkpoint_written": false,
+  "policy_optimizer_used": false,
+  "preregistered_test": {
+    "action_history_only_baseline_features": [
+      "action_history_chunk_count_window",
+      "action_history_new_chunk_count_window",
+      "action_history_mean_delta_action_l2_window",
+      "action_history_gripper_close_fraction_window"
+    ],
+    "attempt_detector": "first step with positive gripper command; fallback first post-step20 +1.5cm EEF z rise",
+    "attempt_window_steps": 120,
+    "legal_observation_proprio_features": [
+      "proprio_max_eef_displacement_cm",
+      "proprio_max_vertical_lift_cm",
+      "agentview_dark_object_max_centroid_shift_px",
+      "agentview_dark_object_max_area_delta_frac",
+      "wrist_dark_object_max_centroid_shift_px",
+      "wrist_dark_object_max_area_delta_frac",
+      "agentview_mean_frame_delta_from_attempt",
+      "wrist_mean_frame_delta_from_attempt"
+    ],
+    "pass_condition": "all five discovery traces complete, and at least one legal observation/proprio feature strictly separates residual failures from clean-retention successes in the attempt window, with separation not explained by a trivial action-history-only feature set"
+  },
+  "rows": [
+    {
+      "action_chunk_count": 30,
+      "attempt_window": {
+        "end_step_exclusive": 157,
+        "start_step": 37
+      },
+      "completed": true,
+      "features": {
+        "action_history_chunk_count_window": 5.0,
+        "action_history_gripper_close_fraction_window": 0.725,
+        "action_history_mean_delta_action_l2_window": 3.183166742324829,
+        "action_history_new_chunk_count_window": 4.0,
+        "agentview_dark_object_max_area_delta_frac": 0.021240234375,
+        "agentview_dark_object_max_centroid_shift_px": 2.814194868354375,
+        "agentview_mean_frame_delta_from_attempt": 0.014738260768353939,
+        "attempt_index_action_proprio_only": 37.0,
+        "proprio_max_eef_displacement_cm": 7.610500812530518,
+        "proprio_max_vertical_lift_cm": 5.681276321411133,
+        "window_step_count": 120.0,
+        "wrist_dark_object_max_area_delta_frac": 0.032958984375,
+        "wrist_dark_object_max_centroid_shift_px": 2.780986763357434,
+        "wrist_mean_frame_delta_from_attempt": 0.05568665638566017
+      },
+      "identity": 20260727,
+      "result_path": "runs/xvla_prior/ocr_trace_acquisition_task5_discovery_20260718T1437KST/identity_20260727/result.json",
+      "role": "residual_failure",
+      "steps": 900,
+      "success_label_for_offline_observability_only": false,
+      "trace_npz": "runs/xvla_prior/ocr_trace_acquisition_task5_discovery_20260718T1437KST/identity_20260727/legal_trace/libero_spatial_task5_identity20260727_trace.npz",
+      "trace_sha256": "8003c6eb9500dcd541cfe77421f78745972fbd7603fa080ce47d100babe3422b"
+    },
+    {
+      "action_chunk_count": 30,
+      "attempt_window": {
+        "end_step_exclusive": 155,
+        "start_step": 35
+      },
+      "completed": true,
+      "features": {
+        "action_history_chunk_count_window": 5.0,
+        "action_history_gripper_close_fraction_window": 0.7416666666666667,
+        "action_history_mean_delta_action_l2_window": 3.2168004512786865,
+        "action_history_new_chunk_count_window": 4.0,
+        "agentview_dark_object_max_area_delta_frac": 0.013427734375,
+        "agentview_dark_object_max_centroid_shift_px": 1.4978772813056267,
+        "agentview_mean_frame_delta_from_attempt": 0.015652811154723167,
+        "attempt_index_action_proprio_only": 35.0,
+        "proprio_max_eef_displacement_cm": 9.350396156311035,
+        "proprio_max_vertical_lift_cm": 8.968793869018555,
+        "window_step_count": 120.0,
+        "wrist_dark_object_max_area_delta_frac": 0.039306640625,
+        "wrist_dark_object_max_centroid_shift_px": 2.1737927077221277,
+        "wrist_mean_frame_delta_from_attempt": 0.052147794514894485
+      },
+      "identity": 20260730,
+      "result_path": "runs/xvla_prior/ocr_trace_acquisition_task5_discovery_20260718T1437KST/identity_20260730/result.json",
+      "role": "residual_failure",
+      "steps": 900,
+      "success_label_for_offline_observability_only": false,
+      "trace_npz": "runs/xvla_prior/ocr_trace_acquisition_task5_discovery_20260718T1437KST/identity_20260730/legal_trace/libero_spatial_task5_identity20260730_trace.npz",
+      "trace_sha256": "2b702c05a537e4673246a9d1f0db6ea3f361fc0039b8285b85cb5b49cc1ab7a5"
+    },
+    {
+      "action_chunk_count": 3,
+      "attempt_window": {
+        "end_step_exclusive": 88,
+        "start_step": 35
+      },
+      "completed": true,
+      "features": {
+        "action_history_chunk_count_window": 2.0,
+        "action_history_gripper_close_fraction_window": 1.0,
+        "action_history_mean_delta_action_l2_window": 3.268118143081665,
+        "action_history_new_chunk_count_window": 1.0,
+        "agentview_dark_object_max_area_delta_frac": 0.023193359375,
+        "agentview_dark_object_max_centroid_shift_px": 3.3804942626191257,
+        "agentview_mean_frame_delta_from_attempt": 0.018828239291906357,
+        "attempt_index_action_proprio_only": 35.0,
+        "proprio_max_eef_displacement_cm": 23.70298957824707,
+        "proprio_max_vertical_lift_cm": 10.677396774291992,
+        "window_step_count": 53.0,
+        "wrist_dark_object_max_area_delta_frac": 0.041015625,
+        "wrist_dark_object_max_centroid_shift_px": 7.400611692542315,
+        "wrist_mean_frame_delta_from_attempt": 0.08814917504787445
+      },
+      "identity": 20260731,
+      "result_path": "runs/xvla_prior/ocr_trace_acquisition_task5_discovery_20260718T1437KST/identity_20260731/result.json",
+      "role": "clean_retention_success",
+      "steps": 88,
+      "success_label_for_offline_observability_only": true,
+      "trace_npz": "runs/xvla_prior/ocr_trace_acquisition_task5_discovery_20260718T1437KST/identity_20260731/legal_trace/libero_spatial_task5_identity20260731_trace.npz",
+      "trace_sha256": "ccd78dd4d74a70ac145ff83b66d85f2e72d57dca1e3b8d9d48bf92718f5a6cd7"
+    },
+    {
+      "action_chunk_count": 5,
+      "attempt_window": {
+        "end_step_exclusive": 128,
+        "start_step": 36
+      },
+      "completed": true,
+      "features": {
+        "action_history_chunk_count_window": 4.0,
+        "action_history_gripper_close_fraction_window": 0.8478260869565217,
+        "action_history_mean_delta_action_l2_window": 3.142174005508423,
+        "action_history_new_chunk_count_window": 3.0,
+        "agentview_dark_object_max_area_delta_frac": 0.019287109375,
+        "agentview_dark_object_max_centroid_shift_px": 2.2148621485643916,
+        "agentview_mean_frame_delta_from_attempt": 0.01746908761560917,
+        "attempt_index_action_proprio_only": 36.0,
+        "proprio_max_eef_displacement_cm": 25.553808212280273,
+        "proprio_max_vertical_lift_cm": 8.087801933288574,
+        "window_step_count": 92.0,
+        "wrist_dark_object_max_area_delta_frac": 0.06005859375,
+        "wrist_dark_object_max_centroid_shift_px": 6.800640906864313,
+        "wrist_mean_frame_delta_from_attempt": 0.06453438848257065
+      },
+      "identity": 20260732,
+      "result_path": "runs/xvla_prior/ocr_trace_acquisition_task5_discovery_20260718T1437KST/identity_20260732/result.json",
+      "role": "clean_retention_success",
+      "steps": 128,
+      "success_label_for_offline_observability_only": true,
+      "trace_npz": "runs/xvla_prior/ocr_trace_acquisition_task5_discovery_20260718T1437KST/identity_20260732/legal_trace/libero_spatial_task5_identity20260732_trace.npz",
+      "trace_sha256": "49255e46ec5e6d92385115d552c04f94c2c2de916b6a4d83172271eba3e689ae"
+    },
+    {
+      "action_chunk_count": 30,
+      "attempt_window": {
+        "end_step_exclusive": 155,
+        "start_step": 35
+      },
+      "completed": true,
+      "features": {
+        "action_history_chunk_count_window": 5.0,
+        "action_history_gripper_close_fraction_window": 0.8,
+        "action_history_mean_delta_action_l2_window": 3.2825212478637695,
+        "action_history_new_chunk_count_window": 4.0,
+        "agentview_dark_object_max_area_delta_frac": 0.016845703125,
+        "agentview_dark_object_max_centroid_shift_px": 2.159071972242183,
+        "agentview_mean_frame_delta_from_attempt": 0.016223736107349396,
+        "attempt_index_action_proprio_only": 35.0,
+        "proprio_max_eef_displacement_cm": 24.688417434692383,
+        "proprio_max_vertical_lift_cm": 12.275993347167969,
+        "window_step_count": 120.0,
+        "wrist_dark_object_max_area_delta_frac": 0.051513671875,
+        "wrist_dark_object_max_centroid_shift_px": 5.982809779327947,
+        "wrist_mean_frame_delta_from_attempt": 0.061057932674884796
+      },
+      "identity": 20260733,
+      "result_path": "runs/xvla_prior/ocr_trace_acquisition_task5_discovery_20260718T1437KST/identity_20260733/result.json",
+      "role": "residual_failure",
+      "steps": 900,
+      "success_label_for_offline_observability_only": false,
+      "trace_npz": "runs/xvla_prior/ocr_trace_acquisition_task5_discovery_20260718T1437KST/identity_20260733/legal_trace/libero_spatial_task5_identity20260733_trace.npz",
+      "trace_sha256": "0dfc10c86ce9d54d1c93e0ac9951e9a879fc0b6833271625142ea9f7cc040e43"
+    }
+  ],
+  "schema_version": "2026-07-18.epoch5_ocr_trigger_observability_analysis.v1",
+  "stage": "epoch_5_ocr_xvla_task5_bounded_trace_observability_analysis",
+  "trace_run_dir": "runs/xvla_prior/ocr_trace_acquisition_task5_discovery_20260718T1437KST",
+  "trace_valid": true,
+  "training_happened": false
+}
