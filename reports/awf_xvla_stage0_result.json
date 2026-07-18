@@ -1,0 +1,63 @@
+{
+  "awf_success_count": 0,
+  "broad_identity_sweep_happened": false,
+  "checkpoint_written": false,
+  "clean_baseline_success_count": 2,
+  "completed": true,
+  "condition": "wrist_camera_dropout_partial_observation",
+  "control_rollout_happened": false,
+  "decision": "AWF_XVLA_STAGE0_NO_GO",
+  "discovery_identities": [
+    20260731,
+    20260732
+  ],
+  "dropout_prior_success_count": 0,
+  "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+  "mechanism": {
+    "dropout_detector": "mean wrist RGB <= 1.0",
+    "forbidden_inputs_not_used": [
+      "reward",
+      "done/success",
+      "simulator object/contact state",
+      "future observation"
+    ],
+    "intervention": "replace wrist RGB slot with the same flipped agentview RGB that X-VLA receives as its policy-input agentview image",
+    "legal_inputs": [
+      "current agentview RGB",
+      "current wrist RGB dropout status"
+    ]
+  },
+  "method": "AWF-XVLA",
+  "method_name": "Agentview-Wrist Fill for X-VLA",
+  "next_action": "Archive AWF-XVLA and do not tune it on the discovery failures.",
+  "optimizer_step_happened": false,
+  "ours_rollout_happened": true,
+  "preregistered_pass_condition": "at least 1/2 successes under the verified wrist-dropout condition, improving over the 0/2 frozen-prior dropout baseline",
+  "rows": [
+    {
+      "action_chunk_count": 30,
+      "awf_success": false,
+      "completed": true,
+      "identity": 20260731,
+      "mitigation_triggered_step_count": 900,
+      "result_path": "runs/xvla_prior/awf_xvla_stage0_wrist_dropout_task5_discovery_20260718T1502KST/identity_20260731/result.json",
+      "steps": 900
+    },
+    {
+      "action_chunk_count": 30,
+      "awf_success": false,
+      "completed": true,
+      "identity": 20260732,
+      "mitigation_triggered_step_count": 900,
+      "result_path": "runs/xvla_prior/awf_xvla_stage0_wrist_dropout_task5_discovery_20260718T1502KST/identity_20260732/result.json",
+      "steps": 900
+    }
+  ],
+  "run_dir": "runs/xvla_prior/awf_xvla_stage0_wrist_dropout_task5_discovery_20260718T1502KST",
+  "schema_version": "2026-07-18.epoch5_awf_xvla_stage0_result.v1",
+  "stage": "epoch_5_awf_xvla_stage0_wrist_dropout_discovery",
+  "stage0_go": false,
+  "task_id": 5,
+  "task_suite": "libero_spatial",
+  "training_happened": false
+}
