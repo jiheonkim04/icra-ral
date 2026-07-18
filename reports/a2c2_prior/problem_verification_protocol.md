@@ -4,6 +4,11 @@ Date: `2026-07-19 KST`
 
 Current decision: `A2C2_PROBLEM_VERIFICATION_PROTOCOL_FROZEN_READY_FOR_PREFLIGHT`
 
+Final execution decision: `PRIOR_INFRASTRUCTURE_BLOCKED` in
+`reports/a2c2_prior/problem_verification_result.json`. The frozen scientific
+contract below remains the preregistered contract; no scientific gate was
+adjudicated.
+
 This preregistration freezes the problem-verification stage for the selected
 `ASYNC_DELAY_REACTIVITY` thesis. It executes Base and the closest external
 Prior only. It does not design, train, or rollout Ours.

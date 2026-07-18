@@ -894,3 +894,12 @@ before any episode or model forward. This distinct simulator-path
 MiB WSLg shared memory under the 3,584 MiB cache cap. The one bounded repair
 raises the cap to 4,096 MiB, retains zero swap, and disables unused WSL GUI
 support; EGL simulator semantics and every scientific field remain unchanged.
+
+The simulator-memory verification reached the first Base episode but stopped
+before persisting its row: WSL RAM was 95.8% and observed Windows RAM was
+83.17%, both above the frozen 82% ceiling. The same resource root therefore
+persisted after its one verified correction. A2C2 problem verification closes
+as `PRIOR_INFRASTRUCTURE_BLOCKED`; no success value is counted, the scientific
+delay/A2C2 hypothesis is unadjudicated, and no Ours is authorized. The next
+campaign action is exactly-two-candidate `PIVOT_EPOCH_2` selection outside
+both wrist dropout and asynchronous-delay correction.

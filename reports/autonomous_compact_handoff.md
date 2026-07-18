@@ -5,12 +5,12 @@ Updated: 2026-07-19 KST
 ## Authoritative state
 
 - Branch: `codex/epoch5-official-prior-first`
-- Source HEAD before the current overlap-audit commit: `ea3782a812e0472c0d05f57300e0d7a43dd67429`
-- Current pushed HEAD before the final scientific-status commit: `097fab385de05f5a7209be2ee711184471a502ef`
+- Source HEAD before Pivot Epoch 1 selection: `f11ec2135f39dba3ccf315ee5271aa152247cff7`
+- Current pushed HEAD before the A2C2 closure commit: `73288b6`
 - Epoch/cycle: `5 / 0`
 - Campaign state: `AUTONOMOUS_CAMPAIGN_ACTIVE_STRATEGIC_PIVOT`
-- Active thesis: action-chunk reactivity under asynchronous inference delay; `ACTION-CONSISTENT MISSING-VIEW DISTILLATION` remains archived.
-- Active stage: `PIVOT_EPOCH_1` selected; official-prior-first problem verification is authorized, but no Ours design is authorized.
+- Closed Pivot Epoch 1 thesis: action-chunk reactivity under asynchronous inference delay; local result `PRIOR_INFRASTRUCTURE_BLOCKED` without scientific adjudication.
+- Active stage: exactly-two-candidate `PIVOT_EPOCH_2` selection; no Ours design is authorized.
 - Novelty decision: `INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE`
 - Active training/rollout worker: none.
 - Paper-level decision: `KEY_COMPONENT_NOT_SUPPORTED`.
@@ -40,6 +40,11 @@ Updated: 2026-07-19 KST
 - RIFA final status: `reports/rifa_xvla_v1_archive_decision.json`
 - CVLR final status: `reports/cvlr_xvla_exact_scientific_status.json`
 - Pivot Epoch 1 selection: `reports/strategic_pivot_epoch1_selection_result.json`
+- A2C2 frozen protocol: `reports/a2c2_prior/problem_verification_protocol.json`
+- A2C2 accepted preflight: `reports/a2c2_prior/preflight_result.json`
+- A2C2 accepted feature cache: `reports/a2c2_prior/cached_feature_result.json`
+- A2C2 accepted Prior training: `reports/a2c2_prior/prior_module_training_result.json`
+- A2C2 final local decision: `reports/a2c2_prior/problem_verification_result.json`
 
 ## Frozen scientific state
 
@@ -115,16 +120,14 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 
 ## Immediate next action
 
-`PIVOT_EPOCH_1` returned `PIVOT_SELECTED` for asynchronous-delay action
-reactivity, anchored to official A2C2/SmolVLA code. The matched Base/Prior
-problem-verification protocol is now frozen in
-`reports/a2c2_prior/problem_verification_protocol.json`. Execute its exact
-order beginning with `SETUP_PREFLIGHT`, then cached features, Prior-module
-training, the two Base arms, the trained Prior arm, and report-only
-adjudication. Establish Base competence, a repeated delay gap, A2C2 improvement
-on that same condition, and a multi-identity residual before any Ours design.
-All wrist-dropout methods remain archived; no current or historical
-formulation may be reopened or renamed.
+`PIVOT_EPOCH_1` closed locally as `PRIOR_INFRASTRUCTURE_BLOCKED`. A2C2
+preflight, cached features, and 40k-step Prior training were valid, but the
+same simulator RAM root persisted after its single verified correction. No
+Base/Prior success result or Ours evidence exists, and the paper prior is not
+disproved. Begin `PIVOT_EPOCH_2`: generate exactly two materially different
+research theses outside wrist dropout and asynchronous-delay correction,
+apply every hard filter, and select at most one. Do not reopen archived routes
+or design Ours before a new closest-prior residual is verified.
 
 ## Final preflight boundary
 

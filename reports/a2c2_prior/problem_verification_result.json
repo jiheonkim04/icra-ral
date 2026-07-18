@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "execution_type": "REPORT_ONLY",
+  "thesis_id": "ASYNC_DELAY_REACTIVITY",
+  "fidelity_label": "MECHANISM_FAITHFUL_A2C2_LOCAL_PORT",
+  "not_official_reproduction": true,
+  "official_commit": "54dd088302a0ef3f50c4add3ec927ab94d76a406",
+  "final_decision": "PRIOR_INFRASTRUCTURE_BLOCKED",
+  "scientific_hypothesis_adjudicated": false,
+  "official_a2c2_claim_disproved": false,
+  "ours_designed_or_executed": false,
+  "completed_evidence": {
+    "setup_preflight": {
+      "decision": "A2C2_SETUP_PREFLIGHT_ACCEPTED",
+      "report": "reports/a2c2_prior/preflight_result.json",
+      "model_forward_count": 1,
+      "trainable_prior_parameters": 21281287,
+      "exceptions": 0
+    },
+    "cached_feature_probe": {
+      "decision": "A2C2_CACHED_FEATURES_ACCEPTED",
+      "report": "reports/a2c2_prior/cached_feature_result.json",
+      "rows": 2438,
+      "unique_anchors": 615,
+      "unique_episodes": 40,
+      "cache_sha256": "E6BD933692F18F2AEDC3C7F9AFC87EB66311C175B5D4FAB949F8A8866DB4F3C3",
+      "exceptions": 0
+    },
+    "prior_module_training": {
+      "decision": "PRIOR_MODULE_TRAINING_ACCEPTED",
+      "report": "reports/a2c2_prior/prior_module_training_result.json",
+      "optimizer_steps": 40000,
+      "trainable_parameters": 21281287,
+      "first_loss": 0.02575727179646492,
+      "final_loss": 0.002334569813683629,
+      "gradients_all_finite_nonzero": true,
+      "weights_changed": true,
+      "frozen_backbone_unchanged": true,
+      "disk_reload_zero_diff": true,
+      "final_checkpoint": "runs/a2c2_prior/checkpoints/step_040000.pt",
+      "final_checkpoint_sha256": "C7F22AB037D7C148F6607D55D2F7D78395E19441542B9FE0CB1511318856CF7E",
+      "exceptions": 0
+    }
+  },
+  "closed_loop_evidence": {
+    "base_planned_rows": 30,
+    "base_persisted_rows": 0,
+    "prior_planned_rows": 15,
+    "prior_persisted_rows": 0,
+    "base_standard_successes": null,
+    "base_delayed_successes": null,
+    "prior_delayed_successes": null,
+    "resource_attempt_1": "reports/a2c2_prior/base_rollout_oom_failed_attempt_1.json",
+    "resource_verification_failure": "reports/a2c2_prior/base_rollout_resource_verification_failure_1.json",
+    "same_resource_root_persisted_after_verified_patch": true,
+    "wsl_ram_fraction_at_stop": 0.958,
+    "windows_ram_fraction_observed_at_stop": 0.8317,
+    "frozen_ram_limit_fraction": 0.82
+  },
+  "unresolved_scientific_gates": [
+    "Base standard competence was not measured on the frozen panel.",
+    "A repeated Base asynchronous-delay gap was not measured on the frozen panel.",
+    "The trained Prior was not executed closed-loop.",
+    "Prior improvement, saturation, and residual were not measurable."
+  ],
+  "interpretation": "The mechanism-faithful local port trained validly, but the matched simulator panel was not executable within the simultaneous WSL and Windows physical-RAM ceilings after the one root-bounded correction. This is infrastructure evidence only.",
+  "next_authorized_action": "Close ASYNC_DELAY_REACTIVITY locally without Ours and begin PIVOT_EPOCH_2 selection with exactly two materially different theses."
+}

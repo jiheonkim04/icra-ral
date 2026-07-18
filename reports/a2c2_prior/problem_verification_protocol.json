@@ -302,5 +302,6 @@
       }
     ]
   },
-  "current_decision": "A2C2_PROBLEM_VERIFICATION_PROTOCOL_FROZEN_READY_FOR_PREFLIGHT"
+  "final_result": "reports/a2c2_prior/problem_verification_result.json",
+  "current_decision": "PRIOR_INFRASTRUCTURE_BLOCKED"
 }

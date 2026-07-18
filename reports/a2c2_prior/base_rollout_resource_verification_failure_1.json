@@ -1,0 +1,38 @@
+{
+  "date": "2026-07-19 KST",
+  "job_classification": "VLA_CLOSED_LOOP_ROLLOUT",
+  "failure_classification": "RESOURCE_COMPATIBILITY_DEFECT",
+  "final_decision": "A2C2_BASE_CLOSED_LOOP_RESOURCE_VERIFICATION_FAILED",
+  "same_root_as_repaired_attempt": "reports/a2c2_prior/base_rollout_oom_failed_attempt_1.json",
+  "repair_verification": {
+    "wsl_memory_config_mb": 4096,
+    "swap_bytes": 0,
+    "gui_applications": false,
+    "wslconfig_sha256": "9EF5420F0549D3D4CD1B7F18ECC41B1EE8F9BF638BF71518DD52E1124C84FBE0"
+  },
+  "worker_pid": 285,
+  "condition_started": "BASE_STANDARD_E10_D0",
+  "task_id_started": 0,
+  "official_init_state_id_started": 0,
+  "episode_trace_returned_before_resource_guard": true,
+  "episode_result_persisted": false,
+  "completed_episode_rows": 0,
+  "policy_success_counted": false,
+  "resource_guard_exception": "RESOURCE_LIMIT_SYSTEM_RAM",
+  "resource_snapshot": {
+    "rss_mb": 3476.891,
+    "wsl_system_ram_total_gib": 3.822,
+    "wsl_system_ram_used_gib": 3.662,
+    "wsl_system_ram_used_fraction": 0.958,
+    "windows_system_ram_used_fraction_observed": 0.8317,
+    "vram_allocated_mib": 873.841,
+    "vram_reserved_mib": 932.0,
+    "vram_reserved_fraction": 0.057169
+  },
+  "training_happened": false,
+  "prior_rollout_happened": false,
+  "ours_designed_or_executed": false,
+  "scientific_outcome_available": false,
+  "stop_rule": "The same resource root persisted after its one verified correction, so no second repair is permitted.",
+  "scientific_contract_changed": false
+}
