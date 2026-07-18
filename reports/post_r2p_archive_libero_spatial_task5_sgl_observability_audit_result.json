@@ -1,0 +1,118 @@
+{
+  "schema_version": "2026-07-18.epoch5_sgl_xvla_observability_audit_result.v1",
+  "created_at_kst": "2026-07-18T11:37:14+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "18833e1bdcb2195dc2a23700f2507dc27e627b73",
+  "stage": "epoch_5_sgl_xvla_task5_stage0_observability_report_only",
+  "decision": "SGL_STAGE0_SUPPORT_OBSERVABILITY_LANGUAGE_PASS_VISUAL_PROGRESS_UNVERIFIED_NO_TRAINING",
+  "candidate_id": "SGL-XVLA",
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "residual_identities": [
+      20260727,
+      20260730,
+      20260733
+    ],
+    "clean_retention_identities": [
+      20260731,
+      20260732
+    ],
+    "held_out_confirmatory_identity_pool": [
+      20260734,
+      20260735,
+      20260736,
+      20260737
+    ]
+  },
+  "observability_result": {
+    "support_gate_observability_passed": true,
+    "support_gate_basis": "language instruction contains the support token `ramekin`",
+    "allowed_activation_sources": [
+      "language instruction"
+    ],
+    "forbidden_sources_consulted": [],
+    "privileged_state_consulted": false,
+    "reward_or_success_consulted": false,
+    "reset_identity_consulted_for_activation": false,
+    "visual_support_detector_trained_or_run": false,
+    "visual_progress_observability_verified": false,
+    "progress_detector_observability_passed": false,
+    "candidate_can_advance_to_action_bias_bounds_gate": true,
+    "candidate_can_train": false,
+    "candidate_can_roll_out_ours": false
+  },
+  "clean_retention_implication": {
+    "support_gate_would_activate_on_clean_retention_identities": true,
+    "clean_retention_identities_required_in_next_gate": [
+      20260731,
+      20260732
+    ],
+    "reason": "The support gate is instruction-level, so it would also activate on X-VLA-solved task5 identities."
+  },
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY",
+    "evidence_role": "OURS_CANDIDATE_STAGE0_OBSERVABILITY_AUDIT",
+    "artifact_status": "NOT_APPLICABLE",
+    "simulator_episode_count": 0,
+    "vla_model_loaded": false,
+    "visual_model_loaded": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false
+  },
+  "validation": {
+    "py_compile": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m py_compile tca_map/xvla_spatial_task5/sgl_observability_audit.py",
+      "exit_code": 0
+    },
+    "focused_pytest": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_sgl_xvla_stage0_gate.py tests/test_sgl_xvla_observability_audit.py -q",
+      "exit_code": 0,
+      "result": "10 passed in 1.75s"
+    },
+    "audit_json_emit": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m tca_map.xvla_spatial_task5.sgl_observability_audit",
+      "exit_code": 0,
+      "output": "runs/xvla_prior/epoch5_sgl_xvla_task5_observability_audit_v1.json"
+    }
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_rollout_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/epoch5_sgl_xvla_task5_observability_audit_v1.json",
+      "sha256": "660f597af33267ffc2ce35a93816ae304d50e7313a8a80df48809e5d156d6b7d",
+      "length_bytes": 3186
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_observability_audit.py",
+      "sha256": "187d0b12843772573725dfcdc6ef55094a5594f68e1de261cc88a8713fd22526",
+      "length_bytes": 9410
+    },
+    {
+      "path": "tests/test_sgl_xvla_observability_audit.py",
+      "sha256": "79124fc3b059109707317c344e6462b36f970ab9aa81e43ae8af8ce4c69695c1",
+      "length_bytes": 2962
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_stage0_gate.py",
+      "sha256": "0e93d79b517f62d9626016a60b6c3bc835d1054d36d8fd56355a9b74af665c34",
+      "length_bytes": 16105
+    },
+    {
+      "path": "tests/test_sgl_xvla_stage0_gate.py",
+      "sha256": "6cea53193e82582ac28739ba558de8a752a23efd3da2eb376ba8f322d4dab59c",
+      "length_bytes": 2957
+    }
+  ],
+  "next_action": "Freeze an action-bias bounds/no-optimizer gate for SGL-XVLA using expert action statistics and existing failure metadata only. Do not train, write checkpoints, or run Ours."
+}
