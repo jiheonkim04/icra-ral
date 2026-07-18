@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T12:57:00+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_headroom_launch": "584af1be4a59ad3798d54e3f84f4eeb0d32024f9",
+  "decision": "TASK4_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE",
+  "suite": "libero_spatial",
+  "task_id": 4,
+  "reset_identity": 20260731,
+  "initial_state_index": 20,
+  "initial_state_sha256": "ab224edee886b131234e99a0f368026164c95d0cf66b86e2b8e5d57f4752fd0c",
+  "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+  "run_dir": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260731_20260718T125443KST",
+  "execution_classification": {
+    "execution_type": "EXPERT_ACTION_REPLAY",
+    "evidence_role": "ORACLE",
+    "claim_role": "HEADROOM",
+    "artifact_status": "LOCAL_HDF5_TASK_LEVEL_HEADROOM_NOT_SAME_RESET",
+    "official_closed_loop_success_measured": false,
+    "benchmark_claim_made": false,
+    "vla_model_loaded": false,
+    "learned_policy_inference_performed": false,
+    "downloads_performed": false,
+    "hdf5_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_demo.hdf5",
+    "script": "scripts/epoch5_expert_headroom.py",
+    "windows_launcher_pid": 12204,
+    "wsl_worker_pid": 308
+  },
+  "matched_residual_reference": {
+    "xvla_prior_report_json": "reports/post_task5_exhausted_libero_spatial_20260731_prior_scan_result.json",
+    "smolvla_base_report_json": "reports/post_task5_exhausted_libero_spatial_task4_20260731_base_gate_result.json",
+    "shared_residual_confirmed": true,
+    "xvla_task4_result_sha256": "903ba4b63bdc91901ad4238c27261bcdf3695408f6919d1d0ef338313e98e3bf",
+    "smolvla_base_result_sha256": "138310144baa433e3b1ea45acbb0a3ba709afcb8d54afcca07f3ee752d906a36"
+  },
+  "result": {
+    "completed": true,
+    "exit_code": 0,
+    "computed_initial_state_sha256": "ab224edee886b131234e99a0f368026164c95d0cf66b86e2b8e5d57f4752fd0c",
+    "computed_hash_matches_expected": true,
+    "same_benchmark_reset_as_residual_failure": false,
+    "same_reset_headroom_available": false,
+    "task_level_expert_headroom_positive": true,
+    "upper_headroom_indicates_recoverability": "TASK_LEVEL_POSITIVE_SAME_RESET_UNAVAILABLE",
+    "zero_action_succeeded": false,
+    "default_reset_expert_replay_succeeded": true,
+    "exact_replay_success": true,
+    "exact_replay_reward_sum": 1.0,
+    "exact_replay_first_positive_reward_index": 125,
+    "exact_replay_first_done_index": 125,
+    "exact_replay_first_success_index": 125,
+    "after_set_state_l2_to_selected_hdf5_init": 0.0,
+    "elapsed_seconds": 38.62,
+    "reason_same_reset_unavailable": "No task-4 HDF5 demo init_state SHA-256 matched the residual benchmark initial-state SHA-256."
+  },
+  "selected_demo": {
+    "demo_name": "demo_18",
+    "selection_reason": "nearest_hdf5_demo_init_state_by_l2_no_hash_match",
+    "init_state_sha256": "4d4ee4eccfdc5d0d1491a350e6df10625de1876577387b6ecb3544d25c8dc7ae",
+    "l2_to_benchmark_residual_init": 0.325524772,
+    "steps": 148,
+    "first_reward_index": 147,
+    "first_done_index": 147,
+    "first_signal_index": 147,
+    "action_stats": {
+      "shape": [
+        148,
+        7
+      ],
+      "finite": true,
+      "max_abs": 1.0,
+      "clip_rate_if_env_adapter_applied": 0.0,
+      "translation_max_abs": 0.9375,
+      "rotation_max_abs": 0.165,
+      "gripper_max_abs": 1.0
+    }
+  },
+  "variant_results": [
+    {
+      "variant": "zero_action_exact_selected_demo_init",
+      "claim_role": "negative_control",
+      "final_success": false,
+      "done_seen": false,
+      "reward_sum": 0.0,
+      "after_set_state_l2_to_hdf5_init": 0.0,
+      "set_init_state_ok": true,
+      "use_exact_init_state": true
+    },
+    {
+      "variant": "hdf5_expert_replay_exact_selected_demo_init",
+      "claim_role": "task_level_expert_headroom",
+      "final_success": true,
+      "done_seen": true,
+      "reward_sum": 1.0,
+      "first_positive_reward_index": 125,
+      "first_done_index": 125,
+      "first_success_index": 125,
+      "after_set_state_l2_to_hdf5_init": 0.0,
+      "set_init_state_ok": true,
+      "use_exact_init_state": true
+    },
+    {
+      "variant": "hdf5_expert_replay_default_reset",
+      "claim_role": "init_state_control",
+      "final_success": true,
+      "done_seen": true,
+      "reward_sum": 1.0,
+      "first_positive_reward_index": 124,
+      "first_done_index": 124,
+      "first_success_index": 124,
+      "set_init_state_ok": false,
+      "use_exact_init_state": false
+    }
+  ],
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260731_20260718T125443KST/result.json",
+      "sha256": "f329b615a11560af1898172047351666c6e68a2bd6287bca069544035dffe46f",
+      "length_bytes": 51033
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260731_20260718T125443KST/stdout.log",
+      "sha256": "a6c671c4a1575d22010d96ced121ccad6a8aaa0db2d2db69de2aa633b3764e42",
+      "length_bytes": 51090
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260731_20260718T125443KST/stderr.log",
+      "sha256": "ca32c29cecfadcf9eb3f19fbedae36b6780a0176325bbf3d697bf4256d667380",
+      "length_bytes": 381
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260731_20260718T125443KST/exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260731_20260718T125443KST/resume_command.txt",
+      "sha256": "feef18a21439ce39d72bf329d5ca63724652043728a42b0e57ec19144d1f80fb",
+      "length_bytes": 162
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260731_20260718T125443KST/worker.sh",
+      "sha256": "c0f587e70c1d620f960ea1850793f517a20c9b4f8e71442af4ccb2bcdb01166e",
+      "length_bytes": 1287
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260731_20260718T125443KST/worker_started_at.txt",
+      "sha256": "f7f974c80dcb302de13ae8ae36b9353d74f2829ee8160dd9c68a045a325e878f",
+      "length_bytes": 26,
+      "worker_started_at": "2026-07-18T12:54:47+09:00"
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260731_20260718T125443KST/worker_finished_at.txt",
+      "sha256": "9f18363b063b4e3e36e38954d51e2fcaa43e965cb489a4a047fdc300642a9c4a",
+      "length_bytes": 26,
+      "worker_finished_at": "2026-07-18T12:55:27+09:00"
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260731_20260718T125443KST/heartbeat.txt",
+      "sha256": "aba57bb2bdafffb0041b34908515f3034702e177e77f4b49b31de277b8a2aa8a",
+      "length_bytes": 26
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260731_20260718T125443KST/wsl_worker_pid.txt",
+      "sha256": "f619e0b0036458929950b76340df8b3fdf6ab0b4cf09daa70ca0dbd7d4815d8b",
+      "length_bytes": 4,
+      "wsl_worker_pid": 308
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task4_expert_headroom_20260731_20260718T125443KST/windows_launcher_pid.txt",
+      "sha256": "c17100e0d23a29d9d114a4e0ed49cb6270023674aae60ed9a72b7cb470f7f2e4",
+      "length_bytes": 10,
+      "windows_launcher_pid": 12204
+    },
+    {
+      "path": "scripts/epoch5_expert_headroom.py",
+      "sha256": "7339d16a9b70665064b437eb7d007d81f6bc99246f0fe28a46b2e33ee321b8b0",
+      "length_bytes": 15951
+    }
+  ],
+  "next_action": "Run a valid comparable second-prior gate for libero_spatial/task_4 reset identity 20260731 before any candidate generation, Ours design, LoRA/QLoRA training, or training."
+}
