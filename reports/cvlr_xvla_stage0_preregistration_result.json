@@ -1,0 +1,52 @@
+{
+  "schema_version": "2026-07-18.epoch5_cvlr_xvla_stage0_preregistration.v1",
+  "method": "CVLR_XVLA",
+  "decision": "CVLR_XVLA_STAGE0_PREREGISTERED_NOT_LAUNCHED",
+  "execution_classification": "OURS_VLA_TRAINING",
+  "feasibility_decision": "CVLR_XVLA_SCIENTIFICALLY_DISTINCT_AND_LOCALLY_EXECUTABLE",
+  "frozen_contract": {
+    "path": "configs/cvlr_xvla_stage0_frozen_contract.json",
+    "sha256": "6767e529bd43a61760cd75ae8e4b05d235946fcbf4c5f8e05dbae5e35aa72746",
+    "source_head": "85bc307ff399c71d6f3d9c79dcb70115611aea94"
+  },
+  "protocol": {
+    "training_records": 24,
+    "validation_records": 12,
+    "trainable_parameters_exact": 422144,
+    "optimizer_steps_exact": 96,
+    "primary_objective": "clean wrist-view Florence2 latent MSE",
+    "auxiliary_objectives": [],
+    "comparators": [
+      "frozen X-VLA dropout Base",
+      "CVLR_XVLA",
+      "CVLR_NO_RECONSTRUCTION / ZERO_FILL",
+      "AWF_DETERMINISTIC_AGENT_TOKEN_FILL"
+    ],
+    "live_action_rows": 18,
+    "closed_loop_rollout": false
+  },
+  "frozen_gate_summary": {
+    "reconstruction": "full validation MSE must be at most 0.95 times the better control overall and beat both controls on at least two tasks",
+    "meaningful_action_effect": "CVLR versus zero-fill must exceed at least one frozen translation, rotation, or raw-gripper threshold",
+    "clean_bypass": "translation, rotation, and raw gripper deltas at most 1e-8 with zero discrete flips",
+    "dropout_safety": "translation RMS at most 0.02, rotation RMS at most 0.05, raw gripper delta at most 0.1, and at most one discrete flip",
+    "semantic_separation": "continuous action dimensions and binary gripper are never collapsed into one universal max-absolute threshold"
+  },
+  "automatic_progression": {
+    "stage0_pass": "freeze and launch a separate bounded paired Stage A protocol",
+    "implementation_failure": "one narrow repair maximum, then rerun the unchanged frozen stage",
+    "key_component_not_useful_or_design_failure": "archive CVLR honestly without Stage A"
+  },
+  "negative_controls": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "cvlr_outcomes_inspected": false,
+    "closed_loop_rollout_happened": false,
+    "rifa_reopened": false,
+    "broad_candidate_search_reopened": false,
+    "natural_reset_mining_reopened": false,
+    "thresholds_tuned_on_outcomes": false
+  },
+  "next_action": "Implement and validate the single frozen CVLR Stage 0 executable without changing the contract, then launch it once."
+}

@@ -1,0 +1,218 @@
+{
+  "schema_version": "2026-07-18.epoch5_cvlr_xvla_stage0_frozen_contract.v1",
+  "execution_classification": "OURS_VLA_TRAINING",
+  "method": "CVLR_XVLA",
+  "expanded_name": "Cross-View Latent Reconstruction Adapter for X-VLA",
+  "source_feasibility_decision": "reports/cvlr_xvla_feasibility_decision.json",
+  "source_feasibility_head": "85bc307ff399c71d6f3d9c79dcb70115611aea94",
+  "source_rifa_archive": "reports/rifa_xvla_v1_archive_decision.json",
+  "source_prior_result": "reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json",
+  "closest_external_prior": {
+    "name": "WristWorld",
+    "paper": "https://arxiv.org/abs/2510.07313",
+    "relationship": "prior extension at the anchor-to-wrist problem axis; latent reconstruction and frozen-VLA token insertion replace 4D pixel-video generation"
+  },
+  "xvla": {
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_root": "/mnt/c/assets/repos/X-VLA",
+    "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "cache_dir": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers",
+    "domain_id": 3,
+    "action_mode": "ee6d",
+    "num_actions": 30,
+    "denoise_steps": 10,
+    "visual_tokens_per_view": 50,
+    "visual_token_dim": 1024,
+    "aux_visual_token_count": 100,
+    "wrist_auxiliary_slice": "aux_visual_inputs[:, 0:50, :]",
+    "insertion_point": "model.transformer forward pre-hook on aux_visual_inputs",
+    "base_weights_frozen": true,
+    "full_model_finetuning": false
+  },
+  "panel": [
+    {
+      "suite": "libero_goal",
+      "task_id": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "hdf5": "/mnt/c/assets/data/libero/libero_goal/open_the_middle_drawer_of_the_cabinet_demo.hdf5",
+      "identities": [20260733, 20260734, 20260735]
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 0,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "hdf5": "/mnt/c/assets/data/libero/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket_demo.hdf5",
+      "identities": [20260733, 20260734, 20260735]
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 5,
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "hdf5": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+      "identities": [20260731, 20260732, 20260735]
+    }
+  ],
+  "conditions": ["clean", "mask_1_in_hand_dropout"],
+  "data_split": {
+    "training_demo_indices": "0..39",
+    "validation_demo_indices": "40..49",
+    "stage0_training_demo_indices_per_task": [0, 20],
+    "stage0_validation_demo_indices_per_task": [40],
+    "official_reader_sample_positions_per_demo": [0, 9, 18, 27],
+    "materialized_clip_steps": 48,
+    "expected_training_records": 24,
+    "expected_validation_records": 12,
+    "target_source": "clean wrist-view Florence2 tokens from the same synchronized demonstration frame",
+    "predictor_inputs": [
+      "clean agent-view Florence2 tokens",
+      "language input-embedding mean",
+      "X-VLA proprioception"
+    ],
+    "wrist_pixels_available_to_predictor": false,
+    "identity_overlap_allowed": false,
+    "confirmatory_test_data_used": false
+  },
+  "scientific_method": {
+    "core_mechanism": "predict the missing 50x1024 wrist-view Florence2 token block from current agent-view tokens, language, and proprioception, then replace only the wrist slice of X-VLA aux_visual_inputs during wrist dropout",
+    "primary_objective": "mean squared error between predicted and clean wrist-view Florence2 tokens",
+    "auxiliary_objectives": [],
+    "clean_bypass": "when missing_indicator is zero, return the original aux_visual_inputs tensor unchanged",
+    "privileged_inference_inputs": false,
+    "inference_inputs": [
+      "current agent-view RGB",
+      "language instruction",
+      "proprioception already available to X-VLA",
+      "wrist-missing indicator"
+    ]
+  },
+  "low_compute_parameterization": {
+    "module": "CVLRLatentPredictor",
+    "visual_token_dim": 1024,
+    "visual_token_count": 50,
+    "proprio_dim": 20,
+    "bottleneck_dim": 128,
+    "output_tanh_scale": 3.0,
+    "components": [
+      "agent token LayerNorm and 1024-to-128 projection",
+      "language mean 1024-to-128 projection",
+      "proprio 20-to-128 projection",
+      "learned 50x128 token positions",
+      "128-to-128 core",
+      "128-to-1024 output projection"
+    ],
+    "expected_trainable_parameter_count": 422144,
+    "output_projection_initialization": "exact_zero",
+    "standard_lora_included": false,
+    "standard_lora_omission_reason": "X-VLA remains frozen and generic policy adaptation does not test cross-view wrist-latent reconstruction."
+  },
+  "comparators": {
+    "BASE": "frozen X-VLA with the existing black-pixel wrist-dropout input",
+    "PRIOR": "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT reserved for a separately frozen closed-loop comparison if Stage 0 passes",
+    "OURS": "CVLR_XVLA predicted wrist latent tokens",
+    "KEY_ABLATION": "CVLR_NO_RECONSTRUCTION, identical dropout insertion path with an all-zero wrist latent block",
+    "SIMPLE_CONTROL": "AWF_DETERMINISTIC_AGENT_TOKEN_FILL, copy current agent-view tokens into the wrist latent block"
+  },
+  "training_budget": {
+    "configuration_count": 1,
+    "seed": 20260718,
+    "batch_size": 4,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "max_grad_norm": 1.0,
+    "optimizer_steps_exact": 96,
+    "checkpoint_steps": [96],
+    "checkpoint_selection": "final frozen step only; no validation selection",
+    "cached_frozen_features": true,
+    "xvla_gradient_path": false,
+    "cpu_or_disk_model_offload": false,
+    "downloads_allowed": false,
+    "validation_selection_or_tuning": false
+  },
+  "reconstruction_thresholds": {
+    "target_record_count_exact": 12,
+    "target_finite_and_nonzero": true,
+    "full_mse_relative_to_better_control_max": 0.95,
+    "tasks_with_full_mse_better_than_both_controls_min": 2,
+    "predicted_token_element_std_min_exclusive": 0.0001,
+    "description": "Full must reduce validation MSE by at least 5% relative to the better of zero-fill and deterministic AWF overall, and beat both controls on at least two of three tasks."
+  },
+  "action_effect_thresholds": {
+    "full_vs_zero_mean_translation_rms_min": 0.0001,
+    "full_vs_zero_mean_rotation_rms_min": 0.0002,
+    "full_vs_zero_mean_raw_gripper_max_abs_delta_min": 0.002,
+    "meaningful_effect_rule": "at least one of the three separately defined thresholds must pass; a merely nonzero floating-point delta is insufficient"
+  },
+  "action_safety_thresholds": {
+    "clean_full_vs_base_translation_rms_max": 1e-8,
+    "clean_full_vs_base_rotation_rms_max": 1e-8,
+    "clean_full_vs_base_raw_gripper_max_abs_delta_max": 1e-8,
+    "clean_full_vs_base_gripper_flip_count_max": 0,
+    "dropout_full_vs_base_translation_rms_max": 0.02,
+    "dropout_full_vs_base_rotation_rms_max": 0.05,
+    "dropout_full_vs_base_raw_gripper_max_abs_delta_max": 0.1,
+    "dropout_full_vs_base_gripper_flip_count_max": 1,
+    "action_outputs_must_be_finite": true,
+    "universal_max_absolute_threshold_used": false
+  },
+  "validity_thresholds": {
+    "trainable_parameter_count_exact": 422144,
+    "optimizer_steps_exact": 96,
+    "gradient_global_norm_min_exclusive": 0.0,
+    "weight_change_l2_min_exclusive": 0.0,
+    "checkpoint_reload_parameter_delta_l2_max": 0.0,
+    "real_xvla_forward_count_min": 1,
+    "cuda_required": true,
+    "frozen_xvla_trainable_parameter_count_max": 0
+  },
+  "decision_rule": {
+    "CVLR_XVLA_STAGE0_PASS": "all validity, reconstruction, action-effect, clean-bypass, and semantic-aware safety gates pass",
+    "CVLR_XVLA_STAGE0_DATA_OR_SUPERVISION_FAILURE": "clean latent targets, split integrity, or required contrast is invalid",
+    "CVLR_XVLA_STAGE0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE": "real X-VLA/CUDA/gradient/optimizer/weight/checkpoint/insertion integration is invalid",
+    "CVLR_XVLA_STAGE0_KEY_COMPONENT_NOT_USEFUL": "valid execution and safe actions, but reconstruction does not meaningfully beat both controls or full is action-indistinguishable from no-reconstruction",
+    "CVLR_XVLA_STAGE0_DESIGN_FAILURE": "integration is valid but clean bypass, semantic-aware action safety, or action validity fails"
+  },
+  "automatic_progression": {
+    "on_pass": "freeze a separate bounded paired CVLR Stage A contract and launch it",
+    "on_implementation_failure": "allow exactly one narrow repair and rerun this unchanged frozen stage",
+    "on_key_component_not_useful": "archive CVLR honestly without Stage A",
+    "on_design_failure": "archive CVLR honestly without Stage A",
+    "closed_loop_rollout_within_stage0": false
+  },
+  "bounded_repair": {
+    "maximum_count": 1,
+    "current_count": 0,
+    "allowed_classes": [
+      "PATH_ERROR",
+      "SERIALIZER_FAILURE",
+      "DTYPE_DEVICE_MISMATCH",
+      "CHECKPOINT_PATH_DEFECT",
+      "LAUNCHER_OR_PID_ERROR",
+      "LIVE_QUERY_WIRING_DEFECT",
+      "OUTPUT_DIRECTORY_ERROR"
+    ],
+    "scientific_fields_immutable": [
+      "panel",
+      "identities",
+      "data_split",
+      "scientific_method",
+      "low_compute_parameterization",
+      "comparators",
+      "training_budget",
+      "reconstruction_thresholds",
+      "action_effect_thresholds",
+      "action_safety_thresholds",
+      "validity_thresholds",
+      "decision_rule"
+    ]
+  },
+  "execution_boundary": {
+    "rifa_reopened": false,
+    "broad_candidate_search_authorized": false,
+    "natural_reset_mining_authorized": false,
+    "stage0_closed_loop_rollout_authorized": false,
+    "confirmatory_tuning_authorized": false,
+    "downloads_authorized": false
+  }
+}
