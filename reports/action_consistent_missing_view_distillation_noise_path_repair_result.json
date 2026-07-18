@@ -51,7 +51,22 @@
     "dependency_install": false,
     "scientific_protocol_changed": false
   },
+  "post_repair_unchanged_rerun": {
+    "run_dir": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T025602KST",
+    "result_sha256": "d6b82e257ba01639ab79565d4995757dadf066d8cd5644b92920e8b828c0d76f",
+    "reader_materialization_rows": 12,
+    "reader_repair_boundary_passed": true,
+    "failure_stage": "load_frozen_xvla",
+    "exception_type": "RuntimeError",
+    "exception_message": "Invalid device argument",
+    "exception_site": "torch.cuda.reset_peak_memory_stats(device)",
+    "model_loaded": false,
+    "cuda_forward_count": 0,
+    "optimizer_steps": 0,
+    "classification": "DISTINCT_POST_REPAIR_DEVICE_RUNTIME_FAILURE",
+    "additional_repair_authorized": false
+  },
   "immutable_fields": ["method", "teacher/student tensors", "losses", "12 calibration rows", "repeat_count=3", "optimizer_steps=0", "threshold formulas", "training budget", "comparator roles", "confirmatory split"],
-  "rerun": "same frozen numerical-noise calibration in a new durable run directory",
+  "rerun": "completed once unchanged; no further rerun authorized",
   "outcome_accessed": false
 }

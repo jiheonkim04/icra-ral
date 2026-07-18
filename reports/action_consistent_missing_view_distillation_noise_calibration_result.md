@@ -3,7 +3,7 @@
 Decision: `PREFLIGHT_IMPLEMENTATION_OR_RESOURCE_FAILURE`
 
 - Frozen forward repetitions per row: `None`
-- Fixed discovery calibration rows: `None`
+- Fixed discovery calibration rows: `12`
 - Optimizer steps: `None`
 - Confirmatory outcomes accessed: `False`
 - Condition image mask preserved: `None`
@@ -19,6 +19,6 @@ Decision: `PREFLIGHT_IMPLEMENTATION_OR_RESOURCE_FAILURE`
 
 ## Execution
 
-- CUDA PID: `366`
-- Elapsed seconds: `2.744`
+- CUDA PID: `380`
+- Elapsed seconds: `3.641`
 - Exceptions: `1`

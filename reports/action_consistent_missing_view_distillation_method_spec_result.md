@@ -159,9 +159,9 @@ zero-initialized identity, exact clean object/value bypass, the absence of a
 reconstruction-to-action-output connection, and reconstruction-free inference
 export: `5 passed`.
 
-Next: freeze a separate Stage 0 preregistration with measured deterministic
-noise values and risk-assessed actual-path microbatch limits before the first
-optimizer step.
+The subsequent actual-path preflight did not reach a valid Stage 0. Its frozen
+decision is `STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE`; see
+[the Stage 0 result](action_consistent_missing_view_distillation_stage0_result.md).
 
 Pre-execution erratum: the first pushed specification prose incorrectly called
 the condition an image-mask dropout. Code inspection before any optimizer or
@@ -181,3 +181,12 @@ run directories timestamped `024502KST` and `024907KST`. Completing the single
 repair moves both already-existing initialization operations before the reader
 import. It changes no row, loss, threshold, repetition, budget, dependency, or
 model and authorizes no further repair.
+
+The final unchanged rerun materialized all 12 fixed rows, confirming that the
+reader repair cleared its declared boundary, but then failed at
+`torch.cuda.reset_peak_memory_stats(device)` with `Invalid device argument`
+before model load or any teacher/student forward. Because repair count remains
+`1 / 1`, the distinct device-runtime defect cannot be repaired under the
+frozen contract. No optimizer, microbatch, checkpoint, Stage A/B, or
+confirmatory outcome was reached. This is an implementation/resource failure,
+not a mechanism result.

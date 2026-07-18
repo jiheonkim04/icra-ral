@@ -6,13 +6,14 @@ Updated: 2026-07-19 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Source HEAD before the current overlap-audit commit: `ea3782a812e0472c0d05f57300e0d7a43dd67429`
-- Current pushed HEAD before the method-specification commit: `1d746978b89a9931c92182e3c3a8679323dbd637`
+- Current pushed HEAD before the final Stage 0 outcome commit: `8f3dc40ae04658d53091c86dee222d73fa3ede53`
 - Epoch/cycle: `5 / 0`
-- Campaign state: `AUTONOMOUS_CAMPAIGN_ACTIVE_FINAL_WRIST_DROPOUT_DIRECTION`
+- Campaign state: `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`
 - Active method direction: `ACTION-CONSISTENT MISSING-VIEW DISTILLATION`
-- Active stage: exact method and simulation-only evidence specification frozen locally; Stage 0 preregistration, noise calibration, and actual-path preflight not yet launched.
+- Active stage: `STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE`; no further empirical stage is authorized.
 - Novelty decision: `INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE`
-- Active training/rollout worker: none at the pre-audit snapshot.
+- Active training/rollout worker: none.
+- Paper-level decision: `IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE`.
 - Paper status: no `PROTOTYPE_GO`, `PAPER_CANDIDATE_GO`, or paper-ready package.
 - Preserve pre-existing ignored `rollouts/2026_07_17/` and `rollouts/2026_07_18/`.
 
@@ -22,6 +23,8 @@ Updated: 2026-07-19 KST
 - Overlap audit Markdown: `reports/action_consistent_missing_view_distillation_overlap_audit_result.md`
 - Simulation-only RA-L calibration: `reports/simulation_only_ral_evidence_calibration_result.json`
 - Frozen method specification: `reports/action_consistent_missing_view_distillation_method_spec_result.json`
+- Stage 0 result: `reports/action_consistent_missing_view_distillation_stage0_result.json`
+- Exact scientific status: `reports/action_consistent_missing_view_distillation_exact_scientific_status.json`
 - Full campaign audit: `reports/autonomous_research_full_history_audit.md`
 - Current governance: `reports/current_research_governance.md`
 - RL4IL prior result: `reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json`
@@ -98,4 +101,20 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 
 ## Immediate next action
 
-Freeze a separate Stage 0 preregistration using discovery/validation data only, estimate deterministic forward noise, run the actual-path microbatch preflight over `1,2,4,8`, and launch only the frozen contract. Full-model fine-tuning, CPU/disk offload, swap/pagefile training, confirmatory-outcome access, and outcome-dependent threshold changes remain prohibited.
+None under the current steer. The final unchanged noise preflight materialized
+all 12 fixed discovery rows but failed at
+`torch.cuda.reset_peak_memory_stats(device)` with `Invalid device argument`
+before model load or any teacher/student forward. The single repair budget is
+exhausted, so no device-runtime repair, rerun, microbatch preflight, Stage 0
+training, Stage A/B, renamed v2, or replacement local wrist-dropout candidate
+is authorized. Resumption requires explicit authority for a second narrow
+repair or a strategic pivot outside the current candidate scope.
+
+## Final preflight boundary
+
+- Final run: `runs/action_consistent_missing_view_distillation/noise_calibration_20260719T025602KST`
+- Final result SHA-256: `d6b82e257ba01639ab79565d4995757dadf066d8cd5644b92920e8b828c0d76f`
+- Fixed rows materialized: `12 / 12`
+- Model / CUDA forwards / optimizer steps: `not loaded / 0 / 0`
+- Confirmatory outcomes and physical manipulation: `none / none`
+- Scientific mechanism status: unevaluated; do not reinterpret the execution failure as mechanism rejection or support.

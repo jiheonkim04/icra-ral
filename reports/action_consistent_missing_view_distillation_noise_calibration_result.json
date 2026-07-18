@@ -1,36 +1,66 @@
 {
+  "calibration_row_count": 12,
   "closed_loop_rollout_executed": false,
   "confirmatory_outcomes_accessed": false,
-  "cuda_pid": 366,
+  "cuda_pid": 380,
   "decision": "PREFLIGHT_IMPLEMENTATION_OR_RESOURCE_FAILURE",
   "disk_after": {
-    "available_bytes": 261296427008,
+    "available_bytes": 261264703488,
     "total_bytes": 999134588928
   },
   "disk_before": {
-    "available_bytes": 261298647040,
+    "available_bytes": 261271760896,
     "total_bytes": 999134588928
   },
   "downloads_used": false,
-  "elapsed_seconds": 2.744,
+  "elapsed_seconds": 3.641,
   "exceptions": [
     {
-      "message": "No module named 'mmengine'",
-      "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/tca_map/action_consistent_missing_view_distillation/preflight.py\", line 989, in run_preflight\n    records, materialized = materialize_calibration_records(spec, run_dir)\n  File \"/mnt/c/Users/jiheo/tca_map/tca_map/action_consistent_missing_view_distillation/preflight.py\", line 233, in materialize_calibration_records\n    read_fixed_official_samples(pathlib.Path(manifest[\"meta_path\"]), positions),\n  File \"/mnt/c/Users/jiheo/tca_map/tca_map/cvlr_xvla/stage0.py\", line 238, in read_fixed_official_samples\n    from datasets.dataset import InfiniteDataReader  # type: ignore\n  File \"/mnt/c/assets/repos/X-VLA/datasets/__init__.py\", line 19, in <module>\n    from .dataset import InfiniteDataReader\n  File \"/mnt/c/assets/repos/X-VLA/datasets/dataset.py\", line 23, in <module>\n    from mmengine import fileio\nModuleNotFoundError: No module named 'mmengine'\n",
-      "type": "ModuleNotFoundError"
+      "message": "Invalid device argument ",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/tca_map/action_consistent_missing_view_distillation/preflight.py\", line 1000, in run_preflight\n    torch.cuda.reset_peak_memory_stats(device)\n  File \"/home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/torch/cuda/memory.py\", line 432, in reset_peak_memory_stats\n    return torch._C._cuda_resetPeakMemoryStats(device)\nRuntimeError: Invalid device argument \n",
+      "type": "RuntimeError"
     }
   ],
-  "finished_at": "2026-07-19T02:50:28+0900",
+  "finished_at": "2026-07-19T02:56:10+0900",
   "implementation_label": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA_PREFLIGHT",
+  "materialized": [
+    {
+      "clip_steps": 48,
+      "hdf5_path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/noise_calibration_20260719T025602KST/materialized_calibration_rows/libero_goal_task0_demo0/demo_0.hdf5",
+      "hdf5_sha256": "6f7dd642b0f3397bbb65e980e003cff4fcd22b213803ed602f9b1fd533efaec1",
+      "meta_path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/noise_calibration_20260719T025602KST/materialized_calibration_rows/libero_goal_task0_demo0/meta.json",
+      "source_demo_index": 0,
+      "source_frame_index_for_policy_observation": 1,
+      "source_hdf5": "/mnt/c/assets/data/libero/libero_goal/open_the_middle_drawer_of_the_cabinet_demo.hdf5"
+    },
+    {
+      "clip_steps": 48,
+      "hdf5_path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/noise_calibration_20260719T025602KST/materialized_calibration_rows/libero_object_task0_demo0/demo_0.hdf5",
+      "hdf5_sha256": "2fc1c3a8a55d0b27cfe142a2100d21f9df136c5c664db57fc062b19330ae277e",
+      "meta_path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/noise_calibration_20260719T025602KST/materialized_calibration_rows/libero_object_task0_demo0/meta.json",
+      "source_demo_index": 0,
+      "source_frame_index_for_policy_observation": 1,
+      "source_hdf5": "/mnt/c/assets/data/libero/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket_demo.hdf5"
+    },
+    {
+      "clip_steps": 48,
+      "hdf5_path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/noise_calibration_20260719T025602KST/materialized_calibration_rows/libero_spatial_task5_demo0/demo_0.hdf5",
+      "hdf5_sha256": "ca1b5f826d76a9d94c648a4ca930b897bde194ce44eb7848155777229d11ac7b",
+      "meta_path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/noise_calibration_20260719T025602KST/materialized_calibration_rows/libero_spatial_task5_demo0/meta.json",
+      "source_demo_index": 0,
+      "source_frame_index_for_policy_observation": 1,
+      "source_hdf5": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5"
+    }
+  ],
   "method": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA",
   "mode": "noise",
   "model_offload_used": false,
-  "nvidia_smi_after": "NVIDIA GeForce RTX 5080, 16303 MiB, 1883 MiB, 14097 MiB, 1 %, 45",
-  "nvidia_smi_before": "NVIDIA GeForce RTX 5080, 16303 MiB, 1884 MiB, 14096 MiB, 1 %, 45",
+  "nvidia_smi_after": "NVIDIA GeForce RTX 5080, 16303 MiB, 1879 MiB, 14101 MiB, 1 %, 45",
+  "nvidia_smi_before": "NVIDIA GeForce RTX 5080, 16303 MiB, 1882 MiB, 14098 MiB, 1 %, 45",
   "peak_cuda_allocated_bytes": 0,
   "peak_cuda_reserved_bytes": 0,
   "physical_robot_manipulation": false,
-  "pid": 366,
+  "pid": 380,
   "research_induced_swap_growth_bytes": 0,
   "risk_assessment": {
     "cpu_or_disk_model_offload": false,
@@ -45,28 +75,28 @@
     "system_ram_ceiling_fraction": 0.82,
     "token_or_secret_access": false
   },
-  "run_dir": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024907KST",
+  "run_dir": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/noise_calibration_20260719T025602KST",
   "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_distillation_noise_preflight.v1",
-  "source_head": "25ecb34d2e42f7f31e4c32f0176052293a852b9f",
+  "source_head": "8f3dc40ae04658d53091c86dee222d73fa3ede53",
   "spec": {
     "path": "configs/action_consistent_missing_view_distillation_xvla_frozen_spec.json",
-    "sha256": "dfe84c572e588c98acd7038570993fb850ba18dce17a3cf06371806505fb286a"
+    "sha256": "80d9e717ac47e34bced93ab8b0346ca5dbe776d4331589b4d11daf819773a69d"
   },
-  "started_at": "2026-07-19T02:50:26+0900",
+  "started_at": "2026-07-19T02:56:06+0900",
   "success": false,
   "system_memory_after": {
-    "mem_available_bytes": 11101061120,
-    "mem_total_bytes": 12096454656,
-    "mem_used_bytes": 995393536,
-    "mem_used_fraction": 0.08228803928978247,
+    "mem_available_bytes": 11048165376,
+    "mem_total_bytes": 12096450560,
+    "mem_used_bytes": 1048285184,
+    "mem_used_fraction": 0.086660560368545,
     "swap_total_bytes": 3221225472,
     "swap_used_bytes": 0
   },
   "system_memory_before": {
-    "mem_available_bytes": 11179659264,
-    "mem_total_bytes": 12096454656,
-    "mem_used_bytes": 916795392,
-    "mem_used_fraction": 0.07579042108385513,
+    "mem_available_bytes": 11169595392,
+    "mem_total_bytes": 12096450560,
+    "mem_used_bytes": 926855168,
+    "mem_used_fraction": 0.07662207714590949,
     "swap_total_bytes": 3221225472,
     "swap_used_bytes": 0
   }

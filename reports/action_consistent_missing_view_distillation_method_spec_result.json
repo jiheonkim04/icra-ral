@@ -133,7 +133,10 @@
     "optimizer_steps": 0,
     "closed_loop_rollout_started": false,
     "confirmatory_outcomes_accessed": false,
-    "next_authorized_stage": "STAGE0_PREREGISTRATION_AND_ACTUAL_PATH_PREFLIGHT"
+    "stage0_decision": "STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE",
+    "paper_level_decision": "IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE",
+    "final_preflight_result": "reports/action_consistent_missing_view_distillation_stage0_result.json",
+    "next_authorized_stage": null
   },
   "pre_execution_specification_erratum": {
     "classification": "CONDITION_WIRING_DESCRIPTION_CORRECTION",
@@ -158,5 +161,17 @@
     ],
     "scientific_protocol_changed": false,
     "additional_repairs_authorized": false
+  },
+  "post_repair_final_rerun": {
+    "run_dir": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T025602KST",
+    "result_sha256": "d6b82e257ba01639ab79565d4995757dadf066d8cd5644b92920e8b828c0d76f",
+    "reader_materialization_rows": 12,
+    "failure_stage": "load_frozen_xvla",
+    "exception": "RuntimeError: Invalid device argument at torch.cuda.reset_peak_memory_stats(device)",
+    "model_loaded": false,
+    "cuda_forward_count": 0,
+    "optimizer_steps": 0,
+    "scientific_mechanism_evaluated": false,
+    "additional_repair_authorized": false
   }
 }

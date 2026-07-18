@@ -696,3 +696,36 @@ condition, ablation, and statistical burden. If it passes, position it as a
 method and benchmark study of VLA manipulation under simulated wrist-camera
 failures, and state the absence of physical validation, sim-to-real evidence,
 and real sensor-failure recovery as explicit limitations.
+
+## Active Final-Direction Execution Outcome
+
+Effective `2026-07-19`, the frozen final direction has the exact Stage 0
+decision `STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE` and paper-level decision
+`IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE`.
+
+The sole permitted implementation repair was consumed by the official-reader
+import initialization boundary. The unchanged final noise-calibration rerun
+then materialized all 12 fixed discovery rows, confirming that repair at its
+declared boundary, but failed at `torch.cuda.reset_peak_memory_stats(device)`
+with `RuntimeError: Invalid device argument` before model load, teacher/student
+forward, optimizer execution, checkpointing, or confirmatory access. The
+distinct device-runtime defect may not be repaired under the current `1 / 1`
+budget.
+
+Therefore:
+
+- no Stage 0 GO or scientific mechanism decision exists;
+- no numerical-noise floor or practical threshold was frozen;
+- Stage A/B, closed-loop Ours evaluation, and paper-candidate progression are
+  not authorized;
+- no mechanism support, mechanism rejection, generic-adaptation explanation,
+  clean-retention result, or robust empirical design failure may be claimed;
+- no current-method rerun, renamed v2, threshold relaxation, or replacement
+  local wrist-dropout candidate is authorized; and
+- the campaign is `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`, with resumption
+  requiring explicit user authority for a second narrow repair or a strategic
+  pivot outside the current candidate scope.
+
+Authoritative outcome records are
+`reports/action_consistent_missing_view_distillation_stage0_result.json` and
+`reports/action_consistent_missing_view_distillation_exact_scientific_status.json`.
