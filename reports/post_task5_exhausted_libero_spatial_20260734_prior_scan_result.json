@@ -1,0 +1,222 @@
+{
+  "schema_version": "2026-07-18.epoch5_post_task5_exhausted_libero_spatial_prior_scan.v1",
+  "created_at_kst": "2026-07-18T14:05:41+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_scan": "310d20beeebf64e862ab8466ef60a55bf63cb961",
+  "stage": "epoch_5_official_prior_residual_search_after_goal_object_20260734_saturation",
+  "decision": "POST_TASK5_EXHAUSTED_LIBERO_SPATIAL_IDENTITY20260734_TASK5_PRIOR_FAILURE_CLOSED_FAMILY_NO_FRESH_TARGET",
+  "suite": "libero_spatial",
+  "reset_identity": 20260734,
+  "run_dir": "runs/xvla_prior/failure_scan_libero_spatial_identity20260734_post_goal_object20260734_saturated_20260718T1359KST",
+  "execution_classification": {
+    "execution_type": "VLA_INFERENCE",
+    "evidence_role": "FIRST_PRIOR",
+    "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+    "official_closed_loop_success_measured": true,
+    "policy": "X-VLA-Libero",
+    "model_family": "XVLA",
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_repo": "C:\\assets\\repos\\X-VLA",
+    "source_repo_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "windows_launcher_pid": 3800,
+    "wsl_worker_pid": 314,
+    "peak_vram_mib": 3518.634,
+    "simulator_episode_count": 10,
+    "model_forward_count": 65,
+    "model_forward_count_source": "sum of per-task episode.action_chunk_count",
+    "eval_horizon": 900,
+    "settle_steps": 10,
+    "denoise_steps": 10,
+    "absolute_controller": true
+  },
+  "summary": {
+    "completed_task_count": 10,
+    "successful_task_count": 9,
+    "failure_task_ids": [
+      5
+    ],
+    "infrastructure_failure_task_ids": [],
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "candidate_generation_authorized": false,
+    "base_gate_authorized": false,
+    "headroom_gate_authorized": false,
+    "second_prior_gate_authorized": false
+  },
+  "task_results": [
+    {
+      "task_id": 0,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "success": true,
+      "steps": 77,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "2bcc9cfd2bb816426daa7a3753f77a9384eeba7daf10e62f072559463223b4bb"
+    },
+    {
+      "task_id": 1,
+      "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+      "success": true,
+      "steps": 108,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "a9c6e8d770ed2f032d467132858e9dbc288b7119010b500ad6a1e9c183d7ad80"
+    },
+    {
+      "task_id": 2,
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "success": true,
+      "steps": 94,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "a5dfa53a6d5311949926667bf94601079048e8c9916922049034e6d99de8dbf0"
+    },
+    {
+      "task_id": 3,
+      "instruction": "pick up the black bowl on the cookie box and place it on the plate",
+      "success": true,
+      "steps": 85,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "8015401c821104031366ded2c73fc58f8aaa6be8243001968818719c2bdfb5c8"
+    },
+    {
+      "task_id": 4,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "success": true,
+      "steps": 140,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "a36db8b93a4b8da8d3f9bc5d33b4deafdf69706aec21229e5e2af4ef0b8a6bb9"
+    },
+    {
+      "task_id": 5,
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "success": false,
+      "steps": 900,
+      "final_reward": 0.0,
+      "action_chunk_count": 30,
+      "result_sha256": "ecd0fecc7fbaad97d6a587c97c0c880587db2ee8d9083fa32a93edb688e1a473"
+    },
+    {
+      "task_id": 6,
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "success": true,
+      "steps": 112,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "e898fa0286a9794e5e9433c011d651c38e7293e7df770a2de6468861facad7b5"
+    },
+    {
+      "task_id": 7,
+      "instruction": "pick up the black bowl on the stove and place it on the plate",
+      "success": true,
+      "steps": 116,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "00d0793f77a624aeb8d3659850e478508e78cd209845f798d2c43230a8c05914"
+    },
+    {
+      "task_id": 8,
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "success": true,
+      "steps": 96,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "dfdca227382e49cbbb781b5a7f7715dc8d8fef1d7e29ee8e3e5fb97a702e32bf"
+    },
+    {
+      "task_id": 9,
+      "instruction": "pick up the black bowl on the wooden cabinet and place it on the plate",
+      "success": true,
+      "steps": 118,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "5fe3451650c43d81fd4da7f895683b5bf1318e1e96263d332b6551ebdff7eda2"
+    }
+  ],
+  "closed_family_context": {
+    "task_family": "libero_spatial/task5",
+    "fresh_reset_identity": true,
+    "fresh_ours_target": false,
+    "reason_no_new_gate_or_candidate": "The task5 residual family already passed the repeated-residual screen, generated exactly two candidates, and exhausted the candidate set. This first-prior failure adds closed-family evidence but does not reopen SGL-XVLA, OCR-XVLA, or task5 method generation.",
+    "repeated_residual_report": "reports/post_r2p_archive_libero_spatial_task5_residual_confirmation_result.json",
+    "candidate_generation_report": "reports/post_r2p_archive_libero_spatial_task5_candidate_generation_result.json",
+    "sgl_closure_report": "reports/post_r2p_archive_libero_spatial_task5_sgl_stage0_adjudication_result.json",
+    "ocr_closure_report": "reports/post_r2p_archive_libero_spatial_task5_ocr_observability_audit_result.json"
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260734_post_goal_object20260734_saturated_20260718T1359KST/scan_summary.json",
+      "sha256": "570efa633f09d099ff65a3d2a91e71d16f1c60c1a7cd6c7a48f1908279d2277d",
+      "length_bytes": 7086
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260734_post_goal_object20260734_saturated_20260718T1359KST/scan_manifest.json",
+      "sha256": "87072b0fac7a23cd4c6d2d0bb4209085a704728e922c8d2acbe639bdb346ae92",
+      "length_bytes": 740
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260734_post_goal_object20260734_saturated_20260718T1359KST/exact_resume_command.txt",
+      "sha256": "1a4efbc13002e677a537a35b8cb465982876c1ce09072bf482a303493e4b6916",
+      "length_bytes": 269
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260734_post_goal_object20260734_saturated_20260718T1359KST/scan_exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260734_post_goal_object20260734_saturated_20260718T1359KST/scan_status.txt",
+      "sha256": "37a40f08d8548dba289b9b0bb35bcf63b359f6d37ee86044ebc6b6da080b9ec1",
+      "length_bytes": 9,
+      "status": "complete"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260734_post_goal_object20260734_saturated_20260718T1359KST/scan_stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length_bytes": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260734_post_goal_object20260734_saturated_20260718T1359KST/scan_stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length_bytes": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260734_post_goal_object20260734_saturated_20260718T1359KST/scan_worker_pid.txt",
+      "sha256": "79d03872c65b8680b09df96eeb31d4713d439108f1bad6a0bf53369a4bb30c7a",
+      "length_bytes": 4,
+      "wsl_worker_pid": 314
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260734_post_goal_object20260734_saturated_20260718T1359KST/windows_launcher_pid.txt",
+      "sha256": "26d8dc9e3aac815e68b800ae242047f22f708c03a976fe0d85836594d79d979f",
+      "length_bytes": 6,
+      "windows_launcher_pid": 3800
+    },
+    {
+      "path": "scripts/run_xvla_prior_failure_scan_identity_worker.sh",
+      "sha256": "bcade790ddce333b1bd9d0d38f5336fa4c12f6d19e47c2b046cce89ddfd31c4c",
+      "length_bytes": 5391
+    },
+    {
+      "path": "scripts/epoch5_xvla_libero10_task8_eval.py",
+      "sha256": "2dbd93bb062913c5e07f211f49669a224b3a1f6777ef7c30c8570cd4c200edf6",
+      "length_bytes": 20260
+    }
+  ],
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "next_action": "Do not reopen task5, SGL-XVLA, or OCR-XVLA from this fresh-reset but closed-family first-prior failure. Continue official-prior-first residual search elsewhere, starting with libero_goal identity 20260735; no candidate generation, simulator Ours rollout, training, LoRA, optimizer step, or checkpoint write is authorized."
+}
