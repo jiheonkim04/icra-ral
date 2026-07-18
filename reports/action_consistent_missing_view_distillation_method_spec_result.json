@@ -138,7 +138,9 @@
     "decision_role": "HISTORICAL_PRE_RESUMPTION_OUTCOME",
     "final_preflight_result": "reports/action_consistent_missing_view_distillation_stage0_result.json",
     "exceptional_telemetry_repair": "TELEMETRY_DEVICE_REPAIR_SMOKE_VALID",
-    "next_authorized_stage": "UNCHANGED_NUMERICAL_NOISE_CALIBRATION"
+    "numerical_noise_decision": "NUMERICAL_NOISE_CALIBRATION_VALID",
+    "numerical_threshold_freeze": "reports/action_consistent_missing_view_distillation_numerical_threshold_freeze_result.json",
+    "next_authorized_stage": "ACTUAL_PATH_MICROBATCH_PREFLIGHT_1_2_4_8"
   },
   "pre_execution_specification_erratum": {
     "classification": "CONDITION_WIRING_DESCRIPTION_CORRECTION",

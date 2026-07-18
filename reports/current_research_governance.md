@@ -749,9 +749,12 @@ smoke passed without X-VLA, discovery/validation/confirmatory access, CPU
 fallback, or optimizer execution.
 
 The historical Stage 0 and paper-level implementation-failure labels remain
-preserved as pre-resumption evidence. The same frozen numerical-noise stage is
-now authorized once. If another unrelated implementation defect prevents
-model execution, stop without claiming mechanism failure. All existing
+preserved as pre-resumption evidence. The same frozen numerical-noise stage
+subsequently completed validly, and its normalization denominators, practical
+floors, and smoothness envelopes were frozen before any optimizer step. The
+actual-path microbatch preflight over `1,2,4,8` is now authorized. If another
+unrelated implementation defect prevents model execution, stop without
+claiming mechanism failure. All existing
 method, data, split, identity, comparator, threshold, optimizer, budget,
 microbatch, evaluation, and no-confirmatory-access contracts remain immutable.
 

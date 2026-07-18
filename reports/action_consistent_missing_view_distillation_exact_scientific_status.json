@@ -8,7 +8,7 @@
   "scientific_interpretation": "UNEVALUATED_BECAUSE_ACTUAL_PATH_PREFLIGHT_FAILED_BEFORE_MODEL_FORWARD",
   "active_training_worker": null,
   "active_rollout_worker": null,
-  "next_authorized_empirical_stage": "UNCHANGED_NUMERICAL_NOISE_CALIBRATION",
+  "next_authorized_empirical_stage": "ACTUAL_PATH_MICROBATCH_PREFLIGHT_1_2_4_8",
   "repair_budget": {
     "maximum": 1,
     "consumed": 1,
@@ -60,5 +60,5 @@
     "closed_as_robust_scientific_failure": false
   },
   "historical_failure_status": "The prior STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE and IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE remain preserved as the pre-resumption outcome.",
-  "resumption_state": "The user granted exactly one exceptional infrastructure-only CUDA telemetry repair. Diagnosis and telemetry-only smoke passed; the unchanged numerical-noise calibration is now authorized."
+  "resumption_state": "The exceptional telemetry repair passed. The unchanged numerical-noise calibration then completed validly and its measured normalization, practical, and smoothness thresholds were frozen before any optimizer step; actual-path microbatch preflight over 1,2,4,8 is authorized."
 }

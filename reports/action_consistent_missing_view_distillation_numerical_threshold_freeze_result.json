@@ -1,0 +1,94 @@
+{
+  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_numerical_threshold_freeze.v1",
+  "decision": "STAGE0_NUMERICAL_NOISE_AND_PRACTICAL_THRESHOLDS_FROZEN",
+  "method": "ACTION_CONSISTENT_MISSING-VIEW DISTILLATION",
+  "source_head": "9798c88b2f8ab2b7310f9f0b09e39cf9b8d4d4b7",
+  "frozen_method_spec": {
+    "path": "configs/action_consistent_missing_view_distillation_xvla_frozen_spec.json",
+    "sha256": "80d9e717ac47e34bced93ab8b0346ca5dbe776d4331589b4d11daf819773a69d"
+  },
+  "noise_calibration": {
+    "path": "reports/action_consistent_missing_view_distillation_noise_calibration_result.json",
+    "sha256": "1b8d01878ae037cc9149d0004c6dca91805b0dff30d4eb74b62cd4095f8245e7",
+    "decision": "NUMERICAL_NOISE_CALIBRATION_VALID",
+    "run_dir": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T033043KST",
+    "exit_code": 0,
+    "rows": 12,
+    "repeats_per_row": 3,
+    "teacher_forward_count": 36,
+    "student_forward_count": 36,
+    "paired_forward_count": 36,
+    "generation_count": 72,
+    "optimizer_steps": 0,
+    "exceptions": 0
+  },
+  "normalization_denominators": {
+    "hidden_mse": 0.002987779696316769,
+    "translation_mse": 0.0015878713347774465,
+    "rotation_mse": 0.0018577529408503324,
+    "raw_gripper_margin_mse": 56.628908475240074,
+    "wrist_reconstruction_mse": 0.9934094299872717
+  },
+  "measured_fixed_seed_repeat_noise": {
+    "action_hidden_MSE": 0.0,
+    "translation_RMSE": 0.0,
+    "rotation_RMSE": 0.0,
+    "raw_gripper_margin_MAE": 0.0,
+    "discrete_repeat_gripper_flips": 0
+  },
+  "frozen_practical_improvement_thresholds": {
+    "relative_improvement_min": 0.05,
+    "noise_multiplier": 10,
+    "action_hidden_MSE_absolute_min": 0.00001,
+    "translation_RMSE_absolute_min": 0.0001,
+    "rotation_RMSE_absolute_min": 0.0002,
+    "raw_gripper_margin_MAE_absolute_min": 0.002,
+    "formula": "at least 5% relative and at least max(frozen absolute floor, 10 * measured repeat noise) on at least one co-primary measure"
+  },
+  "frozen_nonregression_and_mechanism_rules": {
+    "other_co_primary_measure": "no worsening beyond max(2% relative, 10 * measured repeat noise)",
+    "other_measure_noise_terms": {
+      "action_hidden_MSE": 0.0,
+      "translation_RMSE": 0.0,
+      "rotation_RMSE": 0.0,
+      "raw_gripper_margin_MAE": 0.0
+    },
+    "discrete_gripper": "full may not add a validation gripper disagreement relative to no-reconstruction or generic control",
+    "reconstruction": "full wrist-latent validation MSE <= 0.95 times no-reconstruction overall and lower on at least two of three tasks",
+    "full_vs_no_reconstruction": "pass the practical threshold on at least one co-primary measure",
+    "full_vs_generic": "pass the same threshold on at least one co-primary measure or return STAGE0_GENERIC_ADAPTATION_EXPLAINS_GAIN"
+  },
+  "frozen_clean_teacher_smoothness": {
+    "translation_abs_adjacent_p99": 0.011365951299667342,
+    "translation_envelope": 0.011365951299667342,
+    "rotation_abs_adjacent_p99": 5.268177709579409,
+    "rotation_envelope": 5.268177709579409
+  },
+  "condition_wiring": {
+    "official_image_mask_preserved": true,
+    "wrist_pixel_tensor_changed": true,
+    "expected_official_image_mask": [[true, true, false]]
+  },
+  "execution": {
+    "cuda_pid": 369,
+    "cuda_device_index": 0,
+    "cuda_device_name": "NVIDIA GeForce RTX 5080",
+    "xvla_model_id": "2toINF/X-VLA-Libero",
+    "xvla_model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "xvla_source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "peak_cuda_allocated_bytes": 3698516992,
+    "peak_cuda_reserved_bytes": 3867148288,
+    "peak_system_ram_used_fraction": 0.17559117374675567,
+    "research_induced_swap_growth_bytes": 0,
+    "model_offload_used": false,
+    "confirmatory_outcomes_accessed": false,
+    "physical_robot_manipulation": false
+  },
+  "immutability": {
+    "method_redesigned": false,
+    "tasks_or_identities_regenerated": false,
+    "thresholds_selected_from_trained_or_validation_outcomes": false,
+    "scientific_repair_consumed": false
+  },
+  "next_authorized_stage": "ACTUAL_PATH_MICROBATCH_PREFLIGHT_1_2_4_8"
+}

@@ -10,7 +10,7 @@ Updated: 2026-07-19 KST
 - Epoch/cycle: `5 / 0`
 - Campaign state: `AUTONOMOUS_CAMPAIGN_ACTIVE_EXCEPTIONAL_TELEMETRY_RESUMPTION`
 - Active method direction: `ACTION-CONSISTENT MISSING-VIEW DISTILLATION`
-- Active stage: telemetry-only smoke passed; unchanged numerical-noise calibration is authorized next.
+- Active stage: numerical-noise calibration valid and thresholds frozen; actual-path microbatch preflight is authorized next.
 - Novelty decision: `INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE`
 - Active training/rollout worker: none.
 - Paper-level decision: `IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE`.
@@ -27,6 +27,7 @@ Updated: 2026-07-19 KST
 - Exact scientific status: `reports/action_consistent_missing_view_distillation_exact_scientific_status.json`
 - CUDA diagnosis: `reports/action_consistent_missing_view_distillation_cuda_device_diagnosis_result.json`
 - Exceptional telemetry repair: `reports/action_consistent_missing_view_distillation_telemetry_device_repair_result.json`
+- Numerical threshold freeze: `reports/action_consistent_missing_view_distillation_numerical_threshold_freeze_result.json`
 - Full campaign audit: `reports/autonomous_research_full_history_audit.md`
 - Current governance: `reports/current_research_governance.md`
 - RL4IL prior result: `reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json`
@@ -103,13 +104,14 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 
 ## Immediate next action
 
-Rerun only the unchanged 12-row, three-repeat, zero-optimizer numerical-noise
-calibration. The user explicitly authorized one exceptional infrastructure-only
-telemetry repair after the historical failure. Diagnosis reproduced the defect
-before CUDA initialization; the minimal integer-index normalization patch and
-an RTX 5080 telemetry-only smoke now pass. This exception does not reset the
-general `1 / 1` repair budget or authorize any scientific change. Continue to
-microbatch `1,2,4,8` and frozen Stage 0 only if each preceding gate is valid.
+Run the actual teacher/student/backward microbatch preflight over `1,2,4,8`
+using the now-frozen noise report. The unchanged 12-row × 3-repeat calibration
+passed with 36 teacher and 36 student forwards, no repeat noise, no gripper
+flip, no exception, no optimizer step, and no confirmatory access. Its exact
+normalization denominators, practical floors, and smoothness envelopes are
+frozen in the threshold report. Continue to frozen Stage 0 only if the
+microbatch gate is valid; the exceptional telemetry repair does not reset the
+general repair budget or authorize any scientific change.
 
 ## Final preflight boundary
 

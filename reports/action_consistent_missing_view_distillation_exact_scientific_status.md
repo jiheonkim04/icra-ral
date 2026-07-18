@@ -4,7 +4,7 @@
 - Stage 0: `STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE`
 - Paper-level state: `IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE`
 - Active worker: none
-- Next authorized empirical stage: unchanged numerical-noise calibration
+- Next authorized empirical stage: actual-path microbatch preflight over `1,2,4,8`
 
 The final preflight passed official-reader materialization for all 12 frozen
 rows, then failed at CUDA peak-memory-stat reset before X-VLA load or any
@@ -27,4 +27,6 @@ the CUDA telemetry device defect. Its classification is
 budget. Diagnosis reproduced the initialization-order failure, and a
 telemetry-only RTX 5080 smoke passed without X-VLA or scientific-output access.
 The historical failure labels above remain preserved as the pre-resumption
-outcome, while the unchanged numerical-noise calibration is now authorized.
+outcome. The unchanged numerical-noise calibration subsequently passed, its
+normalization denominators and practical thresholds were frozen before any
+optimizer step, and the actual-path microbatch preflight is now authorized.
