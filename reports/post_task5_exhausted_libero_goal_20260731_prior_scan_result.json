@@ -37,8 +37,32 @@
     "exit_code": 0,
     "pid_files_present": true,
     "heartbeat_files_present": true,
-    "stdout_stderr_capture_status": "NOT_CAPTURED_BY_LAUNCHER",
-    "stdout_stderr_note": "This launcher wrote durable PID, heartbeat, exit, manifest, summary, partial, and result JSON artifacts, but no separate stdout/stderr files were present in the run directory.",
+    "stdout_stderr_capture_status": "CAPTURED_TASK_LEVEL_LOGS",
+    "stdout_stderr_note": "Top-level scan_stdout.log and scan_stderr.log are present and empty; each task directory contains captured stdout.log and stderr.log files.",
+    "stdout_stderr_log_paths": [
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/scan_stdout.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/scan_stderr.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_0/stdout.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_0/stderr.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_1/stdout.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_1/stderr.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_2/stdout.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_2/stderr.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_3/stdout.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_3/stderr.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_4/stdout.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_4/stderr.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_5/stdout.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_5/stderr.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_6/stdout.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_6/stderr.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_7/stdout.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_7/stderr.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_8/stdout.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_8/stderr.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_9/stdout.log",
+      "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_9/stderr.log"
+    ],
     "structured_log_paths": [
       "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/scan_summary.json",
       "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/scan_manifest.json",
@@ -209,6 +233,116 @@
       "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/scan_finished_at.txt",
       "sha256": "e0aaa2d86f811035ddb7507d53bcb3e9a0ae3ea21e4b69f9679b527ebeec9bb5",
       "length_bytes": 26
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/scan_stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length_bytes": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/scan_stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length_bytes": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_0/stdout.log",
+      "sha256": "deac61651e36c152fd3ff6c285f900c8b48bf2f9f979601679eb24a99fbdfb24",
+      "length_bytes": 4507
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_0/stderr.log",
+      "sha256": "e0c1ba0c02cf67bdeaab303729b6f536e91719f67f17f37ea3e2c6a99b4df7ff",
+      "length_bytes": 1872
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_1/stdout.log",
+      "sha256": "b5b0650ac973b514b9c57590a716af577e2de14433ed866d90fc015eb1942542",
+      "length_bytes": 4163
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_1/stderr.log",
+      "sha256": "e0c1ba0c02cf67bdeaab303729b6f536e91719f67f17f37ea3e2c6a99b4df7ff",
+      "length_bytes": 1872
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_2/stdout.log",
+      "sha256": "92a4c0be3f0cf6a3df9828d810492c9699b4e9fe818c536019311815be4fbcdf",
+      "length_bytes": 4175
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_2/stderr.log",
+      "sha256": "e0c1ba0c02cf67bdeaab303729b6f536e91719f67f17f37ea3e2c6a99b4df7ff",
+      "length_bytes": 1872
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_3/stdout.log",
+      "sha256": "9cc1ef9840e582b79cd811d71e86706aee77f07196d5756ce2ee77e4035b597f",
+      "length_bytes": 4690
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_3/stderr.log",
+      "sha256": "e0c1ba0c02cf67bdeaab303729b6f536e91719f67f17f37ea3e2c6a99b4df7ff",
+      "length_bytes": 1872
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_4/stdout.log",
+      "sha256": "c31be40ee7473f4eb9e4e290b8fb446056e8c35ae6b031bde65f016d0f58f04a",
+      "length_bytes": 4171
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_4/stderr.log",
+      "sha256": "e0c1ba0c02cf67bdeaab303729b6f536e91719f67f17f37ea3e2c6a99b4df7ff",
+      "length_bytes": 1872
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_5/stdout.log",
+      "sha256": "5e8ea48415faa64f6fe80a9113f2e4a804e7ef7b91742633bac2850b79ef3c9f",
+      "length_bytes": 4691
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_5/stderr.log",
+      "sha256": "e0c1ba0c02cf67bdeaab303729b6f536e91719f67f17f37ea3e2c6a99b4df7ff",
+      "length_bytes": 1872
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_6/stdout.log",
+      "sha256": "6c617038edab23549279dc0bd170b07e454a4e70c46981e98c5b73d66550fa2e",
+      "length_bytes": 4170
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_6/stderr.log",
+      "sha256": "e0c1ba0c02cf67bdeaab303729b6f536e91719f67f17f37ea3e2c6a99b4df7ff",
+      "length_bytes": 1872
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_7/stdout.log",
+      "sha256": "d929a1bdf6cc62248645db4480d4e00eddf0e2896ecb3309370705d572b3f32e",
+      "length_bytes": 4151
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_7/stderr.log",
+      "sha256": "e0c1ba0c02cf67bdeaab303729b6f536e91719f67f17f37ea3e2c6a99b4df7ff",
+      "length_bytes": 1872
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_8/stdout.log",
+      "sha256": "64588fb08d81b63340c5837ad70c01812024177e2d1f0d0ae7c9e036976f35b3",
+      "length_bytes": 4162
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_8/stderr.log",
+      "sha256": "e0c1ba0c02cf67bdeaab303729b6f536e91719f67f17f37ea3e2c6a99b4df7ff",
+      "length_bytes": 1872
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_9/stdout.log",
+      "sha256": "36e43039d258a41068068e59e700400dbea37bb2b0efe07fea57e0f03224e264",
+      "length_bytes": 4334
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260731_post_task5_candidates_exhausted_20260718T1221KST/task_9/stderr.log",
+      "sha256": "e0c1ba0c02cf67bdeaab303729b6f536e91719f67f17f37ea3e2c6a99b4df7ff",
+      "length_bytes": 1872
     },
     {
       "path": "scripts/run_xvla_prior_failure_scan_identity_worker.sh",

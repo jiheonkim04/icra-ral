@@ -28,7 +28,7 @@ Execution metadata:
 - Peak VRAM: `3518.634 MiB`
 - Model forward count: `39`
 - Summary SHA-256: `8f4f292c52afb4c059d0048d19d182df2d8e150570a891f14815ffc12b270464`
-- PID/heartbeat/exit/result JSON artifacts are present; separate stdout/stderr files were not captured by this launcher and are recorded as `NOT_CAPTURED_BY_LAUNCHER` in the JSON.
+- PID/heartbeat/exit/result JSON artifacts are present. Top-level `scan_stdout.log` and `scan_stderr.log` are present and empty; each task directory contains captured `stdout.log` and `stderr.log` files with hashes recorded in the JSON.
 
 Comparator calibration: this artifact is a first-prior saturation screen, not an Ours/adaptation/control adjudication. No universal beat-all rule is introduced; comparator-specific interpretation remains binding for the next unfrozen method stage.
 
