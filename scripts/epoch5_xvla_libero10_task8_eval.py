@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import collections
 import gc
+import hashlib
 import json
 import os
 import subprocess
@@ -90,6 +91,31 @@ def round_or_none(value: float | None, digits: int = 6) -> float | None:
 
 def flip_agentview(img: np.ndarray) -> np.ndarray:
     return np.flip(np.flip(img, 0), 1)
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def resize_rgb_nearest(img: np.ndarray, size: int) -> np.ndarray:
+    """Return a compact RGB uint8 copy for trace-only observability analysis."""
+
+    arr = np.asarray(img)
+    if arr.ndim != 3 or arr.shape[-1] != 3:
+        raise ValueError(f"expected RGB image with shape HxWx3, got {arr.shape}")
+    arr = np.asarray(arr, dtype=np.uint8)
+    if int(size) <= 0:
+        return arr.copy()
+    height, width = arr.shape[:2]
+    if height == int(size) and width == int(size):
+        return arr.copy()
+    y_idx = np.linspace(0, height - 1, int(size)).round().astype(np.int32)
+    x_idx = np.linspace(0, width - 1, int(size)).round().astype(np.int32)
+    return arr[np.ix_(y_idx, x_idx)].copy()
 
 
 class LiberoAbsActionProcessor:
@@ -249,6 +275,17 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--eval-horizon", type=int, default=900)
     parser.add_argument("--settle-steps", type=int, default=10)
     parser.add_argument("--denoise-steps", type=int, default=10)
+    parser.add_argument(
+        "--trace-dir",
+        default="",
+        help="Optional directory for no-training per-step legal traces. No reward/done/success is written to trace npz.",
+    )
+    parser.add_argument(
+        "--trace-rgb-size",
+        type=int,
+        default=64,
+        help="Nearest-neighbor RGB trace size. Use 0 to keep native resolution.",
+    )
     args = parser.parse_args(argv)
 
     run_dir = Path(args.run_dir)
@@ -256,6 +293,9 @@ def main(argv: list[str] | None = None) -> int:
     heartbeat = run_dir / "heartbeat.txt"
     partial = run_dir / "partial.json"
     result_path = run_dir / "result.json"
+    trace_dir = Path(args.trace_dir) if str(args.trace_dir).strip() else None
+    if trace_dir is not None:
+        trace_dir.mkdir(parents=True, exist_ok=True)
 
     os.environ.setdefault("MUJOCO_GL", "egl")
     os.environ.setdefault("LIBERO_CONFIG_PATH", "/home/jiheon/.libero")
@@ -306,6 +346,39 @@ def main(argv: list[str] | None = None) -> int:
         "checkpoint_written": False,
         "ours_design_happened": False,
         "closed_loop_rollout_happened": True,
+        "trace_acquisition": {
+            "enabled": trace_dir is not None,
+            "trace_dir": str(trace_dir) if trace_dir is not None else None,
+            "rgb_size": int(args.trace_rgb_size),
+            "legal_trace_fields": [
+                "step_index",
+                "seconds_since_episode_start",
+                "chunk_index",
+                "action_index_in_chunk",
+                "new_chunk_started",
+                "eef_position",
+                "eef_orientation_6d",
+                "executed_env_action_7d",
+                "policy_input_agentview_rgb",
+                "wrist_rgb",
+            ],
+            "forbidden_inference_fields_absent_from_trace_npz": [
+                "reward",
+                "done",
+                "success",
+                "simulator_object_state",
+                "simulator_contact_state",
+                "privileged_object_pose",
+                "future_observation",
+            ],
+            "metadata_fields_not_for_inference": [
+                "task_suite",
+                "task_id",
+                "reset_identity",
+                "initial_state_index",
+                "frozen_prior_identity",
+            ],
+        },
         "episodes": [],
         "errors": [],
         "started_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
@@ -371,10 +444,51 @@ def main(argv: list[str] | None = None) -> int:
                 done_flag = False
                 env_latencies: list[float] = []
                 step_count = 0
+                trace_step_index: list[int] = []
+                trace_seconds: list[float] = []
+                trace_chunk_index: list[int] = []
+                trace_action_index_in_chunk: list[int] = []
+                trace_new_chunk_started: list[bool] = []
+                trace_eef_pos: list[np.ndarray] = []
+                trace_eef_ori6d: list[np.ndarray] = []
+                trace_actions: list[np.ndarray] = []
+                trace_agentview: list[np.ndarray] = []
+                trace_wrist: list[np.ndarray] = []
+                trace_episode_start = time.monotonic()
                 for step in range(int(args.eval_horizon)):
                     obs["robo_ori"] = policy.action_processor.mat_to_rotate6d(env.env.robots[0].controller.ee_ori_mat)
                     obs["robo_pos"] = np.asarray(env.env.robots[0].controller.ee_pos, dtype=np.float32)
+                    new_chunk_started = not policy.action_plan
                     action = policy.step(obs, task_description)
+                    chunk_index = int(len(policy.chunk_shapes) - 1) if policy.chunk_shapes else -1
+                    chunk_len = (
+                        int(policy.chunk_shapes[chunk_index][0])
+                        if chunk_index >= 0 and policy.chunk_shapes[chunk_index]
+                        else 0
+                    )
+                    remaining_after_pop = int(len(policy.action_plan))
+                    action_index_in_chunk = int(chunk_len - remaining_after_pop - 1) if chunk_len else -1
+                    if trace_dir is not None:
+                        trace_step_index.append(int(step))
+                        trace_seconds.append(float(time.monotonic() - trace_episode_start))
+                        trace_chunk_index.append(chunk_index)
+                        trace_action_index_in_chunk.append(action_index_in_chunk)
+                        trace_new_chunk_started.append(bool(new_chunk_started))
+                        trace_eef_pos.append(np.asarray(obs["robo_pos"], dtype=np.float32).copy())
+                        trace_eef_ori6d.append(np.asarray(obs["robo_ori"], dtype=np.float32).copy())
+                        trace_actions.append(np.asarray(action, dtype=np.float32).copy())
+                        trace_agentview.append(
+                            resize_rgb_nearest(
+                                flip_agentview(np.asarray(obs["agentview_image"])),
+                                int(args.trace_rgb_size),
+                            )
+                        )
+                        trace_wrist.append(
+                            resize_rgb_nearest(
+                                np.asarray(obs["robot0_eye_in_hand_image"]),
+                                int(args.trace_rgb_size),
+                            )
+                        )
                     env_started = time.monotonic()
                     obs, reward, done, info = env.step(action)
                     env_latencies.append(time.monotonic() - env_started)
@@ -383,6 +497,46 @@ def main(argv: list[str] | None = None) -> int:
                     if done:
                         done_flag = True
                         break
+
+                trace_artifact: dict[str, Any] | None = None
+                if trace_dir is not None:
+                    trace_path = trace_dir / f"{task_suite_name}_task{task_id}_identity{identity}_trace.npz"
+                    trace_meta_path = trace_dir / f"{task_suite_name}_task{task_id}_identity{identity}_trace_manifest.json"
+                    np.savez_compressed(
+                        trace_path,
+                        step_index=np.asarray(trace_step_index, dtype=np.int32),
+                        seconds_since_episode_start=np.asarray(trace_seconds, dtype=np.float32),
+                        chunk_index=np.asarray(trace_chunk_index, dtype=np.int32),
+                        action_index_in_chunk=np.asarray(trace_action_index_in_chunk, dtype=np.int32),
+                        new_chunk_started=np.asarray(trace_new_chunk_started, dtype=np.bool_),
+                        eef_position=np.stack(trace_eef_pos).astype(np.float32),
+                        eef_orientation_6d=np.stack(trace_eef_ori6d).astype(np.float32),
+                        executed_env_action_7d=np.stack(trace_actions).astype(np.float32),
+                        policy_input_agentview_rgb=np.stack(trace_agentview).astype(np.uint8),
+                        wrist_rgb=np.stack(trace_wrist).astype(np.uint8),
+                    )
+                    trace_sha = sha256_file(trace_path)
+                    trace_artifact = {
+                        "schema_version": "2026-07-18.epoch5_xvla_legal_trace.v1",
+                        "trace_npz": str(trace_path),
+                        "trace_sha256": trace_sha,
+                        "trace_manifest": str(trace_meta_path),
+                        "trace_step_count": int(len(trace_step_index)),
+                        "rgb_size": int(args.trace_rgb_size),
+                        "task_suite": task_suite_name,
+                        "task_id": int(task_id),
+                        "reset_identity": int(identity),
+                        "initial_state_index": int(index),
+                        "frozen_prior_identity": "X-VLA-Libero",
+                        "allowed_feature_fields": list(report["trace_acquisition"]["legal_trace_fields"]),
+                        "forbidden_inference_fields_absent_from_trace_npz": list(
+                            report["trace_acquisition"]["forbidden_inference_fields_absent_from_trace_npz"]
+                        ),
+                        "metadata_fields_not_for_inference": list(
+                            report["trace_acquisition"]["metadata_fields_not_for_inference"]
+                        ),
+                    }
+                    write_json(trace_meta_path, trace_artifact)
 
                 row.update(
                     {
@@ -408,6 +562,7 @@ def main(argv: list[str] | None = None) -> int:
                             "mean": round_or_none(float(np.mean(env_latencies)), 6) if env_latencies else None,
                             "max": round_or_none(float(np.max(env_latencies)), 6) if env_latencies else None,
                         },
+                        "trace_artifact": trace_artifact,
                         "elapsed_seconds": round_or_none(time.monotonic() - row_started, 3),
                         "cuda_memory": cuda_memory(torch),
                     }

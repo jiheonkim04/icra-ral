@@ -1,0 +1,99 @@
+{
+  "schema_version": "2026-07-18.epoch5_ocr_trace_acquisition_preregistration.v1",
+  "stage": "epoch_5_ocr_xvla_task5_bounded_trace_acquisition_preregistered",
+  "decision": "OCR_TRIGGER_TRACE_ACQUISITION_PREREGISTERED",
+  "candidate_id": "OCR-XVLA",
+  "candidate_name": "Observation-Consistency Retry for X-VLA",
+  "new_user_steer": "Residual-search convergence and observability-data steer",
+  "feasibility_decision": {
+    "one_bounded_trace_pass_permitted": true,
+    "reason": "The frozen X-VLA evaluator already observes legal deployment-time RGB, wrist RGB, proprioception, and issued actions; trace collection can wrap the official prior without training or executing OCR.",
+    "collection_cost_lower_than_another_broad_sweep": true,
+    "episode_count": 5,
+    "broad_sweep_reference_episode_count": 30
+  },
+  "natural_reset_search_status": {
+    "closed_decision": "NATURAL_RESET_SEARCH_SATURATED",
+    "closure_commit": "ddbe62c2a537cda2fd84de9027334096943669ab",
+    "additional_natural_reset_identity_sweeps_allowed": false
+  },
+  "closed_methods_not_reopened": [
+    "SGL-XVLA",
+    "R2P-XVLA"
+  ],
+  "frozen_ocr_mechanism_changed": false,
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "discovery_residual_failure_identities": [
+      20260727,
+      20260730,
+      20260733
+    ],
+    "discovery_clean_retention_identities": [
+      20260731,
+      20260732
+    ],
+    "held_out_confirmatory_identities_not_used": [
+      20260734,
+      20260735,
+      20260736,
+      20260737
+    ],
+    "identity_selection_after_partial_outcomes_allowed": false
+  },
+  "allowed_trace_fields": [
+    "per-step policy-input agentview RGB",
+    "per-step wrist RGB",
+    "per-step EEF position",
+    "per-step EEF 6D orientation",
+    "per-step issued 7D env action",
+    "step timestamps",
+    "chunk indices",
+    "frozen prior identity as metadata",
+    "task/reset identity as metadata"
+  ],
+  "forbidden_inference_features": [
+    "reward",
+    "done/success oracle",
+    "simulator object state",
+    "privileged contact/pose",
+    "future observation",
+    "reset identity label as a trigger feature"
+  ],
+  "execution_boundary": {
+    "policy": "frozen official X-VLA-Libero",
+    "ours_rollout_happened": false,
+    "control_rollout_happened": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "policy_tuning_allowed": false,
+    "held_out_testing_allowed_in_this_pass": false
+  },
+  "preregistered_observability_test": {
+    "attempt_detector": "first step with positive gripper command; fallback first post-step20 EEF z rise greater than 1.5cm",
+    "attempt_window_steps": 120,
+    "action_history_only_baseline_features": [
+      "chunk count in attempt window",
+      "new chunk count in attempt window",
+      "mean delta-action L2 norm in attempt window",
+      "gripper close fraction in attempt window"
+    ],
+    "legal_observation_proprio_features": [
+      "max EEF displacement in attempt window",
+      "max EEF vertical lift in attempt window",
+      "agentview dark-object centroid shift",
+      "agentview dark-object area change",
+      "wrist dark-object centroid shift",
+      "wrist dark-object area change",
+      "agentview frame delta from attempt frame",
+      "wrist frame delta from attempt frame"
+    ],
+    "pass_condition": "All five discovery traces complete, and at least one legal observation/proprio feature strictly separates residual failures from clean-retention successes in the attempt window with separation not explained by the trivial action-history-only feature set.",
+    "failure_decision": "OCR_TRIGGER_OBSERVABILITY_FAIL",
+    "pass_decision": "OCR_TRIGGER_OBSERVABILITY_PASS"
+  },
+  "next_action": "Run exactly this five-episode frozen-prior trace acquisition pass, then analyze once under the preregistered rule."
+}
