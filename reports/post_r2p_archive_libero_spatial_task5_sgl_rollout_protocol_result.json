@@ -1,0 +1,233 @@
+{
+  "schema_version": "2026-07-18.epoch5_sgl_xvla_rollout_protocol_result.v1",
+  "created_at_kst": "2026-07-18T12:05:37+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "b82533ddb1e47d58d60843c263651df56c8b19fa",
+  "stage": "epoch_5_sgl_xvla_task5_no_training_rollout_protocol_freeze_report_only",
+  "decision": "SGL_NO_TRAINING_ROLLOUT_PROTOCOL_FROZEN_NO_EPISODES_RUN",
+  "candidate_id": "SGL-XVLA",
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "development_residual_identities": [
+      20260727,
+      20260730,
+      20260733
+    ],
+    "clean_retention_identities": [
+      20260731,
+      20260732
+    ],
+    "development_evaluation_identities": [
+      20260727,
+      20260730,
+      20260733,
+      20260731,
+      20260732
+    ],
+    "held_out_confirmatory_identity_pool": [
+      20260734,
+      20260735,
+      20260736,
+      20260737
+    ],
+    "held_out_used_in_this_protocol": false
+  },
+  "upstream_adjudication": {
+    "artifact": "runs/xvla_prior/epoch5_sgl_xvla_task5_stage0_adjudication_v1.json",
+    "decision": "SGL_STAGE0_COMPLETE_PROTOCOL_FREEZE_AUTHORIZED_NO_TRAINING_NO_OURS_ROLLOUT",
+    "valid": true
+  },
+  "rollout_arms": [
+    {
+      "arm_id": "X-VLA-FROZEN-EXISTING-EVIDENCE",
+      "comparator_role": "BASE_AND_FIRST_PRIOR_REFERENCE",
+      "execution_plan": "reuse_existing_valid_XVLA_identity_results_when_hashes_match",
+      "rerun_policy": "do_not_rerun_unless_integrity_or_identity_hash_is_missing"
+    },
+    {
+      "arm_id": "FIXED-LIFT-REGRASP-CONTROL",
+      "comparator_role": "SIMPLE_CONTROL",
+      "execution_plan": "future_no_training_control_rollout_only_after_runner_preflight",
+      "episode_identities": [
+        20260727,
+        20260730,
+        20260733,
+        20260731,
+        20260732
+      ],
+      "held_out_episode_identities": []
+    },
+    {
+      "arm_id": "SGL-XVLA",
+      "comparator_role": "OURS_CANDIDATE",
+      "execution_plan": "future_no_training_sgl_rollout_only_after_runner_preflight",
+      "episode_identities": [
+        20260727,
+        20260730,
+        20260733,
+        20260731,
+        20260732
+      ],
+      "held_out_episode_identities": []
+    }
+  ],
+  "episode_budget_if_later_authorized": {
+    "control_development_episodes": 5,
+    "sgl_development_episodes": 5,
+    "xvla_reference_rerun_episodes": 0,
+    "held_out_episodes": 0,
+    "total_new_simulator_episodes": 10,
+    "episode_budget_is_frozen_before_any_new_simulator_episode": true
+  },
+  "metrics": [
+    "success",
+    "final_reward",
+    "steps",
+    "action_chunk_count",
+    "activation_count",
+    "intervention_step_count",
+    "pre_bias_component_action_range",
+    "post_bias_component_action_range",
+    "added_clip_count_by_identity",
+    "policy_latency_seconds",
+    "environment_latency_seconds",
+    "exception",
+    "video_sha256",
+    "result_json_sha256"
+  ],
+  "development_decision_rules": {
+    "primary_residual_pass_condition": "SGL-XVLA succeeds on at least 2 of 3 development residual identities and improves over the frozen X-VLA residual reference.",
+    "clean_retention_pass_condition": "SGL-XVLA succeeds on both clean-retention identities 20260731 and 20260732 with zero positive added clipping.",
+    "simple_control_blocking_condition": "The fixed lift/regrasp control blocks SGL novelty if it matches or exceeds SGL residual success at equal/lower intervention cost with no worse clean retention or added clipping.",
+    "held_out_advancement_condition": "Only if residual and clean-retention conditions pass and the simple control does not explain the gain may a separate held-out protocol be frozen. Held-out identities are not run in this protocol.",
+    "failure_statuses": [
+      "KEY_COMPONENT_NOT_SUPPORTED",
+      "SIMPLE_CONTROL_EXPLAINS_GAIN",
+      "CLEAN_RETENTION_FAILURE",
+      "UNDERPOWERED_ONE_EXPANSION_ALLOWED",
+      "IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE"
+    ]
+  },
+  "durability_requirements_for_future_worker": {
+    "required_files": [
+      "windows_launcher_pid.txt",
+      "wsl_worker_pid.txt",
+      "heartbeat.txt",
+      "worker_started_at.txt",
+      "worker_finished_at.txt",
+      "exit_code.txt",
+      "stdout.log",
+      "stderr.log",
+      "result.json",
+      "result.md"
+    ],
+    "required_hashes": [
+      "result_json_sha256",
+      "video_sha256_by_episode_when_video_exists",
+      "source_file_sha256"
+    ],
+    "long_running_worker_policy": "must have PID, heartbeat, logs, exit code, hashes, and report"
+  },
+  "forbidden_actions": [
+    "No training, LoRA, QLoRA, optimizer step, or checkpoint write.",
+    "No held-out identity rollout in this development protocol.",
+    "No simulator object state, contact state, reward, success flag, reset identity, or HDF5 identity as an inference input.",
+    "No changing identities, arms, metrics, thresholds, or stopping rules after the first new simulator episode.",
+    "No reopening R2P-XVLA or any archived method."
+  ],
+  "comparator_role_calibration": {
+    "base_and_first_prior": "X-VLA reference answers whether SGL improves the frozen prior/backbone on the residual claim axis.",
+    "simple_control": "The fixed lift/regrasp control answers whether a trivial explanation accounts for substantially all gain.",
+    "clean_retention": "Clean identities test degradation and added clipping, not residual gain by themselves.",
+    "held_out": "Held-out identities are reserved for a later confirmatory protocol and are not part of this development screen.",
+    "universal_beat_all_rule_applied": false
+  },
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY",
+    "evidence_role": "NO_TRAINING_ROLLOUT_PROTOCOL_PREREGISTRATION",
+    "artifact_status": "NOT_APPLICABLE",
+    "simulator_episode_count": 0,
+    "vla_model_loaded": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "control_rollout_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "authorization_boundary": {
+    "protocol_frozen": true,
+    "runner_implementation_preflight_authorized_next": true,
+    "simulator_episode_authorized_by_this_artifact": false,
+    "training_authorized": false,
+    "checkpoint_write_authorized": false,
+    "control_rollout_authorized_now": false,
+    "ours_rollout_authorized_now": false,
+    "held_out_rollout_authorized": false,
+    "paper_candidate_go": false,
+    "prototype_go": false
+  },
+  "validation": {
+    "py_compile": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m py_compile tca_map/xvla_spatial_task5/sgl_rollout_protocol.py",
+      "exit_code": 0
+    },
+    "focused_pytest": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_sgl_xvla_stage0_gate.py tests/test_sgl_xvla_observability_audit.py tests/test_sgl_xvla_action_bounds_gate.py tests/test_sgl_xvla_simple_control_gate.py tests/test_sgl_xvla_identity_manifest_gate.py tests/test_sgl_xvla_stage0_adjudication.py tests/test_sgl_xvla_rollout_protocol.py -q",
+      "exit_code": 0,
+      "result": "40 passed in 6.35s"
+    },
+    "protocol_json_emit": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m tca_map.xvla_spatial_task5.sgl_rollout_protocol",
+      "exit_code": 0,
+      "output": "runs/xvla_prior/epoch5_sgl_xvla_task5_no_training_rollout_protocol_v1.json"
+    }
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "control_rollout_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_rollout_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "bounded_conclusion": {
+    "rollout_protocol_frozen": true,
+    "candidate_can_advance_to_runner_preflight": true,
+    "candidate_can_train": false,
+    "candidate_can_roll_out_ours_now": false,
+    "control_can_roll_out_now": false,
+    "held_out_can_roll_out_now": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/epoch5_sgl_xvla_task5_no_training_rollout_protocol_v1.json",
+      "sha256": "bafc6bbf6fa18396366cb9ce3423dc65d2b57a9d2162a189c5b0b10a82b11318",
+      "length_bytes": 7455
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_rollout_protocol.py",
+      "sha256": "44f15f6ae620d8aa04c764dbcd5b77fe33755780bce17c5a7d13f7309f09a90d",
+      "length_bytes": 17174
+    },
+    {
+      "path": "tests/test_sgl_xvla_rollout_protocol.py",
+      "sha256": "6d2deb11d1f5b42732d8d04d57bc1bf2b0c1633f45d51c52bf68f66e3f0140ae",
+      "length_bytes": 4500
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_stage0_adjudication.py",
+      "sha256": "0716ee7c76314705eb08aed9a8354ce49712a016e5ec851fd6b7ee5935c48d8d",
+      "length_bytes": 14410
+    },
+    {
+      "path": "tests/test_sgl_xvla_stage0_adjudication.py",
+      "sha256": "a53a675cf2e2a702155e25ebbf2972f780d50eaf6edbc55f5c296ea8fc9d5b06",
+      "length_bytes": 4450
+    }
+  ],
+  "next_action": "Implement a report-only runner preflight for the frozen SGL-XVLA and fixed-control rollout protocol. Do not launch simulator episodes until the preflight passes."
+}
