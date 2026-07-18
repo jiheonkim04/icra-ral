@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "created_at_kst": "2026-07-18T12:52:00+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_base_launch": "243817b8c07d45649a8f75caee9cc23df6cbd23b",
+  "decision": "POST_TASK5_EXHAUSTED_LIBERO_SPATIAL_IDENTITY20260731_SMOLVLA_BASE_CLEAN_FAILURE_TASK4",
+  "suite": "libero_spatial",
+  "task_id": 4,
+  "reset_identity": 20260731,
+  "initial_state_index": 20,
+  "initial_state_sha256": "ab224edee886b131234e99a0f368026164c95d0cf66b86e2b8e5d57f4752fd0c",
+  "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+  "run_dir": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task4_id20260731_officialenv_20260718T125036KST",
+  "execution_classification": {
+    "execution_type": "VLA_INFERENCE",
+    "evidence_role": "BASE",
+    "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+    "official_closed_loop_success_measured": true,
+    "policy": "frozen_base",
+    "model_family": "SmolVLA",
+    "policy_class": "SmolVLAPolicy",
+    "official_path": "LeRobot SmolVLA policy, processors, postprocessors, and LIBERO env wrapper",
+    "peft_used": false,
+    "control_mode": "relative",
+    "old_custom_libero_7d_route_used": false,
+    "paligemma_import_stub_used": false,
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "windows_launcher_pid": 26780,
+    "peak_vram_mb": 926.638,
+    "simulator_episode_count": 1,
+    "model_forward_count": 6,
+    "model_forward_count_source": "episode.action_chunks_generated"
+  },
+  "matched_prior_reference": {
+    "prior_report_json": "reports/post_task5_exhausted_libero_spatial_20260731_prior_scan_result.json",
+    "prior_policy": "X-VLA-Libero",
+    "prior_task4_result_sha256": "903ba4b63bdc91901ad4238c27261bcdf3695408f6919d1d0ef338313e98e3bf",
+    "prior_task4_success": false,
+    "same_suite_task_and_reset_identity": true
+  },
+  "result": {
+    "completed_episode_count": 1,
+    "successful_episode_count": 0,
+    "infrastructure_failure_count": 0,
+    "success": false,
+    "failure_status": "unsuccessful",
+    "max_reward": 0.0,
+    "sum_reward": 0.0,
+    "env_steps": 280,
+    "action_chunks_generated": 6,
+    "termination_reason": "max_steps_or_truncated_without_success",
+    "elapsed_seconds": 42.262,
+    "episode_elapsed_seconds": 29.621,
+    "policy_latency_mean_s": 0.007138,
+    "policy_latency_max_s": 0.27516,
+    "env_step_latency_mean_s": 0.064586,
+    "env_step_latency_max_s": 0.079201,
+    "video_path": "runs/xvla_prior/smolvla_spatial_task4_videos/frozen_base/libero_spatial/task_4_identity_20260731.mp4",
+    "video_sha256": "3039468a6d4520637ed0daaff71d5b837ef83f985942b40f6bb53e4d4c885c93",
+    "residual_target_confirmed": true,
+    "headroom_gate_authorized": true,
+    "second_prior_gate_authorized": false,
+    "ours_candidate_authorized": false,
+    "training_authorized": false
+  },
+  "policy_load_audit": {
+    "action_chunk_shape": [
+      1,
+      50,
+      7
+    ],
+    "action_chunk_dtype": "torch.float32",
+    "action_chunk_device": "cuda:0",
+    "action_chunk_finite": true,
+    "amp_fp16_or_bf16_active": false,
+    "load_seconds": 7.553,
+    "parameter_dtype": "torch.bfloat16",
+    "parameter_device": "cuda:0",
+    "parameter_numel_sample": 589824
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task4_id20260731_officialenv_20260718T125036KST/result.json",
+      "sha256": "138310144baa433e3b1ea45acbb0a3ba709afcb8d54afcca07f3ee752d906a36",
+      "length_bytes": 6013
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task4_id20260731_officialenv_20260718T125036KST/stdout.log",
+      "sha256": "1f179ec987d3297078bca4a2dc3c217cd2a519a41ecdea3f6c71ab078c2f5d93",
+      "length_bytes": 882
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task4_id20260731_officialenv_20260718T125036KST/stderr.log",
+      "sha256": "5231e740b3f8026c9421b1cce2287fabb9692cefcc6ae30116c10a8e46cd46ce",
+      "length_bytes": 2428
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task4_id20260731_officialenv_20260718T125036KST/exit_code.txt",
+      "sha256": "9585fbece5c402088f2d6a2def7e60d1c7ffecc24b16d32d5823a064b008935b",
+      "length_bytes": 6,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task4_id20260731_officialenv_20260718T125036KST/resume_command.ps1",
+      "sha256": "5b26a766a97db9faefe4115c582009af8c6295aee69c281ad66e1da7fe3031e1",
+      "length_bytes": 994
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task4_id20260731_officialenv_20260718T125036KST/worker_started_at.txt",
+      "sha256": "60a65dd9b6d5a0fb147f26bbdfc3431bf1c37d6f4040cef0a0bab310b68a0cc1",
+      "length_bytes": 38,
+      "worker_started_at": "2026-07-18T12:50:36.2907876+09:00"
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task4_id20260731_officialenv_20260718T125036KST/windows_launcher_pid.txt",
+      "sha256": "1e805927ccc778b9bd1f0ade30b15e519375673cc9d1c274ce6f37fdebde0ba5",
+      "length_bytes": 10,
+      "windows_launcher_pid": 26780
+    },
+    {
+      "path": "runs/xvla_prior/smolvla_spatial_task4_videos/frozen_base/libero_spatial/task_4_identity_20260731.mp4",
+      "sha256": "3039468a6d4520637ed0daaff71d5b837ef83f985942b40f6bb53e4d4c885c93",
+      "length_bytes": 93231
+    },
+    {
+      "path": "tca_map/smolvla/exact_hard_slice_rollout.py",
+      "sha256": "3ca3b09f93ca69f8e779a687b6d00389e2642da6e8c2a08739524c34c3e8fabf",
+      "length_bytes": 14574
+    }
+  ],
+  "next_action": "Run expert-headroom gate for libero_spatial/task_4 reset identity 20260731 before any second-prior, candidate generation, Ours design, LoRA/QLoRA training, or training."
+}
