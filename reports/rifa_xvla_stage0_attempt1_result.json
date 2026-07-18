@@ -1,0 +1,87 @@
+{
+  "schema_version": "2026-07-18.epoch5_rifa_xvla_stage0_attempt1_result.v1",
+  "execution_classification": "OURS_VLA_TRAINING",
+  "method": "RIFA_XVLA",
+  "source_head": "3b8c4d25ccd15e90fd555af43b2a1af003caa8b9",
+  "run_dir": "runs/rifa_xvla/stage0_20260718T213338KST",
+  "decision": "RIFA_XVLA_STAGE0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE",
+  "execution_valid": false,
+  "failure_stage": "load_frozen_xvla",
+  "failure_classification": "CHECKPOINT_PATH_DEFECT",
+  "exception": {
+    "type": "AttributeError",
+    "message": "'NoneType' object has no attribute 'endswith'",
+    "cause": "The runner pointed Transformers at the parent Hugging Face cache instead of its populated transformers subdirectory."
+  },
+  "scientific_protocol_changed": false,
+  "optimizer_steps": 0,
+  "adapter_checkpoints_written": 0,
+  "ours_closed_loop_rollout_happened": false,
+  "official_closed_loop_success_measured": false,
+  "repair": {
+    "authorized_count": 1,
+    "used_count": 1,
+    "before": "/home/jiheon/assets/checkpoints/xvla_hf_cache",
+    "after": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers",
+    "rerun_same_frozen_stage": true
+  },
+  "artifacts": [
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213338KST/result.json",
+      "sha256": "a7ec30827093fedc29c66c1f5338792e7f83d037e48d1d6feeb92f05d8b1033f",
+      "bytes": 13704
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213338KST/result.md",
+      "sha256": "24a6ec99c16e418f87a924addc129e20b54b96deb97e81dae0ea3d1dd2ea9797",
+      "bytes": 1563
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213338KST/launch_manifest.json",
+      "sha256": "2978153d431ef01d7728fa0e5201ddbdee455cae4a48984a16057bcb52e3bcde",
+      "bytes": 2954
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213338KST/partial_result.json",
+      "sha256": "b3f5aa75a3c45574d851797e3a79529bf22c1143f43d7333af91c94271d4aa99",
+      "bytes": 309
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213338KST/status.json",
+      "sha256": "d397ea4daf474c572024f21b9dce71f7febfc665e3765e660fc29f282bf4b5df",
+      "bytes": 177
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213338KST/heartbeat.json",
+      "sha256": "e9a5a012f06df6f823031d62b1cf49d2194a12d9ccd5b29d53bdca99e9aab572",
+      "bytes": 83
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213338KST/stdout.log",
+      "sha256": "d39e2b23426e931f150923d94bdc03a310464a619d27376ddeca089fe710c9a4",
+      "bytes": 575
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213338KST/stderr.log",
+      "sha256": "5c58efb1d8087456a1fff4c1a051d4398f25211f9817e0fe802ebc0e4e291c39",
+      "bytes": 374
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213338KST/exit_code.txt",
+      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+      "bytes": 2
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213338KST/worker_pid.txt",
+      "sha256": "40fdd581c78f064c643714cca26d1a4046e1a3218b693a58b14ff16b1e2d110e",
+      "bytes": 4,
+      "pid": 382
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213338KST/windows_launcher_pid.txt",
+      "sha256": "85c10407b823b59c1426f8ac423501d0e6dd3a644d750f8c1248c870bf3cff78",
+      "bytes": 5,
+      "pid": 240
+    }
+  ]
+}

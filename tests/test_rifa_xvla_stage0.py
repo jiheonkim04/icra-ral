@@ -34,6 +34,9 @@ def test_frozen_contract_preserves_panel_split_and_budget() -> None:
     assert contract["training_budget"]["configuration_count"] == 1
     assert contract["training_budget"]["optimizer_steps_per_arm"] == 6
     assert contract["execution_boundary"]["closed_loop_rollout_authorized"] is False
+    assert contract["xvla"]["cache_dir"].endswith("/xvla_hf_cache/transformers")
+    assert contract["bounded_repair"]["count"] == 1
+    assert contract["bounded_repair"]["scientific_protocol_changed"] is False
     json.dumps(contract)
 
 

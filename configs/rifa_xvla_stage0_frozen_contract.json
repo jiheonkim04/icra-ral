@@ -11,7 +11,7 @@
     "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
     "source_root": "/mnt/c/assets/repos/X-VLA",
     "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
-    "cache_dir": "/home/jiheon/assets/checkpoints/xvla_hf_cache",
+    "cache_dir": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers",
     "domain_id": 3,
     "action_mode": "ee6d",
     "num_actions": 30,
@@ -123,5 +123,26 @@
     "natural_reset_mining_authorized": false,
     "confirmatory_tuning_authorized": false,
     "automatic_follow_on_empirical_stage": null
+  },
+  "bounded_repair": {
+    "count": 1,
+    "classification": "CHECKPOINT_PATH_DEFECT",
+    "scientific_protocol_changed": false,
+    "failed_attempt": "runs/rifa_xvla/stage0_20260718T213338KST",
+    "failed_result_sha256": "a7ec30827093fedc29c66c1f5338792e7f83d037e48d1d6feeb92f05d8b1033f",
+    "failed_stderr_sha256": "5c58efb1d8087456a1fff4c1a051d4398f25211f9817e0fe802ebc0e4e291c39",
+    "failed_exit_code_sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfd3c3",
+    "before": "/home/jiheon/assets/checkpoints/xvla_hf_cache",
+    "after": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers",
+    "unchanged_fields": [
+      "panel",
+      "identities",
+      "data_split",
+      "mechanism",
+      "full_and_ablation_definitions",
+      "training_budget",
+      "decision_thresholds",
+      "comparator_roles"
+    ]
   }
 }
