@@ -56,6 +56,10 @@ def validate_frozen_method_spec(spec: dict[str, Any]) -> None:
         raise ValueError("frozen X-VLA scope drift")
     if xvla.get("cpu_or_disk_model_offload") is not False:
         raise ValueError("model offload is prohibited")
+    paired_forward = spec.get("paired_training_forward") or {}
+    condition = str(paired_forward.get("wrist_dropout_implementation", ""))
+    if "do not change image_mask" not in condition or "black-frame tensor" not in condition:
+        raise ValueError("frozen black-pixel wrist-dropout wiring drift")
 
     module = spec.get("trainable_module") or {}
     adapter = ActionConsistentMissingViewAdapter(
@@ -137,3 +141,8 @@ def validate_frozen_method_spec(spec: dict[str, Any]) -> None:
         raise ValueError("second backbone may not be a universal paper gate")
     if boundaries.get("camera_only_validation_required_for_paper_candidate_go") is not False:
         raise ValueError("camera-only validation may not be a universal paper gate")
+    erratum = spec.get("pre_execution_specification_erratum") or {}
+    if erratum.get("scientific_condition_changed") is not False:
+        raise ValueError("pre-execution condition correction may not change the science")
+    if erratum.get("bounded_implementation_repair_consumed") is not False:
+        raise ValueError("description correction may not consume the implementation repair")

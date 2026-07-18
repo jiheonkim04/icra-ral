@@ -14,7 +14,9 @@ The authoritative machine-readable contract is
 The clean teacher and dropout student use the same frozen official X-VLA
 checkpoint, action preprocessing, 30-step horizon, diffusion state, and noise.
 The teacher sees synchronized agent and valid wrist views. The student sees the
-matched agent view with the wrist marked missing.
+matched agent view, processor-equivalent black wrist pixels, the unchanged
+official sample `image_mask=[true,true,false]`, and `missing_indicator=1`.
+This is the exact already-frozen `mask_1_in_hand_dropout` implementation.
 
 The real student attachment is the output of `model.transformer.norm` before
 the official frozen `action_decoder`. A 0-initialized residual adapter maps each
@@ -160,3 +162,11 @@ export: `5 passed`.
 Next: freeze a separate Stage 0 preregistration with measured deterministic
 noise values and risk-assessed actual-path microbatch limits before the first
 optimizer step.
+
+Pre-execution erratum: the first pushed specification prose incorrectly called
+the condition an image-mask dropout. Code inspection before any optimizer or
+preflight step confirmed that the frozen RIFA/CVLR condition instead replaces
+only wrist pixels with the processor-equivalent black tensor and leaves the
+official image mask unchanged. Correcting that description changes no data,
+mechanism, loss, threshold, or budget and does not consume the one bounded
+implementation repair.

@@ -73,7 +73,8 @@
   },
   "paired_training_forward": {
     "teacher_input": "matched current agent view plus valid synchronized current wrist view and identical language/proprioception",
-    "student_input": "matched current agent view plus image_mask wrist dropout and identical language/proprioception",
+    "student_input": "matched current agent view plus processor-equivalent black wrist pixels, unchanged official sample image_mask [true,true,false], identical language/proprioception, and missing_indicator=1",
+    "wrist_dropout_implementation": "preserve the frozen mask_1_in_hand_dropout condition exactly: replace only wrist image_input[1] with the X-VLA-processor black-frame tensor; do not change image_mask",
     "noise_coupling": "teacher and student receive identical x_t and t for every exposure",
     "diffusion_state": "x_t = t * epsilon + (1-t) * demonstration_action",
     "t_schedule": "within every effective batch of eight, t_j=(j+0.5)/8 for j=0..7",
@@ -137,7 +138,7 @@
   "deployment_graph": {
     "dropout_path": [
       "official X-VLA processor",
-      "official X-VLA forward_vlm with missing wrist image mask",
+      "official X-VLA forward_vlm with processor-equivalent black wrist pixels and the unchanged official image_mask",
       "official frozen action transformer",
       "shared_down and shared_core on transformer.norm action hidden",
       "bounded action_residual_output",
@@ -388,5 +389,16 @@
     "current_count": 0,
     "allowed_classes": ["PATH_ERROR", "SERIALIZER_FAILURE", "DTYPE_DEVICE_MISMATCH", "CHECKPOINT_PATH_DEFECT", "LAUNCHER_OR_PID_ERROR", "LIVE_QUERY_WIRING_DEFECT", "OUTPUT_DIRECTORY_ERROR", "NON_SCIENTIFIC_ENVIRONMENT_DEPENDENCY_ERROR"],
     "scientific_fields_immutable": ["method", "trainable_module", "teacher_student_tensors", "objectives", "data_splits", "stage0_training_arms", "comparator_roles", "training_budget", "practical_effect_rule", "safety_and_validity"]
+  },
+  "pre_execution_specification_erratum": {
+    "classification": "CONDITION_WIRING_DESCRIPTION_CORRECTION",
+    "discovered_before_optimizer_or_preflight_step": true,
+    "before": "incorrect prose described mask_1_in_hand_dropout as an image_mask wrist dropout",
+    "after": "actual frozen implementation replaces wrist pixels with the processor-equivalent black tensor while preserving official image_mask [true,true,false]",
+    "scientific_condition_changed": false,
+    "training_budget_changed": false,
+    "threshold_changed": false,
+    "bounded_implementation_repair_consumed": false,
+    "authoritative_evidence": "tca_map/rifa_xvla/stage0.py::prepare_offline_inputs and the completed RIFA/CVLR frozen condition"
   }
 }

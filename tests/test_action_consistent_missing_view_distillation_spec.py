@@ -99,4 +99,7 @@ def test_spec_is_machine_readable_without_outcome_fields() -> None:
     assert len(raw["data_splits"]["stage_b"]["failure_conditions"]) == 3
     assert raw["execution_boundaries"]["second_backbone_required_for_paper_candidate_go"] is False
     assert raw["execution_boundaries"]["camera_only_validation_required_for_paper_candidate_go"] is False
+    assert "do not change image_mask" in raw["paired_training_forward"]["wrist_dropout_implementation"]
+    assert raw["pre_execution_specification_erratum"]["scientific_condition_changed"] is False
+    assert raw["pre_execution_specification_erratum"]["bounded_implementation_repair_consumed"] is False
     assert "result" not in raw

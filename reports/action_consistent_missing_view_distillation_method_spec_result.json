@@ -7,13 +7,13 @@
   "source_head": "1d746978b89a9931c92182e3c3a8679323dbd637",
   "frozen_spec": {
     "path": "configs/action_consistent_missing_view_distillation_xvla_frozen_spec.json",
-    "sha256": "97907bb24508b0192f9d7df400313bbee68ab2fa0cd2d7b4cc7f4cb67e23f4b9"
+    "sha256": "e9cc974de6806021b2596f87d12674d3e0f852f70c767854f130731baea3c1fd"
   },
   "implementation": {
     "adapter": "tca_map/action_consistent_missing_view_distillation/adapter.py",
     "adapter_sha256": "62454a80d485bff016af762f1ec3e64fa0a023ea20b688c3217bf2a191f6de8c",
     "validator": "tca_map/action_consistent_missing_view_distillation/spec.py",
-    "validator_sha256": "199a84414fc1b1b8320f193cfc8405026707432ea4e91127288633b2f9719c5d",
+    "validator_sha256": "c3b18bb9e4121a8ee044572b4dcb88254592403964ad40753eb32f53ebad6082",
     "test": "tests/test_action_consistent_missing_view_distillation_spec.py"
   },
   "scientific_method": {
@@ -134,5 +134,12 @@
     "closed_loop_rollout_started": false,
     "confirmatory_outcomes_accessed": false,
     "next_authorized_stage": "STAGE0_PREREGISTRATION_AND_ACTUAL_PATH_PREFLIGHT"
+  },
+  "pre_execution_specification_erratum": {
+    "classification": "CONDITION_WIRING_DESCRIPTION_CORRECTION",
+    "actual_condition": "processor-equivalent black wrist pixels with unchanged official image_mask [true,true,false] and missing_indicator=1",
+    "scientific_condition_changed": false,
+    "optimizer_or_preflight_step_occurred_before_correction": false,
+    "bounded_implementation_repair_consumed": false
   }
 }
