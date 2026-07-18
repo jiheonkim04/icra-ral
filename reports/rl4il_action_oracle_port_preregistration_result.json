@@ -1,0 +1,118 @@
+{
+  "schema_version": "2026-07-18.epoch5_rl4il_action_oracle_port_preregistration.v1",
+  "decision": "RL4IL_ACTION_ORACLE_PRIOR_PORT_PREREGISTERED_NOT_LAUNCHED",
+  "prerequisite_decisions": [
+    "WRIST_DROPOUT_REPEATED_PROBLEM_CONFIRMED",
+    "RL4IL_EXTERNAL_PRIOR_SELECTED_FEATURE_SMOKE_PASS_PRIOR_ROLLOUT_REQUIRED",
+    "RL4IL_OFFICIAL_RELEASE_PRIOR_ROLLOUT_NOT_ARMED_CONSTANT_LABEL_SUPERVISION",
+    "RL4IL_ACTION_ORACLE_PORT_PREFLIGHT_PASS"
+  ],
+  "prior_role": "selected_external_prior_comparator",
+  "not_ours_method": true,
+  "paper_prior": "RL4IL",
+  "local_port_reason": "The cloned official release has constant-label supervision and no bundled checkpoints; the paper-level prior remains closest, so a mechanism-faithful action-sequence-oracle port is preregistered before any Ours design.",
+  "frozen_panel": [
+    {
+      "suite": "libero_goal",
+      "task_id": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "identities": [
+        20260733,
+        20260734,
+        20260735
+      ]
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 0,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "identities": [
+        20260733,
+        20260734,
+        20260735
+      ]
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 5,
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "identities": [
+        20260731,
+        20260732,
+        20260735
+      ]
+    }
+  ],
+  "identity_mapping": {
+    "identity_base": 20260711,
+    "rule": "initial_state_index = reset_identity - identity_base",
+    "query_source": "live initial observation after setting the official LIBERO init state; do not use same-index HDF5 demos as paired queries"
+  },
+  "training_library": {
+    "source": "/mnt/c/assets/data/libero",
+    "demos_per_task": 50,
+    "modalities": [
+      "agent RGB",
+      "in-hand RGB",
+      "language"
+    ],
+    "actions": "7D LIBERO demonstration actions",
+    "validation_split": "fixed demo indices 40..49 reserved for validation diagnostics when a split is needed; no confirmatory task selection after outcomes"
+  },
+  "action_sequence_oracle": {
+    "resample_steps": 64,
+    "distance": "mean squared error between 64-step linearly resampled 7D action trajectories plus 0.01 times normalized length difference",
+    "self_candidates": "excluded",
+    "candidate_oracle": "minimum action-sequence distance inside the BFS candidate set",
+    "preflight_result": "nondegenerate on all three panel tasks"
+  },
+  "rl4il_mechanism_to_preserve": [
+    "frozen CLIP ViT-B/32 encoders",
+    "modality-fair normalization",
+    "kNN seed retrieval and BFS candidate sets",
+    "PPO-guided candidate ranking with action-sequence oracle rewards",
+    "soft in-hand-camera imputation for mask_1 via per-modality donor retrieval and soft imputation head",
+    "open-loop replay of the retrieved training demonstration action sequence"
+  ],
+  "bounded_stage_a_budget": {
+    "conditions": [
+      "clean",
+      "mask_1_in_hand_dropout"
+    ],
+    "episodes": "9 clean + 9 mask_1 dropout on the frozen panel",
+    "max_steps": 260,
+    "settle_steps": 10,
+    "prediction_ppo_epochs": 1,
+    "prediction_fusion_epochs": 1,
+    "imputation_ppo_epochs_mod1": 1,
+    "soft_imputation_epochs_mod1": 1,
+    "no_xvla_training": true,
+    "no_ours_method": true
+  },
+  "fidelity_gates_before_accepting_prior_result": [
+    "action-oracle candidate targets are nonconstant",
+    "trainable RL4IL prior parameters are greater than zero",
+    "finite nonzero gradients occur in the prediction or imputation modules",
+    "optimizer steps occur for the prior modules only",
+    "checkpoint write and reload succeeds for prior modules",
+    "mask_1 path uses imputed in-hand embeddings rather than zero fill",
+    "live query observations come from the official reset states",
+    "all infra exceptions are reported"
+  ],
+  "future_decision_rule": {
+    "RL4IL_ACTION_ORACLE_PRIOR_LOCAL_RESIDUAL_ESTABLISHED": "valid run, mask_1 success greater than frozen X-VLA dropout success and less than clean ceiling, leaving residual gap",
+    "RL4IL_ACTION_ORACLE_PRIOR_NO_LOCAL_IMPROVEMENT": "valid run but mask_1 success does not improve over frozen X-VLA dropout",
+    "RL4IL_ACTION_ORACLE_PRIOR_SATURATES_CONDITION": "valid run and mask_1 success reaches the clean ceiling, leaving no local residual for Ours on this panel",
+    "RL4IL_ACTION_ORACLE_PRIOR_EVALUATION_INVALID": "fidelity gate failure, incomplete paired results, or infrastructure defect"
+  },
+  "negative_controls": {
+    "broad_natural_reset_sweep_happened": false,
+    "sgl_rerun_happened": false,
+    "ocr_rerun_happened": false,
+    "awf_rerun_or_rescue_happened": false,
+    "ours_method_selected": false,
+    "ours_training_happened": false,
+    "ours_rollout_happened": false
+  },
+  "next_action": "Implement or launch the bounded RL4IL action-sequence-oracle prior runner; do not generate Ours until the prior result and residual gap are known."
+}

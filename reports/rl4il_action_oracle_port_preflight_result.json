@@ -1,0 +1,259 @@
+{
+  "action_oracle_config": {
+    "length_penalty_weight": 0.01,
+    "resample_steps": 64
+  },
+  "checkpoint_written": false,
+  "dataset_root": "/mnt/c/assets/data/libero",
+  "decision": "RL4IL_ACTION_ORACLE_PORT_PREFLIGHT_PASS",
+  "hdf5_demo_index_matches_official_reset_state": false,
+  "identity_base": 20260711,
+  "live_query_required": true,
+  "next_action": "Implement or launch the bounded RL4IL action-sequence-oracle prior runner with live initial-observation queries.",
+  "optimizer_step_happened": false,
+  "ours_method_selected": false,
+  "ours_rollout_happened": false,
+  "ours_training_happened": false,
+  "schema_version": "2026-07-18.epoch5_rl4il_action_oracle_port_preflight.v1",
+  "simulator_rollout_happened": false,
+  "tasks": [
+    {
+      "action_dim": 7,
+      "action_length_max": 196,
+      "action_length_min": 116,
+      "demo_count": 50,
+      "hdf5": "/mnt/c/assets/data/libero/libero_goal/open_the_middle_drawer_of_the_cabinet_demo.hdf5",
+      "identity_checks": [
+        {
+          "hdf5_demo_same_index_init_shape": [
+            79
+          ],
+          "hdf5_same_index_l2_to_official": 0.7745020951020343,
+          "initial_state_index": 22,
+          "official_init_sha256": "691b53cb88c123c0fdeed583be88c2371bb7aa077b2605113ce0538c96bd95d4",
+          "official_init_shape": [
+            79
+          ],
+          "reset_identity": 20260733
+        },
+        {
+          "hdf5_demo_same_index_init_shape": [
+            79
+          ],
+          "hdf5_same_index_l2_to_official": 0.32979023502165505,
+          "initial_state_index": 23,
+          "official_init_sha256": "925b60edb7c35a090316576c6dca0d46fc386cd3879af25da45437660588b8d4",
+          "official_init_shape": [
+            79
+          ],
+          "reset_identity": 20260734
+        },
+        {
+          "hdf5_demo_same_index_init_shape": [
+            79
+          ],
+          "hdf5_same_index_l2_to_official": 0.321216349955591,
+          "initial_state_index": 24,
+          "official_init_sha256": "3bb4aa58c04fb9b1f6f5ae13ce05548f71b7b34e185c827b54e0aa4b5e8a06f3",
+          "official_init_shape": [
+            79
+          ],
+          "reset_identity": 20260735
+        }
+      ],
+      "instruction": "open the middle drawer of the cabinet",
+      "nearest_oracle_preview": [
+        {
+          "distance": 0.015555772378068903,
+          "oracle_demo": "demo_22",
+          "source_demo": "demo_0"
+        },
+        {
+          "distance": 0.008571309696169609,
+          "oracle_demo": "demo_4",
+          "source_demo": "demo_1"
+        },
+        {
+          "distance": 0.01991051574317825,
+          "oracle_demo": "demo_12",
+          "source_demo": "demo_2"
+        },
+        {
+          "distance": 0.013268689809239093,
+          "oracle_demo": "demo_39",
+          "source_demo": "demo_3"
+        },
+        {
+          "distance": 0.005820923484861851,
+          "oracle_demo": "demo_7",
+          "source_demo": "demo_4"
+        }
+      ],
+      "nearest_oracle_unique_count": 27,
+      "official_init_count": 50,
+      "pairwise_distance_mean_offdiag": 0.037908262177564774,
+      "pairwise_distance_min_offdiag": 0.004562416728585959,
+      "suite": "libero_goal",
+      "task_id": 0
+    },
+    {
+      "action_dim": 7,
+      "action_length_max": 196,
+      "action_length_min": 136,
+      "demo_count": 50,
+      "hdf5": "/mnt/c/assets/data/libero/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket_demo.hdf5",
+      "identity_checks": [
+        {
+          "hdf5_demo_same_index_init_shape": [
+            110
+          ],
+          "hdf5_same_index_l2_to_official": 1.1397043511822882,
+          "initial_state_index": 22,
+          "official_init_sha256": "149eaf704c907959be1fce2adf4e2b99b84637e003a30c605ae0aeca4a316c5e",
+          "official_init_shape": [
+            110
+          ],
+          "reset_identity": 20260733
+        },
+        {
+          "hdf5_demo_same_index_init_shape": [
+            110
+          ],
+          "hdf5_same_index_l2_to_official": 1.0824970343406208,
+          "initial_state_index": 23,
+          "official_init_sha256": "8fd92503e6ba920f10f66e724176f0b55c26bcc9395be1046ac179e03bf7b317",
+          "official_init_shape": [
+            110
+          ],
+          "reset_identity": 20260734
+        },
+        {
+          "hdf5_demo_same_index_init_shape": [
+            110
+          ],
+          "hdf5_same_index_l2_to_official": 1.0786177508593875,
+          "initial_state_index": 24,
+          "official_init_sha256": "31f9a9249bb9d878c1a5023b8c3e8a9282101cbd8a6a4889b19245c65d87472b",
+          "official_init_shape": [
+            110
+          ],
+          "reset_identity": 20260735
+        }
+      ],
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "nearest_oracle_preview": [
+        {
+          "distance": 0.01959340737237559,
+          "oracle_demo": "demo_27",
+          "source_demo": "demo_0"
+        },
+        {
+          "distance": 0.03599198785059306,
+          "oracle_demo": "demo_47",
+          "source_demo": "demo_1"
+        },
+        {
+          "distance": 0.01110265433380421,
+          "oracle_demo": "demo_40",
+          "source_demo": "demo_2"
+        },
+        {
+          "distance": 0.02010087593345885,
+          "oracle_demo": "demo_19",
+          "source_demo": "demo_3"
+        },
+        {
+          "distance": 0.011662648249587982,
+          "oracle_demo": "demo_11",
+          "source_demo": "demo_4"
+        }
+      ],
+      "nearest_oracle_unique_count": 30,
+      "official_init_count": 50,
+      "pairwise_distance_mean_offdiag": 0.07503705708699998,
+      "pairwise_distance_min_offdiag": 0.006711575442912595,
+      "suite": "libero_object",
+      "task_id": 0
+    },
+    {
+      "action_dim": 7,
+      "action_length_max": 154,
+      "action_length_min": 86,
+      "demo_count": 50,
+      "hdf5": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+      "identity_checks": [
+        {
+          "hdf5_demo_same_index_init_shape": [
+            92
+          ],
+          "hdf5_same_index_l2_to_official": 2.987195200651865,
+          "initial_state_index": 20,
+          "official_init_sha256": "7a3297ec1b170ec45b15af3de0e9ea7980bc479cc017842d7e5d66b3362b2134",
+          "official_init_shape": [
+            92
+          ],
+          "reset_identity": 20260731
+        },
+        {
+          "hdf5_demo_same_index_init_shape": [
+            92
+          ],
+          "hdf5_same_index_l2_to_official": 2.98560735958861,
+          "initial_state_index": 21,
+          "official_init_sha256": "87f12a540d751c063931039d6c667170d2175b401711b1dafd44f04a4cce37fb",
+          "official_init_shape": [
+            92
+          ],
+          "reset_identity": 20260732
+        },
+        {
+          "hdf5_demo_same_index_init_shape": [
+            92
+          ],
+          "hdf5_same_index_l2_to_official": 2.992202742791687,
+          "initial_state_index": 24,
+          "official_init_sha256": "8999f5cec79ff0e9ea8952dd394f2d21a9f8b9f2243f389090d970761ba500ce",
+          "official_init_shape": [
+            92
+          ],
+          "reset_identity": 20260735
+        }
+      ],
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "nearest_oracle_preview": [
+        {
+          "distance": 0.06085048978563643,
+          "oracle_demo": "demo_1",
+          "source_demo": "demo_0"
+        },
+        {
+          "distance": 0.03021497679575709,
+          "oracle_demo": "demo_4",
+          "source_demo": "demo_1"
+        },
+        {
+          "distance": 0.02438657160324991,
+          "oracle_demo": "demo_6",
+          "source_demo": "demo_2"
+        },
+        {
+          "distance": 0.02390250652659038,
+          "oracle_demo": "demo_18",
+          "source_demo": "demo_3"
+        },
+        {
+          "distance": 0.027667662883881762,
+          "oracle_demo": "demo_40",
+          "source_demo": "demo_4"
+        }
+      ],
+      "nearest_oracle_unique_count": 30,
+      "official_init_count": 50,
+      "pairwise_distance_mean_offdiag": 0.12074494501250232,
+      "pairwise_distance_min_offdiag": 0.015192028361396128,
+      "suite": "libero_spatial",
+      "task_id": 5
+    }
+  ],
+  "training_happened": false
+}
