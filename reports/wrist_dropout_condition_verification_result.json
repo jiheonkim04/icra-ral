@@ -1,0 +1,69 @@
+{
+  "axis": "claim_specific_controlled_condition",
+  "baseline_success_count": 2,
+  "broad_identity_sweep_happened": false,
+  "checkpoint_written": false,
+  "condition": "wrist_camera_dropout_partial_observation",
+  "condition_verified": true,
+  "control_rollout_happened": false,
+  "decision": "CLAIM_CONDITION_OFFICIAL_PRIOR_DEGRADATION_VERIFIED",
+  "dropout_success_count": 0,
+  "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+  "matched_future_protocol": {
+    "rgb_policy_input_only": "robot0_eye_in_hand_image zeroed before policy action generation",
+    "same_perturbation_for_prior_and_prior_plus_ours": true,
+    "simulator_state_unchanged": true
+  },
+  "next_action": "Select one method candidate within the steer budget.",
+  "no_ours_method_selected_before_condition": true,
+  "optimizer_step_happened": false,
+  "ours_rollout_happened": false,
+  "policy": "frozen official X-VLA-Libero",
+  "preregistered_discovery_identities": [
+    20260731,
+    20260732
+  ],
+  "rows": [
+    {
+      "baseline_artifact": "reports/ocr_xvla_trace_observability_result.json",
+      "baseline_success": true,
+      "completed": true,
+      "dropout_action_chunk_count": 30,
+      "dropout_steps": 900,
+      "dropout_success": false,
+      "identity": 20260731,
+      "input_perturbation": {
+        "applied_to_policy_input_only": true,
+        "fraction": 0.5,
+        "mode": "wrist_blackout",
+        "privileged_state_used": false,
+        "simulator_state_unchanged": true
+      },
+      "result_path": "runs/xvla_prior/claim_condition_wrist_dropout_task5_discovery_20260718T1455KST/identity_20260731/result.json"
+    },
+    {
+      "baseline_artifact": "reports/ocr_xvla_trace_observability_result.json",
+      "baseline_success": true,
+      "completed": true,
+      "dropout_action_chunk_count": 30,
+      "dropout_steps": 900,
+      "dropout_success": false,
+      "identity": 20260732,
+      "input_perturbation": {
+        "applied_to_policy_input_only": true,
+        "fraction": 0.5,
+        "mode": "wrist_blackout",
+        "privileged_state_used": false,
+        "simulator_state_unchanged": true
+      },
+      "result_path": "runs/xvla_prior/claim_condition_wrist_dropout_task5_discovery_20260718T1455KST/identity_20260732/result.json"
+    }
+  ],
+  "run_dir": "runs/xvla_prior/claim_condition_wrist_dropout_task5_discovery_20260718T1455KST",
+  "schema_version": "2026-07-18.epoch5_wrist_dropout_condition_result.v1",
+  "stage": "epoch_5_claim_specific_condition_wrist_camera_dropout_prior_degradation_check",
+  "success_drop": 2,
+  "task_id": 5,
+  "task_suite": "libero_spatial",
+  "training_happened": false
+}
