@@ -806,3 +806,25 @@ Authoritative current records are
 `reports/action_consistent_missing_view_distillation_archive_decision.json`,
 and
 `reports/action_consistent_missing_view_distillation_exact_scientific_status.json`.
+
+## Strategic Pivot Epoch 1 Authority
+
+Effective `2026-07-19`, the user explicitly authorized a strategic pivot outside
+the closed wrist-dropout method-development axis through the paper-completion
+autonomy steer whose SHA-256 is
+`FCFDE6371541CDB635F1B2D660A80379D227F2B0D32C14B38BBDD9BE7FFD68CC`.
+This authority does not reopen or reinterpret any wrist-dropout result.
+
+`PIVOT_EPOCH_1` evaluated exactly three research theses and returned
+`PIVOT_SELECTED`. The selected thesis is action-chunk reactivity under
+asynchronous inference delay, anchored to the official A2C2 SmolVLA/LIBERO
+implementation. The previous EAC scheduler, TL-ChunkRepair, and phase-retiming
+formulations remain closed; the selected thesis tests an injected inference-delay
+condition and a trained current-observation action-correction prior that those
+routes did not test.
+
+The next authorized stage is official-prior-first problem verification only.
+Ours may not be designed or executed unless the result is
+`VERIFIED_PRIOR_RESIDUAL`. The authoritative selection records are
+`reports/strategic_pivot_epoch1_selection_result.json` and
+`reports/strategic_pivot_epoch1_selection_result.md`.

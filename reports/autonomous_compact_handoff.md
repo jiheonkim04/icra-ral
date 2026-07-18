@@ -8,9 +8,9 @@ Updated: 2026-07-19 KST
 - Source HEAD before the current overlap-audit commit: `ea3782a812e0472c0d05f57300e0d7a43dd67429`
 - Current pushed HEAD before the final scientific-status commit: `097fab385de05f5a7209be2ee711184471a502ef`
 - Epoch/cycle: `5 / 0`
-- Campaign state: `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE_STRATEGIC_PIVOT_REQUIRED`
-- Active method direction: none; `ACTION-CONSISTENT MISSING-VIEW DISTILLATION` is archived.
-- Active stage: `STAGE0_MECHANISM_NOT_SUPPORTED`; no Stage A/B or current-axis empirical stage is authorized.
+- Campaign state: `AUTONOMOUS_CAMPAIGN_ACTIVE_STRATEGIC_PIVOT`
+- Active thesis: action-chunk reactivity under asynchronous inference delay; `ACTION-CONSISTENT MISSING-VIEW DISTILLATION` remains archived.
+- Active stage: `PIVOT_EPOCH_1` selected; official-prior-first problem verification is authorized, but no Ours design is authorized.
 - Novelty decision: `INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE`
 - Active training/rollout worker: none.
 - Paper-level decision: `KEY_COMPONENT_NOT_SUPPORTED`.
@@ -39,6 +39,7 @@ Updated: 2026-07-19 KST
 - RL4IL prior result: `reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json`
 - RIFA final status: `reports/rifa_xvla_v1_archive_decision.json`
 - CVLR final status: `reports/cvlr_xvla_exact_scientific_status.json`
+- Pivot Epoch 1 selection: `reports/strategic_pivot_epoch1_selection_result.json`
 
 ## Frozen scientific state
 
@@ -114,13 +115,12 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 
 ## Immediate next action
 
-None under the current steer. Valid resumed Stage 0 returned
-`STAGE0_MECHANISM_NOT_SUPPORTED`: reconstruction improved by 8.67% and won all
-three tasks, but Full produced no practical action-semantic improvement over
-the matched no-reconstruction ablation and added one gripper disagreement.
-No confirmation, expansion, Stage A/B, closed-loop Ours rollout, renamed v2,
-or new wrist-dropout candidate is authorized. Resumption requires an explicit
-strategic pivot outside this closed method-development axis.
+`PIVOT_EPOCH_1` returned `PIVOT_SELECTED` for asynchronous-delay action
+reactivity, anchored to official A2C2/SmolVLA code. Freeze and execute the
+matched Base/Prior problem-verification protocol. Establish synchronous Base
+competence, a repeated delay gap, A2C2 improvement on that same condition, and
+a residual before any Ours design. All wrist-dropout methods remain archived;
+no current or historical formulation may be reopened or renamed.
 
 ## Final preflight boundary
 
