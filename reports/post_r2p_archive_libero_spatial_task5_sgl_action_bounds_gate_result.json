@@ -1,0 +1,224 @@
+{
+  "schema_version": "2026-07-18.epoch5_sgl_xvla_action_bounds_gate_result.v1",
+  "created_at_kst": "2026-07-18T11:47:13+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "ecda153d2b1a52ef8513640bcd35cd3663c187ad",
+  "stage": "epoch_5_sgl_xvla_task5_stage0_action_bounds_report_only",
+  "decision": "SGL_ACTION_BIAS_BOUNDS_FROZEN_POST_CLAMP_NO_OPTIMIZER_NO_TRAINING",
+  "candidate_id": "SGL-XVLA",
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "residual_identities": [
+      20260727,
+      20260730,
+      20260733
+    ],
+    "clean_retention_identities": [
+      20260731,
+      20260732
+    ],
+    "held_out_confirmatory_identity_pool": [
+      20260734,
+      20260735,
+      20260736,
+      20260737
+    ]
+  },
+  "upstream_gates": {
+    "stage0_artifact": "runs/xvla_prior/epoch5_sgl_xvla_task5_stage0_gate_v1.json",
+    "observability_artifact": "runs/xvla_prior/epoch5_sgl_xvla_task5_observability_audit_v1.json",
+    "observability_decision": "SGL_STAGE0_SUPPORT_OBSERVABILITY_LANGUAGE_PASS_VISUAL_PROGRESS_UNVERIFIED_NO_TRAINING",
+    "stage0_valid": true,
+    "observability_valid": true
+  },
+  "action_bounds_result": {
+    "action_bounds_frozen": true,
+    "bias_type": "support-gated no-optimizer residual action bias",
+    "max_activated_chunks": 2,
+    "assumed_chunk_size_steps": 30,
+    "max_activated_steps": 60,
+    "enabled_bias_dimensions": [
+      "single lift-axis translation component",
+      "gripper open/close component"
+    ],
+    "disabled_bias_dimensions": [
+      "lateral translation components",
+      "roll/pitch/yaw rotation components"
+    ],
+    "lift_axis_translation_bias_max_abs_per_step": 0.2,
+    "lateral_translation_bias_max_abs_per_step": 0.0,
+    "rotation_bias_max_abs_per_step": 0.0,
+    "gripper_bias_max_abs_per_step": 0.25,
+    "post_bias_action_clamp_abs": 1.0,
+    "finite_bias_required": true,
+    "nan_or_inf_policy": "fail_closed_before_any_rollout",
+    "no_optimizer": true,
+    "no_learned_parameters": true,
+    "bounds_pass_expert_envelope": true,
+    "candidate_can_advance_to_simple_fixed_lift_control_gate": true,
+    "candidate_can_train": false,
+    "candidate_can_roll_out_ours": false
+  },
+  "evidence_summary": {
+    "expert_headroom_result_paths": [
+      "runs/xvla_prior/diagnostic_libero_spatial_task5_expert_headroom_20260730_20260718T1105KST/result.json",
+      "runs/xvla_prior/diagnostic_libero_spatial_task5_expert_headroom_20260733_20260718T1121KST/result.json"
+    ],
+    "expert_action_stats": {
+      "selected_demo": "demo_9",
+      "finite": true,
+      "shape": [
+        118,
+        7
+      ],
+      "overall_range": {
+        "min": -1.0,
+        "max": 1.0,
+        "max_abs": 1.0,
+        "mean": 0.031709
+      },
+      "translation_range": {
+        "min": -0.9375,
+        "max": 0.9375,
+        "max_abs": 0.9375,
+        "mean": 0.045316
+      },
+      "rotation_range": {
+        "min": -0.207857,
+        "max": 0.133929,
+        "max_abs": 0.207857,
+        "mean": -0.022176
+      },
+      "gripper_range": {
+        "min": -1.0,
+        "max": 1.0,
+        "max_abs": 1.0,
+        "mean": 0.152542
+      },
+      "clip_rate_if_env_adapter_applied": 0.0
+    },
+    "xvla_action_range_evidence": [
+      {
+        "reset_identity": 20260730,
+        "identity_role": "residual_failure",
+        "success": false,
+        "steps": 900,
+        "first_two_max_abs_upper": 1.1772905588150024
+      },
+      {
+        "reset_identity": 20260731,
+        "identity_role": "clean_retention_success",
+        "success": true,
+        "steps": 88,
+        "first_two_max_abs_upper": 1.1748055219650269
+      },
+      {
+        "reset_identity": 20260732,
+        "identity_role": "clean_retention_success",
+        "success": true,
+        "steps": 134,
+        "first_two_max_abs_upper": 1.1748055219650269
+      },
+      {
+        "reset_identity": 20260733,
+        "identity_role": "residual_failure",
+        "success": false,
+        "steps": 900,
+        "first_two_max_abs_upper": 1.1748055219650269
+      }
+    ],
+    "known_raw_xvla_first_two_chunks_exceed_env_bound": true,
+    "max_observed_first_two_abs": 1.1772905588150024
+  },
+  "saturation_guard": {
+    "post_bias_action_clamp_required": true,
+    "post_bias_action_clamp_abs": 1.0,
+    "suppress_bias_if_component_already_saturated": true,
+    "component_saturation_abs_threshold": 0.98,
+    "forbid_bias_that_increases_existing_saturation": true,
+    "record_pre_bias_component_actions_before_any_rollout": true,
+    "record_post_bias_component_actions_before_any_rollout": true,
+    "record_added_clip_count_by_identity_before_any_rollout": true,
+    "fail_if_clean_retention_added_clip_count_positive": true
+  },
+  "comparator_role_calibration": {
+    "frozen_protocol_decision": "REPORT_ONLY_STAGE0_GATE_NO_NUMERICAL_SUCCESS_PROTOCOL_REWRITTEN",
+    "calibrated_scientific_interpretation": "The simple-control and clean-retention roles remain separate: this gate freezes safe bounds only and does not claim Base/Prior improvement, simple-control defeat, or clean retention."
+  },
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY",
+    "evidence_role": "OURS_CANDIDATE_STAGE0_ACTION_BOUNDS_AUDIT",
+    "artifact_status": "NOT_APPLICABLE",
+    "simulator_episode_count": 0,
+    "vla_model_loaded": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "validation": {
+    "py_compile": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m py_compile tca_map/xvla_spatial_task5/sgl_action_bounds_gate.py",
+      "exit_code": 0
+    },
+    "focused_pytest": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_sgl_xvla_stage0_gate.py tests/test_sgl_xvla_observability_audit.py tests/test_sgl_xvla_action_bounds_gate.py -q",
+      "exit_code": 0,
+      "result": "16 passed in 2.59s"
+    },
+    "gate_json_emit": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m tca_map.xvla_spatial_task5.sgl_action_bounds_gate",
+      "exit_code": 0,
+      "output": "runs/xvla_prior/epoch5_sgl_xvla_task5_action_bounds_gate_v1.json"
+    }
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_rollout_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/epoch5_sgl_xvla_task5_action_bounds_gate_v1.json",
+      "sha256": "33276e8eb20f57b3823513c2961f7cd207792fa7f9f4b0d1e5c219af28154ade",
+      "length_bytes": 11629
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_action_bounds_gate.py",
+      "sha256": "f9a954787d161825cc04d909c4601cec2f9bf72139f3354fe5e79326784f3f4f",
+      "length_bytes": 22410
+    },
+    {
+      "path": "tests/test_sgl_xvla_action_bounds_gate.py",
+      "sha256": "754bd24b0a333ab8a1b75ddb2dfd8a3099a749a3c0e2a50cc82c091ba259b4a1",
+      "length_bytes": 4222
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_observability_audit.py",
+      "sha256": "187d0b12843772573725dfcdc6ef55094a5594f68e1de261cc88a8713fd22526",
+      "length_bytes": 9410
+    },
+    {
+      "path": "tests/test_sgl_xvla_observability_audit.py",
+      "sha256": "79124fc3b059109707317c344e6462b36f970ab9aa81e43ae8af8ce4c69695c1",
+      "length_bytes": 2962
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_stage0_gate.py",
+      "sha256": "0e93d79b517f62d9626016a60b6c3bc835d1054d36d8fd56355a9b74af665c34",
+      "length_bytes": 16105
+    },
+    {
+      "path": "tests/test_sgl_xvla_stage0_gate.py",
+      "sha256": "6cea53193e82582ac28739ba558de8a752a23efd3da2eb376ba8f322d4dab59c",
+      "length_bytes": 2957
+    }
+  ],
+  "next_action": "Freeze the simple fixed-lift/regrasp control before any SGL-XVLA method execution. Do not train, write checkpoints, or run Ours."
+}
