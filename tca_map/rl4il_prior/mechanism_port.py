@@ -889,6 +889,468 @@ def save_bundle(path: pathlib.Path, payload: dict[str, Any]) -> dict[str, Any]:
     return {"path": str(path), "sha256": sha256_file(path)}
 
 
+def load_action_library(dataset_root: pathlib.Path, task: dict[str, Any]) -> dict[str, np.ndarray]:
+    path = dataset_root / str(task["suite"]) / str(task["hdf5"])
+    actions: dict[str, np.ndarray] = {}
+    with h5py.File(path, "r") as h:
+        for key in sorted(h["data"].keys(), key=demo_index):
+            actions[key] = np.asarray(h["data"][key]["actions"], dtype=np.float32)
+    return actions
+
+
+def load_state_module(module: nn.Module, path: pathlib.Path, device: torch.device) -> nn.Module:
+    state = torch.load(path, map_location=device, weights_only=True)
+    module.load_state_dict(state)
+    module.to(device)
+    module.eval()
+    return module
+
+
+def load_task_port(training_dir: pathlib.Path, task: dict[str, Any], device: torch.device) -> dict[str, Any]:
+    task_name = safe_task_name(str(task["suite"]), int(task["task_id"]))
+    task_dir = training_dir / task_name
+    bundle_path = task_dir / "bundle.npz"
+    bundle = np.load(bundle_path, allow_pickle=False)
+    stats = {
+        0: (bundle["stats_cam0_mu"], bundle["stats_cam0_sigma"]),
+        1: (bundle["stats_cam1_mu"], bundle["stats_cam1_sigma"]),
+        2: (bundle["stats_lang_mu"], bundle["stats_lang_sigma"]),
+    }
+    port = {
+        "task_name": task_name,
+        "task_dir": task_dir,
+        "bundle_path": bundle_path,
+        "bundle_sha256": sha256_file(bundle_path),
+        "train_keys": [str(x) for x in bundle["train_keys"].tolist()],
+        "train_clean_emb": bundle["train_clean_emb"].astype(np.float32),
+        "train_mask1_emb": bundle["train_mask1_emb"].astype(np.float32),
+        "train_raw_cam1": bundle["train_raw_cam1"].astype(np.float32),
+        "action_desc": bundle["action_desc"].astype(np.float32),
+        "action_lengths": bundle["action_lengths"].astype(np.float32),
+        "stats": stats,
+        "clean_graph": build_knn_graph(bundle["train_clean_emb"].astype(np.float32)),
+        "mask1_graph": build_knn_graph(bundle["train_mask1_emb"].astype(np.float32)),
+        "imp_graph": build_knn_graph(bundle["train_raw_cam1"].astype(np.float32)),
+        "clean_policy": load_state_module(ScoringMLP(FULL_DIM + 2, FULL_DIM + 4), task_dir / "clean_retrieval_policy.pt", device),
+        "clean_fusion": load_state_module(ActionFusionHead(), task_dir / "clean_action_fusion_head.pt", device),
+        "mask1_policy": load_state_module(ScoringMLP(FULL_DIM + 2, FULL_DIM + 4), task_dir / "mask1_retrieval_policy.pt", device),
+        "mask1_fusion": load_state_module(ActionFusionHead(), task_dir / "mask1_action_fusion_head.pt", device),
+        "imp_policy": load_state_module(ScoringMLP(FULL_DIM + CAM_DIM + 2, CAM_DIM + 3), task_dir / "imputation_policy_mod1.pt", device),
+        "soft_imp": load_state_module(SoftImputationHead(), task_dir / "soft_imputation_head_mod1.pt", device),
+        "checkpoint_hashes": {
+            "clean_retrieval_policy": sha256_file(task_dir / "clean_retrieval_policy.pt"),
+            "clean_action_fusion_head": sha256_file(task_dir / "clean_action_fusion_head.pt"),
+            "mask1_retrieval_policy": sha256_file(task_dir / "mask1_retrieval_policy.pt"),
+            "mask1_action_fusion_head": sha256_file(task_dir / "mask1_action_fusion_head.pt"),
+            "imputation_policy_mod1": sha256_file(task_dir / "imputation_policy_mod1.pt"),
+            "soft_imputation_head_mod1": sha256_file(task_dir / "soft_imputation_head_mod1.pt"),
+        },
+    }
+    return port
+
+
+def obs_agent_rgb(obs: dict[str, Any]) -> np.ndarray:
+    if "agentview_image" in obs:
+        return np.asarray(obs["agentview_image"], dtype=np.uint8)
+    if "agentview_rgb" in obs:
+        return np.asarray(obs["agentview_rgb"], dtype=np.uint8)
+    raise KeyError("live obs has no agentview image")
+
+
+def obs_wrist_rgb(obs: dict[str, Any]) -> np.ndarray:
+    if "robot0_eye_in_hand_image" in obs:
+        return np.asarray(obs["robot0_eye_in_hand_image"], dtype=np.uint8)
+    if "eye_in_hand_rgb" in obs:
+        return np.asarray(obs["eye_in_hand_rgb"], dtype=np.uint8)
+    if "robot0_eye_in_hand_rgb" in obs:
+        return np.asarray(obs["robot0_eye_in_hand_rgb"], dtype=np.uint8)
+    raise KeyError("live obs has no wrist/in-hand image")
+
+
+def encode_live_query(
+    clip: FrozenCLIPEncoder,
+    port: dict[str, Any],
+    obs: dict[str, Any],
+    instruction: str,
+    condition: str,
+    counts: dict[str, int],
+) -> tuple[np.ndarray, dict[str, Any]]:
+    cam0 = obs_agent_rgb(obs)
+    c0 = clip.encode_image([[cam0]])
+    counts["clip_image_forward_count"] = counts.get("clip_image_forward_count", 0) + 1
+    lt = clip.encode_text([instruction])
+    counts["clip_text_forward_count"] = counts.get("clip_text_forward_count", 0) + 1
+    stats = port["stats"]
+    if condition == "clean":
+        cam1 = obs_wrist_rgb(obs)
+        c1 = clip.encode_image([[cam1]])
+        counts["clip_image_forward_count"] = counts.get("clip_image_forward_count", 0) + 1
+        q = partial_embedding([c0[0], c1[0], lt[0]], np.ones(3, dtype=bool), stats)
+        return q, {
+            "mask1_imputation_used": False,
+            "wrist_input_used": True,
+            "agent_rgb_shape": list(cam0.shape),
+            "wrist_rgb_shape": list(cam1.shape),
+        }
+
+    if condition != "mask_1_in_hand_dropout":
+        raise ValueError(f"unknown rollout condition {condition!r}")
+
+    present = np.array([True, False, True], dtype=bool)
+    q_partial = partial_embedding([c0[0], np.zeros(CAM_DIM, dtype=np.float32), lt[0]], present, stats)
+    zero = np.zeros(CAM_DIM, dtype=np.float32)
+    top_ids = select_imputation_donors(port["imp_policy"], q_partial, zero, port["train_raw_cam1"], port["imp_graph"])
+    counts["imputation_policy_forward_count"] = counts.get("imputation_policy_forward_count", 0) + 1
+    device = next(port["soft_imp"].parameters()).device
+    with torch.no_grad():
+        imputed = (
+            port["soft_imp"](
+                torch.tensor(q_partial, dtype=torch.float32, device=device),
+                torch.tensor(port["train_raw_cam1"][top_ids], dtype=torch.float32, device=device),
+            )
+            .detach()
+            .cpu()
+            .numpy()
+            .astype(np.float32)
+        )
+    counts["soft_imputation_forward_count"] = counts.get("soft_imputation_forward_count", 0) + 1
+    q = partial_embedding([c0[0], imputed, lt[0]], np.ones(3, dtype=bool), stats)
+    return q, {
+        "mask1_imputation_used": True,
+        "wrist_input_used": False,
+        "imputation_donor_indices": [int(x) for x in top_ids],
+        "agent_rgb_shape": list(cam0.shape),
+        "wrist_rgb_shape": None,
+    }
+
+
+def retrieve_action_sequence(
+    port: dict[str, Any],
+    condition: str,
+    q_emb: np.ndarray,
+    action_library: dict[str, np.ndarray],
+    counts: dict[str, int],
+) -> tuple[str, np.ndarray, dict[str, Any]]:
+    if condition == "clean":
+        train_emb = port["train_clean_emb"]
+        graph = port["clean_graph"]
+        policy = port["clean_policy"]
+        fusion = port["clean_fusion"]
+    else:
+        train_emb = port["train_mask1_emb"]
+        graph = port["mask1_graph"]
+        policy = port["mask1_policy"]
+        fusion = port["mask1_fusion"]
+    seeds = seed_neighbors(q_emb, train_emb, exclude=None)
+    sequence = bfs(seeds, graph)
+    if not sequence:
+        nearest = int(NearestNeighbors(n_neighbors=1, metric="euclidean").fit(train_emb).kneighbors(q_emb.reshape(1, -1))[1][0][0])
+        key = port["train_keys"][nearest]
+        return key, action_library[key], {"fallback": "nearest_neighbor_no_bfs", "candidate_count": 1}
+    top_ids = top_policy_candidates(policy, q_emb, sequence, train_emb, port["action_lengths"])
+    counts["retrieval_policy_forward_count"] = counts.get("retrieval_policy_forward_count", 0) + 1
+    device = next(fusion.parameters()).device
+    with torch.no_grad():
+        pred_desc = (
+            fusion(
+                torch.tensor(q_emb, dtype=torch.float32, device=device),
+                torch.tensor(train_emb[top_ids], dtype=torch.float32, device=device),
+                torch.tensor(port["action_desc"][top_ids], dtype=torch.float32, device=device),
+            )
+            .detach()
+            .cpu()
+            .numpy()
+            .astype(np.float32)
+        )
+    counts["action_fusion_forward_count"] = counts.get("action_fusion_forward_count", 0) + 1
+    cand_desc = port["action_desc"][top_ids]
+    descriptor_mse = np.mean((cand_desc - pred_desc.reshape(1, -1)) ** 2, axis=1)
+    chosen_pos = int(np.argmin(descriptor_mse))
+    chosen_id = int(top_ids[chosen_pos])
+    key = port["train_keys"][chosen_id]
+    return key, action_library[key], {
+        "fallback": None,
+        "candidate_count": int(len(sequence)),
+        "top_candidate_indices": [int(x) for x in top_ids],
+        "chosen_train_index": int(chosen_id),
+        "chosen_demo_key": key,
+        "chosen_descriptor_mse": float(descriptor_mse[chosen_pos]),
+        "top_descriptor_mse": [float(x) for x in descriptor_mse[: min(5, len(descriptor_mse))]],
+    }
+
+
+def run_one_rollout_episode(
+    env_cls: Any,
+    bddl_file: pathlib.Path,
+    init_state: np.ndarray,
+    identity: int,
+    port: dict[str, Any],
+    action_library: dict[str, np.ndarray],
+    clip: FrozenCLIPEncoder,
+    task: dict[str, Any],
+    condition: str,
+    max_steps: int,
+    settle_steps: int,
+) -> dict[str, Any]:
+    row: dict[str, Any] = {
+        "execution_classification": "PRIOR_CLOSED_LOOP_ROLLOUT",
+        "implementation_label": IMPLEMENTATION_LABEL,
+        "suite": task["suite"],
+        "task_id": int(task["task_id"]),
+        "instruction": str(task["instruction"]),
+        "reset_identity": int(identity),
+        "condition": condition,
+        "completed": False,
+        "success": False,
+        "exception": None,
+        "module_forward_counts": {},
+        "expert_action_replay_counted_as_prior_success": False,
+        "live_inference_uses_target_or_future_action": False,
+    }
+    env = None
+    started = time.monotonic()
+    try:
+        env = env_cls(bddl_file_name=str(bddl_file), camera_heights=128, camera_widths=128)
+        env.seed(int(identity))
+        env.reset()
+        obs = env.set_init_state(np.asarray(init_state, dtype=np.float64))
+        row["set_init_state_ok"] = True
+        for _ in range(int(settle_steps)):
+            obs, _reward, _done, _info = env.step(np.array([0, 0, 0, 0, 0, 0, -1], dtype=np.float32))
+        q_emb, query_meta = encode_live_query(clip, port, obs, str(task["instruction"]), condition, row["module_forward_counts"])
+        selected_key, actions, retrieval_meta = retrieve_action_sequence(
+            port, condition, q_emb, action_library, row["module_forward_counts"]
+        )
+        row["query"] = query_meta
+        row["retrieval"] = retrieval_meta
+        row["retrieved_demo_key"] = selected_key
+        row["retrieved_action_shape"] = [int(x) for x in actions.shape]
+        row["action_sequences_produced_through_frozen_rl4il_port"] = True
+        final_reward = 0.0
+        done_seen = False
+        success_seen = False
+        steps = 0
+        for step, action in enumerate(actions[: int(max_steps)]):
+            obs, reward, done, info = env.step(np.asarray(action, dtype=np.float32))
+            final_reward = float(reward)
+            steps = step + 1
+            info_success = bool(isinstance(info, dict) and info.get("success", False))
+            try:
+                check_success = bool(env.check_success())
+            except Exception:
+                check_success = False
+            success_seen = bool(success_seen or info_success or check_success or float(reward) > 0.0)
+            done_seen = bool(done_seen or done)
+            if success_seen or done:
+                break
+        row.update(
+            {
+                "completed": True,
+                "success": bool(success_seen or done_seen),
+                "done_seen": bool(done_seen),
+                "final_reward": float(final_reward),
+                "steps": int(steps),
+                "max_steps": int(max_steps),
+                "settle_steps": int(settle_steps),
+                "elapsed_seconds": round(time.monotonic() - started, 3),
+            }
+        )
+    except Exception as exc:  # pragma: no cover - simulator boundary
+        row["exception"] = {
+            "type": type(exc).__name__,
+            "message": str(exc),
+            "traceback_tail": traceback.format_exc().splitlines()[-80:],
+        }
+        row["elapsed_seconds"] = round(time.monotonic() - started, 3)
+    finally:
+        if env is not None:
+            try:
+                env.close()
+            except Exception:
+                pass
+    return row
+
+
+def run_rollout(args: argparse.Namespace) -> int:
+    os.environ.setdefault("MUJOCO_GL", "egl")
+    os.environ.setdefault("LIBERO_CONFIG_PATH", "/home/jiheon/.libero")
+    os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+    run_dir = pathlib.Path(args.run_dir)
+    rollout_dir = run_dir / "prior_closed_loop_rollout"
+    rollout_dir.mkdir(parents=True, exist_ok=True)
+    status_path = rollout_dir / "prior_closed_loop_rollout_status.txt"
+    heartbeat_path = rollout_dir / "prior_closed_loop_rollout_heartbeat.txt"
+    status_path.write_text("starting\n", encoding="utf-8")
+    heartbeat_path.write_text(time.strftime("%Y-%m-%dT%H:%M:%S%z") + "\n", encoding="utf-8")
+    if torch.cuda.is_available():
+        torch.cuda.reset_peak_memory_stats()
+    torch.manual_seed(SEED)
+    np.random.seed(SEED)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    started = time.monotonic()
+    result: dict[str, Any] = {
+        "schema_version": "2026-07-18.epoch5_rl4il_action_oracle_prior_closed_loop_rollout.v1",
+        "execution_classification": "PRIOR_CLOSED_LOOP_ROLLOUT",
+        "implementation_label": IMPLEMENTATION_LABEL,
+        "not_official_rl4il_reproduction": True,
+        "not_vla_training": True,
+        "not_ours": True,
+        "run_dir": str(run_dir),
+        "training_dir": str(args.training_dir),
+        "rollout_dir": str(rollout_dir),
+        "conditions": ["clean", "mask_1_in_hand_dropout"],
+        "identity_base": IDENTITY_BASE,
+        "max_steps": int(args.max_steps),
+        "settle_steps": int(args.settle_steps),
+        "episodes": [],
+        "exceptions": [],
+        "expert_action_replay_counted_as_prior_success": False,
+        "live_inference_uses_target_or_future_action": False,
+        "frozen_panel_preserved": True,
+    }
+    try:
+        from libero.libero import get_libero_path
+        from libero.libero.benchmark import get_benchmark_dict
+        from libero.libero.envs import OffScreenRenderEnv
+
+        clip = FrozenCLIPEncoder(device)
+        result["frozen_clip"] = {
+            "model": "openai/clip-vit-base-patch32",
+            "trainable_parameter_count": count_trainable(clip),
+            "all_parameters_frozen": bool(count_trainable(clip) == 0),
+        }
+        benchmark = get_benchmark_dict()
+        for task in PANEL:
+            status_path.write_text(
+                f"rollout {safe_task_name(str(task['suite']), int(task['task_id']))}\n",
+                encoding="utf-8",
+            )
+            heartbeat_path.write_text(time.strftime("%Y-%m-%dT%H:%M:%S%z") + "\n", encoding="utf-8")
+            port = load_task_port(pathlib.Path(args.training_dir), task, device)
+            action_library = load_action_library(pathlib.Path(args.dataset_root), task)
+            task_suite = benchmark[str(task["suite"])]()
+            libero_task = task_suite.get_task(int(task["task_id"]))
+            bddl_file = pathlib.Path(get_libero_path("bddl_files")) / libero_task.problem_folder / libero_task.bddl_file
+            initial_states = task_suite.get_task_init_states(int(task["task_id"]))
+            for identity in task["identities"]:
+                index = int(identity) - IDENTITY_BASE
+                for condition in ["clean", "mask_1_in_hand_dropout"]:
+                    episode = run_one_rollout_episode(
+                        OffScreenRenderEnv,
+                        bddl_file,
+                        np.asarray(initial_states[index]).reshape(-1),
+                        int(identity),
+                        port,
+                        action_library,
+                        clip,
+                        task,
+                        condition,
+                        int(args.max_steps),
+                        int(args.settle_steps),
+                    )
+                    episode["initial_state_index"] = int(index)
+                    result["episodes"].append(episode)
+                    if episode.get("exception"):
+                        result["exceptions"].append(episode["exception"])
+                    write_json(rollout_dir / f"{safe_task_name(str(task['suite']), int(task['task_id']))}_{identity}_{condition}.json", episode)
+        del clip
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+    except Exception as exc:  # pragma: no cover - environment boundary
+        result["exceptions"].append(
+            {
+                "type": type(exc).__name__,
+                "message": str(exc),
+                "traceback_tail": traceback.format_exc().splitlines()[-100:],
+            }
+        )
+
+    episodes = result["episodes"]
+    clean_success = sum(1 for ep in episodes if ep.get("condition") == "clean" and ep.get("success"))
+    dropout_success = sum(1 for ep in episodes if ep.get("condition") == "mask_1_in_hand_dropout" and ep.get("success"))
+    clean_count = sum(1 for ep in episodes if ep.get("condition") == "clean")
+    dropout_count = sum(1 for ep in episodes if ep.get("condition") == "mask_1_in_hand_dropout")
+    completed_count = sum(1 for ep in episodes if ep.get("completed"))
+    module_forward_count = sum(
+        int(value)
+        for ep in episodes
+        for value in (ep.get("module_forward_counts") or {}).values()
+    )
+    valid = bool(
+        not result["exceptions"]
+        and len(episodes) == 18
+        and clean_count == 9
+        and dropout_count == 9
+        and completed_count == 18
+        and module_forward_count > 0
+        and all(bool(ep.get("action_sequences_produced_through_frozen_rl4il_port")) for ep in episodes)
+        and all(not bool(ep.get("live_inference_uses_target_or_future_action")) for ep in episodes)
+        and all(not bool(ep.get("expert_action_replay_counted_as_prior_success")) for ep in episodes)
+    )
+    if not valid:
+        decision = "RL4IL_ACTION_ORACLE_PRIOR_EVALUATION_INVALID"
+    elif dropout_success == 0:
+        decision = "RL4IL_ACTION_ORACLE_PRIOR_NO_LOCAL_IMPROVEMENT"
+    elif dropout_success >= 9:
+        decision = "RL4IL_ACTION_ORACLE_PRIOR_SATURATES_CONDITION"
+    else:
+        decision = "RL4IL_ACTION_ORACLE_PRIOR_LOCAL_RESIDUAL_ESTABLISHED"
+    result["aggregate"] = {
+        "episode_count": len(episodes),
+        "completed_episode_count": int(completed_count),
+        "clean_episode_count": int(clean_count),
+        "dropout_episode_count": int(dropout_count),
+        "clean_success_count": int(clean_success),
+        "dropout_success_count": int(dropout_success),
+        "module_forward_count": int(module_forward_count),
+        "valid": bool(valid),
+    }
+    result["decision"] = decision
+    result["success"] = bool(valid)
+    result["elapsed_seconds"] = round(time.monotonic() - started, 3)
+    result["cuda"] = cuda_report()
+    result["system_ram"] = memory_report()
+    result_path = rollout_dir / "prior_closed_loop_rollout_result.json"
+    write_json(result_path, result)
+    write_rollout_markdown(rollout_dir / "prior_closed_loop_rollout_result.md", result)
+    shutil.copy2(result_path, pathlib.Path("reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json"))
+    shutil.copy2(rollout_dir / "prior_closed_loop_rollout_result.md", pathlib.Path("reports/rl4il_action_oracle_prior_closed_loop_rollout_result.md"))
+    heartbeat_path.write_text(time.strftime("%Y-%m-%dT%H:%M:%S%z") + "\n", encoding="utf-8")
+    status_path.write_text(("complete\n" if valid else "failed\n"), encoding="utf-8")
+    (rollout_dir / "prior_closed_loop_rollout_exit_code.txt").write_text(("0\n" if valid else "2\n"), encoding="utf-8")
+    return 0 if valid else 2
+
+
+def write_rollout_markdown(path: pathlib.Path, result: dict[str, Any]) -> None:
+    agg = result.get("aggregate", {})
+    lines = [
+        "# RL4IL Action-Oracle Prior Closed-Loop Rollout Result",
+        "",
+        f"- Execution classification: `{result.get('execution_classification')}`",
+        f"- Implementation label: `{result.get('implementation_label')}`",
+        f"- Decision: `{result.get('decision')}`",
+        f"- Valid: `{agg.get('valid')}`",
+        f"- Clean successes: `{agg.get('clean_success_count')}/{agg.get('clean_episode_count')}`",
+        f"- mask_1 successes: `{agg.get('dropout_success_count')}/{agg.get('dropout_episode_count')}`",
+        f"- Module forward count: `{agg.get('module_forward_count')}`",
+        f"- Peak VRAM MiB: `{(result.get('cuda') or {}).get('max_allocated_mib')}`",
+        "",
+        "This is an external RL4IL retrieval/imputation prior rollout, not Ours and not VLA fine-tuning.",
+        "",
+        "| suite/task | identity | condition | success | steps | retrieved demo | imputation |",
+        "|---|---:|---|---|---:|---|---|",
+    ]
+    for ep in result.get("episodes", []):
+        query = ep.get("query") or {}
+        lines.append(
+            f"| `{ep.get('suite')}/task{ep.get('task_id')}` | {ep.get('reset_identity')} | `{ep.get('condition')}` | "
+            f"`{ep.get('success')}` | {ep.get('steps')} | `{ep.get('retrieved_demo_key')}` | `{query.get('mask1_imputation_used')}` |"
+        )
+    if result.get("exceptions"):
+        lines += ["", "## Exceptions", "", "```json", json.dumps(result["exceptions"], indent=2), "```"]
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def train_one_task(task: dict[str, Any], dataset_root: pathlib.Path, out_dir: pathlib.Path, clip: FrozenCLIPEncoder, budget: TrainBudget) -> dict[str, Any]:
     started = time.monotonic()
     task_name = safe_task_name(str(task["suite"]), int(task["task_id"]))
@@ -1149,6 +1611,12 @@ def build_parser() -> argparse.ArgumentParser:
     train = sub.add_parser("train")
     train.add_argument("--run-dir", required=True)
     train.add_argument("--dataset-root", default="/mnt/c/assets/data/libero")
+    rollout = sub.add_parser("rollout")
+    rollout.add_argument("--run-dir", required=True)
+    rollout.add_argument("--training-dir", required=True)
+    rollout.add_argument("--dataset-root", default="/mnt/c/assets/data/libero")
+    rollout.add_argument("--max-steps", type=int, default=260)
+    rollout.add_argument("--settle-steps", type=int, default=10)
     return parser
 
 
@@ -1157,6 +1625,8 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.cmd == "train":
         return run_train(args)
+    if args.cmd == "rollout":
+        return run_rollout(args)
     raise ValueError(args.cmd)
 
 
