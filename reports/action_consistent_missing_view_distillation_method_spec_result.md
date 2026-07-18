@@ -170,3 +170,12 @@ only wrist pixels with the processor-equivalent black tensor and leaves the
 official image mask unchanged. Correcting that description changes no data,
 mechanism, loss, threshold, or budget and does not consume the one bounded
 implementation repair.
+
+The one bounded implementation repair was subsequently consumed by the first
+noise worker: `datasets.dataset.InfiniteDataReader` was imported before the
+pinned local X-VLA source root had entered `sys.path`. The failed run, result,
+exit code, and partial materialization remain under
+`runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024502KST`.
+The repair only registers the existing source root before the official reader
+import. It changes no row, loss, threshold, repetition, budget, or model and
+authorizes no further repair.

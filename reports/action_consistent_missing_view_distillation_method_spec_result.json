@@ -7,13 +7,13 @@
   "source_head": "1d746978b89a9931c92182e3c3a8679323dbd637",
   "frozen_spec": {
     "path": "configs/action_consistent_missing_view_distillation_xvla_frozen_spec.json",
-    "sha256": "e9cc974de6806021b2596f87d12674d3e0f852f70c767854f130731baea3c1fd"
+    "sha256": "dfe84c572e588c98acd7038570993fb850ba18dce17a3cf06371806505fb286a"
   },
   "implementation": {
     "adapter": "tca_map/action_consistent_missing_view_distillation/adapter.py",
     "adapter_sha256": "62454a80d485bff016af762f1ec3e64fa0a023ea20b688c3217bf2a191f6de8c",
     "validator": "tca_map/action_consistent_missing_view_distillation/spec.py",
-    "validator_sha256": "c3b18bb9e4121a8ee044572b4dcb88254592403964ad40753eb32f53ebad6082",
+    "validator_sha256": "357adb54cf1d93f2fdc35a1dda06abc13f29c629496208b8b2cc3801e5a323a9",
     "test": "tests/test_action_consistent_missing_view_distillation_spec.py"
   },
   "scientific_method": {
@@ -141,5 +141,14 @@
     "scientific_condition_changed": false,
     "optimizer_or_preflight_step_occurred_before_correction": false,
     "bounded_implementation_repair_consumed": false
+  },
+  "bounded_implementation_repair": {
+    "maximum_count": 1,
+    "current_count": 1,
+    "consumed_by": "PREFLIGHT_OFFICIAL_READER_PATH_ERROR",
+    "failed_attempt": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024502KST",
+    "failed_result_sha256": "f57d7a88b5cbc99040ba54a48a49a7bbd0e9b977d0ff2140482552d8bef617c5",
+    "scientific_protocol_changed": false,
+    "additional_repairs_authorized": false
   }
 }

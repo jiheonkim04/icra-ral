@@ -1,0 +1,43 @@
+{
+  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_noise_path_repair.v1",
+  "decision": "PREFLIGHT_OFFICIAL_READER_PATH_ERROR_REPAIRED_ONCE",
+  "repair_count": 1,
+  "repair_limit": 1,
+  "additional_repairs_authorized": false,
+  "classification": "PATH_ERROR",
+  "source_head_before_repair": "c6dd44b",
+  "failed_attempt": {
+    "run_dir": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024502KST",
+    "result": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024502KST/result.json",
+    "result_sha256": "f57d7a88b5cbc99040ba54a48a49a7bbd0e9b977d0ff2140482552d8bef617c5",
+    "result_md_sha256": "8af1da384f0768640ad5d79ff85842b489ee25f23ba3451d1f47d828499545a5",
+    "exit_code_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "decision": "PREFLIGHT_IMPLEMENTATION_OR_RESOURCE_FAILURE",
+    "exception_type": "ModuleNotFoundError",
+    "exception_message": "No module named 'datasets.dataset'",
+    "failed_stage": "materialize_fixed_discovery_calibration_rows",
+    "python_worker_started": true,
+    "model_loaded": false,
+    "cuda_forward_count": 0,
+    "optimizer_steps": 0,
+    "confirmatory_outcomes_accessed": false
+  },
+  "prelaunch_non_stage_event": {
+    "artifact": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024502KST/prelaunch_attempt1.json",
+    "sha256": "4b50b5f40ecc00029ee83d8b5898e52db3398bb450c26e33b3f0a8cb5013c70b",
+    "classification": "ORCHESTRATOR_PRELAUNCH_REDIRECTION_FAILURE_NOT_A_PYTHON_STAGE_ATTEMPT",
+    "python_worker_started": false,
+    "counted_as_bounded_implementation_repair": false
+  },
+  "root_cause": "materialize_calibration_records called the official X-VLA datasets.dataset.InfiniteDataReader before adding the already-pinned X-VLA source_root to sys.path",
+  "repair": {
+    "file": "tca_map/action_consistent_missing_view_distillation/preflight.py",
+    "scope": "insert the pinned spec.xvla.source_root at sys.path[0] before importing/calling the official reader",
+    "downloads": false,
+    "dependency_install": false,
+    "scientific_protocol_changed": false
+  },
+  "immutable_fields": ["method", "teacher/student tensors", "losses", "12 calibration rows", "repeat_count=3", "optimizer_steps=0", "threshold formulas", "training budget", "comparator roles", "confirmatory split"],
+  "rerun": "same frozen numerical-noise calibration in a new durable run directory",
+  "outcome_accessed": false
+}
