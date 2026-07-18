@@ -1,0 +1,106 @@
+{
+  "before_resources": {
+    "cuda_pid": 284,
+    "gpu_name": "NVIDIA GeForce RTX 5080",
+    "pid": 284,
+    "rss_mb": 522.367,
+    "system_ram_limit_fraction": 0.82,
+    "system_ram_total_gib": 3.33,
+    "system_ram_used_fraction": 0.222,
+    "system_ram_used_gib": 0.74,
+    "vram_allocated_mib": 0.0,
+    "vram_reserved_fraction": 0.0,
+    "vram_reserved_limit_fraction": 0.88,
+    "vram_reserved_mib": 0.0,
+    "vram_total_mib": 16302.562
+  },
+  "checkpoints": [
+    {
+      "bytes": 300273791,
+      "path": "runs/a2c2_prior/checkpoints/step_020000.pt",
+      "sha256": "0F2A6215F54A0258F6D60CF89B97CEFB26695F5A994BF395E8879367AC976ECF",
+      "step": 20000
+    },
+    {
+      "bytes": 300273791,
+      "path": "runs/a2c2_prior/checkpoints/step_040000.pt",
+      "sha256": "C7F22AB037D7C148F6607D55D2F7D78395E19441542B9FE0CB1511318856CF7E",
+      "step": 40000
+    }
+  ],
+  "cuda_pid": 284,
+  "dataset_rows": 2438,
+  "date": "2026-07-19 KST",
+  "disk_reload": {
+    "attempted": true,
+    "exception": null,
+    "max_abs_output_diff": 0.0,
+    "reloaded_step": 40000,
+    "succeeded": true
+  },
+  "elapsed_seconds": 1169.099,
+  "exceptions": [],
+  "fidelity_label": "MECHANISM_FAITHFUL_A2C2_LOCAL_PORT",
+  "final_decision": "PRIOR_MODULE_TRAINING_ACCEPTED",
+  "final_frozen_backbone_hash": "33A646A9F573F8B4209851DC5EF91AEABB1AECF6B41FADDCFBFACEE84F467C05",
+  "final_loss": 0.002334569813683629,
+  "final_trainable_hash": "5BF9A6D1BBDE67B839DAB550781B8E4CA9CA2DA16979D3E359CFBCE97EB6E6E3",
+  "first_loss": 0.02575727179646492,
+  "frozen_backbone_unchanged": true,
+  "frozen_parameter_count": 11166912,
+  "gradient_clip_norm": 10.0,
+  "gradient_norm": {
+    "all_finite_nonzero": true,
+    "final": 0.18306103348731995,
+    "first": 0.5573652982711792,
+    "max": 3.483646869659424,
+    "min": 0.03704146668314934
+  },
+  "initial_frozen_backbone_hash": "33A646A9F573F8B4209851DC5EF91AEABB1AECF6B41FADDCFBFACEE84F467C05",
+  "initial_trainable_hash": "F5B74CE4CCAF949AAE36CB04765F6E8B49CA864F3C1AA92C0BD0F2C7D477A674",
+  "job_classification": "PRIOR_MODULE_TRAINING",
+  "last_100_loss_mean": 0.001429474,
+  "learning_rate": 1e-05,
+  "microbatch": 4,
+  "official_commit": "54dd088302a0ef3f50c4add3ec927ab94d76a406",
+  "optimizer": "AdamW",
+  "optimizer_steps": 40000,
+  "ours_training_happened": false,
+  "peak_resource_snapshot": {
+    "cuda_pid": 284,
+    "gpu_name": "NVIDIA GeForce RTX 5080",
+    "pid": 284,
+    "rss_mb": 1673.984,
+    "system_ram_limit_fraction": 0.82,
+    "system_ram_total_gib": 3.33,
+    "system_ram_used_fraction": 0.498,
+    "system_ram_used_gib": 1.659,
+    "vram_allocated_mib": 385.806,
+    "vram_reserved_fraction": 0.032388,
+    "vram_reserved_limit_fraction": 0.88,
+    "vram_reserved_mib": 528.0,
+    "vram_total_mib": 16302.562
+  },
+  "peak_rss_mb": 1673.984,
+  "windows_host_resource_observation": {
+    "peak_used_fraction_observed_during_training": 0.8011,
+    "used_fraction_after_run": 0.7985,
+    "limit_fraction": 0.82,
+    "wslconfig_sha256": "B4EFBE7E62D1EAFC6A08E34EE17FB7C8F4A0E2BAEE49635C2123B9DBFA20D0BC",
+    "swap_bytes": 0
+  },
+  "peak_vram": {
+    "allocated_bytes": 490745344,
+    "allocated_mb": 468.011,
+    "max_allocated_bytes": 505364480,
+    "max_allocated_mb": 481.953
+  },
+  "prior_module_training_happened": true,
+  "schema_version": 1,
+  "sentinel_max_abs_change": 0.019953528419137,
+  "sentinel_parameter": "residual_head.0.weight",
+  "total_parameter_count": 32448199,
+  "trainable_parameter_count": 21281287,
+  "vla_training_happened": false,
+  "weight_decay": 1e-05
+}
