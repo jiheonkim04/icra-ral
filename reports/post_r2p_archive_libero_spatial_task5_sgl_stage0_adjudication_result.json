@@ -1,0 +1,175 @@
+{
+  "schema_version": "2026-07-18.epoch5_sgl_xvla_stage0_adjudication_result.v1",
+  "created_at_kst": "2026-07-18T12:01:12+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "915ab7d5f9efd6b0a882b4a2c7454a029853430f",
+  "stage": "epoch_5_sgl_xvla_task5_stage0_completion_adjudication_report_only",
+  "decision": "SGL_STAGE0_COMPLETE_PROTOCOL_FREEZE_AUTHORIZED_NO_TRAINING_NO_OURS_ROLLOUT",
+  "candidate_id": "SGL-XVLA",
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "residual_identities": [
+      20260727,
+      20260730,
+      20260733
+    ],
+    "clean_retention_identities": [
+      20260731,
+      20260732
+    ],
+    "held_out_confirmatory_identity_pool": [
+      20260734,
+      20260735,
+      20260736,
+      20260737
+    ]
+  },
+  "gate_artifacts": {
+    "stage0_gate": "runs/xvla_prior/epoch5_sgl_xvla_task5_stage0_gate_v1.json",
+    "observability_audit": "runs/xvla_prior/epoch5_sgl_xvla_task5_observability_audit_v1.json",
+    "action_bounds_gate": "runs/xvla_prior/epoch5_sgl_xvla_task5_action_bounds_gate_v1.json",
+    "simple_control_gate": "runs/xvla_prior/epoch5_sgl_xvla_task5_simple_control_gate_v1.json",
+    "identity_manifest_gate": "runs/xvla_prior/epoch5_sgl_xvla_task5_identity_manifest_gate_v1.json"
+  },
+  "stage0_check_status": {
+    "support_observability_no_training": {
+      "status": "PASS_LANGUAGE_LEVEL_ONLY",
+      "decision": "SGL_STAGE0_SUPPORT_OBSERVABILITY_LANGUAGE_PASS_VISUAL_PROGRESS_UNVERIFIED_NO_TRAINING",
+      "support_gate_observability_passed": true,
+      "visual_progress_observability_verified": false,
+      "scope_limit": "This supports only the language-level support gate. A visual or progress detector remains unverified and would require a separate gate if introduced."
+    },
+    "action_bias_bounds_no_optimizer": {
+      "status": "PASS_FROZEN_POST_CLAMP_BOUNDS",
+      "decision": "SGL_ACTION_BIAS_BOUNDS_FROZEN_POST_CLAMP_NO_OPTIMIZER_NO_TRAINING",
+      "max_activated_chunks": 2,
+      "post_bias_action_clamp_abs": 1.0,
+      "known_xvla_saturation_requires_post_clamp": true
+    },
+    "simple_fixed_lift_control_frozen": {
+      "status": "PASS_PRIMARY_SIMPLE_CONTROL_FROZEN",
+      "decision": "SGL_SIMPLE_FIXED_LIFT_REGRASP_CONTROL_FROZEN_NO_TRAINING_NO_OURS",
+      "control_id": "FIXED-LIFT-REGRASP-CONTROL",
+      "exactly_one_simple_control": true
+    },
+    "held_out_identity_manifest_frozen": {
+      "status": "PASS_IDENTITY_ROLES_FROZEN",
+      "decision": "SGL_HELDOUT_IDENTITY_MANIFEST_FROZEN_NO_TRAINING_NO_OURS",
+      "development_residual_identities": [
+        20260727,
+        20260730,
+        20260733
+      ],
+      "clean_retention_identities": [
+        20260731,
+        20260732
+      ],
+      "held_out_confirmatory_identity_pool": [
+        20260734,
+        20260735,
+        20260736,
+        20260737
+      ]
+    }
+  },
+  "all_required_stage0_checks_frozen": true,
+  "comparator_role_statuses": {
+    "BASE_CLAIM_STATUS": "NOT_TESTED_STAGE0_ONLY",
+    "PRIOR_ADVANCE_STATUS": "NOT_TESTED_STAGE0_ONLY",
+    "ABLATION_COMPONENT_STATUS": "NOT_TESTED_STAGE0_ONLY",
+    "SIMPLE_EXPLANATION_STATUS": "CONTROL_FROZEN_NOT_TESTED",
+    "CLEAN_RETENTION_STATUS": "REQUIRED_NOT_TESTED",
+    "GENERALIZATION_STATUS": "HELD_OUT_MANIFEST_FROZEN_NOT_TESTED",
+    "OVERALL_PAPER_CANDIDATE_STATUS": "PRIOR_ADVANCE_NOT_ESTABLISHED",
+    "status_scope": "Comparator-role statuses are Stage0-only. SGL-XVLA has not shown a task-success result, prior advance, clean retention, ablation, or held-out generalization."
+  },
+  "authorization_boundary": {
+    "stage0_complete": true,
+    "candidate_generation_completed": true,
+    "candidate_can_advance_to_no_training_rollout_protocol_freeze": true,
+    "training_authorized": false,
+    "lora_or_qlora_training_authorized": false,
+    "checkpoint_write_authorized": false,
+    "control_rollout_authorized": false,
+    "ours_rollout_authorized": false,
+    "paper_candidate_go": false,
+    "prototype_go": false
+  },
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY",
+    "evidence_role": "STAGE0_COMPLETION_ADJUDICATION",
+    "artifact_status": "NOT_APPLICABLE",
+    "simulator_episode_count": 0,
+    "vla_model_loaded": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "control_rollout_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "validation": {
+    "py_compile": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m py_compile tca_map/xvla_spatial_task5/sgl_stage0_adjudication.py",
+      "exit_code": 0
+    },
+    "focused_pytest": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_sgl_xvla_stage0_gate.py tests/test_sgl_xvla_observability_audit.py tests/test_sgl_xvla_action_bounds_gate.py tests/test_sgl_xvla_simple_control_gate.py tests/test_sgl_xvla_identity_manifest_gate.py tests/test_sgl_xvla_stage0_adjudication.py -q",
+      "exit_code": 0,
+      "result": "34 passed in 5.39s"
+    },
+    "gate_json_emit": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m tca_map.xvla_spatial_task5.sgl_stage0_adjudication",
+      "exit_code": 0,
+      "output": "runs/xvla_prior/epoch5_sgl_xvla_task5_stage0_adjudication_v1.json"
+    }
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "control_rollout_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_rollout_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "bounded_conclusion": {
+    "stage0_complete_for_protocol_freeze": true,
+    "candidate_can_advance_to_no_training_rollout_protocol_freeze": true,
+    "candidate_can_train": false,
+    "candidate_can_roll_out_ours": false,
+    "control_can_roll_out_now": false,
+    "paper_candidate_go": false,
+    "prototype_go": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/epoch5_sgl_xvla_task5_stage0_adjudication_v1.json",
+      "sha256": "6697cd1d328d49407f078749c25d4386858a65f5aec9c8edb8241e1965dd4504",
+      "length_bytes": 5410
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_stage0_adjudication.py",
+      "sha256": "0716ee7c76314705eb08aed9a8354ce49712a016e5ec851fd6b7ee5935c48d8d",
+      "length_bytes": 14410
+    },
+    {
+      "path": "tests/test_sgl_xvla_stage0_adjudication.py",
+      "sha256": "a53a675cf2e2a702155e25ebbf2972f780d50eaf6edbc55f5c296ea8fc9d5b06",
+      "length_bytes": 4450
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_identity_manifest_gate.py",
+      "sha256": "2e07211c4150a5d2cf7512c5cc8615befea5163ffc5795e67cd6664c2124583f",
+      "length_bytes": 14949
+    },
+    {
+      "path": "tests/test_sgl_xvla_identity_manifest_gate.py",
+      "sha256": "894d98531f3eca5c566d90f84273ce29c42981a0cd423e15995d4b04d33df007",
+      "length_bytes": 4426
+    }
+  ],
+  "next_action": "Freeze a separate no-training rollout protocol for SGL-XVLA/control comparison before any simulator episode. Do not train, write checkpoints, or run Ours until that protocol is frozen."
+}
