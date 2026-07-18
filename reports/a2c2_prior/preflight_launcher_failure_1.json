@@ -1,0 +1,16 @@
+{
+  "date": "2026-07-19 KST",
+  "classification": "EXECUTION_TRANSPORT_FAILURE",
+  "scientific_stage": "SETUP_PREFLIGHT",
+  "launcher_exit_code": 124,
+  "continued_child_pid": 301,
+  "child_report_decision": "A2C2_SETUP_PREFLIGHT_FAILED",
+  "child_exception_type": "BrokenPipeError",
+  "child_exception_message": "[Errno 32] Broken pipe",
+  "model_forward_count": 1,
+  "training_happened": false,
+  "closed_loop_rollout_happened": false,
+  "cause": "The orchestration call closed stdout after its five-second timeout while torchvision was emitting ResNet18 download progress.",
+  "repair": "No implementation or scientific-contract change. The identical command was rerun with its stdout pipe retained.",
+  "accepted_rerun": "reports/a2c2_prior/preflight_result.json"
+}

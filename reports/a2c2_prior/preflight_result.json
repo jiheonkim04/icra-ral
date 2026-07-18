@@ -1,0 +1,81 @@
+{
+  "after_resources": {
+    "cuda_pid": 389,
+    "gpu_name": "NVIDIA GeForce RTX 5080",
+    "pid": 389,
+    "rss_mb": 2618.512,
+    "system_ram_limit_fraction": 0.82,
+    "system_ram_total_gib": 11.266,
+    "system_ram_used_fraction": 0.233,
+    "system_ram_used_gib": 2.619,
+    "vram_allocated_mib": 999.579,
+    "vram_reserved_fraction": 0.063303,
+    "vram_reserved_limit_fraction": 0.88,
+    "vram_reserved_mib": 1032.0,
+    "vram_total_mib": 16302.562
+  },
+  "base_checkpoint_sha256": "9A9F6413E42C0F332FCCBCE9A0DC796AF2790F82CF002F791CDBF7E01E1AFCA8",
+  "base_config_class": "SmolVLAConfig",
+  "base_load_info": {
+    "cuda_memory_after_load": {
+      "allocated_mb": 864.648,
+      "max_allocated_mb": 864.648
+    }
+  },
+  "before_resources": {
+    "cuda_pid": 389,
+    "gpu_name": "NVIDIA GeForce RTX 5080",
+    "pid": 389,
+    "rss_mb": 522.422,
+    "system_ram_limit_fraction": 0.82,
+    "system_ram_total_gib": 11.266,
+    "system_ram_used_fraction": 0.074,
+    "system_ram_used_gib": 0.828,
+    "vram_allocated_mib": 0.0,
+    "vram_reserved_fraction": 0.0,
+    "vram_reserved_limit_fraction": 0.88,
+    "vram_reserved_mib": 0.0,
+    "vram_total_mib": 16302.562
+  },
+  "cached_feature_shape": [
+    1,
+    2,
+    512,
+    8,
+    8
+  ],
+  "chunk_finite": true,
+  "chunk_shape": [
+    50,
+    7
+  ],
+  "closed_loop_rollout_happened": false,
+  "date": "2026-07-19 KST",
+  "elapsed_seconds": 26.618,
+  "exceptions": [],
+  "fidelity_label": "MECHANISM_FAITHFUL_A2C2_LOCAL_PORT",
+  "final_decision": "A2C2_SETUP_PREFLIGHT_ACCEPTED",
+  "frozen_vision_backbone": true,
+  "job_classification": "SETUP_PREFLIGHT",
+  "microbatch": 4,
+  "microbatch_forward_loss": 0.08475084602832794,
+  "model_forward_count": 1,
+  "official_commit": "54dd088302a0ef3f50c4add3ec927ab94d76a406",
+  "peak_vram": {
+    "allocated_bytes": 1048134144,
+    "allocated_mb": 999.579,
+    "max_allocated_bytes": 1063810048,
+    "max_allocated_mb": 1014.528
+  },
+  "prior_parameter_counts": {
+    "frozen": 11166912,
+    "total": 32448199,
+    "trainable": 21281287
+  },
+  "schema_version": 1,
+  "training_happened": false,
+  "vlm_hidden_finite": true,
+  "vlm_hidden_shape": [
+    960
+  ]
+}
