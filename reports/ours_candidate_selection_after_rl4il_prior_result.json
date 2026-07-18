@@ -1,0 +1,70 @@
+{
+  "schema_version": "2026-07-18.epoch5_ours_candidate_selection_after_rl4il_prior.v1",
+  "stage": "ours_candidate_generation_after_valid_external_prior_residual",
+  "prerequisite_prior_decision": "RL4IL_ACTION_ORACLE_PRIOR_LOCAL_RESIDUAL_ESTABLISHED",
+  "prior_result": {
+    "implementation_label": "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT",
+    "clean_success_count": 4,
+    "clean_episode_count": 9,
+    "mask1_success_count": 3,
+    "mask1_episode_count": 9,
+    "frozen_xvla_dropout_success_count": 0,
+    "residual": "mask_1 remains failed on all goal/task0 and spatial/task5 identities, and clean retention is below frozen X-VLA clean success."
+  },
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "name": "RIFA_XVLA",
+      "expanded_name": "Reliability-conditioned Imputed-Feature Adapter for X-VLA",
+      "core_mechanism": "A lightweight learned adapter conditions X-VLA action hidden states on missing-camera status, RL4IL imputed in-hand latent features, and reliability signals such as imputation donor dispersion, retrieval descriptor margin, and policy entropy.",
+      "why_targets_residual": "RL4IL's local port helps on object/task0 but fails on goal/task0 and spatial/task5; RIFA keeps the VLA closed-loop action path while using RL4IL as a reliability-aware prior signal instead of replaying a retrieved open-loop demo.",
+      "base_preserving_initialization": "All adapter residual projections initialize to zero and reliability gates initialize to prefer the frozen X-VLA path on clean inputs.",
+      "legal_deployment_inputs": [
+        "agent-view RGB",
+        "wrist/in-hand RGB when present",
+        "missing-camera indicator",
+        "language instruction",
+        "proprioception already available to X-VLA",
+        "RL4IL prior features computed from legal observations"
+      ],
+      "low_compute_path": "Freeze X-VLA; train only LoRA/adapter/gating parameters with batch size 1 and bounded accumulation.",
+      "key_ablation": "Remove reliability conditioning while keeping the same adapter parameter count and imputed latent input.",
+      "status": "selected"
+    },
+    {
+      "name": "CVLR_XVLA",
+      "expanded_name": "Cross-View Latent Reconstruction Adapter for X-VLA",
+      "core_mechanism": "Train a lightweight cross-view predictor from agent-view, language, and proprioception to reconstruct missing wrist-view visual latents and inject them into the X-VLA visual-token stream.",
+      "why_targets_residual": "Directly attacks wrist-view absence on goal/task0 and spatial/task5 by reconstructing a missing-view latent rather than replaying an open-loop retrieved action.",
+      "base_preserving_initialization": "Predicted-latent residual initialized to zero and clean-view bypass initialized on.",
+      "legal_deployment_inputs": [
+        "agent-view RGB",
+        "wrist/in-hand RGB when present",
+        "missing-camera indicator",
+        "language instruction",
+        "proprioception already available to X-VLA"
+      ],
+      "low_compute_path": "Freeze X-VLA; train cross-view predictor plus a small token-injection adapter.",
+      "key_ablation": "Use the predictor without dropout/reliability conditioning.",
+      "status": "not_selected",
+      "reason_not_selected": "More invasive token-stream surgery and weaker direct use of the validated RL4IL prior residual than RIFA_XVLA."
+    }
+  ],
+  "selected_method": "RIFA_XVLA",
+  "selection_reason": "RIFA_XVLA is the narrower learned method around the observed residual: it preserves the X-VLA closed-loop policy path, uses the validated RL4IL prior as a reliability-aware feature source, directly targets failed mask_1 goal/spatial cases, and has a cleaner low-compute adapter path than cross-view token reconstruction.",
+  "first_comparison_roles": [
+    "frozen X-VLA under wrist/mask_1 dropout",
+    "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT prior",
+    "RIFA_XVLA",
+    "RIFA_XVLA no-reliability ablation",
+    "AWF-XVLA SIMPLE_CAMERA_IMPUTATION_CONTROL"
+  ],
+  "negative_controls": {
+    "ours_training_happened": false,
+    "ours_rollout_happened": false,
+    "full_model_finetuning_happened": false,
+    "deterministic_substitution_selected": false,
+    "awf_renamed_or_rescued": false
+  },
+  "next_action": "Preregister RIFA_XVLA Stage 0 before any Ours VLA training."
+}
