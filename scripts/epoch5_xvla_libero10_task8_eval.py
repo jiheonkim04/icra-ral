@@ -152,6 +152,27 @@ def apply_rgb_input_perturbation(obs: dict[str, Any], mode: str, fraction: float
     return out
 
 
+def apply_wrist_dropout_mitigation(
+    obs: dict[str, Any],
+    mode: str,
+    threshold: float,
+) -> tuple[dict[str, Any], bool]:
+    """Apply the selected legal no-training wrist-dropout mitigation."""
+
+    if mode == "none":
+        return obs, False
+    wrist = np.asarray(obs["robot0_eye_in_hand_image"], dtype=np.uint8)
+    wrist_is_dropped = float(np.mean(wrist)) <= float(threshold)
+    if not wrist_is_dropped:
+        return obs, False
+    out = dict(obs)
+    if mode == "agentview_fill":
+        out["robot0_eye_in_hand_image"] = flip_agentview(np.asarray(obs["agentview_image"], dtype=np.uint8)).copy()
+    else:
+        raise ValueError(f"unknown wrist dropout mitigation: {mode}")
+    return out, True
+
+
 class LiberoAbsActionProcessor:
     def __init__(self) -> None:
         import robosuite.utils.transform_utils as transform_utils
@@ -322,6 +343,18 @@ def main(argv: list[str] | None = None) -> int:
         help="Center-box fraction for *_center_blackout modes.",
     )
     parser.add_argument(
+        "--wrist-dropout-mitigation",
+        choices=["none", "agentview_fill"],
+        default="none",
+        help="Optional no-training mitigation applied after condition perturbation and before policy action generation.",
+    )
+    parser.add_argument(
+        "--wrist-dropout-threshold",
+        type=float,
+        default=1.0,
+        help="Mean-pixel threshold used to detect black wrist-camera dropout for mitigation.",
+    )
+    parser.add_argument(
         "--trace-dir",
         default="",
         help="Optional directory for no-training per-step legal traces. No reward/done/success is written to trace npz.",
@@ -363,8 +396,8 @@ def main(argv: list[str] | None = None) -> int:
     task_id = int(args.task_id)
     report: dict[str, Any] = {
         "schema_version": 1,
-        "method": "third_pass_official_prior_diagnostic",
-        "policy": "X-VLA-Libero",
+        "method": "awf_xvla_stage0" if args.wrist_dropout_mitigation != "none" else "third_pass_official_prior_diagnostic",
+        "policy": "X-VLA-Libero + AWF-XVLA" if args.wrist_dropout_mitigation != "none" else "X-VLA-Libero",
         "model_id": MODEL_ID,
         "model_revision": MODEL_REVISION,
         "source_repo": "C:\\assets\\repos\\X-VLA",
@@ -394,10 +427,21 @@ def main(argv: list[str] | None = None) -> int:
             "simulator_state_unchanged": True,
             "privileged_state_used": False,
         },
+        "wrist_dropout_mitigation": {
+            "mode": str(args.wrist_dropout_mitigation),
+            "dropout_detection_mean_pixel_threshold": float(args.wrist_dropout_threshold),
+            "legal_current_observation_only": True,
+            "training_happened": False,
+            "optimizer_step_happened": False,
+            "checkpoint_written": False,
+            "uses_reward_done_success": False,
+            "uses_simulator_object_or_contact_state": False,
+        },
         "training_happened": False,
         "optimizer_step_happened": False,
         "checkpoint_written": False,
-        "ours_design_happened": False,
+        "ours_design_happened": bool(args.wrist_dropout_mitigation != "none"),
+        "ours_rollout_happened": bool(args.wrist_dropout_mitigation != "none"),
         "closed_loop_rollout_happened": True,
         "trace_acquisition": {
             "enabled": trace_dir is not None,
@@ -508,14 +552,21 @@ def main(argv: list[str] | None = None) -> int:
                 trace_agentview: list[np.ndarray] = []
                 trace_wrist: list[np.ndarray] = []
                 trace_episode_start = time.monotonic()
+                mitigation_triggered_step_count = 0
                 for step in range(int(args.eval_horizon)):
                     obs["robo_ori"] = policy.action_processor.mat_to_rotate6d(env.env.robots[0].controller.ee_ori_mat)
                     obs["robo_pos"] = np.asarray(env.env.robots[0].controller.ee_pos, dtype=np.float32)
-                    policy_obs = apply_rgb_input_perturbation(
+                    condition_obs = apply_rgb_input_perturbation(
                         obs,
                         str(args.rgb_input_perturbation),
                         float(args.rgb_input_perturbation_fraction),
                     )
+                    policy_obs, mitigation_triggered = apply_wrist_dropout_mitigation(
+                        condition_obs,
+                        str(args.wrist_dropout_mitigation),
+                        float(args.wrist_dropout_threshold),
+                    )
+                    mitigation_triggered_step_count += int(mitigation_triggered)
                     new_chunk_started = not policy.action_plan
                     action = policy.step(policy_obs, task_description)
                     chunk_index = int(len(policy.chunk_shapes) - 1) if policy.chunk_shapes else -1
@@ -621,6 +672,7 @@ def main(argv: list[str] | None = None) -> int:
                             "max": round_or_none(float(np.max(env_latencies)), 6) if env_latencies else None,
                         },
                         "trace_artifact": trace_artifact,
+                        "wrist_dropout_mitigation_triggered_step_count": int(mitigation_triggered_step_count),
                         "elapsed_seconds": round_or_none(time.monotonic() - row_started, 3),
                         "cuda_memory": cuda_memory(torch),
                     }

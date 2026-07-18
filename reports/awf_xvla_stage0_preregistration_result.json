@@ -1,0 +1,68 @@
+{
+  "schema_version": "2026-07-18.epoch5_awf_xvla_stage0_preregistration.v1",
+  "stage": "epoch_5_awf_xvla_stage0_preregistered",
+  "decision": "AWF_XVLA_STAGE0_PREREGISTERED",
+  "method": {
+    "id": "AWF-XVLA",
+    "name": "Agentview-Wrist Fill for X-VLA",
+    "class": "no-training deterministic inference module",
+    "mechanism": "Detect black wrist-camera dropout from current wrist RGB mean and fill the wrist input slot with the current policy-input agentview RGB.",
+    "legal_inputs": [
+      "current agentview RGB",
+      "current wrist RGB",
+      "dropout condition metadata"
+    ],
+    "forbidden_inputs": [
+      "reward",
+      "done/success oracle",
+      "simulator object/contact state",
+      "privileged pose",
+      "future observation",
+      "reset identity label as a policy feature"
+    ]
+  },
+  "selected_after_condition_verified": true,
+  "condition_artifact": "reports/wrist_dropout_condition_verification_result.json",
+  "condition_decision": "CLAIM_CONDITION_OFFICIAL_PRIOR_DEGRADATION_VERIFIED",
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "stage0_discovery_identities": [
+      20260731,
+      20260732
+    ],
+    "clean_baseline_success_count": 2,
+    "dropout_prior_success_count": 0
+  },
+  "stage0_protocol": {
+    "episode_count": 2,
+    "condition": "wrist_blackout",
+    "mitigation": "agentview_fill",
+    "pass_condition": "AWF-XVLA Stage 0 GO if at least one of two discovery episodes succeeds under wrist dropout, improving over the frozen 0/2 dropout-prior baseline.",
+    "go_decision": "AWF_XVLA_STAGE0_GO",
+    "no_go_decision": "AWF_XVLA_STAGE0_NO_GO",
+    "held_out_identities_not_used": [
+      20260734,
+      20260735,
+      20260736,
+      20260737
+    ],
+    "no_tuning_after_partial_outcomes": true
+  },
+  "execution_boundary": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "ours_rollout_authorized": true,
+    "control_rollout_happened_at_preregistration": false,
+    "broad_identity_sweep_happened": false
+  },
+  "comparator_calibration": {
+    "base": "frozen X-VLA under wrist dropout, already 0/2",
+    "clean_retention": "not a Stage 0 blocking requirement because AWF is dropout-triggered/no-op on normal wrist frames; must be verified before Stage A scale-up",
+    "closest_prior": "no external-prior claim at Stage 0; if Stage 0 passes, freeze closest prior/control before Stage A",
+    "simple_control": "blackout prior is the current condition baseline; a simple always-fill or prompt-only control must be frozen before Stage A if AWF passes"
+  },
+  "next_action": "Run exactly the two AWF-XVLA Stage 0 episodes under the verified wrist-dropout condition."
+}
