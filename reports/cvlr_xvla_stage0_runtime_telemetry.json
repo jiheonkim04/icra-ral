@@ -1,0 +1,71 @@
+{
+  "artifacts": {
+    "/mnt/c/Users/jiheo/tca_map/reports/checkpoints/cvlr_xvla_stage0/cvlr_xvla_stage0.pt": {
+      "bytes": 1693863,
+      "sha256": "53cdbe0d04042a41813f8c1459b402bce8e3bc2457245dfb685303088b884214"
+    },
+    "/mnt/c/Users/jiheo/tca_map/reports/cvlr_xvla_stage0_result.json": {
+      "bytes": 153966,
+      "sha256": "f28b8781e5e04b50e211787aabe4fbd73d68149ad89e8b3c6a16d02aaf3c8cd4"
+    },
+    "/mnt/c/Users/jiheo/tca_map/reports/cvlr_xvla_stage0_result.md": {
+      "bytes": 1378,
+      "sha256": "c01982e7b32c36b0cdf8e91050e04c9c1878eab9a9093ee3baf8a389b932f6a8"
+    },
+    "/mnt/c/Users/jiheo/tca_map/runs/cvlr_xvla/stage0_20260718T222706KST/exit_code.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "/mnt/c/Users/jiheo/tca_map/runs/cvlr_xvla/stage0_20260718T222706KST/heartbeat.json": {
+      "bytes": 83,
+      "sha256": "3c2aba2c73c57a32408011253fc92f47ef65349cf0e0e2c14c10fc67df6680b0"
+    },
+    "/mnt/c/Users/jiheo/tca_map/runs/cvlr_xvla/stage0_20260718T222706KST/launch_manifest.json": {
+      "bytes": 4063,
+      "sha256": "facb024791178db126c7c3ffb9c633f34df41e2a2ea956f3e0d7490b61ca43be"
+    },
+    "/mnt/c/Users/jiheo/tca_map/runs/cvlr_xvla/stage0_20260718T222706KST/partial_result.json": {
+      "bytes": 268,
+      "sha256": "8ead07db5a7a3df591cd59395f3fe46a1335c343fcb14c4e76d5e49cd58c67f2"
+    },
+    "/mnt/c/Users/jiheo/tca_map/runs/cvlr_xvla/stage0_20260718T222706KST/result.json": {
+      "bytes": 153966,
+      "sha256": "f28b8781e5e04b50e211787aabe4fbd73d68149ad89e8b3c6a16d02aaf3c8cd4"
+    },
+    "/mnt/c/Users/jiheo/tca_map/runs/cvlr_xvla/stage0_20260718T222706KST/result.md": {
+      "bytes": 1378,
+      "sha256": "c01982e7b32c36b0cdf8e91050e04c9c1878eab9a9093ee3baf8a389b932f6a8"
+    },
+    "/mnt/c/Users/jiheo/tca_map/runs/cvlr_xvla/stage0_20260718T222706KST/status.json": {
+      "bytes": 155,
+      "sha256": "77c4fe05ad50d753fd3224c1fd7a52a74faa47b8368ca809a337758b21b9fa6b"
+    }
+  },
+  "cuda": {
+    "allocated_mib": 29.3740234375,
+    "available": true,
+    "device": "NVIDIA GeForce RTX 5080",
+    "max_allocated_mib": 3537.66650390625,
+    "max_reserved_mib": 3692.0,
+    "pid": 355,
+    "reserved_mib": 3692.0
+  },
+  "cuda_pid": 355,
+  "decision": "CVLR_XVLA_STAGE0_DESIGN_FAILURE",
+  "elapsed_seconds": 73.279,
+  "exceptions": [],
+  "execution_valid": true,
+  "nvidia_smi_after": "NVIDIA GeForce RTX 5080, 16303, 2433, 13547, 596.21",
+  "nvidia_smi_before": "NVIDIA GeForce RTX 5080, 16303, 2116, 13864, 596.21",
+  "pid": 355,
+  "run_dir": "/mnt/c/Users/jiheo/tca_map/runs/cvlr_xvla/stage0_20260718T222706KST",
+  "schema_version": "2026-07-18.epoch5_cvlr_xvla_stage0_telemetry.v1",
+  "system_ram": {
+    "memavailable": "7881352 kB",
+    "memtotal": "11812944 kB",
+    "ru_maxrss_kib": 4566252,
+    "vmhwm": "4566252 kB",
+    "vmrss": "4081744 kB",
+    "vmsize": "61385456 kB"
+  }
+}

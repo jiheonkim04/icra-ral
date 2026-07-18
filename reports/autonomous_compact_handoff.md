@@ -5,8 +5,8 @@ Updated: 2026-07-18 KST
 ## Current State
 
 - Branch: `codex/epoch5-official-prior-first`
-- RIFA Stage 0 result commit: `3f29bea`
-- Epoch/cycle: `5 / 0`; latest method stage: `RIFA_XVLA_STAGE0_DESIGN_FAILURE` (closed, no follow-on authorized).
+- Latest frozen result: `CVLR_XVLA_STAGE0_DESIGN_FAILURE` (valid, archived, no Stage A authorized).
+- Epoch/cycle: `5 / 0`; campaign state: `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`.
 - Paper status: no `PROTOTYPE_GO`, no `PAPER_READY`, no `READY_TO_DRAFT_RAL_PAPER_PACKAGE`.
 - Active Ours training/worker: none.
 - Preserve ignored `rollouts/` and `runs/` artifacts.
@@ -245,4 +245,4 @@ Attempt 3 completed training/offline selection: both arms reached `64/64`, but f
 
 R2P archive: `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_archive_decision.json`; latest confirmed shared residual remains `libero_goal/task_3`, identity `20260728` (Base/X-VLA/OpenVLA-INT4 clean failures; task-level headroom positive).
 
-Repeated-residual screen `20260729..35`: natural-reset mining ended at `ddbe62c` with `NATURAL_RESET_SEARCH_SATURATED`; no more identity sweeps. SGL/OCR closed; AWF is `SIMPLE_CAMERA_IMPUTATION_CONTROL`. Wrist-dropout confirmed: clean `9/9`, dropout `0/9`; RL4IL local port (`MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT`) passed PRIOR_MODULE_TRAINING (params `13512777`, steps `54`) and PRIOR_CLOSED_LOOP_ROLLOUT (clean `4/9`, mask_1 `3/9`, forwards `99`), decision `RL4IL_ACTION_ORACLE_PRIOR_LOCAL_RESIDUAL_ESTABLISHED`. RIFA Stage 0 completed validly after one checkpoint-path repair: both matched arms trained `6/6` steps with `214660` parameters and reloaded checkpoints; all gates passed except bounded action delta because `libero_object/task0` identity `20260734` mask_1 caused one gripper flip (`max_abs=2.0`) despite exact clean retention and nonzero full/ablation difference. Frozen decision `RIFA_XVLA_STAGE0_DESIGN_FAILURE`; no closed-loop Ours rollout or automatic follow-on empirical stage is authorized; active Ours training/worker: none. See `reports/rifa_xvla_stage0_result.json`.
+Repeated-residual screen `20260729..35`: natural-reset mining ended at `ddbe62c` with `NATURAL_RESET_SEARCH_SATURATED`; no more identity sweeps. Wrist-dropout confirmed: clean `9/9`, dropout `0/9`; RL4IL local port (`MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT`) established a residual. RIFA v1 stayed `RIFA_XVLA_STAGE0_DESIGN_FAILURE`; its no-training postmortem confirmed a gripper postprocess discontinuity and v1 is archived. CVLR passed every validity and reconstruction gate (MSE `0.44344` vs zero `0.99419` and AWF `1.55907`, exact clean bypass) but failed semantic safety on all nine dropout rows with `42` gripper flips, so the frozen decision is `CVLR_XVLA_STAGE0_DESIGN_FAILURE`; Stage A was not authorized or launched. See `reports/cvlr_xvla_stage0_result.json` and `reports/cvlr_xvla_exact_scientific_status.json`.

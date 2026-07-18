@@ -1,0 +1,94 @@
+{
+  "schema_version": "2026-07-18.epoch5_cvlr_xvla_v1_archive.v1",
+  "method": "CVLR_XVLA_V1",
+  "status": "ARCHIVED",
+  "archive_decision": "CVLR_XVLA_V1_ARCHIVED_NOT_STAGE_A_READY",
+  "frozen_protocol_decision": "CVLR_XVLA_STAGE0_DESIGN_FAILURE",
+  "calibrated_scientific_interpretation": "CVLR v1 learned a real cross-view wrist-latent reconstruction signal and preserved clean X-VLA exactly, but its direct dropout-time token replacement changed the frozen policy action distribution far beyond the preregistered semantic-aware safety envelope on every live identity. The exact v1 formulation is not Stage-A-ready; this is not evidence that cross-view latent reconstruction as a family is impossible.",
+  "result_artifacts": {
+    "contract": {
+      "path": "configs/cvlr_xvla_stage0_frozen_contract.json",
+      "sha256": "6767e529bd43a61760cd75ae8e4b05d235946fcbf4c5f8e05dbae5e35aa72746"
+    },
+    "result_json": {
+      "path": "reports/cvlr_xvla_stage0_result.json",
+      "sha256": "f28b8781e5e04b50e211787aabe4fbd73d68149ad89e8b3c6a16d02aaf3c8cd4"
+    },
+    "result_markdown": {
+      "path": "reports/cvlr_xvla_stage0_result.md",
+      "sha256": "c01982e7b32c36b0cdf8e91050e04c9c1878eab9a9093ee3baf8a389b932f6a8"
+    },
+    "runtime_telemetry": {
+      "path": "reports/cvlr_xvla_stage0_runtime_telemetry.json",
+      "sha256": "67c4d0cdb2e94fe633bb81e5634ed95963ec7c55de2cdfb5106006874825a8f2"
+    },
+    "checkpoint": {
+      "path": "reports/checkpoints/cvlr_xvla_stage0/cvlr_xvla_stage0.pt",
+      "sha256": "53cdbe0d04042a41813f8c1459b402bce8e3bc2457245dfb685303088b884214",
+      "bytes": 1693863
+    }
+  },
+  "valid_mechanism_evidence": {
+    "execution_valid": true,
+    "trainable_parameter_count": 422144,
+    "optimizer_steps": 96,
+    "first_loss": 0.9890320897102356,
+    "final_loss": 0.39498016238212585,
+    "gradient_norm_range": [0.14653215900520744, 0.8833139124629706],
+    "weight_change_l2": 8.689013481140137,
+    "checkpoint_reload_parameter_delta_l2": 0.0,
+    "validation_full_mse": 0.44344032059113186,
+    "validation_zero_fill_mse": 0.9941876629988352,
+    "validation_awf_mse": 1.559069037437439,
+    "full_relative_to_better_control": 0.4460328136174542,
+    "tasks_beating_both_controls": 3,
+    "exact_clean_translation_rms": 0.0,
+    "exact_clean_rotation_rms": 0.0,
+    "exact_clean_raw_gripper_delta": 0.0,
+    "exact_clean_gripper_flips": 0
+  },
+  "frozen_safety_failure": {
+    "dropout_live_row_count": 9,
+    "rows_with_any_safety_violation": 9,
+    "translation_threshold_violations": 5,
+    "rotation_threshold_violations": 8,
+    "raw_gripper_threshold_violations": 9,
+    "rows_with_discrete_gripper_flips": 9,
+    "total_discrete_gripper_flips": 42,
+    "max_translation_rms": 0.03581852588080741,
+    "frozen_translation_rms_max": 0.02,
+    "max_rotation_rms": 3.152527243510565,
+    "frozen_rotation_rms_max": 0.05,
+    "max_raw_gripper_delta": 0.9775557518005371,
+    "frozen_raw_gripper_delta_max": 0.1,
+    "frozen_total_gripper_flip_max": 1
+  },
+  "false_negative_safeguard": {
+    "classification": "ROBUST_EMPIRICAL_DESIGN_FAILURE",
+    "scope": "Stage A safety eligibility of the exact CVLR v1 direct-insertion formulation only",
+    "strongest_fair_interpretation": "The predictor may be recovering real clean wrist information, and movement away from a known-failed dropout Base is not itself proof of closed-loop harm.",
+    "narrowest_honest_claim": "CVLR v1 reconstructs held-out wrist latents substantially better than zero-fill and AWF, but direct insertion is too disruptive under the frozen Stage 0 safety contract.",
+    "false_positive_risk": "The conservative safety gate could reject a useful recovery because no closed-loop success was measured.",
+    "false_negative_risk": "Treating large action changes as a family-level kill would be unjustified; only this exact uncalibrated direct-insertion v1 is archived.",
+    "record_count": 9,
+    "independence_analysis": "The decision uses nine matched official initial observations across three tasks and three reset identities. The 30 actions within each chunk are correlated and are not counted as 270 independent records.",
+    "confidence": "high for frozen safety non-pass; unavailable for closed-loop efficacy",
+    "normalization_sensitivity": "The failed metrics are in native LIBERO translation/rotation semantics and raw X-VLA gripper score, not a shared normalized scalar.",
+    "evidence_required_to_reopen": "A separately authorized new formulation with a preregistered calibrated latent-to-policy coupling; threshold relaxation or post-hoc scaling of v1 is not allowed."
+  },
+  "repair": {
+    "used": false,
+    "count": 0,
+    "reason": "Execution, optimization, checkpoint, insertion, and data gates all passed; the sole failure was scientific safety, which is not repair-eligible."
+  },
+  "progression": {
+    "stage_a_authorized": false,
+    "stage_a_launched": false,
+    "closed_loop_evidence": false,
+    "cvlr_v1_retuned": false,
+    "replacement_candidate_generated": false,
+    "broad_candidate_search_reopened": false,
+    "rifa_reopened": false,
+    "natural_reset_mining_reopened": false
+  }
+}

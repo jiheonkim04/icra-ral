@@ -1,0 +1,23 @@
+{
+  "schema_version": "2026-07-18.epoch5_cvlr_exact_scientific_status.v1",
+  "campaign_state": "AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE",
+  "latest_method": "CVLR_XVLA_V1",
+  "latest_frozen_decision": "CVLR_XVLA_STAGE0_DESIGN_FAILURE",
+  "latest_calibrated_interpretation": "Offline cross-view reconstruction was strong and clean bypass was exact, but direct missing-wrist token insertion was broadly outside semantic-aware action safety bounds and is not Stage-A-ready.",
+  "rifa_v1_status": "ARCHIVED_NOT_STAGE_A_READY",
+  "cvlr_v1_status": "ARCHIVED_NOT_STAGE_A_READY",
+  "active_training_worker": null,
+  "active_rollout_worker": null,
+  "next_authorized_empirical_stage": null,
+  "pause_reason": "The user-authorized second candidate completed with a valid frozen design failure. Stage A is not authorized, the single repair rule does not apply, and this steer forbids returning to broad candidate search.",
+  "scientific_boundaries": {
+    "paper_ready": false,
+    "prototype_go": false,
+    "closed_loop_cvlr_evidence": false,
+    "cross_view_reconstruction_family_declared_impossible": false,
+    "thresholds_relaxed": false,
+    "stage0_rerun": false,
+    "broad_search_reopened": false
+  },
+  "resume_requirement": "A new user-authorized, preregistered direction that does not reinterpret or retune frozen RIFA v1 or CVLR v1."
+}
