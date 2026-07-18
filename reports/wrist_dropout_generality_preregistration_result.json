@@ -1,0 +1,104 @@
+{
+  "schema_version": "2026-07-18.epoch5_wrist_dropout_generality_preregistration.v1",
+  "stage": "epoch_5_wrist_dropout_condition_generality_preregistered",
+  "decision": "WRIST_DROPOUT_GENERALITY_STUDY_PREREGISTERED",
+  "preserved_frozen_outcomes": [
+    "NATURAL_RESET_SEARCH_SATURATED",
+    "OCR_TRIGGER_OBSERVABILITY_FAIL",
+    "CLAIM_CONDITION_OFFICIAL_PRIOR_DEGRADATION_VERIFIED",
+    "AWF_XVLA_STAGE0_NO_GO"
+  ],
+  "awf_reclassification": {
+    "awf_xvla_is_now": "SIMPLE_CAMERA_IMPUTATION_CONTROL",
+    "awf_killed_only": "deterministic agentview-to-wrist pixel substitution",
+    "awf_did_not_kill": [
+      "learned missing-modality representation",
+      "reliability-aware feature fusion",
+      "modality-dropout-aware policy adaptation",
+      "cross-view latent reconstruction",
+      "missing-view-conditioned action generation"
+    ]
+  },
+  "execution_boundary": {
+    "policy": "frozen official X-VLA-Libero",
+    "ours_method_selected": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "broad_natural_reset_sweep_happened": false,
+    "task_selection_after_outcomes_allowed": false
+  },
+  "paired_study": {
+    "task_count": 3,
+    "reset_identities_per_task": 3,
+    "clean_episode_count": 9,
+    "dropout_episode_count": 9,
+    "condition": "wrist_blackout",
+    "paired_clean_dropout_identities": true,
+    "official_action_success_semantics": true,
+    "tasks": [
+      {
+        "suite": "libero_goal",
+        "task_id": 0,
+        "instruction": "open the middle drawer of the cabinet",
+        "identities": [
+          20260733,
+          20260734,
+          20260735
+        ],
+        "existing_clean_evidence": [
+          "reports/post_task5_exhausted_libero_goal_20260733_prior_scan_result.json",
+          "reports/post_task5_exhausted_libero_goal_20260734_prior_scan_result.json",
+          "reports/post_task5_exhausted_libero_goal_20260735_prior_scan_result.json"
+        ]
+      },
+      {
+        "suite": "libero_object",
+        "task_id": 0,
+        "instruction": "pick up the alphabet soup and place it in the basket",
+        "identities": [
+          20260733,
+          20260734,
+          20260735
+        ],
+        "existing_clean_evidence": [
+          "reports/post_task5_exhausted_libero_object_20260733_prior_scan_result.json",
+          "reports/post_task5_exhausted_libero_object_20260734_prior_scan_result.json",
+          "reports/post_task5_exhausted_libero_object_20260735_prior_scan_result.json"
+        ]
+      },
+      {
+        "suite": "libero_spatial",
+        "task_id": 5,
+        "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+        "identities": [
+          20260731,
+          20260732,
+          20260735
+        ],
+        "existing_clean_evidence": [
+          "reports/ocr_xvla_trace_observability_result.json",
+          "reports/final_cap_libero_spatial_20260735_convergence_result.json"
+        ]
+      }
+    ]
+  },
+  "decision_rule": {
+    "WRIST_DROPOUT_REPEATED_PROBLEM_CONFIRMED": "valid run, clean_success_count >= 3, clean-success/dropout-failure flips >= 3, and flips across at least 2 tasks or at least 4 independent identities",
+    "WRIST_DROPOUT_TASK5_LOCALIZED": "valid run with clean-success/dropout-failure flips only on original libero_spatial/task5",
+    "WRIST_DROPOUT_UNDERPOWERED_ONE_FIXED_EXPANSION_ALLOWED": "valid run but neither confirmed nor localized",
+    "WRIST_DROPOUT_EVALUATION_INVALID": "missing paired result, infrastructure exception, or wrong episode count"
+  },
+  "reported_metrics": [
+    "clean successes",
+    "dropout successes",
+    "paired clean-success to dropout-failure flips",
+    "task distribution",
+    "exact paired McNemar uncertainty",
+    "Wilson 95% CI for degradation rate among clean-success pairs",
+    "infrastructure exceptions",
+    "model forward count",
+    "CUDA device and peak VRAM"
+  ],
+  "next_action": "Run exactly this 18-episode frozen-prior paired evaluation, then return one of the four preregistered decisions."
+}
