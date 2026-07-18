@@ -1,0 +1,40 @@
+{
+  "schema_version": "2026-07-18.epoch5_rl4il_prior_module_training_launcher_repair.v1",
+  "execution_classification": "PRIOR_MODULE_TRAINING",
+  "implementation_label": "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT",
+  "decision": "RL4IL_PRIOR_MODULE_TRAINING_NARROW_LAUNCHER_REPAIR_USED",
+  "repair_count_consumed": 1,
+  "authorized_repair_class": [
+    "path errors",
+    "launcher or PID errors"
+  ],
+  "failed_attempts_preserved": [
+    {
+      "attempt": 1,
+      "failure": "PowerShell timestamp format used K as timezone and produced '+09:00' inside the run directory path, which is invalid in a Windows path.",
+      "stage_changed": false,
+      "budget_changed": false,
+      "panel_changed": false,
+      "action_oracle_changed": false
+    },
+    {
+      "attempt": 2,
+      "failure": "Bash background-launch quoting did not write launcher_pid.txt; no training process was running when checked.",
+      "stage_changed": false,
+      "budget_changed": false,
+      "panel_changed": false,
+      "action_oracle_changed": false
+    }
+  ],
+  "repair_applied": "Switched to a Windows Start-Process launch with explicit WSL arguments and Windows-side logs; no RL4IL training, oracle, panel, identity, epoch-budget, or decision-rule settings changed.",
+  "successful_rerun": {
+    "run_dir": "runs/rl4il_prior/action_oracle_port_20260718T194750KST",
+    "result": "reports/rl4il_action_oracle_prior_module_training_result.json"
+  },
+  "negative_controls": {
+    "ours_method_selected": false,
+    "ours_training_happened": false,
+    "ours_rollout_happened": false,
+    "vla_training_happened": false
+  }
+}
