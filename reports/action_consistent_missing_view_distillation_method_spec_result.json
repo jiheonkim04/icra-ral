@@ -1,0 +1,138 @@
+{
+  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_distillation_method_spec_result.v1",
+  "decision": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA_METHOD_SPEC_FROZEN",
+  "method": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA",
+  "direction": "ACTION-CONSISTENT MISSING-VIEW DISTILLATION",
+  "novelty_decision": "INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE",
+  "source_head": "1d746978b89a9931c92182e3c3a8679323dbd637",
+  "frozen_spec": {
+    "path": "configs/action_consistent_missing_view_distillation_xvla_frozen_spec.json",
+    "sha256": "97907bb24508b0192f9d7df400313bbee68ab2fa0cd2d7b4cc7f4cb67e23f4b9"
+  },
+  "implementation": {
+    "adapter": "tca_map/action_consistent_missing_view_distillation/adapter.py",
+    "adapter_sha256": "62454a80d485bff016af762f1ec3e64fa0a023ea20b688c3217bf2a191f6de8c",
+    "validator": "tca_map/action_consistent_missing_view_distillation/spec.py",
+    "validator_sha256": "199a84414fc1b1b8320f193cfc8405026707432ea4e91127288633b2f9719c5d",
+    "test": "tests/test_action_consistent_missing_view_distillation_spec.py"
+  },
+  "scientific_method": {
+    "primary": "clean X-VLA teacher to matched wrist-dropout X-VLA student action-semantic distillation over the full 30-step action chunk",
+    "auxiliary": "training-only clean wrist-view Florence2 latent reconstruction from the shared dropout action-hidden trunk",
+    "deployment": "zero-initialized action-hidden residual at model.transformer.norm; reconstruction prediction is never inserted or consumed by the policy",
+    "claim": "deployment-clean adaptation of a frozen multi-view VLA to complete wrist loss with action-chunk hidden and continuous-action alignment, separate raw gripper-margin preservation, training-only reconstruction, exact clean bypass, and no inference teacher/retrieval/generator/reconstructed input"
+  },
+  "exact_trainable_scope": {
+    "module": "ActionConsistentMissingViewAdapter",
+    "attachment": "model.transformer.norm output before frozen action_decoder",
+    "components": ["shared_down", "shared_core", "action_residual_output", "wrist_token_position", "reconstruction_core", "reconstruction_output"],
+    "trainable_parameter_count": 434816,
+    "inference_parameter_count": 279808,
+    "action_residual_output_initialization": "EXACT_ZERO",
+    "reconstruction_output_initialization": "EXACT_ZERO"
+  },
+  "exact_frozen_scope": {
+    "teacher": "all official X-VLA parameters",
+    "student_backbone": "all official X-VLA parameters including VLM, transformer blocks, norm, projections, prompts, action encoder, and action decoder",
+    "teacher_trainable_parameters": 0,
+    "student_backbone_trainable_parameters": 0,
+    "full_model_finetuning": false
+  },
+  "tensors": {
+    "clean_wrist_target": "[B,50,1024] clean forward_vlm aux_visual_inputs[:,0:50,:]",
+    "teacher_hidden": "[B,30,1024] clean transformer.norm output",
+    "teacher_raw_action": "[B,30,20] clean pre-postprocess action_decoder output",
+    "dropout_hidden_before_adapter": "[B,30,1024]",
+    "student_hidden_after_adapter": "[B,30,1024]",
+    "student_raw_action": "[B,30,20]",
+    "training_only_reconstruction": "[B,50,1024]"
+  },
+  "losses": {
+    "primary_composite": ["0.25 * normalized action-hidden MSE", "1.0 * normalized translation MSE", "1.0 * normalized rotation MSE", "1.0 * normalized raw gripper-margin MSE"],
+    "auxiliary": "0.25 * normalized wrist-latent reconstruction MSE",
+    "raw_gripper_indices": [9, 19],
+    "raw_gripper_threshold": 0.0,
+    "normalization": "fixed discovery Base-dropout-versus-clean-teacher denominators, mechanically frozen before training",
+    "clean_identity_loss": "architectural exact bypass rather than an approximate penalty"
+  },
+  "training_arms": [
+    "OURS_FULL",
+    "NO_RECONSTRUCTION with matched teacher distillation and capacity",
+    "NO_RAW_GRIPPER_MARGIN with remaining objectives and matched capacity",
+    "GENERIC_WRIST_DROPOUT_ADAPTER with ordinary demonstration supervision and matched capacity/data/budget"
+  ],
+  "comparator_roles": {
+    "BASE": "frozen official X-VLA under wrist dropout",
+    "EXTERNAL_PRIOR": "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT, never OFFICIAL_RL4IL_REPRODUCTION",
+    "OURS": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA",
+    "KEY_ABLATION": "NO_RECONSTRUCTION",
+    "MECHANISM_ABLATION": "NO_RAW_GRIPPER_MARGIN",
+    "GENERIC_CONTROL": "GENERIC_WRIST_DROPOUT_ADAPTER",
+    "ARCHIVED_DIAGNOSTICS": ["AWF", "CVLR v1 direct insertion", "zero-fill"]
+  },
+  "stage0_data": {
+    "discovery_records": 480,
+    "discovery": "three frozen tasks, demos 0..39, official-reader positions 0,9,18,27",
+    "validation_records": 12,
+    "validation": "three frozen tasks, demo 40, official-reader positions 0,9,18,27",
+    "fixed_confirmation_reserve_records": 108,
+    "fixed_confirmation_reserve": "demos 41..49, inaccessible unless the frozen decision authorizes one confirmation/expansion",
+    "confirmatory_outcomes_accessed": false
+  },
+  "training_budget": {
+    "optimizer": "AdamW",
+    "peak_learning_rate": 0.0003,
+    "schedule": "8-step linear warmup then cosine decay to 0.00003",
+    "optimizer_steps_per_arm": 128,
+    "effective_batch": 8,
+    "adaptive_microbatch_candidates": [1, 2, 4, 8],
+    "checkpoint_steps": [64, 128],
+    "checkpoint_selection": "FINAL_STEP_ONLY_NO_VALIDATION_SELECTION",
+    "dtype": "torch.float32",
+    "cpu_or_disk_model_offload": false,
+    "swap_or_pagefile_training": false
+  },
+  "practical_effect_rule": {
+    "relative_improvement_min": 0.05,
+    "absolute_threshold": "max(per-metric frozen floor, 10 times measured repeated-forward numerical noise)",
+    "full_vs_no_reconstruction": "must improve at least one co-primary teacher-agreement metric with no material regression on the others and no added gripper disagreement",
+    "full_vs_generic": "must improve at least one co-primary metric or classify STAGE0_GENERIC_ADAPTATION_EXPLAINS_GAIN",
+    "reconstruction": "full MSE at most 0.95 times no-reconstruction overall and lower on at least two tasks",
+    "merely_nonzero_effect_sufficient": false
+  },
+  "deployment_legality": {
+    "clean_hook": "DEACTIVATED_EXACT_XVLA_PATH",
+    "reconstruction_decoder_executed": false,
+    "teacher_required": false,
+    "retrieval_required": false,
+    "reconstructed_input_required": false,
+    "privileged_inputs": false
+  },
+  "simulation_only_calibration": {
+    "source": "reports/simulation_only_ral_evidence_calibration_result.json",
+    "claim": "ROBUST VLA MANIPULATION UNDER SIMULATED WRIST-CAMERA FAILURES",
+    "stage_a": "three tasks x three identities initially; one conditional expansion to five",
+    "stage_b": "at least four tasks and three wrist-failure conditions; 60 paired failure rows initially, one boundary-triggered expansion to 80",
+    "pareto": "performance advantage, one major structural advantage with noninferior success, or two moderate advantages with noninferior success",
+    "second_backbone_required": false,
+    "camera_only_validation_required": false,
+    "physical_manipulation": "PROHIBITED"
+  },
+  "latency_and_memory": {
+    "timing": "10 warmup plus 100 measured fixed-input queries; total and adapter-only median/p95/mean",
+    "resource_metrics": ["peak CUDA allocated and reserved", "system RAM", "pagefile growth", "checkpoint bytes", "inference state bytes"],
+    "pareto_effect_thresholds_frozen_at": "separate Stage A manifest before outcomes"
+  },
+  "validation": {
+    "pytest_command": "C:/Users/jiheo/miniconda3/envs/tca_map/python.exe -m pytest tests/test_action_consistent_missing_view_distillation_spec.py -q",
+    "pytest_result": "5 passed",
+    "validated": ["spec schema and invariant enforcement", "exact parameter counts", "zero-initialized identity", "exact clean object/value bypass", "reconstruction prediction not consumed by action residual", "inference export excludes reconstruction decoder"]
+  },
+  "execution_state": {
+    "training_started": false,
+    "optimizer_steps": 0,
+    "closed_loop_rollout_started": false,
+    "confirmatory_outcomes_accessed": false,
+    "next_authorized_stage": "STAGE0_PREREGISTRATION_AND_ACTUAL_PATH_PREFLIGHT"
+  }
+}

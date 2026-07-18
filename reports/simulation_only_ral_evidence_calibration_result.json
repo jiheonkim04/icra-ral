@@ -1,0 +1,85 @@
+{
+  "schema_version": "2026-07-19.epoch5_simulation_only_ral_evidence_calibration.v1",
+  "decision": "SIMULATION_ONLY_RAL_EVIDENCE_CALIBRATION_ADOPTED",
+  "source_steer": {
+    "path": "C:/Users/jiheo/.codex/attachments/a0608224-bf60-4af4-b397-f77cf1e9f02f/pasted-text.txt",
+    "sha256": "6ec1826e4bb3b4622e4a3c2530deedbb8375765aa13d66625cc242a37ca2e103"
+  },
+  "scope": {
+    "modified": [
+      "final evidence breadth",
+      "Stage A and Stage B sample sizing",
+      "Pareto adjudication",
+      "second-backbone status",
+      "camera-only validation status",
+      "final paper-readiness criteria"
+    ],
+    "unchanged": [
+      "ACTION-CONSISTENT MISSING-VIEW DISTILLATION method",
+      "Stage 0 mechanism",
+      "Stage 0 losses",
+      "Stage 0 discovery and validation data split",
+      "Stage 0 practical-effect thresholds",
+      "RIFA_XVLA_STAGE0_DESIGN_FAILURE",
+      "CVLR_XVLA_STAGE0_DESIGN_FAILURE",
+      "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT result",
+      "no confirmatory-test tuning",
+      "no physical robot manipulation"
+    ]
+  },
+  "novelty_audit_calibration": {
+    "source": "reports/action_consistent_missing_view_distillation_overlap_audit_result.json",
+    "source_decision": "INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE",
+    "paper_count_is_not_novelty_evidence": true,
+    "mechanism_groups_covered": {
+      "multi_camera_to_single_or_missing_view_distillation": ["Acar et al. RA-L 2023", "VILA"],
+      "vla_missing_or_corrupted_visual_robustness": ["StableVLA", "RME", "DisDP", "CRT"],
+      "wrist_prediction_or_cross_view_reconstruction": ["WristWorld", "MV-MWM", "ReconVLA", "MVP-LAM"],
+      "retrieval_or_imputation_partial_observation": ["RL4IL"]
+    },
+    "closest_mandatory_sources_retained": ["Visual-Policy Learning through Multi-Camera View to Single-Camera View Knowledge Distillation for Robot Manipulation Tasks", "WristWorld", "RL4IL", "ReconVLA", "Improving Robustness of VLA Models by Restoring Corrupted Visual Inputs"],
+    "new_broad_search_required": false
+  },
+  "stage0": {
+    "role": "VALIDITY_AND_MECHANISM_ACTIVATION_GATE",
+    "final_closed_loop_superiority_required": false,
+    "small_consistent_noncatastrophic_offline_effect_is_automatic_permanent_kill": false,
+    "training_restarted_by_this_calibration": false
+  },
+  "stage_a": {
+    "tasks_min": 3,
+    "initial_held_out_identities_per_task": 3,
+    "expanded_held_out_identities_per_task": 5,
+    "maximum_expansion_count": 1,
+    "expansion_trigger": "positive but uncertain, mixed across tasks, or near the frozen decision boundary",
+    "key_policies": ["frozen X-VLA", "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT", "Ours", "no-reconstruction ablation", "generic wrist-dropout adaptation control"]
+  },
+  "stage_b": {
+    "tasks_min": 4,
+    "libero_categories_preferred_min": 3,
+    "failure_conditions_min": 3,
+    "failure_conditions": ["persistent wrist blackout", "intermittent wrist-frame loss", "frozen or repeated wrist frame"],
+    "initial_paired_failure_episode_rows_per_key_policy": 60,
+    "single_expansion_paired_failure_episode_rows_per_key_policy": 80,
+    "maximum_expansion_count": 1,
+    "expansion_trigger": "paired confidence interval overlaps the frozen performance or noninferiority boundary",
+    "repeated_significance_seeking_expansion_allowed": false
+  },
+  "pareto_adjudication": {
+    "paths": ["PERFORMANCE_ADVANTAGE", "ONE_MAJOR_PARETO_ADVANTAGE", "TWO_MODERATE_PARETO_ADVANTAGES"],
+    "requires_statistically_comparable_or_noninferior_success_for_pareto_path": true,
+    "pre_outcome_freeze_required": ["success noninferiority margin", "latency protocol", "memory protocol", "retrieval-storage accounting", "clean-retention margin", "major effect threshold", "moderate effect threshold"],
+    "post_hoc_dimension_selection_allowed": false
+  },
+  "optional_evidence": {
+    "second_backbone": "OPTIONAL_STRONG_GENERALIZATION_EVIDENCE_AFTER_POSITIVE_XVLA_STAGE_B",
+    "camera_only": "OPTIONAL_SUPPLEMENTARY_CAMERA_ONLY_REAL_IMAGE_ACTION_STABILITY_VALIDATION",
+    "physical_robot_manipulation": "PROHIBITED"
+  },
+  "simulation_only_claim": "ROBUST VLA MANIPULATION UNDER SIMULATED WRIST-CAMERA FAILURES",
+  "paper_candidate_go_without_second_backbone_or_camera_validation_allowed": true,
+  "prohibited_claims": ["real-world robot robustness", "physical manipulation success", "real sensor reliability", "hardware safety", "sim-to-real transfer", "real-world deployment readiness"],
+  "outcomes_accessed": false,
+  "training_or_rollout_executed": false,
+  "next_action": "freeze and validate the unchanged Stage 0 method specification, then preregister numerical-noise-derived thresholds and the actual-path microbatch preflight"
+}

@@ -6,10 +6,11 @@ Updated: 2026-07-19 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Source HEAD before the current overlap-audit commit: `ea3782a812e0472c0d05f57300e0d7a43dd67429`
+- Current pushed HEAD before the method-specification commit: `1d746978b89a9931c92182e3c3a8679323dbd637`
 - Epoch/cycle: `5 / 0`
 - Campaign state: `AUTONOMOUS_CAMPAIGN_ACTIVE_FINAL_WRIST_DROPOUT_DIRECTION`
 - Active method direction: `ACTION-CONSISTENT MISSING-VIEW DISTILLATION`
-- Active stage: focused overlap audit complete; exact method specification not yet frozen.
+- Active stage: exact method and simulation-only evidence specification frozen locally; Stage 0 preregistration, noise calibration, and actual-path preflight not yet launched.
 - Novelty decision: `INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE`
 - Active training/rollout worker: none at the pre-audit snapshot.
 - Paper status: no `PROTOTYPE_GO`, `PAPER_CANDIDATE_GO`, or paper-ready package.
@@ -19,6 +20,8 @@ Updated: 2026-07-19 KST
 
 - Overlap audit JSON: `reports/action_consistent_missing_view_distillation_overlap_audit_result.json`
 - Overlap audit Markdown: `reports/action_consistent_missing_view_distillation_overlap_audit_result.md`
+- Simulation-only RA-L calibration: `reports/simulation_only_ral_evidence_calibration_result.json`
+- Frozen method specification: `reports/action_consistent_missing_view_distillation_method_spec_result.json`
 - Full campaign audit: `reports/autonomous_research_full_history_audit.md`
 - Current governance: `reports/current_research_governance.md`
 - RL4IL prior result: `reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json`
@@ -84,8 +87,15 @@ At deployment, Ours may use no clean teacher, future frame, expert action, demon
 
 No physical robot manipulation experiment may be proposed or required. Only after a positive Stage B, a bounded non-actuated `CAMERA-ONLY REAL-IMAGE ACTION-STABILITY VALIDATION` may supplement—but never replace—official LIBERO closed-loop evidence.
 
+## Simulation-only RA-L calibration
+
+- The narrow paper claim is `ROBUST VLA MANIPULATION UNDER SIMULATED WRIST-CAMERA FAILURES`.
+- Stage A starts with 3 tasks x 3 held-out identities and expands once to 5 identities per task only for a positive-uncertain, task-mixed, or boundary-near result.
+- Stage B covers at least 4 tasks and 3 wrist-camera failure conditions. It starts with 60 paired failure rows per key policy and expands once to 80 only when the frozen performance/noninferiority interval overlaps its boundary.
+- Against RL4IL, accept performance superiority, comparable/noninferior success plus one major structural deployment advantage, or comparable/noninferior success plus two moderate useful advantages. All margins, protocols, and major/moderate thresholds must be frozen before outcomes.
+- A second backbone is optional strong generalization evidence. Camera-only validation is optional supplementary evidence. Neither is a hard `PAPER_CANDIDATE_GO` gate.
+- A single-backbone simulation-only candidate requires stronger task, condition, ablation, paired-uncertainty, and resource evidence and may not claim real-world robustness, sensor reliability, hardware safety, sim-to-real transfer, or deployment readiness.
+
 ## Immediate next action
 
-Freeze exactly one method specification and comparator contract before any outcome access. It must identify exact trainable/frozen modules, clean-teacher and dropout-student tensors, action-hidden/token alignment, translation/rotation/raw-gripper/reconstruction losses, exact clean bypass, inference graph, parameter count, splits, optimizer, schedule, update budget, checkpoint rule, practical-effect thresholds, latency, and memory.
-
-Then freeze a Stage 0 preregistration using discovery/validation data only, estimate deterministic forward noise, run the actual-path microbatch preflight over `1,2,4,8`, and launch only the frozen contract. Full-model fine-tuning, CPU/disk offload, swap/pagefile training, confirmatory-outcome access, and outcome-dependent threshold changes remain prohibited.
+Freeze a separate Stage 0 preregistration using discovery/validation data only, estimate deterministic forward noise, run the actual-path microbatch preflight over `1,2,4,8`, and launch only the frozen contract. Full-model fine-tuning, CPU/disk offload, swap/pagefile training, confirmatory-outcome access, and outcome-dependent threshold changes remain prohibited.

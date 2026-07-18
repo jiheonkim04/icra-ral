@@ -1,0 +1,392 @@
+{
+  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_distillation_xvla_method_spec.v1",
+  "method": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA",
+  "direction": "ACTION-CONSISTENT MISSING-VIEW DISTILLATION",
+  "novelty_decision": "INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE",
+  "source_overlap_audit": "reports/action_consistent_missing_view_distillation_overlap_audit_result.json",
+  "source_overlap_audit_head": "1d746978b89a9931c92182e3c3a8679323dbd637",
+  "scientific_method": {
+    "core_mechanism": "A frozen clean-view X-VLA teacher supervises a wrist-dropout student at the real action-hidden and continuous action-chunk outputs. A zero-initialized action-hidden residual and a training-only cross-view wrist-latent decoder share a bottleneck, so reconstruction shapes the deployable action representation without inserting a predicted wrist token or image into the policy stream.",
+    "primary_objective": "action-semantic distillation composite over action hidden states, translation, rotation, and raw gripper margins",
+    "single_auxiliary_objective": "clean wrist-view Florence2 latent reconstruction from the shared dropout action-hidden trunk",
+    "narrow_claim": "deployment-clean adaptation of a frozen multi-view VLA to complete wrist loss with action-chunk semantic alignment, separate raw gripper-margin preservation, training-only cross-view reconstruction, exact clean bypass, and no teacher, retrieval, generator, or reconstructed input at deployment",
+    "not_the_contribution": [
+      "method name",
+      "adapter width",
+      "parameter count",
+      "LoRA or PEFT alone"
+    ]
+  },
+  "xvla": {
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_root": "/mnt/c/assets/repos/X-VLA",
+    "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "cache_dir": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers",
+    "domain_id": 3,
+    "action_mode": "ee6d",
+    "action_horizon": 30,
+    "action_dimension": 20,
+    "denoise_steps": 10,
+    "hidden_size": 1024,
+    "visual_tokens_per_view": 50,
+    "visual_token_dimension": 1024,
+    "all_official_parameters_frozen": true,
+    "teacher_parameters_trainable": 0,
+    "student_backbone_parameters_trainable": 0,
+    "full_model_finetuning": false,
+    "cpu_or_disk_model_offload": false
+  },
+  "trainable_module": {
+    "class": "tca_map.action_consistent_missing_view_distillation.adapter.ActionConsistentMissingViewAdapter",
+    "attachment_point": "model.transformer.norm forward hook before model.transformer.action_decoder",
+    "hidden_size": 1024,
+    "bottleneck_dim": 128,
+    "wrist_token_count": 50,
+    "wrist_token_dim": 1024,
+    "residual_scale": 0.1,
+    "components": [
+      "shared_down Linear(1024,128)",
+      "shared_core Linear(128,128)",
+      "action_residual_output Linear(128,1024)",
+      "wrist_token_position Parameter(50,128)",
+      "reconstruction_core Linear(128,128)",
+      "reconstruction_output Linear(128,1024)"
+    ],
+    "action_residual_output_initialization": "EXACT_ZERO",
+    "reconstruction_output_initialization": "EXACT_ZERO",
+    "trainable_parameter_count_exact": 434816,
+    "inference_parameter_count_exact": 279808,
+    "reconstruction_prediction_is_action_input": false,
+    "shared_trunk_receives_reconstruction_gradient_during_training": true
+  },
+  "teacher_student_tensors": {
+    "clean_wrist_target": "z_wrist_clean = clean forward_vlm aux_visual_inputs[:,0:50,:], shape [B,50,1024]",
+    "teacher_action_hidden": "h_teacher = clean model.transformer.norm output before action_decoder, shape [B,30,1024]",
+    "teacher_raw_action": "v_teacher = clean action_decoder output before action_space.postprocess, shape [B,30,20]",
+    "student_base_action_hidden": "h_dropout = wrist-dropout model.transformer.norm output before adapter, shape [B,30,1024]",
+    "student_action_hidden": "h_student = h_dropout + zero-initialized bounded residual, shape [B,30,1024]",
+    "student_raw_action": "v_student = frozen action_decoder(h_student), shape [B,30,20]",
+    "student_reconstruction": "z_wrist_hat = training-only decoder(shared_dropout_hidden), shape [B,50,1024]",
+    "action_token_distribution_available": false,
+    "alignment_choice": "ACTION_HIDDEN_STATE_ALIGNMENT_BECAUSE_XVLA_HAS_A_CONTINUOUS_FLOW_ACTION_HEAD_NOT_AN_ACTION_TOKEN_DISTRIBUTION"
+  },
+  "paired_training_forward": {
+    "teacher_input": "matched current agent view plus valid synchronized current wrist view and identical language/proprioception",
+    "student_input": "matched current agent view plus image_mask wrist dropout and identical language/proprioception",
+    "noise_coupling": "teacher and student receive identical x_t and t for every exposure",
+    "diffusion_state": "x_t = t * epsilon + (1-t) * demonstration_action",
+    "t_schedule": "within every effective batch of eight, t_j=(j+0.5)/8 for j=0..7",
+    "epsilon_schedule": "arm-independent deterministic normal tensor keyed by SHA256(seed, exposure_ordinal, task, demo, reader_position)",
+    "teacher_gradient": false,
+    "student_backbone_gradient": false,
+    "action_decoder_frozen_but_differentiable_to_adapter_output": true
+  },
+  "objectives": {
+    "normalization_calibration": {
+      "source": "fixed discovery calibration rows: demo 0 at reader positions 0,9,18,27 for each of three tasks",
+      "rule": "Each teacher-agreement MSE is divided by the corresponding frozen Base-dropout-versus-clean-teacher MSE; reconstruction MSE is divided by zero-fill wrist-latent MSE. Denominators use the listed floors and are frozen in the Stage 0 preregistration before optimizer steps.",
+      "floors": {
+        "hidden_mse": 1e-8,
+        "translation_mse": 1e-10,
+        "rotation_mse": 1e-10,
+        "raw_gripper_margin_mse": 1e-8,
+        "wrist_reconstruction_mse": 1e-8
+      }
+    },
+    "hidden": {
+      "formula": "mean_squared_error(h_student, stop_gradient(h_teacher)) / frozen_hidden_denominator",
+      "weight": 0.25,
+      "scope": "all 30 action positions and all 1024 hidden dimensions"
+    },
+    "translation": {
+      "formula": "mean_squared_error(v_student[...,indices], stop_gradient(v_teacher[...,indices])) / frozen_translation_denominator",
+      "implementation_indices": [0, 1, 2, 10, 11, 12],
+      "weight": 1.0
+    },
+    "rotation": {
+      "formula": "mean_squared_error(v_student[...,indices], stop_gradient(v_teacher[...,indices])) / frozen_rotation_denominator",
+      "implementation_indices": [3, 4, 5, 6, 7, 8, 13, 14, 15, 16, 17, 18],
+      "weight": 1.0
+    },
+    "raw_gripper_margin": {
+      "formula": "mean_squared_error(v_student[...,gripper]-0, stop_gradient(v_teacher[...,gripper]-0)) / frozen_gripper_denominator",
+      "implementation_indices": [9, 19],
+      "raw_logit_decision_threshold": 0.0,
+      "post_sigmoid_decision_threshold": 0.5,
+      "weight": 1.0
+    },
+    "cross_view_reconstruction": {
+      "formula": "mean_squared_error(z_wrist_hat, stop_gradient(z_wrist_clean)) / frozen_reconstruction_denominator",
+      "weight": 0.25,
+      "training_only": true,
+      "direct_policy_input": false
+    },
+    "generic_dropout_supervision": {
+      "formula": "position_loss/500 + rotate6D_loss/10 + gripper_loss from official EE6DActionSpace.compute_loss(v_student, demonstration_action)",
+      "used_only_by": "GENERIC_WRIST_DROPOUT_ADAPTER"
+    }
+  },
+  "clean_bypass": {
+    "deployment_behavior": "when the wrist view is valid, do not activate the transformer.norm hook",
+    "module_guard": "an all-zero missing_indicator returns the original hidden tensor object before any trainable operation",
+    "required_max_action_delta": 0.0,
+    "required_hidden_delta": 0.0,
+    "required_gripper_flip_count": 0
+  },
+  "deployment_graph": {
+    "dropout_path": [
+      "official X-VLA processor",
+      "official X-VLA forward_vlm with missing wrist image mask",
+      "official frozen action transformer",
+      "shared_down and shared_core on transformer.norm action hidden",
+      "bounded action_residual_output",
+      "official frozen action_decoder",
+      "official iterative denoising and action_space.postprocess"
+    ],
+    "clean_view_hook_state": "DEACTIVATED_EXACT_XVLA_PATH",
+    "reconstruction_decoder_executed": false,
+    "inference_parameter_count": 279808,
+    "forbidden_inputs": [
+      "clean_view_teacher",
+      "future_frame",
+      "expert_action",
+      "demonstration_action_oracle",
+      "reward",
+      "done_or_success_flag",
+      "simulator_object_contact_or_pose_state",
+      "privileged_reset_identity",
+      "retrieval_library_or_nearest_demonstration_search",
+      "reconstructed_wrist_token_or_image_insertion"
+    ]
+  },
+  "training_panel": [
+    {
+      "suite": "libero_goal",
+      "task_id": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "hdf5": "/mnt/c/assets/data/libero/libero_goal/open_the_middle_drawer_of_the_cabinet_demo.hdf5"
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 0,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "hdf5": "/mnt/c/assets/data/libero/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket_demo.hdf5"
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 5,
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "hdf5": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5"
+    }
+  ],
+  "data_splits": {
+    "discovery": {
+      "demo_indices": "0..39 inclusive for every training-panel task",
+      "official_reader_positions": [0, 9, 18, 27],
+      "record_count": 480,
+      "uses": ["normalization calibration", "optimization", "deterministic noise estimation", "microbatch preflight"]
+    },
+    "validation": {
+      "demo_indices": [40],
+      "official_reader_positions": [0, 9, 18, 27],
+      "record_count": 12,
+      "uses": ["Stage 0 checkpoint adjudication only"],
+      "checkpoint_selection": false
+    },
+    "fixed_confirmation_reserve": {
+      "demo_indices": "41..49 inclusive",
+      "official_reader_positions": [0, 9, 18, 27],
+      "record_count": 108,
+      "access_rule": "only one unchanged fixed confirmation or underpowered expansion when the frozen Stage 0 decision explicitly authorizes it"
+    },
+    "stage_a": {
+      "task_keys": ["libero_goal/task0", "libero_object/task0", "libero_spatial/task5"],
+      "initial_reset_identities_per_task": [20260740, 20260741, 20260742],
+      "single_expansion_reset_identities_per_task": [20260743, 20260744],
+      "initial_paired_episode_keys_per_policy": 9,
+      "expanded_paired_episode_keys_per_policy": 15,
+      "expansion_trigger": "positive but uncertain, mixed across tasks, or near the frozen Stage A decision boundary",
+      "maximum_expansion_count": 1,
+      "conditions": ["clean", "mask_1_in_hand_dropout"],
+      "access_rule": "outcomes remain inaccessible until STAGE0_GO and a separately hashed Stage A manifest"
+    },
+    "stage_b": {
+      "task_keys": ["libero_goal/task0", "libero_object/task0", "libero_spatial/task5", "libero_goal/task1"],
+      "fourth_task_role": "held-out compatible task generalization; exact task metadata must be verified before the Stage B manifest without outcome access",
+      "initial_reset_identities_per_task": [20260800, 20260801, 20260802, 20260803, 20260804, 20260805, 20260806, 20260807, 20260808, 20260809, 20260810, 20260811, 20260812, 20260813, 20260814],
+      "single_expansion_reset_identities_per_task": [20260815, 20260816, 20260817, 20260818, 20260819],
+      "failure_conditions": [
+        "persistent_wrist_blackout",
+        "intermittent_wrist_frame_loss",
+        "frozen_or_repeated_wrist_frame"
+      ],
+      "clean_retention_condition": "clean",
+      "failure_indicator_assumption": "the simulated camera driver exposes only a current wrist-failure/stale-frame indicator; it exposes no task outcome, simulator state, reset identity, or future information",
+      "initial_paired_failure_episode_rows_per_policy": 60,
+      "initial_allocation": "four tasks x fifteen identities; deterministic task-balanced Latin-square assignment gives twenty paired rows per wrist-failure condition",
+      "single_expansion_paired_failure_episode_rows_per_policy": 80,
+      "single_expansion_allocation": "add five identities per task using the preregistered deterministic condition assignment, preserving task balance and near-equal condition balance",
+      "expansion_trigger": "the paired confidence interval overlaps the frozen performance or noninferiority claim boundary",
+      "maximum_expansion_count": 1,
+      "stop_rule": "stop at 60 when the interval resolves the claim; otherwise expand once to 80 and stop regardless of significance",
+      "pairing": "every episode row uses the same task, reset identity, failure schedule, and simulator initialization for every key policy",
+      "access_rule": "outcomes remain inaccessible until Stage A supports Stage B and a separately hashed Stage B manifest"
+    },
+    "confirmatory_outcomes_accessed": false,
+    "identity_overlap_between_stage_a_and_stage_b": false
+  },
+  "stage0_training_arms": [
+    {
+      "name": "OURS_FULL",
+      "loss": "0.25*hidden + translation + rotation + raw_gripper_margin + 0.25*reconstruction",
+      "trainable_parameter_count": 434816
+    },
+    {
+      "name": "NO_RECONSTRUCTION",
+      "loss": "0.25*hidden + translation + rotation + raw_gripper_margin + 0.0*reconstruction",
+      "trainable_parameter_count": 434816
+    },
+    {
+      "name": "NO_RAW_GRIPPER_MARGIN",
+      "loss": "0.25*hidden + translation + rotation + 0.0*raw_gripper_margin + 0.25*reconstruction",
+      "trainable_parameter_count": 434816
+    },
+    {
+      "name": "GENERIC_WRIST_DROPOUT_ADAPTER",
+      "loss": "official normalized demonstration action loss + 0.0*teacher terms + 0.0*reconstruction",
+      "trainable_parameter_count": 434816
+    }
+  ],
+  "comparator_roles": {
+    "BASE": {
+      "name": "frozen official X-VLA under wrist dropout",
+      "question": "Does any trainable method improve the verified failure condition?"
+    },
+    "EXTERNAL_PRIOR": {
+      "name": "RL4IL local prior",
+      "implementation_label": "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT",
+      "not_label": "OFFICIAL_RL4IL_REPRODUCTION",
+      "question": "Does Ours provide a success or prespecified deployment Pareto advantage over the strongest local external prior?"
+    },
+    "OURS": {
+      "name": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA",
+      "question": "Does clean-teacher action-semantic distillation plus training-only reconstruction reduce the dropout residual?"
+    },
+    "KEY_ABLATION": {
+      "name": "NO_RECONSTRUCTION",
+      "question": "Does cross-view reconstruction supervision improve deployable teacher agreement beyond matched action distillation and capacity?"
+    },
+    "MECHANISM_ABLATION": {
+      "name": "NO_RAW_GRIPPER_MARGIN",
+      "question": "Does separate raw gripper-margin supervision prevent threshold-instability not explained by continuous action alignment?"
+    },
+    "GENERIC_CONTROL": {
+      "name": "GENERIC_WRIST_DROPOUT_ADAPTER",
+      "question": "Can ordinary demonstration-supervised wrist-dropout adaptation explain the gain?",
+      "matching": ["data", "record exposure", "effective batch", "optimizer steps", "optimizer", "schedule", "parameter count", "initialization", "checkpoint rule"]
+    },
+    "ARCHIVED_DIAGNOSTICS": ["AWF direct image substitution", "CVLR v1 direct reconstructed-token insertion", "zero-fill"]
+  },
+  "training_budget": {
+    "configuration_count": 1,
+    "seed": 20260719,
+    "optimizer": "AdamW",
+    "learning_rate_peak": 0.0003,
+    "betas": [0.9, 0.95],
+    "epsilon": 1e-8,
+    "weight_decay": 0.0001,
+    "max_gradient_norm": 1.0,
+    "schedule": "8-step linear warmup followed by cosine decay to 0.00003 at step 128",
+    "optimizer_steps_per_arm": 128,
+    "effective_batch": 8,
+    "microbatch_candidates": [1, 2, 4, 8],
+    "microbatch_selection": "largest first-prefix-stable candidate with CUDA reserved <=88%, system RAM <=82%, no research-induced pagefile growth, finite loss/gradients, optimizer step, and checkpoint capability; stop after first unsafe size",
+    "gradient_accumulation": "8 divided by selected microbatch",
+    "data_exposures_per_arm": 1024,
+    "checkpoint_steps": [64, 128],
+    "checkpoint_selection": "FINAL_STEP_ONLY_NO_VALIDATION_SELECTION",
+    "dtype": "torch.float32",
+    "downloads_allowed": false,
+    "cpu_or_disk_model_offload": false,
+    "swap_or_pagefile_training": false,
+    "validation_selection_or_tuning": false
+  },
+  "practical_effect_rule": {
+    "co_primary_teacher_agreement_measures": ["translation_RMSE", "rotation_RMSE", "raw_gripper_margin_MAE", "action_hidden_MSE"],
+    "relative_improvement_min": 0.05,
+    "noise_multiplier": 10,
+    "absolute_improvement_floors": {
+      "translation_RMSE": 0.0001,
+      "rotation_RMSE": 0.0002,
+      "raw_gripper_margin_MAE": 0.002,
+      "action_hidden_MSE": 0.00001
+    },
+    "threshold_formula": "for each measure, improvement must be at least 5% relative and at least max(absolute_floor, 10 * measured_fixed_seed_repeat_noise)",
+    "full_vs_no_reconstruction": "full must pass the threshold on at least one co-primary measure",
+    "full_vs_generic": "full must pass the same threshold on at least one co-primary measure or Stage 0 returns STAGE0_GENERIC_ADAPTATION_EXPLAINS_GAIN",
+    "other_measure_nonregression": "no other co-primary measure may worsen by more than max(2% relative, 10 * measured_fixed_seed_repeat_noise)",
+    "discrete_gripper_nonregression": "full may not add a validation gripper disagreement relative to no-reconstruction or generic control",
+    "reconstruction_mechanism": "full wrist-latent validation MSE must be at most 0.95 times no-reconstruction overall and lower on at least two of three tasks",
+    "merely_nonzero_difference_sufficient": false,
+    "numerical_noise_values_frozen_in": "Stage 0 preregistration before any optimizer step"
+  },
+  "safety_and_validity": {
+    "required": [
+      "actual clean-teacher X-VLA forward",
+      "actual dropout-student X-VLA forward",
+      "CUDA execution",
+      "finite nonzero gradients",
+      "positive optimizer steps",
+      "changed trainable weights",
+      "checkpoint write and exact disk reload",
+      "unchanged frozen X-VLA parameters",
+      "exact clean bypass",
+      "zero NaN or Inf",
+      "zero official action-range violations",
+      "no privileged deployment inputs",
+      "no direct reconstructed-token insertion"
+    ],
+    "smoothness_envelope": "per-dimension 99th percentile of absolute adjacent-step translation and rotation deltas on fixed clean-teacher discovery calibration chunks, plus 10 times repeated-forward noise; frozen before optimization",
+    "gripper_reporting": ["raw logits", "signed distance from raw threshold 0", "post-sigmoid score", "final discrete decision", "flip indices"],
+    "universal_continuous_and_binary_max_absolute_gate": false
+  },
+  "latency_and_memory_metrics": {
+    "inference_timing": "10 warmup and 100 measured fixed-input queries; median, p95, and mean milliseconds for total query and adapter-only CUDA-event time",
+    "memory": ["peak CUDA allocated MiB", "peak CUDA reserved MiB", "system RAM peak and percentage", "pagefile before/after growth"],
+    "artifacts": ["training checkpoint bytes", "inference-only state_dict bytes", "SHA256"],
+    "comparisons": ["frozen X-VLA", "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT", "Ours", "no-reconstruction", "generic dropout adapter"],
+    "pareto_thresholds_deferred_until": "separate Stage A manifest before Stage A outcomes",
+    "pareto_paths": {
+      "performance_advantage": "clearly higher dropout closed-loop success with clean retention and mechanism evidence",
+      "one_major_advantage": "statistically comparable or noninferior success plus one preregistered large structural deployment advantage",
+      "two_moderate_advantages": "statistically comparable or noninferior success plus two preregistered moderate deployment advantages"
+    },
+    "major_examples": ["no retrieval library or nearest-neighbor search at inference", "large latency reduction", "large inference-memory or stored-artifact reduction"],
+    "moderate_candidate_dimensions": ["latency", "VRAM", "RAM", "checkpoint plus retrieval footprint", "clean retention", "gripper stability", "task consistency"],
+    "post_hoc_dimension_selection_allowed": false
+  },
+  "execution_boundaries": {
+    "current_stage": "METHOD_SPECIFICATION_FROZEN_NOT_TRAINED",
+    "closed_loop_rollout_authorized_by_method_spec": false,
+    "confirmatory_tuning_authorized": false,
+    "new_method_generation_authorized": false,
+    "physical_robot_manipulation_authorized": false,
+    "camera_only_validation_authorized_now": false,
+    "simulation_only_paper_candidate_path_valid": true,
+    "simulation_only_claim": "ROBUST VLA MANIPULATION UNDER SIMULATED WRIST-CAMERA FAILURES",
+    "second_backbone_required_for_paper_candidate_go": false,
+    "second_backbone_role": "OPTIONAL_STRONG_GENERALIZATION_EVIDENCE_AFTER_POSITIVE_XVLA_STAGE_B",
+    "camera_only_validation_required_for_paper_candidate_go": false,
+    "camera_only_validation_role": "OPTIONAL_SUPPLEMENTARY_EVIDENCE",
+    "single_backbone_requirement": "stronger task, wrist-failure-condition, ablation, and paired-statistical evidence",
+    "prohibited_claims": ["real-world robot robustness", "physical manipulation success", "real sensor reliability", "hardware safety", "sim-to-real transfer", "real-world deployment readiness"],
+    "next_authorized_stage": "STAGE0_PREREGISTRATION_AND_ACTUAL_PATH_PREFLIGHT"
+  },
+  "bounded_repair": {
+    "maximum_count": 1,
+    "current_count": 0,
+    "allowed_classes": ["PATH_ERROR", "SERIALIZER_FAILURE", "DTYPE_DEVICE_MISMATCH", "CHECKPOINT_PATH_DEFECT", "LAUNCHER_OR_PID_ERROR", "LIVE_QUERY_WIRING_DEFECT", "OUTPUT_DIRECTORY_ERROR", "NON_SCIENTIFIC_ENVIRONMENT_DEPENDENCY_ERROR"],
+    "scientific_fields_immutable": ["method", "trainable_module", "teacher_student_tensors", "objectives", "data_splits", "stage0_training_arms", "comparator_roles", "training_budget", "practical_effect_rule", "safety_and_validity"]
+  }
+}

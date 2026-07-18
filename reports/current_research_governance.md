@@ -585,3 +585,114 @@ A serious paper candidate must also beat the closest prior and key ablation,
 survive the strongest relevant alternative explanation, retain clean
 behavior, preserve novelty, and support the intended mechanism. Standard LoRA
 superiority is required only when standard LoRA is that relevant explanation.
+
+## Active Wrist-Dropout Simulation-Only RA-L Calibration
+
+Effective `2026-07-19`, this section governs only the active final direction
+`ACTION-CONSISTENT MISSING-VIEW DISTILLATION` and overrides any earlier rule
+that makes a second backbone, camera-only validation, or a physical experiment
+a universal prerequisite for `PAPER_CANDIDATE_GO`. It does not modify the
+method, Stage 0 mechanism, losses, discovery/validation split, frozen Stage 0
+thresholds, archived decisions, or the prohibition on confirmatory-test
+tuning.
+
+The allowed narrow paper claim is:
+
+`ROBUST VLA MANIPULATION UNDER SIMULATED WRIST-CAMERA FAILURES`
+
+Physical robot manipulation remains prohibited. Do not claim real-world robot
+robustness, physical manipulation success, real sensor reliability, hardware
+safety, sim-to-real transfer, or real-world deployment readiness. Evidence
+must use official policy-controlled closed-loop simulator execution and
+official task success.
+
+### Stage 0 Role
+
+Stage 0 is a validity and mechanism-activation gate. It must establish real
+teacher/student execution, optimization health, persistence, exact clean
+bypass, legal outputs, directional teacher-agreement improvement, and a
+practical full-versus-ablation effect above numerical noise. It need not prove
+final closed-loop superiority. A small but consistent noncatastrophic offline
+effect with unresolved uncertainty is not by itself a permanent method kill;
+final mechanism support comes from Stage A/B closed-loop evidence under the
+false-negative safeguard.
+
+### Stage A Sampling
+
+Stage A begins with at least three tasks and exactly three held-out identities
+per task, matched across frozen X-VLA, the `MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT`,
+Ours, the no-reconstruction ablation, and the generic wrist-dropout adaptation
+control. Expand once to five identities per task only when the initial result
+is positive but uncertain, mixed across tasks, or near the frozen decision
+boundary. Do not spend the larger budget automatically.
+
+### Stage B Breadth And Adaptive Size
+
+A simulation-only paper-candidate Stage B uses at least four tasks, preferably
+across at least three compatible LIBERO categories, with held-out matched
+identities and at least three failures confined to the wrist-camera claim:
+persistent blackout, intermittent frame loss, and frozen/repeated frame or a
+preregistered partial-occlusion equivalent.
+
+Begin with at least 60 paired failure-condition episode rows per key policy.
+Report task-balanced results and paired uncertainty. Stop when the frozen
+performance or noninferiority claim is resolved. If its interval overlaps the
+claim boundary, expand exactly once to the preregistered maximum of 80 or 100
+rows and stop regardless of significance. Freeze the exact row manifest and
+maximum before Stage B outcomes; repeated significance-seeking expansion is
+prohibited.
+
+### RL4IL Performance And Pareto Paths
+
+Against RL4IL, accept one of three preregistered paths:
+
+1. clearly higher dropout success, clean retention, and mechanism evidence;
+2. statistically comparable or noninferior success plus one large structural
+   deployment advantage, such as eliminating the inference retrieval library
+   or a large latency/memory/artifact reduction;
+3. statistically comparable or noninferior success plus two moderate useful
+   deployment advantages.
+
+Before Stage A/B outcomes, freeze the success noninferiority and clean-retention
+margins, latency and memory protocols, retrieval-storage accounting, and the
+major/moderate practical thresholds. Do not select favorable dimensions after
+outcomes, and do not treat a trivial cost difference as a contribution.
+
+### Optional Strengthening Evidence
+
+A second backbone is optional strong generalization evidence attempted only
+after positive X-VLA Stage B when a matched multi-view interface, action
+normalization, unchanged mechanism, compute, and local execution are valid.
+Incompatibility or resource limits are documented infrastructure limitations,
+not method failures and not automatic paper blockers.
+
+`CAMERA-ONLY REAL-IMAGE ACTION-STABILITY VALIDATION` is optional supplementary
+evidence. Its absence does not block Stage B, `PAPER_CANDIDATE_GO`, paper-package
+generation, or an RA-L submission recommendation. It is never called a robot
+experiment or physical manipulation validation.
+
+### Simulation-Only Paper-Candidate Gate
+
+`PAPER_CANDIDATE_GO` is permitted without a second backbone or camera-only
+experiment when all of the following are established:
+
+1. the simulated wrist-camera failure problem is repeatedly verified;
+2. the method survives the strengthened mechanism-level overlap audit;
+3. official closed-loop LIBERO success improves over frozen X-VLA;
+4. Ours establishes a preregistered performance or Pareto advantage over
+   RL4IL;
+5. the key ablation supports the claimed mechanism;
+6. generic dropout adaptation does not explain the full gain;
+7. clean performance remains within its frozen retention margin;
+8. results are consistent across multiple tasks and wrist-failure conditions;
+9. paired uncertainty supports the primary claim;
+10. inference uses no privileged information;
+11. latency, VRAM, RAM, retrieval storage, checkpoint size, and trainable
+    parameters are reported; and
+12. manifests, checkpoints, telemetry, and commands are reproducible.
+
+A single-backbone paper candidate therefore carries a stronger task,
+condition, ablation, and statistical burden. If it passes, position it as a
+method and benchmark study of VLA manipulation under simulated wrist-camera
+failures, and state the absence of physical validation, sim-to-real evidence,
+and real sensor-failure recovery as explicit limitations.
