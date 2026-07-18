@@ -1,0 +1,171 @@
+{
+  "schema_version": "2026-07-18.epoch5_sgl_xvla_runner_preflight_result.v1",
+  "created_at_kst": "2026-07-18T12:10:19+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "3831fe58e5ee2b5106505fa7fdb2b0d6156515ab",
+  "stage": "epoch_5_sgl_xvla_task5_runner_preflight_report_only",
+  "decision": "SGL_RUNNER_PREFLIGHT_BLOCKED_SIMPLE_CONTROL_EQUIVALENCE_NO_ROLLOUT",
+  "candidate_id": "SGL-XVLA",
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "development_residual_identities": [
+      20260727,
+      20260730,
+      20260733
+    ],
+    "clean_retention_identities": [
+      20260731,
+      20260732
+    ],
+    "held_out_confirmatory_identity_pool": [
+      20260734,
+      20260735,
+      20260736,
+      20260737
+    ]
+  },
+  "upstream_protocol": {
+    "artifact": "runs/xvla_prior/epoch5_sgl_xvla_task5_no_training_rollout_protocol_v1.json",
+    "decision": "SGL_NO_TRAINING_ROLLOUT_PROTOCOL_FROZEN_NO_EPISODES_RUN",
+    "valid": true
+  },
+  "action_binding_preflight": {
+    "lift_axis_dimension_index": 2,
+    "gripper_dimension_index": 6,
+    "binding_source_semantics_required_before_any_future_runner": true,
+    "outcome_tuned_binding_allowed": false,
+    "binding_evidence": [
+      {
+        "path": "scripts/run_phase_barrier_vla_prototype.py",
+        "line": 201,
+        "evidence": "contact_z_boost adds to action dimension 2 before clipping",
+        "supports": "lift_axis_dimension_index_2"
+      },
+      {
+        "path": "scripts/run_s2c_vla_stage0.py",
+        "line": 304,
+        "evidence": "gripper convention records LIBERO/SmolVLA checkpoint 7D action dimension 6",
+        "supports": "gripper_dimension_index_6"
+      },
+      {
+        "path": "scripts/run_tsc_vla_stage0.py",
+        "line": 765,
+        "evidence": "gripper convention records LIBERO/SmolVLA checkpoint action dimension 6",
+        "supports": "gripper_dimension_index_6"
+      }
+    ]
+  },
+  "static_behavior_equivalence": {
+    "templates_equivalent_under_current_frozen_stage0": true,
+    "missing_distinct_sgl_component_reasons": [
+      "visual/progress detector remains unverified",
+      "only language-level support activation is frozen",
+      "no learned, adaptive, or observation-conditioned residual component is authorized",
+      "fixed lift/regrasp schedule equals the primary simple-control schedule",
+      "same saturation guard and post-bias clamp are inherited"
+    ],
+    "scientific_meaning": "Under the currently frozen language-only activation and fixed bounded lift/regrasp schedule, SGL-XVLA has no executable behavior not already represented by the fixed lift/regrasp simple control."
+  },
+  "comparator_role_statuses": {
+    "BASE_CLAIM_STATUS": "NOT_TESTED_PREFLIGHT_BLOCK",
+    "PRIOR_ADVANCE_STATUS": "NOT_TESTED_PREFLIGHT_BLOCK",
+    "ABLATION_COMPONENT_STATUS": "KEY_COMPONENT_NOT_SUPPORTED",
+    "SIMPLE_EXPLANATION_STATUS": "SIMPLE_CONTROL_EXPLAINS_GAIN",
+    "CLEAN_RETENTION_STATUS": "NOT_TESTED_PREFLIGHT_BLOCK",
+    "GENERALIZATION_STATUS": "NOT_TESTED_PREFLIGHT_BLOCK",
+    "OVERALL_PAPER_CANDIDATE_STATUS": "SIMPLE_CONTROL_EXPLAINS_GAIN",
+    "status_scope": "Static preflight block only: no simulator success result exists. The simple control explains the currently frozen executable behavior before any rollout."
+  },
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY",
+    "evidence_role": "RUNNER_PREFLIGHT_STATIC_EQUIVALENCE_AUDIT",
+    "artifact_status": "NOT_APPLICABLE",
+    "simulator_episode_count": 0,
+    "vla_model_loaded": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "control_rollout_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "authorization_boundary": {
+    "runner_preflight_completed": true,
+    "primary_sgl_xvla_current_frozen_executable_blocked": true,
+    "simulator_episode_authorized": false,
+    "control_rollout_authorized": false,
+    "ours_rollout_authorized": false,
+    "held_out_rollout_authorized": false,
+    "training_authorized": false,
+    "checkpoint_write_authorized": false,
+    "paper_candidate_go": false,
+    "prototype_go": false,
+    "backup_candidate_stage0_authorized_next": true
+  },
+  "validation": {
+    "py_compile": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m py_compile tca_map/xvla_spatial_task5/sgl_runner_preflight.py",
+      "exit_code": 0
+    },
+    "focused_pytest": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_sgl_xvla_stage0_gate.py tests/test_sgl_xvla_observability_audit.py tests/test_sgl_xvla_action_bounds_gate.py tests/test_sgl_xvla_simple_control_gate.py tests/test_sgl_xvla_identity_manifest_gate.py tests/test_sgl_xvla_stage0_adjudication.py tests/test_sgl_xvla_rollout_protocol.py tests/test_sgl_xvla_runner_preflight.py -q",
+      "exit_code": 0,
+      "result": "47 passed in 7.16s"
+    },
+    "preflight_json_emit": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m tca_map.xvla_spatial_task5.sgl_runner_preflight",
+      "exit_code": 0,
+      "output": "runs/xvla_prior/epoch5_sgl_xvla_task5_runner_preflight_v1.json"
+    }
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "control_rollout_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_rollout_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "bounded_conclusion": {
+    "preflight_passed_for_rollout": false,
+    "blocked_before_simulator_episode": true,
+    "blocking_reason": "SGL frozen executable is behaviorally equivalent to the fixed simple control",
+    "current_sgl_candidate_killed": true,
+    "kill_scope": "current frozen SGL-XVLA executable only; does not reopen archived R2P-XVLA",
+    "candidate_can_train": false,
+    "candidate_can_roll_out_ours": false,
+    "control_can_roll_out_now": false,
+    "backup_ocr_xvla_can_start_stage0": true
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/epoch5_sgl_xvla_task5_runner_preflight_v1.json",
+      "sha256": "01f730fc406493af0b394222a097a680d1498ff7dcde3f9a507d49409a0314ce",
+      "length_bytes": 7461
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_runner_preflight.py",
+      "sha256": "091a496d1d1f6c8059d46ee07f6acd1b89a0065d76b030fda01ad8b224c80260",
+      "length_bytes": 15070
+    },
+    {
+      "path": "tests/test_sgl_xvla_runner_preflight.py",
+      "sha256": "622b9371a9d053f3ad4cbc452b6d9904f741441e96b08e0a2e2246e60b7d0901",
+      "length_bytes": 4328
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_rollout_protocol.py",
+      "sha256": "44f15f6ae620d8aa04c764dbcd5b77fe33755780bce17c5a7d13f7309f09a90d",
+      "length_bytes": 17174
+    },
+    {
+      "path": "tests/test_sgl_xvla_rollout_protocol.py",
+      "sha256": "6d2deb11d1f5b42732d8d04d57bc1bf2b0c1633f45d51c52bf68f66e3f0140ae",
+      "length_bytes": 4500
+    }
+  ],
+  "next_action": "Do not run SGL-XVLA. Start Stage 0 report-only gating for the backup OCR-XVLA candidate generated in the frozen candidate report, with no training, checkpoints, simulator episode, or Ours rollout until its own gates authorize a protocol."
+}
