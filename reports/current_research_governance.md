@@ -865,3 +865,10 @@ The failed attempt is preserved. The single authorized repair observes the
 same unchanged bound-forward return through a temporary wrapper and restores
 the original method afterward. It changes no scientific graph, panel,
 identity, condition, action value, budget, threshold, or decision rule.
+
+The first cached-feature attempt exposed a distinct `DATA_PIPELINE_DEFECT`
+before any cache row or model forward: the runnable LeRobot `0.4.4` dataset
+does not expose the LeRobot `0.2` `episode_data_index` field. Its root-bounded
+repair derives the same subset-local half-open boundaries from the
+authoritative `hf_dataset` episode-index column and requires exact agreement
+with all 40 frozen episode IDs. No scientific contract changes.

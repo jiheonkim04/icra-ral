@@ -399,9 +399,26 @@ def run_preflight(args: argparse.Namespace) -> dict[str, Any]:
 
 
 def _episode_bounds(dataset: Any) -> list[tuple[int, int]]:
-    from_values = dataset.episode_data_index["from"].tolist()
-    to_values = dataset.episode_data_index["to"].tolist()
-    return [(int(start), int(stop)) for start, stop in zip(from_values, to_values, strict=True)]
+    # LeRobot 0.2 exposed ``episode_data_index`` directly.  LeRobot 0.4.4
+    # keeps the selected rows in ``hf_dataset`` instead.  Derive the same
+    # half-open, subset-local bounds from its authoritative episode_index
+    # column and verify that every frozen episode occurs in exactly one run.
+    if hasattr(dataset, "episode_data_index"):
+        from_values = dataset.episode_data_index["from"].tolist()
+        to_values = dataset.episode_data_index["to"].tolist()
+        return [(int(start), int(stop)) for start, stop in zip(from_values, to_values, strict=True)]
+
+    episode_indices = np.asarray(dataset.hf_dataset["episode_index"], dtype=np.int64)
+    if episode_indices.ndim != 1 or len(episode_indices) != len(dataset) or len(episode_indices) == 0:
+        raise RuntimeError("invalid LeRobot 0.4.4 episode_index column")
+    boundaries = (np.flatnonzero(episode_indices[1:] != episode_indices[:-1]) + 1).tolist()
+    starts = [0, *boundaries]
+    stops = [*boundaries, len(episode_indices)]
+    run_episode_ids = [int(episode_indices[start]) for start in starts]
+    frozen_episode_ids = [int(value) for value in dataset.episodes]
+    if len(run_episode_ids) != len(frozen_episode_ids) or set(run_episode_ids) != set(frozen_episode_ids):
+        raise RuntimeError("selected LeRobot episodes are missing, duplicated, or noncontiguous")
+    return list(zip(starts, stops, strict=True))
 
 
 def _offsets(max_offset: int) -> list[int]:

@@ -253,7 +253,7 @@
     "module": "tca_map/smolvla/a2c2_local_prior.py",
     "module_sha256": "86086C1AFFE498BD7B2461F10F66B16F315665645605DE048891608E7B2C1725",
     "runner": "scripts/run_a2c2_problem_verification.py",
-    "runner_sha256": "B69A0F818B8591550DF489A61AEA26587F2733E09E2F07F2C2BBF84D6E90BC4F",
+    "runner_sha256": "57654AEAD0820C89EF4BA40BD551769BD669E6958462531388DD4AF46FFCF378",
     "unit_test": "tests/test_a2c2_local_prior.py",
     "repair_history": [
       {
@@ -263,6 +263,15 @@
         "repair": "temporarily wrap the same bound forward method, capture its unchanged prefix return, and restore it on close",
         "failed_attempt": "reports/a2c2_prior/preflight_failed_attempt_1.json",
         "pre_repair_module_sha256": "E58E8068FA9E78E3BBCAC5C38A1E3A3E898ECDF25681E2EFA5FD50D995E5C52A",
+        "scientific_contract_changed": false
+      },
+      {
+        "attempt": 2,
+        "classification": "DATA_PIPELINE_DEFECT",
+        "defect": "LeRobot 0.4.4 exposes selected episode rows through hf_dataset rather than the LeRobot 0.2 episode_data_index attribute",
+        "repair": "derive half-open subset-local bounds from hf_dataset episode_index and require exact agreement with all 40 frozen episode IDs",
+        "failed_attempt": "reports/a2c2_prior/cache_failed_attempt_1.json",
+        "pre_repair_runner_sha256": "B69A0F818B8591550DF489A61AEA26587F2733E09E2F07F2C2BBF84D6E90BC4F",
         "scientific_contract_changed": false
       }
     ]

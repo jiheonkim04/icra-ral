@@ -4,6 +4,10 @@ import hashlib
 import json
 from pathlib import Path
 
+import pytest
+
+from scripts.run_a2c2_problem_verification import _episode_bounds
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -46,3 +50,26 @@ def test_protocol_code_hashes_match_frozen_sources() -> None:
         path = ROOT / protocol["implementation"][key]
         observed = hashlib.sha256(path.read_bytes()).hexdigest().upper()
         assert observed == protocol["implementation"][f"{key}_sha256"]
+
+
+def test_episode_bounds_use_lerobot_044_subset_local_indices() -> None:
+    class Dataset:
+        episodes = [13, 11]
+        hf_dataset = {"episode_index": [11, 11, 13, 13, 13]}
+
+        def __len__(self) -> int:
+            return 5
+
+    assert _episode_bounds(Dataset()) == [(0, 2), (2, 5)]
+
+
+def test_episode_bounds_reject_noncontiguous_duplicate_episode() -> None:
+    class Dataset:
+        episodes = [11, 13]
+        hf_dataset = {"episode_index": [11, 13, 11]}
+
+        def __len__(self) -> int:
+            return 3
+
+    with pytest.raises(RuntimeError, match="missing, duplicated, or noncontiguous"):
+        _episode_bounds(Dataset())

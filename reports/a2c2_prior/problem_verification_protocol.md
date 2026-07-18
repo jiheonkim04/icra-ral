@@ -95,3 +95,11 @@ The first frozen preflight exposed one `INFRASTRUCTURE_NULL_DEFECT`: LeRobot
 `reports/a2c2_prior/preflight_failed_attempt_1.json`. The single narrow repair
 temporarily wraps the same bound forward method, records its unchanged prefix
 return, and restores it after use. No scientific contract changed.
+
+The first cached-feature attempt then stopped with a distinct
+`DATA_PIPELINE_DEFECT` before any cache row or model forward. LeRobot `0.4.4`
+does not expose the LeRobot `0.2` `episode_data_index` attribute. The bounded
+repair derives identical half-open subset-local bounds from the authoritative
+`hf_dataset["episode_index"]` column and rejects any missing, duplicated, or
+noncontiguous frozen episode. The failed attempt is preserved in
+`reports/a2c2_prior/cache_failed_attempt_1.json`; no scientific field changed.

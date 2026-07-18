@@ -1,0 +1,20 @@
+{
+  "date": "2026-07-19 KST",
+  "job_classification": "CACHED_FEATURE_PROBE",
+  "failure_classification": "DATA_PIPELINE_DEFECT",
+  "final_decision": "A2C2_CACHED_FEATURES_NOT_EXECUTED",
+  "exception_type": "AttributeError",
+  "exception_message": "'LeRobotDataset' object has no attribute 'episode_data_index'",
+  "root_cause": "The frozen runner used the LeRobot 0.2 episode-boundary attribute, while the runnable LeRobot 0.4.4 dataset exposes selected subset rows through hf_dataset and episode IDs through episodes.",
+  "failed_line": "from_values = dataset.episode_data_index['from'].tolist()",
+  "cache_path": "runs/a2c2_prior/a2c2_cached_features.h5",
+  "cache_file_bytes": 800,
+  "cache_dataset_keys": [],
+  "cache_rows": 0,
+  "model_forward_count": 0,
+  "training_happened": false,
+  "closed_loop_rollout_happened": false,
+  "scientific_outcomes_exposed": false,
+  "repair_scope": "derive identical half-open subset-local episode bounds from the authoritative LeRobot 0.4.4 hf_dataset episode_index column and validate the frozen episode set",
+  "scientific_contract_changed": false
+}
