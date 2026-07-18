@@ -1,0 +1,75 @@
+{
+  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_stage0_execution_contract_result.v1",
+  "decision": "FROZEN_STAGE0_EXECUTION_IMPLEMENTATION_READY",
+  "source_head_before_implementation_commit": "dca885b",
+  "role": "EXECUTABLE_CONTINUATION_OF_FROZEN_METHOD_NOT_METHOD_REREGISTRATION",
+  "execution_contract": {
+    "path": "configs/action_consistent_missing_view_distillation_xvla_stage0_execution_contract.json",
+    "sha256": "c3c5c4a09d4b98c8a554ce01d2ea8c161c659379dda2cbdf6b6051cc880d7bde"
+  },
+  "implementation": {
+    "path": "tca_map/action_consistent_missing_view_distillation/stage0.py",
+    "sha256": "08bffbdb7d5f2692fb82842a91df5f9ebc5c01b48fd6ea82453feabf6ab37fba",
+    "wrapper": "scripts/run_action_consistent_missing_view_stage0.py",
+    "wrapper_sha256": "69895ea7e9b5296b25ace675e32b7a3de364ea6fd616c9431914c319ddf54bd1",
+    "worker": "scripts/run_action_consistent_missing_view_stage0_worker.sh",
+    "worker_sha256": "024a9dd807d3057d548452bad04e6d0f5df4065bab0f21c51ef3f80c94bc5723"
+  },
+  "frozen_measured_inputs": {
+    "method_spec_sha256": "80d9e717ac47e34bced93ab8b0346ca5dbe776d4331589b4d11daf819773a69d",
+    "threshold_report_sha256": "ac5d0e57f00767475451fbfc9b12ddfd1ba18d2b2b70325edaa6d6344ce924bb",
+    "microbatch_report_sha256": "2fb98f04ea6e27edc543332c863d25d5037e05b1d8905601975e599ec3200136",
+    "selected_microbatch": 8,
+    "gradient_accumulation": 1,
+    "stage0_optimizer_budget_consumed_before_launch": 0
+  },
+  "implemented_evidence": {
+    "training_records": 480,
+    "validation_records": 12,
+    "confirmation_records_accessible": false,
+    "arms": ["OURS_FULL", "NO_RECONSTRUCTION", "NO_RAW_GRIPPER_MARGIN", "GENERIC_WRIST_DROPOUT_ADAPTER"],
+    "optimizer_steps_per_arm": 128,
+    "record_exposures_per_arm": 1024,
+    "checkpoints": [64, 128],
+    "checkpoint_selection": "FINAL_STEP_ONLY_NO_VALIDATION_SELECTION",
+    "bit_identical_arm_initialization": true,
+    "arm_independent_training_noise": true,
+    "real_teacher_student_forward_path": true,
+    "finite_gradient_and_weight_change_gates": true,
+    "exact_disk_reload_gate": true,
+    "frozen_xvla_parameter_guard": true,
+    "exact_clean_bypass_gate": true,
+    "separate_continuous_raw_gripper_and_binary_metrics": true,
+    "paired_bootstrap_rows": true,
+    "latency_warmups": 10,
+    "latency_measurements": 100,
+    "resource_stop_checks": true
+  },
+  "decision_labels": [
+    "STAGE0_GO",
+    "STAGE0_PROMISING_NEEDS_ONE_FIXED_CONFIRMATION",
+    "STAGE0_UNDERPOWERED_ONE_FIXED_EXPANSION_ALLOWED",
+    "STAGE0_MECHANISM_NOT_SUPPORTED",
+    "STAGE0_GENERIC_ADAPTATION_EXPLAINS_GAIN",
+    "STAGE0_ACTION_LEGALITY_FAILURE",
+    "STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE"
+  ],
+  "validation": {
+    "compile": "passed",
+    "pytest": "15 passed",
+    "test_path": "tests/test_action_consistent_missing_view_stage0.py",
+    "test_sha256": "5b8a2801ac0912129390aa247230a643d46ea145a7c28da6a71a2bd1c6ebad3e",
+    "help_smoke": "passed"
+  },
+  "outcomes_accessed": {
+    "stage0_training": false,
+    "validation": false,
+    "confirmation": false,
+    "confirmatory": false,
+    "closed_loop": false
+  },
+  "scientific_configuration_changed": false,
+  "additional_repair_authorized": false,
+  "physical_robot_manipulation": false,
+  "next_authorized_stage": "LAUNCH_FROZEN_STAGE0"
+}

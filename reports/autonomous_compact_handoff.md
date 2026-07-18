@@ -10,7 +10,7 @@ Updated: 2026-07-19 KST
 - Epoch/cycle: `5 / 0`
 - Campaign state: `AUTONOMOUS_CAMPAIGN_ACTIVE_EXCEPTIONAL_TELEMETRY_RESUMPTION`
 - Active method direction: `ACTION-CONSISTENT MISSING-VIEW DISTILLATION`
-- Active stage: microbatch preflight valid; microbatch 8 / accumulation 1 selected; frozen Stage 0 implementation and training are authorized next.
+- Active stage: Stage 0 execution contract and runner frozen locally; commit/push, then launch the frozen Stage 0 worker.
 - Novelty decision: `INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE`
 - Active training/rollout worker: none.
 - Paper-level decision: `IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE`.
@@ -29,6 +29,7 @@ Updated: 2026-07-19 KST
 - Exceptional telemetry repair: `reports/action_consistent_missing_view_distillation_telemetry_device_repair_result.json`
 - Numerical threshold freeze: `reports/action_consistent_missing_view_distillation_numerical_threshold_freeze_result.json`
 - Microbatch preflight: `reports/action_consistent_missing_view_distillation_microbatch_preflight_result.json`
+- Stage 0 execution contract result: `reports/action_consistent_missing_view_distillation_stage0_execution_contract_result.json`
 - Full campaign audit: `reports/autonomous_research_full_history_audit.md`
 - Current governance: `reports/current_research_governance.md`
 - RL4IL prior result: `reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json`

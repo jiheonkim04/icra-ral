@@ -1,0 +1,105 @@
+{
+  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_stage0_execution_contract.v1",
+  "method": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA",
+  "role": "EXECUTABLE_CONTINUATION_OF_FROZEN_METHOD_NOT_METHOD_REREGISTRATION",
+  "frozen_method_spec": {
+    "path": "configs/action_consistent_missing_view_distillation_xvla_frozen_spec.json",
+    "sha256": "80d9e717ac47e34bced93ab8b0346ca5dbe776d4331589b4d11daf819773a69d"
+  },
+  "numerical_threshold_freeze": {
+    "path": "reports/action_consistent_missing_view_distillation_numerical_threshold_freeze_result.json",
+    "sha256": "ac5d0e57f00767475451fbfc9b12ddfd1ba18d2b2b70325edaa6d6344ce924bb"
+  },
+  "microbatch_preflight": {
+    "path": "reports/action_consistent_missing_view_distillation_microbatch_preflight_result.json",
+    "sha256": "2fb98f04ea6e27edc543332c863d25d5037e05b1d8905601975e599ec3200136",
+    "decision": "ACTUAL_PATH_MICROBATCH_PREFLIGHT_VALID",
+    "selected_microbatch": 8,
+    "gradient_accumulation": 1,
+    "stage0_optimizer_budget_consumed": 0
+  },
+  "data_execution": {
+    "task_order": ["libero_goal_task0", "libero_object_task0", "libero_spatial_task5"],
+    "training_demo_indices": "0..39 inclusive",
+    "validation_demo_indices": [40],
+    "confirmation_demo_indices_inaccessible": "41..49 inclusive",
+    "official_reader_positions": [0, 9, 18, 27],
+    "training_record_count": 480,
+    "validation_record_count": 12,
+    "training_order": "task order, then ascending demo index, then reader position; batch indices cycle modulo 480",
+    "exposures_per_arm": 1024,
+    "effective_batch": 8,
+    "validation_checkpoint_selection": false,
+    "confirmatory_outcomes_accessed": false
+  },
+  "stochastic_execution": {
+    "seed": 20260719,
+    "adapter_initialization": "reset to stable_seed(seed, adapter_initialization) before every arm so all arms start bit-identically",
+    "t_schedule": "within every effective batch, t_j=(j+0.5)/8 for j=0..7",
+    "epsilon_schedule": "one CUDA generator per exposure, seeded by stable_seed(seed, exposure_ordinal, task_key, demo_index, reader_position); independent of arm",
+    "validation_noise": "stable_seed(seed, validation, task_key, demo_index, reader_position); independent of arm",
+    "validation_t_schedule": "one row at a time with effective t offset equal to validation row index modulo 8",
+    "generation_noise": "stable_seed(seed, validation_generation, task_key, demo_index, reader_position); independent of policy"
+  },
+  "optimization": {
+    "arms": ["OURS_FULL", "NO_RECONSTRUCTION", "NO_RAW_GRIPPER_MARGIN", "GENERIC_WRIST_DROPOUT_ADAPTER"],
+    "trainable_parameters_per_arm": 434816,
+    "optimizer": "AdamW",
+    "betas": [0.9, 0.95],
+    "epsilon": 1e-8,
+    "weight_decay": 0.0001,
+    "max_gradient_norm": 1.0,
+    "optimizer_steps_per_arm": 128,
+    "learning_rate": "step s=1..8: 3e-4*s/8; step s=9..128: 3e-5+(3e-4-3e-5)*0.5*(1+cos(pi*(s-8)/120))",
+    "checkpoint_steps": [64, 128],
+    "checkpoint_selection": "FINAL_STEP_ONLY_NO_VALIDATION_SELECTION",
+    "full_loss": "0.25*hidden/denom + translation/denom + rotation/denom + gripper/denom + 0.25*reconstruction/denom",
+    "no_reconstruction_loss": "full loss with reconstruction coefficient exactly 0",
+    "no_raw_gripper_margin_loss": "full loss with raw gripper coefficient exactly 0",
+    "generic_loss": "position_loss/500 + rotate6D_loss/10 + gripper_loss from official EE6DActionSpace.compute_loss(student_raw, demonstration_action)"
+  },
+  "validation": {
+    "paired_teacher_agreement": ["translation_RMSE", "rotation_RMSE", "raw_gripper_margin_MAE", "action_hidden_MSE"],
+    "action_generation_steps": 10,
+    "raw_gripper_threshold": 0.0,
+    "post_sigmoid_gripper_threshold": 0.5,
+    "bootstrap_repetitions": 2000,
+    "bootstrap_seed": 20260719,
+    "bootstrap_unit": "fixed validation row",
+    "clean_bypass": "hook deactivated; matched clean plan must have exact zero raw and postprocessed delta",
+    "official_range": "all outputs finite and postprocessed gripper channels in [0,1]; official EE6DActionSpace defines no additional continuous clamp",
+    "smoothness": "aggregate adjacent-step p99 for translation and rotation must not exceed the frozen clean-teacher envelopes",
+    "latency": "10 warmups plus 100 measured fixed-input queries per Base and trainable arm; total synchronized wall time and adapter-only CUDA-event time"
+  },
+  "decision_mapping": {
+    "execution_or_resource_failure": "any missing real forward, nonfinite/zero gradient, wrong optimizer count, unchanged weight, checkpoint/reload failure, frozen-backbone guard drift, split drift, resource ceiling breach, swap growth, or exception",
+    "action_legality_failure": "any nonfinite output, official range violation, nonzero clean-bypass delta, or full-method translation/rotation p99 outside the frozen smoothness envelope",
+    "practical_pass_per_metric": "comparator error minus full error is at least 5% of comparator error and at least the frozen absolute threshold",
+    "other_metric_nonregression": "full error is no more than comparator error plus max(2% of comparator error, 10 times frozen repeat noise)",
+    "gripper_nonregression": "full has no more discrete validation gripper disagreements to the clean teacher than the comparator",
+    "reconstruction_gate": "full wrist reconstruction MSE <=0.95 times no-reconstruction overall and lower on at least two tasks",
+    "base_directional_gate": "full has lower mean denominator-normalized teacher-agreement error than Base and improves at least one co-primary metric",
+    "STAGE0_GO": "execution and legality pass; full-vs-no-reconstruction and full-vs-generic each pass practical, other-metric, and gripper gates; reconstruction and Base directional gates pass; at least one practically passing metric against each comparator has paired-bootstrap 95% CI lower bound >0",
+    "STAGE0_PROMISING_NEEDS_ONE_FIXED_CONFIRMATION": "all noncatastrophic execution/legality/Base/reconstruction gates pass and point estimates are practically positive but a required paired CI remains unresolved, or all four no-reconstruction improvements are positive but subthreshold",
+    "STAGE0_UNDERPOWERED_ONE_FIXED_EXPANSION_ALLOWED": "execution/legality/Base pass and at least one no-reconstruction point improvement is positive with no material other-metric or gripper regression, but effects are mixed or below the practical boundary",
+    "STAGE0_GENERIC_ADAPTATION_EXPLAINS_GAIN": "full-vs-no-reconstruction mechanism gate passes but the matched generic comparator practical gate fails",
+    "STAGE0_MECHANISM_NOT_SUPPORTED": "valid legal execution without the conditions for GO, promising confirmation, underpowered expansion, or generic-explanation classification"
+  },
+  "resource_limits": {
+    "cuda_reserved_fraction_max": 0.88,
+    "system_ram_used_fraction_max": 0.82,
+    "research_induced_swap_growth_bytes_max": 0,
+    "downloads": false,
+    "cpu_or_disk_model_offload": false
+  },
+  "prohibitions": {
+    "method_or_loss_change": false,
+    "threshold_relaxation": false,
+    "task_or_identity_regeneration": false,
+    "confirmatory_access": false,
+    "physical_robot_manipulation": false,
+    "direct_reconstructed_input": false,
+    "inference_teacher_or_demo_action": false,
+    "additional_repair": false
+  }
+}
