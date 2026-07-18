@@ -15,7 +15,6 @@ import json
 import math
 import os
 import pathlib
-import resource
 import shutil
 import time
 import traceback
@@ -30,6 +29,11 @@ import torch.nn.functional as F
 from PIL import Image
 from sklearn.neighbors import NearestNeighbors
 from transformers import CLIPModel, CLIPProcessor
+
+try:  # Windows-side unit validation lacks the POSIX resource module.
+    import resource
+except ImportError:  # pragma: no cover - WSL empirical runtime has resource
+    resource = None  # type: ignore[assignment]
 
 from tca_map.rl4il_prior.action_oracle import (
     ActionOracleConfig,
@@ -123,8 +127,10 @@ def write_json(path: pathlib.Path, obj: Any) -> None:
 
 
 def memory_report() -> dict[str, Any]:
-    ru = resource.getrusage(resource.RUSAGE_SELF)
-    report: dict[str, Any] = {"ru_maxrss_kib": int(ru.ru_maxrss)}
+    report: dict[str, Any] = {}
+    if resource is not None:
+        ru = resource.getrusage(resource.RUSAGE_SELF)
+        report["ru_maxrss_kib"] = int(ru.ru_maxrss)
     status_path = pathlib.Path("/proc/self/status")
     if status_path.exists():
         for line in status_path.read_text(encoding="utf-8", errors="ignore").splitlines():

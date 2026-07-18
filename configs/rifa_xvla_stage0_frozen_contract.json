@@ -1,0 +1,127 @@
+{
+  "schema_version": "2026-07-18.epoch5_rifa_xvla_stage0_frozen_contract.v1",
+  "execution_classification": "OURS_VLA_TRAINING",
+  "method": "RIFA_XVLA",
+  "source_preregistration": "reports/rifa_xvla_stage0_preregistration_result.json",
+  "source_preregistration_head": "42bc0ae61478a6aea880b9102dc2ec140ffc5ed2",
+  "source_prior_result": "reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json",
+  "source_prior_training_dir": "runs/rl4il_prior/action_oracle_port_20260718T194750KST/prior_module_training",
+  "xvla": {
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_root": "/mnt/c/assets/repos/X-VLA",
+    "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "cache_dir": "/home/jiheon/assets/checkpoints/xvla_hf_cache",
+    "domain_id": 3,
+    "action_mode": "ee6d",
+    "num_actions": 30,
+    "denoise_steps": 10,
+    "base_weights_frozen": true,
+    "full_model_finetuning": false
+  },
+  "panel": [
+    {
+      "suite": "libero_goal",
+      "task_id": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "hdf5": "/mnt/c/assets/data/libero/libero_goal/open_the_middle_drawer_of_the_cabinet_demo.hdf5",
+      "identities": [20260733, 20260734, 20260735]
+    },
+    {
+      "suite": "libero_object",
+      "task_id": 0,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "hdf5": "/mnt/c/assets/data/libero/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket_demo.hdf5",
+      "identities": [20260733, 20260734, 20260735]
+    },
+    {
+      "suite": "libero_spatial",
+      "task_id": 5,
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "hdf5": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+      "identities": [20260731, 20260732, 20260735]
+    }
+  ],
+  "conditions": ["clean", "mask_1_in_hand_dropout"],
+  "data_split": {
+    "training_demo_indices": "0..39",
+    "validation_demo_indices": "40..49",
+    "stage0_training_demo_indices_per_task": [0, 20],
+    "stage0_validation_demo_indices_per_task": [40],
+    "materialized_clip_steps": 48,
+    "training_condition": "mask_1_in_hand_dropout",
+    "validation_conditions": ["clean", "mask_1_in_hand_dropout"],
+    "identity_overlap_allowed": false,
+    "confirmatory_test_data_used": false
+  },
+  "mechanism": {
+    "imputed_feature_dim": 512,
+    "reliability_features": [
+      "imputation_donor_dispersion",
+      "retrieval_descriptor_margin",
+      "retrieval_policy_normalized_entropy"
+    ],
+    "adapter_bottleneck_dim": 128,
+    "maximum_hidden_residual_scale": 0.05,
+    "residual_projection_initialization": "exact_zero",
+    "clean_gate": "exact_base_passthrough_when_missing_indicator_is_zero",
+    "full_arm": "RIFA_XVLA: varying normalized reliability features condition the gate",
+    "ablation_arm": "RIFA_XVLA_NO_RELIABILITY: identical parameterization and imputed latent, with reliability features fixed neutral",
+    "privileged_inference_inputs": false
+  },
+  "training_budget": {
+    "configuration_count": 1,
+    "seed": 20260718,
+    "arms": ["RIFA_XVLA", "RIFA_XVLA_NO_RELIABILITY"],
+    "batch_size": 1,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "optimizer_steps_per_arm": 6,
+    "checkpoint_steps": [6],
+    "long_training": false,
+    "cpu_or_disk_model_offload": false,
+    "downloads_allowed": false,
+    "validation_selection_or_tuning": false
+  },
+  "decision_thresholds": {
+    "trainable_parameter_count_min": 1,
+    "optimizer_steps_per_arm_exact": 6,
+    "gradient_global_norm_min_exclusive": 0.0,
+    "weight_change_l2_min_exclusive": 0.0,
+    "base_preserving_initial_action_rms_max": 1e-7,
+    "missing_indicator_range_min": 1.0,
+    "reliability_raw_range_min_exclusive": 1e-8,
+    "full_vs_ablation_dropout_action_rms_min_exclusive": 1e-8,
+    "dropout_full_vs_base_action_rms_max": 0.25,
+    "dropout_full_vs_base_action_max_abs_max": 1.0,
+    "clean_full_vs_base_action_rms_max": 1e-6,
+    "clean_full_vs_base_action_max_abs_max": 1e-5,
+    "action_outputs_must_be_finite": true,
+    "checkpoint_reload_must_match": true
+  },
+  "decision_rule": {
+    "RIFA_XVLA_STAGE0_PASS": "all preregistered Stage 0 gates pass",
+    "RIFA_XVLA_STAGE0_DATA_OR_SUPERVISION_FAILURE": "missing-modality signal or RL4IL reliability variation is invalid",
+    "RIFA_XVLA_STAGE0_IMPLEMENTATION_OR_OPTIMIZATION_FAILURE": "real X-VLA/CUDA/gradient/optimizer/weight/checkpoint integration gate fails",
+    "RIFA_XVLA_STAGE0_DESIGN_FAILURE": "integration is valid but action delta is destructive or clean retention fails",
+    "RIFA_XVLA_STAGE0_UNDERPOWERED_OR_UNRESOLVED": "all validity gates pass but full and no-reliability outputs remain indistinguishable"
+  },
+  "comparator_roles": {
+    "BASE": "frozen X-VLA-Libero",
+    "FIRST_PRIOR": "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT",
+    "OURS": "RIFA_XVLA",
+    "ABLATION": "RIFA_XVLA_NO_RELIABILITY",
+    "CONTROL": "AWF-XVLA SIMPLE_CAMERA_IMPUTATION_CONTROL"
+  },
+  "execution_boundary": {
+    "closed_loop_rollout_authorized": false,
+    "official_closed_loop_success_measured": false,
+    "new_method_generation_authorized": false,
+    "new_prior_search_authorized": false,
+    "natural_reset_mining_authorized": false,
+    "confirmatory_tuning_authorized": false,
+    "automatic_follow_on_empirical_stage": null
+  }
+}
