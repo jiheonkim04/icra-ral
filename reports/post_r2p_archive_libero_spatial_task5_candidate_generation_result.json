@@ -1,0 +1,233 @@
+{
+  "schema_version": "2026-07-18.epoch5_post_r2p_archive_task5_candidate_generation.v1",
+  "created_at_kst": "2026-07-18T11:29:07+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "a8a74b9a311a5fbcebb0a3dc0b1ae9659836bd31",
+  "stage": "epoch_5_bounded_candidate_generation_after_repeated_residual_confirmation",
+  "decision": "LIBERO_SPATIAL_TASK5_TWO_CANDIDATES_GENERATED_NO_TRAINING_NO_OURS_ROLLOUT",
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "repeated_shared_failure_identities": [
+      20260727,
+      20260730,
+      20260733
+    ],
+    "xvla_solved_nonresidual_identities": [
+      20260731,
+      20260732
+    ],
+    "residual_confirmation_report_json": "reports/post_r2p_archive_libero_spatial_task5_residual_confirmation_result.json"
+  },
+  "authorization_boundary": {
+    "candidate_generation_authorized": true,
+    "maximum_candidates_allowed": 2,
+    "candidate_count_generated": 2,
+    "training_authorized": false,
+    "ours_rollout_authorized": false,
+    "optimizer_step_authorized": false,
+    "checkpoint_write_authorized": false,
+    "r2p_xvla_reopen_or_retune_authorized": false,
+    "candidate_specific_frozen_gate_required_before_training": true,
+    "held_out_confirmatory_identities_must_be_frozen_before_ours_results": true
+  },
+  "closed_methods_not_reopened": [
+    "R2R-OFT",
+    "BR-XVLA",
+    "MPR-XVLA",
+    "PRC-XVLA",
+    "CR-LightVLA",
+    "ATCD",
+    "MCI-VLA",
+    "CSPR-VLA",
+    "R2P-XVLA"
+  ],
+  "candidate_ranking": [
+    "SGL-XVLA",
+    "OCR-XVLA"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "SGL-XVLA",
+      "name": "Support-Gated Lift for X-VLA",
+      "status": "CANDIDATE_SPEC_ONLY_NO_TRAINING",
+      "core_hypothesis": "The repeated task5 failures are caused by insufficient support-separation behavior when the black bowl starts on the ramekin; a support-aware, observation-conditioned lift/regrasp phase can improve residual success without changing unrelated clean behavior.",
+      "mechanism": {
+        "inputs_allowed_at_inference": [
+          "RGB observations",
+          "proprioception already available to the policy",
+          "language instruction"
+        ],
+        "inputs_forbidden_at_inference": [
+          "simulator object state",
+          "reward",
+          "success flag",
+          "HDF5 demo identity",
+          "reset identity label"
+        ],
+        "proposed_component": "A small support-gate and residual action adapter that activates only when the scene/instruction indicates a bowl-on-support grasp. The activated phase biases the first one or two action chunks toward stable gripper closure, vertical clearance, and delayed lateral transport.",
+        "why_not_r2p_xvla": "R2P-XVLA phase-weighted task5 adaptation remains archived. SGL-XVLA is not a phase-weighted offline selector retune; it is a support-condition gate with a mechanism-specific lift/regrasp action prior that must be independently preregistered and tested."
+      },
+      "claim_axis_if_developed": "Increase success on the repeated task5 support-separation residual while retaining clean performance on X-VLA-solved task5 identities and non-task5 spatial controls.",
+      "required_future_gates_before_training": [
+        "Freeze development identities and held-out confirmatory identities before any Ours rollout.",
+        "Build a no-training observability gate showing the support condition can be detected from allowed observations.",
+        "Build an offline action-shape sanity gate showing candidate outputs are finite, bounded, and do not require simulator state.",
+        "Define noninferiority margins for X-VLA-solved identities 20260731 and 20260732 before method execution."
+      ],
+      "future_comparators": {
+        "base": {
+          "comparator_role": "BASE",
+          "scientific_question": "Does SGL improve the frozen backbone on the repeated support-separation residual?",
+          "claim_metric": "paired task success on frozen residual identities and held-out identities",
+          "blocking_condition": "No practical success gain over Base or unacceptable clean degradation.",
+          "nonblocking_tradeoffs": "Small added latency may be acceptable if residual success improves and clean retention stays inside the frozen margin."
+        },
+        "closest_prior": {
+          "comparator_role": "FIRST_PRIOR_AND_SECOND_PRIOR",
+          "scientific_question": "Does SGL improve over X-VLA/OpenVLA under the same local protocol or offer a clear Pareto advantage?",
+          "claim_metric": "paired residual success and clean-retention breakdown",
+          "blocking_condition": "Matched official priors solve the held-out residuals or SGL fails to exceed them on the claim axis.",
+          "nonblocking_tradeoffs": "Comparable success with lower intervention frequency or lower data could remain relevant if preregistered."
+        },
+        "key_ablation": {
+          "comparator_role": "ABLATION",
+          "scientific_question": "Is the support gate necessary, or does uniform residual adaptation explain the effect?",
+          "claim_metric": "residual success difference between gated and ungated residual adapter",
+          "blocking_condition": "Ungated/uniform adaptation matches or exceeds SGL across residual success, clean retention, and efficiency.",
+          "nonblocking_tradeoffs": "Ungated may be slightly better on unrelated clean tasks if SGL is better on the support residual within frozen retention margins."
+        },
+        "simple_control": {
+          "comparator_role": "CONTROL",
+          "scientific_question": "Can a fixed lift primitive explain the gain?",
+          "claim_metric": "residual success and clean-retention vs fixed support-lift action template",
+          "blocking_condition": "The fixed lift template matches SGL at equal/lower cost without clean or generalization loss.",
+          "nonblocking_tradeoffs": "A fixed lift that solves one identity but fails held-out residual identities would not explain the mechanism."
+        }
+      },
+      "primary_risks": [
+        "The support gate may overfit visual appearance of the ramekin.",
+        "A simple fixed lift control may explain most gains.",
+        "Lift bias may degrade identities where X-VLA already succeeds."
+      ],
+      "recommended_next_step": "Freeze a no-training Stage 0 specification and observability gate for SGL-XVLA."
+    },
+    {
+      "candidate_id": "OCR-XVLA",
+      "name": "Observation-Consistency Retry for X-VLA",
+      "status": "CANDIDATE_SPEC_ONLY_NO_TRAINING",
+      "core_hypothesis": "The residual may be a recoverable grasp-progress failure: if the bowl does not visually/proprioceptively separate from the ramekin after an initial attempt, an observation-consistency retry can re-center and regrasp without privileged state.",
+      "mechanism": {
+        "inputs_allowed_at_inference": [
+          "RGB observations",
+          "proprioception already available to the policy",
+          "language instruction",
+          "recent action history"
+        ],
+        "inputs_forbidden_at_inference": [
+          "simulator object pose",
+          "reward",
+          "success flag",
+          "HDF5 demo identity",
+          "reset identity label"
+        ],
+        "proposed_component": "A lightweight retry monitor that checks observation/action consistency after the first grasp/lift attempt. If progress is absent under a frozen observation-only criterion, it triggers one bounded re-center/regrasp retry before returning control to the base policy.",
+        "why_not_closed_methods": "OCR-XVLA is not an archived phase-weighting, memory, routing, or closed residual method. It is a retry-monitor candidate that must be independently preregistered."
+      },
+      "claim_axis_if_developed": "Improve task5 residual success by recovering from failed first attempts while adding at most one bounded retry and preserving X-VLA successes on nonresidual identities.",
+      "required_future_gates_before_training": [
+        "Freeze the observation-only no-progress criterion before any Ours rollout.",
+        "Verify the criterion does not use reward, simulator state, or reset identity.",
+        "Run a no-training replay/trace audit on existing failure logs to determine whether the retry trigger is observable.",
+        "Freeze a simple timeout retry control as the strongest plausible explanation."
+      ],
+      "future_comparators": {
+        "base": {
+          "comparator_role": "BASE",
+          "scientific_question": "Does OCR improve the backbone by recovering from repeated task5 first-attempt failures?",
+          "claim_metric": "paired residual success and intervention count",
+          "blocking_condition": "No residual success gain or excessive intervention frequency.",
+          "nonblocking_tradeoffs": "A small latency increase may be acceptable if intervention count is bounded and success improves."
+        },
+        "closest_prior": {
+          "comparator_role": "FIRST_PRIOR_AND_SECOND_PRIOR",
+          "scientific_question": "Does OCR produce a meaningful matched advantage over X-VLA/OpenVLA on the residual?",
+          "claim_metric": "paired residual success and clean retention",
+          "blocking_condition": "Official priors match OCR on residual success without the retry mechanism.",
+          "nonblocking_tradeoffs": "Comparable success with lower training data could be relevant only if preregistered."
+        },
+        "key_ablation": {
+          "comparator_role": "ABLATION",
+          "scientific_question": "Is the observation-consistency monitor necessary?",
+          "claim_metric": "residual success vs always-retry and never-retry ablations",
+          "blocking_condition": "Always-retry or never-retry matches OCR with lower complexity and no clean cost.",
+          "nonblocking_tradeoffs": "Always-retry may solve one identity but still be inferior if it harms clean identities or efficiency."
+        },
+        "simple_control": {
+          "comparator_role": "CONTROL",
+          "scientific_question": "Can a trivial timeout retry explain the gain?",
+          "claim_metric": "residual success, clean retention, latency, and intervention count",
+          "blocking_condition": "A fixed timeout retry matches OCR at equal/lower cost and no missing mechanism.",
+          "nonblocking_tradeoffs": "A timeout retry that only works on development identities is not sufficient if OCR generalizes to held-out residuals."
+        }
+      },
+      "primary_risks": [
+        "The no-progress criterion may be hard to observe from allowed sensors.",
+        "A trivial fixed retry may explain the effect.",
+        "Extra retries may disturb clean X-VLA-solved identities."
+      ],
+      "recommended_next_step": "Keep OCR-XVLA as backup until SGL-XVLA fails its no-training observability gate or the residual traces show clearer retry than support-separation structure."
+    }
+  ],
+  "frozen_development_boundary_for_next_stage": {
+    "development_residual_identities": [
+      20260727,
+      20260730,
+      20260733
+    ],
+    "clean_retention_identities": [
+      20260731,
+      20260732
+    ],
+    "held_out_confirmatory_identity_pool_to_freeze_before_ours_results": [
+      20260734,
+      20260735,
+      20260736,
+      20260737
+    ],
+    "note": "The held-out pool is proposed for the next preregistration; no Ours result has been run on these identities."
+  },
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY",
+    "evidence_role": "OURS_CANDIDATE_GENERATION_SPEC",
+    "artifact_status": "NOT_APPLICABLE",
+    "simulator_episode_count": 0,
+    "vla_model_loaded": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_rollout_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "reports/post_r2p_archive_libero_spatial_task5_residual_confirmation_result.json",
+      "sha256": "97b836e80d6873d3e2f7bb4a8f71bed9e165a84f855d8337426599caa605b396",
+      "length_bytes": 12805
+    },
+    {
+      "path": "reports/post_secondprior_libero_spatial_20260727_r2p_xvla_archive_decision.json",
+      "sha256": "f3f3caecdc721d635ffb56b337ca6b994a7ecaeb001be9b8745581df93bc4a15",
+      "length_bytes": 5135
+    }
+  ],
+  "next_action": "Create a frozen no-training Stage 0 specification/gate for the primary candidate SGL-XVLA. Do not train, write checkpoints, or run Ours."
+}
