@@ -5,8 +5,8 @@ Updated: 2026-07-18 KST
 ## Current State
 
 - Branch: `codex/epoch5-official-prior-first`
-- HEAD before latest optimizer-gate commit: `2226dae2520c34d1cfc6876ef53e4dd0aa2f6753`
-- Epoch/cycle: `5 / 0`
+- RIFA Stage 0 result commit: `3f29bea`
+- Epoch/cycle: `5 / 0`; latest method stage: `RIFA_XVLA_STAGE0_DESIGN_FAILURE` (closed, no follow-on authorized).
 - Paper status: no `PROTOTYPE_GO`, no `PAPER_READY`, no `READY_TO_DRAFT_RAL_PAPER_PACKAGE`.
 - Active Ours training/worker: none.
 - Preserve ignored `rollouts/` and `runs/` artifacts.
