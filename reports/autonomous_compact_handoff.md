@@ -1,248 +1,91 @@
 # Autonomous Compact Handoff
 
-Updated: 2026-07-18 KST
+Updated: 2026-07-19 KST
 
-## Current State
+## Authoritative state
 
 - Branch: `codex/epoch5-official-prior-first`
-- Latest frozen result: `CVLR_XVLA_STAGE0_DESIGN_FAILURE` (valid, archived, no Stage A authorized).
-- Epoch/cycle: `5 / 0`; campaign state: `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`.
-- Paper status: no `PROTOTYPE_GO`, no `PAPER_READY`, no `READY_TO_DRAFT_RAL_PAPER_PACKAGE`.
-- Active Ours training/worker: none.
-- Preserve ignored `rollouts/` and `runs/` artifacts.
+- Source HEAD before the current overlap-audit commit: `ea3782a812e0472c0d05f57300e0d7a43dd67429`
+- Epoch/cycle: `5 / 0`
+- Campaign state: `AUTONOMOUS_CAMPAIGN_ACTIVE_FINAL_WRIST_DROPOUT_DIRECTION`
+- Active method direction: `ACTION-CONSISTENT MISSING-VIEW DISTILLATION`
+- Active stage: focused overlap audit complete; exact method specification not yet frozen.
+- Novelty decision: `INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE`
+- Active training/rollout worker: none at the pre-audit snapshot.
+- Paper status: no `PROTOTYPE_GO`, `PAPER_CANDIDATE_GO`, or paper-ready package.
+- Preserve pre-existing ignored `rollouts/2026_07_17/` and `rollouts/2026_07_18/`.
 
-## Standing Rules
+## Current authoritative reports
 
-- Official-prior-first remains active.
-- Do not rescue or retune MCI/CSPR/R2R/CR-LightVLA/ATCD/BR-XVLA/MPR-XVLA/PRC-XVLA.
-- LoRA/QLoRA is implementation infrastructure only, never the contribution.
-- Do not treat prior failure, prior success, headroom, candidate generation, or uniform-ablation success as Ours.
-- Candidate generation does not authorize training, optimizer steps, checkpoint writes, or closed-loop Ours rollout.
-- Keep this file under 250 lines.
+- Overlap audit JSON: `reports/action_consistent_missing_view_distillation_overlap_audit_result.json`
+- Overlap audit Markdown: `reports/action_consistent_missing_view_distillation_overlap_audit_result.md`
+- Full campaign audit: `reports/autonomous_research_full_history_audit.md`
+- Current governance: `reports/current_research_governance.md`
+- RL4IL prior result: `reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json`
+- RIFA final status: `reports/rifa_xvla_v1_archive_decision.json`
+- CVLR final status: `reports/cvlr_xvla_exact_scientific_status.json`
 
-## Comparator Calibration
+## Frozen scientific state
 
-Durable addendum: `reports/comparator_role_calibration.md`
+- Wrist-camera dropout is a locally verified claim-specific failure condition for frozen X-VLA.
+- The `MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT` partially improves the condition but leaves a task-dependent residual. Never relabel it as an official RL4IL reproduction.
+- `RIFA_XVLA_STAGE0_DESIGN_FAILURE`; RIFA v1 archived; no RIFA Stage A.
+- `CVLR_XVLA_STAGE0_DESIGN_FAILURE`; CVLR v1 archived; no CVLR Stage A.
+- RIFA v1 had valid X-VLA integration, exact clean passthrough, valid optimization, and practically negligible full-versus-ablation effect. Its failing binary action delta was a gripper postprocess discontinuity.
+- CVLR learned nontrivial cross-view wrist information and beat zero-fill and AWF reconstruction controls, but direct reconstructed-latent insertion destabilized X-VLA actions with 42 gripper flips across nine dropout rows.
+- Direct reconstructed-image/token insertion is closed. Cross-view reconstruction is permitted only as training-time auxiliary supervision or a legal reliability statistic.
+- Do not relax thresholds, retune/rerun either v1, or reinterpret either frozen decision.
 
-- Future unfrozen results use role-specific Base/Prior/Ablation/Control interpretation.
-- Frozen historical non-GO decisions are not rewritten post hoc.
-- If a future protocol explicitly freezes a universal beat-all scalar rule, report both `FROZEN_PROTOCOL_DECISION` and `CALIBRATED_SCIENTIFIC_INTERPRETATION`.
+## Closed search space
 
-## Audit Baseline
+Do not reopen:
 
-Full audit: `reports/autonomous_research_full_history_audit.md`
+- natural-reset residual mining;
+- broad prior or candidate search;
+- Task75, R2P, SGL, OCR, AWF;
+- RIFA v1 or CVLR v1;
+- any other archived formulation;
+- direct reconstructed-wrist-token insertion.
 
-- Ledger routes: 95; selected formal Ours methods: 50.
-- No paper-ready method.
-- Strongest historical Ours remains CAVM 24/58, but no third expansion is allowed.
-- BR-XVLA and MPR-XVLA are no-pass and must not be reopened.
+This action-consistent missing-view direction is the final authorized method direction on the current wrist-dropout axis. If it ends in a robust scientific failure, close the axis without a renamed v2.
 
-## Closed / Non-Target Evidence
+## Overlap-audit result
 
-- Task75 (`libero_90/task_75`, identity `20260725`) has preserved evidence in `reports/task75_local_evidence_manifest.json`; X-VLA and SmolVLA Base failed, task-level headroom was positive, but valid second prior was infrastructure-blocked because local OpenVLA-OFT/LightVLA stats lacked `libero_90`.
-- Task75 second-prior decision: `TASK75_SECOND_PRIOR_INFRASTRUCTURE_BLOCKED`; report `reports/task75_second_prior_result.json`.
-- X-VLA scans saturated `libero_spatial`, `libero_goal`, and `libero_object` identity `20260725`.
-- X-VLA scans saturated `libero_goal`, `libero_object`, and `libero_spatial` identity `20260726`.
-- `libero_goal/task_9` identity `20260727` was second-prior-solved by Quantized OpenVLA-OFT INT4 and is closed.
-- `libero_object` identity `20260727` was saturated by X-VLA and creates no Ours target.
+The audit inspected 23 primary papers/official records, including all 12 required named works and 11 direct or mechanism-matching additions.
 
-## Current Target Chain
+Broad novelty is rejected:
 
-Target: `libero_spatial/task_5`, reset identity `20260727`, initial-state index `16`.
+- Acar et al. (RA-L 2023) already distill multi-camera teacher actions/features into a deployable single-camera manipulation policy.
+- RME and DisDP already address complete sensor/camera dropout; DisDP includes multi-view shared/private features and action-sequence diffusion.
+- VITA-VLA and ActDistill already distill VLA action hidden states/semantics; VITA-VLA separates continuous arm and binary gripper losses.
+- VILA uses ground-truth action sequences for cross-view latent alignment.
+- MVP-LAM uses cross-viewpoint reconstruction to learn action-centric latent actions for VLA pretraining.
+- ReconVLA, WristWorld, MV-MWM, RPT, CRT, RoboNVS, and Imagination at Inference cover reconstruction/pretraining/insertion alternatives.
 
-Instruction: `pick up the black bowl on the ramekin and place it on the plate`
+The narrow conditional claim that survived is:
 
-Initial-state SHA-256: `7230223d3b36c289be0dc4cfbfe916bfe65e2b20c4755b123504b97f9db19e76`
+> Frozen clean multi-view VLA teacher to parameter-efficient complete-wrist-dropout student, with action-chunk representation/continuous-action alignment, separate raw gripper-margin preservation, training-only cross-view wrist reconstruction, exact clean bypass, and deployment without teacher, future frame, retrieval library, or reconstructed-input insertion.
 
-### First Prior
+Strongest reviewer objection: this is an obvious combination and any gain may be generic wrist-dropout adaptation. The matched generic dropout adapter and no-reconstruction ablation are therefore mandatory.
 
-Report: `reports/post_secondprior_libero_spatial_20260727_prior_scan_result.json`
+## Comparator roles frozen before outcomes
 
-- X-VLA official prior completed 10/10 tasks; 9/10 succeeded.
-- Task `5` failed cleanly; 0 infrastructure failures.
-- Summary SHA `768171a6406a3e15d8c47f3a36a3b20f992721316e234f0cb6d8c5525a242e91`; task-5 result SHA `9a6da411db84298748e5a35d23aa5784339f6bc14cdbe24f6842e6a5e6ce40be`.
-- No training/Ours/checkpoint/optimizer step.
+- Base: frozen official X-VLA under wrist dropout.
+- External prior: `MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT`.
+- Ours: action-consistent missing-view distillation.
+- Mandatory key ablation: remove cross-view reconstruction supervision with matched teacher distillation and trainable capacity.
+- Mandatory mechanism ablation when feasible: remove separate raw gripper-margin supervision.
+- Mandatory simple control: ordinary wrist-dropout augmentation LoRA/adapter with matched data, effective batch, optimizer updates, and parameter budget.
+- Archived diagnostics: AWF, CVLR v1 insertion, zero-fill.
 
-### Base
+## Deployment and validation prohibitions
 
-Report: `reports/post_secondprior_libero_spatial_20260727_base_gate_result.json`
+At deployment, Ours may use no clean teacher, future frame, expert action, demonstration action oracle, reward, done/success flag, simulator object/contact/pose state, privileged reset identity, retrieval library, nearest-demonstration search, or reconstructed input insertion.
 
-- SmolVLA Base failed cleanly: 0/1 success, 0 infrastructure failures, 280 env steps, 6 action chunks.
-- Result SHA `353e3d66bd98696f2a5d64e86f3eb72295b61b18091aba56fdda09da0b3e0941`; video SHA `b06bed4febfc09e6891e56e677297683e74f25992d29ac1dfe1282d47aa2ff59`.
-- No training/Ours/checkpoint/optimizer step.
+No physical robot manipulation experiment may be proposed or required. Only after a positive Stage B, a bounded non-actuated `CAMERA-ONLY REAL-IMAGE ACTION-STABILITY VALIDATION` may supplement—but never replace—official LIBERO closed-loop evidence.
 
-### Headroom
+## Immediate next action
 
-Report: `reports/post_secondprior_libero_spatial_20260727_headroom_result.json`
+Freeze exactly one method specification and comparator contract before any outcome access. It must identify exact trainable/frozen modules, clean-teacher and dropout-student tensors, action-hidden/token alignment, translation/rotation/raw-gripper/reconstruction losses, exact clean bypass, inference graph, parameter count, splits, optimizer, schedule, update budget, checkpoint rule, practical-effect thresholds, latency, and memory.
 
-- Decision: `TASK5_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE`.
-- Nearest HDF5 demo `demo_9`, L2 `2.984242906`, init SHA `0d599c208cb9d95b4e724e2a883c651a720276cd8e15e754cf6f3a7527ae497f`.
-- Exact selected-demo replay succeeded at index `93`; zero-action control failed.
-- No same-reset HDF5 init-state hash matched the residual.
-- Result SHA `42c0b9e287904a7781cf077397c64578a3a5fb7ab651f30f85f810f18eb44fb9`.
-
-### Second Prior
-
-Report: `reports/post_secondprior_libero_spatial_20260727_second_prior_result.json`
-
-- Quantized OpenVLA-OFT INT4 had valid `libero_spatial_no_noops` support and no proxy.
-- It failed cleanly: 0/1 success, 0 infrastructure failures, final reward `0.0`, 230 steps, 28 chunks.
-- Result SHA `ac550a1cf3c779495f645c6a9f9cf10d336d99723ddefdc872b803e19a69b0f1`; video SHA `83c8db433af3c9dfeeb030b4dbd062980c9ba8e347221019576efc91ebdbd2fb`.
-- No training/Ours/checkpoint/optimizer step.
-
-### Data Audit
-
-Report: `reports/post_secondprior_libero_spatial_20260727_data_audit_result.json`
-
-- PASS; candidate-generation readiness true.
-- 50 demos; 40/10 train/validation; train/validation chunks `4325 / 1121`.
-- Terminal reward/done demos `50 / 50`; actions are finite 7D, max abs `1.0`.
-- No residual init-state overlap.
-- Train source/transit/target chunks `2627 / 650 / 1048`; validation `711 / 164 / 246`.
-- Result SHA `e782d0947edaee4c8eef26d36af3627bd30d787ffe64df22e3678cff9b3abda5`.
-- Focused pytest: `2 passed`.
-
-## Candidate Generation
-
-Reports:
-
-- `reports/post_secondprior_libero_spatial_20260727_candidate_generation_result.json`
-- `reports/post_secondprior_libero_spatial_20260727_candidate_generation_result.md`
-
-Decision: `EXACTLY_TWO_CANDIDATES_GENERATED_ONE_SELECTED`
-
-Exactly two candidates were generated:
-
-1. `R2P-XVLA` / Ramekin-to-Plate Phase-Balanced X-VLA Adapter — selected for a frozen no-training spec.
-2. `CTR-XVLA` / Clearance-Triggered Temporal Requery X-VLA — not selected; may later serve as a simple-control threat.
-
-No training, optimizer step, checkpoint write, implementation, LoRA/QLoRA training, or closed-loop Ours rollout happened.
-
-## R2P-XVLA Frozen Spec
-
-Reports:
-
-- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_spec_result.json`
-- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_spec_result.md`
-
-Decision: `R2P_XVLA_FROZEN_NO_TRAINING_SPEC_CREATED`
-
-Tracked code/tests:
-
-- `tca_map/xvla_spatial_task5/training_spec.py`
-- `tests/test_xvla_spatial_task5_training_spec.py`
-
-Ignored runtime snapshot:
-
-- `runs/xvla_prior/epoch5_r2p_xvla_task5_training_spec_v1.json`, SHA `d795dc72373f32d36cacd4b5b6a695607154d6f65c588d56e6bd010ef4312f78`
-
-Frozen arms:
-
-1. `r2p_xvla_rank8_phase_weights_lr1e4_steps64` — selected method, source/transit/target weights `1.0 / 2.0 / 1.5`.
-2. `uniform_task5_xvla_rank8_lambda0_lr1e4_steps64` — uniform ablation, weights `1.0 / 1.0 / 1.0`.
-
-Still closed: training, optimizer step, checkpoint write, closed-loop Ours rollout, residual-reward checkpoint selection, privileged inference inputs, and paper claim from one identity.
-
-Validation: `py_compile` passed; focused pytest `3 passed`; spec snapshot written without model load/training/rollout.
-
-## R2P-XVLA Data-Adapter Smoke
-
-Reports:
-
-- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_data_adapter_smoke_result.json`
-- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_data_adapter_smoke_result.md`
-
-Decision: `R2P_XVLA_DATA_ADAPTER_SMOKE_PASS`
-
-Tracked code/tests:
-
-- `tca_map/xvla_spatial_task5/data_adapter_smoke.py`
-- `tests/test_r2p_xvla_data_adapter_smoke.py`
-
-Ignored runtime result:
-
-- `runs/xvla_prior/r2p_xvla_task5_data_adapter_smoke_20260718T0417KST/result.json`, SHA `c0e44013d31f364beeea134c7991f55fb12d3643e4746961d993eeb2f19288e6`
-
-Smoke materialized `demo_0` and `demo_40`; combined source/transit/target phase coverage `128 / 37 / 89`. Official X-VLA reader returned action `[30,20]`, proprio `[20]`, image `[3,3,224,224]`, and `domain_id` int64. No model load, training, backward, optimizer, checkpoint, simulator, or Ours rollout happened.
-
-## R2P-XVLA Gradient Smoke
-
-Reports:
-
-- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_gradient_smoke_result.json`
-- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_gradient_smoke_result.md`
-
-Decision: `R2P_XVLA_GRADIENT_SMOKE_PASS`
-
-Tracked code/tests:
-
-- `tca_map/xvla_spatial_task5/gradient_smoke.py`
-- `tests/test_r2p_xvla_gradient_smoke.py`
-
-Ignored runtime result:
-
-- `runs/xvla_prior/r2p_xvla_gradient_smoke_offline_20260718T0425KST/result.json`, SHA `c170d52cbbc01974ff51c8b3ad6e8d68136abc8cf90d9a3eb6580d72302b1f76`
-
-WSL/offline gradient smoke loaded cached X-VLA from local snapshot, attached PEFT LoRA, ran one forward/backward, and passed with finite gradients: trainable params `11868760`, grad tensors finite/total `537/537`, nonzero `271`, gradient norm `2372.1450494696983`, weighted loss `12.958698272705078`, max CUDA allocated `5260.354` MiB. No optimizer, checkpoint, training loop, simulator, downloads, or Ours rollout happened.
-
-## R2P-XVLA Optimizer Gate
-
-Reports:
-
-- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_optimizer_gate_result.json`
-- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_optimizer_gate_result.md`
-
-Decision: `R2P_XVLA_OPTIMIZER_GATE_FROZEN_TRAINING_NOT_LAUNCHED`
-
-The optimizer-step contract is frozen but not armed. Exact arms and output dirs are fixed under `runs/xvla_prior/epoch5_r2p_xvla_task5_training/`; required pre-step writes are `worker.pid`, `training_status.json`, `heartbeat.json`, and `frozen_spec_snapshot.json`; offline flags must be enforced; no third task5 config, downloads, residual-reward checkpoint selection, privileged inference input, or closed-loop rollout is allowed.
-
-Reason not armed at this point: task5 `train_lora` and offline-validation runners were not implemented/tested yet. No training, optimizer, checkpoint, or rollout happened.
-
-## R2P-XVLA Train LoRA Runner
-
-Reports:
-
-- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_train_lora_runner_result.json`
-- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_train_lora_runner_result.md`
-
-Decision: `R2P_XVLA_TRAIN_LORA_RUNNER_IMPLEMENTED_TESTED_NOT_LAUNCHED`
-
-Tracked code/tests:
-
-- `tca_map/xvla_spatial_task5/train_lora.py`
-- `tests/test_r2p_xvla_train_lora.py`
-
-The runner now loads the frozen spec, accepts only the two frozen arms, rejects downloads, enforces the exact output root, rejects max steps above 64, writes worker/status/heartbeat/spec/log/exit/result artifacts when launched, materializes official X-VLA reader clips without residual-reset sampling, uses frozen phase-weighted loss, and limits checkpoints to steps `16/32/64`. It does not launch training by itself and it performs no closed-loop rollout or residual-reward checkpoint selection.
-
-Validation: WSL `.venv` `py_compile` passed; focused pytest `6 passed`; task5 bundle pytest `14 passed` with the existing SciPy/NumPy warning. No model load, optimizer, checkpoint, simulator, download, or Ours rollout happened in this implementation gate.
-
-## R2P-XVLA Offline Validation Runner
-
-Reports:
-
-- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_offline_validation_runner_result.json`
-- `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_offline_validation_runner_result.md`
-
-Decision: `R2P_XVLA_OFFLINE_VALIDATION_RUNNER_IMPLEMENTED_TESTED_NOT_LAUNCHED`
-
-Tracked code/tests: `tca_map/xvla_spatial_task5/offline_validate.py`, `tests/test_r2p_xvla_offline_validate.py`.
-
-The runner fixes validation to demos `40..49`, rejects downloads and output-path drift, expects frozen step-64 primary/uniform adapters, uses a common R2P phase-weighted metric for Primary vs Uniform, checks source degradation/action delta/CUDA bounds, and writes worker/status/heartbeat/log/exit/result artifacts when launched. It performs no closed-loop rollout, residual-reward checkpoint selection, or privileged inference-state use.
-
-Validation: WSL `.venv` `py_compile` passed; focused pytest `6 passed`; task5 bundle pytest `20 passed` with the existing SciPy/NumPy warning. No model/adapters were loaded and no offline validation runtime, optimizer, checkpoint, simulator, download, or Ours rollout happened.
-
-Sequential gate runner: `tca_map/xvla_spatial_task5/training_gate.py` with `tests/test_r2p_xvla_training_gate.py`; report `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_training_gate_runner_result.json`; decision `R2P_XVLA_SEQUENTIAL_TRAINING_GATE_IMPLEMENTED_TESTED_NOT_LAUNCHED`; expanded task5 bundle pytest `23 passed`. No training/runtime happened.
-
-Arming report: `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_gate_arming_result.json`; decision `R2P_XVLA_OPTIMIZER_GATE_ARMED_TRAINING_LAUNCH_AUTHORIZED`; prelaunch clean except pre-existing untracked rollout dirs.
-
-Attempt 1 failed before training due missing `peft` in repo `.venv`; archived at `runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_peft_missing_20260718T0456KST`; report `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_training_launch_attempt1_result.json`. Re-armed with `/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python`.
-
-Attempt 2 failed before training due Windows X-VLA root in WSL; archived at `runs/xvla_prior/epoch5_r2p_xvla_task5_training_failed_xvla_root_20260718T0459KST`; fixed defaults to `/mnt/c/assets/repos/X-VLA`, report `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_wsl_root_fix_rearming_result.json`; task5 pytest `25 passed`.
-
-Attempt 3 completed training/offline selection: both arms reached `64/64`, but frozen offline selection failed (`primary 0.9418842308` vs uniform `0.9418841700` weighted loss; delta `6.08e-08`); report `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_training_gate_result.json`. No closed-loop rollout happened.
-
-## Current Immediate Next Action
-
-R2P archive: `reports/post_secondprior_libero_spatial_20260727_r2p_xvla_archive_decision.json`; latest confirmed shared residual remains `libero_goal/task_3`, identity `20260728` (Base/X-VLA/OpenVLA-INT4 clean failures; task-level headroom positive).
-
-Repeated-residual screen `20260729..35`: natural-reset mining ended at `ddbe62c` with `NATURAL_RESET_SEARCH_SATURATED`; no more identity sweeps. Wrist-dropout confirmed: clean `9/9`, dropout `0/9`; RL4IL local port (`MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT`) established a residual. RIFA v1 stayed `RIFA_XVLA_STAGE0_DESIGN_FAILURE`; its no-training postmortem confirmed a gripper postprocess discontinuity and v1 is archived. CVLR passed every validity and reconstruction gate (MSE `0.44344` vs zero `0.99419` and AWF `1.55907`, exact clean bypass) but failed semantic safety on all nine dropout rows with `42` gripper flips, so the frozen decision is `CVLR_XVLA_STAGE0_DESIGN_FAILURE`; Stage A was not authorized or launched. See `reports/cvlr_xvla_stage0_result.json` and `reports/cvlr_xvla_exact_scientific_status.json`.
+Then freeze a Stage 0 preregistration using discovery/validation data only, estimate deterministic forward noise, run the actual-path microbatch preflight over `1,2,4,8`, and launch only the frozen contract. Full-model fine-tuning, CPU/disk offload, swap/pagefile training, confirmatory-outcome access, and outcome-dependent threshold changes remain prohibited.

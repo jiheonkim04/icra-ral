@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "audit_type": "FOCUSED_PRIMARY_LITERATURE_AND_OFFICIAL_CODE_OVERLAP_AUDIT",
+  "audit_timestamp_kst": "2026-07-19T01:56:52+09:00",
+  "repository": {
+    "branch": "codex/epoch5-official-prior-first",
+    "head": "ea3782a812e0472c0d05f57300e0d7a43dd67429",
+    "origin_head": "ea3782a812e0472c0d05f57300e0d7a43dd67429"
+  },
+  "provisional_direction": "ACTION-CONSISTENT MISSING-VIEW DISTILLATION",
+  "method_acronym_created_before_audit": false,
+  "novelty_decision": "INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE",
+  "novelty_decision_option": "B",
+  "narrowest_defensible_contribution": "A deployment-clean, action-semantic adaptation of a frozen multi-view VLA to complete wrist-view loss: a clean-view teacher supervises a parameter-efficient dropout student at action-hidden or action-token and continuous action-chunk levels; raw gripper margin is preserved separately; cross-view wrist reconstruction is training-only auxiliary supervision and is never inserted into the policy token stream; deployment uses neither teacher, future frame, retrieval library, nor reconstructed input.",
+  "claim_conditions": [
+    "Do not claim multi-camera-to-single-camera policy distillation as novel.",
+    "Do not claim cross-view reconstruction, action-centric latent learning, VLA distillation, LoRA, or sensor-dropout training individually as novel.",
+    "A method claim is conditional on a practical mechanism effect over the matched no-reconstruction ablation and the matched generic wrist-dropout adaptation control.",
+    "A paper claim is conditional on official closed-loop improvement or a preregistered deployment Pareto advantage over MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT.",
+    "The reconstructed wrist latent may only define a training loss or legal reliability statistic and may never enter the deployment policy token stream."
+  ],
+  "strongest_likely_reviewer_objection": "The direction is an obvious aggregation of established multi-camera-to-single-camera action/feature distillation, sensor-dropout training, VLA hidden/action distillation, action-guided view invariance, and cross-view reconstruction. Any gain may be fully explained by ordinary wrist-dropout adaptation rather than the proposed reconstruction or gripper-specific mechanism.",
+  "why_not_A": [
+    "Acar et al. already distill multi-camera teacher actions and intermediate features into a deployable single-camera manipulation policy.",
+    "VITA-VLA and ActDistill already align VLA hidden/action representations; VITA-VLA separately optimizes continuous arm and binary gripper outputs.",
+    "VILA and MVP-LAM already make multi-view representations action-centric using ground-truth action sequences or cross-viewpoint reconstruction.",
+    "RME and DisDP already train or structure policies for complete sensor/camera dropout, and DisDP includes an action-chunking diffusion policy baseline with matched dropout training."
+  ],
+  "why_not_C": [
+    "No audited prior combines a frozen clean X-VLA teacher with a matched complete-wrist-dropout X-VLA student and jointly preserves action-chunk semantics and a separate raw gripper margin.",
+    "No audited prior uses cross-view wrist reconstruction only as an auxiliary regularizer for that missing-view VLA student while forbidding reconstructed images or tokens at inference.",
+    "The local campaign has a verified complete wrist-dropout failure and a verified task-dependent residual after the RL4IL local prior, which gives the narrow formulation a concrete empirical target.",
+    "The deployment comparison against RL4IL can test a prespecified success/latency/memory/artifact-footprint Pareto claim that the closest representation and reconstruction papers do not address."
+  ],
+  "closest_priors": [
+    {
+      "title": "Visual-Policy Learning through Multi-Camera View to Single-Camera View Knowledge Distillation for Robot Manipulation Tasks",
+      "date": "2023-03-13 (arXiv v1); 2023-11 accepted RA-L",
+      "url": "https://arxiv.org/abs/2303.07026",
+      "direct_overlap": "Multi-camera teacher to deployable single-camera student; teacher action MSE and intermediate feature alignment."
+    },
+    {
+      "title": "DisDP: Robust Imitation Learning via Disentangled Diffusion Policies",
+      "date": "2025-05-09 (RLC 2025 record)",
+      "url": "https://openreview.net/forum?id=0GSL9VRBib",
+      "direct_overlap": "Multi-camera manipulation policy evaluated under complete camera dropout; shared/private view representations and action-chunk diffusion policy."
+    },
+    {
+      "title": "MVP-LAM: Learning Action-Centric Latent Action via Cross-Viewpoint Reconstruction",
+      "date": "2026-02-03 (arXiv); ICML 2026",
+      "url": "https://arxiv.org/abs/2602.03668",
+      "direct_overlap": "Action-centric cross-viewpoint reconstruction and downstream VLA pretraining."
+    },
+    {
+      "title": "VITA-VLA: Efficiently Teaching Vision-Language Models to Act via Action Expert Distillation",
+      "date": "2025-10-10 (arXiv v1)",
+      "url": "https://arxiv.org/abs/2510.09607",
+      "direct_overlap": "VLA hidden-state/action-expert distillation with separate continuous arm MAE and gripper BCE."
+    },
+    {
+      "title": "Simple Masked Training Strategies Yield Control Policies That Are Robust to Sensor Failure",
+      "date": "2024-11-06 to 2024-11-09 (CoRL 2024); PMLR 2025",
+      "url": "https://proceedings.mlr.press/v270/skand25a.html",
+      "direct_overlap": "Complete sensor dropout handled by training-time modality dropout with no inference-time imputation."
+    }
+  ],
+  "required_comparators_after_decision_B": {
+    "base": "frozen official X-VLA under wrist dropout",
+    "external_prior": "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT",
+    "ours": "action-consistent missing-view distillation",
+    "mandatory_key_ablation": "remove cross-view reconstruction supervision with matched teacher distillation and matched trainable capacity",
+    "mandatory_mechanism_ablation_when_feasible": "remove separate raw gripper-margin supervision",
+    "mandatory_simple_control": "ordinary wrist-dropout augmentation LoRA or adapter with matched data, effective batch, optimizer updates, and parameter budget",
+    "archived_diagnostics": [
+      "AWF direct image substitution",
+      "CVLR v1 direct reconstructed-token insertion",
+      "zero-fill"
+    ]
+  },
+  "frozen_decisions_preserved": [
+    "RIFA_XVLA_STAGE0_DESIGN_FAILURE",
+    "RIFA v1 archived",
+    "CVLR_XVLA_STAGE0_DESIGN_FAILURE",
+    "CVLR v1 archived",
+    "no RIFA Stage A",
+    "no CVLR Stage A",
+    "no threshold relaxation",
+    "no direct reconstructed-wrist-token insertion resurrection"
+  ],
+  "audit_counts": {
+    "primary_papers_or_official_records_inspected": 23,
+    "required_named_works_inspected": 12,
+    "additional_direct_or_mechanism_matching_works_inspected": 11,
+    "official_code_or_training_code_available": 8,
+    "official_checkpoint_or_weights_available": 4
+  },
+  "download_audit": {
+    "pre_download_free_space_gib": 245.55,
+    "expected_download_gib": "less than 0.15",
+    "downloaded_artifact_type": "public paper PDFs only",
+    "downloaded_code_models_or_checkpoints": false,
+    "cache_path": "runs/literature_audit_action_consistent_missing_view/",
+    "cache_git_ignored": true,
+    "physical_robot_experiment_required_or_proposed": false
+  },
+  "authorized_next_stage": "FREEZE_EXACTLY_ONE_METHOD_SPECIFICATION_AND_COMPARATOR_CONTRACT",
+  "implementation_or_training_started_during_overlap_audit": false
+}
