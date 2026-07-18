@@ -1,0 +1,53 @@
+{
+  "schema_version": "2026-07-18.epoch5_wrist_dropout_condition_preregistration.v1",
+  "stage": "epoch_5_claim_specific_controlled_condition_preregistered",
+  "decision": "CLAIM_SPECIFIC_CONDITION_WRIST_CAMERA_DROPOUT_PREREGISTERED",
+  "axis_selected": "claim_specific_controlled_condition",
+  "condition": {
+    "name": "wrist_camera_dropout_partial_observation",
+    "description": "Zero the wrist-camera RGB observation before frozen X-VLA action generation while leaving simulator state, rewards, success criteria, proprioception, and agentview RGB unchanged.",
+    "physical_meaning": "A wrist-mounted camera can be occluded, disconnected, saturated, or otherwise unavailable during manipulation; the condition tests partial-observation robustness rather than natural reset residual mining.",
+    "future_matched_protocol": "The same input-side wrist RGB dropout must be applied to Prior and Prior + Ours."
+  },
+  "natural_reset_status": {
+    "closed": true,
+    "decision": "NATURAL_RESET_SEARCH_SATURATED",
+    "no_more_identity_sweeps_allowed": true
+  },
+  "ocr_status": {
+    "decision": "OCR_TRIGGER_OBSERVABILITY_FAIL",
+    "artifact": "reports/ocr_xvla_trace_observability_result.json",
+    "ocr_archived": true
+  },
+  "no_ours_before_condition_verification": true,
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "discovery_identities": [
+      20260731,
+      20260732
+    ],
+    "clean_baseline_source": "bounded OCR trace pass, unperturbed frozen X-VLA, both identities successful",
+    "clean_baseline_artifact": "reports/ocr_xvla_trace_observability_result.json"
+  },
+  "verification_protocol": {
+    "policy": "frozen official X-VLA-Libero",
+    "episode_count": 2,
+    "perturbation": "wrist_blackout",
+    "success_metric": "LIBERO done/success",
+    "pass_condition": "Condition verified if both preregistered baseline identities complete without infrastructure failure and wrist-dropout success is at least one episode lower than the 2/2 clean baseline.",
+    "failure_decision": "CLAIM_CONDITION_OFFICIAL_PRIOR_DEGRADATION_NOT_VERIFIED",
+    "pass_decision": "CLAIM_CONDITION_OFFICIAL_PRIOR_DEGRADATION_VERIFIED"
+  },
+  "execution_boundary": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "ours_rollout_happened": false,
+    "control_rollout_happened": false,
+    "broad_identity_sweep_happened": false,
+    "method_candidate_selected": false
+  },
+  "next_action": "Run exactly the two-episode frozen-prior wrist-dropout verification, then select one method only if the condition is verified."
+}

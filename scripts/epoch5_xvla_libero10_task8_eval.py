@@ -118,6 +118,40 @@ def resize_rgb_nearest(img: np.ndarray, size: int) -> np.ndarray:
     return arr[np.ix_(y_idx, x_idx)].copy()
 
 
+def center_blackout_rgb(img: np.ndarray, fraction: float) -> np.ndarray:
+    arr = np.asarray(img, dtype=np.uint8).copy()
+    frac = max(0.0, min(1.0, float(fraction)))
+    if frac <= 0.0:
+        return arr
+    height, width = arr.shape[:2]
+    box_h = max(1, int(round(height * frac)))
+    box_w = max(1, int(round(width * frac)))
+    y0 = max(0, (height - box_h) // 2)
+    x0 = max(0, (width - box_w) // 2)
+    arr[y0 : y0 + box_h, x0 : x0 + box_w, :] = 0
+    return arr
+
+
+def apply_rgb_input_perturbation(obs: dict[str, Any], mode: str, fraction: float) -> dict[str, Any]:
+    """Apply legal RGB-only deployment perturbations to the policy input copy."""
+
+    if mode == "none":
+        return obs
+    out = dict(obs)
+    if mode == "wrist_blackout":
+        out["robot0_eye_in_hand_image"] = np.zeros_like(np.asarray(obs["robot0_eye_in_hand_image"], dtype=np.uint8))
+    elif mode == "wrist_center_blackout":
+        out["robot0_eye_in_hand_image"] = center_blackout_rgb(obs["robot0_eye_in_hand_image"], fraction)
+    elif mode == "agentview_center_blackout":
+        out["agentview_image"] = center_blackout_rgb(obs["agentview_image"], fraction)
+    elif mode == "dual_center_blackout":
+        out["agentview_image"] = center_blackout_rgb(obs["agentview_image"], fraction)
+        out["robot0_eye_in_hand_image"] = center_blackout_rgb(obs["robot0_eye_in_hand_image"], fraction)
+    else:
+        raise ValueError(f"unknown rgb input perturbation: {mode}")
+    return out
+
+
 class LiberoAbsActionProcessor:
     def __init__(self) -> None:
         import robosuite.utils.transform_utils as transform_utils
@@ -276,6 +310,18 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--settle-steps", type=int, default=10)
     parser.add_argument("--denoise-steps", type=int, default=10)
     parser.add_argument(
+        "--rgb-input-perturbation",
+        choices=["none", "wrist_blackout", "wrist_center_blackout", "agentview_center_blackout", "dual_center_blackout"],
+        default="none",
+        help="Optional legal RGB-only perturbation applied to policy inputs before action generation.",
+    )
+    parser.add_argument(
+        "--rgb-input-perturbation-fraction",
+        type=float,
+        default=0.5,
+        help="Center-box fraction for *_center_blackout modes.",
+    )
+    parser.add_argument(
         "--trace-dir",
         default="",
         help="Optional directory for no-training per-step legal traces. No reward/done/success is written to trace npz.",
@@ -340,6 +386,13 @@ def main(argv: list[str] | None = None) -> int:
             "domain_id": 3,
             "denoise_steps": int(args.denoise_steps),
             "action_mode": "ee6d absolute EEF converted to axis-angle for LIBERO env.step",
+        },
+        "input_perturbation": {
+            "mode": str(args.rgb_input_perturbation),
+            "fraction": float(args.rgb_input_perturbation_fraction),
+            "applied_to_policy_input_only": True,
+            "simulator_state_unchanged": True,
+            "privileged_state_used": False,
         },
         "training_happened": False,
         "optimizer_step_happened": False,
@@ -458,8 +511,13 @@ def main(argv: list[str] | None = None) -> int:
                 for step in range(int(args.eval_horizon)):
                     obs["robo_ori"] = policy.action_processor.mat_to_rotate6d(env.env.robots[0].controller.ee_ori_mat)
                     obs["robo_pos"] = np.asarray(env.env.robots[0].controller.ee_pos, dtype=np.float32)
+                    policy_obs = apply_rgb_input_perturbation(
+                        obs,
+                        str(args.rgb_input_perturbation),
+                        float(args.rgb_input_perturbation_fraction),
+                    )
                     new_chunk_started = not policy.action_plan
-                    action = policy.step(obs, task_description)
+                    action = policy.step(policy_obs, task_description)
                     chunk_index = int(len(policy.chunk_shapes) - 1) if policy.chunk_shapes else -1
                     chunk_len = (
                         int(policy.chunk_shapes[chunk_index][0])
@@ -474,18 +532,18 @@ def main(argv: list[str] | None = None) -> int:
                         trace_chunk_index.append(chunk_index)
                         trace_action_index_in_chunk.append(action_index_in_chunk)
                         trace_new_chunk_started.append(bool(new_chunk_started))
-                        trace_eef_pos.append(np.asarray(obs["robo_pos"], dtype=np.float32).copy())
-                        trace_eef_ori6d.append(np.asarray(obs["robo_ori"], dtype=np.float32).copy())
+                        trace_eef_pos.append(np.asarray(policy_obs["robo_pos"], dtype=np.float32).copy())
+                        trace_eef_ori6d.append(np.asarray(policy_obs["robo_ori"], dtype=np.float32).copy())
                         trace_actions.append(np.asarray(action, dtype=np.float32).copy())
                         trace_agentview.append(
                             resize_rgb_nearest(
-                                flip_agentview(np.asarray(obs["agentview_image"])),
+                                flip_agentview(np.asarray(policy_obs["agentview_image"])),
                                 int(args.trace_rgb_size),
                             )
                         )
                         trace_wrist.append(
                             resize_rgb_nearest(
-                                np.asarray(obs["robot0_eye_in_hand_image"]),
+                                np.asarray(policy_obs["robot0_eye_in_hand_image"]),
                                 int(args.trace_rgb_size),
                             )
                         )
