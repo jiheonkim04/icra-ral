@@ -140,7 +140,11 @@
     "exceptional_telemetry_repair": "TELEMETRY_DEVICE_REPAIR_SMOKE_VALID",
     "numerical_noise_decision": "NUMERICAL_NOISE_CALIBRATION_VALID",
     "numerical_threshold_freeze": "reports/action_consistent_missing_view_distillation_numerical_threshold_freeze_result.json",
-    "next_authorized_stage": "ACTUAL_PATH_MICROBATCH_PREFLIGHT_1_2_4_8"
+    "microbatch_preflight_decision": "ACTUAL_PATH_MICROBATCH_PREFLIGHT_VALID",
+    "selected_microbatch": 8,
+    "gradient_accumulation": 1,
+    "stage0_optimizer_budget_consumed": 0,
+    "next_authorized_stage": "FROZEN_STAGE0_IMPLEMENTATION_AND_TRAINING"
   },
   "pre_execution_specification_erratum": {
     "classification": "CONDITION_WIRING_DESCRIPTION_CORRECTION",

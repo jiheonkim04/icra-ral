@@ -1,0 +1,254 @@
+{
+  "calibration_row_count": 12,
+  "candidate_sequence_stopped_after_first_unsafe": false,
+  "candidates": [
+    {
+      "checkpoint": {
+        "bytes": 1744236,
+        "path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/microbatch_preflight_20260719T033403KST/candidate_1/throwaway_adapter.pt",
+        "reload_parameter_delta_l2": 0.0,
+        "sha256": "3e0f041c20dcc2f0be67983900d8e4c6cfd4a3eed932fbcc234652299430bd25"
+      },
+      "exception": null,
+      "gradient_global_norm": 2.468236355243779,
+      "gradient_tensor_count": 11,
+      "loss": 3.2946434020996094,
+      "loss_finite": true,
+      "microbatch": 1,
+      "nonzero_gradient_tensor_count": 4,
+      "optimizer_steps": 1,
+      "peak_cuda_allocated_bytes": 3694591488,
+      "peak_cuda_reserved_bytes": 3860856832,
+      "peak_cuda_reserved_fraction": 0.22585406435338004,
+      "research_induced_swap_growth_bytes": 0,
+      "safe": true,
+      "system_ram_after": {
+        "mem_available_bytes": 9768321024,
+        "mem_total_bytes": 12096454656,
+        "mem_used_bytes": 2328133632,
+        "mem_used_fraction": 0.19246413087203326,
+        "swap_total_bytes": 3221225472,
+        "swap_used_bytes": 0
+      },
+      "system_ram_used_fraction": 0.19246413087203326,
+      "weight_change_l2": 0.15233145654201508
+    },
+    {
+      "checkpoint": {
+        "bytes": 1744236,
+        "path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/microbatch_preflight_20260719T033403KST/candidate_2/throwaway_adapter.pt",
+        "reload_parameter_delta_l2": 0.0,
+        "sha256": "09cf681015caaa99b35e6c74d495401ddea4f2656ad9f14b2286b304b774b9cc"
+      },
+      "exception": null,
+      "gradient_global_norm": 3.0784228896187233,
+      "gradient_tensor_count": 11,
+      "loss": 5.337108612060547,
+      "loss_finite": true,
+      "microbatch": 2,
+      "nonzero_gradient_tensor_count": 4,
+      "optimizer_steps": 1,
+      "peak_cuda_allocated_bytes": 3800936448,
+      "peak_cuda_reserved_bytes": 4028628992,
+      "peak_cuda_reserved_fraction": 0.23566847236439056,
+      "research_induced_swap_growth_bytes": 0,
+      "safe": true,
+      "system_ram_after": {
+        "mem_available_bytes": 9698750464,
+        "mem_total_bytes": 12096454656,
+        "mem_used_bytes": 2397704192,
+        "mem_used_fraction": 0.19821544908703537,
+        "swap_total_bytes": 3221225472,
+        "swap_used_bytes": 0
+      },
+      "system_ram_used_fraction": 0.19821544908703537,
+      "weight_change_l2": 0.1520981341600418
+    },
+    {
+      "checkpoint": {
+        "bytes": 1744236,
+        "path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/microbatch_preflight_20260719T033403KST/candidate_4/throwaway_adapter.pt",
+        "reload_parameter_delta_l2": 0.0,
+        "sha256": "062f19c59def0048f139d0f2609a546adfb4d751e753478c0d973eac6cb21465"
+      },
+      "exception": null,
+      "gradient_global_norm": 2.766712510345483,
+      "gradient_tensor_count": 11,
+      "loss": 4.477860450744629,
+      "loss_finite": true,
+      "microbatch": 4,
+      "nonzero_gradient_tensor_count": 4,
+      "optimizer_steps": 1,
+      "peak_cuda_allocated_bytes": 4058164736,
+      "peak_cuda_reserved_bytes": 4169138176,
+      "peak_cuda_reserved_fraction": 0.2438880390736119,
+      "research_induced_swap_growth_bytes": 0,
+      "safe": true,
+      "system_ram_after": {
+        "mem_available_bytes": 9679159296,
+        "mem_total_bytes": 12096454656,
+        "mem_used_bytes": 2417295360,
+        "mem_used_fraction": 0.19983502842305864,
+        "swap_total_bytes": 3221225472,
+        "swap_used_bytes": 0
+      },
+      "system_ram_used_fraction": 0.19983502842305864,
+      "weight_change_l2": 0.1517796367406845
+    },
+    {
+      "checkpoint": {
+        "bytes": 1744236,
+        "path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/microbatch_preflight_20260719T033403KST/candidate_8/throwaway_adapter.pt",
+        "reload_parameter_delta_l2": 0.0,
+        "sha256": "91962293d74ddcc73d0153209949eeede4504e0542748408790738746633f7b8"
+      },
+      "exception": null,
+      "gradient_global_norm": 1.4155065996697864,
+      "gradient_tensor_count": 11,
+      "loss": 3.373755693435669,
+      "loss_finite": true,
+      "microbatch": 8,
+      "nonzero_gradient_tensor_count": 4,
+      "optimizer_steps": 1,
+      "peak_cuda_allocated_bytes": 4580119552,
+      "peak_cuda_reserved_bytes": 4741660672,
+      "peak_cuda_reserved_fraction": 0.27737970641118537,
+      "research_induced_swap_growth_bytes": 0,
+      "safe": true,
+      "system_ram_after": {
+        "mem_available_bytes": 9660416000,
+        "mem_total_bytes": 12096454656,
+        "mem_used_bytes": 2436038656,
+        "mem_used_fraction": 0.20138451515557848,
+        "swap_total_bytes": 3221225472,
+        "swap_used_bytes": 0
+      },
+      "system_ram_used_fraction": 0.20138451515557848,
+      "weight_change_l2": 0.15275458991527557
+    }
+  ],
+  "closed_loop_rollout_executed": false,
+  "confirmatory_outcomes_accessed": false,
+  "cuda_device": {
+    "allocator_initialized": true,
+    "device": "cuda:0",
+    "index": 0,
+    "name": "NVIDIA GeForce RTX 5080",
+    "repair_classification": "EXCEPTIONAL_TELEMETRY_DEVICE_REPAIR",
+    "telemetry_argument_type": "integer_device_index"
+  },
+  "cuda_pid": 360,
+  "decision": "ACTUAL_PATH_MICROBATCH_PREFLIGHT_VALID",
+  "disk_after": {
+    "available_bytes": 261166063616,
+    "total_bytes": 999134588928
+  },
+  "disk_before": {
+    "available_bytes": 261180170240,
+    "total_bytes": 999134588928
+  },
+  "downloads_used": false,
+  "effective_batch": 8,
+  "elapsed_seconds": 17.318,
+  "exceptions": [],
+  "finished_at": "2026-07-19T03:34:25+0900",
+  "gradient_accumulation": 1,
+  "implementation_label": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA_PREFLIGHT",
+  "materialized": [
+    {
+      "clip_steps": 48,
+      "hdf5_path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/microbatch_preflight_20260719T033403KST/materialized_calibration_rows/libero_goal_task0_demo0/demo_0.hdf5",
+      "hdf5_sha256": "6f7dd642b0f3397bbb65e980e003cff4fcd22b213803ed602f9b1fd533efaec1",
+      "meta_path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/microbatch_preflight_20260719T033403KST/materialized_calibration_rows/libero_goal_task0_demo0/meta.json",
+      "source_demo_index": 0,
+      "source_frame_index_for_policy_observation": 1,
+      "source_hdf5": "/mnt/c/assets/data/libero/libero_goal/open_the_middle_drawer_of_the_cabinet_demo.hdf5"
+    },
+    {
+      "clip_steps": 48,
+      "hdf5_path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/microbatch_preflight_20260719T033403KST/materialized_calibration_rows/libero_object_task0_demo0/demo_0.hdf5",
+      "hdf5_sha256": "2fc1c3a8a55d0b27cfe142a2100d21f9df136c5c664db57fc062b19330ae277e",
+      "meta_path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/microbatch_preflight_20260719T033403KST/materialized_calibration_rows/libero_object_task0_demo0/meta.json",
+      "source_demo_index": 0,
+      "source_frame_index_for_policy_observation": 1,
+      "source_hdf5": "/mnt/c/assets/data/libero/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket_demo.hdf5"
+    },
+    {
+      "clip_steps": 48,
+      "hdf5_path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/microbatch_preflight_20260719T033403KST/materialized_calibration_rows/libero_spatial_task5_demo0/demo_0.hdf5",
+      "hdf5_sha256": "ca1b5f826d76a9d94c648a4ca930b897bde194ce44eb7848155777229d11ac7b",
+      "meta_path": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/microbatch_preflight_20260719T033403KST/materialized_calibration_rows/libero_spatial_task5_demo0/meta.json",
+      "source_demo_index": 0,
+      "source_frame_index_for_policy_observation": 1,
+      "source_hdf5": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5"
+    }
+  ],
+  "method": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA",
+  "mode": "microbatch",
+  "model_offload_used": false,
+  "noise_report": {
+    "path": "/mnt/c/Users/jiheo/tca_map/reports/action_consistent_missing_view_distillation_noise_calibration_result.json",
+    "sha256": "1b8d01878ae037cc9149d0004c6dca91805b0dff30d4eb74b62cd4095f8245e7"
+  },
+  "nvidia_smi_after": "NVIDIA GeForce RTX 5080, 16303 MiB, 2068 MiB, 13912 MiB, 1 %, 45",
+  "nvidia_smi_before": "NVIDIA GeForce RTX 5080, 16303 MiB, 1684 MiB, 14296 MiB, 1 %, 38",
+  "peak_cuda_allocated_bytes": 4580119552,
+  "peak_cuda_reserved_bytes": 4741660672,
+  "physical_robot_manipulation": false,
+  "pid": 360,
+  "research_induced_swap_growth_bytes": 0,
+  "risk_assessment": {
+    "cpu_or_disk_model_offload": false,
+    "dataset_files_present": true,
+    "disk_minimum_free_bytes": 10737418240,
+    "downloads": "disabled",
+    "environment_install_or_mutation": false,
+    "gpu_reserved_ceiling_fraction": 0.88,
+    "license_clickthrough": false,
+    "research_induced_swap_growth_allowed_bytes": 0,
+    "source": "tracked local code and already-present X-VLA/LIBERO assets",
+    "system_ram_ceiling_fraction": 0.82,
+    "token_or_secret_access": false
+  },
+  "run_dir": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/microbatch_preflight_20260719T033403KST",
+  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_distillation_microbatch_preflight.v1",
+  "selected_microbatch": 8,
+  "source_head": "3b5723e33ec22b10b46afd695ca5f24c52aef3c2",
+  "spec": {
+    "path": "configs/action_consistent_missing_view_distillation_xvla_frozen_spec.json",
+    "sha256": "80d9e717ac47e34bced93ab8b0346ca5dbe776d4331589b4d11daf819773a69d"
+  },
+  "stage0_optimizer_budget_consumed": 0,
+  "started_at": "2026-07-19T03:34:08+0900",
+  "success": true,
+  "system_memory_after": {
+    "mem_available_bytes": 9660416000,
+    "mem_total_bytes": 12096454656,
+    "mem_used_bytes": 2436038656,
+    "mem_used_fraction": 0.20138451515557848,
+    "swap_total_bytes": 3221225472,
+    "swap_used_bytes": 0
+  },
+  "system_memory_before": {
+    "mem_available_bytes": 11175079936,
+    "mem_total_bytes": 12096454656,
+    "mem_used_bytes": 921374720,
+    "mem_used_fraction": 0.07616898886509578,
+    "swap_total_bytes": 3221225472,
+    "swap_used_bytes": 0
+  },
+  "throwaway_preflight_optimizer_steps": 4,
+  "xvla": {
+    "base_trainable_parameter_count": 0,
+    "compatibility_patches": [
+      "Florence2ForConditionalGeneration._supports_sdpa=False",
+      "Florence2LanguageForConditionalGeneration.missing_lm_head_safe"
+    ],
+    "device": "cuda:0",
+    "dtype": "torch.float32",
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "optional_shims": [],
+    "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671"
+  }
+}

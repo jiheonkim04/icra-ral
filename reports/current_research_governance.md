@@ -752,8 +752,10 @@ The historical Stage 0 and paper-level implementation-failure labels remain
 preserved as pre-resumption evidence. The same frozen numerical-noise stage
 subsequently completed validly, and its normalization denominators, practical
 floors, and smoothness envelopes were frozen before any optimizer step. The
-actual-path microbatch preflight over `1,2,4,8` is now authorized. If another
-unrelated implementation defect prevents model execution, stop without
+actual-path microbatch preflight then found all candidates safe and selected
+microbatch `8` with accumulation `1`; its four throwaway steps consumed zero
+Stage 0 optimizer budget. Frozen Stage 0 implementation and training are now
+authorized. If another unrelated implementation defect prevents model execution, stop without
 claiming mechanism failure. All existing
 method, data, split, identity, comparator, threshold, optimizer, budget,
 microbatch, evaluation, and no-confirmatory-access contracts remain immutable.

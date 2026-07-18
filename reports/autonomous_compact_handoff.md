@@ -10,7 +10,7 @@ Updated: 2026-07-19 KST
 - Epoch/cycle: `5 / 0`
 - Campaign state: `AUTONOMOUS_CAMPAIGN_ACTIVE_EXCEPTIONAL_TELEMETRY_RESUMPTION`
 - Active method direction: `ACTION-CONSISTENT MISSING-VIEW DISTILLATION`
-- Active stage: numerical-noise calibration valid and thresholds frozen; actual-path microbatch preflight is authorized next.
+- Active stage: microbatch preflight valid; microbatch 8 / accumulation 1 selected; frozen Stage 0 implementation and training are authorized next.
 - Novelty decision: `INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE`
 - Active training/rollout worker: none.
 - Paper-level decision: `IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE`.
@@ -28,6 +28,7 @@ Updated: 2026-07-19 KST
 - CUDA diagnosis: `reports/action_consistent_missing_view_distillation_cuda_device_diagnosis_result.json`
 - Exceptional telemetry repair: `reports/action_consistent_missing_view_distillation_telemetry_device_repair_result.json`
 - Numerical threshold freeze: `reports/action_consistent_missing_view_distillation_numerical_threshold_freeze_result.json`
+- Microbatch preflight: `reports/action_consistent_missing_view_distillation_microbatch_preflight_result.json`
 - Full campaign audit: `reports/autonomous_research_full_history_audit.md`
 - Current governance: `reports/current_research_governance.md`
 - RL4IL prior result: `reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json`
@@ -104,13 +105,13 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 
 ## Immediate next action
 
-Run the actual teacher/student/backward microbatch preflight over `1,2,4,8`
-using the now-frozen noise report. The unchanged 12-row × 3-repeat calibration
-passed with 36 teacher and 36 student forwards, no repeat noise, no gripper
-flip, no exception, no optimizer step, and no confirmatory access. Its exact
-normalization denominators, practical floors, and smoothness envelopes are
-frozen in the threshold report. Continue to frozen Stage 0 only if the
-microbatch gate is valid; the exceptional telemetry repair does not reset the
+Implement and run the already-frozen Stage 0 arms with microbatch `8` and
+accumulation `1`. All four microbatch candidates were safe; each produced
+finite nonzero gradients, changed weights, and an exactly reloadable throwaway
+checkpoint, with maximum reserved VRAM 27.74%, RAM 20.14%, and no swap growth.
+The four throwaway steps consumed zero Stage 0 optimizer budget. Preserve the
+128-step-per-arm final-checkpoint-only rule, frozen losses/thresholds, and no
+confirmatory access. The exceptional telemetry repair does not reset the
 general repair budget or authorize any scientific change.
 
 ## Final preflight boundary

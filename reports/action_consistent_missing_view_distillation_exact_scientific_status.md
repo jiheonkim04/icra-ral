@@ -4,7 +4,7 @@
 - Stage 0: `STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE`
 - Paper-level state: `IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE`
 - Active worker: none
-- Next authorized empirical stage: actual-path microbatch preflight over `1,2,4,8`
+- Next authorized empirical stage: frozen Stage 0 implementation and training
 
 The final preflight passed official-reader materialization for all 12 frozen
 rows, then failed at CUDA peak-memory-stat reset before X-VLA load or any
@@ -29,4 +29,6 @@ telemetry-only RTX 5080 smoke passed without X-VLA or scientific-output access.
 The historical failure labels above remain preserved as the pre-resumption
 outcome. The unchanged numerical-noise calibration subsequently passed, its
 normalization denominators and practical thresholds were frozen before any
-optimizer step, and the actual-path microbatch preflight is now authorized.
+optimizer step. All actual-path microbatch candidates `1,2,4,8` were safe;
+microbatch `8` with accumulation `1` was selected, with zero Stage 0 optimizer
+budget consumed. Frozen Stage 0 implementation and training are authorized.
