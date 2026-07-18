@@ -171,11 +171,13 @@ official image mask unchanged. Correcting that description changes no data,
 mechanism, loss, threshold, or budget and does not consume the one bounded
 implementation repair.
 
-The one bounded implementation repair was subsequently consumed by the first
-noise worker: `datasets.dataset.InfiniteDataReader` was imported before the
-pinned local X-VLA source root had entered `sys.path`. The failed run, result,
-exit code, and partial materialization remain under
-`runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024502KST`.
-The repair only registers the existing source root before the official reader
-import. It changes no row, loss, threshold, repetition, budget, or model and
-authorizes no further repair.
+The one bounded implementation repair was consumed by the official-reader
+import initialization boundary. The first worker showed that the pinned X-VLA
+source root had not entered `sys.path`; after registering it, the unchanged
+rerun showed that the repository's existing optional `mmengine.fileio` shim
+also ran too late, after the official reader import. Both failed runs, results,
+exit codes, and partial materializations remain under the two `noise_calibration`
+run directories timestamped `024502KST` and `024907KST`. Completing the single
+repair moves both already-existing initialization operations before the reader
+import. It changes no row, loss, threshold, repetition, budget, dependency, or
+model and authorizes no further repair.

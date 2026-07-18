@@ -387,10 +387,20 @@
   "bounded_repair": {
     "maximum_count": 1,
     "current_count": 1,
-    "consumed_by": "PREFLIGHT_OFFICIAL_READER_PATH_ERROR",
-    "failed_attempt": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024502KST",
-    "failed_result_sha256": "f57d7a88b5cbc99040ba54a48a49a7bbd0e9b977d0ff2140482552d8bef617c5",
-    "repair": "register the already-pinned local X-VLA source_root before importing datasets.dataset.InfiniteDataReader",
+    "consumed_by": "PREFLIGHT_OFFICIAL_READER_IMPORT_INITIALIZATION_ORDER_ERROR",
+    "failed_attempts": [
+      {
+        "run_dir": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024502KST",
+        "result_sha256": "f57d7a88b5cbc99040ba54a48a49a7bbd0e9b977d0ff2140482552d8bef617c5",
+        "exception": "No module named datasets.dataset"
+      },
+      {
+        "run_dir": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024907KST",
+        "result_sha256": "3e2bd5be48350416795584f52379b5822df56dceb2737f9e5780ef60d079631f",
+        "exception": "No module named mmengine"
+      }
+    ],
+    "repair": "complete one official-reader import initialization boundary: register the already-pinned local X-VLA source_root and install the already-existing optional mmengine.fileio shim before importing datasets.dataset.InfiniteDataReader",
     "scientific_protocol_changed": false,
     "additional_repairs_authorized": false,
     "allowed_classes": ["PATH_ERROR", "SERIALIZER_FAILURE", "DTYPE_DEVICE_MISMATCH", "CHECKPOINT_PATH_DEFECT", "LAUNCHER_OR_PID_ERROR", "LIVE_QUERY_WIRING_DEFECT", "OUTPUT_DIRECTORY_ERROR", "NON_SCIENTIFIC_ENVIRONMENT_DEPENDENCY_ERROR"],

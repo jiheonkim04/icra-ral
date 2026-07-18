@@ -19,6 +19,6 @@ Decision: `PREFLIGHT_IMPLEMENTATION_OR_RESOURCE_FAILURE`
 
 ## Execution
 
-- CUDA PID: `380`
-- Elapsed seconds: `1.996`
+- CUDA PID: `366`
+- Elapsed seconds: `2.744`
 - Exceptions: `1`

@@ -1,6 +1,6 @@
 # Action-Consistent Missing-View Noise Preflight: One Path Repair
 
-Decision: `PREFLIGHT_OFFICIAL_READER_PATH_ERROR_REPAIRED_ONCE`
+Decision: `PREFLIGHT_OFFICIAL_READER_IMPORT_INITIALIZATION_ORDER_REPAIRED_ONCE`
 
 The first Python noise worker failed during fixed-row materialization because
 the official `datasets.dataset.InfiniteDataReader` was called before the pinned
@@ -16,11 +16,19 @@ An earlier shell-redirection miss occurred before any Python worker existed and
 is preserved as `prelaunch_attempt1.json`; it is an orchestration prelaunch
 event, not a second scientific/preflight execution attempt.
 
-The single permitted implementation repair adds the already-frozen
-`spec.xvla.source_root` to `sys.path` immediately before the official reader
-import. It adds no package, download, data, objective, threshold, task,
-identity, repetition, optimizer step, or output reinterpretation. The same
-12-row, three-repeat, zero-optimizer calibration will be rerun unchanged.
+Registering the source root exposed the second layer of the same import-order
+defect: the unchanged rerun at `noise_calibration_20260719T024907KST` reached
+the official reader, which then imported `mmengine.fileio` before the
+repository's existing optional shim had run. That run also stopped before
+model load, CUDA forward, or any optimizer step; its result SHA-256 is
+`3e2bd5be48350416795584f52379b5822df56dceb2737f9e5780ef60d079631f`.
+
+The single permitted repair therefore completes one narrow official-reader
+import boundary: add the already-frozen `spec.xvla.source_root` and invoke the
+already-existing optional shim immediately before the reader import. It adds
+no package, download, data, objective, threshold, task, identity, repetition,
+optimizer step, or output reinterpretation. The same 12-row, three-repeat,
+zero-optimizer calibration will be rerun unchanged.
 
 Repair count is now `1 / 1`. No additional implementation repair is
 authorized.

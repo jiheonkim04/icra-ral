@@ -211,8 +211,12 @@ def materialize_calibration_records(
     if source_root in sys.path:
         sys.path.remove(source_root)
     sys.path.insert(0, source_root)
+    from tca_map.rifa_xvla.stage0 import install_optional_xvla_shims, materialize_xvla_clip
+
+    # The pinned official reader imports mmengine.fileio at module import time.
+    # Reuse the already-established local optional shim before that import.
+    install_optional_xvla_shims()
     from tca_map.cvlr_xvla.stage0 import read_fixed_official_samples
-    from tca_map.rifa_xvla.stage0 import materialize_xvla_clip
 
     positions = list(spec["data_splits"]["discovery"]["official_reader_positions"])
     root = run_dir / "materialized_calibration_rows"

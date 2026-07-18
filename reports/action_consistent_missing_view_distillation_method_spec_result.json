@@ -7,13 +7,13 @@
   "source_head": "1d746978b89a9931c92182e3c3a8679323dbd637",
   "frozen_spec": {
     "path": "configs/action_consistent_missing_view_distillation_xvla_frozen_spec.json",
-    "sha256": "dfe84c572e588c98acd7038570993fb850ba18dce17a3cf06371806505fb286a"
+    "sha256": "80d9e717ac47e34bced93ab8b0346ca5dbe776d4331589b4d11daf819773a69d"
   },
   "implementation": {
     "adapter": "tca_map/action_consistent_missing_view_distillation/adapter.py",
     "adapter_sha256": "62454a80d485bff016af762f1ec3e64fa0a023ea20b688c3217bf2a191f6de8c",
     "validator": "tca_map/action_consistent_missing_view_distillation/spec.py",
-    "validator_sha256": "357adb54cf1d93f2fdc35a1dda06abc13f29c629496208b8b2cc3801e5a323a9",
+    "validator_sha256": "89c6e357fc6421b9fb1dc23f522f3ca2ce70414f931d56b823d023fd319b1032",
     "test": "tests/test_action_consistent_missing_view_distillation_spec.py"
   },
   "scientific_method": {
@@ -145,9 +145,17 @@
   "bounded_implementation_repair": {
     "maximum_count": 1,
     "current_count": 1,
-    "consumed_by": "PREFLIGHT_OFFICIAL_READER_PATH_ERROR",
-    "failed_attempt": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024502KST",
-    "failed_result_sha256": "f57d7a88b5cbc99040ba54a48a49a7bbd0e9b977d0ff2140482552d8bef617c5",
+    "consumed_by": "PREFLIGHT_OFFICIAL_READER_IMPORT_INITIALIZATION_ORDER_ERROR",
+    "failed_attempts": [
+      {
+        "run_dir": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024502KST",
+        "result_sha256": "f57d7a88b5cbc99040ba54a48a49a7bbd0e9b977d0ff2140482552d8bef617c5"
+      },
+      {
+        "run_dir": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024907KST",
+        "result_sha256": "3e2bd5be48350416795584f52379b5822df56dceb2737f9e5780ef60d079631f"
+      }
+    ],
     "scientific_protocol_changed": false,
     "additional_repairs_authorized": false
   }

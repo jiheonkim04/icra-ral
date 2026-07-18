@@ -103,6 +103,7 @@ def test_spec_is_machine_readable_without_outcome_fields() -> None:
     assert raw["pre_execution_specification_erratum"]["scientific_condition_changed"] is False
     assert raw["pre_execution_specification_erratum"]["bounded_implementation_repair_consumed"] is False
     assert raw["bounded_repair"]["current_count"] == 1
-    assert raw["bounded_repair"]["consumed_by"] == "PREFLIGHT_OFFICIAL_READER_PATH_ERROR"
+    assert raw["bounded_repair"]["consumed_by"] == "PREFLIGHT_OFFICIAL_READER_IMPORT_INITIALIZATION_ORDER_ERROR"
+    assert len(raw["bounded_repair"]["failed_attempts"]) == 2
     assert raw["bounded_repair"]["additional_repairs_authorized"] is False
     assert "result" not in raw

@@ -129,8 +129,10 @@ def validate_frozen_method_spec(spec: dict[str, Any]) -> None:
     repair = spec.get("bounded_repair") or {}
     if int(repair.get("maximum_count", -1)) != 1 or int(repair.get("current_count", -1)) != 1:
         raise ValueError("the single preflight path repair must remain consumed")
-    if repair.get("consumed_by") != "PREFLIGHT_OFFICIAL_READER_PATH_ERROR":
+    if repair.get("consumed_by") != "PREFLIGHT_OFFICIAL_READER_IMPORT_INITIALIZATION_ORDER_ERROR":
         raise ValueError("bounded repair identity drift")
+    if len(repair.get("failed_attempts") or []) != 2:
+        raise ValueError("both layers of the single reader-import repair must remain preserved")
     if repair.get("scientific_protocol_changed") is not False:
         raise ValueError("bounded path repair may not change the scientific protocol")
     if repair.get("additional_repairs_authorized") is not False:

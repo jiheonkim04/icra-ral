@@ -1,36 +1,36 @@
 {
   "closed_loop_rollout_executed": false,
   "confirmatory_outcomes_accessed": false,
-  "cuda_pid": 380,
+  "cuda_pid": 366,
   "decision": "PREFLIGHT_IMPLEMENTATION_OR_RESOURCE_FAILURE",
   "disk_after": {
-    "available_bytes": 261319782400,
+    "available_bytes": 261296427008,
     "total_bytes": 999134588928
   },
   "disk_before": {
-    "available_bytes": 261322014720,
+    "available_bytes": 261298647040,
     "total_bytes": 999134588928
   },
   "downloads_used": false,
-  "elapsed_seconds": 1.996,
+  "elapsed_seconds": 2.744,
   "exceptions": [
     {
-      "message": "No module named 'datasets.dataset'",
-      "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/tca_map/action_consistent_missing_view_distillation/preflight.py\", line 982, in run_preflight\n    records, materialized = materialize_calibration_records(spec, run_dir)\n  File \"/mnt/c/Users/jiheo/tca_map/tca_map/action_consistent_missing_view_distillation/preflight.py\", line 226, in materialize_calibration_records\n    read_fixed_official_samples(pathlib.Path(manifest[\"meta_path\"]), positions),\n  File \"/mnt/c/Users/jiheo/tca_map/tca_map/cvlr_xvla/stage0.py\", line 238, in read_fixed_official_samples\n    from datasets.dataset import InfiniteDataReader  # type: ignore\nModuleNotFoundError: No module named 'datasets.dataset'\n",
+      "message": "No module named 'mmengine'",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/tca_map/action_consistent_missing_view_distillation/preflight.py\", line 989, in run_preflight\n    records, materialized = materialize_calibration_records(spec, run_dir)\n  File \"/mnt/c/Users/jiheo/tca_map/tca_map/action_consistent_missing_view_distillation/preflight.py\", line 233, in materialize_calibration_records\n    read_fixed_official_samples(pathlib.Path(manifest[\"meta_path\"]), positions),\n  File \"/mnt/c/Users/jiheo/tca_map/tca_map/cvlr_xvla/stage0.py\", line 238, in read_fixed_official_samples\n    from datasets.dataset import InfiniteDataReader  # type: ignore\n  File \"/mnt/c/assets/repos/X-VLA/datasets/__init__.py\", line 19, in <module>\n    from .dataset import InfiniteDataReader\n  File \"/mnt/c/assets/repos/X-VLA/datasets/dataset.py\", line 23, in <module>\n    from mmengine import fileio\nModuleNotFoundError: No module named 'mmengine'\n",
       "type": "ModuleNotFoundError"
     }
   ],
-  "finished_at": "2026-07-19T02:46:09+0900",
+  "finished_at": "2026-07-19T02:50:28+0900",
   "implementation_label": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA_PREFLIGHT",
   "method": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA",
   "mode": "noise",
   "model_offload_used": false,
-  "nvidia_smi_after": "NVIDIA GeForce RTX 5080, 16303 MiB, 1890 MiB, 14090 MiB, 0 %, 46",
-  "nvidia_smi_before": "NVIDIA GeForce RTX 5080, 16303 MiB, 1887 MiB, 14093 MiB, 1 %, 46",
+  "nvidia_smi_after": "NVIDIA GeForce RTX 5080, 16303 MiB, 1883 MiB, 14097 MiB, 1 %, 45",
+  "nvidia_smi_before": "NVIDIA GeForce RTX 5080, 16303 MiB, 1884 MiB, 14096 MiB, 1 %, 45",
   "peak_cuda_allocated_bytes": 0,
   "peak_cuda_reserved_bytes": 0,
   "physical_robot_manipulation": false,
-  "pid": 380,
+  "pid": 366,
   "research_induced_swap_growth_bytes": 0,
   "risk_assessment": {
     "cpu_or_disk_model_offload": false,
@@ -45,28 +45,28 @@
     "system_ram_ceiling_fraction": 0.82,
     "token_or_secret_access": false
   },
-  "run_dir": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024502KST",
+  "run_dir": "/mnt/c/Users/jiheo/tca_map/runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024907KST",
   "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_distillation_noise_preflight.v1",
-  "source_head": "c6dd44beee5421ca907b26737fdb02ab0a0a0939",
+  "source_head": "25ecb34d2e42f7f31e4c32f0176052293a852b9f",
   "spec": {
     "path": "configs/action_consistent_missing_view_distillation_xvla_frozen_spec.json",
-    "sha256": "e9cc974de6806021b2596f87d12674d3e0f852f70c767854f130731baea3c1fd"
+    "sha256": "dfe84c572e588c98acd7038570993fb850ba18dce17a3cf06371806505fb286a"
   },
-  "started_at": "2026-07-19T02:46:07+0900",
+  "started_at": "2026-07-19T02:50:26+0900",
   "success": false,
   "system_memory_after": {
-    "mem_available_bytes": 11119955968,
+    "mem_available_bytes": 11101061120,
     "mem_total_bytes": 12096454656,
-    "mem_used_bytes": 976498688,
-    "mem_used_fraction": 0.0807260239276509,
+    "mem_used_bytes": 995393536,
+    "mem_used_fraction": 0.08228803928978247,
     "swap_total_bytes": 3221225472,
     "swap_used_bytes": 0
   },
   "system_memory_before": {
-    "mem_available_bytes": 11173421056,
+    "mem_available_bytes": 11179659264,
     "mem_total_bytes": 12096454656,
-    "mem_used_bytes": 923033600,
-    "mem_used_fraction": 0.07630612656760245,
+    "mem_used_bytes": 916795392,
+    "mem_used_fraction": 0.07579042108385513,
     "swap_total_bytes": 3221225472,
     "swap_used_bytes": 0
   }

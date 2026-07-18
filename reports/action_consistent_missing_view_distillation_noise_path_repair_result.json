@@ -1,10 +1,10 @@
 {
   "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_noise_path_repair.v1",
-  "decision": "PREFLIGHT_OFFICIAL_READER_PATH_ERROR_REPAIRED_ONCE",
+  "decision": "PREFLIGHT_OFFICIAL_READER_IMPORT_INITIALIZATION_ORDER_REPAIRED_ONCE",
   "repair_count": 1,
   "repair_limit": 1,
   "additional_repairs_authorized": false,
-  "classification": "PATH_ERROR",
+  "classification": "PATH_AND_EXISTING_OPTIONAL_SHIM_INITIALIZATION_ORDER_ERROR",
   "source_head_before_repair": "c6dd44b",
   "failed_attempt": {
     "run_dir": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024502KST",
@@ -22,6 +22,20 @@
     "optimizer_steps": 0,
     "confirmatory_outcomes_accessed": false
   },
+  "same_repair_boundary_followup_failure": {
+    "run_dir": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024907KST",
+    "result": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024907KST/result.json",
+    "result_sha256": "3e2bd5be48350416795584f52379b5822df56dceb2737f9e5780ef60d079631f",
+    "result_md_sha256": "910b1e48ae8fc6497fcc37f7b0e60feacdb43e3599a615b689a8709eaeab68c3",
+    "decision": "PREFLIGHT_IMPLEMENTATION_OR_RESOURCE_FAILURE",
+    "exception_type": "ModuleNotFoundError",
+    "exception_message": "No module named 'mmengine'",
+    "failed_stage": "materialize_fixed_discovery_calibration_rows",
+    "model_loaded": false,
+    "cuda_forward_count": 0,
+    "optimizer_steps": 0,
+    "interpretation": "the same official-reader import initialization boundary also required the repository's already-existing optional shim before import"
+  },
   "prelaunch_non_stage_event": {
     "artifact": "runs/action_consistent_missing_view_distillation/noise_calibration_20260719T024502KST/prelaunch_attempt1.json",
     "sha256": "4b50b5f40ecc00029ee83d8b5898e52db3398bb450c26e33b3f0a8cb5013c70b",
@@ -29,10 +43,10 @@
     "python_worker_started": false,
     "counted_as_bounded_implementation_repair": false
   },
-  "root_cause": "materialize_calibration_records called the official X-VLA datasets.dataset.InfiniteDataReader before adding the already-pinned X-VLA source_root to sys.path",
+  "root_cause": "materialize_calibration_records called the official X-VLA datasets.dataset.InfiniteDataReader before completing its two already-established import prerequisites: pinned source_root registration and the local optional mmengine.fileio shim",
   "repair": {
     "file": "tca_map/action_consistent_missing_view_distillation/preflight.py",
-    "scope": "insert the pinned spec.xvla.source_root at sys.path[0] before importing/calling the official reader",
+    "scope": "complete one narrow reader-import boundary by inserting the pinned spec.xvla.source_root and invoking the existing install_optional_xvla_shims before importing/calling the official reader",
     "downloads": false,
     "dependency_install": false,
     "scientific_protocol_changed": false
