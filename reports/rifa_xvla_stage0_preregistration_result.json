@@ -1,0 +1,68 @@
+{
+  "schema_version": "2026-07-18.epoch5_rifa_xvla_stage0_preregistration.v1",
+  "decision": "RIFA_XVLA_STAGE0_PREREGISTERED_NOT_LAUNCHED",
+  "selected_method": "RIFA_XVLA",
+  "selected_method_source": "reports/ours_candidate_selection_after_rl4il_prior_result.json",
+  "prior_residual_source": "reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json",
+  "next_execution_classification": "OURS_VLA_TRAINING",
+  "not_launched": true,
+  "core_mechanism": "Reliability-conditioned imputed-feature adapter for X-VLA action hidden states, using RL4IL imputed in-hand latent features and reliability metrics while preserving the frozen X-VLA base path.",
+  "base_preserving_initialization": {
+    "adapter_residual_projection": "zero initialized",
+    "reliability_gate": "initialized to prefer frozen X-VLA clean path",
+    "full_model_finetuning": false
+  },
+  "trainable_scope": [
+    "RIFA adapter projections",
+    "reliability gate",
+    "optional LoRA/QLoRA modules required for integration"
+  ],
+  "frozen_scope": [
+    "X-VLA base weights except explicitly declared adapter/LoRA parameters",
+    "RL4IL prior checkpoints used as feature/reliability source",
+    "CLIP encoders inside the RL4IL prior"
+  ],
+  "stage0_required_gates": [
+    "real X-VLA forward path",
+    "trainable parameter count greater than zero",
+    "CUDA tensors",
+    "finite nonzero gradients",
+    "optimizer steps",
+    "weights change",
+    "checkpoint write and disk reload",
+    "base-preserving initialization verified",
+    "missing-modality signal observability",
+    "RL4IL reliability-feature variation is nonconstant",
+    "full versus no-reliability ablation output difference",
+    "bounded action delta from frozen X-VLA",
+    "clean validation retention diagnostic"
+  ],
+  "frozen_development_panel": {
+    "source": "same task family and discovery/validation identities only; no new natural-reset mining",
+    "tasks": [
+      "libero_goal/task0",
+      "libero_object/task0",
+      "libero_spatial/task5"
+    ],
+    "conditions": [
+      "clean",
+      "mask_1_in_hand_dropout"
+    ]
+  },
+  "stage0_budget": {
+    "long_training": false,
+    "max_configurations_if_validation_search_needed": 6,
+    "batch_size": 1,
+    "no_cpu_or_disk_offload": true,
+    "persist_disk_reloadable_checkpoints": true
+  },
+  "ablation": "RIFA_XVLA_NO_RELIABILITY: same adapter parameter count, imputed latent available, reliability gate/features removed or fixed neutral.",
+  "negative_controls": {
+    "ours_training_happened": false,
+    "ours_rollout_happened": false,
+    "deterministic_substitution_selected": false,
+    "awf_reclassified_back_to_method": false,
+    "broad_natural_reset_sweep_happened": false
+  },
+  "next_action": "Implement the RIFA_XVLA Stage 0 runner and launch only the bounded OURS_VLA_TRAINING smoke after validation of the runner."
+}
