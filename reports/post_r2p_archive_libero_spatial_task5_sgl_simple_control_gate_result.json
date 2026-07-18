@@ -1,0 +1,168 @@
+{
+  "schema_version": "2026-07-18.epoch5_sgl_xvla_simple_control_gate_result.v1",
+  "created_at_kst": "2026-07-18T11:52:00+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "27600da01577dbff2a8e2677bd1f04eb02ed3d9f",
+  "stage": "epoch_5_sgl_xvla_task5_stage0_simple_control_report_only",
+  "decision": "SGL_SIMPLE_FIXED_LIFT_REGRASP_CONTROL_FROZEN_NO_TRAINING_NO_OURS",
+  "candidate_id": "SGL-XVLA",
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "residual_identities": [
+      20260727,
+      20260730,
+      20260733
+    ],
+    "clean_retention_identities": [
+      20260731,
+      20260732
+    ],
+    "held_out_confirmatory_identity_pool": [
+      20260734,
+      20260735,
+      20260736,
+      20260737
+    ]
+  },
+  "upstream_gates": {
+    "action_bounds_artifact": "runs/xvla_prior/epoch5_sgl_xvla_task5_action_bounds_gate_v1.json",
+    "action_bounds_decision": "SGL_ACTION_BIAS_BOUNDS_FROZEN_POST_CLAMP_NO_OPTIMIZER_NO_TRAINING",
+    "action_bounds_valid": true
+  },
+  "simple_control": {
+    "control_id": "FIXED-LIFT-REGRASP-CONTROL",
+    "comparator_role": "SIMPLE_CONTROL",
+    "is_primary_simple_control": true,
+    "other_simple_controls_frozen_for_same_objection": [],
+    "strongest_simple_explanation_tested": "A nonadaptive fixed lift/regrasp template, activated by the same language-level support condition, might account for any future support-separation gain without SGL's claimed mechanism.",
+    "activation_condition": {
+      "condition": "task instruction contains the support token `ramekin`",
+      "allowed_activation_sources": [
+        "language instruction"
+      ],
+      "uses_visual_progress_feedback": false,
+      "uses_simulator_state": false,
+      "uses_reward_or_success": false,
+      "uses_reset_identity": false,
+      "activates_on_residual_identities": [
+        20260727,
+        20260730,
+        20260733
+      ],
+      "activates_on_clean_retention_identities": [
+        20260731,
+        20260732
+      ]
+    },
+    "template": {
+      "template_type": "fixed_open_loop_lift_regrasp_bias",
+      "nonadaptive": true,
+      "max_activated_chunks": 2,
+      "max_activated_steps": 60,
+      "schedule": [
+        {
+          "chunk_index": 0,
+          "lift_axis_translation_bias_abs": 0.2,
+          "gripper_close_bias_abs": 0.25,
+          "lateral_translation_bias_abs": 0.0,
+          "rotation_bias_abs": 0.0
+        },
+        {
+          "chunk_index": 1,
+          "lift_axis_translation_bias_abs": 0.2,
+          "gripper_close_bias_abs": 0.25,
+          "lateral_translation_bias_abs": 0.0,
+          "rotation_bias_abs": 0.0
+        }
+      ],
+      "zero_bias_after_chunk_index": 1,
+      "post_bias_action_clamp_abs": 1.0,
+      "saturation_guard_inherited": true,
+      "axis_and_sign_binding_rule": "Bind lift-axis and gripper-close directions from the official LIBERO/X-VLA action adapter before any rollout. If the binding cannot be verified from source semantics, fail closed; never choose signs from residual or clean-retention outcomes."
+    }
+  },
+  "comparator_role_calibration": {
+    "scientific_question": "Can a trivial fixed lift/regrasp explain substantially all future SGL gain?",
+    "claim_metric": "paired residual success, clean retention, added clipping, latency, and intervention count",
+    "blocking_condition": "The simple control blocks the SGL novelty claim only if it matches or exceeds SGL on the primary residual claim at equal/lower cost, without meaningful clean-retention or generalization loss.",
+    "nonblocking_tradeoffs": "A control that wins one isolated development identity but loses the matched aggregate, clean retention, held-out identities, or efficiency-adjusted result does not automatically explain SGL.",
+    "universal_beat_all_rule_applied": false
+  },
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY",
+    "evidence_role": "SIMPLE_CONTROL_PREREGISTRATION",
+    "artifact_status": "NOT_APPLICABLE",
+    "simulator_episode_count": 0,
+    "vla_model_loaded": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "control_rollout_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "validation": {
+    "py_compile": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m py_compile tca_map/xvla_spatial_task5/sgl_simple_control_gate.py",
+      "exit_code": 0
+    },
+    "focused_pytest": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_sgl_xvla_stage0_gate.py tests/test_sgl_xvla_observability_audit.py tests/test_sgl_xvla_action_bounds_gate.py tests/test_sgl_xvla_simple_control_gate.py -q",
+      "exit_code": 0,
+      "result": "22 passed in 3.43s"
+    },
+    "gate_json_emit": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m tca_map.xvla_spatial_task5.sgl_simple_control_gate",
+      "exit_code": 0,
+      "output": "runs/xvla_prior/epoch5_sgl_xvla_task5_simple_control_gate_v1.json"
+    }
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "control_rollout_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_rollout_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "bounded_conclusion": {
+    "simple_control_frozen": true,
+    "exactly_one_simple_control_for_this_objection": true,
+    "template_within_action_bounds": true,
+    "candidate_can_advance_to_held_out_identity_manifest_gate": true,
+    "candidate_can_train": false,
+    "candidate_can_roll_out_ours": false,
+    "control_can_roll_out_now": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/epoch5_sgl_xvla_task5_simple_control_gate_v1.json",
+      "sha256": "6a1a250674ae60ddc75fe32e3185cd65e5d0f08726066a51d9ef1c4195050349",
+      "length_bytes": 5351
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_simple_control_gate.py",
+      "sha256": "293e2763206fd45cbae3e55b441c5e119b49a97ac2c73396489b8d9ced7580ce",
+      "length_bytes": 15133
+    },
+    {
+      "path": "tests/test_sgl_xvla_simple_control_gate.py",
+      "sha256": "ba1cecc8ccd18cf977d8ebecd2b57de9bdb0a21c389ae90924ea89eb7f8ea493",
+      "length_bytes": 4166
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_action_bounds_gate.py",
+      "sha256": "f9a954787d161825cc04d909c4601cec2f9bf72139f3354fe5e79326784f3f4f",
+      "length_bytes": 22410
+    },
+    {
+      "path": "tests/test_sgl_xvla_action_bounds_gate.py",
+      "sha256": "754bd24b0a333ab8a1b75ddb2dfd8a3099a749a3c0e2a50cc82c091ba259b4a1",
+      "length_bytes": 4222
+    }
+  ],
+  "next_action": "Freeze the held-out identity/development manifest for SGL-XVLA before any control or Ours rollout. Do not train, write checkpoints, or run Ours."
+}
