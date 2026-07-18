@@ -1,0 +1,75 @@
+{
+  "schema_version": "2026-07-18.epoch5_residual_search_convergence_cap.v1",
+  "created_at_kst": "2026-07-18T14:22:00+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_preregistration": "f8f5ebfdcc921ab5d96a32bc8fe9ad9d340ecd71",
+  "stage": "epoch_5_natural_reset_residual_search_convergence_cap",
+  "decision": "NATURAL_RESET_SEARCH_FINAL_BUDGET_PREREGISTERED",
+  "new_steer": "Residual-search convergence and observability-data steer",
+  "in_flight_when_steer_read": {
+    "run_dir": "runs/xvla_prior/failure_scan_libero_object_identity20260735_post_goal20260735_saturated_20260718T1415KST",
+    "suite": "libero_object",
+    "reset_identity": 20260735,
+    "status": "completed_before_interpretation",
+    "result": "10/10 X-VLA prior saturation"
+  },
+  "natural_reset_budget": {
+    "broad_full_suite_identity_scans_allowed_after_this_preregistration": 1,
+    "official_prior_task_episode_cap_after_this_preregistration": 10,
+    "selected_final_sweep": {
+      "suite": "libero_spatial",
+      "reset_identity": 20260735,
+      "start_task_id": 0,
+      "task_count": 10,
+      "reason": "Complete the already-current 20260735 goal/object/spatial identity sequence under the new cap, then stop natural-reset residual mining."
+    },
+    "no_identity_selection_after_partial_outcomes": true,
+    "forbidden_after_selected_final_sweep": [
+      "additional natural-reset identity sweeps",
+      "additional full-suite first-prior scans",
+      "task5 candidate regeneration",
+      "SGL-XVLA reopening or renaming",
+      "OCR-XVLA automatic reopening",
+      "Ours rollout",
+      "training",
+      "optimizer steps",
+      "checkpoint writes"
+    ]
+  },
+  "end_of_budget_decision_rule": {
+    "REPEATED_RESIDUAL_FOUND": "Return only if a claim-relevant residual survives Base, first prior, second prior, repeated independent identities, and recoverable headroom, excluding already exhausted task5/SGL/OCR paths.",
+    "NATURAL_RESET_SEARCH_SATURATED": "Return if the final sweep saturates, repeats only a closed-family task5 residual, or produces no repeated cross-prior residual eligible for a fresh claim."
+  },
+  "ocr_observability_rule": {
+    "classification": "OBSERVABILITY_DATA_ACQUISITION_REQUIRED rather than METHOD_KILL when only required deployment-observable traces are missing",
+    "automatic_reopen": false,
+    "allowed_next_decision_after_natural_reset_saturation": [
+      "OCR_TRIGGER_TRACE_ACQUISITION_PREREGISTERED",
+      "OBSERVABILITY_DATA_BLOCKED_ARCHIVED"
+    ],
+    "allowed_trace_fields": [
+      "per-step RGB observations",
+      "proprioception",
+      "issued action chunks",
+      "timestamps/chunk indices",
+      "frozen prior identity",
+      "task/reset identity"
+    ],
+    "forbidden_inference_features": [
+      "reward",
+      "done/success oracle",
+      "simulator object state",
+      "privileged contact/pose",
+      "future observation"
+    ]
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "next_action": "Run exactly the preregistered libero_spatial identity 20260735 full-suite X-VLA prior scan, then return REPEATED_RESIDUAL_FOUND or NATURAL_RESET_SEARCH_SATURATED. Do not launch further natural-reset identity sweeps."
+}
