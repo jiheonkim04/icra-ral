@@ -1,0 +1,65 @@
+{
+  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_cuda_device_diagnosis.v1",
+  "decision": "CUDA_TELEMETRY_DEVICE_DEFECT_DIAGNOSED",
+  "repair_classification": "EXCEPTIONAL_TELEMETRY_DEVICE_REPAIR",
+  "source_head": "3fca8bb12bfe2db2a44ca4df49eae93cd9225602",
+  "command": "wsl -d Ubuntu-22.04 -- bash -lc cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/diagnose_action_consistent_cuda_telemetry.py",
+  "diagnostic_script": {
+    "path": "scripts/diagnose_action_consistent_cuda_telemetry.py",
+    "sha256": "fbde8935a89ea43b1bfa3c50920c07b75a1898786b5b9361110b5a4bd0a25f7f"
+  },
+  "environment": {
+    "python": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python",
+    "torch_version": "2.10.0+cu128",
+    "torch_cuda_version": "12.8",
+    "torch_cuda_is_available": true,
+    "torch_cuda_device_count": 1,
+    "cuda_visible_devices": null,
+    "torch_cuda_current_device": 0,
+    "torch_cuda_current_device_name": "NVIDIA GeForce RTX 5080"
+  },
+  "exact_failing_argument": {
+    "value_repr": "device(type='cuda', index=0)",
+    "value_str": "cuda:0",
+    "python_type": "torch.device",
+    "device_type": "cuda",
+    "device_index": 0,
+    "construction": "torch.device(\"cuda:0\")"
+  },
+  "allocator_state": {
+    "at_torch_import": false,
+    "after_is_available_and_device_count": false,
+    "after_empty_cache": false,
+    "after_exact_frozen_call": false,
+    "after_current_device": true,
+    "after_all_validated_variants": true
+  },
+  "exact_frozen_call_before_current_device": {
+    "call": "torch.cuda.reset_peak_memory_stats(torch.device(\"cuda:0\"))",
+    "success": false,
+    "exception_type": "RuntimeError",
+    "exception_message": "Invalid device argument"
+  },
+  "validated_after_current_device_initialization": [
+    {
+      "call": "torch.cuda.reset_peak_memory_stats()",
+      "success": true
+    },
+    {
+      "call": "torch.cuda.reset_peak_memory_stats(torch.cuda.current_device())",
+      "success": true
+    },
+    {
+      "call": "torch.cuda.reset_peak_memory_stats(torch.device(\"cuda\", torch.cuda.current_device()))",
+      "success": true
+    }
+  ],
+  "root_cause": "In torch 2.10.0+cu128 on the actual WSL environment, is_available, device_count, and empty_cache leave the CUDA allocator/context uninitialized. Passing a torch.device to reset_peak_memory_stats before current_device initializes CUDA reproduces Invalid device argument. Calling current_device initializes CUDA, after which all three requested call forms succeed.",
+  "minimal_patch_boundary": "Verify CUDA availability, obtain torch.cuda.current_device(), construct torch.device from that index for model execution, and pass the validated integer index to reset/max-memory telemetry calls.",
+  "xvla_loaded": false,
+  "discovery_outputs_accessed": false,
+  "validation_or_confirmatory_outcomes_accessed": false,
+  "optimizer_steps": 0,
+  "scientific_configuration_changed": false,
+  "general_repair_budget_reset": false
+}
