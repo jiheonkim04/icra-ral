@@ -1,0 +1,156 @@
+{
+  "schema_version": "2026-07-18.epoch5_ocr_xvla_stage0_gate_result.v1",
+  "created_at_kst": "2026-07-18T12:14:28+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "26db07df17953317eb4773b4cb3da4f55ceb1f79",
+  "stage": "epoch_5_ocr_xvla_task5_stage0_spec_frozen_no_training",
+  "decision": "OCR_STAGE0_SPEC_FROZEN_NO_TRAINING_NO_OURS",
+  "candidate_id": "OCR-XVLA",
+  "candidate_name": "Observation-Consistency Retry for X-VLA",
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "repeated_shared_failure_identities": [
+      20260727,
+      20260730,
+      20260733
+    ],
+    "xvla_solved_clean_retention_identities": [
+      20260731,
+      20260732
+    ],
+    "held_out_confirmatory_identity_pool": [
+      20260734,
+      20260735,
+      20260736,
+      20260737
+    ]
+  },
+  "upstream_primary_candidate": {
+    "candidate_id": "SGL-XVLA",
+    "decision": "SGL_RUNNER_PREFLIGHT_BLOCKED_SIMPLE_CONTROL_EQUIVALENCE_NO_ROLLOUT",
+    "blocked_before_simulator_episode": true,
+    "backup_candidate_stage0_authorized_next": true
+  },
+  "mechanism_hypothesis": {
+    "problem_frame": "Repeated task5 failures may include a recoverable first-attempt grasp/lift no-progress condition after the bowl fails to separate from the ramekin.",
+    "candidate_component": "A no-progress observation-consistency monitor checks allowed RGB/proprio/action-history signals after the first grasp/lift attempt. If progress is absent under a frozen criterion, it triggers one bounded re-center/regrasp retry and then returns control to X-VLA.",
+    "claim_axis_if_future_rollout_is_authorized": "Improve paired success on the repeated task5 retry-recoverable residual while adding at most one retry and preserving X-VLA clean-retention identities."
+  },
+  "inference_input_policy": {
+    "allowed_inputs": [
+      "RGB observations",
+      "wrist RGB observations when already part of the policy input",
+      "proprioception already available to X-VLA",
+      "language instruction",
+      "recent action history already produced by the policy"
+    ],
+    "forbidden_inputs": [
+      "simulator object pose",
+      "simulator contact state",
+      "reward",
+      "success flag",
+      "HDF5 demo identity",
+      "reset identity label",
+      "phase label",
+      "task success oracle"
+    ],
+    "privileged_state_at_inference": false,
+    "reward_or_success_at_inference": false,
+    "reset_identity_at_inference": false
+  },
+  "stage0_required_checks": [
+    "observation_consistency_trigger_observability_no_training",
+    "retry_action_bounds_no_optimizer",
+    "simple_timeout_retry_control_frozen",
+    "held_out_identity_manifest_frozen"
+  ],
+  "closed_methods_not_reopened": [
+    "R2R-OFT",
+    "BR-XVLA",
+    "MPR-XVLA",
+    "PRC-XVLA",
+    "CR-LightVLA",
+    "ATCD",
+    "MCI-VLA",
+    "CSPR-VLA",
+    "R2P-XVLA",
+    "SGL-XVLA-current-frozen-executable"
+  ],
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY",
+    "evidence_role": "OURS_CANDIDATE_STAGE0_SPEC_BACKUP",
+    "artifact_status": "NOT_APPLICABLE",
+    "simulator_episode_count": 0,
+    "vla_model_loaded": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "control_rollout_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "authorization_boundary": {
+    "stage0_spec_created": true,
+    "backup_candidate_activation_authorized_by_sgl_block": true,
+    "training_authorized_by_this_gate": false,
+    "ours_rollout_authorized_by_this_gate": false,
+    "control_rollout_authorized_by_this_gate": false,
+    "simulator_episode_count_at_freeze": 0,
+    "max_candidates_in_current_generation": 2
+  },
+  "validation": {
+    "py_compile": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m py_compile tca_map/xvla_spatial_task5/ocr_stage0_gate.py",
+      "exit_code": 0
+    },
+    "focused_pytest": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_sgl_xvla_stage0_gate.py tests/test_sgl_xvla_observability_audit.py tests/test_sgl_xvla_action_bounds_gate.py tests/test_sgl_xvla_simple_control_gate.py tests/test_sgl_xvla_identity_manifest_gate.py tests/test_sgl_xvla_stage0_adjudication.py tests/test_sgl_xvla_rollout_protocol.py tests/test_sgl_xvla_runner_preflight.py tests/test_ocr_xvla_stage0_gate.py -q",
+      "exit_code": 0,
+      "result": "53 passed in 8.08s"
+    },
+    "gate_json_emit": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m tca_map.xvla_spatial_task5.ocr_stage0_gate",
+      "exit_code": 0,
+      "output": "runs/xvla_prior/epoch5_ocr_xvla_task5_stage0_gate_v1.json"
+    }
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "control_rollout_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_rollout_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/epoch5_ocr_xvla_task5_stage0_gate_v1.json",
+      "sha256": "b68ae6445b8489742e97d700192f01c182e05fb1e2c0f612fdd77bdb9ed4bba2",
+      "length_bytes": 9398
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/ocr_stage0_gate.py",
+      "sha256": "92d3b0e246db055f02baa5405a20894d0f7f34539c6f4177d3f3caa72dc3d872",
+      "length_bytes": 18290
+    },
+    {
+      "path": "tests/test_ocr_xvla_stage0_gate.py",
+      "sha256": "ef6e79d0b8233b9fba4d4573db63a29050885fc49d4ab19715a1fc2b5424fd21",
+      "length_bytes": 3918
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_runner_preflight.py",
+      "sha256": "091a496d1d1f6c8059d46ee07f6acd1b89a0065d76b030fda01ad8b224c80260",
+      "length_bytes": 15070
+    },
+    {
+      "path": "tests/test_sgl_xvla_runner_preflight.py",
+      "sha256": "622b9371a9d053f3ad4cbc452b6d9904f741441e96b08e0a2e2246e60b7d0901",
+      "length_bytes": 4328
+    }
+  ],
+  "next_action": "Create a report-only OCR observability/trigger audit using existing failure and clean-retention artifacts only. Do not train, write checkpoints, run a simulator episode, or run Ours."
+}
