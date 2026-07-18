@@ -1,0 +1,130 @@
+{
+  "schema_version": "2026-07-18.epoch5_rifa_xvla_stage0_runtime_telemetry.v1",
+  "execution_classification": "OURS_VLA_TRAINING",
+  "method": "RIFA_XVLA",
+  "source_head": "ef7028f",
+  "contract_sha256": "0bbbecbaa659084eae5bb2a9f553860e107b9cf889a666f2fe31fa9673667851",
+  "run_dir": "runs/rifa_xvla/stage0_20260718T213658KST",
+  "decision": "RIFA_XVLA_STAGE0_DESIGN_FAILURE",
+  "execution_valid": true,
+  "process_exit_code": 0,
+  "repair_count": 1,
+  "worker": {
+    "windows_launcher_pid": 5696,
+    "wsl_shell_pid": 393,
+    "cuda_python_pid": 396,
+    "alive_at_final_audit": false
+  },
+  "resource_telemetry": {
+    "elapsed_seconds": 73.001,
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "peak_vram_mib": 4189.80126953125,
+    "system_ram_vmhwm": "5313504 kB"
+  },
+  "execution_evidence": {
+    "xvla_model_forward_calls": 75,
+    "xvla_training_forward_calls": 12,
+    "xvla_action_transformer_calls": 642,
+    "rifa_action_hidden_hook_calls": 392,
+    "full_trainable_parameters": 214660,
+    "ablation_trainable_parameters": 214660,
+    "optimizer_steps_full": 6,
+    "optimizer_steps_ablation": 6,
+    "checkpoint_reload_full": true,
+    "checkpoint_reload_ablation": true,
+    "clean_full_vs_base_max_rms": 0.0,
+    "dropout_full_vs_ablation_mean_rms": 1.0597695498731683e-6,
+    "dropout_full_vs_base_max_rms": 0.1380136224897776,
+    "dropout_full_vs_base_max_abs": 2.0,
+    "bounded_action_delta_gate": false,
+    "failed_gate_context": {
+      "source": "official_live_initial_observation",
+      "suite": "libero_object",
+      "task_id": 0,
+      "reset_identity": 20260734,
+      "condition": "mask_1_in_hand_dropout",
+      "gripper_flip_count": 1,
+      "translation_rms": 0.0003259279998713941,
+      "rotation_rms": 0.00047185051987465456
+    }
+  },
+  "scientific_boundaries": {
+    "ours_closed_loop_rollout_happened": false,
+    "official_closed_loop_success_measured": false,
+    "confirmatory_tuning_happened": false,
+    "follow_on_empirical_stage_authorized": false,
+    "follow_on_empirical_stage_executed": false
+  },
+  "artifacts": [
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213658KST/result.json",
+      "sha256": "2bc110b97d4c67a27d86504a72b71c18418be21bf851eea231375d90c5b40884",
+      "bytes": 42968
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213658KST/result.md",
+      "sha256": "c02c5a881f2994eecfbe5c14138a73f30e8536e1a63ce2f86277c486ac7e3a71",
+      "bytes": 1259
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213658KST/launch_manifest.json",
+      "sha256": "38642d2674ac1db29516659b896e45c145088eab2055afcafff63c8852e5bd6c",
+      "bytes": 2954
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213658KST/partial_result.json",
+      "sha256": "871bac57b2a8c796bdc69cc36b72ef018fc603961e3f98886f109b13db14c349",
+      "bytes": 332
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213658KST/status.json",
+      "sha256": "89811a14b40c038e73eb988888dc8b95079e67f2e0566533dbf266555e6a8dda",
+      "bytes": 155
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213658KST/heartbeat.json",
+      "sha256": "f01150433c7ecc5834f6ef217c9ee4621fbf3a7dd8781400985e6261a54cb744",
+      "bytes": 83
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213658KST/stdout.log",
+      "sha256": "8950953888d52e4dbe74f6b50b91b1243f90bb9e393093d1973523753c8f5670",
+      "bytes": 718
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213658KST/stderr.log",
+      "sha256": "9471427c9feb5e2f6c2e47b30d38d488e40a3e0a3d07008e2b7e39f3aa1a74ce",
+      "bytes": 1935
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213658KST/exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213658KST/shell_exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213658KST/worker_pid.txt",
+      "sha256": "c4d513277d029fa3fc155339b6eb2d51319b1a5e2044bb2d2957e5e982b87ea4",
+      "bytes": 4
+    },
+    {
+      "path": "runs/rifa_xvla/stage0_20260718T213658KST/windows_launcher_pid.txt",
+      "sha256": "ed75564e6ab8b10f82d252eb47c870430487e824976385bb21f36ba8563a3381",
+      "bytes": 6
+    },
+    {
+      "path": "reports/checkpoints/rifa_xvla_stage0/rifa_xvla_full.pt",
+      "sha256": "6b2b3d1991f05d551cf8ac8e808a602232f20a2742ce13838eaf50bfc86e8179",
+      "bytes": 863481
+    },
+    {
+      "path": "reports/checkpoints/rifa_xvla_stage0/rifa_xvla_no_reliability.pt",
+      "sha256": "b5cfc99e2a1e21c566eb5dd0aa9f7627a2e9688a0785601cfc39c36d0fa49159",
+      "bytes": 863779
+    }
+  ]
+}
