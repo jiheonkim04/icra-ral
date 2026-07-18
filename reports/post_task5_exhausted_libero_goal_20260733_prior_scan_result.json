@@ -1,0 +1,210 @@
+{
+  "schema_version": "2026-07-18.epoch5_post_task5_exhausted_libero_goal_prior_scan.v1",
+  "created_at_kst": "2026-07-18T13:30:44+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_scan": "54eb5b59b5fb684c3f9377930f2925dc88887ec8",
+  "stage": "epoch_5_official_prior_residual_search_after_20260732_saturation",
+  "decision": "POST_TASK5_EXHAUSTED_LIBERO_GOAL_IDENTITY20260733_XVLA_PRIOR_SATURATED_NO_RESIDUAL",
+  "suite": "libero_goal",
+  "reset_identity": 20260733,
+  "run_dir": "runs/xvla_prior/failure_scan_libero_goal_identity20260733_post_20260732_saturated_20260718T1325KST",
+  "execution_classification": {
+    "execution_type": "VLA_INFERENCE",
+    "evidence_role": "FIRST_PRIOR",
+    "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+    "official_closed_loop_success_measured": true,
+    "policy": "X-VLA-Libero",
+    "model_family": "XVLA",
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_repo": "C:\\assets\\repos\\X-VLA",
+    "source_repo_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "windows_launcher_pid": 24840,
+    "wsl_worker_pid": 314,
+    "peak_vram_mib": 3518.634,
+    "simulator_episode_count": 10,
+    "model_forward_count": 44,
+    "model_forward_count_source": "sum of per-task episode.action_chunk_count",
+    "eval_horizon": 900,
+    "settle_steps": 10,
+    "denoise_steps": 10,
+    "absolute_controller": true
+  },
+  "summary": {
+    "completed_task_count": 10,
+    "successful_task_count": 10,
+    "failure_task_ids": [],
+    "infrastructure_failure_task_ids": [],
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "candidate_generation_authorized": false,
+    "base_gate_authorized": false,
+    "headroom_gate_authorized": false,
+    "second_prior_gate_authorized": false
+  },
+  "task_results": [
+    {
+      "task_id": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "success": true,
+      "steps": 112,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "1a5e27e2047717eab3920171e7a0f2d7a429c8a1a3d9a7c045a8ce67cdc757e7"
+    },
+    {
+      "task_id": 1,
+      "instruction": "put the bowl on the stove",
+      "success": true,
+      "steps": 90,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "75ea0f7d09efa4a57c00fe323d216652fb7f9cc74b3e8f9fb6d7418d7cd4e893"
+    },
+    {
+      "task_id": 2,
+      "instruction": "put the wine bottle on top of the cabinet",
+      "success": true,
+      "steps": 92,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "5ae15c729fbc4d4a0fea9d6f3c069f10ac88ce5b52af5ca17bc161e9978b5620"
+    },
+    {
+      "task_id": 3,
+      "instruction": "open the top drawer and put the bowl inside",
+      "success": true,
+      "steps": 247,
+      "final_reward": 1.0,
+      "action_chunk_count": 9,
+      "result_sha256": "eaf645aebb09d2a6b311a13f13e08f26f6a8273c4428633bc9191bb0210eb94c"
+    },
+    {
+      "task_id": 4,
+      "instruction": "put the bowl on top of the cabinet",
+      "success": true,
+      "steps": 84,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "c7143182eadca303f2c9b6d5fa898c1a15787ede9643a431f9d6522c49f35b9d"
+    },
+    {
+      "task_id": 5,
+      "instruction": "push the plate to the front of the stove",
+      "success": true,
+      "steps": 134,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "df0424b511c078a79fa16a1ed29a60e3ea232708c3c54d28a93e842fe14c89d5"
+    },
+    {
+      "task_id": 6,
+      "instruction": "put the cream cheese in the bowl",
+      "success": true,
+      "steps": 93,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "87c9781facf88b3517b9a229361cd119742af45022fc957cf14d57bc20298c3f"
+    },
+    {
+      "task_id": 7,
+      "instruction": "turn on the stove",
+      "success": true,
+      "steps": 73,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "9795e549c052ed14986e2ae83cede107b3ebecf28c8dea4177978cfd4b4c364a"
+    },
+    {
+      "task_id": 8,
+      "instruction": "put the bowl on the plate",
+      "success": true,
+      "steps": 72,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "c439f45ecc5a708edf3bb28e65a370d7bc2a0373c2d14d40821feacd6626806f"
+    },
+    {
+      "task_id": 9,
+      "instruction": "put the wine bottle on the rack",
+      "success": true,
+      "steps": 151,
+      "final_reward": 1.0,
+      "action_chunk_count": 6,
+      "result_sha256": "3deb7aa1b730dd35ffe3338a787e543bbf311c8b084ba76d45ac9c6df8f34ccb"
+    }
+  ],
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260733_post_20260732_saturated_20260718T1325KST/scan_summary.json",
+      "sha256": "23e4358b0e5fabc837ec7ef34b3163ad81192697b1293babba3da41c409e7ccd",
+      "length_bytes": 6381
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260733_post_20260732_saturated_20260718T1325KST/scan_manifest.json",
+      "sha256": "838b72f891df9af67090fb80648fc9ab96f4fe460a4abe07ab08878e89b7ffc9",
+      "length_bytes": 737
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260733_post_20260732_saturated_20260718T1325KST/exact_resume_command.txt",
+      "sha256": "383bed871a7f4ec1d31c31ebb6b1c1e92dbb43f14297360f7f0da15146dc7aa9",
+      "length_bytes": 252
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260733_post_20260732_saturated_20260718T1325KST/scan_exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260733_post_20260732_saturated_20260718T1325KST/scan_status.txt",
+      "sha256": "37a40f08d8548dba289b9b0bb35bcf63b359f6d37ee86044ebc6b6da080b9ec1",
+      "length_bytes": 9,
+      "status": "complete"
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260733_post_20260732_saturated_20260718T1325KST/scan_stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length_bytes": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260733_post_20260732_saturated_20260718T1325KST/scan_stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length_bytes": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260733_post_20260732_saturated_20260718T1325KST/scan_worker_pid.txt",
+      "sha256": "79d03872c65b8680b09df96eeb31d4713d439108f1bad6a0bf53369a4bb30c7a",
+      "length_bytes": 4,
+      "wsl_worker_pid": 314
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_goal_identity20260733_post_20260732_saturated_20260718T1325KST/windows_launcher_pid.txt",
+      "sha256": "8d73f8630b9d5e679c55213c1aba7cae5d0c0c1c4648497018b742ccd85d0bec",
+      "length_bytes": 7,
+      "windows_launcher_pid": 24840
+    },
+    {
+      "path": "scripts/run_xvla_prior_failure_scan_identity_worker.sh",
+      "sha256": "bcade790ddce333b1bd9d0d38f5336fa4c12f6d19e47c2b046cce89ddfd31c4c",
+      "length_bytes": 5391
+    },
+    {
+      "path": "scripts/epoch5_xvla_libero10_task8_eval.py",
+      "sha256": "2dbd93bb062913c5e07f211f49669a224b3a1f6777ef7c30c8570cd4c200edf6",
+      "length_bytes": 20260
+    }
+  ],
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "next_action": "No Base, headroom, or second-prior gate is needed because X-VLA solved all 10 libero_goal tasks at identity 20260733. Continue official-prior-first residual search with libero_object identity 20260733; no candidate generation, simulator Ours rollout, training, LoRA, optimizer step, or checkpoint write is authorized."
+}
