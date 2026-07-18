@@ -22,6 +22,8 @@ The mechanism is nontrivial and prior-grounded: frozen CLIP modality encoders, m
 - Default budget is heavy: PPO `30`, fusion `30`, imputation PPO `50`, soft imputation `30` epochs; rollout default is `3` seeds x `25` rollouts/task, `260` max steps.
 - `SKIP_TRAINING=True` exists, but no official checkpoint files were bundled in the cloned repository.
 
+Follow-up official-code fidelity audit: the released demo loaders assign `label=1` to every demonstration while retrieval/fusion training uses `tr_labels` as the supervised target. Therefore the official release is selected as the closest prior source, but it should not be armed as the comparator rollout as-is.
+
 ## Local no-training smoke
 
 The local readiness smoke used the official RL4IL module only for import, HDF5 loading, compilation, and frozen CLIP feature extraction. No training, optimizer step, checkpoint write, simulator rollout, or Ours method occurred.
@@ -39,6 +41,6 @@ Environment versions: scikit-learn `1.7.2`, gym `0.26.2`, transformers `4.57.6`,
 
 ## Comparator status
 
-RL4IL is selected as the external prior, but it has not yet satisfied the full “prior comparator” requirement locally. The paper addresses and reports improvements for the same semantic condition, but local matched prior performance, local residual gap, and exact protocol deltas versus the frozen X-VLA paired-identity manifest are not established yet.
+RL4IL is selected as the external prior, but it has not yet satisfied the full “prior comparator” requirement locally. The paper addresses and reports improvements for the same semantic condition, but local matched prior performance, local residual gap, and exact protocol deltas versus the frozen X-VLA paired-identity manifest are not established yet. The official release also has a constant-label supervision caveat, so a checkpoint acquisition/upstream correction or mechanism-faithful local port is required.
 
-Required next action: preregister and execute a bounded RL4IL `mask_1` prior training/rollout or checkpoint-based evaluation before generating any learned Ours method.
+Required next action: acquire/fix official RL4IL checkpoints or implement a mechanism-faithful local port with an action-sequence oracle before generating any learned Ours method.

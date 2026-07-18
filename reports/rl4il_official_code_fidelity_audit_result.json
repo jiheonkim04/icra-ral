@@ -1,0 +1,235 @@
+{
+  "all_unique_label_values": [
+    1.0
+  ],
+  "checkpoint_files_found": [],
+  "constant_label_supervision": true,
+  "dataset_root": "/mnt/c/assets/data/libero",
+  "decision": "RL4IL_OFFICIAL_RELEASE_PRIOR_ROLLOUT_NOT_ARMED_CONSTANT_LABEL_SUPERVISION",
+  "interpretation": {
+    "official_release_status": "The cloned official scripts are not armed for comparator rollout as-is because their demo loader assigns label=1 to every demo while retrieval/fusion training uses tr_labels as the supervised signal.",
+    "paper_prior_status": "RL4IL remains the closest paper-level external prior for missing in-hand camera dropout.",
+    "required_next_step": "Acquire/fix official checkpoints or implement a mechanism-faithful local port with an action-sequence oracle before using RL4IL as the prior comparator.",
+    "why_it_matters": "With a single label value, validation accuracy and PPO candidate rewards can be degenerate; a rollout could replay actions from retrieved demos but would not establish the paper's learned action-signal retrieval/fusion mechanism."
+  },
+  "negative_controls": {
+    "checkpoint_written": false,
+    "optimizer_step_happened": false,
+    "ours_method_selected": false,
+    "ours_rollout_happened": false,
+    "ours_training_happened": false,
+    "simulator_rollout_happened": false,
+    "training_happened": false
+  },
+  "official_checkpoints_found": false,
+  "official_repo": "/mnt/c/assets/repos/RL4IL-Missing-Camera",
+  "official_repo_head": "e1dd5b741ebb6b392bfd1f8cbb61bad82417e9bd",
+  "panel_task_label_audit": [
+    {
+      "demo_count": 50,
+      "hdf5": "/mnt/c/assets/data/libero/libero_goal/open_the_middle_drawer_of_the_cabinet_demo.hdf5",
+      "label_count": 50,
+      "suite": "libero_goal",
+      "unique_label_values": [
+        1.0
+      ]
+    },
+    {
+      "demo_count": 50,
+      "hdf5": "/mnt/c/assets/data/libero/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket_demo.hdf5",
+      "label_count": 50,
+      "suite": "libero_object",
+      "unique_label_values": [
+        1.0
+      ]
+    },
+    {
+      "demo_count": 50,
+      "hdf5": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+      "label_count": 50,
+      "suite": "libero_spatial",
+      "unique_label_values": [
+        1.0
+      ]
+    }
+  ],
+  "schema_version": "2026-07-18.epoch5_rl4il_official_code_fidelity_audit.v1",
+  "stage": "epoch_5_external_prior_official_code_fidelity_audit",
+  "static_occurrences": {
+    "checkpoint_load_flag": [
+      {
+        "file": "rl4il-sptl.py",
+        "line": 115,
+        "text": "SKIP_TRAINING = False"
+      },
+      {
+        "file": "rl4il-sptl.py",
+        "line": 1392,
+        "text": "if SKIP_TRAINING and os.path.exists(RL_CKPT) and os.path.exists(FUSION_CKPT):"
+      },
+      {
+        "file": "rl4il-sptl.py",
+        "line": 1393,
+        "text": "print(f\"  SKIP_TRAINING=True \u2014 loading checkpoints \u2026\")"
+      },
+      {
+        "file": "rl4il-sptl.py",
+        "line": 1432,
+        "text": "if SKIP_TRAINING and os.path.exists(rl_ckpt_m) and os.path.exists(soft_ckpt_m):"
+      },
+      {
+        "file": "rl4il-obj.py",
+        "line": 116,
+        "text": "SKIP_TRAINING = False"
+      },
+      {
+        "file": "rl4il-obj.py",
+        "line": 1390,
+        "text": "if SKIP_TRAINING and os.path.exists(RL_CKPT) and os.path.exists(FUSION_CKPT):"
+      },
+      {
+        "file": "rl4il-obj.py",
+        "line": 1391,
+        "text": "print(f\"  SKIP_TRAINING=True \u2014 loading checkpoints \u2026\")"
+      },
+      {
+        "file": "rl4il-obj.py",
+        "line": 1430,
+        "text": "if SKIP_TRAINING and os.path.exists(rl_ckpt_m) and os.path.exists(soft_ckpt_m):"
+      },
+      {
+        "file": "rl4il-goal.py",
+        "line": 116,
+        "text": "SKIP_TRAINING = False"
+      },
+      {
+        "file": "rl4il-goal.py",
+        "line": 1390,
+        "text": "if SKIP_TRAINING and os.path.exists(RL_CKPT) and os.path.exists(FUSION_CKPT):"
+      },
+      {
+        "file": "rl4il-goal.py",
+        "line": 1391,
+        "text": "print(f\"  SKIP_TRAINING=True \u2014 loading checkpoints \u2026\")"
+      },
+      {
+        "file": "rl4il-goal.py",
+        "line": 1430,
+        "text": "if SKIP_TRAINING and os.path.exists(rl_ckpt_m) and os.path.exists(soft_ckpt_m):"
+      }
+    ],
+    "constant_label_assignment": [
+      {
+        "file": "rl4il-sptl.py",
+        "line": 235,
+        "text": "\"label\":       1,"
+      },
+      {
+        "file": "rl4il-sptl.py",
+        "line": 385,
+        "text": "lbl.extend([d[\"label\"] for d in batch])"
+      },
+      {
+        "file": "rl4il-obj.py",
+        "line": 233,
+        "text": "\"label\":       1,"
+      },
+      {
+        "file": "rl4il-obj.py",
+        "line": 383,
+        "text": "lbl.extend([d[\"label\"] for d in batch])"
+      },
+      {
+        "file": "rl4il-goal.py",
+        "line": 233,
+        "text": "\"label\":       1,"
+      },
+      {
+        "file": "rl4il-goal.py",
+        "line": 383,
+        "text": "lbl.extend([d[\"label\"] for d in batch])"
+      },
+      {
+        "file": "rl4il-epoch.py",
+        "line": 208,
+        "text": "\"actions\":actions.astype(np.float32),\"label\":1})"
+      },
+      {
+        "file": "rl4il-epoch.py",
+        "line": 249,
+        "text": "lbl.extend([d[\"label\"] for d in batch])"
+      },
+      {
+        "file": "rl4il-topk.py",
+        "line": 200,
+        "text": "\"actions\":actions.astype(np.float32),\"label\":1})"
+      },
+      {
+        "file": "rl4il-topk.py",
+        "line": 241,
+        "text": "lbl.extend([d[\"label\"] for d in batch])"
+      }
+    ],
+    "fusion_training_target": [
+      {
+        "file": "rl4il-sptl.py",
+        "line": 872,
+        "text": "tgt  = torch.tensor(float(tr_labels[i]),dtype=torch.float32,device=DEVICE)"
+      },
+      {
+        "file": "rl4il-obj.py",
+        "line": 870,
+        "text": "tgt  = torch.tensor(float(tr_labels[i]),dtype=torch.float32,device=DEVICE)"
+      },
+      {
+        "file": "rl4il-goal.py",
+        "line": 870,
+        "text": "tgt  = torch.tensor(float(tr_labels[i]),dtype=torch.float32,device=DEVICE)"
+      }
+    ],
+    "rollout_action_replay": [
+      {
+        "file": "rl4il-sptl.py",
+        "line": 1335,
+        "text": "actions    = train_demos[best_tr_idx][\"actions\"]"
+      },
+      {
+        "file": "rl4il-obj.py",
+        "line": 1333,
+        "text": "actions    = train_demos[best_tr_idx][\"actions\"]"
+      },
+      {
+        "file": "rl4il-goal.py",
+        "line": 1333,
+        "text": "actions    = train_demos[best_tr_idx][\"actions\"]"
+      }
+    ],
+    "train_policy": [
+      {
+        "file": "rl4il-sptl.py",
+        "line": 749,
+        "text": "def train_policy(tr_emb, tr_labels, tr_sets, tr_oracles,"
+      },
+      {
+        "file": "rl4il-obj.py",
+        "line": 747,
+        "text": "def train_policy(tr_emb, tr_labels, tr_sets, tr_oracles,"
+      },
+      {
+        "file": "rl4il-goal.py",
+        "line": 747,
+        "text": "def train_policy(tr_emb, tr_labels, tr_sets, tr_oracles,"
+      },
+      {
+        "file": "rl4il-epoch.py",
+        "line": 515,
+        "text": "def train_policy(tr_emb,tr_labels,tr_sets,tr_oracles,"
+      },
+      {
+        "file": "rl4il-topk.py",
+        "line": 508,
+        "text": "def train_policy(tr_emb,tr_labels,tr_sets,tr_oracles,"
+      }
+    ]
+  }
+}

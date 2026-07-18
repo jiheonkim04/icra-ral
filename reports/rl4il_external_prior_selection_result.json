@@ -78,7 +78,8 @@
       "MAX_STEPS": 260
     },
     "checkpoint_loading_flag": "SKIP_TRAINING",
-    "checkpoint_status": "README names checkpoint files and scripts can load them, but no checkpoint files were bundled in the official repository clone."
+    "checkpoint_status": "README names checkpoint files and scripts can load them, but no checkpoint files were bundled in the official repository clone.",
+    "fidelity_caveat": "Follow-up audit found the released demo loaders assign label=1 to every demonstration while retrieval/fusion training uses tr_labels as the supervised signal; do not arm the official release as-is for comparator rollout."
   },
   "local_environment": {
     "python_wsl": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python",
@@ -188,14 +189,14 @@
     }
   ],
   "local_prior_demonstration_status": {
-    "runnable_locally": "Partial: official import, compile, local LIBERO HDF5 loading, CUDA CLIP feature extraction pass. Full prior training/rollout has not yet been run locally.",
+    "runnable_locally": "Partial: official import, compile, local LIBERO HDF5 loading, CUDA CLIP feature extraction pass. Full official-release prior training/rollout is not armed because a follow-up fidelity audit found constant-label supervision and no bundled checkpoints.",
     "addresses_same_condition": "Paper and code address complete in-hand camera dropout via mask_1, matching the wrist-camera dropout condition semantically.",
     "improves_same_condition": "Not yet established locally on the paired three-task manifest; only paper-level improvement evidence is available so far.",
     "residual_gap": "Not yet established locally; must be measured after the RL4IL prior rollout/training checkpoint.",
     "feasible_integration_path": [
       "Set DATASET_ROOT to /mnt/c/assets/data/libero and restrict suites/tasks to the confirmed panel.",
       "Use mask_1 as the wrist/in-hand dropout arm.",
-      "Prefer official checkpoints if acquired; otherwise run a bounded, preregistered low-epoch RL4IL training/rollout smoke before Ours.",
+      "Prefer official checkpoints if acquired; otherwise implement a bounded, preregistered mechanism-faithful local port with an action-sequence oracle before Ours.",
       "Report clean/mask_1 success, runtime exceptions, checkpoint provenance, CUDA/VRAM, and differences from the X-VLA paired-identity protocol.",
       "Only after local prior performance and residual gap are known, generate at most two Ours candidates and select exactly one."
     ]
@@ -209,5 +210,5 @@
     "ours_training_happened": false,
     "ours_rollout_happened": false
   },
-  "next_action": "Preregister and execute a bounded RL4IL mask_1 prior training/rollout or checkpoint-based evaluation before any learned Ours method."
+  "next_action": "Acquire/fix official RL4IL checkpoints or implement a mechanism-faithful local port with an action-sequence oracle before any learned Ours method."
 }
