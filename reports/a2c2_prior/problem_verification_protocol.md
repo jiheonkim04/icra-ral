@@ -103,3 +103,11 @@ repair derives identical half-open subset-local bounds from the authoritative
 `hf_dataset["episode_index"]` column and rejects any missing, duplicated, or
 noncontiguous frozen episode. The failed attempt is preserved in
 `reports/a2c2_prior/cache_failed_attempt_1.json`; no scientific field changed.
+
+The repaired cache run was then stopped on a distinct
+`RESOURCE_COMPATIBILITY_DEFECT`: retained WSL2 host memory put Windows RAM at
+87.93%, even though the WSL-local view was 23.3%. The valid durable cache was
+preserved at 384 anchors and 1,525 rows. A clean idle-WSL shutdown returned
+host RAM to 65.34%; the identical command resumes only missing anchors. The
+interruption is preserved in
+`reports/a2c2_prior/cache_resource_interruption_1.json`.

@@ -273,6 +273,14 @@
         "failed_attempt": "reports/a2c2_prior/cache_failed_attempt_1.json",
         "pre_repair_runner_sha256": "B69A0F818B8591550DF489A61AEA26587F2733E09E2F07F2C2BBF84D6E90BC4F",
         "scientific_contract_changed": false
+      },
+      {
+        "attempt": 3,
+        "classification": "RESOURCE_COMPATIBILITY_DEFECT",
+        "defect": "retained WSL2 host memory caused Windows physical RAM to exceed 82% although WSL-local use remained 23.3%",
+        "repair": "stop at the ceiling, verify the durable cache, cleanly restart idle WSL to return host memory, and resume only missing frozen anchors",
+        "failed_attempt": "reports/a2c2_prior/cache_resource_interruption_1.json",
+        "scientific_contract_changed": false
       }
     ]
   },

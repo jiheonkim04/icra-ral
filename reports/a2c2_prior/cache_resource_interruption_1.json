@@ -1,0 +1,21 @@
+{
+  "date": "2026-07-19 KST",
+  "job_classification": "CACHED_FEATURE_PROBE",
+  "failure_classification": "RESOURCE_COMPATIBILITY_DEFECT",
+  "final_decision": "A2C2_CACHED_FEATURES_PARTIAL_RESOURCE_STOP",
+  "root_cause": "A prior WSL2 session retained host memory after completed processes. The runner's WSL-local RAM view remained at 23.3%, but Windows physical RAM reached 87.93%, above the frozen 82% ceiling.",
+  "worker_pid": 299,
+  "durable_cache_rows": 1525,
+  "durable_unique_anchors": 384,
+  "durable_unique_episodes": 26,
+  "wsl_ram_used_fraction_at_270_anchors": 0.233,
+  "windows_ram_used_fraction_at_stop_request": 0.8793,
+  "windows_ram_used_fraction_after_worker_exit": 0.8614,
+  "windows_ram_used_fraction_after_clean_wsl_shutdown": 0.6534,
+  "vram_reserved_fraction_at_270_anchors": 0.067351,
+  "training_happened": false,
+  "closed_loop_rollout_happened": false,
+  "scientific_outcomes_exposed": false,
+  "recovery": "Cleanly stop the worker, verify the flushed HDF5 artifact, shut down idle WSL to release retained host RAM, then resume only missing frozen anchors with the identical command.",
+  "scientific_contract_changed": false
+}

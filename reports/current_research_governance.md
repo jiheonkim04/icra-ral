@@ -872,3 +872,10 @@ does not expose the LeRobot `0.2` `episode_data_index` field. Its root-bounded
 repair derives the same subset-local half-open boundaries from the
 authoritative `hf_dataset` episode-index column and requires exact agreement
 with all 40 frozen episode IDs. No scientific contract changes.
+
+The repaired cache run was resource-stopped when Windows host RAM reached
+87.93%, despite a WSL-local reading of 23.3%. This distinct
+`RESOURCE_COMPATIBILITY_DEFECT` exposed no comparator outcome. The flushed
+cache remained valid at 384 anchors and 1,525 rows. With no research worker
+left, a clean WSL shutdown returned host RAM to 65.34%; the same frozen cache
+stage resumes only missing anchors without changing the contract.
