@@ -1,10 +1,10 @@
 # Action-Consistent Missing-View Distillation Exact Scientific Status
 
-- Campaign state: `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`
+- Campaign state: `AUTONOMOUS_CAMPAIGN_ACTIVE_EXCEPTIONAL_TELEMETRY_RESUMPTION`
 - Stage 0: `STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE`
 - Paper-level state: `IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE`
 - Active worker: none
-- Next authorized empirical stage: none
+- Next authorized empirical stage: unchanged numerical-noise calibration
 
 The final preflight passed official-reader materialization for all 12 frozen
 rows, then failed at CUDA peak-memory-stat reset before X-VLA load or any
@@ -21,6 +21,10 @@ closed *as a robust scientific failure*, but no current-method rerun, renamed
 v2, threshold change, replacement local candidate, or Stage A/B execution is
 authorized.
 
-Resumption requires explicit authority for either a second narrow repair of
-the CUDA device defect or a strategic pivot outside the current candidate
-scope.
+The user subsequently granted exactly one infrastructure-only exception for
+the CUDA telemetry device defect. Its classification is
+`EXCEPTIONAL_TELEMETRY_DEVICE_REPAIR`; it does not reset the general repair
+budget. Diagnosis reproduced the initialization-order failure, and a
+telemetry-only RTX 5080 smoke passed without X-VLA or scientific-output access.
+The historical failure labels above remain preserved as the pre-resumption
+outcome, while the unchanged numerical-noise calibration is now authorized.

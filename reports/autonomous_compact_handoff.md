@@ -6,11 +6,11 @@ Updated: 2026-07-19 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Source HEAD before the current overlap-audit commit: `ea3782a812e0472c0d05f57300e0d7a43dd67429`
-- Current pushed HEAD before the final Stage 0 outcome commit: `8f3dc40ae04658d53091c86dee222d73fa3ede53`
+- Current pushed HEAD before the telemetry-repair commit: `66b5385`
 - Epoch/cycle: `5 / 0`
-- Campaign state: `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE`
+- Campaign state: `AUTONOMOUS_CAMPAIGN_ACTIVE_EXCEPTIONAL_TELEMETRY_RESUMPTION`
 - Active method direction: `ACTION-CONSISTENT MISSING-VIEW DISTILLATION`
-- Active stage: `STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE`; no further empirical stage is authorized.
+- Active stage: telemetry-only smoke passed; unchanged numerical-noise calibration is authorized next.
 - Novelty decision: `INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE`
 - Active training/rollout worker: none.
 - Paper-level decision: `IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE`.
@@ -25,6 +25,8 @@ Updated: 2026-07-19 KST
 - Frozen method specification: `reports/action_consistent_missing_view_distillation_method_spec_result.json`
 - Stage 0 result: `reports/action_consistent_missing_view_distillation_stage0_result.json`
 - Exact scientific status: `reports/action_consistent_missing_view_distillation_exact_scientific_status.json`
+- CUDA diagnosis: `reports/action_consistent_missing_view_distillation_cuda_device_diagnosis_result.json`
+- Exceptional telemetry repair: `reports/action_consistent_missing_view_distillation_telemetry_device_repair_result.json`
 - Full campaign audit: `reports/autonomous_research_full_history_audit.md`
 - Current governance: `reports/current_research_governance.md`
 - RL4IL prior result: `reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json`
@@ -101,14 +103,13 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 
 ## Immediate next action
 
-None under the current steer. The final unchanged noise preflight materialized
-all 12 fixed discovery rows but failed at
-`torch.cuda.reset_peak_memory_stats(device)` with `Invalid device argument`
-before model load or any teacher/student forward. The single repair budget is
-exhausted, so no device-runtime repair, rerun, microbatch preflight, Stage 0
-training, Stage A/B, renamed v2, or replacement local wrist-dropout candidate
-is authorized. Resumption requires explicit authority for a second narrow
-repair or a strategic pivot outside the current candidate scope.
+Rerun only the unchanged 12-row, three-repeat, zero-optimizer numerical-noise
+calibration. The user explicitly authorized one exceptional infrastructure-only
+telemetry repair after the historical failure. Diagnosis reproduced the defect
+before CUDA initialization; the minimal integer-index normalization patch and
+an RTX 5080 telemetry-only smoke now pass. This exception does not reset the
+general `1 / 1` repair budget or authorize any scientific change. Continue to
+microbatch `1,2,4,8` and frozen Stage 0 only if each preceding gate is valid.
 
 ## Final preflight boundary
 
@@ -118,3 +119,7 @@ repair or a strategic pivot outside the current candidate scope.
 - Model / CUDA forwards / optimizer steps: `not loaded / 0 / 0`
 - Confirmatory outcomes and physical manipulation: `none / none`
 - Scientific mechanism status: unevaluated; do not reinterpret the execution failure as mechanism rejection or support.
+
+The preceding bullets remain the preserved historical failure boundary. They
+do not describe the new post-exception execution, whose first authorized stage
+is the unchanged numerical-noise calibration.

@@ -1,6 +1,6 @@
 {
   "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_distillation_exact_scientific_status.v1",
-  "campaign_state": "AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE",
+  "campaign_state": "AUTONOMOUS_CAMPAIGN_ACTIVE_EXCEPTIONAL_TELEMETRY_RESUMPTION",
   "method": "ACTION_CONSISTENT MISSING-VIEW DISTILLATION",
   "implementation": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA",
   "stage0_decision": "STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE",
@@ -8,11 +8,19 @@
   "scientific_interpretation": "UNEVALUATED_BECAUSE_ACTUAL_PATH_PREFLIGHT_FAILED_BEFORE_MODEL_FORWARD",
   "active_training_worker": null,
   "active_rollout_worker": null,
-  "next_authorized_empirical_stage": null,
+  "next_authorized_empirical_stage": "UNCHANGED_NUMERICAL_NOISE_CALIBRATION",
   "repair_budget": {
     "maximum": 1,
     "consumed": 1,
     "additional_authorized": false
+  },
+  "exceptional_telemetry_device_repair": {
+    "classification": "EXCEPTIONAL_TELEMETRY_DEVICE_REPAIR",
+    "general_repair_budget_reset": false,
+    "diagnosis": "reports/action_consistent_missing_view_distillation_cuda_device_diagnosis_result.json",
+    "smoke": "reports/action_consistent_missing_view_distillation_telemetry_device_repair_result.json",
+    "smoke_decision": "TELEMETRY_DEVICE_REPAIR_SMOKE_VALID",
+    "scientific_configuration_changed": false
   },
   "evidence_boundaries": {
     "official_reader_materialization_passed": true,
@@ -51,6 +59,6 @@
     "new_local_wrist_dropout_candidate_authorized": false,
     "closed_as_robust_scientific_failure": false
   },
-  "pause_reason": "The final authorized method did not reach a scientifically valid Stage 0 because a distinct CUDA device runtime defect occurred after the sole permitted repair was consumed. No further repair, rerun, Stage A/B, replacement wrist-dropout candidate, or strategic-axis conclusion is authorized by the current steer.",
-  "resume_requirement": "Explicit new user authority is required either to permit a second narrow implementation repair of the CUDA device runtime defect or to define a strategic pivot outside the closed candidate-generation scope."
+  "historical_failure_status": "The prior STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE and IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE remain preserved as the pre-resumption outcome.",
+  "resumption_state": "The user granted exactly one exceptional infrastructure-only CUDA telemetry repair. Diagnosis and telemetry-only smoke passed; the unchanged numerical-noise calibration is now authorized."
 }

@@ -1,0 +1,57 @@
+{
+  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_telemetry_device_repair.v1",
+  "decision": "TELEMETRY_DEVICE_REPAIR_SMOKE_VALID",
+  "classification": "EXCEPTIONAL_TELEMETRY_DEVICE_REPAIR",
+  "not_classified_as": ["METHOD_REPAIR", "SCIENTIFIC_REDESIGN"],
+  "source_head_before_patch": "66b5385",
+  "diagnosis": "reports/action_consistent_missing_view_distillation_cuda_device_diagnosis_result.json",
+  "patch": {
+    "file": "tca_map/action_consistent_missing_view_distillation/preflight.py",
+    "sha256": "70cb94f6cad1a4fe1bc4a9c0402cd3f9b121512f8574d8e8184476d7859eafb2",
+    "scope": "call torch.cuda.current_device() to initialize and obtain the actual integer index; construct the model torch.device from that index; use the same integer index for reset, synchronization, properties, and peak-memory telemetry",
+    "scientific_configuration_changed": false,
+    "general_repair_budget_reset": false
+  },
+  "smoke": {
+    "script": "scripts/smoke_action_consistent_cuda_telemetry.py",
+    "script_sha256": "b8d16f4d9bfd5df5061cfa60c02c12bba101d28fe1739e782f759d9e80b711d0",
+    "command": "wsl -d Ubuntu-22.04 -- bash -lc cd /mnt/c/Users/jiheo/tca_map && /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/smoke_action_consistent_cuda_telemetry.py",
+    "torch_version": "2.10.0+cu128",
+    "torch_cuda_version": "12.8",
+    "cuda_device_count": 1,
+    "cuda_device_index": 0,
+    "cuda_device": "cuda:0",
+    "cuda_device_name": "NVIDIA GeForce RTX 5080",
+    "cuda_allocator_initialized": true,
+    "no_cpu_fallback": true,
+    "tensor_elements": 1024,
+    "tensor_sum": 1024.0,
+    "allocated_while_live_bytes": 4096,
+    "reserved_while_live_bytes": 2097152,
+    "peak_allocated_after_free_bytes": 4608,
+    "peak_reserved_after_free_bytes": 2097152,
+    "allocated_after_free_bytes": 0,
+    "reserved_after_empty_cache_bytes": 0,
+    "exit_code": 0,
+    "success": true
+  },
+  "validation": {
+    "command": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_action_consistent_missing_view_distillation_spec.py tests/test_action_consistent_missing_view_preflight.py -q",
+    "result": "10 passed",
+    "test_sha256": "b81b0462bf1a9981e94b5d16663b042d20117f0d027b504a8b127844cb6e47e8"
+  },
+  "prohibited_access": {
+    "xvla_loaded": false,
+    "discovery_outputs_accessed": false,
+    "validation_or_confirmatory_outcomes_accessed": false,
+    "optimizer_steps": 0,
+    "cpu_fallback": false,
+    "physical_robot_manipulation": false
+  },
+  "historical_status_preserved": {
+    "stage0": "STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE",
+    "paper_level": "IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE",
+    "status_role": "pre-resumption historical outcome"
+  },
+  "next_authorized_stage": "RERUN_UNCHANGED_NUMERICAL_NOISE_CALIBRATION"
+}

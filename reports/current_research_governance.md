@@ -729,3 +729,33 @@ Therefore:
 Authoritative outcome records are
 `reports/action_consistent_missing_view_distillation_stage0_result.json` and
 `reports/action_consistent_missing_view_distillation_exact_scientific_status.json`.
+
+## Exceptional CUDA Telemetry Resumption
+
+Effective `2026-07-19`, the user explicitly authorizes exactly one
+infrastructure-only exception for the previously observed
+`torch.cuda.reset_peak_memory_stats(device)` / `Invalid device argument`
+failure. Its classification is `EXCEPTIONAL_TELEMETRY_DEVICE_REPAIR`, never
+`METHOD_REPAIR` or `SCIENTIFIC_REDESIGN`. This authority does not reset the
+general `1 / 1` repair budget and changes no scientific contract.
+
+Diagnosis in the actual WSL environment showed that the pinned PyTorch build
+left CUDA uninitialized after availability queries and `empty_cache`; the
+original `torch.device("cuda:0")` reset then reproduced the failure. Obtaining
+the integer index through `torch.cuda.current_device()` initialized CUDA, and
+all requested reset forms succeeded. The minimal patch now uses that same
+validated index consistently for CUDA telemetry. A telemetry-only RTX 5080
+smoke passed without X-VLA, discovery/validation/confirmatory access, CPU
+fallback, or optimizer execution.
+
+The historical Stage 0 and paper-level implementation-failure labels remain
+preserved as pre-resumption evidence. The same frozen numerical-noise stage is
+now authorized once. If another unrelated implementation defect prevents
+model execution, stop without claiming mechanism failure. All existing
+method, data, split, identity, comparator, threshold, optimizer, budget,
+microbatch, evaluation, and no-confirmatory-access contracts remain immutable.
+
+Authoritative exception records are
+`reports/action_consistent_missing_view_distillation_cuda_device_diagnosis_result.json`
+and
+`reports/action_consistent_missing_view_distillation_telemetry_device_repair_result.json`.

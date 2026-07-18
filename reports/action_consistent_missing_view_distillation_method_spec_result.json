@@ -135,8 +135,10 @@
     "confirmatory_outcomes_accessed": false,
     "stage0_decision": "STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE",
     "paper_level_decision": "IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE",
+    "decision_role": "HISTORICAL_PRE_RESUMPTION_OUTCOME",
     "final_preflight_result": "reports/action_consistent_missing_view_distillation_stage0_result.json",
-    "next_authorized_stage": null
+    "exceptional_telemetry_repair": "TELEMETRY_DEVICE_REPAIR_SMOKE_VALID",
+    "next_authorized_stage": "UNCHANGED_NUMERICAL_NOISE_CALIBRATION"
   },
   "pre_execution_specification_erratum": {
     "classification": "CONDITION_WIRING_DESCRIPTION_CORRECTION",
@@ -173,5 +175,13 @@
     "optimizer_steps": 0,
     "scientific_mechanism_evaluated": false,
     "additional_repair_authorized": false
+  },
+  "exceptional_telemetry_device_repair": {
+    "classification": "EXCEPTIONAL_TELEMETRY_DEVICE_REPAIR",
+    "general_repair_budget_reset": false,
+    "diagnosis": "reports/action_consistent_missing_view_distillation_cuda_device_diagnosis_result.json",
+    "smoke": "reports/action_consistent_missing_view_distillation_telemetry_device_repair_result.json",
+    "smoke_decision": "TELEMETRY_DEVICE_REPAIR_SMOKE_VALID",
+    "scientific_protocol_changed": false
   }
 }

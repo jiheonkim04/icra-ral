@@ -743,6 +743,7 @@ def run_microbatch_preflight(
     runtime: FrozenRuntime,
     records: list[dict[str, Any]],
     device: torch.device,
+    device_index: int,
     noise_report: dict[str, Any],
     run_dir: pathlib.Path,
     heartbeat: Any,
@@ -756,7 +757,7 @@ def run_microbatch_preflight(
     candidates: list[dict[str, Any]] = []
     selected: int | None = None
     effective_batch = int(spec["training_budget"]["effective_batch"])
-    gpu_total = int(torch.cuda.get_device_properties(device).total_memory)
+    gpu_total = int(torch.cuda.get_device_properties(device_index).total_memory)
     baseline_swap = meminfo()["swap_used_bytes"]
     try:
         for size in spec["training_budget"]["microbatch_candidates"]:
@@ -766,7 +767,7 @@ def run_microbatch_preflight(
             candidate_dir.mkdir(parents=True, exist_ok=False)
             before_mem = meminfo()
             torch.cuda.empty_cache()
-            torch.cuda.reset_peak_memory_stats(device)
+            torch.cuda.reset_peak_memory_stats(device_index)
             adapter: ActionConsistentMissingViewAdapter | None = None
             record: dict[str, Any] = {
                 "microbatch": size,
@@ -823,10 +824,10 @@ def run_microbatch_preflight(
                 payload = torch.load(checkpoint, map_location="cpu", weights_only=True)
                 reloaded.load_state_dict(payload["adapter_state_dict"], strict=True)
                 reload_delta = float(torch.linalg.vector_norm(parameter_vector(reloaded) - after))
-                torch.cuda.synchronize(device)
+                torch.cuda.synchronize(device_index)
                 after_mem = meminfo()
-                peak_allocated = int(torch.cuda.max_memory_allocated(device))
-                peak_reserved = int(torch.cuda.max_memory_reserved(device))
+                peak_allocated = int(torch.cuda.max_memory_allocated(device_index))
+                peak_reserved = int(torch.cuda.max_memory_reserved(device_index))
                 swap_growth = int(after_mem["swap_used_bytes"] - baseline_swap)
                 record.update(
                     {
@@ -964,6 +965,7 @@ def run_preflight(
     )
 
     runtime: FrozenRuntime | None = None
+    device_index: int | None = None
     try:
         heartbeat("risk_validation")
         if not torch.cuda.is_available():
@@ -995,9 +997,21 @@ def run_preflight(
         result["calibration_row_count"] = len(records)
 
         heartbeat("load_frozen_xvla")
-        device = torch.device("cuda:0")
+        # current_device() initializes the CUDA context in the pinned torch
+        # 2.10.0+cu128 WSL environment. Passing an uninitialized torch.device
+        # directly to reset_peak_memory_stats raises Invalid device argument.
+        device_index = int(torch.cuda.current_device())
+        device = torch.device("cuda", device_index)
+        result["cuda_device"] = {
+            "index": device_index,
+            "name": torch.cuda.get_device_name(device_index),
+            "device": str(device),
+            "allocator_initialized": bool(torch.cuda.is_initialized()),
+            "telemetry_argument_type": "integer_device_index",
+            "repair_classification": "EXCEPTIONAL_TELEMETRY_DEVICE_REPAIR",
+        }
         torch.cuda.empty_cache()
-        torch.cuda.reset_peak_memory_stats(device)
+        torch.cuda.reset_peak_memory_stats(device_index)
         seed = int(spec["training_budget"]["seed"])
         random.seed(seed)
         np.random.seed(seed)
@@ -1044,7 +1058,7 @@ def run_preflight(
             }
             heartbeat("actual_path_microbatch_preflight")
             payload = run_microbatch_preflight(
-                spec, runtime, records, device, noise_report, run_dir, heartbeat
+                spec, runtime, records, device, device_index, noise_report, run_dir, heartbeat
             )
             result.update(payload)
             result["decision"] = (
@@ -1072,9 +1086,11 @@ def run_preflight(
         runtime = None
         gc.collect()
         if torch.cuda.is_available():
+            if device_index is None:
+                device_index = int(torch.cuda.current_device())
             torch.cuda.empty_cache()
-            result["peak_cuda_allocated_bytes"] = int(torch.cuda.max_memory_allocated())
-            result["peak_cuda_reserved_bytes"] = int(torch.cuda.max_memory_reserved())
+            result["peak_cuda_allocated_bytes"] = int(torch.cuda.max_memory_allocated(device_index))
+            result["peak_cuda_reserved_bytes"] = int(torch.cuda.max_memory_reserved(device_index))
         result["system_memory_after"] = meminfo()
         result["research_induced_swap_growth_bytes"] = int(
             result["system_memory_after"]["swap_used_bytes"]

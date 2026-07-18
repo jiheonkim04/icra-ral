@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import inspect
+
 import torch
 
 from tca_map.action_consistent_missing_view_distillation.adapter import (
@@ -12,6 +14,16 @@ from tca_map.action_consistent_missing_view_distillation.preflight import (
     stable_seed,
     t_schedule,
 )
+
+
+def test_cuda_telemetry_uses_initialized_integer_device_index() -> None:
+    from tca_map.action_consistent_missing_view_distillation import preflight
+
+    source = inspect.getsource(preflight.run_preflight)
+    assert "device_index = int(torch.cuda.current_device())" in source
+    assert 'device = torch.device("cuda", device_index)' in source
+    assert "torch.cuda.reset_peak_memory_stats(device_index)" in source
+    assert "torch.cuda.reset_peak_memory_stats(device)" not in source
 
 
 def test_t_schedule_covers_frozen_effective_batch_centers() -> None:

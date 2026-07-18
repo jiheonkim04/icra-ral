@@ -190,3 +190,12 @@ before model load or any teacher/student forward. Because repair count remains
 frozen contract. No optimizer, microbatch, checkpoint, Stage A/B, or
 confirmatory outcome was reached. This is an implementation/resource failure,
 not a mechanism result.
+
+The user later granted one explicit infrastructure-only exception for that
+CUDA telemetry device defect. Diagnosis reproduced the failure before CUDA
+initialization, and the minimal integer-index telemetry patch passed an RTX
+5080 CUDA-only smoke. It is classified
+`EXCEPTIONAL_TELEMETRY_DEVICE_REPAIR`, does not reset the general repair
+budget, and changes no scientific field. The historical failure remains the
+pre-resumption outcome; the unchanged numerical-noise calibration is now the
+only authorized next stage.
