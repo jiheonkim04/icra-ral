@@ -1,0 +1,83 @@
+{
+  "schema_version": "2026-07-18.epoch5_cvlr_xvla_feasibility_decision.v1",
+  "candidate": "CVLR_XVLA",
+  "expanded_name": "Cross-View Latent Reconstruction Adapter for X-VLA",
+  "decision": "CVLR_XVLA_SCIENTIFICALLY_DISTINCT_AND_LOCALLY_EXECUTABLE",
+  "contribution_type": "PRIOR_EXTENSION",
+  "closest_external_prior": {
+    "name": "WristWorld: Generating Wrist-Views via 4D World Models for Robotic Manipulation",
+    "paper": "https://arxiv.org/abs/2510.07313",
+    "project": "https://wrist-world.github.io/",
+    "author_stated_mechanism": "A two-stage 4D world model estimates wrist poses and point-cloud projections with VGGT/SPC, then generates temporally coherent wrist-view videos from anchor views with a video generator.",
+    "author_stated_positive_result": "The paper reports a 3.81% increase in CALVIN average task-completion length and closure of 42.4% of the anchor-wrist gap.",
+    "direct_overlap": [
+      "anchor/agent-view observations are used to recover wrist-view information",
+      "paired multi-view robot data supplies wrist-view supervision",
+      "the recovered wrist information is intended to improve downstream VLA behavior"
+    ],
+    "not_exact_overlap": [
+      "WristWorld reconstructs geometry and synthesizes wrist-view pixel videos; CVLR predicts the existing X-VLA Florence2 wrist latent block directly",
+      "WristWorld augments VLA training data while leaving the downstream VLA architecture unchanged; CVLR is a small frozen-policy token adapter active only when the live wrist input is missing",
+      "WristWorld uses VGGT, wrist-pose/point-cloud projection, SPC loss, and video diffusion; CVLR uses paired clean X-VLA latent regression without pixel/video generation",
+      "CVLR preserves the original clean X-VLA path exactly and replaces only the missing auxiliary wrist-token block"
+    ],
+    "exact_claimed_contribution_duplicated": false
+  },
+  "secondary_overlap_checks": [
+    {
+      "name": "Multi-View Masked World Models for Visual Robotic Manipulation",
+      "paper": "https://arxiv.org/abs/2302.02408",
+      "project": "https://sites.google.com/view/mv-mwm",
+      "overlap": "view masking and cross-view reconstruction from multi-camera robot data",
+      "distinction": "MV-MWM reconstructs pixels to pretrain an autoencoder and then learns an RL world model on frozen representations; it does not reconstruct a missing wrist latent inside a frozen VLA action path."
+    },
+    {
+      "name": "Robot Learning with Sensorimotor Pre-training",
+      "paper": "https://arxiv.org/abs/2306.10007",
+      "project": "https://robotic-pretrained-transformer.github.io/",
+      "overlap": "masked prediction of latent visual and sensorimotor tokens",
+      "distinction": "RPT is general trajectory pretraining across modalities and time followed by policy fine-tuning; it does not target live wrist-camera dropout or inject reconstructed wrist tokens into an existing frozen VLA."
+    },
+    {
+      "name": "ReconVLA: Reconstructive Vision-Language-Action Model as Effective Robot Perceiver",
+      "paper": "https://arxiv.org/abs/2508.10333",
+      "code": "https://github.com/OpenHelix-Team/ReconVLA",
+      "overlap": "a reconstruction objective is coupled to VLA learning",
+      "distinction": "ReconVLA reconstructs task-specific gaze-region scene tokens for implicit grounding; it does not reconstruct a missing wrist view from another camera."
+    }
+  ],
+  "local_feasibility": {
+    "clean_wrist_latent_targets_exist": true,
+    "probe_source": "reports/cvlr_xvla_feasibility_probe_result.json",
+    "records_checked": 9,
+    "target_shape": [50, 1024],
+    "targets_finite_nonzero_all_records": true,
+    "xvla_visual_token_insertion_accessible": true,
+    "insertion_point": "model.transformer forward argument aux_visual_inputs; the first 50 of 100 auxiliary tokens are exactly the wrist-view Florence2 tokens",
+    "clean_view_bypass_can_remain_exact": true,
+    "clean_bypass_rule": "when missing_indicator == 0, return the original aux_visual_inputs tensor object without replacement",
+    "planned_predictor_parameters": 422144,
+    "planned_predictor_bottleneck": 128,
+    "estimated_cached_feature_mib_for_24_train_and_12_validation_records": 14.0625,
+    "observed_xvla_probe_peak_vram_mib": 3520.39453125,
+    "rtx_5080_total_vram_mib": 16303,
+    "fits_local_gpu_budget": true,
+    "downloads_required": false
+  },
+  "reviewer_b_decision": {
+    "near_exact_prior_duplication": false,
+    "mathematical_trivial_equivalence": false,
+    "essential_resource_unavailable": false,
+    "proceed_to_one_frozen_stage0_protocol": true,
+    "replacement_candidate_generated": false
+  },
+  "boundaries": {
+    "broad_candidate_search_reopened": false,
+    "rifa_reopened": false,
+    "training_occurred": false,
+    "optimizer_steps": 0,
+    "checkpoint_written": false,
+    "closed_loop_rollout": false
+  },
+  "next_action": "Preregister exactly one CVLR_XVLA Stage 0 protocol and freeze all thresholds before inspecting CVLR outcomes."
+}

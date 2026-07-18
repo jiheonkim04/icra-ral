@@ -1,0 +1,56 @@
+{
+  "schema_version": "2026-07-18.epoch5_cvlr_xvla_feasibility_probe.v1",
+  "stage": "no_training_clean_latent_target_and_insertion_probe",
+  "execution_valid": true,
+  "training_occurred": false,
+  "backward_pass_count": 0,
+  "optimizer_step_count": 0,
+  "checkpoint_write_count": 0,
+  "closed_loop_rollout": false,
+  "downloads_used": false,
+  "xvla": {
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "feature_shape_per_view": [50, 1024],
+    "aux_visual_inputs_shape": [1, 100, 1024],
+    "image_mask": [true, true, false],
+    "transformer_forward_accepts_aux_visual_inputs": true,
+    "clean_wrist_tokens_exactly_match_first_auxiliary_block": true
+  },
+  "clean_target_probe": {
+    "record_count": 9,
+    "tasks": [
+      "libero_goal/task0",
+      "libero_object/task0",
+      "libero_spatial/task5"
+    ],
+    "demo_indices_per_task": [0, 20, 40],
+    "all_targets_finite": true,
+    "all_targets_nonzero": true,
+    "all_auxiliary_block_matches": true,
+    "target_std_range": [0.9942907691001892, 0.9990790486335754],
+    "zero_fill_mse_mean": 0.9927581747372946,
+    "deterministic_awf_agent_token_mse_mean": 1.4744063350889418,
+    "agent_wrist_cosine_range": [0.17994031310081482, 0.32659006118774414],
+    "rows": [
+      {"task": "libero_goal/task0", "demo_index": 0, "target_std": 0.9942907691001892, "zero_mse": 0.9885947704315186, "awf_mse": 1.331350326538086, "agent_wrist_cosine": 0.32659006118774414},
+      {"task": "libero_goal/task0", "demo_index": 20, "target_std": 0.994574248790741, "zero_mse": 0.9891588091850281, "awf_mse": 1.4281771183013916, "agent_wrist_cosine": 0.2788996398448944},
+      {"task": "libero_goal/task0", "demo_index": 40, "target_std": 0.9944207072257996, "zero_mse": 0.9888534545898438, "awf_mse": 1.3554537296295166, "agent_wrist_cosine": 0.3151182532310486},
+      {"task": "libero_object/task0", "demo_index": 0, "target_std": 0.9990790486335754, "zero_mse": 0.9981395602226257, "awf_mse": 1.501729965209961, "agent_wrist_cosine": 0.24654190242290497},
+      {"task": "libero_object/task0", "demo_index": 20, "target_std": 0.9971946477890015, "zero_mse": 0.9943777918815613, "awf_mse": 1.3941580057144165, "agent_wrist_cosine": 0.2986528277397156},
+      {"task": "libero_object/task0", "demo_index": 40, "target_std": 0.9985871911048889, "zero_mse": 0.9971569776535034, "awf_mse": 1.4844167232513428, "agent_wrist_cosine": 0.25431257486343384},
+      {"task": "libero_spatial/task5", "demo_index": 0, "target_std": 0.996687650680542, "zero_mse": 0.9933674335479736, "awf_mse": 1.5983065366744995, "agent_wrist_cosine": 0.19471564888954163},
+      {"task": "libero_spatial/task5", "demo_index": 20, "target_std": 0.9965262413024902, "zero_mse": 0.9930451512336731, "awf_mse": 1.6271806955337524, "agent_wrist_cosine": 0.17994031310081482},
+      {"task": "libero_spatial/task5", "demo_index": 40, "target_std": 0.9960668087005615, "zero_mse": 0.9921296238899231, "awf_mse": 1.5488839149475098, "agent_wrist_cosine": 0.21838515996932983}
+    ]
+  },
+  "resource_probe": {
+    "peak_cuda_allocated_mib": 3520.39453125,
+    "gpu": "NVIDIA GeForce RTX 5080",
+    "gpu_total_mib": 16303,
+    "gpu_free_before_mib": 13918,
+    "wsl_mem_available_kib": 11199596,
+    "c_drive_free_bytes": 261862092800
+  }
+}
