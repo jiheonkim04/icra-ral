@@ -903,3 +903,31 @@ as `PRIOR_INFRASTRUCTURE_BLOCKED`; no success value is counted, the scientific
 delay/A2C2 hypothesis is unadjudicated, and no Ours is authorized. The next
 campaign action is exactly-two-candidate `PIVOT_EPOCH_2` selection outside
 both wrist dropout and asynchronous-delay correction.
+
+## Strategic Pivot Epoch 2 And Terminal Decision
+
+Effective `2026-07-19`, `PIVOT_EPOCH_2` evaluated exactly two theses outside
+both wrist dropout and asynchronous-delay correction:
+
+1. active-view goal disambiguation; and
+2. autonomous retry/recovery after execution failure.
+
+Neither passed every hard filter. Active-view disambiguation lacks released
+official ActiveVLA code/checkpoints, a locally runnable active-camera Base,
+and a twelve-hour local path. Retry/recovery lacks a runnable official FLARE
+or ReTVL recovery prior; SAFE's public implementation is a detector rather
+than a recovery controller; the thesis also overlaps multiple closed local
+safety, repair, verifier, retrieval, and recovery families. Neither candidate
+meets local feasibility `F >= 4`.
+
+The exact epoch decision is `NO_DEFENSIBLE_PIVOT_FOUND`; the terminal campaign
+and paper-readiness status is `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND`.
+Do not create Pivot Epoch 3, a new local method acronym, Ours, Stage 0/A/B, or
+a paper package. Preserve every prior positive, null, negative, and
+infrastructure result without reinterpretation. Further research requires
+explicit user redirection or materially new executable official artifacts and
+resources.
+
+The authoritative records are
+`reports/strategic_pivot_epoch2_selection_result.json` and
+`reports/strategic_pivot_final_decision.json`.

@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "created_at_kst": "2026-07-19T06:35:35+09:00",
+  "execution_type": "REPORT_ONLY",
+  "branch": "codex/epoch5-official-prior-first",
+  "source_head": "2bf992a01e23179b01e94ad1060dbce00acd864d",
+  "active_worker": null,
+  "final_decision": "NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND",
+  "paper_readiness": "NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND",
+  "paper_package_status": "NOT_AUTHORIZED",
+  "pivot_epoch_1": {
+    "candidate_count": 3,
+    "decision": "PIVOT_SELECTED",
+    "selected_thesis": "ASYNC_DELAY_REACTIVITY",
+    "local_problem_verification_decision": "PRIOR_INFRASTRUCTURE_BLOCKED",
+    "scientific_hypothesis_adjudicated": false,
+    "official_prior_disproved": false,
+    "ours_authorized": false
+  },
+  "pivot_epoch_2": {
+    "candidate_count": 2,
+    "decision": "NO_DEFENSIBLE_PIVOT_FOUND",
+    "selected_thesis": null,
+    "hard_filter_passing_candidates": 0
+  },
+  "scientific_record": {
+    "wrist_dropout_axis": "CLOSED",
+    "rl4il_fidelity_label": "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT",
+    "rl4il_interpretation_preserved": true,
+    "rifa_decision": "RIFA_XVLA_STAGE0_DESIGN_FAILURE",
+    "rifa_archived": true,
+    "cvlr_decision": "CVLR_XVLA_STAGE0_DESIGN_FAILURE",
+    "cvlr_archived": true,
+    "action_consistent_decision": "STAGE0_MECHANISM_NOT_SUPPORTED",
+    "action_consistent_paper_status": "KEY_COMPONENT_NOT_SUPPORTED",
+    "a2c2_fidelity_label": "MECHANISM_FAITHFUL_A2C2_LOCAL_PORT",
+    "a2c2_decision": "PRIOR_INFRASTRUCTURE_BLOCKED",
+    "a2c2_scientific_hypothesis_adjudicated": false
+  },
+  "positive_execution_evidence_preserved": {
+    "a2c2_setup_preflight": "A2C2_SETUP_PREFLIGHT_ACCEPTED",
+    "a2c2_cached_feature_rows": 2438,
+    "a2c2_prior_optimizer_steps": 40000,
+    "a2c2_prior_checkpoint_sha256": "C7F22AB037D7C148F6607D55D2F7D78395E19441542B9FE0CB1511318856CF7E",
+    "a2c2_closed_loop_rows": 0
+  },
+  "prohibitions": {
+    "pivot_epoch_3": true,
+    "new_local_method_acronym": true,
+    "ours_without_verified_prior_residual": true,
+    "paper_package_without_paper_candidate_go": true,
+    "physical_robot": true,
+    "reinterpret_archived_outcomes": true
+  },
+  "environment_restoration": {
+    "wslconfig_originally_absent": true,
+    "temporary_wslconfig_path": "C:/Users/jiheo/.wslconfig",
+    "temporary_wslconfig_sha256": "9EF5420F0549D3D4CD1B7F18ECC41B1EE8F9BF638BF71518DD52E1124C84FBE0",
+    "restore_action": "Removed the campaign-created temporary file and shut down WSL so future launches use the user's original default configuration.",
+    "verification": "WSLCONFIG_ABSENT_RESTORED",
+    "wsl_state_after_shutdown": "Stopped"
+  },
+  "authoritative_reports": [
+    "reports/strategic_pivot_epoch1_selection_result.json",
+    "reports/a2c2_prior/problem_verification_result.json",
+    "reports/strategic_pivot_epoch2_selection_result.json",
+    "reports/strategic_pivot_final_decision.json"
+  ],
+  "next_authorized_action": "Wait for explicit user redirection or materially new external resources. Do not continue autonomous local method search."
+}

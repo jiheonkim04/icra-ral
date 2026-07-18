@@ -6,16 +6,17 @@ Updated: 2026-07-19 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Source HEAD before Pivot Epoch 1 selection: `f11ec2135f39dba3ccf315ee5271aa152247cff7`
-- Current pushed HEAD before the A2C2 closure commit: `73288b6`
+- Current pushed HEAD before Pivot Epoch 2 closure: `2bf992a`
 - Epoch/cycle: `5 / 0`
-- Campaign state: `AUTONOMOUS_CAMPAIGN_ACTIVE_STRATEGIC_PIVOT`
+- Campaign state: `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND`
 - Closed Pivot Epoch 1 thesis: action-chunk reactivity under asynchronous inference delay; local result `PRIOR_INFRASTRUCTURE_BLOCKED` without scientific adjudication.
-- Active stage: exactly-two-candidate `PIVOT_EPOCH_2` selection; no Ours design is authorized.
-- Novelty decision: `INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE`
+- Active stage: none. `PIVOT_EPOCH_2` evaluated exactly two theses and selected none.
+- Current novelty decision: not applicable; no Pivot Epoch 2 thesis was selected.
 - Active training/rollout worker: none.
-- Paper-level decision: `KEY_COMPONENT_NOT_SUPPORTED`.
+- Paper-level decision: `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND`.
 - Paper status: no `PROTOTYPE_GO`, `PAPER_CANDIDATE_GO`, or paper-ready package.
 - Preserve pre-existing ignored `rollouts/2026_07_17/` and `rollouts/2026_07_18/`.
+- The campaign-created temporary `C:/Users/jiheo/.wslconfig` was removed and WSL was shut down; the original absent-file state is restored.
 
 ## Current authoritative reports
 
@@ -45,6 +46,8 @@ Updated: 2026-07-19 KST
 - A2C2 accepted feature cache: `reports/a2c2_prior/cached_feature_result.json`
 - A2C2 accepted Prior training: `reports/a2c2_prior/prior_module_training_result.json`
 - A2C2 final local decision: `reports/a2c2_prior/problem_verification_result.json`
+- Pivot Epoch 2 selection: `reports/strategic_pivot_epoch2_selection_result.json`
+- Final strategic-pivot decision: `reports/strategic_pivot_final_decision.json`
 
 ## Frozen scientific state
 
@@ -120,14 +123,13 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 
 ## Immediate next action
 
-`PIVOT_EPOCH_1` closed locally as `PRIOR_INFRASTRUCTURE_BLOCKED`. A2C2
-preflight, cached features, and 40k-step Prior training were valid, but the
-same simulator RAM root persisted after its single verified correction. No
-Base/Prior success result or Ours evidence exists, and the paper prior is not
-disproved. Begin `PIVOT_EPOCH_2`: generate exactly two materially different
-research theses outside wrist dropout and asynchronous-delay correction,
-apply every hard filter, and select at most one. Do not reopen archived routes
-or design Ours before a new closest-prior residual is verified.
+Stop autonomous local method development. `PIVOT_EPOCH_2` evaluated exactly
+two theses—active-view goal disambiguation and autonomous retry/recovery—and
+neither passed the official-prior, local-feasibility, closed-family, and
+twelve-hour hard filters. The exact result is `NO_DEFENSIBLE_PIVOT_FOUND` and
+the terminal campaign status is `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND`.
+There is no Pivot Epoch 3, Ours method, Stage 0/A/B, or paper package. Wait for
+explicit user redirection or materially new official artifacts/resources.
 
 ## Final preflight boundary
 
