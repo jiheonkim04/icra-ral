@@ -1,0 +1,213 @@
+{
+  "schema_version": "2026-07-18.epoch5_rl4il_external_prior_selection.v1",
+  "stage": "epoch_5_external_prior_selection_after_wrist_dropout_confirmation",
+  "decision": "RL4IL_EXTERNAL_PRIOR_SELECTED_FEATURE_SMOKE_PASS_PRIOR_ROLLOUT_REQUIRED",
+  "prerequisite_decision": "WRIST_DROPOUT_REPEATED_PROBLEM_CONFIRMED",
+  "selected_prior": {
+    "name": "RL4IL",
+    "paper_title": "Reinforcement Learning-Guided Retrieval with Soft Fusion for Robust Multimodal Imitation Learning under Missing Modalities",
+    "arxiv_url": "https://arxiv.org/html/2606.15514v1",
+    "official_code_url": "https://github.com/h-ismkhan/Reinforcement-Learning-via-kNN-for-Robotic-Learning-with-Missing-Camera",
+    "local_clone_windows_path": "C:\\assets\\repos\\RL4IL-Missing-Camera",
+    "local_clone_wsl_path": "/mnt/c/assets/repos/RL4IL-Missing-Camera",
+    "local_clone_head": "e1dd5b741ebb6b392bfd1f8cbb61bad82417e9bd",
+    "source_status": "official implementation cloned locally",
+    "official_checkpoints_found": false
+  },
+  "why_selected": [
+    "Targets complete camera dropout and missing modalities directly.",
+    "Uses LIBERO Spatial, Object, and Goal, matching the confirmed three-suite wrist-dropout condition.",
+    "Uses the same modality family as the local condition: agent RGB, in-hand RGB, and language.",
+    "Contains an official implementation with import-safe entry points and runnable local feature extraction.",
+    "Provides a nontrivial learned external-prior mechanism: PPO-guided retrieval, soft cross-attention fusion, and per-camera soft imputation."
+  ],
+  "paper_inspection": {
+    "modalities": [
+      "agent-view RGB camera",
+      "in-hand RGB camera",
+      "natural-language task instruction"
+    ],
+    "suites": [
+      "LIBERO-Spatial",
+      "LIBERO-Object",
+      "LIBERO-Goal"
+    ],
+    "dropout_conditions": {
+      "mask_0": "agent-view camera absent",
+      "mask_1": "in-hand camera absent"
+    },
+    "mechanism_summary": [
+      "Frozen CLIP encoders map each modality to 512-dimensional embeddings.",
+      "Modality-specific z-score normalization and modality-fair distance are used before retrieval.",
+      "kNN and BFS construct candidate demonstration sets.",
+      "A PPO-trained scoring policy ranks candidates.",
+      "A soft cross-attention fusion head aggregates top-ranked candidate action labels.",
+      "For missing cameras, a per-modality PPO retrieval policy and soft imputation head reconstruct the missing embedding before retrieval.",
+      "Inference replays the retrieved demonstration action sequence open-loop."
+    ],
+    "supervision": "Expert demonstrations with image streams, language, and recorded action sequences; imputation heads use supervised reconstruction of held-out modality embeddings.",
+    "reported_evaluation": "Success rate over LIBERO rollouts under complete camera dropout, averaged across three seeds and 25 rollouts per task."
+  },
+  "official_code_inspection": {
+    "files_checked": [
+      "README.md",
+      "rl4il-sptl.py",
+      "rl4il-obj.py",
+      "rl4il-goal.py",
+      "rl4il-epoch.py",
+      "rl4il-topk.py"
+    ],
+    "py_compile_passed": [
+      "rl4il-sptl.py",
+      "rl4il-obj.py",
+      "rl4il-goal.py",
+      "rl4il-epoch.py",
+      "rl4il-topk.py"
+    ],
+    "hardcoded_dataset_root": "/.../datasets",
+    "local_dataset_root_required": "/mnt/c/assets/data/libero",
+    "default_training_budget": {
+      "PPO_EPOCHS": 30,
+      "FUSION_EPOCHS": 30,
+      "IMP_PPO_EPOCHS": 50,
+      "IMP_SOFT_EPOCHS": 30
+    },
+    "default_rollout_budget": {
+      "N_ROLLOUT_SEEDS": 3,
+      "N_ROLLOUTS_TASK": 25,
+      "MAX_STEPS": 260
+    },
+    "checkpoint_loading_flag": "SKIP_TRAINING",
+    "checkpoint_status": "README names checkpoint files and scripts can load them, but no checkpoint files were bundled in the official repository clone."
+  },
+  "local_environment": {
+    "python_wsl": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python",
+    "dependency_versions": {
+      "scikit_learn": "1.7.2",
+      "gym": "0.26.2",
+      "transformers": "4.57.6",
+      "torch": "2.10.0+cu128"
+    },
+    "clip_model": "openai/clip-vit-base-patch32",
+    "clip_cache_available": true
+  },
+  "no_training_feature_smoke": {
+    "status": "pass",
+    "command_type": "bounded stdin Python smoke using the official RL4IL module",
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "simulator_rollout_happened": false,
+    "dataset_checks": [
+      {
+        "suite": "libero_goal",
+        "path": "/mnt/c/assets/data/libero/libero_goal/open_the_middle_drawer_of_the_cabinet_demo.hdf5",
+        "demo_count": 50,
+        "first_demo_obs_keys": [
+          "agentview_rgb",
+          "ee_ori",
+          "ee_pos",
+          "ee_states",
+          "eye_in_hand_rgb",
+          "gripper_states",
+          "joint_states"
+        ]
+      },
+      {
+        "suite": "libero_object",
+        "path": "/mnt/c/assets/data/libero/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket_demo.hdf5",
+        "demo_count": 50,
+        "first_demo_obs_keys": [
+          "agentview_rgb",
+          "ee_ori",
+          "ee_pos",
+          "ee_states",
+          "eye_in_hand_rgb",
+          "gripper_states",
+          "joint_states"
+        ]
+      },
+      {
+        "suite": "libero_spatial",
+        "path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+        "demo_count": 50,
+        "first_demo_obs_keys": [
+          "agentview_rgb",
+          "ee_ori",
+          "ee_pos",
+          "ee_states",
+          "eye_in_hand_rgb",
+          "gripper_states",
+          "joint_states"
+        ]
+      }
+    ],
+    "embedding_smoke": {
+      "suite": "libero_spatial",
+      "task": "pick up the black bowl on the ramekin and place it on the plate",
+      "demo_count": 2,
+      "cam0_shape": [
+        2,
+        512
+      ],
+      "cam1_shape": [
+        2,
+        512
+      ],
+      "language_shape": [
+        2,
+        512
+      ],
+      "labels_shape": [
+        2
+      ]
+    },
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "peak_cuda_max_allocated_mib": 612.6103515625
+  },
+  "candidate_screen": [
+    {
+      "candidate": "RL4IL",
+      "decision": "selected",
+      "reason": "Closest official, runnable, LIBERO camera-dropout prior."
+    },
+    {
+      "candidate": "DisDP",
+      "decision": "not_selected_now",
+      "reason": "Directly relevant as a baseline family, but the searched code path was not as immediately runnable locally and RL4IL explicitly targets missing camera imputation with official code."
+    },
+    {
+      "candidate": "BFA / broader multimodal fusion methods",
+      "decision": "not_selected_now",
+      "reason": "Less directly matched to robot camera dropout under LIBERO/X-VLA conditions."
+    },
+    {
+      "candidate": "Simple masked training strategies",
+      "decision": "not_selected_now",
+      "reason": "Mostly RL/control-policy aligned rather than the closest LIBERO missing-camera external prior."
+    }
+  ],
+  "local_prior_demonstration_status": {
+    "runnable_locally": "Partial: official import, compile, local LIBERO HDF5 loading, CUDA CLIP feature extraction pass. Full prior training/rollout has not yet been run locally.",
+    "addresses_same_condition": "Paper and code address complete in-hand camera dropout via mask_1, matching the wrist-camera dropout condition semantically.",
+    "improves_same_condition": "Not yet established locally on the paired three-task manifest; only paper-level improvement evidence is available so far.",
+    "residual_gap": "Not yet established locally; must be measured after the RL4IL prior rollout/training checkpoint.",
+    "feasible_integration_path": [
+      "Set DATASET_ROOT to /mnt/c/assets/data/libero and restrict suites/tasks to the confirmed panel.",
+      "Use mask_1 as the wrist/in-hand dropout arm.",
+      "Prefer official checkpoints if acquired; otherwise run a bounded, preregistered low-epoch RL4IL training/rollout smoke before Ours.",
+      "Report clean/mask_1 success, runtime exceptions, checkpoint provenance, CUDA/VRAM, and differences from the X-VLA paired-identity protocol.",
+      "Only after local prior performance and residual gap are known, generate at most two Ours candidates and select exactly one."
+    ]
+  },
+  "negative_controls": {
+    "broad_natural_reset_sweep_happened": false,
+    "sgl_rerun_happened": false,
+    "ocr_rerun_happened": false,
+    "awf_rerun_or_rescue_happened": false,
+    "ours_method_selected": false,
+    "ours_training_happened": false,
+    "ours_rollout_happened": false
+  },
+  "next_action": "Preregister and execute a bounded RL4IL mask_1 prior training/rollout or checkpoint-based evaluation before any learned Ours method."
+}
