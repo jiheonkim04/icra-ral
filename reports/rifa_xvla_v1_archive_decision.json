@@ -1,0 +1,50 @@
+{
+  "schema_version": "2026-07-18.epoch5_rifa_xvla_v1_archive.v1",
+  "method": "RIFA_XVLA_V1",
+  "status": "ARCHIVED",
+  "archive_decision": "RIFA_XVLA_V1_ARCHIVED_NOT_STAGE_A_READY",
+  "frozen_protocol_decision": "RIFA_XVLA_STAGE0_DESIGN_FAILURE",
+  "calibrated_scientific_interpretation": "RIFA v1 is not Stage-A-ready because one binary gripper flip violated the frozen action-delta gate and the full-versus-no-reliability action difference was practically negligible despite technically exceeding the preregistered minimum.",
+  "postmortem_decision": "RIFA_GRIPPER_POSTPROCESS_DISCONTINUITY_CONFIRMED",
+  "postmortem_source": {
+    "json": "reports/rifa_xvla_gripper_postmortem_result.json",
+    "json_sha256": "9446b8971a9d200e0a03aa2c31d77c2cbea3710fc6bd1140b22654ea0167c00d",
+    "markdown": "reports/rifa_xvla_gripper_postmortem_result.md",
+    "markdown_sha256": "ed4b20fb5d06b3e461035b3dbc21723b50c4368c10126bf30cfbe5cec89fe188"
+  },
+  "tested_formulation_evidence": {
+    "valid_xvla_integration": true,
+    "xvla_model_forward_calls": 75,
+    "exact_clean_passthrough": true,
+    "clean_full_vs_base_max_rms": 0.0,
+    "valid_optimization": true,
+    "optimizer_steps_per_arm": 6,
+    "trainable_parameters_per_arm": 214660,
+    "practically_negligible_full_vs_ablation_effect": true,
+    "dropout_full_vs_ablation_mean_rms": 1.0597695498731683e-06,
+    "dropout_full_vs_ablation_total_gripper_flips": 0,
+    "authorized_closed_loop_evidence": false
+  },
+  "failing_row": {
+    "suite": "libero_object",
+    "task_id": 0,
+    "reset_identity": 20260734,
+    "condition": "mask_1_in_hand_dropout",
+    "chunk_index": 0,
+    "action_index_within_chunk": 12,
+    "base_raw_gripper_score": 0.5001511573791504,
+    "full_raw_gripper_score": 0.49706852436065674,
+    "no_reliability_raw_gripper_score": 0.49706581234931946,
+    "base_discrete_gripper": 1.0,
+    "full_discrete_gripper": -1.0,
+    "no_reliability_discrete_gripper": -1.0
+  },
+  "scope_interpretation": "The tested RIFA v1 formulation is archived. This does not establish that the entire reliability-conditioned method family is impossible.",
+  "rifa_v1_1_generated": false,
+  "rifa_stage0_rerun": false,
+  "rifa_training_extended": false,
+  "rifa_stage_a_launched": false,
+  "natural_reset_mining_reopened": false,
+  "broad_prior_search_reopened": false,
+  "next_candidate": "CVLR_XVLA"
+}

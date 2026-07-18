@@ -1,0 +1,467 @@
+{
+  "analysis": {
+    "action_delta_summaries": {
+      "ablation_vs_base": {
+        "finite": true,
+        "gripper_flip_count": 1,
+        "max_abs": 2.0,
+        "rms": 0.13801362314057286,
+        "rotation_rms": 0.0004722194725780424,
+        "translation_rms": 0.00032603665045149256
+      },
+      "full_vs_ablation": {
+        "finite": true,
+        "gripper_flip_count": 0,
+        "max_abs": 7.152557373046875e-07,
+        "rms": 2.6404613628957277e-07,
+        "rotation_rms": 3.83875768426766e-07,
+        "translation_rms": 1.2377495421185623e-07
+      },
+      "full_vs_base": {
+        "finite": true,
+        "gripper_flip_count": 1,
+        "max_abs": 2.0,
+        "rms": 0.1380136224897776,
+        "rotation_rms": 0.00047185051987465456,
+        "translation_rms": 0.0003259279998713941
+      }
+    },
+    "action_index_within_chunk": 12,
+    "chunk_index": 0,
+    "continuous_deltas": {
+      "ablation_minus_base": {
+        "at_flip": {
+          "rotation_delta_rotvec": [
+            -0.00026869773864746094,
+            0.00043702125549316406,
+            -0.0006222724914550781
+          ],
+          "rotation_l2": 0.0008064794517709617,
+          "translation_delta_xyz": [
+            -4.953145980834961e-05,
+            -0.00010956078767776489,
+            0.0005519390106201172
+          ],
+          "translation_l2": 0.0005648837076351488
+        },
+        "whole_chunk": {
+          "rotation_max_abs": 0.000623852014541626,
+          "rotation_rms": 0.0004722194725780424,
+          "translation_max_abs": 0.0005523860454559326,
+          "translation_rms": 0.00032603665045149256
+        }
+      },
+      "full_minus_ablation": {
+        "at_flip": {
+          "rotation_delta_rotvec": [
+            0.0,
+            -4.76837158203125e-07,
+            3.3527612686157227e-07
+          ],
+          "rotation_l2": 5.829097328802541e-07,
+          "translation_delta_xyz": [
+            2.9802322387695312e-08,
+            8.940696716308594e-08,
+            -1.7881393432617188e-07
+          ],
+          "translation_l2": 2.0212918469683135e-07
+        },
+        "whole_chunk": {
+          "rotation_max_abs": 7.152557373046875e-07,
+          "rotation_rms": 3.83875768426766e-07,
+          "translation_max_abs": 3.2782554626464844e-07,
+          "translation_rms": 1.2377495421185623e-07
+        }
+      },
+      "full_minus_base": {
+        "at_flip": {
+          "rotation_delta_rotvec": [
+            -0.00026869773864746094,
+            0.00043654441833496094,
+            -0.0006219372153282166
+          ],
+          "rotation_l2": 0.0008059624083937693,
+          "translation_delta_xyz": [
+            -4.9501657485961914e-05,
+            -0.0001094713807106018,
+            0.000551760196685791
+          ],
+          "translation_l2": 0.0005646890400346777
+        },
+        "whole_chunk": {
+          "rotation_max_abs": 0.0006233751773834229,
+          "rotation_rms": 0.00047185051987465456,
+          "translation_max_abs": 0.0005522370338439941,
+          "translation_rms": 0.0003259279998713941
+        }
+      }
+    },
+    "decision": "RIFA_GRIPPER_POSTPROCESS_DISCONTINUITY_CONFIRMED",
+    "discretized_full_minus_base_at_flip": -2.0,
+    "final_discrete_gripper_whole_chunk": {
+      "BASE": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "RIFA_XVLA": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "RIFA_XVLA_NO_RELIABILITY": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    "flip_indices": {
+      "base_vs_ablation": [
+        12
+      ],
+      "base_vs_full": [
+        12
+      ],
+      "full_vs_ablation": []
+    },
+    "full_and_ablation_same_gripper_at_flip": true,
+    "full_and_ablation_same_gripper_whole_chunk": true,
+    "max_abs_2_caused_by_sign_threshold_discontinuity": true,
+    "plan_shape": [
+      30,
+      20
+    ],
+    "policies_at_flip": {
+      "BASE": {
+        "absolute_distance_from_threshold": 0.00015115737915039062,
+        "decision_threshold": 0.5,
+        "final_discretized_gripper_action": 1.0,
+        "raw_pre_discretization_score": 0.5001511573791504,
+        "signed_margin_from_threshold": 0.00015115737915039062,
+        "threshold_rule": "score > 0.5 => +1.0; otherwise => -1.0"
+      },
+      "RIFA_XVLA": {
+        "absolute_distance_from_threshold": 0.0029314756393432617,
+        "decision_threshold": 0.5,
+        "final_discretized_gripper_action": -1.0,
+        "raw_pre_discretization_score": 0.49706852436065674,
+        "signed_margin_from_threshold": -0.0029314756393432617,
+        "threshold_rule": "score > 0.5 => +1.0; otherwise => -1.0"
+      },
+      "RIFA_XVLA_NO_RELIABILITY": {
+        "absolute_distance_from_threshold": 0.002934187650680542,
+        "decision_threshold": 0.5,
+        "final_discretized_gripper_action": -1.0,
+        "raw_pre_discretization_score": 0.49706581234931946,
+        "signed_margin_from_threshold": -0.002934187650680542,
+        "threshold_rule": "score > 0.5 => +1.0; otherwise => -1.0"
+      }
+    },
+    "raw_base_full_scores_straddle_threshold": true,
+    "raw_gripper_scores_whole_chunk": {
+      "BASE": [
+        0.9861506819725037,
+        0.9807542562484741,
+        0.971184253692627,
+        0.9567692279815674,
+        0.9438913464546204,
+        0.9272800087928772,
+        0.9062052369117737,
+        0.8757859468460083,
+        0.8330795764923096,
+        0.7677568197250366,
+        0.6983899474143982,
+        0.6112018823623657,
+        0.5001511573791504,
+        0.3945521414279938,
+        0.3114252984523773,
+        0.2385503500699997,
+        0.17062316834926605,
+        0.11756830662488937,
+        0.0664193257689476,
+        0.03769993782043457,
+        0.022781210020184517,
+        0.011790809221565723,
+        0.007282428443431854,
+        0.004859100095927715,
+        0.0033884996082633734,
+        0.002417616778984666,
+        0.0018739873776212335,
+        0.001510082045570016,
+        0.001353168860077858,
+        0.0011433482868596911
+      ],
+      "RIFA_XVLA": [
+        0.985982358455658,
+        0.9805216789245605,
+        0.9708394408226013,
+        0.9562588930130005,
+        0.9432373642921448,
+        0.9264470338821411,
+        0.9051536917686462,
+        0.8744387626647949,
+        0.8313566446304321,
+        0.7655497789382935,
+        0.6957864165306091,
+        0.608267605304718,
+        0.49706852436065674,
+        0.3916129469871521,
+        0.30879393219947815,
+        0.23632699251174927,
+        0.16889451444149017,
+        0.11630203574895859,
+        0.06566256284713745,
+        0.03725745156407356,
+        0.02250947430729866,
+        0.011648452840745449,
+        0.007194104604423046,
+        0.004800013732165098,
+        0.0033472341019660234,
+        0.002388148568570614,
+        0.001851115608587861,
+        0.0014916458167135715,
+        0.0013366466155275702,
+        0.0011293836869299412
+      ],
+      "RIFA_XVLA_NO_RELIABILITY": [
+        0.9859822988510132,
+        0.9805214405059814,
+        0.9708390831947327,
+        0.9562584757804871,
+        0.9432368278503418,
+        0.9264463782310486,
+        0.9051528573036194,
+        0.8744376301765442,
+        0.8313552141189575,
+        0.7655479311943054,
+        0.6957842111587524,
+        0.6082651019096375,
+        0.49706581234931946,
+        0.39161062240600586,
+        0.3087916374206543,
+        0.23632489144802094,
+        0.16889290511608124,
+        0.11630088835954666,
+        0.06566187739372253,
+        0.03725709393620491,
+        0.022509226575493813,
+        0.01164831593632698,
+        0.007194019388407469,
+        0.00479996157810092,
+        0.003347195917740464,
+        0.0023881213273853064,
+        0.0018510962836444378,
+        0.001491630100645125,
+        0.00133663066662848,
+        0.0011293708812445402
+      ]
+    }
+  },
+  "backward_pass_count": 0,
+  "calibrated_scientific_interpretation": "RIFA v1 is not Stage-A-ready because one binary gripper flip violated the frozen action-delta gate and the full-versus-no-reliability action difference was practically negligible despite technically exceeding the preregistered minimum.",
+  "checkpoint_write_count": 0,
+  "closed_loop_rollout": false,
+  "cuda": {
+    "allocated_mib": 31.9384765625,
+    "available": true,
+    "device": "NVIDIA GeForce RTX 5080",
+    "max_allocated_mib": 4117.62255859375,
+    "max_reserved_mib": 4308.0,
+    "pid": 300,
+    "reserved_mib": 4308.0
+  },
+  "cuda_pid": 300,
+  "decision": "RIFA_GRIPPER_POSTPROCESS_DISCONTINUITY_CONFIRMED",
+  "downloads_used": false,
+  "elapsed_seconds": 27.438,
+  "exact_generation_seed": 20263727,
+  "exact_live_row_index": 9,
+  "exact_row_reproduction": {
+    "full_vs_ablation_metrics_match": true,
+    "full_vs_base_metrics_match": true,
+    "reliability_normalized_match": true,
+    "reliability_raw_match": true
+  },
+  "exceptions": [],
+  "execution_valid": true,
+  "finished_at": "2026-07-18T22:03:56+0900",
+  "forward_counts": {
+    "backward_calls": 0,
+    "optimizer_steps": 0,
+    "rifa_action_hidden_hook_calls": 20,
+    "xvla_generate_actions_calls": 3
+  },
+  "frozen_input_hashes_after": {
+    "/mnt/c/Users/jiheo/tca_map/configs/rifa_xvla_stage0_frozen_contract.json": "0bbbecbaa659084eae5bb2a9f553860e107b9cf889a666f2fe31fa9673667851",
+    "/mnt/c/Users/jiheo/tca_map/reports/checkpoints/rifa_xvla_stage0/rifa_xvla_full.pt": "6b2b3d1991f05d551cf8ac8e808a602232f20a2742ce13838eaf50bfc86e8179",
+    "/mnt/c/Users/jiheo/tca_map/reports/checkpoints/rifa_xvla_stage0/rifa_xvla_no_reliability.pt": "b5cfc99e2a1e21c566eb5dd0aa9f7627a2e9688a0785601cfc39c36d0fa49159",
+    "/mnt/c/Users/jiheo/tca_map/reports/rifa_xvla_stage0_result.json": "2bc110b97d4c67a27d86504a72b71c18418be21bf851eea231375d90c5b40884"
+  },
+  "frozen_input_hashes_before": {
+    "/mnt/c/Users/jiheo/tca_map/configs/rifa_xvla_stage0_frozen_contract.json": "0bbbecbaa659084eae5bb2a9f553860e107b9cf889a666f2fe31fa9673667851",
+    "/mnt/c/Users/jiheo/tca_map/reports/checkpoints/rifa_xvla_stage0/rifa_xvla_full.pt": "6b2b3d1991f05d551cf8ac8e808a602232f20a2742ce13838eaf50bfc86e8179",
+    "/mnt/c/Users/jiheo/tca_map/reports/checkpoints/rifa_xvla_stage0/rifa_xvla_no_reliability.pt": "b5cfc99e2a1e21c566eb5dd0aa9f7627a2e9688a0785601cfc39c36d0fa49159",
+    "/mnt/c/Users/jiheo/tca_map/reports/rifa_xvla_stage0_result.json": "2bc110b97d4c67a27d86504a72b71c18418be21bf851eea231375d90c5b40884"
+  },
+  "frozen_inputs_unchanged": true,
+  "frozen_protocol_decision": "RIFA_XVLA_STAGE0_DESIGN_FAILURE",
+  "nvidia_smi_after": "NVIDIA GeForce RTX 5080, 16303, 2828, 13152, 596.21",
+  "nvidia_smi_before": "NVIDIA GeForce RTX 5080, 16303, 2599, 13381, 596.21",
+  "official_success_measurement": false,
+  "optimizer_step_count": 0,
+  "original_outputs_modified": false,
+  "pid": 300,
+  "schema_version": "2026-07-18.epoch5_rifa_gripper_postmortem.v1",
+  "simulator_episode_count": 0,
+  "source_head": "e6c54e39a4cbd9d57c54d511cb850a28acedbe76",
+  "stage": "one_no_training_action_semantics_postmortem",
+  "stage0_rerun": false,
+  "stage0_source_row": {
+    "condition": "mask_1_in_hand_dropout",
+    "full_vs_ablation": {
+      "finite": true,
+      "gripper_flip_count": 0,
+      "max_abs": 7.152557373046875e-07,
+      "rms": 2.6404613628957277e-07,
+      "rotation_rms": 3.83875768426766e-07,
+      "translation_rms": 1.2377495421185623e-07
+    },
+    "full_vs_base": {
+      "finite": true,
+      "gripper_flip_count": 1,
+      "max_abs": 2.0,
+      "rms": 0.1380136224897776,
+      "rotation_rms": 0.00047185051987465456,
+      "translation_rms": 0.0003259279998713941
+    },
+    "initial_state_index": 23,
+    "legal_deployment_inputs_only": true,
+    "missing_indicator": 1.0,
+    "reliability_normalized": [
+      1.302249789237976,
+      0.42721399664878845,
+      1.1470786333084106
+    ],
+    "reliability_raw": [
+      0.051872529089450836,
+      0.004572063684463501,
+      0.9999998211860657
+    ],
+    "reset_identity": 20260734,
+    "source": "official_live_initial_observation",
+    "suite": "libero_object",
+    "task_id": 0
+  },
+  "started_at": "2026-07-18T22:03:28+0900",
+  "system_ram": {
+    "memavailable": "8443304 kB",
+    "memtotal": "11812928 kB",
+    "ru_maxrss_kib": 4586436,
+    "vmhwm": "4586436 kB",
+    "vmrss": "3511352 kB",
+    "vmsize": "61162580 kB"
+  },
+  "target": {
+    "condition": "mask_1_in_hand_dropout",
+    "reset_identity": 20260734,
+    "suite": "libero_object",
+    "task_id": 0
+  },
+  "training_occurred": false,
+  "xvla": {
+    "base_trainable_parameter_count": 0,
+    "device": "cuda:0",
+    "model_class": "XVLA",
+    "optional_import_shims_used": [
+      "mmengine.fileio",
+      "fastapi",
+      "uvicorn",
+      "json_numpy"
+    ],
+    "transformers_compat_patches": [
+      "Florence2ForConditionalGeneration._supports_sdpa=False",
+      "Florence2LanguageForConditionalGeneration.missing_lm_head_safe"
+    ]
+  }
+}
