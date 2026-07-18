@@ -6,6 +6,7 @@ from tca_map.smolvla.a2c2_local_prior import (
     A2C2LocalConfig,
     A2C2ResidualTransformer,
     FIDELITY_LABEL,
+    SmolVLAHiddenCapture,
     deterministic_task_scalar,
     parameter_counts,
     phase_feature,
@@ -88,3 +89,23 @@ def test_predict_action_is_additive_in_normalized_action_space() -> None:
         tasks=["task"],
     )
     assert torch.allclose(output, base, atol=1e-6, rtol=0.0)
+
+
+def test_hidden_capture_handles_direct_forward_calls() -> None:
+    class DirectForward(torch.nn.Module):
+        def forward(self, *, fill_kv_cache: bool) -> tuple[list[torch.Tensor | None], None]:
+            assert fill_kv_cache
+            return [torch.arange(24, dtype=torch.float32).reshape(1, 3, 8), None], None
+
+    class Policy:
+        pass
+
+    policy = Policy()
+    policy.model = Policy()
+    policy.model.vlm_with_expert = DirectForward()
+    with SmolVLAHiddenCapture(policy) as capture:
+        output = policy.model.vlm_with_expert.forward(fill_kv_cache=True)
+        hidden = capture.pop()
+    assert output[0][0].shape == (1, 3, 8)
+    assert hidden.shape == (1, 8)
+    assert torch.equal(hidden, torch.arange(8, dtype=torch.float32).reshape(1, 8))

@@ -86,3 +86,12 @@ Reserved VRAM may not exceed `88%`; system RAM use may not exceed `82%`.
 Swap and CPU offload are forbidden. Partial results and heartbeat/status files
 are mandatory. The complete machine-readable contract is
 `reports/a2c2_prior/problem_verification_protocol.json`.
+
+## Preserved infrastructure repair
+
+The first frozen preflight exposed one `INFRASTRUCTURE_NULL_DEFECT`: LeRobot
+`0.4.4` calls `vlm_with_expert.forward(...)` directly, bypassing PyTorch's
+`Module.__call__` hook dispatcher. The failed attempt is preserved in
+`reports/a2c2_prior/preflight_failed_attempt_1.json`. The single narrow repair
+temporarily wraps the same bound forward method, records its unchanged prefix
+return, and restores it after use. No scientific contract changed.

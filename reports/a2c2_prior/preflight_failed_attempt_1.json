@@ -1,0 +1,52 @@
+{
+  "before_resources": {
+    "cuda_pid": 310,
+    "gpu_name": "NVIDIA GeForce RTX 5080",
+    "pid": 310,
+    "rss_mb": 522.344,
+    "system_ram_limit_fraction": 0.82,
+    "system_ram_total_gib": 11.266,
+    "system_ram_used_fraction": 0.077,
+    "system_ram_used_gib": 0.864,
+    "vram_allocated_mib": 0.0,
+    "vram_reserved_fraction": 0.0,
+    "vram_reserved_limit_fraction": 0.88,
+    "vram_reserved_mib": 0.0,
+    "vram_total_mib": 16302.562
+  },
+  "closed_loop_rollout_happened": false,
+  "date": "2026-07-19 KST",
+  "elapsed_seconds": 25.646,
+  "exceptions": [
+    {
+      "message": "SmolVLA prefix hidden state was not captured",
+      "traceback": [
+        "Traceback (most recent call last):",
+        "  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_a2c2_problem_verification.py\", line 338, in run_preflight",
+        "    chunk, hidden = _base_prediction(",
+        "  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_a2c2_problem_verification.py\", line 293, in _base_prediction",
+        "    hidden = capture.pop().detach().cpu()",
+        "  File \"/mnt/c/Users/jiheo/tca_map/tca_map/smolvla/a2c2_local_prior.py\", line 381, in pop",
+        "    raise RuntimeError(\"SmolVLA prefix hidden state was not captured\")",
+        "RuntimeError: SmolVLA prefix hidden state was not captured"
+      ],
+      "type": "RuntimeError"
+    }
+  ],
+  "fidelity_label": "MECHANISM_FAITHFUL_A2C2_LOCAL_PORT",
+  "final_decision": "A2C2_SETUP_PREFLIGHT_FAILED",
+  "job_classification": "SETUP_PREFLIGHT",
+  "model_forward_count": 0,
+  "official_commit": "54dd088302a0ef3f50c4add3ec927ab94d76a406",
+  "peak_vram": {
+    "allocated_bytes": 916289024,
+    "allocated_mb": 873.841,
+    "max_allocated_bytes": 946796544,
+    "max_allocated_mb": 902.936
+  },
+  "schema_version": 1,
+  "training_happened": false,
+  "failure_classification": "INFRASTRUCTURE_NULL_DEFECT",
+  "repair_scope": "live-query wiring only; direct forward calls bypassed a PyTorch Module hook",
+  "scientific_contract_changed": false
+}

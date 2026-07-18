@@ -857,3 +857,11 @@ frozen adjudication returns `VERIFIED_PRIOR_RESIDUAL`. If it returns
 authoritative contract is
 `reports/a2c2_prior/problem_verification_protocol.json` and its readable
 companion is `reports/a2c2_prior/problem_verification_protocol.md`.
+
+The first frozen setup preflight stopped on an
+`INFRASTRUCTURE_NULL_DEFECT`: LeRobot `0.4.4` calls the VLM module's bound
+`forward` directly and therefore bypasses a PyTorch `Module.__call__` hook.
+The failed attempt is preserved. The single authorized repair observes the
+same unchanged bound-forward return through a temporary wrapper and restores
+the original method afterward. It changes no scientific graph, panel,
+identity, condition, action value, budget, threshold, or decision rule.

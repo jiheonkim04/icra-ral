@@ -361,10 +361,21 @@ class SmolVLAHiddenCapture:
     def __init__(self, policy: Any) -> None:
         self.policy = policy
         self.value: Tensor | None = None
-        module = policy.model.vlm_with_expert
-        self._handle = module.register_forward_hook(self._hook, with_kwargs=True)
+        self._module = policy.model.vlm_with_expert
+        self._original_forward = self._module.forward
 
-    def _hook(self, _module: nn.Module, _args: tuple[Any, ...], kwargs: dict[str, Any], output: Any) -> None:
+        # LeRobot 0.4.4 calls ``vlm_with_expert.forward(...)`` directly.  A
+        # PyTorch forward hook is therefore bypassed because ``Module.__call__``
+        # is never entered.  Wrap the exact bound forward method instead; the
+        # returned tensors and model graph remain unchanged.
+        def capture_forward(*args: Any, **kwargs: Any) -> Any:
+            output = self._original_forward(*args, **kwargs)
+            self._capture(kwargs, output)
+            return output
+
+        self._module.forward = capture_forward
+
+    def _capture(self, kwargs: dict[str, Any], output: Any) -> None:
         if not bool(kwargs.get("fill_kv_cache")):
             return
         prefix_outputs = output[0]
@@ -384,7 +395,7 @@ class SmolVLAHiddenCapture:
         return result
 
     def close(self) -> None:
-        self._handle.remove()
+        self._module.forward = self._original_forward
 
     def __enter__(self) -> "SmolVLAHiddenCapture":
         return self
