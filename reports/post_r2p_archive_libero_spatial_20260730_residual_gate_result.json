@@ -1,0 +1,395 @@
+{
+  "schema_version": "2026-07-18.epoch5_post_r2p_archive_libero_spatial_20260730_residual_gate.v1",
+  "created_at_kst": "2026-07-18T11:12:48+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "435974ddd99243f5731a7dada5a3aaf7b09d0b47",
+  "stage": "epoch_5_official_prior_residual_search_after_r2p_archive",
+  "decision": "POST_R2P_ARCHIVE_LIBERO_SPATIAL_TASK5_IDENTITY20260730_SECOND_PRIOR_CLEAN_FAILURE_REPEATED_RESIDUAL_EVIDENCE_NO_OURS_REOPEN",
+  "suite": "libero_spatial",
+  "reset_identity": 20260730,
+  "task_id": 5,
+  "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+  "run_dirs": {
+    "xvla_prior_scan": "runs/xvla_prior/failure_scan_libero_spatial_identity20260730_post_r2p_archive_20260718T0645KST",
+    "smolvla_base_gate": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task5_id20260730_officialenv_20260718T1103KST",
+    "expert_headroom_gate": "runs/xvla_prior/diagnostic_libero_spatial_task5_expert_headroom_20260730_20260718T1105KST",
+    "openvla_int4_second_prior_gate": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260730_openvlaenv_20260718T1107KST"
+  },
+  "summary": {
+    "xvla_scan_completed_tasks": 10,
+    "xvla_scan_successful_tasks": 9,
+    "xvla_failure_task_ids": [
+      5
+    ],
+    "smolvla_base_task5_success": false,
+    "expert_headroom_decision": "TASK5_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE",
+    "openvla_int4_task5_success": false,
+    "candidate_generation_authorized": false,
+    "training_authorized": false,
+    "ours_rollout_authorized": false,
+    "reason_no_ours_target_yet": "The residual is clean on this identity and repeats the archived task5 mechanism, but the archived R2P-XVLA method is closed and the next unfrozen stage requires additional residual-confirmation evidence before any new method generation.",
+    "next_authorized_action": "Run bounded residual-confirmation screening for libero_spatial/task5 on additional independent identities; do not reopen R2P-XVLA, train, or roll out Ours."
+  },
+  "execution_classifications": [
+    {
+      "execution_type": "VLA_INFERENCE",
+      "evidence_role": "FIRST_PRIOR",
+      "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+      "policy": "X-VLA-Libero",
+      "official_closed_loop_success_measured": true,
+      "windows_launcher_pid": 11416,
+      "wsl_worker_pid": 313,
+      "simulator_episode_count": 10,
+      "model_forward_count": 66,
+      "peak_vram_mib": 3518.634
+    },
+    {
+      "execution_type": "VLA_INFERENCE",
+      "evidence_role": "BASE",
+      "artifact_status": "OFFICIAL_CODE_WITH_ENVIRONMENT_WORKAROUND",
+      "policy": "frozen_base",
+      "official_closed_loop_success_measured": true,
+      "windows_launcher_pid": 17604,
+      "wsl_worker_pid": 310,
+      "simulator_episode_count": 1,
+      "model_forward_count": 6,
+      "peak_vram_mb": 926.638
+    },
+    {
+      "execution_type": "EXPERT_ACTION_REPLAY",
+      "evidence_role": "ORACLE",
+      "artifact_status": "NOT_APPLICABLE",
+      "policy": "HDF5 expert replay diagnostic",
+      "official_closed_loop_success_measured": true,
+      "windows_launcher_pid": 22844,
+      "wsl_worker_pid": 300,
+      "simulator_episode_count": 3,
+      "vla_model_loaded": false
+    },
+    {
+      "execution_type": "VLA_INFERENCE",
+      "evidence_role": "SECOND_PRIOR",
+      "artifact_status": "QUANTIZED_OFFICIAL_CHECKPOINT_INFERENCE",
+      "policy": "quantized_openvla_oft_int4",
+      "official_closed_loop_success_measured": true,
+      "windows_launcher_pid": 26540,
+      "wsl_worker_pid": 307,
+      "simulator_episode_count": 1,
+      "model_forward_count": 28,
+      "peak_vram_mib": 5598.559,
+      "unnormalization_key": "libero_spatial_no_noops",
+      "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED"
+    }
+  ],
+  "xvla_scan_task_results": [
+    {
+      "task_id": 0,
+      "success": true,
+      "steps": 81,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "aacfb3c4e60d5b3cc36b90cdcb5dfeacd79e01e5624ca47b703159edb53bcd16"
+    },
+    {
+      "task_id": 1,
+      "success": true,
+      "steps": 113,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "6e0400d1a41b1f1f38bc11cc4ff3517669aa43a6e352aeb6ea639ecd4834ffe7"
+    },
+    {
+      "task_id": 2,
+      "success": true,
+      "steps": 100,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "71b26ab2364375faf615841478f2ec1373dca133b793618ef9601885c4c6d260"
+    },
+    {
+      "task_id": 3,
+      "success": true,
+      "steps": 89,
+      "final_reward": 1.0,
+      "action_chunk_count": 3,
+      "result_sha256": "d58e85e48982f40f9ac56baa7d5f484647571e983c0c885e25e18faf01e7e51d"
+    },
+    {
+      "task_id": 4,
+      "success": true,
+      "steps": 138,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "f9a39daf434e87ca4778f1e0cd9600951f912c439a8723b930b2049f8d71e8e6"
+    },
+    {
+      "task_id": 5,
+      "success": false,
+      "steps": 900,
+      "final_reward": 0.0,
+      "action_chunk_count": 30,
+      "result_sha256": "20c454d067fb9b20ba1b4e50e401251ac4d060fc5f6f47fcd71ef826d275ac65"
+    },
+    {
+      "task_id": 6,
+      "success": true,
+      "steps": 104,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "e30969f4b0e11f1f218d31c7f2ccf1ef8234094dca748dff014d3f159b79d6d6"
+    },
+    {
+      "task_id": 7,
+      "success": true,
+      "steps": 115,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "095687f75bf26c004d01e85f596e33a9b2a13520025983704fa173e8462d39d2"
+    },
+    {
+      "task_id": 8,
+      "success": true,
+      "steps": 100,
+      "final_reward": 1.0,
+      "action_chunk_count": 4,
+      "result_sha256": "9553c0a3face337b2bbac99a03a3c7228c68a5906b7d80f4bfbbad1fe3787586"
+    },
+    {
+      "task_id": 9,
+      "success": true,
+      "steps": 122,
+      "final_reward": 1.0,
+      "action_chunk_count": 5,
+      "result_sha256": "9cb066c6d46707691806fb604f189c1d165a9f357597320222b4823ccb4aecda"
+    }
+  ],
+  "base_gate": {
+    "success": false,
+    "steps": 280,
+    "max_reward": 0.0,
+    "sum_reward": 0.0,
+    "action_chunks_generated": 6,
+    "initial_state_sha256": "abdc5421f4dbbe198b856e56c8808bb94de1984fbc206990666daac8c48b94f9",
+    "video_path": "runs/xvla_prior/smolvla_spatial_task5_id20260730_videos/frozen_base/libero_spatial/task_5_identity_20260730.mp4",
+    "video_sha256": "1b611a0f3f5766076487b59988820f10b27d52fbfb1197fbb374e7b05597996e"
+  },
+  "headroom_gate": {
+    "decision": "TASK5_TASK_LEVEL_EXPERT_HEADROOM_POSITIVE_SAME_RESET_UNAVAILABLE",
+    "computed_initial_state_sha256": "abdc5421f4dbbe198b856e56c8808bb94de1984fbc206990666daac8c48b94f9",
+    "computed_hash_matches_expected": true,
+    "demo_count": 50,
+    "same_reset_demo_match_count": 0,
+    "same_benchmark_reset_as_residual_failure": false,
+    "same_reset_headroom_available": false,
+    "task_level_expert_headroom_positive": true,
+    "zero_action_succeeded": false,
+    "default_reset_expert_replay_succeeded": true,
+    "exact_replay_success": true,
+    "exact_replay_reward_sum": 1.0,
+    "exact_replay_first_success_index": 93,
+    "reason_same_reset_unavailable": "No task-5 HDF5 demo init_state SHA-256 matched the residual benchmark initial-state SHA-256."
+  },
+  "second_prior_gate": {
+    "policy": "quantized_openvla_oft_int4",
+    "success": false,
+    "steps": 230,
+    "max_steps": 220,
+    "done": false,
+    "final_reward": 0.0,
+    "action_chunk_count": 28,
+    "load_seconds": 56.5,
+    "elapsed_seconds": 101.027,
+    "peak_vram_mib": 5598.559,
+    "unnormalization_key": "libero_spatial_no_noops",
+    "policy_latency_mean_seconds": 0.615614,
+    "policy_latency_max_seconds": 4.383529,
+    "environment_latency_mean_seconds": 0.147602,
+    "environment_latency_max_seconds": 4.83748,
+    "initial_state_sha256": "abdc5421f4dbbe198b856e56c8808bb94de1984fbc206990666daac8c48b94f9",
+    "initial_state_sha256_runtime": "abdc5421f4dbbe198b856e56c8808bb94de1984fbc206990666daac8c48b94f9",
+    "video_path": "rollouts/2026_07_18/2026_07_18-11_08_19--openvla_oft--episode=110000--success=False--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it.mp4",
+    "video_sha256": "321469156f7d24b7f1d933c1ce65203d88f91c995162ba59566ba03ff8ed4fd3",
+    "quantized": true,
+    "full_precision_claim": false,
+    "offload_status": "NO_CPU_OR_DISK_OFFLOAD_DETECTED"
+  },
+  "prior_task5_context": {
+    "identity_20260727_second_prior_report_json": "reports/post_secondprior_libero_spatial_20260727_second_prior_result.json",
+    "identity_20260727_shared_base_firstprior_secondprior_failure": true,
+    "identity_20260727_task_level_headroom_positive_same_reset_unavailable": true,
+    "archived_method": "R2P-XVLA",
+    "archive_report_json": "reports/post_secondprior_libero_spatial_20260727_r2p_xvla_archive_decision.json",
+    "archive_decision": "R2P_XVLA_ARCHIVED_AT_FROZEN_OFFLINE_SELECTION_GATE",
+    "archive_closure_closed_to_task5_retune_or_reopen": true,
+    "known_task5_shared_failure_identities": [
+      20260727,
+      20260730
+    ],
+    "target_at_least_three_independent_shared_failures_when_available": true,
+    "new_method_generation_authorized": false
+  },
+  "comparator_role_calibration": {
+    "calibration_steer": "C:\\Users\\jiheo\\.codex\\attachments\\26b76617-3593-486a-94a8-802adf5a2359\\pasted-text.txt",
+    "frozen_protocol_decision": "For identity 20260730, task5 is a clean Base/X-VLA/OpenVLA-INT4 failure with task-level expert headroom positive and same-reset expert headroom unavailable. This does not reopen the frozen archived R2P-XVLA method.",
+    "calibrated_scientific_interpretation": "Comparator roles support a bounded residual-confirmation step, not a paper-candidate or Ours claim. Base and closest prior both fail on the target reset, the second prior also fails, and an oracle expert replay shows task-level recoverability. However, archived R2P-XVLA remains closed and the residual evidence is still below the campaign safeguard for new method development when additional identities are locally available.",
+    "comparator_role_table": [
+      {
+        "comparator": "SmolVLA Base",
+        "scientific_question": "Does the frozen backbone also fail the first-prior failure under the matched reset?",
+        "matched_result": "Base failed task5 at identity 20260730 in 280 steps with reward 0.0.",
+        "uncertainty": "Single matched reset diagnostic, sufficient to keep this residual candidate open.",
+        "does_it_block_the_claim": false,
+        "reason": "Base failure supports shared-residual status rather than blocking it."
+      },
+      {
+        "comparator": "X-VLA first prior",
+        "scientific_question": "Does the closest official first prior solve the same task/reset?",
+        "matched_result": "X-VLA failed task5 at identity 20260730 in 900 steps with reward 0.0.",
+        "uncertainty": "Single reset per task diagnostic; residual search only.",
+        "does_it_block_the_claim": false,
+        "reason": "The failure motivates downstream gates but is not a method claim."
+      },
+      {
+        "comparator": "OpenVLA-OFT INT4 second prior",
+        "scientific_question": "Does a second official prior already solve the shared Base/X-VLA failure?",
+        "matched_result": "Quantized OpenVLA-OFT INT4 failed task5 at identity 20260730 in 230 steps with reward 0.0.",
+        "uncertainty": "Single matched reset diagnostic under quantized official checkpoint inference.",
+        "does_it_block_the_claim": false,
+        "reason": "Second-prior failure leaves the residual candidate open."
+      },
+      {
+        "comparator": "R2P-XVLA archived Ours",
+        "scientific_question": "May the previously frozen task5 method be reopened or retuned using this new identity?",
+        "matched_result": "No. R2P-XVLA was archived at the frozen offline selection gate.",
+        "uncertainty": "Not applicable; historical frozen decision remains binding.",
+        "does_it_block_the_claim": true,
+        "reason": "The archive explicitly closes task5 retune/reopen and closed-loop rollout for R2P-XVLA."
+      }
+    ]
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_design_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260730_post_r2p_archive_20260718T0645KST/scan_summary.json",
+      "sha256": "c3a64e1f84c485b0cd0c489e96579f9bde04a2857bb87492ba3cdca166cbcb7a",
+      "length_bytes": 6707
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260730_post_r2p_archive_20260718T0645KST/scan_manifest.json",
+      "sha256": "3ccefcc845be117ed4ffbf0f988503b26377d4770d9f1f8312551ce067e04bb4",
+      "length_bytes": 740
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260730_post_r2p_archive_20260718T0645KST/scan_exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260730_post_r2p_archive_20260718T0645KST/scan_worker_pid.txt",
+      "sha256": "dbe8338192fb354ca88b7a9af39b867e0a0d7764006e537bdde93b6a4527388b",
+      "length_bytes": 4
+    },
+    {
+      "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260730_post_r2p_archive_20260718T0645KST/windows_launcher_pid.txt",
+      "sha256": "d6800c29715da56da6977cbc52f1eefd78a8d70f1bdaed7e20594db1c3a52d36",
+      "length_bytes": 7
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task5_id20260730_officialenv_20260718T1103KST/result.json",
+      "sha256": "f4d17ee30c482265eabd349c9e30b80761959788864e5cd588ceb1049ad39d03",
+      "length_bytes": 5919
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task5_id20260730_officialenv_20260718T1103KST/exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task5_id20260730_officialenv_20260718T1103KST/worker.sh",
+      "sha256": "2507d328e25ac4cdd64381b062e446686939a67759ce980c0dd16036f6506097",
+      "length_bytes": 937
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_smolvla_base_libero_spatial_task5_id20260730_officialenv_20260718T1103KST/windows_launcher_pid.txt",
+      "sha256": "da8edc37954951098996cbf7f8892c0f3cb430663a5ebe9b05f82fc2f2d9a3ec",
+      "length_bytes": 6
+    },
+    {
+      "path": "runs/xvla_prior/smolvla_spatial_task5_id20260730_videos/frozen_base/libero_spatial/task_5_identity_20260730.mp4",
+      "sha256": "1b611a0f3f5766076487b59988820f10b27d52fbfb1197fbb374e7b05597996e",
+      "length_bytes": 84486
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task5_expert_headroom_20260730_20260718T1105KST/result.json",
+      "sha256": "1c102be6dad1a7300ae7ea76ee4fced3f0f8e2a93aaea129b951d18ced653e89",
+      "length_bytes": 49714
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task5_expert_headroom_20260730_20260718T1105KST/exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task5_expert_headroom_20260730_20260718T1105KST/worker.sh",
+      "sha256": "8e21b8a89de5572ab24d18a62247ad81969b3e115cfbefd0a8081b4a58f32853",
+      "length_bytes": 1234
+    },
+    {
+      "path": "runs/xvla_prior/diagnostic_libero_spatial_task5_expert_headroom_20260730_20260718T1105KST/windows_launcher_pid.txt",
+      "sha256": "56d2f629366609a08137f24d2a3dffe225c0098b97e4954a8863d757bd388b31",
+      "length_bytes": 6
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260730_openvlaenv_20260718T1107KST/result.json",
+      "sha256": "08e0bf649f83bbbf60f09244f6ec307f090b0f6eeaa056bc3aa306cc1a4afe64",
+      "length_bytes": 11028
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260730_openvlaenv_20260718T1107KST/exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "length_bytes": 2,
+      "exit_code": 0
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260730_openvlaenv_20260718T1107KST/worker.sh",
+      "sha256": "bcb927ef84ff9c0735e176db74d18ca23d3a963a3c7881876a87bf45becd39db",
+      "length_bytes": 950
+    },
+    {
+      "path": "runs/openvla_oft_int4/diagnostic_spatial_task5_openvla_int4_20260730_openvlaenv_20260718T1107KST/windows_launcher_pid.txt",
+      "sha256": "fdf6987f3462127732e853af5fc249fa4544983982bbf919cb97e02e69649129",
+      "length_bytes": 6
+    },
+    {
+      "path": "rollouts/2026_07_18/2026_07_18-11_08_19--openvla_oft--episode=110000--success=False--task=pick_up_the_black_bowl_on_the_ramekin_and_place_it.mp4",
+      "sha256": "321469156f7d24b7f1d933c1ce65203d88f91c995162ba59566ba03ff8ed4fd3",
+      "length_bytes": 108461
+    },
+    {
+      "path": "tca_map/smolvla/exact_hard_slice_rollout.py",
+      "sha256": "3ca3b09f93ca69f8e779a687b6d00389e2642da6e8c2a08739524c34c3e8fabf",
+      "length_bytes": 14574
+    },
+    {
+      "path": "scripts/epoch5_expert_headroom.py",
+      "sha256": "7339d16a9b70665064b437eb7d007d81f6bc99246f0fe28a46b2e33ee321b8b0",
+      "length_bytes": 15951
+    },
+    {
+      "path": "tca_map/openvla_oft_int4_gate.py",
+      "sha256": "c2c20652cccc23afcc0e22a5a727712779a5fc9c824f149741159136b1a0c082",
+      "length_bytes": 55565
+    }
+  ],
+  "next_action": "Run bounded residual-confirmation screening for libero_spatial/task5 on additional independent identities, targeting at least three clean shared Base/first-prior/second-prior failures if locally available; do not reopen R2P-XVLA, generate candidates, train, or roll out Ours."
+}
