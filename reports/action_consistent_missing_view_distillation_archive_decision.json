@@ -1,0 +1,32 @@
+{
+  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_archive_decision.v1",
+  "decision": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA_ARCHIVED",
+  "stage0_decision": "STAGE0_MECHANISM_NOT_SUPPORTED",
+  "paper_level_decision": "KEY_COMPONENT_NOT_SUPPORTED",
+  "execution_classification": "OURS_VLA_TRAINING",
+  "result": {
+    "path": "reports/action_consistent_missing_view_distillation_resumed_stage0_result.json",
+    "sha256": "754ccc7819fa575d6f409678110217b97a1accc79bfbc0c57f828325de08c3b5"
+  },
+  "valid_negative_result": true,
+  "execution_failure": false,
+  "action_legality_failure": false,
+  "generic_adaptation_explanation_claimed": false,
+  "key_finding": "Training-only cross-view reconstruction learned the wrist latent but did not add a preregistered practical action-semantic benefit over matched no-reconstruction distillation and added one discrete gripper disagreement.",
+  "confirmation_or_expansion_authorized": false,
+  "stage_a_authorized": false,
+  "stage_b_authorized": false,
+  "closed_loop_ours_evidence": false,
+  "paper_candidate_go": false,
+  "axis": "WRIST_DROPOUT_METHOD_DEVELOPMENT_CLOSED",
+  "prohibited": [
+    "renamed v2",
+    "threshold relaxation",
+    "same-formulation rerun",
+    "new local wrist-dropout candidate",
+    "broad prior search",
+    "RIFA or CVLR resurrection",
+    "physical robot manipulation"
+  ],
+  "next": "STRATEGIC_PIVOT_OUTSIDE_WRIST_DROPOUT_METHOD_DEVELOPMENT_AXIS_RECOMMENDED"
+}

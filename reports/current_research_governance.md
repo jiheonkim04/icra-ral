@@ -764,3 +764,45 @@ Authoritative exception records are
 `reports/action_consistent_missing_view_distillation_cuda_device_diagnosis_result.json`
 and
 `reports/action_consistent_missing_view_distillation_telemetry_device_repair_result.json`.
+
+## Final Action-Consistent Stage 0 Outcome
+
+Effective `2026-07-19`, the valid resumed Stage 0 decision is
+`STAGE0_MECHANISM_NOT_SUPPORTED`; the paper-level decision is
+`KEY_COMPONENT_NOT_SUPPORTED`. This final scientific result supersedes the
+pre-resumption implementation-failure label as the current status while
+preserving that earlier label as historical audit evidence.
+
+Execution was valid: all four 434,816-parameter arms completed 128 optimizer
+steps and 1,024 exposures, with real frozen X-VLA teacher/student forwards,
+finite nonzero gradients, changed weights, step-64/128 checkpoints, exact disk
+reload, unchanged X-VLA parameters, exact clean bypass, legal and smooth
+actions, no swap growth, and zero exceptions. No confirmatory outcome or
+physical manipulation was accessed.
+
+The cross-view auxiliary was learned: Full reconstruction MSE was
+`0.9079925567` versus `0.9941876630` for no reconstruction, ratio
+`0.9133009697`, and Full won all three tasks. Full also passed the directional
+Base gate. However, no Full-versus-no-reconstruction action-semantic metric
+passed the frozen practical effect rule. Relative improvements were `0.0125%`
+translation, `-0.0747%` rotation, `0.2282%` raw gripper margin, and `0.0844%`
+action hidden; Full also had `194` discrete gripper disagreements versus `193`
+for no reconstruction. The key action-level contribution of reconstruction is
+therefore not supported.
+
+This result is not positive-uncertain or boundary-near under the frozen rules:
+some statistically positive effects are far below the 5% practical threshold,
+rotation is slightly negative, and the exact no-added-gripper-disagreement
+rule fails. Do not access the fixed confirmation reserve or Stage A/B.
+
+The method is archived as not Stage-A-ready. Close the wrist-dropout
+method-development axis. Do not create a renamed v2, relax thresholds, rerun
+the formulation, generate another local wrist-dropout candidate, reopen broad
+prior search, or resurrect RIFA/CVLR. Only an explicit user-authorized
+strategic pivot outside this axis can resume empirical method development.
+
+Authoritative current records are
+`reports/action_consistent_missing_view_distillation_resumed_stage0_result.json`,
+`reports/action_consistent_missing_view_distillation_archive_decision.json`,
+and
+`reports/action_consistent_missing_view_distillation_exact_scientific_status.json`.

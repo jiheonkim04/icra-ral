@@ -6,14 +6,14 @@ Updated: 2026-07-19 KST
 
 - Branch: `codex/epoch5-official-prior-first`
 - Source HEAD before the current overlap-audit commit: `ea3782a812e0472c0d05f57300e0d7a43dd67429`
-- Current pushed HEAD before the telemetry-repair commit: `66b5385`
+- Current pushed HEAD before the final scientific-status commit: `097fab385de05f5a7209be2ee711184471a502ef`
 - Epoch/cycle: `5 / 0`
-- Campaign state: `AUTONOMOUS_CAMPAIGN_ACTIVE_EXCEPTIONAL_TELEMETRY_RESUMPTION`
-- Active method direction: `ACTION-CONSISTENT MISSING-VIEW DISTILLATION`
-- Active stage: Stage 0 execution contract and runner frozen locally; commit/push, then launch the frozen Stage 0 worker.
+- Campaign state: `AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE_STRATEGIC_PIVOT_REQUIRED`
+- Active method direction: none; `ACTION-CONSISTENT MISSING-VIEW DISTILLATION` is archived.
+- Active stage: `STAGE0_MECHANISM_NOT_SUPPORTED`; no Stage A/B or current-axis empirical stage is authorized.
 - Novelty decision: `INCREMENTAL_BUT_POTENTIALLY_PUBLISHABLE`
 - Active training/rollout worker: none.
-- Paper-level decision: `IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE`.
+- Paper-level decision: `KEY_COMPONENT_NOT_SUPPORTED`.
 - Paper status: no `PROTOTYPE_GO`, `PAPER_CANDIDATE_GO`, or paper-ready package.
 - Preserve pre-existing ignored `rollouts/2026_07_17/` and `rollouts/2026_07_18/`.
 
@@ -30,6 +30,10 @@ Updated: 2026-07-19 KST
 - Numerical threshold freeze: `reports/action_consistent_missing_view_distillation_numerical_threshold_freeze_result.json`
 - Microbatch preflight: `reports/action_consistent_missing_view_distillation_microbatch_preflight_result.json`
 - Stage 0 execution contract result: `reports/action_consistent_missing_view_distillation_stage0_execution_contract_result.json`
+- Resumed scientific Stage 0: `reports/action_consistent_missing_view_distillation_resumed_stage0_result.json`
+- Stage 0 telemetry: `reports/action_consistent_missing_view_distillation_stage0_runtime_telemetry.json`
+- Archive decision: `reports/action_consistent_missing_view_distillation_archive_decision.json`
+- Strategic pivot recommendation: `reports/action_consistent_missing_view_distillation_strategic_pivot_recommendation.json`
 - Full campaign audit: `reports/autonomous_research_full_history_audit.md`
 - Current governance: `reports/current_research_governance.md`
 - RL4IL prior result: `reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json`
@@ -45,6 +49,7 @@ Updated: 2026-07-19 KST
 - RIFA v1 had valid X-VLA integration, exact clean passthrough, valid optimization, and practically negligible full-versus-ablation effect. Its failing binary action delta was a gripper postprocess discontinuity.
 - CVLR learned nontrivial cross-view wrist information and beat zero-fill and AWF reconstruction controls, but direct reconstructed-latent insertion destabilized X-VLA actions with 42 gripper flips across nine dropout rows.
 - Direct reconstructed-image/token insertion is closed. Cross-view reconstruction is permitted only as training-time auxiliary supervision or a legal reliability statistic.
+- Final action-consistent Stage 0 executed validly but returned `STAGE0_MECHANISM_NOT_SUPPORTED`; the method is archived and the wrist-dropout method-development axis is closed.
 - Do not relax thresholds, retune/rerun either v1, or reinterpret either frozen decision.
 
 ## Closed search space
@@ -58,7 +63,10 @@ Do not reopen:
 - any other archived formulation;
 - direct reconstructed-wrist-token insertion.
 
-This action-consistent missing-view direction is the final authorized method direction on the current wrist-dropout axis. If it ends in a robust scientific failure, close the axis without a renamed v2.
+The final action-consistent missing-view direction ended in a valid scientific
+failure. The wrist-dropout method-development axis is closed without a renamed
+v2, rerun, retune, threshold relaxation, replacement candidate, or broad
+search.
 
 ## Overlap-audit result
 
@@ -106,14 +114,13 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 
 ## Immediate next action
 
-Implement and run the already-frozen Stage 0 arms with microbatch `8` and
-accumulation `1`. All four microbatch candidates were safe; each produced
-finite nonzero gradients, changed weights, and an exactly reloadable throwaway
-checkpoint, with maximum reserved VRAM 27.74%, RAM 20.14%, and no swap growth.
-The four throwaway steps consumed zero Stage 0 optimizer budget. Preserve the
-128-step-per-arm final-checkpoint-only rule, frozen losses/thresholds, and no
-confirmatory access. The exceptional telemetry repair does not reset the
-general repair budget or authorize any scientific change.
+None under the current steer. Valid resumed Stage 0 returned
+`STAGE0_MECHANISM_NOT_SUPPORTED`: reconstruction improved by 8.67% and won all
+three tasks, but Full produced no practical action-semantic improvement over
+the matched no-reconstruction ablation and added one gripper disagreement.
+No confirmation, expansion, Stage A/B, closed-loop Ours rollout, renamed v2,
+or new wrist-dropout candidate is authorized. Resumption requires an explicit
+strategic pivot outside this closed method-development axis.
 
 ## Final preflight boundary
 
@@ -124,6 +131,6 @@ general repair budget or authorize any scientific change.
 - Confirmatory outcomes and physical manipulation: `none / none`
 - Scientific mechanism status: unevaluated; do not reinterpret the execution failure as mechanism rejection or support.
 
-The preceding bullets remain the preserved historical failure boundary. They
-do not describe the new post-exception execution, whose first authorized stage
-is the unchanged numerical-noise calibration.
+The preceding bullets remain the preserved historical pre-resumption failure
+boundary. They were superseded scientifically by the valid resumed Stage 0,
+but remain immutable audit evidence.

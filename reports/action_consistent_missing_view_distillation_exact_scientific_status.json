@@ -1,50 +1,90 @@
 {
-  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_distillation_exact_scientific_status.v1",
-  "campaign_state": "AUTONOMOUS_CAMPAIGN_ACTIVE_EXCEPTIONAL_TELEMETRY_RESUMPTION",
-  "method": "ACTION_CONSISTENT MISSING-VIEW DISTILLATION",
+  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_distillation_exact_scientific_status.v2",
+  "campaign_state": "AUTONOMOUS_CAMPAIGN_PAUSED_RESUMABLE_STRATEGIC_PIVOT_REQUIRED",
+  "method": "ACTION-CONSISTENT MISSING-VIEW DISTILLATION",
   "implementation": "ACTION_CONSISTENT_MISSING_VIEW_DISTILLATION_XVLA",
-  "stage0_decision": "STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE",
-  "paper_level_decision": "IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE",
-  "scientific_interpretation": "UNEVALUATED_BECAUSE_ACTUAL_PATH_PREFLIGHT_FAILED_BEFORE_MODEL_FORWARD",
+  "method_status": "ARCHIVED_NOT_STAGE_A_READY",
+  "execution_classification": "OURS_VLA_TRAINING",
+  "stage0_decision": "STAGE0_MECHANISM_NOT_SUPPORTED",
+  "paper_level_decision": "KEY_COMPONENT_NOT_SUPPORTED",
   "active_training_worker": null,
   "active_rollout_worker": null,
-  "next_authorized_empirical_stage": "FROZEN_STAGE0_IMPLEMENTATION_AND_TRAINING",
-  "repair_budget": {
-    "maximum": 1,
-    "consumed": 1,
-    "additional_authorized": false
+  "next_authorized_empirical_stage": null,
+  "authoritative_result": {
+    "path": "reports/action_consistent_missing_view_distillation_resumed_stage0_result.json",
+    "sha256": "754ccc7819fa575d6f409678110217b97a1accc79bfbc0c57f828325de08c3b5",
+    "source_head": "097fab385de05f5a7209be2ee711184471a502ef"
+  },
+  "historical_pre_resumption_status_preserved": {
+    "stage0": "STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE",
+    "paper_level": "IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE",
+    "role": "historical failed preflight only; superseded for current science by the valid resumed Stage 0"
   },
   "exceptional_telemetry_device_repair": {
     "classification": "EXCEPTIONAL_TELEMETRY_DEVICE_REPAIR",
     "general_repair_budget_reset": false,
-    "diagnosis": "reports/action_consistent_missing_view_distillation_cuda_device_diagnosis_result.json",
-    "smoke": "reports/action_consistent_missing_view_distillation_telemetry_device_repair_result.json",
     "smoke_decision": "TELEMETRY_DEVICE_REPAIR_SMOKE_VALID",
     "scientific_configuration_changed": false
   },
-  "evidence_boundaries": {
-    "official_reader_materialization_passed": true,
-    "fixed_rows_materialized": 12,
-    "model_loaded": false,
-    "teacher_student_forward_executed": false,
-    "training_started": false,
-    "optimizer_steps": 0,
-    "checkpoint_written": false,
-    "closed_loop_evidence": false,
+  "execution_evidence": {
+    "execution_valid": true,
+    "cuda_pid": 360,
+    "cuda_device_index": 0,
+    "cuda_device_name": "NVIDIA GeForce RTX 5080",
+    "xvla_model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "xvla_source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "training_records": 480,
+    "validation_records": 12,
+    "trainable_parameters_per_arm": 434816,
+    "arms": 4,
+    "optimizer_steps_per_arm": 128,
+    "record_exposures_per_arm": 1024,
+    "teacher_forward_count": 572,
+    "student_forward_count": 5452,
+    "finite_nonzero_gradients": true,
+    "weights_changed": true,
+    "checkpoint_write_and_exact_reload": true,
+    "frozen_xvla_unchanged": true,
+    "exact_clean_bypass": true,
+    "action_legality_and_smoothness": true,
+    "peak_cuda_allocated_bytes": 4593820672,
+    "peak_cuda_reserved_bytes": 4762632192,
+    "peak_system_ram_used_fraction": 0.28530330796455144,
+    "research_induced_swap_growth_bytes": 0,
+    "exceptions": 0,
+    "elapsed_seconds": 383.823,
     "confirmatory_outcomes_accessed": false,
+    "closed_loop_evidence": false,
     "physical_robot_manipulation": false
   },
-  "claims_not_supported": [
-    "STAGE0_GO",
-    "PAPER_CANDIDATE_GO",
-    "mechanism support",
-    "mechanism failure",
-    "generic adaptation explanation",
-    "clean retention",
-    "closed-loop improvement over X-VLA",
-    "performance or Pareto advantage over RL4IL",
-    "robust empirical design failure"
-  ],
+  "scientific_evidence": {
+    "base_directional_gate": true,
+    "reconstruction_gate": true,
+    "full_reconstruction_mse": 0.9079925566911697,
+    "no_reconstruction_mse": 0.9941876629988352,
+    "reconstruction_ratio": 0.9133009697106185,
+    "reconstruction_task_wins": 3,
+    "full_vs_no_reconstruction_practical_pass_metrics": [],
+    "full_vs_no_reconstruction_other_metric_nonregression": true,
+    "full_vs_no_reconstruction_gripper_nonregression": false,
+    "full_discrete_gripper_disagreements": 194,
+    "no_reconstruction_discrete_gripper_disagreements": 193,
+    "translation_relative_improvement": 0.0001253984419268137,
+    "rotation_relative_improvement": -0.0007473583297167058,
+    "raw_gripper_margin_relative_improvement": 0.0022815516434141823,
+    "action_hidden_relative_improvement": 0.0008436055012342399,
+    "interpretation": "The auxiliary reconstruction objective learned cross-view wrist information and Full improved directionally over Base, but adding reconstruction to matched distillation produced no preregistered practical action-semantic improvement over the no-reconstruction ablation and added one discrete gripper disagreement. The claimed key component is therefore not supported."
+  },
+  "decision_boundaries": {
+    "fixed_confirmation_authorized": false,
+    "fixed_expansion_authorized": false,
+    "stage_a_authorized": false,
+    "stage_b_authorized": false,
+    "paper_candidate_go": false,
+    "generic_adaptation_claim_adjudicated": false,
+    "reason_generic_not_adjudicated": "the key no-reconstruction mechanism gate failed first",
+    "closed_loop_ours_claimed": false
+  },
   "frozen_prior_state_preserved": {
     "rl4il_label": "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT",
     "rl4il_result": "RL4IL_ACTION_ORACLE_PRIOR_LOCAL_RESIDUAL_ESTABLISHED",
@@ -53,12 +93,13 @@
     "direct_reconstructed_input": "CLOSED"
   },
   "axis_status": {
+    "wrist_dropout_method_development_axis": "CLOSED",
     "renamed_v2_authorized": false,
     "threshold_relaxation_authorized": false,
     "same_formulation_rerun_authorized": false,
     "new_local_wrist_dropout_candidate_authorized": false,
-    "closed_as_robust_scientific_failure": false
+    "broad_prior_search_authorized": false,
+    "strategic_pivot_outside_axis_recommended": true
   },
-  "historical_failure_status": "The prior STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE and IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE remain preserved as the pre-resumption outcome.",
-  "resumption_state": "The exceptional telemetry repair and unchanged numerical-noise calibration passed. Thresholds were frozen before optimization. Actual-path candidates 1,2,4,8 were all safe; microbatch 8 with accumulation 1 was selected, and the four throwaway steps consumed zero Stage 0 optimizer budget. Frozen Stage 0 implementation and training are authorized."
+  "resume_requirement": "A new explicit user steer defining a strategic pivot outside the closed wrist-dropout method-development axis."
 }

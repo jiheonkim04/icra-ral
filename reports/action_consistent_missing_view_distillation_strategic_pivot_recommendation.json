@@ -1,0 +1,17 @@
+{
+  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_strategic_pivot_recommendation.v1",
+  "decision": "STRATEGIC_PIVOT_OUTSIDE_WRIST_DROPOUT_METHOD_DEVELOPMENT_AXIS_RECOMMENDED",
+  "new_candidate_generated": false,
+  "new_method_specified": false,
+  "empirical_work_authorized": false,
+  "recommendation": "Any future campaign should move outside the closed wrist-dropout method-development axis, preserve the verified simulator-failure and prior evidence as reusable diagnostics, and change at least two core scientific dimensions rather than reusing or renaming the present teacher-student reconstruction formulation.",
+  "must_preserve": [
+    "RL4IL label MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT",
+    "RIFA_XVLA_STAGE0_DESIGN_FAILURE",
+    "CVLR_XVLA_STAGE0_DESIGN_FAILURE",
+    "STAGE0_MECHANISM_NOT_SUPPORTED for the final action-consistent direction",
+    "no physical robot manipulation",
+    "no confirmatory reinterpretation"
+  ],
+  "requires_new_user_authority": true
+}

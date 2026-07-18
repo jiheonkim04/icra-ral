@@ -1,0 +1,30 @@
+{
+  "cuda_device": {
+    "allocator_initialized": true,
+    "device": "cuda:0",
+    "index": 0,
+    "name": "NVIDIA GeForce RTX 5080",
+    "telemetry_repair_classification": "EXCEPTIONAL_TELEMETRY_DEVICE_REPAIR"
+  },
+  "cuda_pid": 360,
+  "decision": "STAGE0_MECHANISM_NOT_SUPPORTED",
+  "elapsed_seconds": 383.823,
+  "exceptions": [],
+  "forward_counts": {
+    "hook": {
+      "inactive": 1820,
+      "student_adapter": 5452,
+      "teacher_capture": 572
+    },
+    "inactive_transformer": 1820,
+    "student": 5452,
+    "teacher": 572
+  },
+  "nvidia_smi_after": "NVIDIA GeForce RTX 5080, 16303 MiB, 2004 MiB, 13976 MiB, 0 %, 47",
+  "nvidia_smi_before": "NVIDIA GeForce RTX 5080, 16303 MiB, 1733 MiB, 14247 MiB, 1 %, 34",
+  "peak_cuda_allocated_bytes": 4593820672,
+  "peak_cuda_reserved_bytes": 4762632192,
+  "peak_system_ram_used_fraction": 0.28530330796455144,
+  "research_induced_swap_growth_bytes": 0,
+  "schema_version": "2026-07-19.epoch5_action_consistent_missing_view_resumed_stage0.v1.telemetry"
+}
