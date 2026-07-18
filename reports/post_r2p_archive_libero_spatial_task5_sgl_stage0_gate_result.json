@@ -1,0 +1,106 @@
+{
+  "schema_version": "2026-07-18.epoch5_sgl_xvla_stage0_gate_result.v1",
+  "created_at_kst": "2026-07-18T11:33:46+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "329f5b5f631d7bec39ef0bd61b007387c74d7502",
+  "stage": "epoch_5_sgl_xvla_task5_stage0_spec_frozen_no_training",
+  "decision": "SGL_XVLA_STAGE0_GATE_FROZEN_TESTED_NO_TRAINING_NO_OURS",
+  "candidate_id": "SGL-XVLA",
+  "candidate_name": "Support-Gated Lift for X-VLA",
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "development_residual_identities": [
+      20260727,
+      20260730,
+      20260733
+    ],
+    "clean_retention_identities": [
+      20260731,
+      20260732
+    ],
+    "held_out_confirmatory_identity_pool": [
+      20260734,
+      20260735,
+      20260736,
+      20260737
+    ]
+  },
+  "implemented_artifacts": {
+    "stage0_gate_module": "tca_map/xvla_spatial_task5/sgl_stage0_gate.py",
+    "stage0_gate_tests": "tests/test_sgl_xvla_stage0_gate.py",
+    "ignored_runtime_stage0_json": "runs/xvla_prior/epoch5_sgl_xvla_task5_stage0_gate_v1.json"
+  },
+  "gate_summary": {
+    "candidate_generation_report": "reports/post_r2p_archive_libero_spatial_task5_candidate_generation_result.json",
+    "residual_confirmation_report": "reports/post_r2p_archive_libero_spatial_task5_residual_confirmation_result.json",
+    "archived_r2p_xvla_report": "reports/post_secondprior_libero_spatial_20260727_r2p_xvla_archive_decision.json",
+    "stage0_spec_created": true,
+    "support_observability_gate_frozen": true,
+    "action_bias_bounds_gate_frozen": true,
+    "simple_fixed_lift_control_gate_frozen": true,
+    "held_out_identity_manifest_frozen": true,
+    "r2p_xvla_reopened_or_retuned": false,
+    "training_authorized": false,
+    "ours_rollout_authorized": false
+  },
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY",
+    "evidence_role": "OURS_CANDIDATE_STAGE0_GATE_SPEC",
+    "artifact_status": "NOT_APPLICABLE",
+    "simulator_episode_count": 0,
+    "vla_model_loaded": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false
+  },
+  "validation": {
+    "py_compile": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m py_compile tca_map/xvla_spatial_task5/sgl_stage0_gate.py",
+      "exit_code": 0
+    },
+    "focused_pytest": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_sgl_xvla_stage0_gate.py -q",
+      "exit_code": 0,
+      "result": "5 passed in 0.93s"
+    },
+    "stage0_json_emit": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m tca_map.xvla_spatial_task5.sgl_stage0_gate",
+      "exit_code": 0,
+      "output": "runs/xvla_prior/epoch5_sgl_xvla_task5_stage0_gate_v1.json"
+    }
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_rollout_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/epoch5_sgl_xvla_task5_stage0_gate_v1.json",
+      "sha256": "695268cda7deebdfb83b97290c3088ed127f10955cb2623a68ffaacd4f3c15a7",
+      "length_bytes": 8657
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/sgl_stage0_gate.py",
+      "sha256": "0e93d79b517f62d9626016a60b6c3bc835d1054d36d8fd56355a9b74af665c34",
+      "length_bytes": 16105
+    },
+    {
+      "path": "tests/test_sgl_xvla_stage0_gate.py",
+      "sha256": "6cea53193e82582ac28739ba558de8a752a23efd3da2eb376ba8f322d4dab59c",
+      "length_bytes": 2957
+    },
+    {
+      "path": "reports/post_r2p_archive_libero_spatial_task5_candidate_generation_result.json",
+      "sha256": "53dcb0de8c9a92625fa9ecc19b14edc287427da4d2c1f319d02075ecad659bf6",
+      "length_bytes": 12837
+    }
+  ],
+  "next_action": "Create a Stage 0 observability/report-only runner or report that checks SGL support-condition observability from existing artifacts only. Do not train, write checkpoints, or run Ours."
+}
