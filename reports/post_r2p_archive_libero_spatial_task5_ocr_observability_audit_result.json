@@ -1,0 +1,199 @@
+{
+  "schema_version": "2026-07-18.epoch5_ocr_xvla_observability_audit_result.v1",
+  "created_at_kst": "2026-07-18T12:18:53+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "head_at_report": "02546d82cf8170b1f75d03a54f6d3eba8782f821",
+  "stage": "epoch_5_ocr_xvla_task5_trigger_observability_report_only",
+  "decision": "OCR_TRIGGER_OBSERVABILITY_BLOCKED_NO_ALLOWED_PROGRESS_TRACE_NO_ROLLOUT",
+  "candidate_id": "OCR-XVLA",
+  "target": {
+    "suite": "libero_spatial",
+    "task_id": 5,
+    "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+    "residual_identities": [
+      20260727,
+      20260730,
+      20260733
+    ],
+    "clean_retention_identities": [
+      20260731,
+      20260732
+    ],
+    "held_out_confirmatory_identity_pool": [
+      20260734,
+      20260735,
+      20260736,
+      20260737
+    ]
+  },
+  "stage0_gate": {
+    "artifact": "runs/xvla_prior/epoch5_ocr_xvla_task5_stage0_gate_v1.json",
+    "valid": true
+  },
+  "existing_artifact_inventory": {
+    "xvla_trace_artifacts": [
+      {
+        "path": "runs/xvla_prior/failure_scan_libero_spatial_identity20260730_post_r2p_archive_20260718T0645KST/task_5/result.json",
+        "reset_identities": [
+          20260730
+        ],
+        "roles": [
+          "residual_failure"
+        ],
+        "length_bytes": 8683,
+        "episode_count": 1,
+        "has_per_step_rgb_or_video": false,
+        "has_per_step_proprio": false,
+        "has_per_step_action_history": false,
+        "has_object_separation_signal_from_allowed_observation": false
+      },
+      {
+        "path": "runs/xvla_prior/repeated_residual_spatial_task5_id20260731_33_xvla_prior_20260718T1115KST/result.json",
+        "reset_identities": [
+          20260731,
+          20260732,
+          20260733
+        ],
+        "roles": [
+          "clean_retention_success",
+          "clean_retention_success",
+          "residual_failure"
+        ],
+        "length_bytes": 20477,
+        "episode_count": 3,
+        "has_per_step_rgb_or_video": false,
+        "has_per_step_proprio": false,
+        "has_per_step_action_history": false,
+        "has_object_separation_signal_from_allowed_observation": false
+      }
+    ],
+    "video_search_result": {
+      "searched_dirs": [
+        "runs/xvla_prior/failure_scan_libero_spatial_identity20260730_post_r2p_archive_20260718T0645KST/task_5",
+        "runs/xvla_prior/repeated_residual_spatial_task5_id20260731_33_xvla_prior_20260718T1115KST"
+      ],
+      "video_or_image_files_found": [],
+      "extensions_checked": [
+        ".mp4",
+        ".avi",
+        ".gif",
+        ".png",
+        ".jpg",
+        ".jpeg"
+      ]
+    }
+  },
+  "trigger_observability": {
+    "proposed_trigger": "no visual/proprio/action-history progress after first grasp/lift attempt",
+    "required_trace_fields": [
+      "per-step RGB or video frames",
+      "per-step proprio/eef/gripper trace",
+      "per-step executed or proposed action history",
+      "a frozen observation-only object-separation/progress signal",
+      "timestamps or step indices linking observations to first grasp/lift attempt"
+    ],
+    "missing_required_trace_fields": [
+      "per-step RGB or video frames",
+      "per-step proprio/eef/gripper trace",
+      "per-step executed or proposed action history",
+      "a frozen observation-only object-separation/progress signal",
+      "timestamps or step indices linking observations to first grasp/lift attempt"
+    ],
+    "trigger_observable_from_existing_artifacts": false,
+    "deterministic_trigger_can_be_frozen_now": false,
+    "reason": "Existing X-VLA task5 artifacts contain episode summaries and action chunk range metadata, but not per-step RGB/video, proprio, or action-history traces needed to define an observation-consistency no-progress trigger without privileged state."
+  },
+  "forbidden_proxy_fields_not_used": [
+    "success",
+    "final_reward",
+    "done",
+    "reset_identity",
+    "initial_state_index",
+    "infrastructure failure/success flags"
+  ],
+  "comparator_role_statuses": {
+    "BASE_CLAIM_STATUS": "NOT_TESTED_STAGE0_TRIGGER_BLOCK",
+    "PRIOR_ADVANCE_STATUS": "NOT_TESTED_STAGE0_TRIGGER_BLOCK",
+    "ABLATION_COMPONENT_STATUS": "KEY_COMPONENT_NOT_SUPPORTED",
+    "SIMPLE_EXPLANATION_STATUS": "NOT_TESTED_STAGE0_TRIGGER_BLOCK",
+    "CLEAN_RETENTION_STATUS": "NOT_TESTED_STAGE0_TRIGGER_BLOCK",
+    "GENERALIZATION_STATUS": "NOT_TESTED_STAGE0_TRIGGER_BLOCK",
+    "OVERALL_PAPER_CANDIDATE_STATUS": "IMPLEMENTATION_DATA_OR_RESOURCE_FAILURE",
+    "status_scope": "OCR is blocked because the current existing artifacts do not expose the allowed trace fields needed to freeze its trigger. This is not evidence that retry mechanisms are scientifically impossible."
+  },
+  "execution_classification": {
+    "execution_type": "REPORT_ONLY",
+    "evidence_role": "OURS_CANDIDATE_STAGE0_OBSERVABILITY_AUDIT",
+    "artifact_status": "NOT_APPLICABLE",
+    "simulator_episode_count": 0,
+    "vla_model_loaded": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "control_rollout_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "validation": {
+    "py_compile": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m py_compile tca_map/xvla_spatial_task5/ocr_observability_audit.py",
+      "exit_code": 0
+    },
+    "focused_pytest": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m pytest tests/test_sgl_xvla_stage0_gate.py tests/test_sgl_xvla_observability_audit.py tests/test_sgl_xvla_action_bounds_gate.py tests/test_sgl_xvla_simple_control_gate.py tests/test_sgl_xvla_identity_manifest_gate.py tests/test_sgl_xvla_stage0_adjudication.py tests/test_sgl_xvla_rollout_protocol.py tests/test_sgl_xvla_runner_preflight.py tests/test_ocr_xvla_stage0_gate.py tests/test_ocr_xvla_observability_audit.py -q",
+      "exit_code": 0,
+      "result": "59 passed in 8.95s"
+    },
+    "audit_json_emit": {
+      "command": "wsl -d Ubuntu-22.04 --cd /mnt/c/Users/jiheo/tca_map -- /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python -m tca_map.xvla_spatial_task5.ocr_observability_audit",
+      "exit_code": 0,
+      "output": "runs/xvla_prior/epoch5_ocr_xvla_task5_observability_audit_v1.json"
+    }
+  },
+  "no_training_no_ours_booleans": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "control_rollout_happened": false,
+    "closed_loop_ours_evaluation_happened": false,
+    "ours_rollout_happened": false,
+    "lora_or_qlora_training_happened": false
+  },
+  "bounded_conclusion": {
+    "trigger_observability_passed": false,
+    "ocr_candidate_can_advance_to_action_bounds": false,
+    "ocr_candidate_can_train": false,
+    "ocr_candidate_can_roll_out_ours": false,
+    "ocr_candidate_blocked_from_existing_artifacts": true,
+    "task5_candidate_set_exhausted": true,
+    "candidate_exhaustion_reason": "SGL is blocked by simple-control equivalence; OCR trigger cannot be frozen from existing allowed traces."
+  },
+  "artifact_hashes": [
+    {
+      "path": "runs/xvla_prior/epoch5_ocr_xvla_task5_observability_audit_v1.json",
+      "sha256": "03f55051a049698a58edf68ed3ed4066e75c88b0ef784c1222146218f1f68172",
+      "length_bytes": 7407
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/ocr_observability_audit.py",
+      "sha256": "7897a6c5e8c8bd5664522df12da1855a5cd2ab5540c089641f783fb246a6a53c",
+      "length_bytes": 14244
+    },
+    {
+      "path": "tests/test_ocr_xvla_observability_audit.py",
+      "sha256": "3511dc3fd0e45d2c6a1d1062d91a434f37e61daffc6d9b69b8ca7e612c07114f",
+      "length_bytes": 3936
+    },
+    {
+      "path": "tca_map/xvla_spatial_task5/ocr_stage0_gate.py",
+      "sha256": "92d3b0e246db055f02baa5405a20894d0f7f34539c6f4177d3f3caa72dc3d872",
+      "length_bytes": 18290
+    },
+    {
+      "path": "tests/test_ocr_xvla_stage0_gate.py",
+      "sha256": "ef6e79d0b8233b9fba4d4573db63a29050885fc49d4ab19715a1fc2b5424fd21",
+      "length_bytes": 3918
+    }
+  ],
+  "next_action": "Do not run OCR-XVLA. Mark the current task5 candidate set exhausted and resume official-prior-first residual search elsewhere; no training, checkpoints, simulator episode, or Ours rollout."
+}
