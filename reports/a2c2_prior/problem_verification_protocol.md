@@ -111,3 +111,11 @@ preserved at 384 anchors and 1,525 rows. A clean idle-WSL shutdown returned
 host RAM to 65.34%; the identical command resumes only missing anchors. The
 interruption is preserved in
 `reports/a2c2_prior/cache_resource_interruption_1.json`.
+
+A fresh VM exposed a distinct default-allocation root: WSL2's default 50% host
+memory limit raised Windows RAM from 65.78% to 88.93% on the minimum live
+model path. The cache was again preserved, now at 533 anchors and 2,115 rows.
+The previously absent `.wslconfig` is bounded to 3,584 MiB with swap disabled
+and immediate cache reclaim, following Microsoft's official WSL interface.
+The exact attempt is
+`reports/a2c2_prior/cache_wsl_default_memory_failure_1.json`.

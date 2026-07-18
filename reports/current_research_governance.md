@@ -879,3 +879,11 @@ The repaired cache run was resource-stopped when Windows host RAM reached
 cache remained valid at 384 anchors and 1,525 rows. With no research worker
 left, a clean WSL shutdown returned host RAM to 65.34%; the same frozen cache
 stage resumes only missing anchors without changing the contract.
+
+The clean-VM verification exposed a distinct WSL default-allocation root:
+Windows RAM rose from 65.78% to 88.93% under WSL2's default 50%-of-host memory
+limit, while the minimum model RSS was 2.57 GiB. The durable cache remained
+valid at 533 anchors and 2,115 rows. The previously absent global WSL2 config
+is bounded to 3,584 MiB with swap disabled and immediate cache reclaim. This
+environment-only correction changes no scientific field and must be verified
+on the same actual path before the cache may continue.

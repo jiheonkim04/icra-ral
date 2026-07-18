@@ -281,6 +281,15 @@
         "repair": "stop at the ceiling, verify the durable cache, cleanly restart idle WSL to return host memory, and resume only missing frozen anchors",
         "failed_attempt": "reports/a2c2_prior/cache_resource_interruption_1.json",
         "scientific_contract_changed": false
+      },
+      {
+        "attempt": 4,
+        "classification": "RESOURCE_COMPATIBILITY_DEFECT",
+        "defect": "the default WSL2 50%-of-host memory limit raised Windows RAM from 65.78% to 88.93% during the minimum live model path",
+        "repair": "set the previously absent global WSL2 VM cap to 3584MB, disable swap, enable immediate cache reclaim, restart WSL, and verify the actual path",
+        "failed_attempt": "reports/a2c2_prior/cache_wsl_default_memory_failure_1.json",
+        "official_configuration_source": "https://learn.microsoft.com/en-us/windows/wsl/wsl-config",
+        "scientific_contract_changed": false
       }
     ]
   },
