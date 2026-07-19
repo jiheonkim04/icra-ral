@@ -14,7 +14,7 @@ Updated: 2026-07-19 KST
 - Epoch/cycle: `5 / 0`
 - Campaign state: `A2C2_OFFICIAL_ACTION_SEMANTICS_CORRECTION_AUTHORIZED`; historical `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` remains preserved.
 - Closed Pivot Epoch 1 thesis: action-chunk reactivity under asynchronous inference delay. The historical results `PRIOR_INFRASTRUCTURE_BLOCKED` and `A2C2_RESOURCE_FUNDAMENTALLY_BLOCKED_ON_CURRENT_24GB_HOST` remain preserved; the later clean-host continuation validly completed the frozen panel and returned `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
-- Active stage: the official action-path audit returned `OFFICIAL_ACTION_SEMANTICS_VERIFIED`; the outcome-suppressed smoke returned `CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS`. The unchanged 45-row panel is authorized but has not started.
+- Active stage: the official action-path audit and outcome-suppressed smoke passed. The first 45-row panel attempt is preserved but quarantined after an inherited host-monitor telemetry false positive. One minimal telemetry repair is frozen; the identical 45-row rerun is pending.
 - Current novelty decision: not applicable; Ours remains unauthorized.
 - Active training/rollout worker: none.
 - Current scientific decision: none for the active correction. `CORRECTED_A2C2_EVALUATION_INVALID` is preserved only as `HISTORICAL_LOCAL_STRICT_RAW_BOUND_GATE_RESULT`; v1 independently remains `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
@@ -68,6 +68,8 @@ Updated: 2026-07-19 KST
 - A2C2 official-action-semantics protocol: `reports/a2c2_prior/official_action_semantics_protocol.json`
 - A2C2 official-action-semantics preregistration validation: `reports/a2c2_prior/official_action_semantics_preregistration_validation.json`
 - A2C2 official-action-semantics smoke: `reports/a2c2_prior/official_action_semantics_smoke_result.json`
+- A2C2 panel telemetry failed attempt: `reports/a2c2_prior/official_action_semantics_panel_host_telemetry_failed_attempt.json`
+- A2C2 panel telemetry repair protocol: `reports/a2c2_prior/official_action_semantics_panel_host_telemetry_repair_protocol.json`
 - Pivot Epoch 2 selection: `reports/strategic_pivot_epoch2_selection_result.json`
 - Final strategic-pivot decision: `reports/strategic_pivot_final_decision.json`
 
@@ -170,11 +172,21 @@ valid native handling throughout, and no reproducible substantial Prior-
 specific instability. Success, done, and reward were not inspected, persisted,
 or counted.
 
-Run the unchanged 45-row corrected panel now: tasks `0,4,8`, official init
-states `5..9`, conditions `BASE_STANDARD_E10_D0`, `BASE_DELAYED_E40_D10`, and
+The first 45-row panel attempt completed internally but is quarantined. Its
+host monitor treated a 6 MiB system-wide Windows pagefile `CurrentUsage`
+reservation drift as paging even though 872 samples recorded zero
+`PageWrites/sec` and zero `PagesOutput/sec`; WSL swap/offload/OOM were zero and
+memory release succeeded. Preserve its internal candidate decision without
+adopting it.
+
+Exactly one logging/telemetry repair is frozen: keep `CurrentUsage` drift as a
+diagnostic and detect actual pagefile activity from nonzero `PageWrites/sec` or
+`PagesOutput/sec`. Run the unchanged 45-row corrected panel again from zero
+rows under a new run id: tasks `0,4,8`, official init states `5..9`, conditions
+`BASE_STANDARD_E10_D0`, `BASE_DELAYED_E40_D10`, and
 `PRIOR_DELAYED_E40_D10`, max 220 steps, sequential one-backbone residency,
 atomic rows, and missing-key-only resume. Do not select an additional Prior,
-design Ours, or create a paper package until the frozen panel decision is
+design Ours, or create a paper package until the frozen rerun decision is
 known.
 
 ## Historical pre-clean-host resource conclusion

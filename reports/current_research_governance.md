@@ -1179,3 +1179,23 @@ effect thresholds, atomic persistence, and missing-key-only resume contract.
 No additional Prior, Ours, Stage 0/A/B, or paper package is authorized before
 that panel's exact decision. The smoke record is
 `reports/a2c2_prior/official_action_semantics_smoke_result.json`.
+
+The first full panel attempt then completed all 45 rows internally, but its
+scientific candidate decision is quarantined. The inherited monitor returned a
+host failure solely because system-wide Windows pagefile `CurrentUsage` rose
+from 72 to 78 MiB. All 872 samples recorded zero `PageWrites/sec` and zero
+`PagesOutput/sec`; WSL swap, model offload, OOM, and host-ceiling termination
+were zero/false, and memory release passed. The monitor had conflated a
+reservation-counter drift with actual paging, a condition not frozen by the
+active resource contract.
+
+Under the steer's explicit non-scientific logging/telemetry repair authority,
+one minimal repair is frozen before outcomes may be adopted: persist
+`CurrentUsage` drift as a diagnostic, detect pagefile activity from nonzero
+sampled `PageWrites/sec` or `PagesOutput/sec`, and otherwise retain the exact
+12 GB, swap-zero, one-residency, no-offload, no-OOM, 82% host-ceiling, and
+memory-release gates. The same 45 frozen rows must rerun from zero under a new
+run id. No model, action path, task, identity, delay, timeout, success rule,
+outcome threshold, or adjudicator may change. The failed attempt and repair
+protocol are `reports/a2c2_prior/official_action_semantics_panel_host_telemetry_failed_attempt.json`
+and `reports/a2c2_prior/official_action_semantics_panel_host_telemetry_repair_protocol.json`.

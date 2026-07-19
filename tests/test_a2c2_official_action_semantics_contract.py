@@ -99,6 +99,18 @@ def test_host_monitor_classifies_the_new_mode_as_a_smoke() -> None:
     assert "CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS" in monitor
 
 
+def test_host_monitor_separates_pagefile_counter_drift_from_write_activity() -> None:
+    monitor = (REPO_ROOT / "scripts" / "monitor_a2c2_fidelity_corrected.ps1").read_text(
+        encoding="utf-8"
+    )
+
+    assert "$peakPagesOutputPerSec" in monitor
+    assert "$pagefileWriteActivity" in monitor
+    assert "$pagefileCounterDriftWithoutWrites" in monitor
+    assert "-not $memoryReleaseVerified -or $pagefileWriteActivity" in monitor
+    assert "-not $memoryReleaseVerified -or $pagefileGrowthMiB -gt 0" not in monitor
+
+
 def test_valid_official_semantics_smoke_opens_only_the_frozen_panel() -> None:
     result = _load("official_action_semantics_smoke_result.json")
 
@@ -116,3 +128,32 @@ def test_valid_official_semantics_smoke_opens_only_the_frozen_panel() -> None:
     assert result["resources"]["swap_total_bytes"] == 0
     assert result["resources"]["pagefile_current_growth_mib"] == 0
     assert result["next_action"] == "The unchanged 45-row corrected panel is now authorized."
+
+
+def test_panel_telemetry_failure_is_preserved_and_candidate_is_quarantined() -> None:
+    failure = _load("official_action_semantics_panel_host_telemetry_failed_attempt.json")
+
+    assert failure["completed_scientific_rows"] == 45
+    assert failure["internal_candidate_decision"] == "CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP"
+    assert failure["internal_candidate_decision_adopted"] is False
+    assert failure["host_monitor_decision"] == "A2C2_CORRECTED_HOST_FAIL_MEMORY_OR_PAGEFILE"
+    assert failure["root_cause"]["peak_page_writes_per_sec"] == 0
+    assert failure["root_cause"]["peak_pages_output_per_sec"] == 0
+    assert failure["root_cause"]["wsl_swap_total_bytes"] == 0
+    assert failure["repair"]["repair_count_for_this_root"] == 1
+    assert failure["repair"]["required_rerun"].startswith("identical frozen 45-row panel")
+
+
+def test_host_telemetry_repair_protocol_is_hashed_before_identical_rerun() -> None:
+    protocol_path = REPORTS / "official_action_semantics_panel_host_telemetry_repair_protocol.json"
+    protocol = json.loads(protocol_path.read_text(encoding="utf-8"))
+    expected_hash = (
+        REPORTS / "official_action_semantics_panel_host_telemetry_repair_protocol.sha256"
+    ).read_text(encoding="utf-8").split()[0]
+
+    assert hashlib.sha256(protocol_path.read_bytes()).hexdigest().upper() == expected_hash
+    assert protocol["frozen_before_identical_rerun"] is True
+    assert protocol["repair_count_for_root"] == 1
+    assert protocol["identical_rerun"]["planned_rows"] == 45
+    assert protocol["identical_rerun"]["start_from_zero_rows"] is True
+    assert protocol["identical_rerun"]["model_action_path_and_adjudicator_unchanged"] is True

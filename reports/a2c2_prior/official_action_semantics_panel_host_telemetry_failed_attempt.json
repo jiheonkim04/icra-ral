@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "stage": "A2C2_OFFICIAL_ACTION_SEMANTICS_PANEL_FAILED_ATTEMPT",
+  "run_id": "official_semantics_panel_20260719T210400KST",
+  "source_head": "129bca47245bd97f223fb4dd8473062ab1e16fca",
+  "scientific_contract_changed": false,
+  "completed_scientific_rows": 45,
+  "duplicate_scientific_keys": 0,
+  "all_rows_action_semantics_valid": true,
+  "row_exceptions": 0,
+  "internal_candidate_decision": "CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP",
+  "internal_candidate_counts": {
+    "BASE_STANDARD_E10_D0": 11,
+    "BASE_DELAYED_E40_D10": 9,
+    "PRIOR_DELAYED_E40_D10": 9
+  },
+  "internal_candidate_decision_adopted": false,
+  "internal_candidate_decision_status": "QUARANTINED_PENDING_IDENTICAL_RERUN",
+  "host_monitor_decision": "A2C2_CORRECTED_HOST_FAIL_MEMORY_OR_PAGEFILE",
+  "root_cause": {
+    "classification": "LOGGING_TELEMETRY_FALSE_POSITIVE",
+    "baseline_pagefile_current_usage_mib": 72,
+    "peak_pagefile_current_usage_mib": 78,
+    "post_shutdown_pagefile_current_usage_mib": 76,
+    "reported_current_usage_growth_mib": 6,
+    "host_sample_count": 872,
+    "peak_page_writes_per_sec": 0,
+    "peak_pages_output_per_sec": 0,
+    "wsl_swap_total_bytes": 0,
+    "cpu_or_disk_model_offload": false,
+    "kernel_oom": false,
+    "host_ceiling_terminated": false,
+    "memory_release_verified": true,
+    "explanation": "The inherited monitor treated any system-wide Win32_PageFileUsage CurrentUsage reservation drift as paging, even when all sampled PageWrites/sec and PagesOutput/sec were zero. The active steer freezes WSL swap=0 and no model offload, not zero system-wide CurrentUsage drift."
+  },
+  "preserved_workload_telemetry": {
+    "total_simulator_steps": 6353,
+    "base_model_forwards": 323,
+    "prior_module_forwards": 2148,
+    "mean_prior_abs_correction_across_prior_rows": 0.120672691733333,
+    "elapsed_seconds": 726.308,
+    "cuda_pid": 291,
+    "peak_vram_allocated_mib": 1532.542,
+    "peak_process_rss_mib": 4319.074,
+    "peak_wsl_used_gib": 3.927,
+    "host_baseline_used_fraction": 0.36817140904393508,
+    "host_peak_used_fraction": 0.68628225344922,
+    "host_post_shutdown_used_fraction": 0.37457816790938775
+  },
+  "repair": {
+    "authorized_category": "logging/telemetry",
+    "repair_count_for_this_root": 1,
+    "minimal_change": "Record CurrentUsage drift as a diagnostic; classify pagefile activity only when sampled PageWrites/sec or PagesOutput/sec is nonzero.",
+    "scientific_threshold_changed": false,
+    "model_or_action_path_changed": false,
+    "required_rerun": "identical frozen 45-row panel from zero rows under a new run id"
+  },
+  "raw_evidence": {
+    "result_path": "runs/a2c2_fidelity_corrected/official_semantics_panel_20260719T210400KST/result.json",
+    "result_sha256": "0DCAED5FDE313F8D89B9977639B9EAC5852AF1089EFCB1DFE2A949F531814844",
+    "episodes_path": "runs/a2c2_fidelity_corrected/official_semantics_panel_20260719T210400KST/episodes.jsonl",
+    "episodes_sha256": "38152F37BF7A23B88D6A44F2173FD7A85936769664FAD79990B60A22B0B2BF5A",
+    "host_monitor_path": "runs/a2c2_fidelity_corrected/official_semantics_panel_20260719T210400KST/host_monitor.json",
+    "host_monitor_sha256": "499612FCE76D0F0AEDAC55A84357F5A7738D291AA180FADF1B04C54DAA6682B0"
+  },
+  "final_decision": "A2C2_PANEL_HOST_TELEMETRY_FALSE_POSITIVE_PRESERVED_FOR_IDENTICAL_RERUN"
+}

@@ -103,6 +103,7 @@ $peakUsedFraction = [double]$baseline.used_fraction
 $peakCommittedBytes = [int64]$baseline.committed_bytes
 $peakPagefileCurrentMiB = [double]$baseline.pagefile_current_usage_mib
 $peakPageWritesPerSec = [int64]$baseline.page_writes_per_sec
+$peakPagesOutputPerSec = [int64]$baseline.pages_output_per_sec
 $hostCeilingTerminated = $false
 
 while (-not $process.HasExited) {
@@ -112,6 +113,7 @@ while (-not $process.HasExited) {
     $peakCommittedBytes = [math]::Max($peakCommittedBytes, [int64]$sample.committed_bytes)
     $peakPagefileCurrentMiB = [math]::Max($peakPagefileCurrentMiB, [double]$sample.pagefile_current_usage_mib)
     $peakPageWritesPerSec = [math]::Max($peakPageWritesPerSec, [int64]$sample.page_writes_per_sec)
+    $peakPagesOutputPerSec = [math]::Max($peakPagesOutputPerSec, [int64]$sample.pages_output_per_sec)
     if ([double]$sample.used_fraction -gt 0.82) {
         $hostCeilingTerminated = $true
         & wsl.exe --terminate Ubuntu-22.04 | Out-Null
@@ -146,9 +148,16 @@ $samples.Add($postShutdown)
 $peakUsedFraction = [math]::Max($peakUsedFraction, [double]$afterChild.used_fraction)
 $peakUsedFraction = [math]::Max($peakUsedFraction, [double]$postShutdown.used_fraction)
 $peakCommittedBytes = [math]::Max($peakCommittedBytes, [int64]$afterChild.committed_bytes)
+$peakCommittedBytes = [math]::Max($peakCommittedBytes, [int64]$postShutdown.committed_bytes)
 $peakPagefileCurrentMiB = [math]::Max($peakPagefileCurrentMiB, [double]$afterChild.pagefile_current_usage_mib)
+$peakPagefileCurrentMiB = [math]::Max($peakPagefileCurrentMiB, [double]$postShutdown.pagefile_current_usage_mib)
 $peakPageWritesPerSec = [math]::Max($peakPageWritesPerSec, [int64]$afterChild.page_writes_per_sec)
+$peakPageWritesPerSec = [math]::Max($peakPageWritesPerSec, [int64]$postShutdown.page_writes_per_sec)
+$peakPagesOutputPerSec = [math]::Max($peakPagesOutputPerSec, [int64]$afterChild.pages_output_per_sec)
+$peakPagesOutputPerSec = [math]::Max($peakPagesOutputPerSec, [int64]$postShutdown.pages_output_per_sec)
 $pagefileGrowthMiB = $peakPagefileCurrentMiB - [double]$baseline.pagefile_current_usage_mib
+$pagefileWriteActivity = [bool]($peakPageWritesPerSec -gt 0 -or $peakPagesOutputPerSec -gt 0)
+$pagefileCounterDriftWithoutWrites = [bool]($pagefileGrowthMiB -gt 0 -and -not $pagefileWriteActivity)
 $memoryReleaseVerified = [double]$postShutdown.used_fraction -le ([double]$baseline.used_fraction + 0.05)
 $swapZero = [bool]($null -ne $internal -and [int64]$internal.swap_total_bytes_at_end -eq 0)
 $offloadVerified = [bool]($null -ne $internal -and $internal.model_load_audit.no_cpu_or_disk_offload)
@@ -171,7 +180,7 @@ if ($hostCeilingTerminated) {
     $decision = "A2C2_CORRECTED_HOST_FAIL_WINDOWS_CEILING"
 } elseif (@($dmesg | Where-Object { $_ -match "out of memory|oom-kill|killed process" }).Count -gt 0) {
     $decision = "A2C2_CORRECTED_HOST_FAIL_KERNEL_OOM"
-} elseif (-not $memoryReleaseVerified -or $pagefileGrowthMiB -gt 0) {
+} elseif (-not $memoryReleaseVerified -or $pagefileWriteActivity) {
     $decision = "A2C2_CORRECTED_HOST_FAIL_MEMORY_OR_PAGEFILE"
 } elseif (($smokePass -or $panelComplete) -and $offloadVerified -and $swapZero -and $peakUsedFraction -le 0.82) {
     $decision = if ($Mode -in @("smoke", "semantics_smoke")) { "A2C2_CORRECTED_HOST_SMOKE_PASS" } else { "A2C2_CORRECTED_HOST_PANEL_PASS" }
@@ -199,10 +208,13 @@ $payload = [ordered]@{
         committed_bytes = $peakCommittedBytes
         pagefile_current_usage_mib = $peakPagefileCurrentMiB
         page_writes_per_sec = $peakPageWritesPerSec
+        pages_output_per_sec = $peakPagesOutputPerSec
     }
     after_child = $afterChild
     post_wsl_shutdown = $postShutdown
     pagefile_current_growth_mib = $pagefileGrowthMiB
+    pagefile_write_activity = $pagefileWriteActivity
+    pagefile_counter_drift_without_writes = $pagefileCounterDriftWithoutWrites
     memory_release_verified = $memoryReleaseVerified
     sample_count = $samples.Count
     samples = $samples

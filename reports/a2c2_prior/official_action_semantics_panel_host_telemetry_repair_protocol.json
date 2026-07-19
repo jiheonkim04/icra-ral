@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "stage": "A2C2_OFFICIAL_ACTION_SEMANTICS_PANEL_HOST_TELEMETRY_REPAIR",
+  "frozen_before_identical_rerun": true,
+  "failed_attempt_run_id": "official_semantics_panel_20260719T210400KST",
+  "failed_attempt_decision": "A2C2_PANEL_HOST_TELEMETRY_FALSE_POSITIVE_PRESERVED_FOR_IDENTICAL_RERUN",
+  "repair_count_for_root": 1,
+  "repair_category": "logging/telemetry",
+  "frozen_classifier": {
+    "pagefile_current_usage_growth": "persist as diagnostic only",
+    "pagefile_write_activity": "peak PageWrites/sec > 0 OR peak PagesOutput/sec > 0",
+    "host_memory_failure": "post-shutdown memory release failure OR pagefile_write_activity",
+    "wsl_swap_required_bytes": 0,
+    "cpu_or_disk_model_offload": false,
+    "host_physical_used_fraction_max": 0.82,
+    "kernel_oom_allowed": false
+  },
+  "identical_rerun": {
+    "tasks": [0, 4, 8],
+    "official_init_state_ids": [5, 6, 7, 8, 9],
+    "conditions": ["BASE_STANDARD_E10_D0", "BASE_DELAYED_E40_D10", "PRIOR_DELAYED_E40_D10"],
+    "planned_rows": 45,
+    "max_steps": 220,
+    "start_from_zero_rows": true,
+    "new_run_id_required": true,
+    "scientific_contract_unchanged": true,
+    "model_action_path_and_adjudicator_unchanged": true
+  },
+  "forbidden": [
+    "checkpoint or source change",
+    "action-semantics change",
+    "task, identity, delay, timeout, success, or outcome-threshold change",
+    "reuse quarantined candidate decision as the final decision",
+    "second repair for the same telemetry root"
+  ]
+}
