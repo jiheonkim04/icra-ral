@@ -1071,3 +1071,50 @@ Authoritative records are
 `reports/a2c2_prior/fidelity_strong_prior_continuation_authorization.json`,
 `reports/a2c2_prior/fidelity_gap_audit_result.json`, and
 `reports/a2c2_prior/fidelity_corrected_protocol.json`.
+
+## A2C2 Corrected-Path Preflight Closure
+
+Effective `2026-07-19`, the one corrected implementation completed its
+bounded outcome-suppressed actual-path preflight. The label remains
+`A2C2_FIDELITY_CORRECTED_LOCAL_PORT`; it is not an official reproduction.
+No residual training, Ours training, or scientific panel execution occurred.
+
+The first load attempt preserved an objective checkpoint/source serializer
+failure: the public prior stores a `[512,512]` image projection while the
+later frozen source constructs `[512,512,1,1]`. Repository history uniquely
+identified the immediately preceding author commit
+`c197a011aabf070cf2c0b2b0705be5f33d178ad7`; the public checkpoint strict-loads
+there without reshaping tensors or using a non-strict load. A second preserved
+attempt exposed only the corresponding historical dataclass-config reporting
+API. The author's `asdict` serialization route repaired that telemetry without
+changing the model or protocol.
+
+The completed development smoke used task id `2`, official init state `10`,
+the pinned author Base and prior hashes, exact two-view RGB rotation, ten reset
+stabilization steps, and the frozen standard/delayed queues. Base completed 10
+model forwards. The delayed trace completed three Base forwards and 94 live
+prior forwards; mean absolute prior correction was `0.091438221`. Both traces
+were finite and exception-free. No task success was persisted or counted.
+
+The frozen raw-action legality gate failed before any scientific panel row.
+Base reached maximum absolute raw action `1.024949789`; Prior reached
+`1.000505567`, both beyond `[-1,1]`. The released evaluator adds no explicit
+clip. Robosuite clips internally at its controller boundary, but the frozen
+protocol requires legal raw actions and forbids a post-hoc clipping rescue.
+Do not relax or reinterpret this threshold.
+
+The exact corrected decision is `CORRECTED_A2C2_EVALUATION_INVALID`. The
+new 45-row panel was not started and contains zero scientific rows. This does
+not establish improvement or no-improvement and does not alter v1's separate
+`A2C2_PRIOR_NO_LOCAL_IMPROVEMENT` result. The steer authorizes an additional
+Prior after corrected no-improvement, not after corrected invalidity; hence
+another Prior, Ours, Stage 0/A/B, Pareto/generalization, and the paper package
+remain unauthorized.
+
+Peak allocated VRAM was `1532.542 MiB`, peak process RSS `4063.348 MiB`, and
+Windows physical use peaked at `65.09%`, with zero swap, pagefile growth,
+offload, or OOM. The temporary `.wslconfig` was removed, WSL was shut down,
+and no worker remains.
+
+The authoritative result is
+`reports/a2c2_prior/fidelity_corrected_actual_path_smoke_result.json`.

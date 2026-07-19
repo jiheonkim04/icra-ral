@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "run_id": "a2c2_corrected_smoke_20260719t1807",
+  "classification": "PRIOR_ACTUAL_PATH_PREFLIGHT",
+  "fidelity_label": "A2C2_FIDELITY_CORRECTED_LOCAL_PORT",
+  "scientific_outcome_persisted_or_counted": false,
+  "internal_decision": "A2C2_CORRECTED_ACTUAL_PATH_SMOKE_FAIL",
+  "host_decision": "A2C2_CORRECTED_HOST_FAIL_IMPLEMENTATION_OR_EXECUTION",
+  "failure_stage": "prior_checkpoint_strict_load",
+  "exception_type": "RuntimeError",
+  "exception_message": "size mismatch for model.image_proj.weight: checkpoint [512,512], constructed source module [512,512,1,1]",
+  "root_cause": {
+    "public_checkpoint_projection_shape": [512, 512],
+    "frozen_latest_source_projection_shape": [512, 512, 1, 1],
+    "checkpoint_compatible_author_commit": "c197a011aabf070cf2c0b2b0705be5f33d178ad7",
+    "checkpoint_compatible_source_sha256": "AE4077EB854E6B5BD7CDF6C74CD4469C62BED6949D31765D219AA8AE555927A3",
+    "later_architecture_commit": "75fa9d2",
+    "evidence": "The public tensor strict-loads without missing, unexpected, or reshaped keys against author commit c197a01; the next author commit changes nn.Linear to nn.Conv2d."
+  },
+  "one_narrow_repair": {
+    "category": "serializer/checkpoint-source compatibility",
+    "action": "Execute with the exact checkpoint-compatible author source commit c197a01 and retain strict=True.",
+    "forbidden_shortcuts": [
+      "reshape checkpoint tensor",
+      "strict=False load",
+      "change checkpoint",
+      "change mechanism",
+      "change tasks, resets, delay, metrics, or decision rules"
+    ],
+    "scientific_protocol_changed": false,
+    "repair_count": 1
+  },
+  "telemetry": {
+    "cuda_pid": 289,
+    "elapsed_seconds": 30.184,
+    "peak_rss_mib": 2941.32,
+    "peak_vram_allocated_mib": 1532.542,
+    "host_baseline_used_fraction": 0.4683745537938332,
+    "host_peak_used_fraction": 0.6626184839489298,
+    "pagefile_growth_mib": 0,
+    "swap_zero": true,
+    "kernel_oom_count": 0,
+    "memory_release_verified": true
+  },
+  "preserved_run_artifacts": "runs/a2c2_fidelity_corrected/a2c2_corrected_smoke_20260719t1807"
+}

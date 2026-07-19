@@ -8,14 +8,15 @@ Updated: 2026-07-19 KST
 - Source HEAD before Pivot Epoch 1 selection: `f11ec2135f39dba3ccf315ee5271aa152247cff7`
 - Current pushed HEAD before Pivot Epoch 2 closure: `2bf992a`
 - Resource-continuation source HEAD: `d276cf139ba09cc051cf3329775328499772848b`
-- Fidelity-continuation source and current pushed HEAD: `80591dd57034cf29c04d006cec683058d35a1703`
+- Fidelity-continuation source HEAD: `80591dd57034cf29c04d006cec683058d35a1703`
+- Focused-audit pushed HEAD before corrected preflight closure: `d972dfb4e21d9f262ad64b0f26a1a4e60a65fffb`
 - Epoch/cycle: `5 / 0`
-- Campaign state: focused asynchronous-delay fidelity/strong-Prior continuation active under explicit later authority; historical `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` remains preserved.
+- Campaign state: focused asynchronous-delay fidelity/strong-Prior continuation stopped at its frozen corrected-path preflight; historical `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` remains preserved.
 - Closed Pivot Epoch 1 thesis: action-chunk reactivity under asynchronous inference delay. The historical results `PRIOR_INFRASTRUCTURE_BLOCKED` and `A2C2_RESOURCE_FUNDAMENTALLY_BLOCKED_ON_CURRENT_24GB_HOST` remain preserved; the later clean-host continuation validly completed the frozen panel and returned `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
-- Active stage: the focused fidelity audit returned `A2C2_OBJECTIVE_FIDELITY_DEFECT_FOUND`; the single corrected protocol is frozen and implementation/load preflight is next.
+- Active stage: none. The single corrected actual-path preflight completed technically but failed frozen raw-action legality; the 45-row panel was not started.
 - Current novelty decision: not applicable; Ours remains unauthorized.
 - Active training/rollout worker: none.
-- Current scientific decision: `A2C2_OBJECTIVE_FIDELITY_DEFECT_FOUND`; v1 remains `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
+- Current scientific decision: `CORRECTED_A2C2_EVALUATION_INVALID`; v1 independently remains `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
 - Paper-level decision: no `PAPER_CANDIDATE_GO`; historical `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` is not erased.
 - Paper status: no `PROTOTYPE_GO`, `PAPER_CANDIDATE_GO`, or paper-ready package.
 - Preserve pre-existing ignored `rollouts/2026_07_17/` and `rollouts/2026_07_18/`.
@@ -59,6 +60,8 @@ Updated: 2026-07-19 KST
 - A2C2 fidelity/strong-Prior authority: `reports/a2c2_prior/fidelity_strong_prior_continuation_authorization.json`
 - A2C2 focused fidelity audit: `reports/a2c2_prior/fidelity_gap_audit_result.json`
 - A2C2 single corrected protocol: `reports/a2c2_prior/fidelity_corrected_protocol.json`
+- A2C2 corrected metadata preflight: `reports/a2c2_prior/fidelity_corrected_metadata_preflight_result.json`
+- A2C2 corrected actual-path decision: `reports/a2c2_prior/fidelity_corrected_actual_path_smoke_result.json`
 - Pivot Epoch 2 selection: `reports/strategic_pivot_epoch2_selection_result.json`
 - Final strategic-pivot decision: `reports/strategic_pivot_final_decision.json`
 
@@ -136,22 +139,19 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 
 ## Current immediate next action
 
-The focused primary-source audit is complete. The exact decision is
-`A2C2_OBJECTIVE_FIDELITY_DEFECT_FOUND`: v1 used an unpaired third-party Base,
-missed public author base/residual/dataset artifacts, and omitted the official
-180-degree rotation of both live RGB views. This decision is independent of
-the v1 `3/15` result. Reset stabilization, queue timing, per-step invocation,
-residual target, and residual integration were verified as faithful.
+Stop and wait for explicit authority. The focused audit remains
+`A2C2_OBJECTIVE_FIDELITY_DEFECT_FOUND`, but the only corrected path ended as
+`CORRECTED_A2C2_EVALUATION_INVALID` during its outcome-suppressed actual-path
+preflight. Exact author checkpoints strict-loaded on CUDA, and the prior ran
+94 live forwards with nonzero corrections, but Base and Prior raw actions
+exceeded the frozen `[-1,1]` legality bounds (`1.024949789` and
+`1.000505567`). No clipping or threshold relaxation is permitted.
 
-The only corrected path is frozen as
-`A2C2_FIDELITY_CORRECTED_LOCAL_PORT`. Implement focused load/preprocessing/
-queue/equivalence tests and a resumable runner, download only the two pinned
-public model repositories, and perform a bounded technical smoke on task 2,
-init state 10. If it passes, run the new matched 45-row panel on tasks 0,4,8
-and init states 5..9 at the verified 12 GB WSL cap with swap zero and one base
-residency. Do not retrain the prior, use old init states 0..4, run a second
-fidelity correction, search another Prior, design Ours, or generate a paper
-package before the corresponding frozen gate.
+The corrected 45-row panel was not started and has zero scientific rows. The
+steer authorizes an additional Prior after corrected no-improvement, not after
+corrected evaluation invalidity. Therefore do not launch that panel, select
+another Prior, design Ours, execute Stage 0/A/B, or generate a paper package.
+The temporary `.wslconfig` is absent, WSL is shut down, and no worker exists.
 
 ## Historical pre-clean-host resource conclusion
 

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "run_id": "a2c2_corrected_smoke_repair1_20260719t1826",
+  "classification": "PRIOR_ACTUAL_PATH_PREFLIGHT",
+  "fidelity_label": "A2C2_FIDELITY_CORRECTED_LOCAL_PORT",
+  "scientific_outcome_persisted_or_counted": false,
+  "internal_decision": "A2C2_CORRECTED_ACTUAL_PATH_SMOKE_FAIL",
+  "host_decision": "A2C2_CORRECTED_HOST_FAIL_IMPLEMENTATION_OR_EXECUTION",
+  "checkpoint_strict_load_passed": true,
+  "failure_stage": "post-load telemetry serialization",
+  "exception_type": "AttributeError",
+  "exception_message": "Historical SmolVLAConfig has no to_dict method.",
+  "root_cause": "The checkpoint-compatible author source uses dataclass policy configs and the author's asdict serialization path, while the local telemetry assumed a later to_dict API.",
+  "repair_relation": "Continuation of the same checkpoint-source serializer compatibility repair; model tensors and scientific execution were not changed.",
+  "repair_action": "Use dataclasses.asdict for historical author configs and retain to_dict for newer configs.",
+  "protocol_changed": false,
+  "telemetry": {
+    "cuda_pid": 287,
+    "elapsed_seconds": 26.059,
+    "peak_rss_mib": 2937.859,
+    "peak_vram_allocated_mib": 1523.533,
+    "host_baseline_used_fraction": 0.3502614037326922,
+    "host_peak_used_fraction": 0.5680788534302806,
+    "pagefile_growth_mib": 0,
+    "swap_zero": true,
+    "kernel_oom_count": 0,
+    "memory_release_verified": true
+  },
+  "preserved_run_artifacts": "runs/a2c2_fidelity_corrected/a2c2_corrected_smoke_repair1_20260719t1826"
+}

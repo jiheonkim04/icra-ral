@@ -1,0 +1,212 @@
+# A2C2 Fidelity-Corrected Result
+
+Date: `2026-07-19 KST`
+
+Fidelity label: `A2C2_FIDELITY_CORRECTED_LOCAL_PORT`
+
+Final decision: `A2C2_CORRECTED_METADATA_PREFLIGHT_PASS`
+
+```json
+{
+  "artifact_audit": {
+    "base_config": {
+      "adapt_to_pi_aloha": false,
+      "add_image_special_tokens": false,
+      "attention_mode": "cross_attn",
+      "chunk_size": 50,
+      "device": "cuda",
+      "empty_cameras": 0,
+      "expert_width_multiplier": 0.75,
+      "freeze_vision_encoder": true,
+      "input_features": {
+        "observation.images.image": {
+          "shape": [
+            3,
+            256,
+            256
+          ],
+          "type": "VISUAL"
+        },
+        "observation.images.wrist_image": {
+          "shape": [
+            3,
+            256,
+            256
+          ],
+          "type": "VISUAL"
+        },
+        "observation.state": {
+          "shape": [
+            8
+          ],
+          "type": "STATE"
+        }
+      },
+      "license": null,
+      "load_vlm_weights": true,
+      "max_action_dim": 32,
+      "max_period": 4.0,
+      "max_state_dim": 32,
+      "min_period": 0.004,
+      "n_action_steps": 50,
+      "n_obs_steps": 1,
+      "normalization_mapping": {
+        "ACTION": "MEAN_STD",
+        "STATE": "MEAN_STD",
+        "VISUAL": "IDENTITY"
+      },
+      "num_expert_layers": -1,
+      "num_steps": 10,
+      "num_vlm_layers": 16,
+      "optimizer_betas": [
+        0.9,
+        0.95
+      ],
+      "optimizer_eps": 1e-08,
+      "optimizer_grad_clip_norm": 10,
+      "optimizer_lr": 0.0001,
+      "optimizer_weight_decay": 1e-10,
+      "output_features": {
+        "action": {
+          "shape": [
+            7
+          ],
+          "type": "ACTION"
+        }
+      },
+      "pad_language_to": "longest",
+      "prefix_length": -1,
+      "private": null,
+      "push_to_hub": true,
+      "repo_id": "k1000dai/smolvla_libero_spatial_scratch",
+      "resize_imgs_with_padding": [
+        512,
+        512
+      ],
+      "scheduler_decay_lr": 2.5e-06,
+      "scheduler_decay_steps": 30000,
+      "scheduler_warmup_steps": 1000,
+      "self_attn_every_n_layers": 2,
+      "tags": null,
+      "tokenizer_max_length": 48,
+      "train_expert_only": true,
+      "train_state_proj": true,
+      "type": "smolvla",
+      "use_amp": false,
+      "use_cache": true,
+      "use_delta_joint_actions_aloha": false,
+      "vlm_model_name": "HuggingFaceTB/SmolVLM2-500M-Video-Instruct"
+    },
+    "base_model_sha256": "45F3B6FC1B8AE0B7CF3AB8EBD22336AB23EB3798A8BFEF027F5D45596C45A9BE",
+    "base_root": "/mnt/c/assets/checkpoints/a2c2_official/smolvla_libero_spatial_scratch/caa0efcb24e261574c824366526c5775d3664cac",
+    "errors": [],
+    "prior_config": {
+      "device": "cuda",
+      "dim_feedforward": 2048,
+      "dim_model": 512,
+      "dropout": 0.1,
+      "freeze_vision_backbone": false,
+      "input_features": {
+        "observation.images.image": {
+          "shape": [
+            3,
+            256,
+            256
+          ],
+          "type": "VISUAL"
+        },
+        "observation.images.wrist_image": {
+          "shape": [
+            3,
+            256,
+            256
+          ],
+          "type": "VISUAL"
+        },
+        "observation.state": {
+          "shape": [
+            8
+          ],
+          "type": "STATE"
+        },
+        "vlm_hidden": {
+          "shape": [
+            960
+          ],
+          "type": "CONTEXT"
+        }
+      },
+      "license": null,
+      "n_encoder_layers": 6,
+      "n_heads": 8,
+      "n_obs_steps": 1,
+      "normalization_mapping": {
+        "ACTION": "MEAN_STD",
+        "CONTEXT": "MEAN_STD",
+        "ENV": "MEAN_STD",
+        "STATE": "MEAN_STD",
+        "VISUAL": "MEAN_STD"
+      },
+      "optimizer_lr": 1e-05,
+      "optimizer_weight_decay": 1e-05,
+      "output_features": {
+        "action": {
+          "shape": [
+            7
+          ],
+          "type": "ACTION"
+        }
+      },
+      "pretrained_backbone_weights": "ResNet18_Weights.IMAGENET1K_V1",
+      "private": null,
+      "push_to_hub": true,
+      "repo_id": "k1000dai/residual_transformer_libero_spatial_add_vlm_context",
+      "tags": null,
+      "type": "residual_transformer",
+      "use_amp": false,
+      "vision_backbone": "resnet18"
+    },
+    "prior_model_sha256": "85D00523E8273A4141E288E4F6692224D50AAF8DF99AD8CCF7E72EE7BF3AB712",
+    "prior_root": "/mnt/c/assets/checkpoints/a2c2_official/residual_transformer_libero_spatial_add_vlm_context/9c89cca4aae8eecc42a20084ef414ff74f94ba05",
+    "valid": true
+  },
+  "base_revision": "caa0efcb24e261574c824366526c5775d3664cac",
+  "cuda_execution": false,
+  "date": "2026-07-19 KST",
+  "elapsed_seconds": 7.883,
+  "fidelity_label": "A2C2_FIDELITY_CORRECTED_LOCAL_PORT",
+  "final_decision": "A2C2_CORRECTED_METADATA_PREFLIGHT_PASS",
+  "job_classification": "PRIOR_METADATA_PREFLIGHT",
+  "model_loaded": false,
+  "official_commit": "54dd088302a0ef3f50c4add3ec927ab94d76a406",
+  "ours_designed_or_executed": false,
+  "prior_revision": "9c89cca4aae8eecc42a20084ef414ff74f94ba05",
+  "rollout_happened": false,
+  "schema_version": 1,
+  "source_audit": {
+    "files": {
+      "configuration_residual_transformer.py": {
+        "actual_sha256": "76DD959D317F7091A4BFAEABD31CA0E8B028AD539D7BC660256B28ED1C6B2B83",
+        "expected_sha256": "76DD959D317F7091A4BFAEABD31CA0E8B028AD539D7BC660256B28ED1C6B2B83",
+        "path": "/home/jiheon/assets/repos/a2c2-libero/src/lerobot/policies/residual_transformer/configuration_residual_transformer.py",
+        "valid": true
+      },
+      "evaluation_libero.py": {
+        "actual_sha256": "941E5894CC0A607F35E0295F174BA27E88B957F51E24154CBAB26B75D6CCF400",
+        "expected_sha256": "941E5894CC0A607F35E0295F174BA27E88B957F51E24154CBAB26B75D6CCF400",
+        "path": "/home/jiheon/assets/repos/a2c2-libero/eval_libero/evaluation_libero.py",
+        "valid": true
+      },
+      "modeling_residual_transformer.py": {
+        "actual_sha256": "190093422E71A59633F4C101619392CE53864B8C75079F053BB98154A7E352DF",
+        "expected_sha256": "190093422E71A59633F4C101619392CE53864B8C75079F053BB98154A7E352DF",
+        "path": "/home/jiheon/assets/repos/a2c2-libero/src/lerobot/policies/residual_transformer/modeling_residual_transformer.py",
+        "valid": true
+      }
+    },
+    "official_commit": "54dd088302a0ef3f50c4add3ec927ab94d76a406",
+    "valid": true
+  },
+  "training_happened": false
+}
+```

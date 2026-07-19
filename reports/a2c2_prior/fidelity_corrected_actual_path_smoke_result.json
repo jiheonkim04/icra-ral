@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "stage": "ONE_CORRECTED_A2C2_PRIOR_VERIFICATION",
+  "execution_classification": "PRIOR_ACTUAL_PATH_PREFLIGHT",
+  "implementation_label": "A2C2_FIDELITY_CORRECTED_LOCAL_PORT",
+  "official_reproduction_claim": false,
+  "final_decision": "CORRECTED_A2C2_EVALUATION_INVALID",
+  "actual_path_smoke_decision": "A2C2_CORRECTED_ACTUAL_PATH_SMOKE_FAIL",
+  "verification_panel_authorized": false,
+  "verification_panel_started": false,
+  "scientific_episode_rows": 0,
+  "technical_trace_rows": 2,
+  "training_happened": false,
+  "ours_designed_or_executed": false,
+  "paper_package_generated": false,
+  "failed_attempts_preserved": [
+    {
+      "run_id": "a2c2_corrected_smoke_20260719t1807",
+      "result_sha256": "644BD8DD3621BEB52EE4BAB3EF8B628607B9EDCAA0188C1F5AE2C160E6DE0D54",
+      "host_monitor_sha256": "254DDE8DA7A42DAC7802E69AE72DAD32A16E4CA265BC78A2F8919F081CBE0D27",
+      "failure": "Later author source constructed a 4-D Conv2d image projection for a public checkpoint containing the preceding 2-D Linear projection.",
+      "scientific_outcome_persisted_or_counted": false
+    },
+    {
+      "run_id": "a2c2_corrected_smoke_repair1_20260719t1826",
+      "result_sha256": "6B5E507325FB3A62AC785A0339C3F3B9B7E5E30E40E7434D36DE34441B48BAD1",
+      "host_monitor_sha256": "036E980A1568E6F0C43434E984C1681AC8E11F554C5110EEF437142FD827C71B",
+      "failure": "Strict model loading passed, then historical dataclass config telemetry hit the later-only to_dict API assumption.",
+      "scientific_outcome_persisted_or_counted": false
+    }
+  ],
+  "completed_actual_path_run": {
+    "run_id": "a2c2_corrected_smoke_repair1b_20260719t1831",
+    "run_root": "runs/a2c2_fidelity_corrected/a2c2_corrected_smoke_repair1b_20260719t1831",
+    "result_sha256": "5096C2D6D6541AD5FF9436506C2AAAF6FD8CC5BA73FABA364D635C088752958D",
+    "host_monitor_sha256": "23E188D24899705EDC9A4D776122C125C98E095D2A3C1C4143A0772F2283E454",
+    "task_id": 2,
+    "official_init_state_id": 10,
+    "exceptions": 0,
+    "task_success_persisted_or_counted": false,
+    "conditions": {
+      "BASE_STANDARD_E10_D0": {
+        "episode_length": 99,
+        "base_model_forward_count": 10,
+        "prior_module_forward_count": 0,
+        "image_rotation_count": 20,
+        "action_finite": true,
+        "raw_action_legal": false,
+        "max_action_abs": 1.024949789
+      },
+      "PRIOR_DELAYED_E40_D10": {
+        "episode_length": 94,
+        "base_model_forward_count": 3,
+        "prior_module_forward_count": 94,
+        "image_rotation_count": 194,
+        "action_finite": true,
+        "raw_action_legal": false,
+        "max_action_abs": 1.000505567,
+        "prior_mean_abs_correction": 0.091438221,
+        "prior_max_mean_abs_correction": 0.386403769
+      }
+    }
+  },
+  "model_load_evidence": {
+    "strict_safetensor_load": true,
+    "base_revision": "caa0efcb24e261574c824366526c5775d3664cac",
+    "base_model_sha256": "45F3B6FC1B8AE0B7CF3AB8EBD22336AB23EB3798A8BFEF027F5D45596C45A9BE",
+    "base_parameters": 450046220,
+    "prior_revision": "9c89cca4aae8eecc42a20084ef414ff74f94ba05",
+    "prior_model_sha256": "85D00523E8273A4141E288E4F6692224D50AAF8DF99AD8CCF7E72EE7BF3AB712",
+    "prior_parameters": 30853759,
+    "devices": ["cuda:0"],
+    "no_cpu_or_disk_offload": true,
+    "official_latest_repository_commit": "54dd088302a0ef3f50c4add3ec927ab94d76a406",
+    "checkpoint_compatible_author_commit": "c197a011aabf070cf2c0b2b0705be5f33d178ad7",
+    "checkpoint_compatible_projection_shape": [512, 512],
+    "compatibility_method": "Exact author source strict-load; no tensor reshape and no non-strict load."
+  },
+  "legality_evidence": {
+    "frozen_raw_action_bounds": [-1.0, 1.0],
+    "base_raw_action_exceeded_bounds": true,
+    "prior_raw_action_exceeded_bounds": true,
+    "extra_action_clipping_applied": false,
+    "official_evaluator_applies_extra_clip": false,
+    "simulator_controller_internal_clip_observed_in_source": true,
+    "robosuite_version": "1.4.0",
+    "robosuite_base_controller_sha256": "61F99A2DAEB4EB6E39BFB996D94C5A5689EF3BC771D030D070193EA56D6A8332",
+    "robosuite_single_arm_sha256": "D233B1B785E8F88FFB5DF1357666B02A397AE930CE98181B079E0496AB35FC57",
+    "adjudication": "The frozen preflight requires finite legal raw actions and forbids an added clipping rescue. The bound violation therefore invalidates the corrected evaluation before the 45-row panel."
+  },
+  "resource_evidence": {
+    "cuda_pid": 287,
+    "wsl_memory_cap_gib": 12,
+    "swap_gib": 0,
+    "peak_vram_allocated_mib": 1532.542,
+    "peak_vram_reserved_mib": 1558.0,
+    "peak_process_rss_mib": 4063.348,
+    "peak_wsl_used_gib": 3.681,
+    "windows_baseline_used_fraction": 0.3474895113244758,
+    "windows_peak_used_fraction": 0.6509105282010532,
+    "pagefile_growth_mib": 0,
+    "kernel_oom_count": 0,
+    "memory_release_verified": true,
+    "temporary_wslconfig_removed": true,
+    "wsl_shutdown_verified": true,
+    "active_worker_at_report": false
+  },
+  "verification": {
+    "focused_a2c2_tests": "40 passed",
+    "current_research_governance_script": "passed",
+    "scaffold_tree_check": "passed",
+    "git_diff_check": "passed",
+    "historical_governance_pytest": "5 passed, 1 pre-existing stale failure",
+    "historical_governance_stale_failure": "tests/test_current_research_governance.py still expects epoch 4 while the authoritative state was already epoch 5 before this stage"
+  },
+  "frozen_route_adjudication": {
+    "additional_prior_authorized": false,
+    "additional_prior_reason": "The steer authorizes the additional Prior after corrected no-improvement, not after corrected evaluation invalidity.",
+    "ours_authorized": false,
+    "paper_candidate_go": false,
+    "next_action": "Stop this continuation and wait for explicit authority; do not relax legality, clip actions, run the 45-row panel, select another Prior, design Ours, or generate a paper package."
+  }
+}
