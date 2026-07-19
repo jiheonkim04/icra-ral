@@ -1,7 +1,7 @@
 {
   "schema_version": "epoch6.closure_registry.v1",
-  "generated_at": "2026-07-19T23:55:59+09:00",
-  "source_head": "f3dcd8f1ecf34662b81bf73b4b44d916db5d5ab0",
+  "generated_at": "2026-07-20T04:55:12+09:00",
+  "source_head": "ec62bfa26188d12e8cee7838a5691d81c1d239c5",
   "allowed_classifications": [
     "SCIENTIFICALLY_CLOSED_AXIS",
     "SCIENTIFICALLY_CLOSED_FORMULATION",
@@ -185,10 +185,18 @@
     },
     {
       "route_id": "epoch6_schedule_invariant_stochastic_vla_evaluation_stage0",
+      "classification": "EXPLORATORY_POSITIVE_NOT_CONFIRMATORY",
+      "decision": "ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO",
+      "scope": "Exact outcome-suppressed X-VLA Stage-0 action-sequence audit. It establishes material order dependence in generated action chunks but not a closed-loop task-success effect.",
+      "evidence_artifact": "reports/epoch6_schedule_invariant_evaluation/stage0_result.json",
+      "commit": "ec62bfa26188d12e8cee7838a5691d81c1d239c5"
+    },
+    {
+      "route_id": "epoch6_schedule_invariant_stochastic_vla_evaluation_closed_loop",
       "classification": "RESOURCE_BLOCKED",
-      "decision": "STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE_HOST_MEMORY_CEILING",
-      "scope": "Exact outcome-suppressed X-VLA Stage-0 schedule-dependence audit on the current Windows/WSL host workload. Schedule dependence and the broader thesis remain scientifically unadjudicated and may resume only under the recorded resource condition.",
-      "evidence_artifact": "reports/epoch6_schedule_invariant_evaluation/operational_blocker.json",
+      "decision": "INFRASTRUCTURE_OR_RESOURCE_BLOCKED_FOUR_ENVIRONMENT_HOST_MEMORY_CEILING",
+      "scope": "The preregistered 40-episode serial-versus-actual-arrival four-shard closed-loop gate on the current 24.9 GB host. No scientific episode or success outcome was accessed, so the closed-loop problem and any method remain unadjudicated.",
+      "evidence_artifact": "reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json",
       "commit": null
     },
     {

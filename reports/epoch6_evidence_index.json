@@ -221,13 +221,13 @@
       "commit": null,
       "execution_type": "PREREGISTERED_DISCOVERY_PROBLEM_VERIFICATION_PROTOCOL",
       "historical_execution_command": null,
-      "command_status": "Static preflight, outcome-suppressed fixture capture, and resource-only smokes executed; the four scientific action sequences were not authorized because the host resource qualification failed.",
+      "command_status": "After the human clean-host condition changed, a calibrated outcome-free smoke passed and the four frozen scientific action sequences completed. Their result is bound separately below.",
       "verification_command": "Get-FileHash -Algorithm SHA256 reports/epoch6_schedule_invariant_evaluation/problem_verification_protocol.json",
       "scientific_scope": "Outcome-suppressed action-level schedule-dependence gate only; closed-loop outcomes remain inaccessible unless this gate passes."
     },
     {
       "evidence_id": "epoch6_schedule_stage0_operational_blocker",
-      "conclusion": "The exact X-VLA problem-verification route is operationally resource-blocked, not scientifically negative: lower-baseline retries resolved the host ceiling but failed the frozen Windows pagefile/WSL teardown rules; no scientific sequence or outcome was executed.",
+      "conclusion": "Historical pre-reboot result: the exact X-VLA problem-verification route was operationally blocked by pagefile/teardown qualification before the human established the later clean-host condition. This artifact remains immutable historical evidence.",
       "artifact": "reports/epoch6_schedule_invariant_evaluation/operational_blocker.json",
       "artifact_sha256": "43E571FE1A334AAB7E14A48400582BF46C1C2BB8207C3EFFAA79BA5A529AC418",
       "commit": null,
@@ -235,7 +235,43 @@
       "historical_execution_command": "powershell -ExecutionPolicy Bypass -File scripts/monitor_epoch6_schedule_stage0_smoke.ps1 -RunId <immutable_run_id>",
       "command_status": "v4-v7 host qualifications are preserved. Complete v6/v7 forwards stayed below the memory ceiling but failed teardown/pagefile qualification after bounded repairs.",
       "verification_command": "Get-FileHash -Algorithm SHA256 reports/epoch6_schedule_invariant_evaluation/operational_blocker.json",
-      "scientific_scope": "Host-resource feasibility of the exact Stage-0 path only. The schedule-dependence hypothesis remains untested."
+      "scientific_scope": "Historical host-resource feasibility of the Stage-0 path only. It is superseded operationally, not rewritten scientifically, by the clean-host Stage-0 result below."
+    },
+    {
+      "evidence_id": "epoch6_schedule_stage0_cleanhost_result",
+      "conclusion": "The clean-host, calibrated Stage-0 run passed resource qualification and established repeatable material action-level schedule dependence: A/A-repeat matched 20/20, reversed B changed 20/20, and median order RMS was 1.1129 times the independent-noise reference.",
+      "artifact": "reports/epoch6_schedule_invariant_evaluation/stage0_result.json",
+      "artifact_sha256": "2CE2222184C9AE2D0EB49DCDD4A3D3BAED1D76F1BC1B79EFC3AE0BDA0D2BD617",
+      "commit": "ec62bfa26188d12e8cee7838a5691d81c1d239c5",
+      "execution_type": "OUTCOME_SUPPRESSED_ACTION_LEVEL_SCHEDULE_DEPENDENCE_GATE",
+      "historical_execution_command": "python scripts/run_epoch6_schedule_invariance_stage0.py --mode run-all --run-dir <immutable_run_dir> --resume",
+      "command_status": "All A, A_repeat, B, and C queries completed with zero exceptions, zero simulator actions, and zero reward/success/done reads.",
+      "verification_command": "Get-FileHash -Algorithm SHA256 reports/epoch6_schedule_invariant_evaluation/stage0_result.json",
+      "scientific_scope": "Action-level stochastic schedule dependence only; it does not establish a closed-loop success effect."
+    },
+    {
+      "evidence_id": "epoch6_schedule_closed_loop_frozen_execution_manifest",
+      "conclusion": "Before any closed-loop outcome, the campaign froze the 20 matched identities, official task horizons and action semantics, serial and actual-arrival four-shard schedules, shared single-model FIFO service, exact resume transactions, and the 40-episode decision gates.",
+      "artifact": "reports/epoch6_schedule_invariant_evaluation/closed_loop_execution_manifest.json",
+      "artifact_sha256": "93DEA8F3A9EAAE864A0A691B11312492E9E2D585606859597228E6F23D0FB242",
+      "commit": "ec62bfa26188d12e8cee7838a5691d81c1d239c5",
+      "execution_type": "PREREGISTERED_DISCOVERY_CLOSED_LOOP_EXECUTION_MANIFEST",
+      "historical_execution_command": null,
+      "command_status": "Preflight passed; the required four-environment resource smoke failed before scientific episodes.",
+      "verification_command": "Get-FileHash -Algorithm SHA256 reports/epoch6_schedule_invariant_evaluation/closed_loop_execution_manifest.json",
+      "scientific_scope": "Frozen closed-loop problem-verification design; no method, Ours, or paper authorization."
+    },
+    {
+      "evidence_id": "epoch6_schedule_closed_loop_resource_blocker",
+      "conclusion": "On the clean host, four simultaneous official LIBERO environment processes reached 85.16% physical RAM before the single X-VLA model could load, breaching the frozen 82% ceiling. There was no sustained paging, swap, OOM, action, or outcome read, and clean state was restored.",
+      "artifact": "reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json",
+      "artifact_sha256": "C63BB981CB7F5DDA453F46F99C1DC48D2D37BB621673556EF7812C9E63634E9B",
+      "commit": null,
+      "execution_type": "OUTCOME_SUPPRESSED_FOUR_ENVIRONMENT_CLOSED_LOOP_RESOURCE_SMOKE",
+      "historical_execution_command": "powershell -ExecutionPolicy Bypass -File scripts/monitor_epoch6_schedule_closed_loop_smoke.ps1 -RunId epoch6_closed_loop_20260720_0438_kst",
+      "command_status": "Host guard terminated the child at the frozen ceiling; internal report and model forward were never reached; shutdown restored a clean state.",
+      "verification_command": "Get-FileHash -Algorithm SHA256 reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json",
+      "scientific_scope": "Resource feasibility of the preregistered four-shard closed-loop path. Closed-loop schedule effect remains scientifically unadjudicated."
     },
     {
       "evidence_id": "epoch6_contact_topology_frozen_protocol",

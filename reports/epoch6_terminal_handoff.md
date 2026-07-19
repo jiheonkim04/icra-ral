@@ -1,74 +1,93 @@
-# Epoch 6 Terminal Handoff
+# Epoch 6 terminal handoff
 
 Terminal state: `HARD_EXTERNAL_BLOCKER_REQUIRES_USER`
-Campaign-state hash: `49FD9623C65A42CD28342545D6B0854E41925CA322EF6CC94080F040672F996D`
-Scientific outcome rows exposed: `0`
+
+Campaign-state hash: `282B1AA8932CA95EBD7B7B3F56BF93030E93BC9B60414461A99C8716FE2A7745`
+
+Stage-0 decision: `ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO`
+
+Closed-loop decision: `INFRASTRUCTURE_OR_RESOURCE_BLOCKED`
+
+Closed-loop scientific episodes exposed: `0 / 40`
+
+Ours: unauthorized
+
 Paper candidate: not reached
-Paper generation: unauthorized
+
+## Scientific status
+
+The human clean-host condition successfully reopened Stage 0. The calibrated
+resource smoke passed, then A and its cold restart matched on all 20 logical
+keys, reversed-order B changed all 20, and the median normalized order effect
+was 1.1129 times the independent-root reference. This establishes action-level
+schedule dependence on the frozen outcome-suppressed panel. It does not yet
+establish that scheduling changes official closed-loop task success.
+
+The subsequent 40-episode protocol was frozen before any success outcome. It
+uses 20 matched official reset identities under one canonical serial schedule
+and one actual-arrival four-shard schedule, one shared X-VLA model, official
+LIBERO horizons and success semantics, atomic query transactions, and
+missing-suffix-only resume.
 
 ## Exact blocker
 
-Every surviving ranked route needs the local LIBERO/WSL execution path. The
-schedule-invariance route now fits in physical memory: complete v6/v7 model
-forwards peaked at 73.8% and 73.6%, below the frozen 82% ceiling, with one
-finite 30x20 action chunk, zero WSL swap, zero simulator actions, and no
-reward/success/done read. It nevertheless failed host qualification because
-Windows pagefile allocation grew by 8 MiB in v7 and WSL did not return freed
-anonymous memory within the bounded teardown window.
+The required outcome-free resource smoke started four simultaneous official
+LIBERO environment processes. Host use rose from 41.00% to 85.16% before the
+single model could load, so the monitor stopped the run at the unchanged 82%
+ceiling. There was no sustained Windows paging, WSL swap, OOM signature,
+model forward, simulator action, or reward/success/done read. Controlled WSL
+shutdown restored host use to 39.05%.
 
-The first backup independently reached the same external constraint before
-scientific contact-label extraction. Four one-state smokes had exact state
-round-trip error 0, resolved all 7 robot contact geoms, retained zero robot
-edges, and used zero swap/actions/outcomes, but failed pagefile or teardown
-qualification. The persistent-success backup requires the same simulator path,
-so it cannot safely begin outcome-bearing replay.
+This was not duplicate model residency: the environments were spawned before
+the sole model load. Reducing the number of live environments, replacing real
+four-shard arrivals with state multiplexing, or changing the schedule would
+alter the preregistered intervention rather than repair an implementation
+defect.
 
-This is an operational/resource conclusion only. Schedule dependence, contact
-topology prevalence/headroom, persistent success, and every proposed method
-remain scientifically unadjudicated.
+The conservative additive capacity projection is 28,664,598,528 bytes in use.
+Keeping that below 82% needs about 34.957 decimal GB total. A 32 GiB host would
+project to 83.42%; 48 GB is the smallest standard tier with defensible
+headroom. The projection is for planning and is not an executed full-path
+measurement.
 
 ## Authoritative evidence
 
 - `reports/epoch6_campaign_state.json`
-- `reports/epoch6_schedule_invariant_evaluation/operational_blocker.json`
-- `reports/epoch6_contact_transition_topology/operational_blocker.json`
+- `reports/epoch6_schedule_invariant_evaluation/stage0_result.json`
+- `reports/epoch6_schedule_invariant_evaluation/closed_loop_execution_manifest.json`
+- `reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json`
 - `reports/epoch6_evidence_index.json`
 - `reports/epoch6_closure_registry.json`
 - `reports/epoch6_resource_inventory.json`
 
-All immutable run directories referenced by those files remain under `runs/`.
-The pre-existing untracked `rollouts/2026_07_17/` and
-`rollouts/2026_07_18/` directories were preserved and excluded.
+Raw immutable run artifacts remain under `runs/` and are hash-bound by the
+tracked reports. The protected untracked `rollouts/2026_07_17/` and
+`rollouts/2026_07_18/` directories remain untouched.
 
 ## Smallest condition that reopens progress
 
-The human should save and close user-owned WSL shells and unrelated
-applications, then reboot into a clean host session. The alternative is a
-scientifically equivalent host with at least 32 GB RAM and pagefile-disabled
-or demonstrably zero-pagefile execution. Codex did not close applications,
-terminate the WSL shell, change Windows pagefile settings, reboot, purchase
-compute, use a physical robot, or expose confirmatory identities.
+Provide or authorize a scientifically equivalent clean host with at least
+48 GB physical RAM. Keep zero WSL swap, no CPU/disk model offload, the 82%
+host ceiling, model, tasks, identities, schedules, seeds, action semantics,
+horizons, and decision gates unchanged.
 
-After the condition changes, do not reuse a failed run directory. Create a new
-immutable schedule Stage-0 run, repeat static preflight and outcome-suppressed
-fixture capture, and execute the host smoke with the frozen protocol, model,
-seed, thresholds, and cache-release monitor unchanged. Only
-`EPOCH6_STAGE0_RESOURCE_SMOKE_PASS` authorizes the four action sequences.
+Alternatively, the human may explicitly authorize a genuinely new independent
+schedule study with a lower-concurrency intervention. That study cannot be
+reported as an unchanged continuation of the current four-shard protocol.
 
 ## Resume command
 
 ```powershell
 git switch codex/epoch6-ral-submission-convergence-v2
+git pull --ff-only
 Get-Content reports/epoch6_campaign_state.json -Raw | ConvertFrom-Json | Out-Null
 Get-FileHash -Algorithm SHA256 `
-  reports/epoch6_schedule_invariant_evaluation/operational_blocker.json,`
-  reports/epoch6_contact_transition_topology/operational_blocker.json,`
+  reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json,`
   reports/epoch6_evidence_index.json,`
   reports/epoch6_closure_registry.json,`
   reports/epoch6_resource_inventory.json
-# After preparing a fresh immutable run with preflight and fixture:
+# On a clean 48 GB-or-larger host, create a fresh immutable run, then:
 powershell -ExecutionPolicy Bypass `
-  -File scripts/monitor_epoch6_schedule_stage0_smoke.ps1 `
-  -RunId <fresh_run_id> `
-  -AllowWslCacheDropAfterChild
+  -File scripts/monitor_epoch6_schedule_closed_loop_smoke.ps1 `
+  -RunId <fresh_run_id>
 ```

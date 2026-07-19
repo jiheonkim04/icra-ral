@@ -1,10 +1,10 @@
 {
   "schema_version": "epoch6.campaign_state.v1",
-  "updated_at": "2026-07-20T02:48:37+09:00",
+  "updated_at": "2026-07-20T04:55:12+09:00",
   "repository": {
     "remote": "https://github.com/jiheonkim04/icra-ral.git",
     "branch": "codex/epoch6-ral-submission-convergence-v2",
-    "head": "fdcc5cb8ba0645b408ceff6104845b4d6d7dfdc0",
+    "head": "ec62bfa26188d12e8cee7838a5691d81c1d239c5",
     "source_branch": "codex/epoch5-official-prior-first",
     "source_head": "f3dcd8f1ecf34662b81bf73b4b44d916db5d5ab0",
     "source_is_ancestor": true,
@@ -21,12 +21,12 @@
     "active_thesis": {
       "id": "schedule_invariant_stochastic_vla_evaluation",
       "title": "Schedule-invariant stochastic VLA evaluation",
-      "status": "RESOURCE_BLOCKED_AFTER_LOWER_BASELINE_REOPEN_ATTEMPT",
-      "scientific_status": "UNADJUDICATED",
+      "status": "CLOSED_LOOP_RESOURCE_BLOCKED_AFTER_STAGE0_GO",
+      "scientific_status": "ACTION_LEVEL_SCHEDULE_DEPENDENCE_ESTABLISHED_CLOSED_LOOP_UNADJUDICATED",
       "paperability_contract": "reports/epoch6_schedule_invariant_evaluation/paperability_contract.md",
       "paperability_contract_sha256": "D82A55FD6E87E064C1412B2DCE5541A9CEC28763ECA5385CE0376F5CDF59B8FF",
-      "operational_blocker": "reports/epoch6_schedule_invariant_evaluation/operational_blocker.json",
-      "operational_blocker_sha256": "43E571FE1A334AAB7E14A48400582BF46C1C2BB8207C3EFFAA79BA5A529AC418"
+      "operational_blocker": "reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json",
+      "operational_blocker_sha256": "C63BB981CB7F5DDA453F46F99C1DC48D2D37BB621673556EF7812C9E63634E9B"
     },
     "backups": [
       {
@@ -51,7 +51,7 @@
     "status": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER",
     "terminal": true,
     "resumable": true,
-    "paper_candidate_decision": "NOT_REACHED_RESOURCE_BLOCKED",
+    "paper_candidate_decision": "NOT_REACHED_CLOSED_LOOP_RESOURCE_BLOCKED",
     "paper_generation_authorized": false
   },
   "governance": {
@@ -67,17 +67,17 @@
   },
   "reality_lock": {
     "evidence_index_path": "reports/epoch6_evidence_index.json",
-    "evidence_index_sha256": "51EA7EBE6290BE148FEE4E8346AFECAD7589B6EFE23B7D0EF469F3365F11CC52",
+    "evidence_index_sha256": "E9B35B5F2F03FD8538D2F55C30AC9AC434ED1E8D267D0FA437C4968B500284A4",
     "closure_registry_path": "reports/epoch6_closure_registry.json",
-    "closure_registry_sha256": "E0E3686D34C6729F0581E5015FF8C6B4E2684473D43AF89E41E59DF0C847E76A",
+    "closure_registry_sha256": "45469159563C9EAEC28BCC169192ADD40A15F2EDDFD3A38C87B901F7AAE7D0AB",
     "resource_inventory_path": "reports/epoch6_resource_inventory.json",
-    "resource_inventory_sha256": "CA436C36C9A90E504193E9AF1E3769540EB064810026B6E5979F6064159559F8"
+    "resource_inventory_sha256": "C731D30E542BFB38043EA39D5278198A4F0D9A95F0D3FBA26F76EECEEBF598C4"
   },
   "manifests": {
     "discovery": {
       "path": "reports/epoch6_schedule_invariant_evaluation/problem_verification_protocol.json",
       "sha256": "E5BA74354A1947A00045879A4815CCD09856F127E6809CF8BF649F10E2359946",
-      "status": "FROZEN_PARTIALLY_EXECUTED_RESOURCE_BLOCKED_BEFORE_SCIENTIFIC_ROWS"
+      "status": "STAGE0_GO_CLOSED_LOOP_RESOURCE_BLOCKED_BEFORE_EPISODES"
     },
     "backup_discovery": {
       "path": "reports/epoch6_contact_transition_topology/problem_verification_protocol.json",
@@ -90,15 +90,21 @@
   },
   "partition_sets": {
     "epoch6_resource_only_used": {
-      "schedule_tasks": ["libero_spatial/task_0_fixture_and_resource_smoke_only"],
+      "schedule_tasks": ["libero_spatial/task_0_fixture_and_resource_smoke_only", "four_simultaneous_libero_spatial/task_0_env_holders_closed_loop_smoke_only"],
       "schedule_resets": ["initial_state_index_0_fixture_and_resource_smoke_only"],
       "schedule_seeds": [620260719],
       "contact_tasks": ["libero_spatial/task_0_resource_smoke_state_0_only"],
       "contact_demo_ids": [0],
-      "scientific_gate_rows": 0
+      "closed_loop_scientific_episode_rows": 0
+    },
+    "epoch6_action_level_discovery_used": {
+      "schedule_logical_keys": ["logical_stage0_keys_0_through_19"],
+      "sequence_executions": ["A", "A_repeat", "B", "C"],
+      "policy_queries": 80,
+      "simulator_actions_executed": 0,
+      "reward_success_done_read": false
     },
     "epoch6_untouched": {
-      "schedule_logical_keys": ["logical_stage0_keys_0_through_19"],
       "schedule_closed_loop_identities": "FROZEN_BUT_UNTOUCHED",
       "contact_stage0a_panel": "FROZEN_BUT_LABEL_ROWS_UNTOUCHED",
       "persistent_success_panel": "NOT_FROZEN_OR_ACCESSED"
@@ -113,14 +119,16 @@
         "model": "X-VLA-Libero",
         "revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
         "content_manifest_sha256": "3F87E145B4076E4A8A79E9BF7FA5F1C27AE0950B6812F5E553386EB31B9D9DB8",
-        "purpose": "OUTCOME_SUPPRESSED_STAGE0_RESOURCE_SMOKE_ONLY",
-        "status": "CONTENT_HASHED_INTERNAL_FORWARD_PASS_HOST_QUALIFICATION_FAILED"
+        "purpose": "OUTCOME_SUPPRESSED_STAGE0_ACTION_LEVEL_GATE_AND_CLOSED_LOOP_RESOURCE_PREFLIGHT",
+        "status": "CONTENT_HASHED_STAGE0_GO_CLOSED_LOOP_MODEL_LOAD_NOT_REACHED"
       }
     ],
     "available_inventory": "reports/epoch6_resource_inventory.json"
   },
   "jobs": {
-    "completed_epoch6_job_ids": [],
+    "completed_epoch6_job_ids": [
+      "epoch6_stage0_calibrated_repair1_20260720_0405_kst"
+    ],
     "failed_epoch6_job_ids": [
       "epoch6_stage0_20260720_0130_kst",
       "epoch6_stage0_20260720_0130_kst_v2",
@@ -132,7 +140,10 @@
       "epoch6_contact_stage0a_20260720_0210_kst",
       "epoch6_contact_stage0a_20260720_0210_kst_v2",
       "epoch6_contact_stage0a_20260720_0210_kst_v3",
-      "epoch6_contact_stage0a_20260720_0210_kst_v4"
+      "epoch6_contact_stage0a_20260720_0210_kst_v4",
+      "epoch6_stage0_cleanhost_20260720_033820_kst",
+      "epoch6_stage0_calibrated_20260720_0358_kst",
+      "epoch6_closed_loop_20260720_0438_kst"
     ],
     "quarantined_epoch6_job_ids": [],
     "active_epoch6_job_ids": [],
@@ -152,27 +163,32 @@
   "budget_consumed": {
     "new_download_bytes": 984583253,
     "resource_only_model_forward_seconds": 5.62459212,
-    "resource_only_completed_model_inferences": 3,
+    "resource_only_completed_model_inferences": 5,
+    "stage0_scientific_action_queries": 80,
     "heavy_job_wall_seconds": 0,
-    "peak_host_used_fraction": 0.8349176757342073,
+    "peak_host_used_fraction": 0.8515523239775857,
     "peak_vram_mib": 5982,
-    "epoch6_empirical_rows": 0
+    "epoch6_action_level_empirical_rows": 80,
+    "epoch6_closed_loop_episode_rows": 0
   },
   "last_verified_artifact": {
-    "path": "reports/epoch6_schedule_invariant_evaluation/operational_blocker.json",
-    "sha256": "43E571FE1A334AAB7E14A48400582BF46C1C2BB8207C3EFFAA79BA5A529AC418",
-    "verification": "JSON parsed; v4-v7 host/internal artifacts are hash-bound; complete forwards passed internally but failed frozen host resource qualification; no scientific sequence or outcome row executed."
+    "path": "reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json",
+    "sha256": "C63BB981CB7F5DDA453F46F99C1DC48D2D37BB621673556EF7812C9E63634E9B",
+    "verification": "JSON parsed; clean-host Stage 0 established ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO. The hash-bound closed-loop four-environment smoke crossed the frozen 82% ceiling before model load; no scientific episode, simulator action, or success outcome was executed."
   },
   "blocker": {
     "classification": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER",
-    "description": "All remaining ranked routes require the same LIBERO/WSL path. Full X-VLA forwards now fit below the memory ceiling but cause Windows pagefile allocation growth and fail bounded WSL teardown; the lightweight contact path also reproduces pagefile/teardown failures.",
+    "description": "Clean-host calibration resolved the old pagefile/teardown qualification and Stage 0 passed. The preregistered closed-loop four-shard path requires four simultaneous official LIBERO environments; they reached 85.16% host RAM before the sole model could load, exceeding the unchanged 82% ceiling.",
     "evidence": [
-      "reports/epoch6_schedule_invariant_evaluation/operational_blocker.json",
+      "reports/epoch6_schedule_invariant_evaluation/stage0_result.json",
+      "reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json",
       "reports/epoch6_contact_transition_topology/operational_blocker.json"
     ],
-    "acquisition_condition": "Human saves/closes WSL shells and unrelated applications and reboots into a clean session, or provides/authorizes a scientifically equivalent host with at least 32 GB RAM and no pagefile activity. The campaign must then rerun a fresh immutable host smoke under unchanged scientific/resource rules."
+    "acquisition_condition": "Provide or authorize a scientifically equivalent clean host with at least 48 GB physical RAM and unchanged zero-swap/no-offload/82%-ceiling rules, or explicitly authorize a genuinely new independent schedule protocol."
   },
-  "outcomes_exposed_before_interruption": false,
-  "next_authorized_idempotent_action": "No experiment is authorized until the human-controlled clean-host acquisition condition changes. After it changes, verify the hashes in this state, create a fresh immutable schedule Stage-0 run, repeat preflight and outcome-suppressed fixture capture, and run the host smoke with unchanged protocol/model/seed/thresholds. Only a PASS authorizes the four scientific action sequences.",
-  "resume_command": "git switch codex/epoch6-ral-submission-convergence-v2; Get-Content reports/epoch6_campaign_state.json -Raw | ConvertFrom-Json | Out-Null; Get-FileHash -Algorithm SHA256 reports/epoch6_schedule_invariant_evaluation/operational_blocker.json,reports/epoch6_contact_transition_topology/operational_blocker.json,reports/epoch6_evidence_index.json,reports/epoch6_closure_registry.json,reports/epoch6_resource_inventory.json; <after clean host condition> create a fresh run and execute scripts/monitor_epoch6_schedule_stage0_smoke.ps1 with -AllowWslCacheDropAfterChild"
+  "outcomes_exposed_before_interruption": true,
+  "outcome_scope_exposed": "OUTCOME_SUPPRESSED_STAGE0_ACTION_CHUNKS_ONLY",
+  "claim_relevant_closed_loop_outcomes_exposed": false,
+  "next_authorized_idempotent_action": "No further experiment is authorized on the current host under the frozen protocol. On a clean 48 GB-or-larger equivalent host, verify hashes, create a fresh immutable closed-loop run, repeat preflight, and execute the unchanged four-environment host smoke. Only a PASS authorizes the serial and four-shard 40-episode panel.",
+  "resume_command": "git switch codex/epoch6-ral-submission-convergence-v2; git pull --ff-only; Get-Content reports/epoch6_campaign_state.json -Raw | ConvertFrom-Json | Out-Null; Get-FileHash -Algorithm SHA256 reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json,reports/epoch6_evidence_index.json,reports/epoch6_closure_registry.json,reports/epoch6_resource_inventory.json; <on clean 48GB-or-larger host> create a fresh immutable run and execute powershell -ExecutionPolicy Bypass -File scripts/monitor_epoch6_schedule_closed_loop_smoke.ps1 -RunId <fresh_run_id>"
 }

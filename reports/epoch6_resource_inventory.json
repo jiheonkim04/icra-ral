@@ -1,7 +1,7 @@
 {
   "schema_version": "epoch6.resource_inventory.v1",
-  "audited_at": "2026-07-19T23:55:59+09:00",
-  "source_head": "f3dcd8f1ecf34662b81bf73b4b44d916db5d5ab0",
+  "audited_at": "2026-07-20T04:55:12+09:00",
+  "source_head": "ec62bfa26188d12e8cee7838a5691d81c1d239c5",
   "path_aliases": {
     "REPO_ROOT": "current Git worktree",
     "WINDOWS_ASSET_ROOT": "pre-existing local Windows asset root resolved at runtime",
@@ -273,17 +273,40 @@
     "physical_robot_authorized": false
   },
   "terminal_resource_audit": {
-    "adjudicated_at": "2026-07-20T02:36:04+09:00",
+    "adjudicated_at": "2026-07-20T04:55:12+09:00",
     "status": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER",
     "schedule_route": {
-      "lowest_qualified_attempt_baseline_used_fraction": 0.5334225402563395,
-      "actual_path_peak_used_fraction": 0.735965678665684,
-      "model_inference_calls": 1,
+      "stage0_decision": "ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO",
+      "stage0_cleanhost_baseline_used_fraction": 0.4141659495802471,
+      "stage0_actual_path_peak_used_fraction": 0.715143959387519,
+      "stage0_model_inference_calls": 81,
       "wsl_swap_used_bytes": 0,
-      "windows_pagefile_growth_mib": 8,
+      "windows_pagefile_growth_mib": 5,
       "pagefile_write_activity": false,
-      "memory_release_verified": false,
-      "artifact": "reports/epoch6_schedule_invariant_evaluation/operational_blocker.json"
+      "memory_release_verified": true,
+      "artifact": "reports/epoch6_schedule_invariant_evaluation/stage0_result.json"
+    },
+    "schedule_closed_loop_route": {
+      "decision": "INFRASTRUCTURE_OR_RESOURCE_BLOCKED",
+      "idle_control_maximum_used_fraction": 0.41336522823934357,
+      "environment_only_peak_used_fraction": 0.8515523239775857,
+      "environment_only_peak_used_bytes": 21178970112,
+      "host_runtime_ceiling_fraction": 0.82,
+      "simultaneous_env_processes_started": 4,
+      "shared_model_instances_planned": 1,
+      "model_loaded": false,
+      "model_inference_calls": 0,
+      "scientific_episode_executions": 0,
+      "simulator_actions_executed": 0,
+      "outcomes_exposed": false,
+      "wsl_swap_used_bytes": 0,
+      "sustained_paging_detected": false,
+      "oom_or_kill_signature_detected": false,
+      "clean_state_restored": true,
+      "projected_full_path_peak_used_bytes": 28664598528,
+      "minimum_total_bytes_at_frozen_ceiling": 34956827474,
+      "recommended_standard_ram_tier_gb": 48,
+      "artifact": "reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json"
     },
     "contact_route": {
       "actual_path_peak_used_fraction_max": 0.6099158023888242,
@@ -294,8 +317,8 @@
       "contact_label_gate_rows": 0,
       "artifact": "reports/epoch6_contact_transition_topology/operational_blocker.json"
     },
-    "shared_blocker": "The remaining ranked routes require the same WSL simulator/model environment, but the frozen zero-pagefile-growth and teardown rules cannot be satisfied without changing user-controlled host state or using a larger/no-pagefile host.",
-    "user_authority_required": "Save and close WSL shells and unrelated applications, reboot into a clean session, or provide/authorize a scientifically equivalent host with at least 32 GB RAM and no pagefile activity."
+    "shared_blocker": "The clean-host calibration removed the earlier allocation/teardown false blocker and Stage 0 passed. The required four simultaneously live LIBERO environments nevertheless exceeded the frozen 82% RAM ceiling before model load. Reducing concurrency changes the preregistered schedule intervention.",
+    "user_authority_required": "Provide or authorize a scientifically equivalent clean host with at least 48 GB physical RAM, or explicitly authorize a genuinely new independent schedule protocol."
   },
   "pre_heavy_job_requirements": [
     "Resolve the exact active-path checkpoint and repository provenance.",
