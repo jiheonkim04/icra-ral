@@ -1,0 +1,81 @@
+{
+  "schema_version": "epoch6.contact_topology.operational_blocker.v1",
+  "adjudicated_at": "2026-07-20T02:36:04+09:00",
+  "protocol_sha256": "7FA28AAEEAC9886F36DD5CCD059CA7AC4CD65B21FABFBBCA4AFFA53B0A256240",
+  "taxonomy": "RESOURCE_COMPATIBILITY_DEFECT",
+  "closure_classification": "RESOURCE_BLOCKED",
+  "decision": "STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE",
+  "scientific_conclusion": null,
+  "scope": "The exact pre-method contact-topology Stage-0A label gate is blocked before label extraction by Windows pagefile-allocation and WSL teardown qualification. Contact prevalence, predictability, and action headroom remain unadjudicated.",
+  "contact_label_gate_rows": 0,
+  "resource_only_contact_states": 4,
+  "resource_only_states_excluded_from_scientific_gates": true,
+  "outcomes_exposed": false,
+  "simulator_actions_executed": 0,
+  "reward_success_done_read": false,
+  "attempts": [
+    {
+      "run_id": "epoch6_contact_stage0a_20260720_0210_kst",
+      "status": "EPOCH6_CONTACT_STAGE0A_RESOURCE_SMOKE_FAIL_PAGEFILE_ACTIVITY",
+      "host_report": "runs/epoch6_contact_transition_topology/stage0a/epoch6_contact_stage0a_20260720_0210_kst/resource_smoke_host.json",
+      "host_report_sha256": "686C36556EA42E7F9DF1D7D8FCBB2CB74265361479835D04035661CA446B8FCE",
+      "baseline_used_fraction": 0.4846485315854266,
+      "peak_used_fraction": 0.5912711163079862,
+      "pagefile_growth_mib": 1,
+      "pagefile_write_activity": false,
+      "internal_path_passed": true
+    },
+    {
+      "run_id": "epoch6_contact_stage0a_20260720_0210_kst_v2",
+      "status": "EPOCH6_CONTACT_STAGE0A_RESOURCE_SMOKE_FAIL_CHILD_OR_INTERNAL",
+      "root_cause": "PowerShell did not retain the exited WSL wrapper code even though the internal report passed.",
+      "host_report": "runs/epoch6_contact_transition_topology/stage0a/epoch6_contact_stage0a_20260720_0210_kst_v2/resource_smoke_host.json",
+      "host_report_sha256": "C9362FE08B307DCCC6E84030C7D6391171F15C5683B6E158B530C7B20B627A23",
+      "baseline_used_fraction": 0.482693829488515,
+      "peak_used_fraction": 0.6093132027618463,
+      "pagefile_growth_mib": 0,
+      "pagefile_write_activity": false,
+      "internal_path_passed": true
+    },
+    {
+      "run_id": "epoch6_contact_stage0a_20260720_0210_kst_v3",
+      "status": "EPOCH6_CONTACT_STAGE0A_RESOURCE_SMOKE_FAIL_TEARDOWN",
+      "repair": "Persist the Bash exit code and validate it independently of the PowerShell process object.",
+      "host_report": "runs/epoch6_contact_transition_topology/stage0a/epoch6_contact_stage0a_20260720_0210_kst_v3/resource_smoke_host.json",
+      "host_report_sha256": "C1B3F24DE85A78F80CFA647474AAA4D88C4F73C18F1B9C51A5A3679CE575DF50",
+      "baseline_used_fraction": 0.4852567306623408,
+      "peak_used_fraction": 0.6099158023888242,
+      "after_release_used_fraction": 0.5690918597996549,
+      "pagefile_growth_mib": 0,
+      "pagefile_write_activity": false,
+      "internal_path_passed": true
+    },
+    {
+      "run_id": "epoch6_contact_stage0a_20260720_0210_kst_v4",
+      "status": "EPOCH6_CONTACT_STAGE0A_RESOURCE_SMOKE_FAIL_PAGEFILE_ACTIVITY",
+      "repair": "Drop reclaimable WSL cache after the child without terminating the user-owned WSL shell.",
+      "host_report": "runs/epoch6_contact_transition_topology/stage0a/epoch6_contact_stage0a_20260720_0210_kst_v4/resource_smoke_host.json",
+      "host_report_sha256": "FF74F100019D8B389151C4EE12108E7B2C5AB5E8ABA5D1B249FBE13328EA20EA",
+      "baseline_used_fraction": 0.4806320790839959,
+      "peak_used_fraction": 0.6085646880571144,
+      "after_release_used_fraction": 0.5043049065180068,
+      "pagefile_growth_mib": 1,
+      "pagefile_write_activity": false,
+      "internal_path_passed": true
+    }
+  ],
+  "common_attestation": {
+    "state_roundtrip_max_abs_error": 0.0,
+    "robot_contact_geom_count": 7,
+    "robot_contact_geom_resolved_count": 7,
+    "retained_edges_touching_robot": 0,
+    "wsl_swap_used_bytes": 0,
+    "simulator_actions_executed": 0,
+    "success_check_calls": 0,
+    "reward_success_done_read": false
+  },
+  "repairs_exhausted_for_observed_roots": true,
+  "tests": {"windows": "9 passed", "wsl_official_environment": "9 passed", "powershell_parser": "pass"},
+  "reopen_condition": "The same clean-host/pagefile condition recorded by the schedule-invariance blocker, or a scientifically equivalent non-WSL simulator path with exact state/contact fidelity and independently qualified resources.",
+  "fallback_status": "Persistent-success verification requires the same LIBERO/WSL simulator and is therefore blocked by the shared external resource before outcome access."
+}

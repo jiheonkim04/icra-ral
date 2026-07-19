@@ -1,0 +1,178 @@
+{
+  "schema_version": "epoch6.campaign_state.v1",
+  "updated_at": "2026-07-20T02:46:04+09:00",
+  "repository": {
+    "remote": "https://github.com/jiheonkim04/icra-ral.git",
+    "branch": "codex/epoch6-ral-submission-convergence-v2",
+    "head": "f3dcd8f1ecf34662b81bf73b4b44d916db5d5ab0",
+    "source_branch": "codex/epoch5-official-prior-first",
+    "source_head": "f3dcd8f1ecf34662b81bf73b4b44d916db5d5ab0",
+    "source_is_ancestor": true,
+    "remote_epoch6_branch_observed": false,
+    "protected_untracked_paths": ["rollouts/2026_07_17/", "rollouts/2026_07_18/"]
+  },
+  "campaign": {
+    "epoch": 6,
+    "portfolio": {
+      "path": "reports/epoch6_refreshed_thesis_portfolio.md",
+      "sha256": "DAB397D9A82E1BCC48F34824A79B1DA2EE0CDA6A60BDDA8B1B9E190D7D15AA5A",
+      "status": "BOUNDED_PORTFOLIO_OPERATIONALLY_EXHAUSTED_BY_SHARED_EXTERNAL_RESOURCE"
+    },
+    "active_thesis": {
+      "id": "schedule_invariant_stochastic_vla_evaluation",
+      "title": "Schedule-invariant stochastic VLA evaluation",
+      "status": "RESOURCE_BLOCKED_AFTER_LOWER_BASELINE_REOPEN_ATTEMPT",
+      "scientific_status": "UNADJUDICATED",
+      "paperability_contract": "reports/epoch6_schedule_invariant_evaluation/paperability_contract.md",
+      "paperability_contract_sha256": "D82A55FD6E87E064C1412B2DCE5541A9CEC28763ECA5385CE0376F5CDF59B8FF",
+      "operational_blocker": "reports/epoch6_schedule_invariant_evaluation/operational_blocker.json",
+      "operational_blocker_sha256": "43E571FE1A334AAB7E14A48400582BF46C1C2BB8207C3EFFAA79BA5A529AC418"
+    },
+    "backups": [
+      {
+        "rank": 1,
+        "id": "non_gripper_object_environment_contact_transition_topology",
+        "status": "RESOURCE_BLOCKED_BEFORE_LABEL_GATE",
+        "scientific_status": "UNADJUDICATED",
+        "paperability_contract": "reports/epoch6_contact_transition_topology/paperability_contract.md",
+        "paperability_contract_sha256": "FABB9CCEC1CF50BF46A8E754FA6B011DEB38E746F80DF4E7D996409B4AF9B72D",
+        "operational_blocker": "reports/epoch6_contact_transition_topology/operational_blocker.json",
+        "operational_blocker_sha256": "76D78BFADA4EE186ACCB3DCF6066568AA4C9099A1A354E287DD1E4B7335B2E75"
+      },
+      {
+        "rank": 2,
+        "id": "persistent_rather_than_first_hit_task_success",
+        "status": "NOT_EXECUTED_SHARED_LIBERO_WSL_RESOURCE_BLOCKER",
+        "scientific_status": "UNADJUDICATED"
+      }
+    ],
+    "method": null,
+    "stage": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER",
+    "status": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER",
+    "terminal": true,
+    "resumable": true,
+    "paper_candidate_decision": "NOT_REACHED_RESOURCE_BLOCKED",
+    "paper_generation_authorized": false
+  },
+  "governance": {
+    "source_instruction_sha256": "134F3BC593F4166E0E73FC6CB2F4A4DD35DE9F6C87FFA2F7BE8836372EC29226",
+    "amendment_path": "reports/epoch6_governance_amendment_v2.md",
+    "amendment_sha256": "B253850FCF5F537165B4386B582646BE44733F188D6696112B7732D70433331A",
+    "current_governance_path": "reports/current_research_governance.md",
+    "current_governance_sha256": "221337F5DAF6AAEB322AB9A86B3BB830D2DF2416A654E70772D343F1872A0B6B",
+    "active_protocol_path": "reports/epoch6_schedule_invariant_evaluation/problem_verification_protocol.json",
+    "active_protocol_sha256": "E5BA74354A1947A00045879A4815CCD09856F127E6809CF8BF649F10E2359946",
+    "backup_protocol_path": "reports/epoch6_contact_transition_topology/problem_verification_protocol.json",
+    "backup_protocol_sha256": "7FA28AAEEAC9886F36DD5CCD059CA7AC4CD65B21FABFBBCA4AFFA53B0A256240"
+  },
+  "reality_lock": {
+    "evidence_index_path": "reports/epoch6_evidence_index.json",
+    "evidence_index_sha256": "51EA7EBE6290BE148FEE4E8346AFECAD7589B6EFE23B7D0EF469F3365F11CC52",
+    "closure_registry_path": "reports/epoch6_closure_registry.json",
+    "closure_registry_sha256": "E0E3686D34C6729F0581E5015FF8C6B4E2684473D43AF89E41E59DF0C847E76A",
+    "resource_inventory_path": "reports/epoch6_resource_inventory.json",
+    "resource_inventory_sha256": "CA436C36C9A90E504193E9AF1E3769540EB064810026B6E5979F6064159559F8"
+  },
+  "manifests": {
+    "discovery": {
+      "path": "reports/epoch6_schedule_invariant_evaluation/problem_verification_protocol.json",
+      "sha256": "E5BA74354A1947A00045879A4815CCD09856F127E6809CF8BF649F10E2359946",
+      "status": "FROZEN_PARTIALLY_EXECUTED_RESOURCE_BLOCKED_BEFORE_SCIENTIFIC_ROWS"
+    },
+    "backup_discovery": {
+      "path": "reports/epoch6_contact_transition_topology/problem_verification_protocol.json",
+      "sha256": "7FA28AAEEAC9886F36DD5CCD059CA7AC4CD65B21FABFBBCA4AFFA53B0A256240",
+      "status": "FROZEN_PARTIALLY_EXECUTED_RESOURCE_BLOCKED_BEFORE_LABEL_ROWS"
+    },
+    "validation": {"path": null, "sha256": null, "status": "NOT_FROZEN"},
+    "confirmatory": {"path": null, "sha256": null, "status": "NOT_FROZEN"},
+    "replication": {"path": null, "sha256": null, "status": "NOT_FROZEN"}
+  },
+  "partition_sets": {
+    "epoch6_resource_only_used": {
+      "schedule_tasks": ["libero_spatial/task_0_fixture_and_resource_smoke_only"],
+      "schedule_resets": ["initial_state_index_0_fixture_and_resource_smoke_only"],
+      "schedule_seeds": [620260719],
+      "contact_tasks": ["libero_spatial/task_0_resource_smoke_state_0_only"],
+      "contact_demo_ids": [0],
+      "scientific_gate_rows": 0
+    },
+    "epoch6_untouched": {
+      "schedule_logical_keys": ["logical_stage0_keys_0_through_19"],
+      "schedule_closed_loop_identities": "FROZEN_BUT_UNTOUCHED",
+      "contact_stage0a_panel": "FROZEN_BUT_LABEL_ROWS_UNTOUCHED",
+      "persistent_success_panel": "NOT_FROZEN_OR_ACCESSED"
+    },
+    "historical_evidence_partition": "DISCOVERY_ONLY"
+  },
+  "policy_provenance": {"base": null, "prior": null, "ours": null, "ablation": null, "control": null},
+  "checkpoints": {
+    "selected": [
+      {
+        "id": "xvla_hf_snapshot",
+        "model": "X-VLA-Libero",
+        "revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+        "content_manifest_sha256": "3F87E145B4076E4A8A79E9BF7FA5F1C27AE0950B6812F5E553386EB31B9D9DB8",
+        "purpose": "OUTCOME_SUPPRESSED_STAGE0_RESOURCE_SMOKE_ONLY",
+        "status": "CONTENT_HASHED_INTERNAL_FORWARD_PASS_HOST_QUALIFICATION_FAILED"
+      }
+    ],
+    "available_inventory": "reports/epoch6_resource_inventory.json"
+  },
+  "jobs": {
+    "completed_epoch6_job_ids": [],
+    "failed_epoch6_job_ids": [
+      "epoch6_stage0_20260720_0130_kst",
+      "epoch6_stage0_20260720_0130_kst_v2",
+      "epoch6_stage0_20260720_0130_kst_v3",
+      "epoch6_stage0_20260720_0130_kst_v4",
+      "epoch6_stage0_20260720_0130_kst_v5",
+      "epoch6_stage0_20260720_0130_kst_v6",
+      "epoch6_stage0_20260720_0130_kst_v7",
+      "epoch6_contact_stage0a_20260720_0210_kst",
+      "epoch6_contact_stage0a_20260720_0210_kst_v2",
+      "epoch6_contact_stage0a_20260720_0210_kst_v3",
+      "epoch6_contact_stage0a_20260720_0210_kst_v4"
+    ],
+    "quarantined_epoch6_job_ids": [],
+    "active_epoch6_job_ids": [],
+    "historical_jobs": "Indexed by reports/epoch6_evidence_index.json"
+  },
+  "worker": {
+    "pid": null,
+    "heartbeat_path": null,
+    "stdout_path": null,
+    "stderr_path": null,
+    "partial_result_path": null,
+    "exit_code_path": null,
+    "launch_command": null,
+    "missing_key_resume_command": null,
+    "alive": false
+  },
+  "budget_consumed": {
+    "new_download_bytes": 984583253,
+    "resource_only_model_forward_seconds": 5.62459212,
+    "resource_only_completed_model_inferences": 3,
+    "heavy_job_wall_seconds": 0,
+    "peak_host_used_fraction": 0.8349176757342073,
+    "peak_vram_mib": 5982,
+    "epoch6_empirical_rows": 0
+  },
+  "last_verified_artifact": {
+    "path": "reports/epoch6_schedule_invariant_evaluation/operational_blocker.json",
+    "sha256": "43E571FE1A334AAB7E14A48400582BF46C1C2BB8207C3EFFAA79BA5A529AC418",
+    "verification": "JSON parsed; v4-v7 host/internal artifacts are hash-bound; complete forwards passed internally but failed frozen host resource qualification; no scientific sequence or outcome row executed."
+  },
+  "blocker": {
+    "classification": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER",
+    "description": "All remaining ranked routes require the same LIBERO/WSL path. Full X-VLA forwards now fit below the memory ceiling but cause Windows pagefile allocation growth and fail bounded WSL teardown; the lightweight contact path also reproduces pagefile/teardown failures.",
+    "evidence": [
+      "reports/epoch6_schedule_invariant_evaluation/operational_blocker.json",
+      "reports/epoch6_contact_transition_topology/operational_blocker.json"
+    ],
+    "acquisition_condition": "Human saves/closes WSL shells and unrelated applications and reboots into a clean session, or provides/authorizes a scientifically equivalent host with at least 32 GB RAM and no pagefile activity. The campaign must then rerun a fresh immutable host smoke under unchanged scientific/resource rules."
+  },
+  "outcomes_exposed_before_interruption": false,
+  "next_authorized_idempotent_action": "No experiment is authorized until the human-controlled clean-host acquisition condition changes. After it changes, verify the hashes in this state, create a fresh immutable schedule Stage-0 run, repeat preflight and outcome-suppressed fixture capture, and run the host smoke with unchanged protocol/model/seed/thresholds. Only a PASS authorizes the four scientific action sequences.",
+  "resume_command": "git switch codex/epoch6-ral-submission-convergence-v2; Get-Content reports/epoch6_campaign_state.json -Raw | ConvertFrom-Json | Out-Null; Get-FileHash -Algorithm SHA256 reports/epoch6_schedule_invariant_evaluation/operational_blocker.json,reports/epoch6_contact_transition_topology/operational_blocker.json,reports/epoch6_evidence_index.json,reports/epoch6_closure_registry.json,reports/epoch6_resource_inventory.json; <after clean host condition> create a fresh run and execute scripts/monitor_epoch6_schedule_stage0_smoke.ps1 with -AllowWslCacheDropAfterChild"
+}

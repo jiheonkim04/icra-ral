@@ -1,0 +1,131 @@
+{
+  "schema_version": "epoch6.schedule_invariant_problem_protocol.v1",
+  "frozen_at": "2026-07-19T23:59:30+09:00",
+  "execution_type": "DISCOVERY_PROBLEM_VERIFICATION",
+  "thesis": "schedule-invariant stochastic VLA evaluation",
+  "ours_authorized": false,
+  "paper_generation_authorized": false,
+  "outcomes_exposed_at_freeze": false,
+  "pinned_sources": {
+    "vla_evaluation_harness_revision": "a7eb023a962456bb0b6be40aa4336c31b7ac4ce6",
+    "xvla_source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "xvla_checkpoint_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590"
+  },
+  "stage0": {
+    "policy": "X-VLA-Libero",
+    "simulator_actions_executed": false,
+    "reward_success_done_read": false,
+    "fixture_source": {
+      "suite": "libero_spatial",
+      "task_id": 0,
+      "initial_state_indices": [0],
+      "capture": ["ordinary_rgb", "language", "ordinary_proprioception"],
+      "must_hash_before_inference": true,
+      "state_restore": "direct set_state plus sim.forward, post_process, forced observable update, and get_observations; check_success forbidden",
+      "success_check_calls": 0
+    },
+    "logical_episode_keys": 20,
+    "fixture_assignment": "one_identical_fixed_tensor_for_all_keys",
+    "root_seed": 620260719,
+    "execution_semantics": {
+      "sequence_isolation": "one fresh operating-system process per sequence",
+      "offline_local_checkpoint_only": true,
+      "model_class": "official X-VLA models.modeling_xvla.XVLA",
+      "domain_id": 3,
+      "denoising_steps": 10,
+      "model_dtype": "float32",
+      "raw_chunk_shape": [30, 20],
+      "agentview_transform": "rotate_180_degrees",
+      "wrist_transform": "identity",
+      "proprio": "controller_ee_position_plus_contiguous_first_two_rotation_matrix_columns_plus_zero_gripper_then_zero_second_arm",
+      "session_state": "none; rebuild identical input mapping before every first-chunk call",
+      "seed_once_before_model_load": true,
+      "resume": "persist completed prefix and Python, NumPy, CPU Torch, and CUDA Torch RNG states after every new key; restore states after identical model load and execute missing suffix only; never replay a completed query"
+    },
+    "resource_smoke": {
+      "fresh_process": true,
+      "root_seed": 620260719,
+      "forward_calls": 1,
+      "gate_membership": "resource_only_not_in_A_A_repeat_B_or_C",
+      "persist": ["raw_chunk_shape", "finite", "raw_chunk_sha256", "resources"],
+      "simulator_actions_executed": 0,
+      "reward_success_done_read": false,
+      "requirements": [
+        "zero WSL swap use",
+        "zero Windows pagefile growth or write activity relative to stable baseline",
+        "host RAM below frozen ceiling",
+        "GPU and process memory release verified after child exit",
+        "telemetry exception count zero"
+      ]
+    },
+    "orders": {
+      "canonical": "0..19",
+      "canonical_cold_restart": "0..19",
+      "reversed": "19..0",
+      "independent_reference": "0..19 with root_seed 620260720"
+    },
+    "metrics": [
+      "raw_chunk_sha256",
+      "processed_7d_chunk_sha256",
+      "normalized_rms",
+      "gripper_disagreement",
+      "latency_seconds",
+      "peak_vram_mib",
+      "peak_ram_bytes"
+    ],
+    "metric_definitions": {
+      "binary_chunk_hash": "SHA-256 over ASCII dtype, little-endian int64 shape vector, then C-contiguous little-endian float32 bytes",
+      "normalized_rms_pair": "sqrt(mean((x-y)^2))/max(sqrt(mean(x^2)),sqrt(mean(y^2)),1e-12)",
+      "gripper_disagreement": "fraction of the 30 processed 7-D rows whose thresholded gripper command differs",
+      "order_contrast": "same logical key in canonical A versus reversed-order B",
+      "independent_reference_contrast": "same logical key in canonical A versus independent-root C"
+    },
+    "gates": {
+      "same_order_cold_restart_hash_match_fraction_min": 1.0,
+      "same_order_cold_restart_normalized_rms_max_if_hash_differs": 0.000001,
+      "reversed_order_changed_hash_fraction_min": 0.95,
+      "median_order_rms_over_independent_noise_rms_min": 0.10,
+      "exception_count_max": 0
+    },
+    "decisions": [
+      "ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO",
+      "NO_MATERIAL_ACTION_LEVEL_SCHEDULE_DEPENDENCE",
+      "EVALUATION_INVALID_CANNOT_ISOLATE_SCHEDULE",
+      "PROBLEM_GATE_IMPLEMENTATION_OR_RESOURCE_FAILURE"
+    ]
+  },
+  "closed_loop": {
+    "authorized_only_after": "ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO",
+    "policy": "X-VLA-Libero",
+    "task_manifest": [
+      {"suite": "libero_spatial", "task_id": 4, "initial_state_indices": [0, 1, 2, 3, 4]},
+      {"suite": "libero_object", "task_id": 4, "initial_state_indices": [0, 1, 2, 3, 4]},
+      {"suite": "libero_goal", "task_id": 4, "initial_state_indices": [0, 1, 2, 3, 4]},
+      {"suite": "libero_10", "task_id": 4, "initial_state_indices": [0, 1, 2, 3, 4]}
+    ],
+    "episode_count_per_schedule": 20,
+    "total_episode_executions": 40,
+    "schedules": [
+      "single_lane_canonical_serial",
+      "four_shards_predeclared_reversed_launch_offsets_with_actual_arrival_log"
+    ],
+    "gates": {
+      "paired_success_or_timeout_disagreement_fraction_min": 0.20,
+      "success_rate_spread_min": 0.10,
+      "changed_first_chunk_trace_fraction_among_discordant_pairs_min": 0.80
+    },
+    "problem_statuses": [
+      "PROBLEM_VERIFIED_METHOD_DESIGN_AUTHORIZED",
+      "NO_REPEATABLE_PROBLEM",
+      "EVALUATION_INVALID",
+      "INFRASTRUCTURE_OR_RESOURCE_BLOCKED"
+    ]
+  },
+  "prohibitions": [
+    "no keyed-noise method before both gates pass",
+    "no training or Ours",
+    "no task/reset/schedule/threshold changes after outcomes",
+    "no confirmatory or replication access",
+    "no paper package"
+  ]
+}

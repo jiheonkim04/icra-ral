@@ -1,0 +1,211 @@
+{
+  "schema_version": "epoch6.closure_registry.v1",
+  "generated_at": "2026-07-19T23:55:59+09:00",
+  "source_head": "f3dcd8f1ecf34662b81bf73b4b44d916db5d5ab0",
+  "allowed_classifications": [
+    "SCIENTIFICALLY_CLOSED_AXIS",
+    "SCIENTIFICALLY_CLOSED_FORMULATION",
+    "INFRASTRUCTURE_BLOCKED",
+    "RESOURCE_BLOCKED",
+    "DATA_OR_SUPERVISION_FAILURE",
+    "UNDERPOWERED_EXPANSION_AVAILABLE",
+    "UNDERPOWERED_EXPANSION_EXHAUSTED",
+    "PREPARED_BUT_UNEXECUTED",
+    "EXPLORATORY_POSITIVE_NOT_CONFIRMATORY",
+    "REUSABLE_INFRASTRUCTURE_ONLY",
+    "STATUS_REQUIRES_ARTIFACT_AUDIT"
+  ],
+  "rules": {
+    "exactly_one_class_per_route": true,
+    "historical_thresholds_and_decisions_immutable": true,
+    "formulation_closure_is_not_field_wide_disproof": true,
+    "historical_adaptive_evidence_partition": "DISCOVERY_ONLY"
+  },
+  "routes": [
+    {
+      "route_id": "tca_target_prior_action_heatmap_campaign",
+      "classification": "SCIENTIFICALLY_CLOSED_AXIS",
+      "decision": "ARCHIVED_NO_VALID_ONLINE_ACTION_SOURCE",
+      "scope": "Historical low-compute TCA/ActionMap target-conditioned heatmap route; not all target conditioning.",
+      "evidence_artifact": "reports/target_prior_tca_kill_summary.md",
+      "commit": "ba65d5cf0ac67ba217553ccdb2e440a002a7217b",
+      "provenance_caveat": "Decisive raw JSON diagnostics were gitignored; the tracked closure report is the immutable decision record."
+    },
+    {
+      "route_id": "css_shield_v1",
+      "classification": "SCIENTIFICALLY_CLOSED_FORMULATION",
+      "decision": "SIMPLE_BASELINE_EXPLAINS_METHOD",
+      "scope": "Exact target-aware CSS-Shield formulation; safety filtering and recovery generally remain unadjudicated.",
+      "evidence_artifact": "reports/css_shield_phase2_kill_report.md",
+      "commit": "f3d58d20a255378df6856dbc564c11508675c954"
+    },
+    {
+      "route_id": "pse_photometric_sensor_ensemble_vla",
+      "classification": "SCIENTIFICALLY_CLOSED_FORMULATION",
+      "decision": "VALID_SCIENTIFIC_METHOD_FAILURE",
+      "scope": "Exact fixed photometric-transform ensemble on its frozen SmolVLA two-task panel; not all sensor ensembling.",
+      "evidence_artifact": "reports/pse_vla/stage_b_result.json",
+      "commit": "c4607b8c1bd053d9552a053fd6dfac3132dedef8"
+    },
+    {
+      "route_id": "mtf_vla_r20_ret100",
+      "classification": "SCIENTIFICALLY_CLOSED_FORMULATION",
+      "decision": "VALID_SCIENTIFIC_METHOD_FAILURE_SIMPLE_ABLATION_SUPERIOR",
+      "scope": "Exact selected MTF configuration mtf_r20_ret100; not all temporal memory or filtering.",
+      "evidence_artifact": "reports/mtf_vla/stage_b_result.json",
+      "commit": "0824ba87b23a49d295ef23a949ebd487c62eac29"
+    },
+    {
+      "route_id": "rap_vla_v1_stage0",
+      "classification": "INFRASTRUCTURE_BLOCKED",
+      "decision": "IMPLEMENTATION_METHOD_MISMATCH",
+      "scope": "Exact RAP v1 Stage-0 integration using a transparent proxy while official OptimusVLA assets were unavailable; no efficacy conclusion.",
+      "evidence_artifact": "reports/rap_vla/stage_0_result.json",
+      "commit": "cc20e20dffee3fecb6159371a7abab351b002430"
+    },
+    {
+      "route_id": "awf_xvla_v1",
+      "classification": "SCIENTIFICALLY_CLOSED_FORMULATION",
+      "decision": "AWF_XVLA_STAGE0_NO_GO",
+      "scope": "Agentview-as-wrist fill under persistent wrist dropout on the frozen LIBERO Spatial task/identities; not view imputation generally.",
+      "evidence_artifact": "reports/awf_xvla_stage0_result.json",
+      "commit": "d039fe2beec8b3308a54818eff344f28f711f6d9"
+    },
+    {
+      "route_id": "rifa_xvla_v1",
+      "classification": "SCIENTIFICALLY_CLOSED_FORMULATION",
+      "decision": "RIFA_XVLA_STAGE0_DESIGN_FAILURE",
+      "scope": "Exact RIFA v1 reliability coupling; reliability-conditioned methods as a family remain unadjudicated.",
+      "evidence_artifact": "reports/rifa_xvla_v1_archive_decision.json",
+      "commit": "72956816d224287ed4df63c74f3e545221daa8d1"
+    },
+    {
+      "route_id": "cvlr_xvla_v1",
+      "classification": "SCIENTIFICALLY_CLOSED_FORMULATION",
+      "decision": "CVLR_XVLA_STAGE0_DESIGN_FAILURE",
+      "scope": "Exact uncalibrated direct wrist-token insertion v1; cross-view reconstruction generally remains unadjudicated.",
+      "evidence_artifact": "reports/cvlr_xvla_v1_archive_decision.json",
+      "commit": "ea3782a812e0472c0d05f57300e0d7a43dd67429"
+    },
+    {
+      "route_id": "action_consistent_missing_view_distillation_v1",
+      "classification": "SCIENTIFICALLY_CLOSED_FORMULATION",
+      "decision": "STAGE0_MECHANISM_NOT_SUPPORTED",
+      "scope": "Exact reconstruction-auxiliary action-consistent missing-view formulation.",
+      "evidence_artifact": "reports/action_consistent_missing_view_distillation_archive_decision.json",
+      "commit": "f11ec2135f39dba3ccf315ee5271aa152247cff7"
+    },
+    {
+      "route_id": "wrist_camera_dropout_method_development_axis",
+      "classification": "SCIENTIFICALLY_CLOSED_AXIS",
+      "decision": "KEY_COMPONENT_NOT_SUPPORTED_AND_AXIS_CLOSED_FOR_CAMPAIGN",
+      "scope": "Method development whose claim-defining problem is wrist-camera dropout in this campaign; this does not claim missing-view robotics is impossible.",
+      "evidence_artifact": "reports/action_consistent_missing_view_distillation_exact_scientific_status.json",
+      "commit": "f11ec2135f39dba3ccf315ee5271aa152247cff7"
+    },
+    {
+      "route_id": "rl4il_missing_camera_local_port",
+      "classification": "EXPLORATORY_POSITIVE_NOT_CONFIRMATORY",
+      "decision": "RL4IL_ACTION_ORACLE_PRIOR_LOCAL_RESIDUAL_ESTABLISHED",
+      "scope": "MECHANISM_FAITHFUL_RL4IL_LOCAL_PORT only; no official RL4IL reproduction or performance claim.",
+      "evidence_artifact": "reports/rl4il_action_oracle_prior_closed_loop_rollout_result.json",
+      "commit": "63049a701946ab64e8bf17b9609a0dfdab3b1bf6"
+    },
+    {
+      "route_id": "a2c2_v1_local_port",
+      "classification": "SCIENTIFICALLY_CLOSED_FORMULATION",
+      "decision": "A2C2_PRIOR_NO_LOCAL_IMPROVEMENT",
+      "scope": "MECHANISM_FAITHFUL_A2C2_LOCAL_PORT v1 on its frozen local panel; not the official paper method.",
+      "evidence_artifact": "reports/a2c2_prior/clean_host_prior_verification_result.json",
+      "commit": "80591dd57034cf29c04d006cec683058d35a1703"
+    },
+    {
+      "route_id": "corrected_a2c2_claim_specific_async_delay_axis",
+      "classification": "SCIENTIFICALLY_CLOSED_AXIS",
+      "decision": "CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP",
+      "scope": "Claim-specific local asynchronous-inference-delay thesis; not an A2C2 efficacy verdict and not all timing research.",
+      "evidence_artifact": "reports/a2c2_prior/official_action_semantics_corrected_panel_result.json",
+      "commit": "f3dcd8f1ecf34662b81bf73b4b44d916db5d5ab0"
+    },
+    {
+      "route_id": "task75_second_prior",
+      "classification": "INFRASTRUCTURE_BLOCKED",
+      "decision": "TASK75_SECOND_PRIOR_INFRASTRUCTURE_BLOCKED",
+      "scope": "Second-prior gate for LIBERO-90 task 75 action unnormalization and semantics; not policy failure.",
+      "evidence_artifact": "reports/task75_second_prior_result.json",
+      "commit": "05a0537db811b3684eb06568ea39c350ee47353e"
+    },
+    {
+      "route_id": "activevla_active_camera_historical_path",
+      "classification": "INFRASTRUCTURE_BLOCKED",
+      "decision": "REJECTED_OFFICIAL_ARTIFACT_AND_LOCAL_INTERFACE_INFEASIBLE",
+      "scope": "Historical local feasibility state as audited on 2026-07-19; not an ActiveVLA scientific failure. Current artifacts must be refreshed before reuse.",
+      "evidence_artifact": "reports/strategic_pivot_epoch2_selection_result.json",
+      "commit": "d276cf139ba09cc051cf3329775328499772848b"
+    },
+    {
+      "route_id": "flare_safe_recovery_historical_path",
+      "classification": "INFRASTRUCTURE_BLOCKED",
+      "decision": "REJECTED_PRIOR_UNAVAILABLE_AND_CLOSED_FAMILY_OVERLAP",
+      "scope": "The then-proposed local recovery path only; no universal recovery disproof. SAFE detector infrastructure alone may be reusable after a current artifact audit.",
+      "evidence_artifact": "reports/strategic_pivot_epoch2_selection_result.json",
+      "commit": "d276cf139ba09cc051cf3329775328499772848b"
+    },
+    {
+      "route_id": "natural_reset_residual_identity_mining",
+      "classification": "UNDERPOWERED_EXPANSION_EXHAUSTED",
+      "decision": "NO_ELIGIBLE_REPEATED_CROSS_PRIOR_RESIDUAL_AT_FINAL_CAP",
+      "scope": "Unbounded natural-reset identity mining only; controlled new problem conditions and other prior ecosystems remain open.",
+      "evidence_artifact": "reports/final_cap_libero_spatial_20260735_convergence_result.json",
+      "commit": "ddbe62c2a537cda2fd84de9027334096943669ab"
+    },
+    {
+      "route_id": "epoch6_causal_low_motion_counterfactual_preservation",
+      "classification": "PREPARED_BUT_UNEXECUTED",
+      "decision": "NOVELTY_HARD_FILTER_NO_GO_TOO_OVERLAPPING_WITH_VLA_ARENA",
+      "scope": "Exact Epoch 6 proposal to use simulator outcome interventions to preserve task-causal low-motion demonstration segments; not all action filtering or data curation.",
+      "evidence_artifact": "reports/epoch6_causal_low_motion/paperability_contract.md",
+      "commit": null
+    },
+    {
+      "route_id": "epoch6_outcome_separated_vla_selection_reporting",
+      "classification": "PREPARED_BUT_UNEXECUTED",
+      "decision": "NOVELTY_HARD_FILTER_NO_GO_TOO_OVERLAPPING_WITH_ROUTERVLA_NSCORE_AND_STANDARD_HOLDOUT",
+      "scope": "Exact nested outcome-disjoint checkpoint/configuration reporting proposal without a new finite-sample post-selection method; not all evaluation research.",
+      "evidence_artifact": "reports/epoch6_thesis_portfolio.md",
+      "commit": null
+    },
+    {
+      "route_id": "epoch6_generic_contact_mode_distillation",
+      "classification": "PREPARED_BUT_UNEXECUTED",
+      "decision": "ACTIVE_THESIS_NO_GO_CLOSE_PRIOR_COLLISION_BACKUP_GATE_ONLY",
+      "scope": "Broad training-only privileged contact-mode distillation into sensor-free VLA deployment; a narrowly distinct non-gripper object-environment contact-topology gate remains unexecuted.",
+      "evidence_artifact": "reports/epoch6_thesis_portfolio.md",
+      "commit": null
+    },
+    {
+      "route_id": "epoch6_schedule_invariant_stochastic_vla_evaluation_stage0",
+      "classification": "RESOURCE_BLOCKED",
+      "decision": "STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE_HOST_MEMORY_CEILING",
+      "scope": "Exact outcome-suppressed X-VLA Stage-0 schedule-dependence audit on the current Windows/WSL host workload. Schedule dependence and the broader thesis remain scientifically unadjudicated and may resume only under the recorded resource condition.",
+      "evidence_artifact": "reports/epoch6_schedule_invariant_evaluation/operational_blocker.json",
+      "commit": null
+    },
+    {
+      "route_id": "epoch6_non_gripper_contact_transition_topology_stage0a",
+      "classification": "RESOURCE_BLOCKED",
+      "decision": "STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE_PAGEFILE_AND_TEARDOWN",
+      "scope": "Exact frozen contact-topology Stage-0A label gate on the current Windows/WSL host. Contact labels, prevalence, predictability, and headroom remain scientifically unadjudicated.",
+      "evidence_artifact": "reports/epoch6_contact_transition_topology/operational_blocker.json",
+      "commit": null
+    },
+    {
+      "route_id": "epoch6_persistent_success_problem_verification",
+      "classification": "RESOURCE_BLOCKED",
+      "decision": "NOT_EXECUTED_SHARED_LIBERO_WSL_RESOURCE_BLOCKER",
+      "scope": "The ranked persistent-success backup requires the same LIBERO/WSL simulator path and cannot begin outcome-bearing replay until that shared path passes resource qualification. No persistence evidence was accessed.",
+      "evidence_artifact": "reports/epoch6_contact_transition_topology/operational_blocker.json",
+      "commit": null
+    }
+  ]
+}

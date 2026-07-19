@@ -1,0 +1,307 @@
+{
+  "schema_version": "epoch6.resource_inventory.v1",
+  "audited_at": "2026-07-19T23:55:59+09:00",
+  "source_head": "f3dcd8f1ecf34662b81bf73b4b44d916db5d5ab0",
+  "path_aliases": {
+    "REPO_ROOT": "current Git worktree",
+    "WINDOWS_ASSET_ROOT": "pre-existing local Windows asset root resolved at runtime",
+    "WSL_ASSET_ROOT": "pre-existing local Ubuntu-22.04 asset root resolved at runtime"
+  },
+  "host": {
+    "os": "Microsoft Windows 11 Education",
+    "build": "26200",
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "logical_processors": 16,
+    "ram_total_bytes": 24871014400,
+    "ram_free_bytes_at_audit": 11154202624,
+    "system_disk_used_bytes": 734432669696,
+    "system_disk_free_bytes": 264701919232,
+    "minimum_free_disk_bytes": 60000000000,
+    "minimum_free_disk_rule_satisfied": true
+  },
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 5080",
+    "vram_total_mib": 16303,
+    "vram_used_mib_at_audit": 1935,
+    "utilization_percent_at_audit": 1,
+    "driver_version": "596.21",
+    "reported_cuda_version": "13.2"
+  },
+  "wsl": {
+    "distribution": "Ubuntu-22.04",
+    "kernel": "6.6.114.1-microsoft-standard-WSL2",
+    "ram_total_bytes": 12096454656,
+    "ram_available_bytes_at_audit": 11492192256,
+    "swap_total_bytes": 3221225472,
+    "swap_used_bytes_at_audit": 0,
+    "root_filesystem_free_bytes": 932574519296,
+    "heavy_job_authorized_now": false,
+    "reason": "The current WSL default has 3 GiB swap, while the previously validated clean-host profile used 12 GB and swap=0. An actual-path resource smoke and explicit launch profile are required before heavy execution."
+  },
+  "active_workers": {
+    "research_python_cuda_simulator_or_vla_workers": [],
+    "unrelated_system_python_processes_observed": [
+      "networkd-dispatcher",
+      "unattended-upgrade-shutdown"
+    ],
+    "duplicate_launch_risk": false
+  },
+  "protected_user_changes": [
+    {
+      "path": "rollouts/2026_07_17/",
+      "git_state": "UNTRACKED",
+      "ownership": "USER_OR_PREEXISTING_UNKNOWN",
+      "policy": "PRESERVE_AND_EXCLUDE_FROM_EPOCH6_COMMITS"
+    },
+    {
+      "path": "rollouts/2026_07_18/",
+      "git_state": "UNTRACKED",
+      "ownership": "USER_OR_PREEXISTING_UNKNOWN",
+      "policy": "PRESERVE_AND_EXCLUDE_FROM_EPOCH6_COMMITS"
+    }
+  ],
+  "repository_storage": {
+    "runs": {
+      "file_count": 15923,
+      "bytes": 10307141322
+    },
+    "reports_checkpoints": {
+      "file_count": 12,
+      "bytes": 18501148
+    },
+    "rollouts": {
+      "file_count": 58,
+      "bytes": 8012979
+    }
+  },
+  "local_datasets": [
+    {
+      "asset_id": "libero_local_data",
+      "relative_to": "WINDOWS_ASSET_ROOT",
+      "relative_path": "data/libero",
+      "bytes": 100442962652,
+      "file_count": 266,
+      "new_epoch6_download": false,
+      "license_or_use_status": "CC-BY-4.0 verified from the official LIBERO repository license table on 2026-07-20 KST",
+      "license_source": "https://github.com/Lifelong-Robot-Learning/LIBERO#license"
+    },
+    {
+      "asset_id": "libero_para_metadata",
+      "relative_to": "WINDOWS_ASSET_ROOT",
+      "relative_path": "data/libero_para",
+      "bytes": 708053,
+      "file_count": 1,
+      "new_epoch6_download": false,
+      "license_or_use_status": "REQUIRES_SOURCE_AND_LICENSE_RECHECK_BEFORE_NEW_USE"
+    }
+  ],
+  "local_checkpoints": [
+    {
+      "asset_id": "openvla_oft_libero",
+      "relative_to": "WSL_ASSET_ROOT",
+      "relative_path": "checkpoints/openvla-oft",
+      "bytes": 15940352939,
+      "selected_for_epoch6": false,
+      "official_source": "https://huggingface.co/moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+      "immutable_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+      "license": "REQUIRES_MODEL_CARD_RECHECK_BEFORE_NEW_USE",
+      "remote_code": "OpenVLA-OFT repository code is local and must remain pinned/inspected before execution."
+    },
+    {
+      "asset_id": "xvla_hf_snapshot",
+      "relative_to": "WSL_ASSET_ROOT",
+      "relative_path": "checkpoints/xvla_hf_cache",
+      "bytes": 3522222830,
+      "selected_for_epoch6": true,
+      "official_source": "https://huggingface.co/2toinf/X-VLA",
+      "immutable_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+      "license": "Apache-2.0 (official X-VLA-Libero model card rechecked 2026-07-20 KST)",
+      "license_source": "https://huggingface.co/2toINF/X-VLA-Libero",
+      "remote_code": "X-VLA repository code is local and must remain pinned/inspected before execution."
+    },
+    {
+      "asset_id": "smolvla_libero",
+      "relative_to": "WSL_ASSET_ROOT",
+      "relative_path": "checkpoints/smolvla_libero",
+      "bytes": 906759218,
+      "selected_for_epoch6": false,
+      "official_source": "LOCAL_HUGGING_FACE_CACHE_METADATA",
+      "immutable_revision": "31d453f7edd78c839a8bbc39744a292686daf0de",
+      "license": "REQUIRES_MODEL_CARD_RECHECK_BEFORE_NEW_USE",
+      "remote_code": "Not authorized until exact repository/model provenance is revalidated."
+    },
+    {
+      "asset_id": "smolvla_libero_lora",
+      "relative_to": "WSL_ASSET_ROOT",
+      "relative_path": "checkpoints/smolvla_libero_lora",
+      "bytes": 7154835,
+      "selected_for_epoch6": false,
+      "official_source": "LOCAL_CAMPAIGN_ARTIFACT",
+      "immutable_revision": null,
+      "license": "INHERITS_BASE_AND_TRAINING_DATA_RESTRICTIONS",
+      "remote_code": "Not applicable; local adapter provenance must be traced before reuse."
+    },
+    {
+      "asset_id": "lightvla",
+      "relative_to": "WSL_ASSET_ROOT",
+      "relative_path": "checkpoints/lightvla",
+      "bytes": 15455222818,
+      "selected_for_epoch6": false,
+      "official_source": "LOCAL_PREEXISTING_ASSET_REQUIRES_MODEL_ID_RECHECK",
+      "immutable_revision": null,
+      "license": "REQUIRES_MODEL_CARD_RECHECK_BEFORE_NEW_USE",
+      "remote_code": "Not authorized until model ID, hash, and interface are pinned."
+    },
+    {
+      "asset_id": "openpi",
+      "relative_to": "WSL_ASSET_ROOT",
+      "relative_path": "checkpoints/openpi",
+      "bytes": 12439134633,
+      "selected_for_epoch6": false,
+      "official_source": "LOCAL_PREEXISTING_ASSET_REQUIRES_MODEL_ID_RECHECK",
+      "immutable_revision": null,
+      "license": "REQUIRES_MODEL_CARD_RECHECK_BEFORE_NEW_USE",
+      "remote_code": "Not authorized until model ID, hash, and interface are pinned."
+    }
+  ],
+  "local_repositories": [
+    {
+      "id": "LIBERO",
+      "official_url": "https://github.com/Lifelong-Robot-Learning/LIBERO.git",
+      "revision": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+      "bytes": 446815892,
+      "license": "MIT"
+    },
+    {
+      "id": "LightVLA",
+      "official_url": "https://github.com/LiAutoAD/LightVLA.git",
+      "revision": "a4680fda5ffe73029190ac97328aa34b0e87a45a",
+      "bytes": 2189919,
+      "license": "MIT"
+    },
+    {
+      "id": "openpi",
+      "official_url": "https://github.com/Physical-Intelligence/openpi.git",
+      "revision": "15a9616a00943ada6c20a0f158e3adb39df2ccac",
+      "bytes": 2582957,
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "openvla-oft",
+      "official_url": "https://github.com/moojink/openvla-oft.git",
+      "revision": "e4287e94541f459edc4feabc4e181f537cd569a8",
+      "bytes": 1504644,
+      "license": "MIT"
+    },
+    {
+      "id": "PCD",
+      "official_url": "https://github.com/pcd-robot/PCD.git",
+      "revision": "cec18b820daeadfdaf080c030a1b5eb080ff75cd",
+      "bytes": 1723045303,
+      "license": "NO_TOP_LEVEL_LICENSE_FILE_OBSERVED_DO_NOT_USE_WITHOUT_RESOLUTION"
+    },
+    {
+      "id": "PCD-LeRobot",
+      "official_url": "https://github.com/pcd-robot/PCD-LeRobot.git",
+      "revision": "519b4a814e85bf9b786677d90b0ff07218729bb2",
+      "bytes": 129989546,
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "ript-vla",
+      "official_url": "https://github.com/Ariostgx/ript-vla.git",
+      "revision": "440990e8864e12e4578b490ff6359e4f2c49ae3e",
+      "bytes": 2000115,
+      "license": "NO_TOP_LEVEL_LICENSE_FILE_OBSERVED_DO_NOT_USE_WITHOUT_RESOLUTION"
+    },
+    {
+      "id": "RL4IL-Missing-Camera",
+      "official_url": "https://github.com/h-ismkhan/Reinforcement-Learning-via-kNN-for-Robotic-Learning-with-Missing-Camera.git",
+      "revision": "e1dd5b741ebb6b392bfd1f8cbb61bad82417e9bd",
+      "bytes": 550584,
+      "license": "NO_TOP_LEVEL_LICENSE_FILE_OBSERVED_DO_NOT_USE_FOR_NEW_WORK_WITHOUT_RESOLUTION"
+    },
+    {
+      "id": "robosuite",
+      "official_url": "https://github.com/ARISE-Initiative/robosuite.git",
+      "revision": "fbee5844ff5632f5b5698e204ec5357ca50be0df",
+      "bytes": 655620508,
+      "license": "MIT",
+      "reference_checkout_status": "Pre-existing macros.py edit and untracked robosuite/utils/mujoco.dll observed and preserved; not used as the Epoch 6 contact runtime.",
+      "executed_runtime": "official-smolvla-libero conda package robosuite 1.4.0 with exact Python-file manifest captured by contact Stage-0A preflight"
+    },
+    {
+      "id": "VLA-GSE",
+      "official_url": "https://github.com/YuhuaJiang2002/VLA-GSE.git",
+      "revision": "200cdc245880322f2bef7b24ec506063a0f35e8c",
+      "bytes": 1540765,
+      "license": "NO_TOP_LEVEL_LICENSE_FILE_OBSERVED_DO_NOT_USE_WITHOUT_RESOLUTION"
+    },
+    {
+      "id": "X-VLA",
+      "official_url": "https://github.com/2toinf/X-VLA.git",
+      "revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+      "bytes": 100239481,
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "VLA-Arena",
+      "official_url": "https://github.com/PKU-Alignment/VLA-Arena.git",
+      "revision": "babe582ebffc82b979b77964a7e56417d02f63a4",
+      "bytes": 966480951,
+      "license": "Apache-2.0",
+      "epoch6_acquisition": "PINNED_SOURCE_AUDIT_ONLY",
+      "remote_code": "Not executed; scripts were inspected for no-op regeneration semantics."
+    },
+    {
+      "id": "vla-evaluation-harness",
+      "official_url": "https://github.com/allenai/vla-evaluation-harness.git",
+      "revision": "a7eb023a962456bb0b6be40aa4336c31b7ac4ce6",
+      "bytes": 18102302,
+      "license": "Apache-2.0",
+      "epoch6_acquisition": "PINNED_SOURCE_AUDIT_ONLY",
+      "remote_code": "Not executed; no Docker image or Python environment was installed."
+    }
+  ],
+  "epoch6_budget": {
+    "new_download_limit_bytes": 40000000000,
+    "new_downloads_consumed_bytes": 984583253,
+    "heavy_job_checkpoint_limit_hours": 12,
+    "validation_search_max_configurations": 6,
+    "semantically_null_repairs_per_root_cause": 2,
+    "paid_compute_authorized": false,
+    "physical_robot_authorized": false
+  },
+  "terminal_resource_audit": {
+    "adjudicated_at": "2026-07-20T02:36:04+09:00",
+    "status": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER",
+    "schedule_route": {
+      "lowest_qualified_attempt_baseline_used_fraction": 0.5334225402563395,
+      "actual_path_peak_used_fraction": 0.735965678665684,
+      "model_inference_calls": 1,
+      "wsl_swap_used_bytes": 0,
+      "windows_pagefile_growth_mib": 8,
+      "pagefile_write_activity": false,
+      "memory_release_verified": false,
+      "artifact": "reports/epoch6_schedule_invariant_evaluation/operational_blocker.json"
+    },
+    "contact_route": {
+      "actual_path_peak_used_fraction_max": 0.6099158023888242,
+      "wsl_swap_used_bytes": 0,
+      "windows_pagefile_growth_mib_observed": [0, 1],
+      "pagefile_write_activity": false,
+      "memory_release_verified": false,
+      "contact_label_gate_rows": 0,
+      "artifact": "reports/epoch6_contact_transition_topology/operational_blocker.json"
+    },
+    "shared_blocker": "The remaining ranked routes require the same WSL simulator/model environment, but the frozen zero-pagefile-growth and teardown rules cannot be satisfied without changing user-controlled host state or using a larger/no-pagefile host.",
+    "user_authority_required": "Save and close WSL shells and unrelated applications, reboot into a clean session, or provide/authorize a scientifically equivalent host with at least 32 GB RAM and no pagefile activity."
+  },
+  "pre_heavy_job_requirements": [
+    "Resolve the exact active-path checkpoint and repository provenance.",
+    "Use an isolated environment and pin remote code before enabling it.",
+    "Run actual-path RAM/VRAM/swap/pagefile and teardown smoke tests.",
+    "Freeze task/reset/seed manifests and success semantics before claim-relevant outcomes.",
+    "Confirm no unrelated user workload makes the launch unsafe."
+  ]
+}

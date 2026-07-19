@@ -4,6 +4,14 @@ Date: 2026-07-14 KST
 
 This file is the active repository governance for the autonomous until-paper research campaign.
 
+## Epoch 6 current amendment
+
+For the Epoch 6 RA-L submission-convergence campaign, the current user Goal
+instruction and `reports/epoch6_governance_amendment_v2.md` supersede
+conflicting historical state names, terminal states, and sequencing in this
+file. This pointer imports the amendment without rewriting the historical
+record below. Historical thresholds, artifacts, and decisions remain immutable.
+
 ## Active Authority Order
 
 1. current user Goal instruction

@@ -1,0 +1,137 @@
+{
+  "schema_version": "epoch6.contact_topology.problem_verification.v1",
+  "frozen_at": "2026-07-20T02:00:00+09:00",
+  "execution_type": "DISCOVERY_PREMETHOD_PROBLEM_AND_SUPERVISION_VERIFICATION",
+  "thesis_id": "non_gripper_object_environment_contact_transition_topology",
+  "root_seed": 620260721,
+  "dataset": {
+    "root": "C:/assets/data/libero",
+    "source": "official LIBERO demonstration release",
+    "license": "CC-BY-4.0",
+    "license_source": "https://github.com/Lifelong-Robot-Learning/LIBERO#license",
+    "selected_demo_ids": [0, 1, 2, 3, 4, 5],
+    "allowed_hdf5_datasets_stage0a": ["states", "actions"],
+    "allowed_hdf5_datasets_stage0b": ["states", "actions", "obs/agentview_rgb", "obs/eye_in_hand_rgb", "obs/ee_pos", "obs/ee_ori", "obs/gripper_states", "obs/joint_states"],
+    "forbidden_hdf5_datasets": ["rewards", "dones"]
+  },
+  "source": {
+    "libero_root": "/mnt/c/assets/repos/LIBERO",
+    "libero_revision": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+    "robosuite_runtime": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/robosuite",
+    "robosuite_runtime_version": "1.4.0",
+    "mujoco_runtime_version": "3.8.1",
+    "h5py_runtime_version": "3.16.0",
+    "robosuite_reference_checkout": "/mnt/c/assets/repos/robosuite",
+    "robosuite_reference_revision": "fbee5844ff5632f5b5698e204ec5357ca50be0df",
+    "robosuite_reference_status": "REFERENCE_ONLY_NOT_EXECUTED; contains a pre-existing macros.py edit and untracked mujoco.dll that must be preserved"
+  },
+  "task_split": {
+    "development_train": [
+      {"suite": "libero_spatial", "task_id": 0, "task": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate"},
+      {"suite": "libero_spatial", "task_id": 4, "task": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate"},
+      {"suite": "libero_object", "task_id": 0, "task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket"},
+      {"suite": "libero_goal", "task_id": 1, "task": "put_the_bowl_on_the_stove"},
+      {"suite": "libero_goal", "task_id": 3, "task": "open_the_top_drawer_and_put_the_bowl_inside"}
+    ],
+    "development_tune": [
+      {"suite": "libero_goal", "task_id": 8, "task": "put_the_bowl_on_the_plate"}
+    ],
+    "validation": [
+      {"suite": "libero_goal", "task_id": 0, "task": "open_the_middle_drawer_of_the_cabinet"},
+      {"suite": "libero_goal", "task_id": 6, "task": "put_the_cream_cheese_in_the_bowl"},
+      {"suite": "libero_goal", "task_id": 7, "task": "turn_on_the_stove"},
+      {"suite": "libero_goal", "task_id": 9, "task": "put_the_wine_bottle_on_the_rack"}
+    ]
+  },
+  "contact_graph": {
+    "state_restore": "env.env.sim.set_state_from_flattened(state); env.env.sim.forward()",
+    "simulator_actions_executed": false,
+    "success_check_calls": 0,
+    "reward_success_done_read": false,
+    "robot_exclusion": "Resolve every geom named by every robot model contact_geoms set to geom IDs; discard a contact if either geom ID is in that union.",
+    "node": "Canonical MuJoCo mobility body: map a geom body to its nearest ancestor that owns a joint; if none exists, map it to the highest named body below world. Collapse all geoms with the same canonical body.",
+    "node_type": "free if the body or an ancestor below world has a free joint; articulated if it has a hinge or slide joint; static otherwise.",
+    "retained_edge": "An unordered non-self body pair with neither endpoint robot-associated and at least one endpoint typed free or articulated.",
+    "edge_types": ["free-free", "free-articulated", "free-static", "articulated-articulated", "articulated-static"],
+    "transition_labels": "For every supported edge type, separate birth and death bits between consecutive stable graphs.",
+    "debounce": "An edge state must persist for two consecutive recorded states before its stable state changes; assign the transition to the first state in the new two-state run.",
+    "first_frame_excluded": true,
+    "raw_and_debounced_graph_hashes_persisted": true
+  },
+  "stage0a_label_gate": {
+    "purpose": "Establish exact replay, auditable robot exclusion, noncollapsed typed transitions, and signal not reducible to gripper timing before any probe or method.",
+    "process_isolation": "One task environment at a time; close and release it before the next task.",
+    "resource_requirements": {
+      "wsl_swap_used_bytes_max": 0,
+      "host_pagefile_growth_mib_max": 0,
+      "host_used_fraction_max": 0.75,
+      "minimum_free_disk_bytes": 60000000000
+    },
+    "gates": {
+      "exception_count_max": 0,
+      "state_roundtrip_max_abs_error_max": 1e-6,
+      "selected_state_restore_fraction_min": 1.0,
+      "robot_contact_geom_resolution_fraction_min": 1.0,
+      "retained_edges_touching_robot_max": 0,
+      "validation_tasks_with_transition_in_at_least_three_demos_min": 4,
+      "validation_debounced_transition_frames_min": 24,
+      "validation_transition_prevalence_min": 0.002,
+      "validation_transition_prevalence_max": 0.15,
+      "full_panel_supported_typed_direction_bins_min": 3,
+      "validation_supported_typed_direction_bins_min": 2,
+      "support_count_per_typed_direction_bin_min": 10,
+      "validation_transition_fraction_outside_plus_minus_two_gripper_change_frames_min": 0.2,
+      "validation_tasks_with_off_gripper_transitions_min": 2,
+      "cold_repeat_graph_hash_match_fraction_min": 1.0,
+      "forbidden_dataset_access_count_max": 0,
+      "simulator_actions_executed_max": 0,
+      "success_check_calls_max": 0
+    },
+    "go_decision": "CONTACT_TOPOLOGY_LABEL_GATE_GO",
+    "no_go_decision": "CONTACT_TOPOLOGY_DATA_OR_SUPERVISION_FAILURE"
+  },
+  "stage0b_headroom_gate": {
+    "authorized_only_after": "CONTACT_TOPOLOGY_LABEL_GATE_GO",
+    "rows": "The same frozen tasks and demos; transition at state t is paired to the six-dimensional arm action at t-1 and features available through t-1.",
+    "seeds": [620260721, 620260722, 620260723],
+    "visual_probe": {
+      "inputs": "Agent and wrist RGB at t-1 and t resized to 64x64, robot state through t-1, two previous actions, and normalized time; no contact, reward, done, or success input.",
+      "architecture": "Four convolution blocks with channels 16,32,64,64, 3x3 kernels, ReLU and group normalization, global average pooling, then a 64-unit fusion MLP.",
+      "optimizer": "AdamW, learning rate 3e-4, weight decay 1e-4, batch 128, maximum 20 epochs.",
+      "selection": "Choose epoch on development_tune only; report the median of three frozen seeds on validation.",
+      "controls": ["prevalence predictor", "nonvisual proprio-action-time probe with the same fusion width"],
+      "gates": {
+        "any_transition_auprc_over_prevalence_ratio_min": 2.0,
+        "any_transition_auprc_over_nonvisual_min": 0.1,
+        "supported_typed_bin_macro_ap_over_nonvisual_min": 0.05,
+        "validation_tasks_beating_nonvisual_any_transition_min": 3
+      }
+    },
+    "oracle_action_headroom": {
+      "target": "actions[t-1,0:6] on plus-or-minus-two-frame debounced transition boundaries",
+      "estimator": "Standardized ridge regression with alpha selected from [0.0001,0.001,0.01,0.1,1,10,100] on development_tune only.",
+      "base_features": "Robot state at t-1, actions through t-2 for two steps, and normalized time.",
+      "controls": ["base", "base plus gripper-change and coarse temporal stage", "base plus binary any-contact transition"],
+      "full": "Strongest control plus the typed birth/death topology vector.",
+      "shuffle": "Fifty root-seed-derived within-demo permutations of the typed topology vector.",
+      "gates": {
+        "aggregate_arm_nrmse_relative_reduction_min": 0.05,
+        "validation_tasks_with_lower_arm_nrmse_min": 3,
+        "shuffled_topology_fraction_of_full_gain_max": 0.2,
+        "finite_prediction_fraction_min": 1.0
+      }
+    },
+    "go_decision": "CONTACT_TOPOLOGY_PREMETHOD_STAGE0_GO",
+    "no_go_decisions": ["STAGE0_NO_HEADROOM", "STAGE0_TRIVIAL_EQUIVALENCE", "STAGE0_DATA_OR_SUPERVISION_FAILURE", "STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE"]
+  },
+  "prohibitions": {
+    "method_or_ours_name": true,
+    "vla_training": true,
+    "policy_rollout": true,
+    "reward_success_done_access": true,
+    "paper_generation": true,
+    "threshold_changes_after_label_access": true,
+    "protected_rollout_paths": ["rollouts/2026_07_17", "rollouts/2026_07_18"]
+  },
+  "decision_logic": "Stage0A failure archives this formulation and activates Backup 2. Stage0A GO authorizes only Stage0B. Stage0B GO authorizes only a separately frozen method contract and official Base/comparator plan. Neither decision authorizes paper generation."
+}
