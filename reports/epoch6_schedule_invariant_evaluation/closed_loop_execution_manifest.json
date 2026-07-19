@@ -1,0 +1,181 @@
+{
+  "schema_version": "epoch6.schedule_closed_loop.execution_manifest.v1",
+  "frozen_at": "2026-07-20T04:21:00+09:00",
+  "execution_type": "DISCOVERY_PROBLEM_VERIFICATION_CLOSED_LOOP",
+  "implementation_label": "MECHANISM_FAITHFUL_PINNED_HARNESS_LOCAL_SHARED_QUEUE_PORT",
+  "scientific_outcomes_exposed_at_freeze": false,
+  "protocol_sha256": "E5BA74354A1947A00045879A4815CCD09856F127E6809CF8BF649F10E2359946",
+  "stage0_result_sha256": "2CE2222184C9AE2D0EB49DCDD4A3D3BAED1D76F1BC1B79EFC3AE0BDA0D2BD617",
+  "stage0_authorization": "ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO",
+  "resource_amendment_sha256": "E98AED352765CEDA55607A2182ECE7B6E44B499DCC0253DA66313C72A6F3C601",
+  "pinned_sources": {
+    "vla_evaluation_harness_revision": "a7eb023a962456bb0b6be40aa4336c31b7ac4ce6",
+    "xvla_source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "xvla_checkpoint_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "libero_revision": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+    "harness_libero_benchmark_sha256": "3A96D52E71757D8A91338BC858ABFE737689C17A099EE73805AA4F05500CFE00",
+    "harness_xvla_server_sha256": "07493CCECC1E0BF42EFAC0E46D859FE3B7EEC79456AEE74C3FE5845280E7025C",
+    "harness_xvla_libero_config_sha256": "3BA4C809A284F9E58CA8268FF8E04EF42624883C2ACF20F3D00EB2E4A08FFB59",
+    "harness_suite_config_sha256": {
+      "libero_spatial": "D623F9DB237FE7D7D95521743374C7D9AE03CFC7980A1936C6371308BA089035",
+      "libero_object": "00A0EAC99178746B5735507DE2BFBB7D4DEAF3A4C29C37DDCF2FA65AE794E958",
+      "libero_goal": "C9B6DC66DB6A1C6FED1AA8E17BFDFD9EF8C41BDF60AA9640B478B51343DC0F1E",
+      "libero_10": "FFBAEFD112A389A8EF99871A2E498AC10A28276C07998B7AF8F0BA1609836870"
+    },
+    "xvla_modeling_source_sha256": "F42EE52A4833F60656BECDC5F26DBC3EDD19656F8FEBCAE7147A7D6C5860560A"
+  },
+  "policy": {
+    "name": "X-VLA-Libero",
+    "model_class": "models.modeling_xvla.XVLA",
+    "checkpoint_load": "offline local snapshot only",
+    "dtype": "float32",
+    "device": "cuda:0",
+    "cpu_or_disk_offload": false,
+    "domain_id": 3,
+    "denoising_steps": 10,
+    "root_seed": 620260719,
+    "seed_once_before_model_load_per_schedule_process": true,
+    "native_raw_chunk_shape": [30, 20],
+    "action_chunk_execution": "execute all available rows until success or suite horizon",
+    "closed_loop_proprio": "first call uses controller EE pose encoded as contiguous rot6d; later calls use the prior raw chunk's final first-arm 10D prediction plus zero second arm",
+    "agentview_transform": "rotate_180_degrees",
+    "wrist_transform": "identity",
+    "raw_action_conversion": "first arm position plus contiguous rot6d to axis-angle plus raw gripper threshold",
+    "gripper_threshold": 0.5,
+    "gripper_close_above": true
+  },
+  "simulator": {
+    "environment": "pinned libero.libero.envs.OffScreenRenderEnv",
+    "resolution": [256, 256],
+    "env_seed": 7,
+    "settle_steps": 10,
+    "settle_action": [0, 0, 0, 0, 0, 0, -1],
+    "controller_after_settle": "absolute use_delta=False",
+    "suite_horizons": {
+      "libero_spatial": 220,
+      "libero_object": 280,
+      "libero_goal": 300,
+      "libero_10": 520
+    },
+    "success_semantics": "LIBERO done returned by env.step",
+    "timeout_semantics": "no done by the frozen suite horizon",
+    "exception_semantics": "evaluation invalid; never counted as timeout or failure evidence"
+  },
+  "identity_manifest": [
+    {"global_index": 0, "suite": "libero_spatial", "task_id": 4, "initial_state_index": 0},
+    {"global_index": 1, "suite": "libero_spatial", "task_id": 4, "initial_state_index": 1},
+    {"global_index": 2, "suite": "libero_spatial", "task_id": 4, "initial_state_index": 2},
+    {"global_index": 3, "suite": "libero_spatial", "task_id": 4, "initial_state_index": 3},
+    {"global_index": 4, "suite": "libero_spatial", "task_id": 4, "initial_state_index": 4},
+    {"global_index": 5, "suite": "libero_object", "task_id": 4, "initial_state_index": 0},
+    {"global_index": 6, "suite": "libero_object", "task_id": 4, "initial_state_index": 1},
+    {"global_index": 7, "suite": "libero_object", "task_id": 4, "initial_state_index": 2},
+    {"global_index": 8, "suite": "libero_object", "task_id": 4, "initial_state_index": 3},
+    {"global_index": 9, "suite": "libero_object", "task_id": 4, "initial_state_index": 4},
+    {"global_index": 10, "suite": "libero_goal", "task_id": 4, "initial_state_index": 0},
+    {"global_index": 11, "suite": "libero_goal", "task_id": 4, "initial_state_index": 1},
+    {"global_index": 12, "suite": "libero_goal", "task_id": 4, "initial_state_index": 2},
+    {"global_index": 13, "suite": "libero_goal", "task_id": 4, "initial_state_index": 3},
+    {"global_index": 14, "suite": "libero_goal", "task_id": 4, "initial_state_index": 4},
+    {"global_index": 15, "suite": "libero_10", "task_id": 4, "initial_state_index": 0},
+    {"global_index": 16, "suite": "libero_10", "task_id": 4, "initial_state_index": 1},
+    {"global_index": 17, "suite": "libero_10", "task_id": 4, "initial_state_index": 2},
+    {"global_index": 18, "suite": "libero_10", "task_id": 4, "initial_state_index": 3},
+    {"global_index": 19, "suite": "libero_10", "task_id": 4, "initial_state_index": 4}
+  ],
+  "schedules": {
+    "single_lane_canonical_serial": {
+      "fresh_operating_system_process": true,
+      "shared_model_instances": 1,
+      "logical_harness_shards": 1,
+      "identity_order": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+      "launch_offset_seconds": {"0": 0.0}
+    },
+    "four_shards_predeclared_reversed_launch_offsets": {
+      "fresh_operating_system_process": true,
+      "shared_model_instances": 1,
+      "shared_fifo_inference_queue": true,
+      "logical_harness_shards": 4,
+      "shard_identity_assignments": {
+        "0": [0, 4, 8, 12, 16],
+        "1": [1, 5, 9, 13, 17],
+        "2": [2, 6, 10, 14, 18],
+        "3": [3, 7, 11, 15, 19]
+      },
+      "launch_offset_seconds": {"0": 3.0, "1": 2.0, "2": 1.0, "3": 0.0},
+      "required_initial_first_arrival_shard_order": [3, 2, 1, 0],
+      "actual_arrival_order_must_be_persisted": true,
+      "global_noise_position": "zero-based FIFO service ordinal in the single shared model process"
+    }
+  },
+  "resource_smoke": {
+    "required_before_scientific_schedules": true,
+    "fresh_immutable_run": true,
+    "model_forward_calls": 1,
+    "simultaneous_env_instances": 4,
+    "fixture": "libero_spatial task 0 initial-state index 0 outcome-suppressed direct restore",
+    "simulator_actions_executed": 0,
+    "reward_success_done_read": false,
+    "host_resource_governance": "CALIBRATED_OUTCOME_FREE_V1",
+    "pass_required": true
+  },
+  "durability": {
+    "atomic_query_transaction": true,
+    "persist_after_each_policy_query": true,
+    "persist_after_each_episode": true,
+    "persist_python_numpy_cpu_torch_cuda_rng": true,
+    "persist_active_simulator_states": true,
+    "resume": "restore model, active simulator/session state, and RNG after model load; service only the missing suffix; never replay a committed query or overwrite a final episode"
+  },
+  "trace_contract": {
+    "per_policy_call": [
+      "identity",
+      "episode_policy_call_index",
+      "global_noise_position",
+      "request_sent_monotonic_ns",
+      "request_arrived_monotonic_ns",
+      "service_started_monotonic_ns",
+      "service_completed_monotonic_ns",
+      "pre_query_sim_state_sha256",
+      "policy_input_sha256",
+      "raw_chunk_sha256",
+      "processed_chunk_sha256",
+      "raw_chunk",
+      "processed_chunk"
+    ],
+    "per_episode": [
+      "initial_state_sha256",
+      "post_settle_state_sha256",
+      "executed_actions",
+      "executed_action_sha256",
+      "success",
+      "timeout",
+      "steps",
+      "final_reward",
+      "done",
+      "exception"
+    ],
+    "first_schedule_remapped_query": "for each identity, the first equal episode-policy-call index whose global noise position differs between schedules",
+    "trace_divergence_begins_at_remap": "pre-query simulator states must hash-identically and the raw chunk hash must differ at the first schedule-remapped query"
+  },
+  "gates": {
+    "paired_success_or_timeout_disagreement_fraction_min": 0.20,
+    "success_rate_spread_min": 0.10,
+    "changed_first_chunk_trace_fraction_among_discordant_pairs_min": 0.80,
+    "completed_episode_executions_required": 40,
+    "exception_count_max": 0
+  },
+  "decision_order": [
+    "resource failure -> INFRASTRUCTURE_OR_RESOURCE_BLOCKED",
+    "source/reset/action/scheduler/simulator/integrity defect -> EVALUATION_INVALID",
+    "any scientific gate failure -> NO_REPEATABLE_PROBLEM",
+    "all scientific gates pass -> PROBLEM_VERIFIED_METHOD_DESIGN_AUTHORIZED"
+  ],
+  "prohibitions": [
+    "no Ours, keyed noise, training, ablation, validation, confirmation, replication, or paper generation before the closed-loop GO decision",
+    "no identity, task, reset, schedule, seed, horizon, threshold, or trace-example change after outcomes",
+    "no expert-action replay",
+    "no swap, CPU offload, disk offload, or hidden pagefile strategy",
+    "no failed-run reuse or completed-query replay"
+  ]
+}
