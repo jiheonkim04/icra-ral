@@ -1,0 +1,8 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+WARNING:robosuite_logs:No private macro file found!
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+WARNING:robosuite_logs:It is recommended to use a private macro file
+[robosuite WARNING] To setup, run: python /home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+WARNING:robosuite_logs:To setup, run: python /home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py
+Dropped Escape call with ulEscapeCode : 0x03007703

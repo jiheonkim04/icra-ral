@@ -10,7 +10,7 @@ Updated: 2026-07-19 KST
 - Resource-continuation source HEAD: `d276cf139ba09cc051cf3329775328499772848b`
 - Epoch/cycle: `5 / 0`
 - Campaign state: `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND`
-- Closed Pivot Epoch 1 thesis: action-chunk reactivity under asynchronous inference delay; the preserved historical result is `PRIOR_INFRASTRUCTURE_BLOCKED`, and the explicitly authorized resource continuation returned `A2C2_RESOURCE_FUNDAMENTALLY_BLOCKED_ON_CURRENT_24GB_HOST` without scientific adjudication.
+- Closed Pivot Epoch 1 thesis: action-chunk reactivity under asynchronous inference delay. The historical results `PRIOR_INFRASTRUCTURE_BLOCKED` and `A2C2_RESOURCE_FUNDAMENTALLY_BLOCKED_ON_CURRENT_24GB_HOST` remain preserved; the later clean-host continuation validly completed the frozen panel and returned `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
 - Active stage: none. `PIVOT_EPOCH_2` evaluated exactly two theses and selected none.
 - Current novelty decision: not applicable; no Pivot Epoch 2 thesis was selected.
 - Active training/rollout worker: none.
@@ -50,6 +50,10 @@ Updated: 2026-07-19 KST
 - A2C2 resource-continuation authority: `reports/a2c2_prior/resource_continuation_authorization.json`
 - A2C2 host preparation: `reports/a2c2_prior/resource_host_preparation_result.json`
 - A2C2 resource-feasibility result: `reports/a2c2_prior/resource_feasibility_continuation_result.json`
+- A2C2 clean-host authority: `reports/a2c2_prior/clean_host_continuation_authorization.json`
+- A2C2 clean-host preflight: `reports/a2c2_prior/clean_host_preflight_result.json`
+- A2C2 clean-host resource smoke: `reports/a2c2_prior/clean_host_resource_smoke_result.json`
+- A2C2 clean-host scientific decision: `reports/a2c2_prior/clean_host_prior_verification_result.json`
 - Pivot Epoch 2 selection: `reports/strategic_pivot_epoch2_selection_result.json`
 - Final strategic-pivot decision: `reports/strategic_pivot_final_decision.json`
 
@@ -126,6 +130,21 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 - A single-backbone simulation-only candidate requires stronger task, condition, ablation, paired-uncertainty, and resource evidence and may not claim real-world robustness, sensor reliability, hardware safety, sim-to-real transfer, or deployment readiness.
 
 ## Current immediate next action
+
+The explicitly authorized clean-host A2C2 continuation is complete. A strict
+12 GB resource smoke passed and the unchanged sequential frozen panel
+completed all 45 rows. Base standard was `10/15`, delayed Base was `4/15`, and
+the trained local A2C2 Prior was `3/15`. The exact decision is
+`A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`: the local port did not meet the frozen
+improvement gate. This does not disprove official A2C2.
+
+Close the A2C2 thesis locally. Do not design Ours, start Pivot Epoch 3, reopen
+wrist dropout, or create a paper package. The historical campaign decision
+`NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` remains preserved. Wait for explicit
+new user direction. The original absent `.wslconfig` state is restored, WSL
+is shut down, and no research worker is active.
+
+## Historical pre-clean-host resource conclusion
 
 The one explicitly authorized A2C2 resource continuation is complete. Actual
 path smokes at 6, 8, 10, and 12 GB each crossed the frozen 82% Windows ceiling

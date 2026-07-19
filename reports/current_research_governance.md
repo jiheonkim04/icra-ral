@@ -973,3 +973,54 @@ frozen protocol.
 Authoritative records are
 `reports/a2c2_prior/resource_continuation_authorization.json` and
 `reports/a2c2_prior/resource_feasibility_continuation_result.json`.
+
+## A2C2 Clean-Host Continuation And Scientific Closure
+
+Effective `2026-07-19`, the user explicitly authorized one clean-host
+continuation of the unchanged trained A2C2 path through a steer with SHA-256
+`15771F9CE6074790D43CDA65A17A264E85B3A6FA1CED905CDD5B1114C7C587B0`.
+This authority superseded the prior current-host resource conclusion only for
+this bounded continuation; it did not erase the historical
+`PRIOR_INFRASTRUCTURE_BLOCKED`,
+`A2C2_RESOURCE_FUNDAMENTALLY_BLOCKED_ON_CURRENT_24GB_HOST`, or
+`NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` records. It did not authorize
+retraining, Ours, Pivot Epoch 3, wrist dropout, physical/real-camera work,
+offload, swap, or any frozen scientific change.
+
+After safe background cleanup, Windows RAM was 38.33%. Strict one-policy,
+one-environment actual-path smokes ran sequentially at 8, 10, and 12 GB with
+swap zero, no prefetch, no video/observation cache, no duplicate model
+residency, and no scientific outcome persistence. The 8 and 10 GB attempts
+were rejected by the exact no-pagefile-growth smoke gate. The corrected 12 GB
+attempt completed 76 simulator steps and eight Base forwards with Windows RAM
+peaking at 72.54%, zero pagefile growth/writes, no OOM/offload, and successful
+teardown. Therefore 12 GB was the smallest passing cap and 14 GB was not run.
+
+At that cap, the frozen scientific panel completed sequentially with one full
+backbone and no prefetch or parallel task execution. All 45 unique frozen rows
+were atomically persisted with matched identities, official reset states,
+finite actions, zero exceptions, and no live expert actions. Results were:
+
+- Base standard `e=10,d=0`: `10/15`;
+- Base delayed `e=40,d=10`: `4/15`; and
+- trained A2C2 Prior delayed `e=40,d=10`: `3/15`.
+
+The Base-competence and repeatable-delay-gap gates passed. The Prior executed
+2,936 live module forwards and nonzero corrections, recovered one delayed
+failure, but regressed two delayed Base successes. It failed the frozen prior
+improvement gate requiring at least +2 successes, at least two recoveries,
+and at most one regression. The unchanged frozen adjudicator returned
+`NO_DIAGNOSTIC_HEADROOM`; under the clean-host steer's exact report vocabulary
+this maps without changing any threshold to
+`A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
+
+This is only a negative result for the trained
+`MECHANISM_FAITHFUL_A2C2_LOCAL_PORT` on the frozen local panel. It is not an
+official A2C2 reproduction and does not disprove the paper's method. Close the
+A2C2 thesis locally. Do not design Ours or start Pivot Epoch 3. The original
+absent `.wslconfig` state must remain restored, WSL shut down, and further
+research must wait for explicit user direction.
+
+Authoritative records are
+`reports/a2c2_prior/clean_host_resource_smoke_result.json` and
+`reports/a2c2_prior/clean_host_prior_verification_result.json`.

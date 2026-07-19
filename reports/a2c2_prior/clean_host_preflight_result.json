@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-19T16:03:54+09:00",
+  "active_state": "A2C2_CLEAN_HOST_RESOURCE_FEASIBILITY_REOPENED",
+  "total_physical_bytes": 24871014400,
+  "before_safe_cleanup": {
+    "physical_used_bytes": 10504081408,
+    "physical_available_bytes": 14366932992,
+    "used_fraction": 0.42234229931530254,
+    "committed_bytes": 13579907072,
+    "commit_limit_bytes": 67820687360,
+    "pagefile_current_usage_mib": 34,
+    "pagefile_peak_usage_mib": 96,
+    "pagefile_allocated_mib": 40960,
+    "page_writes_per_sec": 0
+  },
+  "largest_non_system_consumers": [
+    "Cursor process family",
+    "OP.GG process family",
+    "Explorer",
+    "Codex",
+    "Chrome process family",
+    "GGQ process family"
+  ],
+  "safely_closed": [
+    "Chrome",
+    "OP.GG",
+    "GGQ"
+  ],
+  "retained_as_essential": [
+    "Cursor",
+    "Codex",
+    "Explorer",
+    "Windows/security/driver processes"
+  ],
+  "cleaned": {
+    "physical_used_bytes": 9533468672,
+    "physical_available_bytes": 15337545728,
+    "used_fraction": 0.38331643891453016,
+    "committed_bytes": 11725131776,
+    "commit_limit_bytes": 67820687360,
+    "pagefile_current_usage_mib": 34,
+    "page_writes_per_sec": 0
+  },
+  "old_research_worker_active": false,
+  "game_active": false,
+  "background_heavy_process_active_after_cleanup": false,
+  "gpu_research_compute_process_active": false,
+  "original_wslconfig_present": false,
+  "wsl_running": false,
+  "disk_free_bytes": 265879064576,
+  "prelaunch_target": "preferred <=55%",
+  "prelaunch_target_passed": true,
+  "final_decision": "A2C2_CLEAN_HOST_PREFLIGHT_ACCEPTED"
+}

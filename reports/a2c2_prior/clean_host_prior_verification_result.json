@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-19T16:40:07+09:00",
+  "job_classification": "REPORT_ONLY",
+  "active_state": "A2C2_CLEAN_HOST_RESOURCE_FEASIBILITY_REOPENED",
+  "fidelity_label": "MECHANISM_FAITHFUL_A2C2_LOCAL_PORT",
+  "official_commit": "54dd088302a0ef3f50c4add3ec927ab94d76a406",
+  "historical_a2c2_result_preserved": "PRIOR_INFRASTRUCTURE_BLOCKED",
+  "historical_campaign_result_preserved": "NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND",
+  "resource_smoke_decision": "A2C2_RESOURCE_SMOKE_PASS",
+  "smallest_passing_wsl_cap_gib": 12,
+  "scientific_protocol_changed": false,
+  "prior_retrained": false,
+  "ours_designed_or_executed": false,
+  "execution": {
+    "concurrency_mode": "SEQUENTIAL",
+    "prefetch_mode": "DISABLED",
+    "eval_batch_size": 1,
+    "parallel_tasks": 1,
+    "maximum_simultaneous_full_backbones": 1,
+    "base_stage_prior_module_instances": 0,
+    "prior_stage_prior_module_instances": 1,
+    "official_simulator": true,
+    "official_reset_states": true,
+    "expert_action_at_live_inference": false
+  },
+  "frozen_panel": {
+    "suite": "libero_spatial",
+    "task_ids": [0, 4, 8],
+    "official_init_state_ids": [0, 1, 2, 3, 4],
+    "base_standard": {
+      "execution_horizon": 10,
+      "inference_delay": 0,
+      "episodes": 15,
+      "successes": 10,
+      "success_rate": 0.666667,
+      "per_task_successes": {"0": 4, "4": 3, "8": 3}
+    },
+    "base_delayed": {
+      "execution_horizon": 40,
+      "inference_delay": 10,
+      "episodes": 15,
+      "successes": 4,
+      "success_rate": 0.266667,
+      "per_task_successes": {"0": 2, "4": 1, "8": 1}
+    },
+    "prior_delayed": {
+      "execution_horizon": 40,
+      "inference_delay": 10,
+      "episodes": 15,
+      "successes": 3,
+      "success_rate": 0.2,
+      "per_task_successes": {"0": 1, "4": 1, "8": 1}
+    },
+    "completed_scientific_rows": 45,
+    "planned_scientific_rows": 45,
+    "duplicate_keys": 0,
+    "exceptions": 0,
+    "all_actions_finite": true,
+    "delayed_base_prior_identity_match": true
+  },
+  "paired_evidence": {
+    "clean_to_delayed_failure_count": 7,
+    "prior_recovery_count": 1,
+    "prior_regression_count": 2,
+    "clean_to_prior_residual_count": 7,
+    "prior_recoveries": [[8, 0]],
+    "prior_regressions": [[0, 3], [8, 2]],
+    "prior_module_forward_count": 2936,
+    "prior_mean_abs_correction_min": 0.009447925,
+    "prior_mean_abs_correction_max": 0.017432278,
+    "prior_mean_abs_correction_mean": 0.012878846733333334
+  },
+  "frozen_gates": {
+    "manifest_valid": true,
+    "infrastructure_valid": true,
+    "base_competent": true,
+    "repeatable_delay_gap": true,
+    "prior_improves": false,
+    "prior_saturates": false,
+    "verified_prior_residual": false
+  },
+  "training_evidence_reused": {
+    "cached_rows": 2438,
+    "trainable_parameter_count": 21281287,
+    "optimizer_steps": 40000,
+    "first_loss": 0.02575727179646492,
+    "final_loss": 0.002334569813683629,
+    "frozen_backbone_unchanged": true,
+    "checkpoint_path": "runs/a2c2_prior/checkpoints/step_040000.pt",
+    "checkpoint_sha256": "C7F22AB037D7C148F6607D55D2F7D78395E19441542B9FE0CB1511318856CF7E"
+  },
+  "resource_evidence": {
+    "base_windows_peak_used_fraction": 0.7540166583635608,
+    "prior_windows_peak_used_fraction": 0.7602175550989991,
+    "base_peak_committed_bytes": 23328137216,
+    "prior_peak_committed_bytes": 23789658112,
+    "base_peak_rss_mb": 3999.473,
+    "prior_peak_rss_mb": 4231.77,
+    "base_peak_vram_mb": 906.559,
+    "prior_peak_vram_mb": 1032.049,
+    "wsl_swap_total_kib": 0,
+    "host_ceiling_triggered": false,
+    "kernel_oom": false,
+    "memory_release_verified": true,
+    "pagefile_behavior": "Base peak current growth 2 MiB with 0 writes/s; Prior peak current growth 9 MiB with a transient 3 writes/s. This is reported, was not used as an execution strategy, and was not thrashing."
+  },
+  "source_artifacts": {
+    "base_result": "reports/a2c2_prior/clean_host_panel_20260719t1620_base_closed_loop_result.json",
+    "base_result_sha256": "99750AD0D948CF2974D771F803CCF6AA086BEBF92F3C6C291D9DCA64EB5A7888",
+    "prior_result": "reports/a2c2_prior/clean_host_panel_20260719t1620_prior_closed_loop_result.json",
+    "prior_result_sha256": "04D7DF61DF3312EB81059AF4433CB4CF3FD40E64DE84DF461DD132667C34AA07",
+    "frozen_adjudication": "reports/a2c2_prior/clean_host_panel_20260719t1620_frozen_adjudication_result.json",
+    "frozen_adjudication_sha256": "C2D37C8C7C38C93E606BA54D45BA105FFDA7404D88F3DF820A32617F03BFF659",
+    "base_host_telemetry_sha256": "65FF4E466D39BC940526B23F9B6FC34AC185B83F4DA3730C57F49CC18BD657A9",
+    "prior_host_telemetry_sha256": "63F240D1B40AD6663A276245D32C7CB8A943CEAF1C7A59C7B3FAD3C2603A3A3F"
+  },
+  "frozen_adjudicator_decision": "NO_DIAGNOSTIC_HEADROOM",
+  "decision_vocabulary_mapping": "Under the new clean-host directive, the unchanged frozen failure of the prior-improvement gate maps report-only to A2C2_PRIOR_NO_LOCAL_IMPROVEMENT.",
+  "scientific_interpretation": "The clean Base is competent and asynchronous delay creates a repeatable local gap, but this trained mechanism-faithful local A2C2 port did not improve delayed Base on the frozen panel. This does not disprove the official A2C2 paper or an official reproduction.",
+  "final_decision": "A2C2_PRIOR_NO_LOCAL_IMPROVEMENT",
+  "next_authorized_action": "Close the A2C2 thesis locally. Do not design Ours, do not launch Pivot Epoch 3, and wait for explicit new user direction."
+}

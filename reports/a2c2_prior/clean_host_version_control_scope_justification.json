@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-19T16:48:21.8170226+09:00",
+  "branch": "codex/epoch5-official-prior-first",
+  "base_head": "fe37f35cb8c7676668f867e3a8f559a43eec0a79",
+  "scope_before_this_justification": {
+    "staged_files": 64,
+    "added_lines": 26712,
+    "deleted_lines": 1
+  },
+  "thresholds_exceeded": {
+    "more_than_50_files": true,
+    "more_than_5000_changed_lines": true
+  },
+  "scope_class": "AUDIT_EVIDENCE_HEAVY_SCIENTIFIC_CLOSURE",
+  "justification": [
+    "The clean-host continuation requires preservation of every failed resource-smoke attempt, accepted cap result, and final frozen Base/Prior outcome.",
+    "Most added lines are raw host-memory sample series, atomic episode partials, and stdout/stderr logs, not source-code expansion.",
+    "The raw evidence is required to audit the 82 percent host ceiling, zero-swap and pagefile gates, exact identity completion, memory release, and absence of hidden failed runs.",
+    "The implementation surface is bounded to four launch/monitor scripts and two focused contract-test files; the frozen scientific runner remains byte-identical.",
+    "Only the clean-host A2C2 evidence roots and their reports are force-added from ignored runs directories."
+  ],
+  "explicit_exclusions": [
+    "rollouts/2026_07_17/",
+    "rollouts/2026_07_18/",
+    "unrelated runs, checkpoints, caches, and user files"
+  ],
+  "scientific_protocol_changed": false,
+  "frozen_runner_sha256": "57654AEAD0820C89EF4BA40BD551769BD669E6958462531388DD4AF46FFCF378"
+}

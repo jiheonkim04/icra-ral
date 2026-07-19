@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-19T16:03:54+09:00",
+  "source": "C:/Users/jiheo/Downloads/a2c2_clean_reboot_adaptive_concurrency_prompt.md",
+  "source_sha256": "15771F9CE6074790D43CDA65A17A264E85B3A6FA1CED905CDD5B1114C7C587B0",
+  "source_line_count": 536,
+  "source_head": "fe37f35cb8c7676668f867e3a8f559a43eec0a79",
+  "active_state": "A2C2_CLEAN_HOST_RESOURCE_FEASIBILITY_REOPENED",
+  "historical_a2c2_result_preserved": "PRIOR_INFRASTRUCTURE_BLOCKED",
+  "historical_campaign_result_preserved": "NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND",
+  "scientific_status": "A2C2_SCIENTIFICALLY_UNADJUDICATED",
+  "fidelity_label": "MECHANISM_FAITHFUL_A2C2_LOCAL_PORT",
+  "authorized_scope": "One clean-host continuation of the already trained, byte-frozen A2C2 prior-verification path on the current 24GB host",
+  "ours_authorized": false,
+  "pivot_epoch_3_authorized": false,
+  "prior_retraining_authorized": false
+}

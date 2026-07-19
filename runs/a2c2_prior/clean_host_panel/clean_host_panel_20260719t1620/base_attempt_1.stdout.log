@@ -1,0 +1,61 @@
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+Creating LIBERO envs | suites=['libero_spatial'] | n_envs(per task)=1 | init_states=True
+Restricting to task_ids=[0]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Built vec env | suite=libero_spatial | task_id=0 | n_envs=1
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=0 init=0
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=0 init=1
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=0 init=2
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=0 init=3
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=0 init=4
+Creating LIBERO envs | suites=['libero_spatial'] | n_envs(per task)=1 | init_states=True
+Restricting to task_ids=[4]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Built vec env | suite=libero_spatial | task_id=4 | n_envs=1
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=4 init=0
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=4 init=1
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=4 init=2
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=4 init=3
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=4 init=4
+Creating LIBERO envs | suites=['libero_spatial'] | n_envs(per task)=1 | init_states=True
+Restricting to task_ids=[8]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Built vec env | suite=libero_spatial | task_id=8 | n_envs=1
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=8 init=0
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=8 init=1
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=8 init=2
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=8 init=3
+[a2c2-rollout] BASE_STANDARD_E10_D0 task=8 init=4
+Creating LIBERO envs | suites=['libero_spatial'] | n_envs(per task)=1 | init_states=True
+Restricting to task_ids=[0]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Built vec env | suite=libero_spatial | task_id=0 | n_envs=1
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=0 init=0
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=0 init=1
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=0 init=2
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=0 init=3
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=0 init=4
+Creating LIBERO envs | suites=['libero_spatial'] | n_envs(per task)=1 | init_states=True
+Restricting to task_ids=[4]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Built vec env | suite=libero_spatial | task_id=4 | n_envs=1
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=4 init=0
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=4 init=1
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=4 init=2
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=4 init=3
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=4 init=4
+Creating LIBERO envs | suites=['libero_spatial'] | n_envs(per task)=1 | init_states=True
+Restricting to task_ids=[8]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Built vec env | suite=libero_spatial | task_id=8 | n_envs=1
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=8 init=0
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=8 init=1
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=8 init=2
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=8 init=3
+[a2c2-rollout] BASE_DELAYED_E40_D10 task=8 init=4
+{
+  "mode": "rollout-base",
+  "final_decision": "A2C2_BASE_CLOSED_LOOP_ACCEPTED"
+}
