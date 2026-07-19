@@ -1,14 +1,14 @@
 {
   "schema_version": "epoch6.campaign_state.v1",
-  "updated_at": "2026-07-20T02:46:04+09:00",
+  "updated_at": "2026-07-20T02:48:37+09:00",
   "repository": {
     "remote": "https://github.com/jiheonkim04/icra-ral.git",
     "branch": "codex/epoch6-ral-submission-convergence-v2",
-    "head": "f3dcd8f1ecf34662b81bf73b4b44d916db5d5ab0",
+    "head": "fdcc5cb8ba0645b408ceff6104845b4d6d7dfdc0",
     "source_branch": "codex/epoch5-official-prior-first",
     "source_head": "f3dcd8f1ecf34662b81bf73b4b44d916db5d5ab0",
     "source_is_ancestor": true,
-    "remote_epoch6_branch_observed": false,
+    "remote_epoch6_branch_observed": true,
     "protected_untracked_paths": ["rollouts/2026_07_17/", "rollouts/2026_07_18/"]
   },
   "campaign": {

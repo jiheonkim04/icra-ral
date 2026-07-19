@@ -1,7 +1,7 @@
 # Epoch 6 Terminal Handoff
 
 Terminal state: `HARD_EXTERNAL_BLOCKER_REQUIRES_USER`
-Campaign-state hash: `497505E60E503FDDE0969388C687DB5054C2DB3925726734ABEFED446AE36B04`
+Campaign-state hash: `49FD9623C65A42CD28342545D6B0854E41925CA322EF6CC94080F040672F996D`
 Scientific outcome rows exposed: `0`
 Paper candidate: not reached
 Paper generation: unauthorized
