@@ -1,0 +1,104 @@
+{
+  "schema_version": "epoch6.schedule_stage0.resource_governance_amendment.v1",
+  "frozen_at": "2026-07-20T03:48:53+09:00",
+  "authority": "human clean-host acquisition continuation",
+  "scope": "RESOURCE_ONLY_OUTCOME_FREE",
+  "scientific_protocol_sha256": "E5BA74354A1947A00045879A4815CCD09856F127E6809CF8BF649F10E2359946",
+  "scientific_protocol_changed": false,
+  "scientific_outcomes_exposed_before_freeze": false,
+  "trigger_evidence": {
+    "run_id": "epoch6_stage0_cleanhost_20260720_033820_kst",
+    "host_report": "runs/epoch6_schedule_invariant_evaluation/stage0/epoch6_stage0_cleanhost_20260720_033820_kst/resource_smoke_host.json",
+    "host_report_sha256": "A8061380475C2FAC9844FF767466C9223605CC7C841F39ADE985BD3E52ED1081",
+    "internal_report": "runs/epoch6_schedule_invariant_evaluation/stage0/epoch6_stage0_cleanhost_20260720_033820_kst/resource_smoke.json",
+    "internal_report_sha256": "714241397F23893B23720492FA19BF0A6A9EB3338D6341B4CE6583CA157986CE",
+    "preserved_decision": "EPOCH6_STAGE0_RESOURCE_SMOKE_FAIL_PAGEFILE_ACTIVITY",
+    "internal_status": "ACTUAL_PATH_RESOURCE_SMOKE_PASS",
+    "model_inference_calls": 1,
+    "raw_chunk_finite": true,
+    "wsl_maximum_swap_used_bytes": 0,
+    "host_peak_used_fraction": 0.7152651710096714,
+    "host_ceiling": 0.82,
+    "pagefile_current_usage_mib": {
+      "stable_baseline": 4,
+      "peak": 25,
+      "reported_growth": 21
+    },
+    "peak_page_writes_per_sec": 0,
+    "peak_pages_output_per_sec": 0,
+    "scientific_gate_rows": 0,
+    "simulator_actions_executed": 0,
+    "reward_success_done_read": false
+  },
+  "calibrated_qualification": {
+    "mode": "CALIBRATED_OUTCOME_FREE_V1",
+    "fresh_immutable_run_required": true,
+    "idle_control": {
+      "wsl_must_be_stopped": true,
+      "duration_seconds": 60,
+      "sample_interval_seconds": 1,
+      "host_used_fraction_max": 0.65,
+      "paging_active_sample": "page_writes_per_sec > 0 or pages_output_per_sec > 0",
+      "sustained_paging_min_consecutive_samples": 3,
+      "pagefile_current_usage_delta_is_diagnostic_only": true
+    },
+    "runtime": {
+      "host_used_fraction_max": 0.82,
+      "sample_interval_seconds": 0.5,
+      "sustained_paging_min_consecutive_samples": 3,
+      "pagefile_current_usage_delta_is_diagnostic_only": true,
+      "wsl_maximum_swap_used_bytes": 0,
+      "oom_or_kill_signature_allowed": false,
+      "cpu_or_disk_model_offload_allowed": false,
+      "model_inference_calls": 1,
+      "raw_chunk_finite": true,
+      "telemetry_exception_count_max": 0,
+      "simulator_actions_executed": 0,
+      "reward_success_done_read": false
+    },
+    "teardown": {
+      "cache_drop_allowed": true,
+      "wsl_shutdown_allowed_if_bounded_child_release_is_incomplete": true,
+      "post_shutdown_wait_seconds_max": 60,
+      "clean_state_host_used_fraction_max": 0.65,
+      "gpu_used_mib_above_idle_baseline_max": 256,
+      "wsl_must_be_stopped_after_shutdown": true,
+      "sustained_paging_allowed_during_restore": false
+    },
+    "pass_requires": [
+      "idle no-research control is valid",
+      "host RAM remains below the frozen 0.82 runtime ceiling",
+      "no sustained Windows paging pressure is observed",
+      "WSL swap use remains zero",
+      "no OOM or kill signature is observed",
+      "no CPU or disk model offload is used",
+      "the single frozen model forward completes with finite output",
+      "simulator actions and outcome reads remain zero",
+      "GPU resources release and a clean next-run state is restored"
+    ]
+  },
+  "interpretation": {
+    "allocation_only_pagefile_change": "NONFATAL_DIAGNOSTIC_ABSENT_PRESSURE",
+    "bounded_wsl_cache_or_anonymous_memory_retention": "NONFATAL_IF_CONTROLLED_SHUTDOWN_RESTORES_CLEAN_STATE",
+    "hard_resource_failure": [
+      "host RAM ceiling breach",
+      "sustained Windows paging",
+      "nonzero WSL swap use",
+      "OOM or process kill",
+      "CPU or disk model offload",
+      "nonfinite model output",
+      "simulator instability",
+      "failure to restore a reproducibly clean next-run state"
+    ]
+  },
+  "frozen_scientific_invariants": [
+    "model and checkpoint revision",
+    "task and initial-state identity",
+    "root seeds and sequence orders",
+    "fixture and outcome suppression",
+    "action processing",
+    "scientific metrics and thresholds",
+    "A, A_repeat, B, and C confirmatory rules",
+    "all downstream authorization gates"
+  ]
+}

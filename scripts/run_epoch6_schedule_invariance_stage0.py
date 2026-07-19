@@ -30,6 +30,13 @@ import numpy as np
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL_PATH = REPO_ROOT / "reports" / "epoch6_schedule_invariant_evaluation" / "problem_verification_protocol.json"
 EXPECTED_PROTOCOL_SHA256 = "E5BA74354A1947A00045879A4815CCD09856F127E6809CF8BF649F10E2359946"
+RESOURCE_AMENDMENT_PATH = (
+    REPO_ROOT
+    / "reports"
+    / "epoch6_schedule_invariant_evaluation"
+    / "resource_governance_amendment_v1.json"
+)
+EXPECTED_RESOURCE_AMENDMENT_SHA256 = "E98AED352765CEDA55607A2182ECE7B6E44B499DCC0253DA66313C72A6F3C601"
 XVLA_ROOT = Path("/mnt/c/assets/repos/X-VLA")
 HARNESS_ROOT = Path("/mnt/c/assets/repos/vla-evaluation-harness")
 LIBERO_ROOT = Path("/mnt/c/assets/repos/LIBERO")
@@ -802,6 +809,9 @@ def load_xvla(torch_module: Any) -> tuple[Any, Any, dict[str, Any]]:
         local_files_only=True,
     )
     model.eval().to(device="cuda:0", dtype=torch_module.float32)
+    parameter_devices = sorted({str(parameter.device) for parameter in model.parameters()})
+    if parameter_devices != ["cuda:0"]:
+        raise RuntimeError(f"X-VLA parameters are not exclusively CUDA-resident: {parameter_devices}")
     return model, processor, {
         "optional_import_shims": shims,
         "compatibility_patches": patches,
@@ -810,6 +820,9 @@ def load_xvla(torch_module: Any) -> tuple[Any, Any, dict[str, Any]]:
         "model_type": type(model).__name__,
         "processor_type": type(processor).__name__,
         "parameter_count": int(sum(parameter.numel() for parameter in model.parameters())),
+        "parameter_devices": parameter_devices,
+        "device_map_requested": False,
+        "cpu_or_disk_model_offload": False,
     }
 
 
@@ -1513,20 +1526,31 @@ def valid_resource_smoke(run_dir: Path) -> bool:
         internal = json.loads(internal_path.read_text(encoding="utf-8"))
         host = json.loads(host_path.read_text(encoding="utf-8-sig"))
         return bool(
-            internal["status"] == "ACTUAL_PATH_RESOURCE_SMOKE_PASS"
+            sha256_file(RESOURCE_AMENDMENT_PATH) == EXPECTED_RESOURCE_AMENDMENT_SHA256
+            and internal["status"] == "ACTUAL_PATH_RESOURCE_SMOKE_PASS"
             and internal["model_inference_calls"] == 1
             and internal["raw_chunk_shape"] == list(RAW_CHUNK_SHAPE)
             and internal["raw_chunk_finite"]
             and internal["resource_monitor"]["samples"] >= 1
             and not internal["resource_monitor"]["exceptions"]
             and internal["resource_monitor"]["maximum_swap_used_bytes"] == 0
+            and internal["runtime"]["parameter_devices"] == ["cuda:0"]
+            and not internal["runtime"]["device_map_requested"]
+            and not internal["runtime"]["cpu_or_disk_model_offload"]
             and internal["provenance"] == validate_execution_provenance(run_dir)
-            and host["final_decision"] == "EPOCH6_STAGE0_RESOURCE_SMOKE_PASS"
+            and host["schema_version"] == "epoch6.schedule_stage0.host_resource_smoke.v2"
+            and host["resource_governance_mode"] == "CALIBRATED_OUTCOME_FREE_V1"
+            and host["resource_amendment_sha256"] == EXPECTED_RESOURCE_AMENDMENT_SHA256
+            and host["final_decision"] == "EPOCH6_STAGE0_RESOURCE_SMOKE_PASS_CALIBRATED"
             and host["child_exit_code"] == 0
-            and host["pagefile_current_growth_mib"] <= 0
-            and not host["pagefile_write_activity"]
-            and host["memory_release_verified"]
+            and host["idle_control_valid"]
+            and not host["sustained_paging_detected"]
+            and not host["oom_or_kill_signature_detected"]
+            and host["clean_state_restored"]
             and host["gpu_release_verified"]
+            and host["scientific_gate_rows"] == 0
+            and host["simulator_actions_executed"] == 0
+            and not host["reward_success_done_read"]
             and host["internal_report_sha256"] == sha256_file(internal_path)
             and host["protocol_sha256"] == EXPECTED_PROTOCOL_SHA256
             and host["monitor_script_sha256"]

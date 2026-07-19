@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import inspect
+import json
 import os
 from pathlib import Path
 
@@ -186,6 +187,80 @@ def test_schedule_smoke_wrappers_persist_exit_and_support_safe_cache_release() -
     assert "resource_smoke_child_exit_code.txt" in powershell
     assert "AllowWslCacheDropAfterChild" in powershell
     assert "/proc/sys/vm/drop_caches" in powershell
+    assert "CalibratedResourceGovernance" in powershell
+    assert "IdleControlDurationSeconds = 60" in powershell
+    assert "SustainedPagingMinConsecutiveSamples = 3" in powershell
+    assert "wsl.exe --shutdown" in powershell
+    assert "pagefile_allocation_classification" in powershell
+
+
+def _write_json(path: Path, payload: dict) -> None:
+    path.write_text(json.dumps(payload, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def _qualified_resource_smoke(tmp_path: Path, monkeypatch) -> dict:
+    provenance = {"source_manifest_sha256": "SOURCE", "checkpoint_manifest_sha256": "CHECKPOINT"}
+    monkeypatch.setattr(stage0, "validate_execution_provenance", lambda _run_dir: provenance)
+    internal = {
+        "status": "ACTUAL_PATH_RESOURCE_SMOKE_PASS",
+        "model_inference_calls": 1,
+        "raw_chunk_shape": list(stage0.RAW_CHUNK_SHAPE),
+        "raw_chunk_finite": True,
+        "resource_monitor": {"samples": 8, "exceptions": [], "maximum_swap_used_bytes": 0},
+        "runtime": {
+            "parameter_devices": ["cuda:0"],
+            "device_map_requested": False,
+            "cpu_or_disk_model_offload": False,
+        },
+        "provenance": provenance,
+    }
+    internal_path = tmp_path / "resource_smoke.json"
+    _write_json(internal_path, internal)
+    host = {
+        "schema_version": "epoch6.schedule_stage0.host_resource_smoke.v2",
+        "resource_governance_mode": "CALIBRATED_OUTCOME_FREE_V1",
+        "resource_amendment_sha256": stage0.EXPECTED_RESOURCE_AMENDMENT_SHA256,
+        "final_decision": "EPOCH6_STAGE0_RESOURCE_SMOKE_PASS_CALIBRATED",
+        "child_exit_code": 0,
+        "idle_control_valid": True,
+        "sustained_paging_detected": False,
+        "oom_or_kill_signature_detected": False,
+        "clean_state_restored": True,
+        "gpu_release_verified": True,
+        "scientific_gate_rows": 0,
+        "simulator_actions_executed": 0,
+        "reward_success_done_read": False,
+        "pagefile_current_growth_mib": 21,
+        "pagefile_allocation_classification": "NONFATAL_ALLOCATION_ONLY_ABSENT_PRESSURE",
+        "internal_report_sha256": stage0.sha256_file(internal_path),
+        "protocol_sha256": stage0.EXPECTED_PROTOCOL_SHA256,
+        "monitor_script_sha256": stage0.sha256_file(
+            stage0.REPO_ROOT / "scripts" / "monitor_epoch6_schedule_stage0_smoke.ps1"
+        ),
+    }
+    _write_json(tmp_path / "resource_smoke_host.json", host)
+    return host
+
+
+def test_calibrated_resource_smoke_accepts_allocation_only_delta(tmp_path: Path, monkeypatch) -> None:
+    _qualified_resource_smoke(tmp_path, monkeypatch)
+    assert stage0.valid_resource_smoke(tmp_path)
+
+
+def test_calibrated_resource_smoke_rejects_sustained_paging(tmp_path: Path, monkeypatch) -> None:
+    host = _qualified_resource_smoke(tmp_path, monkeypatch)
+    host["sustained_paging_detected"] = True
+    _write_json(tmp_path / "resource_smoke_host.json", host)
+    assert not stage0.valid_resource_smoke(tmp_path)
+
+
+def test_calibrated_resource_smoke_rejects_failed_clean_state_restore(
+    tmp_path: Path, monkeypatch
+) -> None:
+    host = _qualified_resource_smoke(tmp_path, monkeypatch)
+    host["clean_state_restored"] = False
+    _write_json(tmp_path / "resource_smoke_host.json", host)
+    assert not stage0.valid_resource_smoke(tmp_path)
 
 
 def test_partial_sequence_round_trip_preserves_completed_keys(tmp_path: Path) -> None:
