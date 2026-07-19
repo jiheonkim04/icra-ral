@@ -1162,3 +1162,20 @@ Authoritative records are
 `reports/a2c2_prior/official_action_semantics_continuation_authorization.json`,
 `reports/a2c2_prior/official_action_semantics_audit_result.json`, and
 `reports/a2c2_prior/official_action_semantics_protocol.json`.
+
+The preregistered outcome-suppressed smoke subsequently completed as
+`CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS`. It executed all four 80-step
+technical traces, persisted zero scientific episode rows, did not inspect,
+persist, or count success/done/reward, and had no exception. Every raw action
+was finite and 7-D; controller acceptance, native arm/gripper bounds, actuator
+and torque limits, and simulator-state finiteness all passed. Raw nominal-bound
+exceedance occurred only in gripper dimension 6, native arm clipping occurred
+on zero steps, and the Prior-specific practical-instability rule was false on
+both matched identities. Swap, pagefile growth, offload, and OOM were zero.
+
+The unchanged 45-row panel is therefore now authorized under its already-
+frozen tasks, official init states, conditions, horizons, success predicate,
+effect thresholds, atomic persistence, and missing-key-only resume contract.
+No additional Prior, Ours, Stage 0/A/B, or paper package is authorized before
+that panel's exact decision. The smoke record is
+`reports/a2c2_prior/official_action_semantics_smoke_result.json`.

@@ -14,7 +14,7 @@ Updated: 2026-07-19 KST
 - Epoch/cycle: `5 / 0`
 - Campaign state: `A2C2_OFFICIAL_ACTION_SEMANTICS_CORRECTION_AUTHORIZED`; historical `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` remains preserved.
 - Closed Pivot Epoch 1 thesis: action-chunk reactivity under asynchronous inference delay. The historical results `PRIOR_INFRASTRUCTURE_BLOCKED` and `A2C2_RESOURCE_FUNDAMENTALLY_BLOCKED_ON_CURRENT_24GB_HOST` remain preserved; the later clean-host continuation validly completed the frozen panel and returned `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
-- Active stage: the official action-path audit returned `OFFICIAL_ACTION_SEMANTICS_VERIFIED` and the practical diagnostic rule is frozen before the new smoke. The outcome-suppressed smoke and 45-row panel have not started.
+- Active stage: the official action-path audit returned `OFFICIAL_ACTION_SEMANTICS_VERIFIED`; the outcome-suppressed smoke returned `CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS`. The unchanged 45-row panel is authorized but has not started.
 - Current novelty decision: not applicable; Ours remains unauthorized.
 - Active training/rollout worker: none.
 - Current scientific decision: none for the active correction. `CORRECTED_A2C2_EVALUATION_INVALID` is preserved only as `HISTORICAL_LOCAL_STRICT_RAW_BOUND_GATE_RESULT`; v1 independently remains `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
@@ -67,6 +67,7 @@ Updated: 2026-07-19 KST
 - A2C2 official-action-semantics audit: `reports/a2c2_prior/official_action_semantics_audit_result.json`
 - A2C2 official-action-semantics protocol: `reports/a2c2_prior/official_action_semantics_protocol.json`
 - A2C2 official-action-semantics preregistration validation: `reports/a2c2_prior/official_action_semantics_preregistration_validation.json`
+- A2C2 official-action-semantics smoke: `reports/a2c2_prior/official_action_semantics_smoke_result.json`
 - Pivot Epoch 2 selection: `reports/strategic_pivot_epoch2_selection_result.json`
 - Final strategic-pivot decision: `reports/strategic_pivot_final_decision.json`
 
@@ -161,13 +162,20 @@ torque bounds, and finite simulator state are the validity criteria. Raw
 `[-1,1]` exceedance is a mandatory diagnostic, not an automatic invalidity.
 No external action clipping is allowed.
 
-Run exactly one outcome-suppressed smoke on task/init `(2,11)` and `(6,11)`,
-matched delayed Base/Prior, 80 fixed steps per trace. Do not inspect, persist,
-or count success, done, or reward. Only
-`CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS` opens the unchanged 45-row panel
-for tasks `0,4,8` and official init states `5..9`. Until the smoke passes, do
-not launch that panel, select an additional Prior, design Ours, or create a
-paper package.
+The one outcome-suppressed smoke completed on task/init `(2,11)` and `(6,11)`,
+matched delayed Base/Prior, 80 fixed steps per trace. It returned
+`CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS` with four complete technical
+traces, zero scientific rows, zero exceptions, zero native arm clip steps,
+valid native handling throughout, and no reproducible substantial Prior-
+specific instability. Success, done, and reward were not inspected, persisted,
+or counted.
+
+Run the unchanged 45-row corrected panel now: tasks `0,4,8`, official init
+states `5..9`, conditions `BASE_STANDARD_E10_D0`, `BASE_DELAYED_E40_D10`, and
+`PRIOR_DELAYED_E40_D10`, max 220 steps, sequential one-backbone residency,
+atomic rows, and missing-key-only resume. Do not select an additional Prior,
+design Ours, or create a paper package until the frozen panel decision is
+known.
 
 ## Historical pre-clean-host resource conclusion
 

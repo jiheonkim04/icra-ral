@@ -97,3 +97,22 @@ def test_host_monitor_classifies_the_new_mode_as_a_smoke() -> None:
     assert '[ValidateSet("smoke", "semantics_smoke", "panel")]' in monitor
     assert '($Mode -in @("smoke", "semantics_smoke"))' in monitor
     assert "CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS" in monitor
+
+
+def test_valid_official_semantics_smoke_opens_only_the_frozen_panel() -> None:
+    result = _load("official_action_semantics_smoke_result.json")
+
+    assert result["final_decision"] == "CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS"
+    assert result["execution"]["technical_traces"] == 4
+    assert result["execution"]["total_simulator_steps"] == 320
+    assert result["execution"]["scientific_episode_rows"] == 0
+    assert result["execution"]["task_success_inspected_by_runner"] is False
+    assert result["execution"]["task_success_persisted"] is False
+    assert result["execution"]["task_success_counted"] is False
+    assert all(trace["action_semantics_valid"] for trace in result["traces"])
+    assert result["native_path_summary"]["external_action_clip_added"] is False
+    assert result["native_path_summary"]["native_arm_clip_step_count"] == 0
+    assert result["practical_prior_instability"]["reproducible"] is False
+    assert result["resources"]["swap_total_bytes"] == 0
+    assert result["resources"]["pagefile_current_growth_mib"] == 0
+    assert result["next_action"] == "The unchanged 45-row corrected panel is now authorized."
