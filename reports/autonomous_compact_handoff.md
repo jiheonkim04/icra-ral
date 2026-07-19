@@ -7,9 +7,10 @@ Updated: 2026-07-19 KST
 - Branch: `codex/epoch5-official-prior-first`
 - Source HEAD before Pivot Epoch 1 selection: `f11ec2135f39dba3ccf315ee5271aa152247cff7`
 - Current pushed HEAD before Pivot Epoch 2 closure: `2bf992a`
+- Resource-continuation source HEAD: `d276cf139ba09cc051cf3329775328499772848b`
 - Epoch/cycle: `5 / 0`
 - Campaign state: `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND`
-- Closed Pivot Epoch 1 thesis: action-chunk reactivity under asynchronous inference delay; local result `PRIOR_INFRASTRUCTURE_BLOCKED` without scientific adjudication.
+- Closed Pivot Epoch 1 thesis: action-chunk reactivity under asynchronous inference delay; the preserved historical result is `PRIOR_INFRASTRUCTURE_BLOCKED`, and the explicitly authorized resource continuation returned `A2C2_RESOURCE_FUNDAMENTALLY_BLOCKED_ON_CURRENT_24GB_HOST` without scientific adjudication.
 - Active stage: none. `PIVOT_EPOCH_2` evaluated exactly two theses and selected none.
 - Current novelty decision: not applicable; no Pivot Epoch 2 thesis was selected.
 - Active training/rollout worker: none.
@@ -46,6 +47,9 @@ Updated: 2026-07-19 KST
 - A2C2 accepted feature cache: `reports/a2c2_prior/cached_feature_result.json`
 - A2C2 accepted Prior training: `reports/a2c2_prior/prior_module_training_result.json`
 - A2C2 final local decision: `reports/a2c2_prior/problem_verification_result.json`
+- A2C2 resource-continuation authority: `reports/a2c2_prior/resource_continuation_authorization.json`
+- A2C2 host preparation: `reports/a2c2_prior/resource_host_preparation_result.json`
+- A2C2 resource-feasibility result: `reports/a2c2_prior/resource_feasibility_continuation_result.json`
 - Pivot Epoch 2 selection: `reports/strategic_pivot_epoch2_selection_result.json`
 - Final strategic-pivot decision: `reports/strategic_pivot_final_decision.json`
 
@@ -121,7 +125,23 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 - A second backbone is optional strong generalization evidence. Camera-only validation is optional supplementary evidence. Neither is a hard `PAPER_CANDIDATE_GO` gate.
 - A single-backbone simulation-only candidate requires stronger task, condition, ablation, paired-uncertainty, and resource evidence and may not claim real-world robustness, sensor reliability, hardware safety, sim-to-real transfer, or deployment readiness.
 
-## Immediate next action
+## Current immediate next action
+
+The one explicitly authorized A2C2 resource continuation is complete. Actual
+path smokes at 6, 8, 10, and 12 GB each crossed the frozen 82% Windows ceiling
+before a complete episode; the optional 14 GB precondition (`<=40%` cleaned
+baseline) was false. The current-host result is
+`A2C2_RESOURCE_FUNDAMENTALLY_BLOCKED_ON_CURRENT_24GB_HOST`; the A2C2 science
+remains unadjudicated. The original absent `.wslconfig` state is restored,
+WSL is shut down, and no worker is active.
+
+Do not start Pivot Epoch 3, Ours, wrist-dropout work, or a paper package. The
+next possible action is a manual RAM upgrade (32 GB practical minimum, 48 GB
+preferred) followed by fresh explicit authority to rerun the identical
+resource smoke. A 64 GB upgrade is not needed for this one sequential frozen
+evaluation, though it may help unrelated simultaneous heavy workloads.
+
+## Historical terminal action before the resource continuation
 
 Stop autonomous local method development. `PIVOT_EPOCH_2` evaluated exactly
 two theses—active-view goal disambiguation and autonomous retry/recovery—and

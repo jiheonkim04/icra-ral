@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-19T14:21:57+09:00",
+  "execution_type": "SETUP_PREFLIGHT",
+  "stage": "A2C2_RESOURCE_ONLY_ACTUAL_PATH_SMOKE_HOST_MONITOR",
+  "failure_classification": "INFRASTRUCTURE_NULL_DEFECT",
+  "root_cause": "Windows PowerShell returned a null Start-Process ExitCode after redirected WSL execution, which could falsely map a failed child to shell exit zero.",
+  "observed_child_internal_decision": "A2C2_RESOURCE_SMOKE_INTERNAL_FAIL",
+  "observed_serialized_exit_code": null,
+  "scientific_outcomes_changed": false,
+  "repair": "When process ExitCode is null, map the already persisted internal smoke decision to 0/1; use 125 when neither source exists.",
+  "repair_budget_for_this_root": "1 / 1",
+  "final_decision": "A2C2_RESOURCE_SMOKE_EXITCODE_TELEMETRY_DEFECT"
+}

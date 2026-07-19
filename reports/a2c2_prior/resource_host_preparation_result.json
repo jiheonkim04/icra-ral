@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-19T14:34:53+09:00",
+  "purpose": "A2C2_RESOURCE_FEASIBILITY_WINDOWS_HOST_PREPARATION",
+  "physical_total_bytes": 24871014400,
+  "initial": {
+    "physical_used_bytes": 21165830144,
+    "physical_available_bytes": 3705184256,
+    "used_fraction": 0.851024,
+    "committed_bytes": 36840108032,
+    "commit_limit_bytes": 67820687360,
+    "pagefile_current_usage_mib": 2055,
+    "pagefile_peak_usage_mib": 10296,
+    "pagefile_allocated_mib": 40960,
+    "page_reads_per_sec": 0,
+    "page_writes_per_sec": 0,
+    "research_worker_active": false,
+    "wsl_running": false,
+    "game_active": false,
+    "wslconfig_present": false
+  },
+  "largest_non_system_consumers_observed": [
+    {
+      "process_family": "Chrome",
+      "aggregate_working_set_gib_approx": 2.0
+    },
+    {
+      "process_family": "Cursor",
+      "aggregate_working_set_gib_approx": 1.5
+    },
+    {
+      "process_family": "Claude",
+      "aggregate_working_set_gib_approx": null
+    },
+    {
+      "process_family": "RiotClientServices/RiotClientCrashHandler",
+      "aggregate_working_set_gib_approx": null
+    }
+  ],
+  "safely_closed_or_stopped": [
+    "Chrome",
+    "Claude",
+    "RiotClientServices",
+    "RiotClientCrashHandler",
+    "Windows Settings",
+    "Widgets and unrelated WebView processes",
+    "OneDrive",
+    "GGQ",
+    "KakaoTalk",
+    "extra Explorer windows"
+  ],
+  "retained_as_essential": [
+    "Cursor IDE",
+    "Codex supervision session",
+    "system and security processes"
+  ],
+  "reversible_working_set_trim_used": true,
+  "user_data_deleted": false,
+  "accepted_launches": [
+    {
+      "cap_gib": 6,
+      "physical_used_bytes": 17232646144,
+      "physical_available_bytes": 7638368256,
+      "used_fraction": 0.6928807111301419,
+      "committed_bytes": 28225679360,
+      "pagefile_current_usage_mib": 1224,
+      "page_reads_per_sec": 0,
+      "page_writes_per_sec": 0
+    },
+    {
+      "cap_gib": 8,
+      "physical_used_bytes": 16948117504,
+      "physical_available_bytes": 7922896896,
+      "used_fraction": 0.6814405408409879,
+      "committed_bytes": 27914944512,
+      "pagefile_current_usage_mib": 1225,
+      "page_reads_per_sec": 0,
+      "page_writes_per_sec": 0
+    },
+    {
+      "cap_gib": 10,
+      "physical_used_bytes": 16599150592,
+      "physical_available_bytes": 8271863808,
+      "used_fraction": 0.6674094721283262,
+      "committed_bytes": 27672723456,
+      "pagefile_current_usage_mib": 1228,
+      "page_reads_per_sec": 0,
+      "page_writes_per_sec": 0
+    },
+    {
+      "cap_gib": 12,
+      "physical_used_bytes": 16975859712,
+      "physical_available_bytes": 7895154688,
+      "used_fraction": 0.6825559842062574,
+      "committed_bytes": 27527196672,
+      "pagefile_current_usage_mib": 1227,
+      "page_reads_per_sec": 0,
+      "page_writes_per_sec": 0
+    }
+  ],
+  "baseline_policy": {
+    "preferred_fraction": 0.55,
+    "acceptable_fraction": 0.65,
+    "hard_no_launch_above_fraction": 0.70,
+    "interpretation": "The essential-process floor remained above 65%, but every launch was below the hard 70% prohibition."
+  },
+  "final_host_state": {
+    "temporary_wslconfig_restored_to_original_absent_state": true,
+    "wsl_shutdown": true,
+    "research_worker_active": false
+  }
+}

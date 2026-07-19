@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-19T14:26:29+09:00",
+  "execution_type": "SETUP_PREFLIGHT",
+  "failure_classification": "INFRASTRUCTURE_NULL_DEFECT",
+  "root_cause": "Stopping the Windows wsl.exe client did not synchronously terminate its Linux child, allowing host RAM to rise after the 82% guard fired.",
+  "host_fraction_at_guard": 0.8378769850255887,
+  "host_fraction_after_client_stop_lag": 0.8755558483372515,
+  "scientific_outcomes_changed": false,
+  "repair": "On a host-ceiling trigger, terminate the Ubuntu-22.04 distro first and classify exit code 82 directly; do not consult stale internal output.",
+  "repair_budget_for_this_root": "1 / 1",
+  "final_decision": "A2C2_RESOURCE_SMOKE_HOST_GUARD_PID_DEFECT"
+}

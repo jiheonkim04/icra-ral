@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-19T14:34:53+09:00",
+  "status_at_start": "A2C2_RESOURCE_FEASIBILITY_REOPENED_BY_EXPLICIT_USER_AUTHORITY",
+  "execution_type": "VLA_INFERENCE",
+  "fidelity_label": "MECHANISM_FAITHFUL_A2C2_LOCAL_PORT",
+  "historical_campaign_decision_preserved": "NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND",
+  "historical_a2c2_decision_preserved": "PRIOR_INFRASTRUCTURE_BLOCKED",
+  "scientific_protocol_changed": false,
+  "host": {
+    "physical_total_bytes": 24871014400,
+    "physical_installed_class_gib": 24,
+    "runtime_ceiling_fraction": 0.82,
+    "initial_used_fraction_before_cleanup": 0.851024,
+    "permitted_cleaned_baseline_range_fraction": [0.6674094721283262, 0.6928807111301419],
+    "preferred_target_fraction": 0.55,
+    "acceptable_target_fraction": 0.65,
+    "hard_no_launch_above_fraction": 0.70,
+    "baseline_target_note": "All launches were below the hard 70% prohibition but remained above the preferred and acceptable targets because essential Cursor/Codex processes were retained.",
+    "game_active_at_launch": false,
+    "research_worker_active_at_launch": false
+  },
+  "caps": [
+    {
+      "cap_gib": 6,
+      "effective_mem_total_kib": 6066260,
+      "config_sha256": "62395E1525E50770C6AA8DB1F6FD5E78B301BC786764D8D29B4DDEAB0AF80259",
+      "baseline_used_fraction": 0.6928807111301419,
+      "peak_used_fraction": 0.8378769850255887,
+      "after_used_fraction": 0.8755558483372515,
+      "pagefile_growth_mib": 0,
+      "telemetry_sha256": "6320FF442F7ABA458A13484F34AB28A0C6B5BF05FF8B9100AC1CFBF3A088FE3F",
+      "decision": "A2C2_RESOURCE_SMOKE_FAIL_WINDOWS_CEILING"
+    },
+    {
+      "cap_gib": 8,
+      "effective_mem_total_kib": 8130636,
+      "config_sha256": "B64DE8C5F059556A6BE5867196AD000BE6F116CC21A0413ADD7CBF06654202EB",
+      "baseline_used_fraction": 0.6814405408409879,
+      "peak_used_fraction": 0.8547990168024671,
+      "after_used_fraction": 0.8968125131237108,
+      "pagefile_growth_mib": 0,
+      "telemetry_sha256": "F3DAED03A102C2777C25F5AAF35E129A9E1940A0B141062EEE690F94F2637F03",
+      "decision": "A2C2_RESOURCE_SMOKE_FAIL_WINDOWS_CEILING"
+    },
+    {
+      "cap_gib": 10,
+      "effective_mem_total_kib": 10182740,
+      "config_sha256": "69139246A90A2994961837BDFA63373D6D75D2F08AEB90C2259E68C12893039F",
+      "baseline_used_fraction": 0.6674094721283262,
+      "peak_used_fraction": 0.865144000559945,
+      "after_used_fraction": 0.8887476583182711,
+      "pagefile_growth_mib": 0,
+      "telemetry_sha256": "9FB0CEEF62828564EE771F6FAB348525DADF1C758D573F9D6977D87E2B748910",
+      "decision": "A2C2_RESOURCE_SMOKE_FAIL_WINDOWS_CEILING"
+    },
+    {
+      "cap_gib": 12,
+      "effective_mem_total_kib": 12247124,
+      "config_sha256": "A7CC4F707936DBBCE335F298BF0E968804F956E4DBE71A17ECEF5775CC708445",
+      "baseline_used_fraction": 0.6825559842062574,
+      "peak_used_fraction": 0.8675777850058259,
+      "after_used_fraction": 0.8963457825025424,
+      "pagefile_growth_mib": 0,
+      "telemetry_sha256": "DFD4AB12D743AABFA003560558FA82057545873807F0A70100F85A48BEF715F3",
+      "decision": "A2C2_RESOURCE_SMOKE_FAIL_WINDOWS_CEILING"
+    }
+  ],
+  "common_evidence": {
+    "swap_total_kib": 0,
+    "wslg_process_count": 0,
+    "cpu_or_disk_model_offload_observed": false,
+    "no_cpu_or_disk_model_offload_verified": null,
+    "full_episode_completed": false,
+    "task_success_persisted_or_counted": false,
+    "scientific_outcomes_exposed": false,
+    "kernel_oom_observed_before_guard": false,
+    "post_forced_termination_kernel_log_available": false,
+    "pagefile_growth_mib": 0,
+    "model_forward_and_simulator_counts": "unknown because no child trace persisted before host-guard termination",
+    "teardown_completed": true,
+    "active_worker_after_teardown": false
+  },
+  "smallest_passing_cap_gib": null,
+  "optional_14gb_smoke": {
+    "executed": false,
+    "authorized": false,
+    "reason": "No accepted cleaned baseline was <=40%, and the preceding failures were Windows-ceiling failures rather than isolated evidence of insufficient WSL capacity."
+  },
+  "full_frozen_panel_executed": false,
+  "full_panel_reason": "No resource smoke passed; scientific Base/Prior rows remained unexecuted.",
+  "ram_adjudication": {
+    "maximum_observed_used_bytes_including_termination_lag": 22304636928,
+    "minimum_total_bytes_implied_by_that_sample_at_82_percent": 27200776741,
+    "minimum_practical_installed_ram_gib": 32,
+    "recommended_installed_ram_gib": 48,
+    "is_32gb_enough": "Likely sufficient for this single frozen workload if similar Windows baseline pressure is maintained; it is the practical minimum, not a guarantee.",
+    "is_48gb_preferred": true,
+    "does_64gb_add_meaningful_value": "Not for this single sequential frozen evaluation beyond extra convenience; it is useful only for heavier simultaneous applications, larger models, or parallel workloads.",
+    "basis": "The worst observed physical-use sample was 22.305 decimal GB. Holding it below 82% implies 27.201 decimal GB total before practical headroom, so the next standard 32GB tier is the minimum and 48GB avoids aggressive host cleanup."
+  },
+  "a2c2_scientific_status": "A2C2_SCIENTIFICALLY_UNADJUDICATED",
+  "ours_authorized": false,
+  "pivot_epoch_3_authorized": false,
+  "final_decision": "A2C2_RESOURCE_FUNDAMENTALLY_BLOCKED_ON_CURRENT_24GB_HOST",
+  "next_authorized_action": "Upgrade host RAM manually to at least 32GB (48GB preferred), then seek explicit authority to rerun the unchanged resource smoke; do not claim scientific failure, design Ours, or start another pivot."
+}

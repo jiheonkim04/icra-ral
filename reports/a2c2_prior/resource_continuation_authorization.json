@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-19T14:34:53+09:00",
+  "source": "C:/Users/jiheo/Downloads/a2c2_resource_continuation_steer_v2.md",
+  "source_sha256": "B0F2999C80165CD3A9B96494FD90DB7AE10A0E8BE97916248476FF8044DCDE71",
+  "status": "A2C2_RESOURCE_FEASIBILITY_REOPENED_BY_EXPLICIT_USER_AUTHORITY",
+  "historical_campaign_decision_preserved": "NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND",
+  "historical_a2c2_decision_preserved": "PRIOR_INFRASTRUCTURE_BLOCKED",
+  "scientific_status_at_reopening": "A2C2_UNADJUDICATED",
+  "implementation_label": "MECHANISM_FAITHFUL_A2C2_LOCAL_PORT",
+  "authorized_scope": "One resource-feasibility continuation of the unchanged frozen A2C2 prior-verification stage on the current 24GB host",
+  "allowed_changes": [
+    "temporary WSL memory cap",
+    "unrelated Windows background-memory pressure"
+  ],
+  "forbidden_scope": [
+    "Pivot Epoch 3",
+    "wrist-dropout reopening",
+    "Ours before VERIFIED_A2C2_PRIOR_RESIDUAL",
+    "scientific-protocol changes",
+    "CPU or disk model offload",
+    "swap-backed evaluation",
+    "physical or active-camera work"
+  ]
+}

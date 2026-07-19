@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-07-19T14:21:04+09:00",
+  "execution_type": "SETUP_PREFLIGHT",
+  "stage": "A2C2_RESOURCE_ONLY_ACTUAL_PATH_SMOKE_CAP_6GB",
+  "failure_classification": "INFRASTRUCTURE_NULL_DEFECT",
+  "root_cause": "The default Windows PowerShell execution policy rejected the checked-in host-monitor script before WSL or the model process launched.",
+  "exception_type": "PSSecurityException",
+  "exception_code": "UnauthorizedAccess",
+  "wsl_launched": false,
+  "model_loaded": false,
+  "simulator_constructed": false,
+  "model_forward_count": 0,
+  "simulator_step_count": 0,
+  "scientific_outcomes_exposed": false,
+  "host_report_written": false,
+  "internal_report_written": false,
+  "scientific_protocol_changed": false,
+  "repair": "Invoke the unchanged monitor with powershell.exe -NoProfile -ExecutionPolicy Bypass -File and rerun the identical 6GB stage.",
+  "repair_budget_for_this_root": "1 / 1",
+  "final_decision": "A2C2_RESOURCE_SMOKE_LAUNCHER_FAILED_BEFORE_EXECUTION"
+}

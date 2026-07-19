@@ -931,3 +931,45 @@ resources.
 The authoritative records are
 `reports/strategic_pivot_epoch2_selection_result.json` and
 `reports/strategic_pivot_final_decision.json`.
+
+## A2C2 Resource-Feasibility Continuation Outcome
+
+Effective `2026-07-19`, the user explicitly reopened exactly one
+resource-feasibility continuation of the unchanged frozen A2C2
+prior-verification stage. The authority source SHA-256 is
+`B0F2999C80165CD3A9B96494FD90DB7AE10A0E8BE97916248476FF8044DCDE71`.
+This did not reopen Pivot Epoch 3 or wrist dropout and did not authorize Ours,
+physical or active-camera work, CPU/disk offload, swap-backed evaluation, or
+any scientific-contract change. The historical
+`NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` and `PRIOR_INFRASTRUCTURE_BLOCKED`
+records remain preserved.
+
+The exact Base actual-path resource smoke ran sequentially under verified 6,
+8, 10, and 12 GB WSL caps, with zero swap, no WSLg process, permitted sub-70%
+launch baselines (although above the 65% target), no active game, and the
+frozen 82% Windows ceiling. All four runs
+crossed that ceiling during model loading before a complete episode or child
+trace could be persisted. Pagefile current usage did not grow, no page writes
+were observed, no success was persisted or counted, and no scientific outcome
+was exposed. The monitor tore down WSL after each failure and no research
+worker remained. The optional 14 GB smoke was unauthorized because the
+required `<=40%` cleaned baseline was not achieved and the observed failures
+were host-ceiling failures rather than isolated low-WSL-cap failures.
+
+The current exact decision is
+`A2C2_RESOURCE_FUNDAMENTALLY_BLOCKED_ON_CURRENT_24GB_HOST`. This is a local
+resource result, never an A2C2 method failure. The A2C2 delay hypothesis and
+trained Prior remain scientifically unadjudicated, the full Base/Prior panel
+remains unexecuted, and Ours and Pivot Epoch 3 remain unauthorized. The
+original absent `.wslconfig` state is restored and WSL is shut down.
+
+Measured peak physical use implies 32 GB installed RAM as the practical
+minimum for the unchanged single workload, with 48 GB preferred for safe host
+headroom. 64 GB adds little for this one sequential evaluation but may help
+larger or concurrent workloads. No purchase is automatic. Any retry after a
+manual upgrade requires new explicit authority and must preserve the exact
+frozen protocol.
+
+Authoritative records are
+`reports/a2c2_prior/resource_continuation_authorization.json` and
+`reports/a2c2_prior/resource_feasibility_continuation_result.json`.
