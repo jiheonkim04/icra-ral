@@ -274,6 +274,18 @@
       "scientific_scope": "Resource feasibility of the preregistered four-shard closed-loop path. Closed-loop schedule effect remains scientifically unadjudicated."
     },
     {
+      "evidence_id": "epoch6_schedule_closed_loop_process_start_repair_audit",
+      "conclusion": "An outcome-free import-memory audit rejected the last plausible local narrow repair. Perfectly sharing all duplicated parent/worker LIBERO-Torch import pages would leave only 1.694 GB below the frozen ceiling, versus a measured 6.923 GB model-active increment; lower concurrency or simulator-state multiplexing would change the scientific intervention.",
+      "artifact": "reports/epoch6_schedule_invariant_evaluation/closed_loop_process_start_repair_audit.json",
+      "artifact_sha256": "43A642AD0ABDEB0D74AEB0243BAF764BE4F4067212D349E8F07EA7D5DF5745B3",
+      "commit": null,
+      "execution_type": "OUTCOME_FREE_RESOURCE_IMPLEMENTATION_REPAIR_FEASIBILITY_AUDIT",
+      "historical_execution_command": "python scripts/_epoch6_import_memory_probe.py (temporary probe deleted after execution)",
+      "command_status": "Pinned imports only; no environment instance, model, inference, simulator action, or outcome read. No runner code was changed.",
+      "verification_command": "Get-FileHash -Algorithm SHA256 reports/epoch6_schedule_invariant_evaluation/closed_loop_process_start_repair_audit.json",
+      "scientific_scope": "Resource/process-start equivalence only; no new scientific action or success evidence."
+    },
+    {
       "evidence_id": "epoch6_contact_topology_frozen_protocol",
       "conclusion": "Before contact-label access, the campaign froze ten task identities, demo IDs 0-5, exact graph/robot-exclusion semantics, two-stage gates, controls, thresholds, and prohibitions.",
       "artifact": "reports/epoch6_contact_transition_topology/problem_verification_protocol.json",

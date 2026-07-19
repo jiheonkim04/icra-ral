@@ -1,10 +1,10 @@
 {
   "schema_version": "epoch6.campaign_state.v1",
-  "updated_at": "2026-07-20T04:55:12+09:00",
+  "updated_at": "2026-07-20T05:08:35+09:00",
   "repository": {
     "remote": "https://github.com/jiheonkim04/icra-ral.git",
     "branch": "codex/epoch6-ral-submission-convergence-v2",
-    "head": "ec62bfa26188d12e8cee7838a5691d81c1d239c5",
+    "head": "bb2e6cdee60b428bdd5f5156b6c362c85c9b26e2",
     "source_branch": "codex/epoch5-official-prior-first",
     "source_head": "f3dcd8f1ecf34662b81bf73b4b44d916db5d5ab0",
     "source_is_ancestor": true,
@@ -67,11 +67,11 @@
   },
   "reality_lock": {
     "evidence_index_path": "reports/epoch6_evidence_index.json",
-    "evidence_index_sha256": "E9B35B5F2F03FD8538D2F55C30AC9AC434ED1E8D267D0FA437C4968B500284A4",
+    "evidence_index_sha256": "E8188C05A6068319C49BDA4497EAAEF4E97EA7DE03BCD6341ECF893526F1FA3D",
     "closure_registry_path": "reports/epoch6_closure_registry.json",
     "closure_registry_sha256": "45469159563C9EAEC28BCC169192ADD40A15F2EDDFD3A38C87B901F7AAE7D0AB",
     "resource_inventory_path": "reports/epoch6_resource_inventory.json",
-    "resource_inventory_sha256": "C731D30E542BFB38043EA39D5278198A4F0D9A95F0D3FBA26F76EECEEBF598C4"
+    "resource_inventory_sha256": "9805CA1245ABE69C46E8D60CA1CBAD46F85387BB444B2BA1E067F6320E334118"
   },
   "manifests": {
     "discovery": {
@@ -172,16 +172,17 @@
     "epoch6_closed_loop_episode_rows": 0
   },
   "last_verified_artifact": {
-    "path": "reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json",
-    "sha256": "C63BB981CB7F5DDA453F46F99C1DC48D2D37BB621673556EF7812C9E63634E9B",
-    "verification": "JSON parsed; clean-host Stage 0 established ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO. The hash-bound closed-loop four-environment smoke crossed the frozen 82% ceiling before model load; no scientific episode, simulator action, or success outcome was executed."
+    "path": "reports/epoch6_schedule_invariant_evaluation/closed_loop_process_start_repair_audit.json",
+    "sha256": "43A642AD0ABDEB0D74AEB0243BAF764BE4F4067212D349E8F07EA7D5DF5745B3",
+    "verification": "JSON parsed; a fresh pinned-import probe confirmed a 619.6 MB LIBERO-Torch import increment. Even ideal sharing of all four duplicate copies leaves only 1.694 GB of ceiling headroom versus the measured 6.923 GB model-active increment. No environment, model, action, or outcome was executed."
   },
   "blocker": {
     "classification": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER",
-    "description": "Clean-host calibration resolved the old pagefile/teardown qualification and Stage 0 passed. The preregistered closed-loop four-shard path requires four simultaneous official LIBERO environments; they reached 85.16% host RAM before the sole model could load, exceeding the unchanged 82% ceiling.",
+    "description": "Clean-host calibration resolved the old pagefile/teardown qualification and Stage 0 passed. The preregistered closed-loop four-shard path requires four simultaneous official LIBERO environments; they reached 85.16% host RAM before the sole model could load. A final outcome-free process-start audit proved that ideal import-page sharing is still several gigabytes short of the unchanged 82% ceiling.",
     "evidence": [
       "reports/epoch6_schedule_invariant_evaluation/stage0_result.json",
       "reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json",
+      "reports/epoch6_schedule_invariant_evaluation/closed_loop_process_start_repair_audit.json",
       "reports/epoch6_contact_transition_topology/operational_blocker.json"
     ],
     "acquisition_condition": "Provide or authorize a scientifically equivalent clean host with at least 48 GB physical RAM and unchanged zero-swap/no-offload/82%-ceiling rules, or explicitly authorize a genuinely new independent schedule protocol."

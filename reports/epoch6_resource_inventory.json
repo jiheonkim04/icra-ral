@@ -306,7 +306,15 @@
       "projected_full_path_peak_used_bytes": 28664598528,
       "minimum_total_bytes_at_frozen_ceiling": 34956827474,
       "recommended_standard_ram_tier_gb": 48,
-      "artifact": "reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json"
+      "artifact": "reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json",
+      "process_start_repair_audit": {
+        "decision": "NO_SCIENTIFICALLY_EQUIVALENT_LOCAL_PROCESS_START_REPAIR",
+        "libero_torch_import_increment_rss_bytes": 619638784,
+        "maximum_idealized_duplicate_import_savings_bytes": 2478555136,
+        "idealized_environment_phase_headroom_to_ceiling_bytes": 1693816832,
+        "measured_model_active_increment_bytes": 6923243520,
+        "artifact": "reports/epoch6_schedule_invariant_evaluation/closed_loop_process_start_repair_audit.json"
+      }
     },
     "contact_route": {
       "actual_path_peak_used_fraction_max": 0.6099158023888242,

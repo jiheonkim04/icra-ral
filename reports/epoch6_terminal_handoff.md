@@ -2,7 +2,7 @@
 
 Terminal state: `HARD_EXTERNAL_BLOCKER_REQUIRES_USER`
 
-Campaign-state hash: `282B1AA8932CA95EBD7B7B3F56BF93030E93BC9B60414461A99C8716FE2A7745`
+Campaign-state hash: `2D68810CCF14174E1075DC47D12A60BE8F06E6DEB1B716C4B9BD48E04160F4D8`
 
 Stage-0 decision: `ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO`
 
@@ -44,6 +44,14 @@ four-shard arrivals with state multiplexing, or changing the schedule would
 alter the preregistered intervention rather than repair an implementation
 defect.
 
+A final outcome-free process-start audit measured 619,638,784 bytes of
+LIBERO/Torch import residency per fresh process. Even granting perfect sharing
+of all four duplicate copies leaves only 1,693,816,832 bytes below the ceiling,
+versus a measured 6,923,243,520-byte model-active increment. Forking after
+CUDA/EGL creation is unsafe, while pre-forking a live environment would no
+longer be four independently constructed official environments. The candidate
+repair was therefore rejected without changing code or running outcomes.
+
 The conservative additive capacity projection is 28,664,598,528 bytes in use.
 Keeping that below 82% needs about 34.957 decimal GB total. A 32 GiB host would
 project to 83.42%; 48 GB is the smallest standard tier with defensible
@@ -56,6 +64,7 @@ measurement.
 - `reports/epoch6_schedule_invariant_evaluation/stage0_result.json`
 - `reports/epoch6_schedule_invariant_evaluation/closed_loop_execution_manifest.json`
 - `reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json`
+- `reports/epoch6_schedule_invariant_evaluation/closed_loop_process_start_repair_audit.json`
 - `reports/epoch6_evidence_index.json`
 - `reports/epoch6_closure_registry.json`
 - `reports/epoch6_resource_inventory.json`
