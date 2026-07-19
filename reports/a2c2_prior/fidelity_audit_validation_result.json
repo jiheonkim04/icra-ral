@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "stage": "A2C2_FIDELITY_AUDIT_VALIDATION",
+  "empirical_execution_happened": false,
+  "results": [
+    {
+      "command": "python -m pytest tests/test_a2c2_fidelity_audit_contract.py -q",
+      "status": "PASS",
+      "passed": 5,
+      "failed": 0
+    },
+    {
+      "command": "python -m pytest tests/test_a2c2_local_prior.py tests/test_a2c2_problem_verification_contract.py tests/test_a2c2_resource_continuation_contract.py tests/test_a2c2_clean_host_resource_contract.py tests/test_a2c2_clean_host_result_contract.py tests/test_a2c2_fidelity_audit_contract.py -q",
+      "status": "PASS",
+      "passed": 29,
+      "failed": 0
+    },
+    {
+      "command": "python scripts/check_current_research_governance.py",
+      "status": "PASS"
+    },
+    {
+      "command": "python -m pytest tests/test_current_research_governance.py -q",
+      "status": "PREEXISTING_STALE_ASSERTION",
+      "passed": 5,
+      "failed": 1,
+      "failure": "test_active_state_records_amp_selection_and_rap_stage_0_failure expects current_epoch=4/cycle=39, while authoritative HEAD already records current_epoch=5/cycle=0",
+      "failure_predates_this_stage": true,
+      "failing_test_modified_by_this_stage": false,
+      "state_file_modified_by_this_stage": false,
+      "remediation_in_this_stage": "none; do not rewrite unrelated historical state assertions to make the audit green"
+    },
+    {
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/99_tree_check.ps1",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    }
+  ],
+  "new_contract_tests_passed": true,
+  "existing_a2c2_contract_tests_passed": true,
+  "authoritative_governance_check_passed": true,
+  "tree_check_passed": true,
+  "diff_check_passed": true,
+  "unrelated_user_rollouts_preserved": [
+    "rollouts/2026_07_17/",
+    "rollouts/2026_07_18/"
+  ],
+  "final_decision": "A2C2_FIDELITY_AUDIT_VALIDATED_FOR_VERSION_CONTROL"
+}

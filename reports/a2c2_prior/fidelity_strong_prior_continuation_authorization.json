@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "authority_type": "USER_STEER",
+  "authority_source": "C:/Users/jiheo/Downloads/a2c2_fidelity_strong_prior_to_paper_steer.md",
+  "authority_source_bytes": 21124,
+  "authority_source_sha256": "5932431D45911ED562272E7BEF1184579696A96A39026B2F2C734F3E3AFC754D",
+  "source_branch": "codex/epoch5-official-prior-first",
+  "source_head": "80591dd57034cf29c04d006cec683058d35a1703",
+  "scope": "one focused asynchronous-delay VLA continuation",
+  "required_order": [
+    "focused A2C2 fidelity-gap audit",
+    "one corrected A2C2 execution only after A2C2_OBJECTIVE_FIDELITY_DEFECT_FOUND",
+    "otherwise or after corrected no-improvement, exactly one additional strong asynchronous-VLA Prior",
+    "residual adjudication",
+    "at most two Ours candidates only under Route 1 or Route 2",
+    "one selected Ours",
+    "Stage 0",
+    "Stage A",
+    "Stage B",
+    "Pareto/generalization",
+    "paper package only after PAPER_CANDIDATE_GO"
+  ],
+  "preserved_v1_decision": "A2C2_PRIOR_NO_LOCAL_IMPROVEMENT",
+  "preserved_v1_fidelity_label": "MECHANISM_FAITHFUL_A2C2_LOCAL_PORT",
+  "forbidden": [
+    "retune on the completed 45 episodes",
+    "reinterpret 3/15 as success",
+    "claim an official A2C2 reproduction",
+    "claim the paper is disproven",
+    "reuse old confirmatory identities for method tuning",
+    "physical robot experiments",
+    "require real-camera experiments",
+    "reopen wrist dropout",
+    "launch Pivot Epoch 3",
+    "design or execute Ours before a permitted residual route",
+    "generate a paper package before PAPER_CANDIDATE_GO"
+  ],
+  "resource_contract": {
+    "temporary_wsl_memory_gib": 12,
+    "swap": 0,
+    "full_backbone_residencies": 1,
+    "sequential_by_default": true,
+    "atomic_episode_persistence": true,
+    "resume_missing_frozen_keys_only": true,
+    "duplicate_scientific_rows": false
+  },
+  "active_stage_at_authorization": "A2C2_FIDELITY_GAP_AUDIT",
+  "ours_authorized": false,
+  "paper_package_authorized": false
+}

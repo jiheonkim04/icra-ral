@@ -8,13 +8,15 @@ Updated: 2026-07-19 KST
 - Source HEAD before Pivot Epoch 1 selection: `f11ec2135f39dba3ccf315ee5271aa152247cff7`
 - Current pushed HEAD before Pivot Epoch 2 closure: `2bf992a`
 - Resource-continuation source HEAD: `d276cf139ba09cc051cf3329775328499772848b`
+- Fidelity-continuation source and current pushed HEAD: `80591dd57034cf29c04d006cec683058d35a1703`
 - Epoch/cycle: `5 / 0`
-- Campaign state: `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND`
+- Campaign state: focused asynchronous-delay fidelity/strong-Prior continuation active under explicit later authority; historical `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` remains preserved.
 - Closed Pivot Epoch 1 thesis: action-chunk reactivity under asynchronous inference delay. The historical results `PRIOR_INFRASTRUCTURE_BLOCKED` and `A2C2_RESOURCE_FUNDAMENTALLY_BLOCKED_ON_CURRENT_24GB_HOST` remain preserved; the later clean-host continuation validly completed the frozen panel and returned `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
-- Active stage: none. `PIVOT_EPOCH_2` evaluated exactly two theses and selected none.
-- Current novelty decision: not applicable; no Pivot Epoch 2 thesis was selected.
+- Active stage: the focused fidelity audit returned `A2C2_OBJECTIVE_FIDELITY_DEFECT_FOUND`; the single corrected protocol is frozen and implementation/load preflight is next.
+- Current novelty decision: not applicable; Ours remains unauthorized.
 - Active training/rollout worker: none.
-- Paper-level decision: `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND`.
+- Current scientific decision: `A2C2_OBJECTIVE_FIDELITY_DEFECT_FOUND`; v1 remains `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
+- Paper-level decision: no `PAPER_CANDIDATE_GO`; historical `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` is not erased.
 - Paper status: no `PROTOTYPE_GO`, `PAPER_CANDIDATE_GO`, or paper-ready package.
 - Preserve pre-existing ignored `rollouts/2026_07_17/` and `rollouts/2026_07_18/`.
 - The campaign-created temporary `C:/Users/jiheo/.wslconfig` was removed and WSL was shut down; the original absent-file state is restored.
@@ -54,6 +56,9 @@ Updated: 2026-07-19 KST
 - A2C2 clean-host preflight: `reports/a2c2_prior/clean_host_preflight_result.json`
 - A2C2 clean-host resource smoke: `reports/a2c2_prior/clean_host_resource_smoke_result.json`
 - A2C2 clean-host scientific decision: `reports/a2c2_prior/clean_host_prior_verification_result.json`
+- A2C2 fidelity/strong-Prior authority: `reports/a2c2_prior/fidelity_strong_prior_continuation_authorization.json`
+- A2C2 focused fidelity audit: `reports/a2c2_prior/fidelity_gap_audit_result.json`
+- A2C2 single corrected protocol: `reports/a2c2_prior/fidelity_corrected_protocol.json`
 - Pivot Epoch 2 selection: `reports/strategic_pivot_epoch2_selection_result.json`
 - Final strategic-pivot decision: `reports/strategic_pivot_final_decision.json`
 
@@ -131,18 +136,22 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 
 ## Current immediate next action
 
-The explicitly authorized clean-host A2C2 continuation is complete. A strict
-12 GB resource smoke passed and the unchanged sequential frozen panel
-completed all 45 rows. Base standard was `10/15`, delayed Base was `4/15`, and
-the trained local A2C2 Prior was `3/15`. The exact decision is
-`A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`: the local port did not meet the frozen
-improvement gate. This does not disprove official A2C2.
+The focused primary-source audit is complete. The exact decision is
+`A2C2_OBJECTIVE_FIDELITY_DEFECT_FOUND`: v1 used an unpaired third-party Base,
+missed public author base/residual/dataset artifacts, and omitted the official
+180-degree rotation of both live RGB views. This decision is independent of
+the v1 `3/15` result. Reset stabilization, queue timing, per-step invocation,
+residual target, and residual integration were verified as faithful.
 
-Close the A2C2 thesis locally. Do not design Ours, start Pivot Epoch 3, reopen
-wrist dropout, or create a paper package. The historical campaign decision
-`NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` remains preserved. Wait for explicit
-new user direction. The original absent `.wslconfig` state is restored, WSL
-is shut down, and no research worker is active.
+The only corrected path is frozen as
+`A2C2_FIDELITY_CORRECTED_LOCAL_PORT`. Implement focused load/preprocessing/
+queue/equivalence tests and a resumable runner, download only the two pinned
+public model repositories, and perform a bounded technical smoke on task 2,
+init state 10. If it passes, run the new matched 45-row panel on tasks 0,4,8
+and init states 5..9 at the verified 12 GB WSL cap with swap zero and one base
+residency. Do not retrain the prior, use old init states 0..4, run a second
+fidelity correction, search another Prior, design Ours, or generate a paper
+package before the corresponding frozen gate.
 
 ## Historical pre-clean-host resource conclusion
 

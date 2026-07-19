@@ -1,0 +1,472 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "job_classification": "REPORT_ONLY_FIDELITY_AUDIT",
+  "authority_sha256": "5932431D45911ED562272E7BEF1184579696A96A39026B2F2C734F3E3AFC754D",
+  "source_branch": "codex/epoch5-official-prior-first",
+  "source_head": "80591dd57034cf29c04d006cec683058d35a1703",
+  "audit_outcome_independent_of_v1_results": true,
+  "audit_time_budget_hours": 3,
+  "empirical_execution_happened": false,
+  "training_happened": false,
+  "rollout_happened": false,
+  "ours_designed_or_executed": false,
+  "paper_package_generated": false,
+  "preserved_v1_evidence": {
+    "fidelity_label": "MECHANISM_FAITHFUL_A2C2_LOCAL_PORT",
+    "runner": "scripts/run_a2c2_problem_verification.py",
+    "runner_sha256": "57654AEAD0820C89EF4BA40BD551769BD669E6958462531388DD4AF46FFCF378",
+    "module": "tca_map/smolvla/a2c2_local_prior.py",
+    "module_sha256": "86086C1AFFE498BD7B2461F10F66B16F315665645605DE048891608E7B2C1725",
+    "completed_rows": 45,
+    "base_standard_successes": 10,
+    "base_delayed_successes": 4,
+    "prior_delayed_successes": 3,
+    "exceptions": 0,
+    "decision": "A2C2_PRIOR_NO_LOCAL_IMPROVEMENT",
+    "old_panel_is_confirmatory_for_v1": true,
+    "old_panel_reusable_for_tuning": false,
+    "paper_disproved": false
+  },
+  "primary_sources": {
+    "paper": {
+      "title": "Leave No Observation Behind: Real-time Correction for VLA Action Chunks",
+      "url": "https://arxiv.org/abs/2509.23224",
+      "version": "v1",
+      "source_archive_url": "https://export.arxiv.org/src/2509.23224",
+      "source_archive_bytes": 702882,
+      "source_archive_sha256": "3A51613450E0BB01C2254E2813E2A4043EE9815DFED7F21AAB269B03F712332B"
+    },
+    "official_repository": {
+      "url": "https://github.com/k1000dai/a2c2-libero",
+      "commit": "54dd088302a0ef3f50c4add3ec927ab94d76a406",
+      "tree": "056b92be4ae2eff65df09062910eb8e7ee334b7a",
+      "license": "Apache-2.0",
+      "lerobot_version": "0.2.0",
+      "pre_redaction_parent": "2275a8b3ae54141480fa8cca9a267296bdc56f82",
+      "pre_redaction_commit_url": "https://github.com/k1000dai/a2c2-libero/commit/2275a8b3ae54141480fa8cca9a267296bdc56f82",
+      "source_hashes": {
+        "eval_libero/evaluation_libero.py": "941E5894CC0A607F35E0295F174BA27E88B957F51E24154CBAB26B75D6CCF400",
+        "eval_libero/create_dataset_for_residualpolicy.py": "68BFA8BF9124361A3A1D203D0FAC2A7B67562827300964F49326A616D469E7AD",
+        "src/lerobot/scripts/train_residual_transformer.py": "41747019C55FE61A7FB8242EEFD6D661139FCF577378E7CFBB2E3D61703AB1FE",
+        "src/lerobot/policies/residual_transformer/modeling_residual_transformer.py": "190093422E71A59633F4C101619392CE53864B8C75079F053BB98154A7E352DF",
+        "src/lerobot/policies/residual_transformer/configuration_residual_transformer.py": "76DD959D317F7091A4BFAEABD31CA0E8B028AD539D7BC660256B28ED1C6B2B83"
+      }
+    },
+    "official_author_artifacts": {
+      "paired_base": {
+        "repo_id": "k1000dai/smolvla_libero_spatial_scratch",
+        "url": "https://huggingface.co/k1000dai/smolvla_libero_spatial_scratch",
+        "revision": "caa0efcb24e261574c824366526c5775d3664cac",
+        "public": true,
+        "gated": false,
+        "license": "apache-2.0",
+        "model_bytes": 906713328,
+        "model_sha256": "45F3B6FC1B8AE0B7CF3AB8EBD22336AB23EB3798A8BFEF027F5D45596C45A9BE"
+      },
+      "paper_structural_match_prior": {
+        "repo_id": "k1000dai/residual_transformer_libero_spatial_add_vlm_context",
+        "url": "https://huggingface.co/k1000dai/residual_transformer_libero_spatial_add_vlm_context",
+        "revision": "9c89cca4aae8eecc42a20084ef414ff74f94ba05",
+        "public": true,
+        "gated": false,
+        "license": "apache-2.0",
+        "model_bytes": 123513140,
+        "model_sha256": "85D00523E8273A4141E288E4F6692224D50AAF8DF99AD8CCF7E72EE7BF3AB712",
+        "architecture": {
+          "views": 2,
+          "image_resolution": [256, 256],
+          "state_dim": 8,
+          "action_dim": 7,
+          "vlm_hidden_dim": 960,
+          "vision_backbone": "resnet18",
+          "freeze_vision_backbone": false,
+          "dim_model": 512,
+          "heads": 8,
+          "encoder_layers": 6,
+          "feedforward_dim": 2048
+        }
+      },
+      "paper_structural_match_dataset": {
+        "repo_id": "k1000dai/libero-spatial-smolvla-add-vlm-context",
+        "url": "https://huggingface.co/datasets/k1000dai/libero-spatial-smolvla-add-vlm-context",
+        "revision": "13291992d094884988a5b71a8d3cb6613e31c116",
+        "public": true,
+        "gated": false,
+        "license": "apache-2.0",
+        "files": 438,
+        "episodes": 432,
+        "frames": 52970,
+        "tasks": 10,
+        "features": {
+          "top_rgb": [256, 256, 3],
+          "wrist_rgb": [256, 256, 3],
+          "state": [8],
+          "action": [7],
+          "vla_actions": [50, 7],
+          "vlm_hidden": [960]
+        }
+      },
+      "pre_redaction_default_prior": {
+        "repo_id": "k1000dai/residual_transformer_libero_spatial",
+        "url": "https://huggingface.co/k1000dai/residual_transformer_libero_spatial",
+        "revision": "7068c104149510337ccf8c55119ddbaa27b847b9",
+        "model_bytes": 173940356,
+        "model_sha256": "5FCB58AEEF947317FECD3877F1258304C39149128BBA14680D3AE0F31967865B",
+        "encoder_layers": 10,
+        "vlm_hidden_input": false,
+        "paper_structural_match": false
+      }
+    }
+  },
+  "official_release_inconsistencies": [
+    {
+      "issue": "The paper appendix specifies 200000 correction-head updates, while the frozen README and uploaded train_config specify 400000.",
+      "consequence": "An exact retraining budget is not uniquely recoverable from primary sources.",
+      "resolution_for_correction": "Do not retrain; use the immutable uploaded checkpoint."
+    },
+    {
+      "issue": "The paper specifies a 6-layer transformer with base latent/language input, while the pre-redaction evaluator names a public 10-layer checkpoint without vlm_hidden.",
+      "consequence": "The named default artifact is not a structural match to the paper method.",
+      "resolution_for_correction": "Use the author's public add_vlm_context checkpoint, the only inspected public artifact matching the paper's six-layer and base-latent structure; retain a local-port label."
+    },
+    {
+      "issue": "The paper states MLP hidden size 512, while the frozen released implementation uses dim_model*2=1024 in the residual head.",
+      "consequence": "The public checkpoint follows released code rather than every prose detail.",
+      "resolution_for_correction": "Load the immutable checkpoint with its released graph; never call the run an exact official reproduction."
+    }
+  ],
+  "audit_rows": [
+    {
+      "area": "backbone",
+      "item": "base checkpoint identity",
+      "official_published_behavior": "Author evaluation uses k1000dai/smolvla_libero_spatial_scratch, trained from scratch on LIBERO Spatial.",
+      "current_local_behavior": "v1 used pepijn223/smolvla_libero, trained on the 40-task lerobot/libero corpus.",
+      "evidence_source": ["official_repository.pre_redaction_parent", "official_author_artifacts.paired_base", "reports/a2c2_prior/problem_verification_protocol.json"],
+      "exact_mismatch": "Different checkpoint, training corpus, state/config lineage, and latent width (official 960 versus captured local 576).",
+      "expected_scientific_effect": "Material compatibility and distribution shift for both base chunks and correction-head inputs; effect direction is not assumed.",
+      "repair_without_outcome_tuning": true,
+      "required_rerun_scope": "matched corrected Base and Prior on new identities"
+    },
+    {
+      "area": "backbone",
+      "item": "base training recipe",
+      "official_published_behavior": "Spatial-only scratch SmolVLA, batch 64, 100000 steps, frozen vision encoder and expert-only training in uploaded config.",
+      "current_local_behavior": "General LIBERO checkpoint, batch 32, 25000 steps, nonfrozen vision encoder and non-expert-only training in local config.",
+      "evidence_source": ["official_author_artifacts.paired_base", "C:/assets/checkpoints/smolvla_libero/train_config.json"],
+      "exact_mismatch": "The v1 base is not the base used to create the official residual dataset/checkpoint.",
+      "expected_scientific_effect": "Breaks the learned relationship between stale base actions/latents and the official correction head.",
+      "repair_without_outcome_tuning": true,
+      "required_rerun_scope": "matched corrected Base and Prior"
+    },
+    {
+      "area": "observation",
+      "item": "views and resolution",
+      "official_published_behavior": "Top and wrist RGB at 256x256.",
+      "current_local_behavior": "Top and wrist RGB tensors at 256x256 after the local preprocessing map.",
+      "evidence_source": ["paper sections/04_01_setup_benchmark.tex", "v1 base_policy_load_audit"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None identified.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "none"
+    },
+    {
+      "area": "observation",
+      "item": "live image orientation",
+      "official_published_behavior": "Official evaluator rotates both agent and wrist images 180 degrees before policy and correction-head inference.",
+      "current_local_behavior": "Installed LeRobot 0.4.4 LiberoEnv returns raw camera arrays and preprocess_observation only changes layout/range; v1 applies no 180-degree rotation.",
+      "evidence_source": ["official repository evaluation_libero.py lines 184-202", "installed lerobot/envs/libero.py sha256 02BC214E6B011C7F64B25604C97F1F083A96E151FA239FDC137433B356E542F3", "installed lerobot/envs/utils.py"],
+      "exact_mismatch": "Both live RGB streams have the wrong orientation relative to the official training/evaluation path.",
+      "expected_scientific_effect": "Material observation distribution shift for the base and residual visual encoders; effect direction is not assumed.",
+      "repair_without_outcome_tuning": true,
+      "required_rerun_scope": "matched corrected Base and Prior on new identities"
+    },
+    {
+      "area": "observation",
+      "item": "state and action dimensions",
+      "official_published_behavior": "8D state and 7D relative action.",
+      "current_local_behavior": "Live input audit records 8D state and 7D relative action.",
+      "evidence_source": ["paper sections/04_01_setup_benchmark.tex", "v1 base_policy_load_audit"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None identified.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "none"
+    },
+    {
+      "area": "observation",
+      "item": "language and base latent",
+      "official_published_behavior": "Paper uses language embedded by SmolVLM and a base-policy latent; paper-aligned public checkpoint expects vlm_hidden[960].",
+      "current_local_behavior": "v1 captures a 576D prefix token from a different base and separately uses the released SHA1 scalar task token.",
+      "evidence_source": ["paper sections/04_02_setup_training.tex", "official_author_artifacts.paper_structural_match_prior", "tca_map/smolvla/a2c2_local_prior.py"],
+      "exact_mismatch": "Wrong base-latent dimension and source checkpoint; the paired official checkpoint cannot be meaningfully driven by the v1 latent.",
+      "expected_scientific_effect": "Material incompatibility in a core correction-head feature.",
+      "repair_without_outcome_tuning": true,
+      "required_rerun_scope": "official paired checkpoint path"
+    },
+    {
+      "area": "normalization",
+      "item": "input/action statistics",
+      "official_published_behavior": "Uploaded correction checkpoint stores normalization derived from its full 432-episode Spatial residual dataset and paired base chunks.",
+      "current_local_behavior": "v1 constructs normalization from the local 40-task LeRobot dataset and locally generated chunks.",
+      "evidence_source": ["official_author_artifacts.paper_structural_match_dataset", "scripts/run_a2c2_problem_verification.py"],
+      "exact_mismatch": "Different state/action/image statistics and base-action distribution.",
+      "expected_scientific_effect": "Changes normalized residual scale and denormalized executed actions.",
+      "repair_without_outcome_tuning": true,
+      "required_rerun_scope": "load immutable official checkpoint buffers"
+    },
+    {
+      "area": "delay",
+      "item": "delay definition",
+      "official_published_behavior": "d is the number of control steps between observation receipt and availability of its chunk; d <= e <= H-d.",
+      "current_local_behavior": "v1 injects d=10 with e=40 and H=50 by retaining ten actions from the previous chunk.",
+      "evidence_source": ["paper sections/02_formulation.tex", "scripts/run_a2c2_problem_verification.py"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None identified.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "none"
+    },
+    {
+      "area": "delay",
+      "item": "queue construction",
+      "official_published_behavior": "First chunk executes [0,e) and retains [e,e+d); later chunks execute d retained old actions plus new [d,e), retaining new [e,e+d).",
+      "current_local_behavior": "v1 implements the same queue slices and raises on pending underflow.",
+      "evidence_source": ["official repository evaluation_libero.py", "scripts/run_a2c2_problem_verification.py lines 1000-1021"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None identified; no off-by-one defect proven.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "unit-equivalence test only"
+    },
+    {
+      "area": "delay",
+      "item": "future action availability",
+      "official_published_behavior": "The client retains already generated prior-chunk actions while one new inference is pending; it does not query future expert actions.",
+      "current_local_behavior": "v1 uses only already generated base chunks and no expert/future actions at live inference.",
+      "evidence_source": ["paper sections/06_related.tex", "v1 rollout records"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None identified.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "none"
+    },
+    {
+      "area": "reset",
+      "item": "official initial state and stabilization",
+      "official_published_behavior": "Reset, set the selected official init state, then execute ten [0,0,0,0,0,0,-1] no-op steps.",
+      "current_local_behavior": "The local runner sets init_state_id before env.reset; installed LiberoEnv selects that official state and internally runs the same ten no-op steps.",
+      "evidence_source": ["official repository evaluation_libero.py", "installed lerobot/envs/libero.py"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None identified.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "reset-equivalence test only"
+    },
+    {
+      "area": "correction_inputs",
+      "item": "latest observation and call frequency",
+      "official_published_behavior": "Correction head receives the latest observation and runs once per executed control action.",
+      "current_local_behavior": "v1 re-preprocesses the current live observation and calls the prior for every action.",
+      "evidence_source": ["paper sections/03_01_method_overview.tex", "scripts/run_a2c2_problem_verification.py"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None identified apart from the image-orientation defect.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "forward-count assertion"
+    },
+    {
+      "area": "correction_inputs",
+      "item": "selected base action and full chunk",
+      "official_published_behavior": "Selected stale base action and the full source 50x7 chunk are supplied.",
+      "current_local_behavior": "v1 supplies the selected action and its unchanged source 50x7 chunk.",
+      "evidence_source": ["official README", "official repository modeling_residual_transformer.py", "scripts/run_a2c2_problem_verification.py"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None identified.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "tensor-identity test"
+    },
+    {
+      "area": "correction_inputs",
+      "item": "time feature",
+      "official_published_behavior": "Released training/eval code uses sin/cos(2*pi*k/(H-1)); paper prose writes H.",
+      "current_local_behavior": "v1 follows released code and uses H-1.",
+      "evidence_source": ["official trainer ResidualActTimeSliceDataset", "official evaluator", "tca_map/smolvla/a2c2_local_prior.py"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None against released implementation; paper/code discrepancy is documented.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "none"
+    },
+    {
+      "area": "target_and_loss",
+      "item": "supervision target",
+      "official_published_behavior": "Expert demonstration action minus the matched stale base action in normalized action space.",
+      "current_local_behavior": "v1 uses the same target construction with expert action only during training.",
+      "evidence_source": ["paper sections/03_02_method_training.tex", "official modeling_residual_transformer.py", "tca_map/smolvla/a2c2_local_prior.py"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None identified.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "none"
+    },
+    {
+      "area": "target_and_loss",
+      "item": "residual integration",
+      "official_published_behavior": "Normalize base action, predict normalized additive residual, add, then unnormalize to environment action space.",
+      "current_local_behavior": "v1 uses the same ordering.",
+      "evidence_source": ["official modeling_residual_transformer.py", "tca_map/smolvla/a2c2_local_prior.py"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None identified.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "equivalence test"
+    },
+    {
+      "area": "target_and_loss",
+      "item": "loss, clipping, and gripper",
+      "official_published_behavior": "Mean squared normalized residual loss; released evaluator applies no extra residual clamp, action clip, or gripper discretization.",
+      "current_local_behavior": "v1 uses MSE and applies no extra clamp, clip, or gripper discretization.",
+      "evidence_source": ["official modeling_residual_transformer.py", "official evaluation_libero.py", "v1 runner/module"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None identified.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "none"
+    },
+    {
+      "area": "training_data",
+      "item": "dataset coverage",
+      "official_published_behavior": "All 432 LIBERO Spatial episodes, 52970 frames, and 10 tasks.",
+      "current_local_behavior": "v1 uses 40 predeclared episodes (four per task) and materializes 2438 cached training rows.",
+      "evidence_source": ["paper sections/04_01_setup_benchmark.tex", "official dataset metadata", "v1 cached_feature_result.json"],
+      "exact_mismatch": "Approximately one tenth of episodes plus anchor-stride subsampling replaces the full training distribution.",
+      "expected_scientific_effect": "Substantially weaker task/phase/reset coverage; effect size is not inferred from v1 outcomes.",
+      "repair_without_outcome_tuning": true,
+      "required_rerun_scope": "use immutable official checkpoint; no local retraining"
+    },
+    {
+      "area": "training_data",
+      "item": "temporal offset sampling",
+      "official_published_behavior": "Each frame is a possible anchor and an offset is sampled online uniformly from the valid range 0..min(49, episode remainder).",
+      "current_local_behavior": "v1 uses anchor stride 8 and four deterministic offsets per anchor.",
+      "evidence_source": ["official train_residual_transformer.py", "v1 problem_verification_protocol.json"],
+      "exact_mismatch": "Different anchor and offset distribution.",
+      "expected_scientific_effect": "Reduces temporal coverage and changes supervision weighting.",
+      "repair_without_outcome_tuning": true,
+      "required_rerun_scope": "use immutable official checkpoint; no local retraining"
+    },
+    {
+      "area": "training",
+      "item": "optimizer budget",
+      "official_published_behavior": "Batch 64, AdamW lr=1e-5, weight decay=1e-5, grad clip=10; paper says 200000 steps and uploaded config says 400000.",
+      "current_local_behavior": "Microbatch 4 and 40000 updates with the same optimizer scalars.",
+      "evidence_source": ["paper sections/90_appendix.tex", "official uploaded train_config.json", "v1 prior_module_training_result.json"],
+      "exact_mismatch": "Local batch and update count are much smaller; primary sources disagree on the exact official step count.",
+      "expected_scientific_effect": "Material optimization-path difference; direction is not assumed.",
+      "repair_without_outcome_tuning": true,
+      "required_rerun_scope": "use immutable official checkpoint; no hyperparameter choice"
+    },
+    {
+      "area": "training",
+      "item": "vision-backbone trainability",
+      "official_published_behavior": "The paper-aligned public checkpoint config has freeze_vision_backbone=false.",
+      "current_local_behavior": "v1 explicitly freezes the ResNet-18 encoder and verifies it unchanged.",
+      "evidence_source": ["official add_vlm_context config.json", "v1 problem_verification_protocol.json", "v1 prior_module_training_result.json"],
+      "exact_mismatch": "A large trainable component of the uploaded path is frozen in v1 (21,281,287 trainable of 32,448,199 total).",
+      "expected_scientific_effect": "Changes the learned visual representation and trainable capacity.",
+      "repair_without_outcome_tuning": true,
+      "required_rerun_scope": "use uploaded weights; no retraining"
+    },
+    {
+      "area": "checkpoint",
+      "item": "official correction checkpoint availability",
+      "official_published_behavior": "The author account publicly hosts immutable residual checkpoints, including a six-layer add_vlm_context checkpoint and its full dataset.",
+      "current_local_behavior": "v1 protocol states that no official A2C2 correction-head checkpoint is available and trains a local checkpoint.",
+      "evidence_source": ["official_author_artifacts", "v1 problem_verification_protocol.json"],
+      "exact_mismatch": "The asset-availability premise was false at audit time; the public artifact predates the local v1 run.",
+      "expected_scientific_effect": "v1 did not evaluate the strongest executable author-supplied mechanism path.",
+      "repair_without_outcome_tuning": true,
+      "required_rerun_scope": "download, hash-verify, disk-reload, and evaluate the pinned public pair"
+    },
+    {
+      "area": "inference",
+      "item": "module placement and Base equivalence",
+      "official_published_behavior": "Correction is an additive per-step plug-in; disabling it leaves the base queue/actions unchanged.",
+      "current_local_behavior": "v1 maintains separate Base and Prior arms with identical base noise schedule and queue.",
+      "evidence_source": ["paper sections/03_01_method_overview.tex", "v1 protocol and runner"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None identified.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "corrected Base/Prior equivalence test"
+    },
+    {
+      "area": "evaluation",
+      "item": "suite and task coverage",
+      "official_published_behavior": "All 10 LIBERO Spatial tasks; screening uses 10 rollouts/task and reported selected conditions use 50 rollouts/task.",
+      "current_local_behavior": "Three preregistered tasks and five official init states per task.",
+      "evidence_source": ["paper figures/table and appendix", "v1 protocol"],
+      "exact_mismatch": "Smaller local verification panel.",
+      "expected_scientific_effect": "Higher uncertainty and less task coverage; it does not itself explain the sign of v1.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "preserve local 3x5 decision design but use new identities; do not reinterpret as paper-scale reproduction"
+    },
+    {
+      "area": "evaluation",
+      "item": "condition and horizon",
+      "official_published_behavior": "Selected reported conditions include e=10,d=0 and e=40,d=10 with H=50 and max 220 simulator steps for Spatial.",
+      "current_local_behavior": "v1 uses those conditions and H=50/max 220.",
+      "evidence_source": ["paper appendix/table", "official evaluator", "v1 protocol"],
+      "exact_mismatch": null,
+      "expected_scientific_effect": "None identified.",
+      "repair_without_outcome_tuning": false,
+      "required_rerun_scope": "none"
+    },
+    {
+      "area": "evaluation",
+      "item": "success and seed semantics",
+      "official_published_behavior": "Official LIBERO done/check_success; evaluator seeds torch/numpy with 7 and uses official init states.",
+      "current_local_behavior": "v1 uses official check_success/is_success and official init states with a frozen deterministic per-chunk noise seed schedule.",
+      "evidence_source": ["official evaluator", "v1 runner"],
+      "exact_mismatch": "Noise scheduling differs from the script's global RNG stream, but is paired across Base/Prior and not an A2C2 mechanism defect.",
+      "expected_scientific_effect": "May change individual trajectories but not comparator fairness; use a frozen paired schedule in the corrected panel.",
+      "repair_without_outcome_tuning": true,
+      "required_rerun_scope": "new frozen identities only"
+    },
+    {
+      "area": "evaluation",
+      "item": "published baseline and effect size",
+      "official_published_behavior": "Paper reports 89.2% versus 81.8% at e=10,d=0 and 84.2% versus 64.4% at e=40,d=10 in the 50-rollout/task table; a separate paragraph rounds the latter Base to 67%.",
+      "current_local_behavior": "v1 local panel reports 10/15 Base standard, 4/15 delayed Base, and 3/15 local Prior.",
+      "evidence_source": ["paper table tab:ablate-delay-horizon", "paper sections/05_02_results_libero.tex", "v1 final report"],
+      "exact_mismatch": "Local results and scale differ; this row is descriptive and was not used to infer the fidelity defects.",
+      "expected_scientific_effect": "No causal inference; motivates testing the author-supplied path without tuning old outcomes.",
+      "repair_without_outcome_tuning": true,
+      "required_rerun_scope": "new matched verification panel"
+    }
+  ],
+  "objective_fidelity_defects": [
+    {
+      "id": "A2C2_FD1_WRONG_PAIRED_BASE",
+      "proven_independently_of_outcomes": true,
+      "unique_correction": "use k1000dai/smolvla_libero_spatial_scratch@caa0efcb24e261574c824366526c5775d3664cac"
+    },
+    {
+      "id": "A2C2_FD2_MISSED_PUBLIC_PAPER_STRUCTURAL_MATCH_CHECKPOINT",
+      "proven_independently_of_outcomes": true,
+      "unique_correction": "use k1000dai/residual_transformer_libero_spatial_add_vlm_context@9c89cca4aae8eecc42a20084ef414ff74f94ba05; do not retrain"
+    },
+    {
+      "id": "A2C2_FD3_LIVE_RGB_ORIENTATION",
+      "proven_independently_of_outcomes": true,
+      "unique_correction": "rotate both live RGB observations 180 degrees exactly as the frozen official evaluator before both base and prior preprocessing"
+    }
+  ],
+  "adjudication_gates": {
+    "concrete_official_mismatch_proven": true,
+    "not_inferred_from_poor_results": true,
+    "correction_uniquely_determined_by_primary_sources": true,
+    "correction_depends_on_observed_45_outcomes": false,
+    "old_tasks_or_outcomes_used_for_tuning": false,
+    "delay_condition_metrics_or_decision_rules_need_change": false,
+    "v1_preserved_as_version_1": true
+  },
+  "primary_decision": "A2C2_OBJECTIVE_FIDELITY_DEFECT_FOUND",
+  "corrected_implementation_label": "A2C2_FIDELITY_CORRECTED_LOCAL_PORT",
+  "official_reproduction_claim_allowed": false,
+  "corrected_path_authorized": true,
+  "second_fidelity_correction_allowed": false,
+  "additional_prior_authorized_now": false,
+  "ours_authorized_now": false,
+  "next_authorized_action": "Freeze focused tests and the corrected official-pair protocol, then perform a bounded compatibility/resource preflight on new development identities before one corrected matched panel."
+}

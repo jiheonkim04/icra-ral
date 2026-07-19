@@ -1024,3 +1024,50 @@ research must wait for explicit user direction.
 Authoritative records are
 `reports/a2c2_prior/clean_host_resource_smoke_result.json` and
 `reports/a2c2_prior/clean_host_prior_verification_result.json`.
+
+## A2C2 Fidelity/Strong-Prior Continuation
+
+Effective `2026-07-19`, the user explicitly authorized one focused
+asynchronous-delay continuation through a steer with SHA-256
+`5932431D45911ED562272E7BEF1184579696A96A39026B2F2C734F3E3AFC754D`.
+This later authority preserves every v1 row and decision but supersedes the
+instruction to wait. It does not reopen wrist dropout or Pivot Epoch 3 and
+does not authorize physical-robot work, required real-camera work, premature
+Ours, or a paper package before `PAPER_CANDIDATE_GO`.
+
+The required first stage is complete as a report-only primary-source audit.
+It found, independently of the v1 `3/15` outcome, that v1 used a different
+third-party base instead of the author's paired Spatial-scratch base; missed
+public author base/residual/dataset artifacts; and omitted the frozen official
+evaluator's 180-degree rotation of both live RGB views. The reset
+stabilization, action queue, per-step correction call, residual target, and
+normalization/addition ordering were found faithful. The exact audit decision
+is `A2C2_OBJECTIVE_FIDELITY_DEFECT_FOUND`.
+
+Exactly one corrected path is now frozen under the label
+`A2C2_FIDELITY_CORRECTED_LOCAL_PORT`. It pins the author's public
+Spatial-scratch base and six-layer `add_vlm_context` residual checkpoint,
+uses the exact live RGB orientation and released queue/integration semantics,
+performs no residual retraining, and uses new development/verification reset
+identities. It must not be called an official reproduction because the paper,
+README, uploaded configuration, and released graph disagree on correction
+steps, named checkpoint, and MLP width. No second fidelity correction is
+allowed.
+
+Run focused equivalence/load tests and one bounded actual-path smoke before
+the new 45-row matched panel. Use the verified 12 GB temporary WSL cap,
+`swap=0`, one full base residency, sequential execution, atomic persistence,
+and missing-key-only resume. Do not repeat the 8/10/12 GB qualification. The
+old init states `0..4` are forbidden for tuning; the corrected panel uses
+tasks `0,4,8` and init states `5..9`.
+
+Additional-Prior search is authorized only after corrected no-improvement.
+Ours is authorized only if the corrected/additional Prior leaves a valid
+residual (Route 1) or after A2C2 plus exactly one additional strong Prior both
+fail while a repeated problem, diagnostic headroom, and a defensible novelty
+gap remain (Route 2). A saturating Prior closes this problem without Ours.
+
+Authoritative records are
+`reports/a2c2_prior/fidelity_strong_prior_continuation_authorization.json`,
+`reports/a2c2_prior/fidelity_gap_audit_result.json`, and
+`reports/a2c2_prior/fidelity_corrected_protocol.json`.

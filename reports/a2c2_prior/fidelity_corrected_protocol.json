@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "stage": "ONE_CORRECTED_A2C2_PRIOR_VERIFICATION",
+  "frozen_before_any_corrected_rollout": true,
+  "authority_sha256": "5932431D45911ED562272E7BEF1184579696A96A39026B2F2C734F3E3AFC754D",
+  "fidelity_audit": "reports/a2c2_prior/fidelity_gap_audit_result.json",
+  "fidelity_audit_decision": "A2C2_OBJECTIVE_FIDELITY_DEFECT_FOUND",
+  "implementation_label": "A2C2_FIDELITY_CORRECTED_LOCAL_PORT",
+  "official_reproduction_claim": false,
+  "v1_preserved_unchanged": true,
+  "v1_old_45_rows_reused_for_tuning": false,
+  "only_fidelity_correction_iteration": 1,
+  "second_fidelity_correction_allowed": false,
+  "corrections": [
+    {
+      "defect_id": "A2C2_FD1_WRONG_PAIRED_BASE",
+      "frozen_change": "replace the v1 pepijn223 base with the pinned author Spatial-scratch base"
+    },
+    {
+      "defect_id": "A2C2_FD2_MISSED_PUBLIC_PAPER_STRUCTURAL_MATCH_CHECKPOINT",
+      "frozen_change": "replace local v1 correction training/checkpoint with the pinned public author add_vlm_context checkpoint; perform no correction-head training"
+    },
+    {
+      "defect_id": "A2C2_FD3_LIVE_RGB_ORIENTATION",
+      "frozen_change": "rotate both live RGB views 180 degrees before base and correction preprocessing, exactly as the frozen official evaluator"
+    }
+  ],
+  "unchanged_mechanism": {
+    "chunk_size": 50,
+    "latest_observation_per_control_step": true,
+    "first_chunk": "execute [0,e), retain [e,e+d)",
+    "later_chunks": "execute d retained prior-chunk actions followed by new [d,e), retain new [e,e+d)",
+    "correction_inputs": [
+      "latest rotated top RGB",
+      "latest rotated wrist RGB",
+      "latest 8D state",
+      "selected stale 7D base action",
+      "full source 50x7 base chunk",
+      "sin/cos source action offset using H-1 released-code denominator",
+      "960D SmolVLA hidden from the source chunk observation",
+      "task instruction through the released checkpoint graph"
+    ],
+    "correction_output": "normalized additive 7D residual, added before official unnormalization",
+    "live_expert_or_future_action": false,
+    "extra_action_clipping": false,
+    "extra_gripper_discretization": false
+  },
+  "pinned_sources": {
+    "official_repository_commit": "54dd088302a0ef3f50c4add3ec927ab94d76a406",
+    "official_repository_tree": "056b92be4ae2eff65df09062910eb8e7ee334b7a",
+    "official_evaluator_sha256": "941E5894CC0A607F35E0295F174BA27E88B957F51E24154CBAB26B75D6CCF400",
+    "official_residual_model_source_sha256": "190093422E71A59633F4C101619392CE53864B8C75079F053BB98154A7E352DF",
+    "official_residual_config_source_sha256": "76DD959D317F7091A4BFAEABD31CA0E8B028AD539D7BC660256B28ED1C6B2B83",
+    "official_smolvla_source_path": "/home/jiheon/assets/repos/a2c2-libero/src/lerobot/policies/smolvla/modeling_smolvla.py"
+  },
+  "pinned_artifacts": {
+    "base": {
+      "repo_id": "k1000dai/smolvla_libero_spatial_scratch",
+      "revision": "caa0efcb24e261574c824366526c5775d3664cac",
+      "model_bytes": 906713328,
+      "model_sha256": "45F3B6FC1B8AE0B7CF3AB8EBD22336AB23EB3798A8BFEF027F5D45596C45A9BE",
+      "local_root": "/mnt/c/assets/checkpoints/a2c2_official/smolvla_libero_spatial_scratch/caa0efcb24e261574c824366526c5775d3664cac"
+    },
+    "prior": {
+      "repo_id": "k1000dai/residual_transformer_libero_spatial_add_vlm_context",
+      "revision": "9c89cca4aae8eecc42a20084ef414ff74f94ba05",
+      "model_bytes": 123513140,
+      "model_sha256": "85D00523E8273A4141E288E4F6692224D50AAF8DF99AD8CCF7E72EE7BF3AB712",
+      "local_root": "/mnt/c/assets/checkpoints/a2c2_official/residual_transformer_libero_spatial_add_vlm_context/9c89cca4aae8eecc42a20084ef414ff74f94ba05"
+    },
+    "full_dataset_download_required": false,
+    "correction_head_retraining": false
+  },
+  "runtime": {
+    "python": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python",
+    "source_import_root": "/home/jiheon/assets/repos/a2c2-libero/src",
+    "simulator": "official LIBERO OffScreenRenderEnv and official init states",
+    "mujoco_gl": "egl",
+    "device": "cuda:0",
+    "amp": false,
+    "policies_resident": "one base plus one 123.5MB correction module for Prior arms; never two base copies",
+    "sequential": true,
+    "prefetch": false,
+    "video_capture": false,
+    "observation_cache": false
+  },
+  "determinism": {
+    "root_seed": 7,
+    "base_chunk_noise": "explicit SHA256(root_seed, task_id, init_state_id, chunk_index) noise tensor",
+    "same_noise_for_matched_base_and_prior": true,
+    "outcome_dependent_seed_selection": false
+  },
+  "development_smoke": {
+    "scientific_result_counted": false,
+    "outcome_used_for_tuning": false,
+    "task_id": 2,
+    "instruction": "pick up the black bowl from table center and place it on the plate",
+    "official_init_state_id": 10,
+    "conditions": [
+      "BASE_STANDARD_E10_D0",
+      "PRIOR_DELAYED_E40_D10"
+    ],
+    "required_evidence": [
+      "exact checkpoint hashes",
+      "successful disk reload",
+      "base action chunk shape 1x50x7 and finite",
+      "base vlm_hidden shape 1x960 and finite",
+      "prior output shape 1x1x7 and finite",
+      "two rotated live RGB inputs",
+      "ten reset stabilization steps",
+      "nonzero base and prior forwards",
+      "queue slice equivalence",
+      "module-off Base action identity",
+      "no expert/future action at live inference",
+      "CUDA PID, peak VRAM, peak system RAM, exceptions"
+    ]
+  },
+  "verification_panel": {
+    "suite": "libero_spatial",
+    "task_selection_rule": "preserve the v1 evenly spaced task spread 0,4,8 while using never-observed official reset identities",
+    "tasks": [
+      {
+        "task_id": 0,
+        "global_task_index": 34,
+        "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate"
+      },
+      {
+        "task_id": 4,
+        "global_task_index": 31,
+        "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate"
+      },
+      {
+        "task_id": 8,
+        "global_task_index": 36,
+        "instruction": "pick up the black bowl next to the plate and place it on the plate"
+      }
+    ],
+    "official_init_state_ids": [5, 6, 7, 8, 9],
+    "old_v1_init_state_ids": [0, 1, 2, 3, 4],
+    "identity_overlap_with_v1": 0,
+    "identity_overlap_with_development_smoke": 0,
+    "conditions": {
+      "BASE_STANDARD_E10_D0": {
+        "execution_horizon": 10,
+        "inference_delay": 0,
+        "role": "corrected paired-base competence"
+      },
+      "BASE_DELAYED_E40_D10": {
+        "execution_horizon": 40,
+        "inference_delay": 10,
+        "role": "corrected paired-base delay gap"
+      },
+      "PRIOR_DELAYED_E40_D10": {
+        "execution_horizon": 40,
+        "inference_delay": 10,
+        "role": "one corrected A2C2 verification"
+      }
+    },
+    "episodes_per_condition": 15,
+    "planned_rows": 45,
+    "max_steps": 220,
+    "success": "official LIBERO check_success/is_success",
+    "matched_identities": true,
+    "expert_replay_counted_as_success": false,
+    "atomic_episode_persistence": true,
+    "resume_missing_frozen_keys_only": true,
+    "duplicate_scientific_rows": false
+  },
+  "decision_rules": {
+    "evaluation_valid": "all 45 unique frozen rows complete with identical identities across arms, zero exceptions, finite legal actions, nonzero Base forwards, and nonzero Prior forwards/corrections in the Prior arm",
+    "base_competent": "standard successes >=8/15 and >=1 success on every task",
+    "repeatable_delay_gap": "standard minus delayed Base >=3/15, >=3 matched standard-success/delayed-failure identities spanning >=2 tasks",
+    "prior_improves": "Prior minus delayed Base >=2/15, >=2 delayed failures recovered, <=1 delayed Base success regressed, and nonzero live Prior correction",
+    "prior_saturates": "prior_improves and (Prior successes >= standard successes-1 or <=1 matched standard-success/Prior-failure identity remains)",
+    "residual_remains": "prior_improves and standard minus Prior >=2/15 with >=2 matched residual identities spanning >=2 tasks",
+    "decision_order": [
+      "CORRECTED_A2C2_IMPLEMENTATION_OR_RESOURCE_FAILURE when the frozen path cannot complete for implementation/resource reasons",
+      "CORRECTED_A2C2_EVALUATION_INVALID when completeness, identity, legality, exception, or repeated-delay-gap validity fails",
+      "CORRECTED_A2C2_BASE_NOT_COMPETENT when corrected paired Base competence fails",
+      "CORRECTED_A2C2_PRIOR_SATURATES_DELAY when prior_improves and prior_saturates",
+      "CORRECTED_A2C2_PRIOR_IMPROVES_AND_LEAVES_RESIDUAL when prior_improves and residual_remains",
+      "CORRECTED_A2C2_PRIOR_NO_IMPROVEMENT otherwise"
+    ],
+    "allowed_final_decisions": [
+      "CORRECTED_A2C2_PRIOR_IMPROVES_AND_LEAVES_RESIDUAL",
+      "CORRECTED_A2C2_PRIOR_SATURATES_DELAY",
+      "CORRECTED_A2C2_PRIOR_NO_IMPROVEMENT",
+      "CORRECTED_A2C2_BASE_NOT_COMPETENT",
+      "CORRECTED_A2C2_EVALUATION_INVALID",
+      "CORRECTED_A2C2_IMPLEMENTATION_OR_RESOURCE_FAILURE"
+    ]
+  },
+  "resource_contract": {
+    "clean_windows_host_when_heavy_execution_begins": true,
+    "temporary_wsl_memory_gib": 12,
+    "swap_gib": 0,
+    "no_cpu_or_disk_model_offload": true,
+    "full_backbone_residencies": 1,
+    "parallel_tasks": 1,
+    "evaluation_batch_size": 1,
+    "repeat_8_10_12_resource_qualification": false,
+    "materially_different_path_preflight_required": true,
+    "original_absent_wslconfig_restored_after_execution": true
+  },
+  "repair_contract": {
+    "scientific_correction_iterations_remaining_after_this": 0,
+    "outcome_tuning_repairs": 0,
+    "permitted_non_scientific_repairs": "root-cause-bounded loader, path, serializer, dtype/device, dependency-compatibility, launcher/PID, output, or live-query wiring repair; preserve each failed attempt and rerun the identical frozen key set",
+    "forbidden_changes": [
+      "artifact revisions or hashes",
+      "tasks or reset identities",
+      "delay or execution horizon",
+      "queue semantics",
+      "RGB rotation",
+      "correction inputs or residual integration",
+      "noise schedule",
+      "decision thresholds",
+      "success semantics"
+    ]
+  },
+  "post_decision_routes": {
+    "CORRECTED_A2C2_PRIOR_IMPROVES_AND_LEAVES_RESIDUAL": "Route 1 may proceed to at most two Ours candidates around only the residual.",
+    "CORRECTED_A2C2_PRIOR_SATURATES_DELAY": "Stop this problem; do not design Ours.",
+    "CORRECTED_A2C2_PRIOR_NO_IMPROVEMENT": "Select and execute exactly one additional strong asynchronous-VLA Prior; do not claim the paper is disproven.",
+    "CORRECTED_A2C2_BASE_NOT_COMPETENT": "Do not design Ours; report the corrected panel as non-diagnostic.",
+    "CORRECTED_A2C2_EVALUATION_INVALID": "Do not design Ours; report invalidity without scientific reinterpretation.",
+    "CORRECTED_A2C2_IMPLEMENTATION_OR_RESOURCE_FAILURE": "Do not design Ours; report the local blocker and preserve failed attempts."
+  },
+  "additional_prior_authorized_before_decision": false,
+  "ours_authorized_before_decision": false,
+  "paper_package_authorized_before_paper_candidate_go": false,
+  "next_action": "Implement focused source/queue/preprocessing/load tests and a resumable corrected runner, acquire only the two pinned public model repositories, and run the development compatibility/resource smoke before any verification-panel outcome."
+}
