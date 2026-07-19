@@ -157,3 +157,35 @@ def test_host_telemetry_repair_protocol_is_hashed_before_identical_rerun() -> No
     assert protocol["identical_rerun"]["planned_rows"] == 45
     assert protocol["identical_rerun"]["start_from_zero_rows"] is True
     assert protocol["identical_rerun"]["model_action_path_and_adjudicator_unchanged"] is True
+
+
+def test_accepted_corrected_panel_closes_on_no_repeatable_delay_gap() -> None:
+    result_path = REPORTS / "official_action_semantics_corrected_panel_result.json"
+    result = json.loads(result_path.read_text(encoding="utf-8"))
+    expected_hash = (REPORTS / "official_action_semantics_corrected_panel_result.sha256").read_text(
+        encoding="utf-8"
+    ).split()[0]
+
+    assert hashlib.sha256(result_path.read_bytes()).hexdigest().upper() == expected_hash
+    assert result["final_decision"] == "CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP"
+    assert result["accepted_execution"]["host_decision"] == "A2C2_CORRECTED_HOST_PANEL_PASS"
+    assert result["accepted_execution"]["completed_scientific_rows"] == 45
+    assert result["accepted_execution"]["duplicate_scientific_keys"] == 0
+    assert result["accepted_execution"]["prior_module_forward_count"] == 2148
+    assert result["results"]["successes"] == {
+        "BASE_STANDARD_E10_D0": 11,
+        "BASE_DELAYED_E40_D10": 9,
+        "PRIOR_DELAYED_E40_D10": 9,
+    }
+    assert result["results"]["gates"]["manifest_valid"] is True
+    assert result["results"]["gates"]["base_competent"] is True
+    assert result["results"]["gates"]["repeatable_delay_gap"] is False
+    assert result["results"]["repeatable_delay_gap_rule"]["observed_standard_minus_delayed"] == 2
+    assert result["raw_action_diagnostics"]["all_nominal_exceedance_events_persisted"] is True
+    assert result["controller_native_diagnostics"]["all_controller_actions_accepted"] is True
+    assert result["resources"]["pagefile_write_activity"] is False
+    assert result["resources"]["wsl_swap_total_bytes"] == 0
+    assert result["repeatability"]["first_attempt_and_rerun_scientific_subset_mismatch_count"] == 0
+    assert result["route"]["close_claim_specific_thesis"] is True
+    assert result["route"]["additional_prior_authorized"] is False
+    assert result["route"]["ours_authorized"] is False

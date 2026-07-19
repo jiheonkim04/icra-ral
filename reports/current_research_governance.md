@@ -1199,3 +1199,24 @@ run id. No model, action path, task, identity, delay, timeout, success rule,
 outcome threshold, or adjudicator may change. The failed attempt and repair
 protocol are `reports/a2c2_prior/official_action_semantics_panel_host_telemetry_failed_attempt.json`
 and `reports/a2c2_prior/official_action_semantics_panel_host_telemetry_repair_protocol.json`.
+
+The identical full rerun then passed the repaired host wrapper as
+`A2C2_CORRECTED_HOST_PANEL_PASS`. All 45 unique frozen rows completed with zero
+exceptions, finite 7-D actions, valid official controller-native handling, 323
+Base forwards, 2,148 live Prior forwards, nonzero corrections, zero swap,
+zero pagefile writes/output, no offload/OOM, and verified teardown. The first
+attempt and rerun had zero mismatches across every compared scientific and
+action-diagnostic field.
+
+Accepted successes were Base standard `11/15`, delayed Base `9/15`, and delayed
+Prior `9/15`. Base competence passed. Four matched clean successes failed under
+delay across two tasks, but the aggregate standard-minus-delayed difference was
+only `2/15`, below the frozen `>=3/15` repeated-gap requirement. The exact
+decision is `CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP`.
+
+This is not corrected-A2C2 improvement, saturation, or no-improvement; it is a
+valid conclusion that this panel lacks a sufficiently repeatable claim-specific
+asynchronous-delay degradation. Close the local thesis without an additional
+Prior, Ours, Stage 0/A/B, or paper package. Preserve the v1 negative result and
+historical strict-raw-bound invalidity separately. The authoritative accepted
+result is `reports/a2c2_prior/official_action_semantics_corrected_panel_result.json`.

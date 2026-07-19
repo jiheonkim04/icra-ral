@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "stage": "A2C2_OFFICIAL_ACTION_SEMANTICS_CORRECTED_PANEL",
+  "job_classification": "PRIOR_CLOSED_LOOP_ROLLOUT",
+  "fidelity_label": "A2C2_FIDELITY_CORRECTED_LOCAL_PORT",
+  "official_reproduction_claim": false,
+  "authority_sha256": "CDC674DB9E0EFDC85F3529FA7387D4E3A9BD31DF91A66B0D9B87C1279DA6C0B0",
+  "official_action_semantics_protocol_sha256": "5ABBFA6517D8AFA3DA05676FFB07BCEE0F82124214BF12C60735AF43C6B84A13",
+  "host_telemetry_repair_protocol_sha256": "9E4D2ABEE4FC271F8DDDAD87771B618DF231DA2A88D7DD693F98AA7106F91742",
+  "execution_source_head": "f839979d6150166b138a40e40cfb0265a826b231",
+  "official_action_semantics_decision": "OFFICIAL_ACTION_SEMANTICS_VERIFIED",
+  "outcome_suppressed_smoke_decision": "CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS",
+  "historical_result_preserved": {
+    "decision": "CORRECTED_A2C2_EVALUATION_INVALID",
+    "role": "HISTORICAL_LOCAL_STRICT_RAW_BOUND_GATE_RESULT",
+    "rewritten_or_erased": false,
+    "reinterpreted_as_scientific_result": false
+  },
+  "failed_attempt": {
+    "run_id": "official_semantics_panel_20260719T210400KST",
+    "preserved": true,
+    "host_decision": "A2C2_CORRECTED_HOST_FAIL_MEMORY_OR_PAGEFILE",
+    "root": "system-wide pagefile CurrentUsage counter drift with zero sampled writes/output",
+    "candidate_scientific_decision_adopted": false,
+    "repair_count_for_root": 1
+  },
+  "accepted_execution": {
+    "run_id": "official_semantics_panel_rerun1_20260719T212400KST",
+    "host_decision": "A2C2_CORRECTED_HOST_PANEL_PASS",
+    "planned_scientific_rows": 45,
+    "completed_scientific_rows": 45,
+    "duplicate_scientific_keys": 0,
+    "tasks": [0, 4, 8],
+    "official_init_state_ids": [5, 6, 7, 8, 9],
+    "conditions": ["BASE_STANDARD_E10_D0", "BASE_DELAYED_E40_D10", "PRIOR_DELAYED_E40_D10"],
+    "max_steps": 220,
+    "total_simulator_steps": 6353,
+    "base_model_forward_count": 323,
+    "prior_module_forward_count": 2148,
+    "nonzero_prior_correction": true,
+    "all_actions_finite": true,
+    "all_action_semantics_valid": true,
+    "controller_rejections": 0,
+    "exceptions": [],
+    "expert_or_future_action_used_at_live_inference": false,
+    "training_happened": false,
+    "ours_designed_or_executed": false,
+    "elapsed_seconds": 665.788,
+    "cuda_pid": 292
+  },
+  "model_load_audit": {
+    "base_revision": "caa0efcb24e261574c824366526c5775d3664cac",
+    "base_sha256": "45F3B6FC1B8AE0B7CF3AB8EBD22336AB23EB3798A8BFEF027F5D45596C45A9BE",
+    "prior_revision": "9c89cca4aae8eecc42a20084ef414ff74f94ba05",
+    "prior_sha256": "85D00523E8273A4141E288E4F6692224D50AAF8DF99AD8CCF7E72EE7BF3AB712",
+    "checkpoint_compatible_author_commit": "c197a011aabf070cf2c0b2b0705be5f33d178ad7",
+    "strict_safetensor_load": true,
+    "base_prior_action_statistics_exact_match": true,
+    "no_cpu_or_disk_model_offload": true,
+    "load_elapsed_seconds": 21.487
+  },
+  "results": {
+    "successes": {
+      "BASE_STANDARD_E10_D0": 11,
+      "BASE_DELAYED_E40_D10": 9,
+      "PRIOR_DELAYED_E40_D10": 9
+    },
+    "per_task_successes": {
+      "BASE_STANDARD_E10_D0": {"0": 4, "4": 3, "8": 4},
+      "BASE_DELAYED_E40_D10": {"0": 3, "4": 3, "8": 3},
+      "PRIOR_DELAYED_E40_D10": {"0": 3, "4": 2, "8": 4}
+    },
+    "paired_counts": {
+      "clean_to_delayed_failures": 4,
+      "prior_recoveries": 4,
+      "prior_regressions": 4,
+      "clean_to_prior_residuals": 3
+    },
+    "paired_identities": {
+      "clean_to_delayed_failures": [[0, 5], [0, 7], [8, 5], [8, 7]],
+      "prior_recoveries": [[0, 5], [0, 7], [8, 5], [8, 7]],
+      "prior_regressions": [[0, 6], [0, 9], [4, 7], [8, 9]],
+      "clean_to_prior_residuals": [[0, 9], [4, 7], [8, 9]]
+    },
+    "gates": {
+      "manifest_valid": true,
+      "base_competent": true,
+      "repeatable_delay_gap": false,
+      "prior_improves": false,
+      "prior_saturates": false,
+      "residual_remains": false
+    },
+    "repeatable_delay_gap_rule": {
+      "standard_minus_delayed_required": 3,
+      "observed_standard_minus_delayed": 2,
+      "matched_clean_to_delayed_failures_required": 3,
+      "observed_matched_clean_to_delayed_failures": 4,
+      "tasks_spanned_required": 2,
+      "observed_tasks_spanned": 2,
+      "failed_component": "aggregate standard-minus-delayed success difference"
+    },
+    "final_decision": "CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP"
+  },
+  "latency_and_workload": {
+    "BASE_STANDARD_E10_D0": {
+      "steps": 1914,
+      "base_forwards": 197,
+      "prior_forwards": 0,
+      "total_episode_elapsed_seconds": 190.299,
+      "mean_episode_elapsed_seconds": 12.687,
+      "p99_episode_elapsed_seconds": 19.912,
+      "max_episode_elapsed_seconds": 20.535
+    },
+    "BASE_DELAYED_E40_D10": {
+      "steps": 2291,
+      "base_forwards": 64,
+      "prior_forwards": 0,
+      "total_episode_elapsed_seconds": 185.22,
+      "mean_episode_elapsed_seconds": 12.348,
+      "p99_episode_elapsed_seconds": 16.721,
+      "max_episode_elapsed_seconds": 16.841
+    },
+    "PRIOR_DELAYED_E40_D10": {
+      "steps": 2148,
+      "base_forwards": 62,
+      "prior_forwards": 2148,
+      "mean_prior_abs_correction_across_rows": 0.120672691733333,
+      "total_episode_elapsed_seconds": 204.115,
+      "mean_episode_elapsed_seconds": 13.608,
+      "p99_episode_elapsed_seconds": 19.664,
+      "max_episode_elapsed_seconds": 19.952
+    }
+  },
+  "raw_action_diagnostics": {
+    "BASE_STANDARD_E10_D0": {
+      "steps": 1914,
+      "raw_max_abs_by_dimension": [0.945035398, 0.906797051, 1.032813549, 0.153136745, 0.232909888, 0.265118927, 1.073494077],
+      "raw_p99_abs_by_dimension": [0.920868721, 0.83360343, 0.972709705, 0.099565943, 0.188661149, 0.220729893, 1.043499434],
+      "above_nominal_count_by_dimension": [0, 0, 3, 0, 0, 0, 874],
+      "above_nominal_element_fraction": 0.065457531,
+      "max_exceedance_magnitude": 0.073494077,
+      "exceedance_event_count": 875,
+      "native_arm_clip_step_count": 3,
+      "native_arm_clip_step_fraction": 0.001567398
+    },
+    "BASE_DELAYED_E40_D10": {
+      "steps": 2291,
+      "raw_max_abs_by_dimension": [0.945035398, 0.894909263, 1.001546264, 0.125883833, 0.214870781, 0.254230708, 1.077136397],
+      "raw_p99_abs_by_dimension": [0.903645665, 0.807570517, 0.965691066, 0.096422872, 0.177568777, 0.20096859, 1.045682049],
+      "above_nominal_count_by_dimension": [0, 0, 1, 0, 0, 0, 819],
+      "above_nominal_element_fraction": 0.051131758,
+      "max_exceedance_magnitude": 0.077136397,
+      "exceedance_event_count": 819,
+      "native_arm_clip_step_count": 1,
+      "native_arm_clip_step_fraction": 0.000436491
+    },
+    "PRIOR_DELAYED_E40_D10": {
+      "steps": 2148,
+      "raw_max_abs_by_dimension": [0.962871611, 0.879853606, 0.991752803, 0.133258983, 0.222359672, 0.236499369, 1.029590964],
+      "raw_p99_abs_by_dimension": [0.922280488, 0.779426198, 0.957876434, 0.084954681, 0.178471849, 0.203500242, 1.017339166],
+      "above_nominal_count_by_dimension": [0, 0, 0, 0, 0, 0, 1031],
+      "above_nominal_element_fraction": 0.068568768,
+      "max_exceedance_magnitude": 0.029590964,
+      "exceedance_event_count": 1031,
+      "native_arm_clip_step_count": 0,
+      "native_arm_clip_step_fraction": 0.0
+    },
+    "paired_prior_minus_delayed_base": {
+      "matched_pairs": 15,
+      "max_exceedance_magnitude_increased": 0,
+      "max_exceedance_magnitude_decreased": 15,
+      "mean_max_exceedance_delta": -0.02297535,
+      "largest_max_exceedance_delta": -0.003847242,
+      "smallest_max_exceedance_delta": -0.052207589,
+      "exceedance_fraction_increased": 9,
+      "exceedance_fraction_decreased": 6,
+      "mean_exceedance_fraction_delta": 0.005544984,
+      "native_arm_clip_fraction_increased": 0,
+      "native_arm_clip_fraction_decreased": 1,
+      "native_arm_clip_fraction_equal": 14
+    },
+    "all_nominal_exceedance_events_persisted": true,
+    "total_exceedance_event_count": 2725,
+    "total_exceeding_element_count": 2728,
+    "raw_nominal_exceedance_is_diagnostic_not_automatic_invalidity": true
+  },
+  "controller_native_diagnostics": {
+    "external_action_clip_added": false,
+    "all_controller_actions_accepted": true,
+    "all_native_arm_effective_values_within_bounds": true,
+    "all_native_gripper_effective_values_within_bounds": true,
+    "all_gripper_actuator_commands_within_control_range": true,
+    "all_torques_within_limits": true,
+    "all_simulator_states_finite": true,
+    "BASE_STANDARD_E10_D0": {
+      "arm_effective_max_abs_by_dimension": [0.04725177, 0.045339853, 0.05, 0.076568373, 0.116454944, 0.132559463],
+      "gripper_effective_max_abs": 1.0,
+      "gripper_actuator_max_abs": 0.04,
+      "native_gripper_saturation_call_count": 42075,
+      "torque_max_abs_by_dimension": [9.810438753, 80.0, 15.376330865, 47.338686053, 5.914506514, 10.654639166, 2.864089658]
+    },
+    "BASE_DELAYED_E40_D10": {
+      "arm_effective_max_abs_by_dimension": [0.04725177, 0.044745463, 0.05, 0.062941916, 0.10743539, 0.127115354],
+      "gripper_effective_max_abs": 1.0,
+      "gripper_actuator_max_abs": 0.04,
+      "native_gripper_saturation_call_count": 48725,
+      "torque_max_abs_by_dimension": [17.509415918, 80.0, 18.6557843, 24.603562259, 9.617362827, 12.0, 6.211085999]
+    },
+    "PRIOR_DELAYED_E40_D10": {
+      "arm_effective_max_abs_by_dimension": [0.048143581, 0.04399268, 0.04958764, 0.066629492, 0.111179836, 0.118249685],
+      "gripper_effective_max_abs": 1.0,
+      "gripper_actuator_max_abs": 0.04,
+      "native_gripper_saturation_call_count": 47950,
+      "torque_max_abs_by_dimension": [13.257164629, 74.876372078, 18.114199731, 40.975945195, 10.28328584, 10.402092897, 5.959021117]
+    }
+  },
+  "resources": {
+    "gpu": "NVIDIA GeForce RTX 5080",
+    "wsl_memory_gib_effective": 11.68,
+    "peak_vram_allocated_mib": 1532.542,
+    "peak_vram_reserved_mib": 1558.0,
+    "peak_process_rss_mib": 4406.098,
+    "peak_wsl_used_gib": 4.011,
+    "host_baseline_used_fraction": 0.3589611373470959,
+    "host_peak_used_fraction": 0.6603790333537823,
+    "host_post_shutdown_used_fraction": 0.3575454646514137,
+    "host_monitor_sample_count": 797,
+    "pagefile_current_growth_mib": 0,
+    "peak_page_writes_per_sec": 0,
+    "peak_pages_output_per_sec": 0,
+    "pagefile_write_activity": false,
+    "wsl_swap_total_bytes": 0,
+    "memory_release_verified": true,
+    "kernel_oom": false,
+    "host_ceiling_terminated": false,
+    "cpu_or_disk_model_offload": false
+  },
+  "repeatability": {
+    "first_attempt_and_rerun_scientific_subset_mismatch_count": 0,
+    "compared_fields": [
+      "condition/task/init",
+      "success and episode length",
+      "Base/Prior forward counts and correction summaries",
+      "finite/semantics validity",
+      "raw and controller-native action diagnostics"
+    ]
+  },
+  "raw_evidence": {
+    "result_path": "runs/a2c2_fidelity_corrected/official_semantics_panel_rerun1_20260719T212400KST/result.json",
+    "result_sha256": "7B0ECECFBB1D05442097340D19FD5B81DC5BFF7EC88F0096D016C04FD6A9AFE5",
+    "episodes_path": "runs/a2c2_fidelity_corrected/official_semantics_panel_rerun1_20260719T212400KST/episodes.jsonl",
+    "episodes_sha256": "F33D8C25942B4892D7CE8A831BBF42FF41A48E4D40E0732415BCA1A993A5C6AA",
+    "host_monitor_path": "runs/a2c2_fidelity_corrected/official_semantics_panel_rerun1_20260719T212400KST/host_monitor.json",
+    "host_monitor_sha256": "9182C531B707D087C8D17F40E1D227CE5F1BD19E2E427614A3C6FFE66D7A28D2"
+  },
+  "scientific_conclusion": "The corrected local panel is technically valid, but the frozen repeated-problem gate is false. This does not establish A2C2 improvement, saturation, or no-improvement; it establishes that this panel does not contain a sufficiently repeatable asynchronous-delay degradation for claim-specific method development.",
+  "route": {
+    "close_claim_specific_thesis": true,
+    "additional_prior_authorized": false,
+    "ours_authorized": false,
+    "paper_package_authorized": false,
+    "next_authorized_action": "Close the local asynchronous-delay claim-specific thesis without Ours."
+  },
+  "final_decision": "CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP"
+}

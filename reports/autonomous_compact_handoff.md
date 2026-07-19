@@ -12,12 +12,12 @@ Updated: 2026-07-19 KST
 - Focused-audit pushed HEAD before corrected preflight closure: `d972dfb4e21d9f262ad64b0f26a1a4e60a65fffb`
 - Official-action-semantics continuation source HEAD: `c079af2b276837e868a992b4450a6fc5d0749dee`
 - Epoch/cycle: `5 / 0`
-- Campaign state: `A2C2_OFFICIAL_ACTION_SEMANTICS_CORRECTION_AUTHORIZED`; historical `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` remains preserved.
+- Campaign state: the authorized A2C2 official-action-semantics continuation is complete and the local claim-specific asynchronous-delay thesis is closed; historical `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` remains preserved.
 - Closed Pivot Epoch 1 thesis: action-chunk reactivity under asynchronous inference delay. The historical results `PRIOR_INFRASTRUCTURE_BLOCKED` and `A2C2_RESOURCE_FUNDAMENTALLY_BLOCKED_ON_CURRENT_24GB_HOST` remain preserved; the later clean-host continuation validly completed the frozen panel and returned `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
-- Active stage: the official action-path audit and outcome-suppressed smoke passed. The first 45-row panel attempt is preserved but quarantined after an inherited host-monitor telemetry false positive. One minimal telemetry repair is frozen; the identical 45-row rerun is pending.
+- Active stage: none. The accepted 45-row rerun returned `CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP` and closes this claim without an additional Prior or Ours.
 - Current novelty decision: not applicable; Ours remains unauthorized.
 - Active training/rollout worker: none.
-- Current scientific decision: none for the active correction. `CORRECTED_A2C2_EVALUATION_INVALID` is preserved only as `HISTORICAL_LOCAL_STRICT_RAW_BOUND_GATE_RESULT`; v1 independently remains `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
+- Current scientific decision: `CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP`. `CORRECTED_A2C2_EVALUATION_INVALID` is preserved only as `HISTORICAL_LOCAL_STRICT_RAW_BOUND_GATE_RESULT`; v1 independently remains `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
 - Paper-level decision: no `PAPER_CANDIDATE_GO`; historical `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` is not erased.
 - Paper status: no `PROTOTYPE_GO`, `PAPER_CANDIDATE_GO`, or paper-ready package.
 - Preserve pre-existing ignored `rollouts/2026_07_17/` and `rollouts/2026_07_18/`.
@@ -70,6 +70,8 @@ Updated: 2026-07-19 KST
 - A2C2 official-action-semantics smoke: `reports/a2c2_prior/official_action_semantics_smoke_result.json`
 - A2C2 panel telemetry failed attempt: `reports/a2c2_prior/official_action_semantics_panel_host_telemetry_failed_attempt.json`
 - A2C2 panel telemetry repair protocol: `reports/a2c2_prior/official_action_semantics_panel_host_telemetry_repair_protocol.json`
+- A2C2 accepted official-action-semantics panel: `reports/a2c2_prior/official_action_semantics_corrected_panel_result.json`
+- A2C2 official-action-semantics final validation: `reports/a2c2_prior/official_action_semantics_final_validation.json`
 - Pivot Epoch 2 selection: `reports/strategic_pivot_epoch2_selection_result.json`
 - Final strategic-pivot decision: `reports/strategic_pivot_final_decision.json`
 
@@ -172,22 +174,20 @@ valid native handling throughout, and no reproducible substantial Prior-
 specific instability. Success, done, and reward were not inspected, persisted,
 or counted.
 
-The first 45-row panel attempt completed internally but is quarantined. Its
-host monitor treated a 6 MiB system-wide Windows pagefile `CurrentUsage`
-reservation drift as paging even though 872 samples recorded zero
-`PageWrites/sec` and zero `PagesOutput/sec`; WSL swap/offload/OOM were zero and
-memory release succeeded. Preserve its internal candidate decision without
-adopting it.
+The first 45-row panel attempt remains quarantined after its system-wide
+pagefile-counter telemetry false positive. After the one frozen minimal repair,
+an identical full rerun completed with host decision
+`A2C2_CORRECTED_HOST_PANEL_PASS`, 45 unique valid rows, zero exceptions, 323
+Base forwards, 2,148 live Prior forwards, and zero scientific/action-field
+mismatches against the preserved first attempt.
 
-Exactly one logging/telemetry repair is frozen: keep `CurrentUsage` drift as a
-diagnostic and detect actual pagefile activity from nonzero `PageWrites/sec` or
-`PagesOutput/sec`. Run the unchanged 45-row corrected panel again from zero
-rows under a new run id: tasks `0,4,8`, official init states `5..9`, conditions
-`BASE_STANDARD_E10_D0`, `BASE_DELAYED_E40_D10`, and
-`PRIOR_DELAYED_E40_D10`, max 220 steps, sequential one-backbone residency,
-atomic rows, and missing-key-only resume. Do not select an additional Prior,
-design Ours, or create a paper package until the frozen rerun decision is
-known.
+Successes were Base standard `11/15`, Base delayed `9/15`, and Prior delayed
+`9/15`. Base competence passed, but standard-minus-delayed was only `2/15`
+against the frozen `>=3/15` repeated-gap requirement. The exact decision is
+therefore `CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP`. Close the local claim-
+specific asynchronous-delay thesis. Do not select an additional Prior, design
+or execute Ours, start Stage 0/A/B, or create a paper package for this claim.
+Further work requires new explicit user authority outside this closed route.
 
 ## Historical pre-clean-host resource conclusion
 
