@@ -192,6 +192,8 @@ def test_schedule_smoke_wrappers_persist_exit_and_support_safe_cache_release() -
     assert "SustainedPagingMinConsecutiveSamples = 3" in powershell
     assert "wsl.exe --shutdown" in powershell
     assert "pagefile_allocation_classification" in powershell
+    assert "-Samples @($" not in powershell
+    assert ".ToArray()" in powershell
 
 
 def _write_json(path: Path, payload: dict) -> None:

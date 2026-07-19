@@ -181,7 +181,7 @@ for ($index = 0; $index -lt $IdleControlDurationSeconds; $index += 1) {
     }
 }
 $idleMaximumUsedFraction = [double](($idleSamples | ForEach-Object { [double]$_.used_fraction } | Measure-Object -Maximum).Maximum)
-$idleMaximumConsecutivePaging = Get-MaxConsecutivePagingSamples -Samples @($idleSamples)
+$idleMaximumConsecutivePaging = Get-MaxConsecutivePagingSamples -Samples $idleSamples.ToArray()
 $idleValid = [bool](
     $idleSamples.Count -eq $IdleControlDurationSeconds -and
     $idleMaximumUsedFraction -le 0.65 -and
@@ -325,7 +325,7 @@ try {
         Start-Sleep -Seconds 1
         $restoreSample = Get-HostMemorySample
         $restoreSamples.Add($restoreSample)
-        $restorePaging = Get-MaxConsecutivePagingSamples -Samples @($restoreSamples)
+        $restorePaging = Get-MaxConsecutivePagingSamples -Samples $restoreSamples.ToArray()
         $wslStopped = [bool](@(Get-WslRunningNames).Count -eq 0)
         $cleanStateRestored = [bool](
             $wslStopped -and
@@ -339,7 +339,15 @@ try {
     }
     $afterCleanState = $restoreSamples[$restoreSamples.Count - 1]
 
-    foreach ($sample in @($afterChild, $afterRelease) + @($restoreSamples)) {
+    foreach ($sample in @($afterChild, $afterRelease)) {
+        $peakUsedFraction = [math]::Max($peakUsedFraction, [double]$sample.used_fraction)
+        $peakCommittedBytes = [math]::Max($peakCommittedBytes, [int64]$sample.committed_bytes)
+        $peakPagefileCurrentMiB = [math]::Max($peakPagefileCurrentMiB, [double]$sample.pagefile_current_usage_mib)
+        $peakPageWritesPerSec = [math]::Max($peakPageWritesPerSec, [int64]$sample.page_writes_per_sec)
+        $peakPagesOutputPerSec = [math]::Max($peakPagesOutputPerSec, [int64]$sample.pages_output_per_sec)
+        $peakGpuUsedMiB = [math]::Max($peakGpuUsedMiB, [int64]$sample.gpu.used_mib)
+    }
+    foreach ($sample in $restoreSamples) {
         $peakUsedFraction = [math]::Max($peakUsedFraction, [double]$sample.used_fraction)
         $peakCommittedBytes = [math]::Max($peakCommittedBytes, [int64]$sample.committed_bytes)
         $peakPagefileCurrentMiB = [math]::Max($peakPagefileCurrentMiB, [double]$sample.pagefile_current_usage_mib)
@@ -348,8 +356,8 @@ try {
         $peakGpuUsedMiB = [math]::Max($peakGpuUsedMiB, [int64]$sample.gpu.used_mib)
     }
 
-    $maximumRuntimeConsecutivePaging = Get-MaxConsecutivePagingSamples -Samples @($samples)
-    $maximumRestoreConsecutivePaging = Get-MaxConsecutivePagingSamples -Samples @($restoreSamples)
+    $maximumRuntimeConsecutivePaging = Get-MaxConsecutivePagingSamples -Samples $samples.ToArray()
+    $maximumRestoreConsecutivePaging = Get-MaxConsecutivePagingSamples -Samples $restoreSamples.ToArray()
     $sustainedPagingDetected = [bool](
         $maximumRuntimeConsecutivePaging -ge $SustainedPagingMinConsecutiveSamples -or
         $maximumRestoreConsecutivePaging -ge $SustainedPagingMinConsecutiveSamples
