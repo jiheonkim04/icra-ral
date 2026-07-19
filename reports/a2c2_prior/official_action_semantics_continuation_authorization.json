@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "authority_source": "C:/Users/jiheo/Downloads/a2c2_official_action_semantics_continuation.md",
+  "authority_sha256": "CDC674DB9E0EFDC85F3529FA7387D4E3A9BD31DF91A66B0D9B87C1279DA6C0B0",
+  "source_head": "c079af2b276837e868a992b4450a6fc5d0749dee",
+  "branch": "codex/epoch5-official-prior-first",
+  "active_continuation_state": "A2C2_OFFICIAL_ACTION_SEMANTICS_CORRECTION_AUTHORIZED",
+  "historical_result_preserved": {
+    "decision": "CORRECTED_A2C2_EVALUATION_INVALID",
+    "role": "HISTORICAL_LOCAL_STRICT_RAW_BOUND_GATE_RESULT",
+    "rewritten_or_erased": false,
+    "scientific_success_or_failure_claimed": false
+  },
+  "authorized_change_count": 1,
+  "authorized_change": "Replace only the local strict raw-bound validity blocker with the exact official environment/controller action semantics.",
+  "not_authorized": [
+    "method tuning",
+    "checkpoint change",
+    "success-outcome threshold fitting",
+    "external wrapper action clipping",
+    "second A2C2 fidelity redesign",
+    "task, reset, delay, timeout, success, or decision-threshold change"
+  ],
+  "required_order": [
+    "official action-path audit",
+    "frozen practical diagnostics",
+    "outcome-suppressed official-semantics smoke",
+    "unchanged 45-row corrected panel only after smoke pass",
+    "conditional continuation under the resulting scientific gate"
+  ]
+}

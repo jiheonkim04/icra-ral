@@ -41,11 +41,15 @@ from tca_map.smolvla.a2c2_fidelity_corrected import (  # noqa: E402
     EVAL_TASK_IDS,
     FIDELITY_LABEL,
     OFFICIAL_COMMIT,
+    OFFICIAL_SEMANTICS_SMOKE_IDENTITIES,
+    OFFICIAL_SEMANTICS_SMOKE_STEPS,
     PRIOR_MODEL_SHA256,
     PRIOR_REVISION,
     ROOT_SEED,
     VERIFICATION_INIT_STATE_IDS,
+    adjudicate_official_semantics_smoke,
     adjudicate_panel,
+    aggregate_panel_action_diagnostics,
     episode_key,
     expected_panel_keys,
     noise_seed,
@@ -53,6 +57,7 @@ from tca_map.smolvla.a2c2_fidelity_corrected import (  # noqa: E402
     refresh_action_plan,
     rotate_live_rgb_180,
     sha256_file,
+    summarize_action_path,
     verify_artifact_configs,
 )
 
@@ -76,6 +81,10 @@ TASKS = {
         "global_task_index": 31,
         "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
     },
+    6: {
+        "global_task_index": 33,
+        "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+    },
     8: {
         "global_task_index": 36,
         "instruction": "pick up the black bowl next to the plate and place it on the plate",
@@ -85,7 +94,11 @@ TASKS = {
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", choices=("metadata_preflight", "smoke", "panel", "adjudicate"), required=True)
+    parser.add_argument(
+        "--mode",
+        choices=("metadata_preflight", "smoke", "semantics_smoke", "panel", "adjudicate"),
+        required=True,
+    )
     parser.add_argument(
         "--base-root",
         default=(
@@ -413,6 +426,113 @@ def reset_env(env: Any, suite: Any, task_id: int, init_state_id: int) -> Any:
     return obs
 
 
+class NativeActionPathRecorder:
+    """Passively observe robosuite's native controller/gripper handling."""
+
+    def __init__(self, env: Any) -> None:
+        self.env = env
+        self.inner = env.env
+        self.robot = self.inner.robots[0]
+        self.controller = self.robot.controller
+        self.gripper = self.robot.gripper
+        self.original_scale_action = self.controller.scale_action
+        self.original_format_action = self.gripper.format_action
+        self.current_context: dict[str, Any] | None = None
+        self.arm_calls: list[dict[str, Any]] = []
+        self.gripper_calls: list[dict[str, Any]] = []
+        self.records: list[dict[str, Any]] = []
+        self.controller_rejection_count = 0
+        actuator_names = list(self.gripper.actuators)
+        self.gripper_actuator_indices = [self.inner.sim.model.actuator_name2id(name) for name in actuator_names]
+        self.gripper_actuator_range = np.asarray(
+            self.inner.sim.model.actuator_ctrlrange[self.gripper_actuator_indices], dtype=np.float64
+        )
+
+        def observed_scale_action(action: Any) -> Any:
+            raw = np.asarray(action, dtype=np.float64).copy()
+            effective = self.original_scale_action(action)
+            self.arm_calls.append(
+                {
+                    "raw": raw,
+                    "effective": np.asarray(effective, dtype=np.float64).copy(),
+                    "native_clipped": bool(
+                        np.any(raw < np.asarray(self.controller.input_min, dtype=np.float64))
+                        or np.any(raw > np.asarray(self.controller.input_max, dtype=np.float64))
+                    ),
+                }
+            )
+            return effective
+
+        def observed_format_action(action: Any) -> Any:
+            raw = np.asarray(action, dtype=np.float64).copy()
+            before = np.asarray(self.gripper.current_action, dtype=np.float64).copy()
+            candidate = before + np.asarray([-1.0, 1.0]) * float(self.gripper.speed) * np.sign(raw)
+            effective = self.original_format_action(action)
+            effective_array = np.asarray(effective, dtype=np.float64).copy()
+            self.gripper_calls.append(
+                {
+                    "raw": raw,
+                    "before": before,
+                    "candidate_without_native_saturation": candidate,
+                    "effective": effective_array,
+                    "native_saturated": bool(not np.allclose(candidate, effective_array, atol=1e-12, rtol=0.0)),
+                }
+            )
+            return effective
+
+        self.controller.scale_action = observed_scale_action
+        self.gripper.format_action = observed_format_action
+
+    def begin_step(self, context: Mapping[str, Any], raw_action: np.ndarray) -> None:
+        if self.current_context is not None:
+            raise RuntimeError("native action recorder already has an active step")
+        self.current_context = dict(context)
+        self.current_context["raw_action"] = np.asarray(raw_action, dtype=np.float64).copy()
+        self.arm_calls = []
+        self.gripper_calls = []
+
+    def finish_step(self, *, controller_accepted: bool) -> dict[str, Any] | None:
+        if self.current_context is None:
+            return None
+        if not controller_accepted:
+            self.controller_rejection_count += 1
+        arm = self.arm_calls[-1] if self.arm_calls else None
+        gripper = self.gripper_calls[-1] if self.gripper_calls else None
+        state = np.asarray(self.inner.sim.get_state().flatten(), dtype=np.float64)
+        record = {
+            **self.current_context,
+            "controller_accepted": bool(controller_accepted),
+            "arm_scale_call_count": len(self.arm_calls),
+            "gripper_format_call_count": len(self.gripper_calls),
+            "arm_raw_seen_by_controller": arm["raw"].tolist() if arm else [],
+            "arm_effective": arm["effective"].tolist() if arm else [float("nan")] * 6,
+            "arm_input_clipped": bool(arm and arm["native_clipped"]),
+            "arm_output_low": np.asarray(self.controller.output_min, dtype=np.float64).tolist(),
+            "arm_output_high": np.asarray(self.controller.output_max, dtype=np.float64).tolist(),
+            "gripper_raw_seen": gripper["raw"].tolist() if gripper else [],
+            "gripper_effective": gripper["effective"].tolist() if gripper else [float("nan")] * 2,
+            "gripper_saturation_calls": sum(bool(call["native_saturated"]) for call in self.gripper_calls),
+            "gripper_actuator": np.asarray(
+                self.inner.sim.data.ctrl[self.gripper_actuator_indices], dtype=np.float64
+            ).tolist(),
+            "gripper_actuator_low": self.gripper_actuator_range[:, 0].tolist(),
+            "gripper_actuator_high": self.gripper_actuator_range[:, 1].tolist(),
+            "torques": np.asarray(self.robot.torques, dtype=np.float64).tolist(),
+            "torque_low": np.asarray(self.robot.torque_limits[0], dtype=np.float64).tolist(),
+            "torque_high": np.asarray(self.robot.torque_limits[1], dtype=np.float64).tolist(),
+            "simulator_state_finite": bool(np.isfinite(state).all()),
+        }
+        self.records.append(record)
+        self.current_context = None
+        self.arm_calls = []
+        self.gripper_calls = []
+        return record
+
+    def close(self) -> None:
+        self.controller.scale_action = self.original_scale_action
+        self.gripper.format_action = self.original_format_action
+
+
 def make_noise(base_policy: Any, task_id: int, init_state_id: int, chunk_index: int, torch_mod: Any) -> Any:
     generator = torch_mod.Generator(device="cuda")
     generator.manual_seed(noise_seed(task_id, init_state_id, chunk_index))
@@ -471,6 +591,18 @@ def load_models(args: argparse.Namespace, torch_mod: Any) -> tuple[Any, Any, dic
     prior_projection_shape = list(prior_policy.model.image_proj.weight.shape)
     if prior_projection_shape != [512, 512]:
         raise RuntimeError(f"unexpected checkpoint-compatible image projection: {prior_projection_shape}")
+    base_action_stats = base_policy.unnormalize_outputs.buffer_action
+    prior_action_stats = prior_policy.unnormalize_outputs.buffer_action
+    base_action_mean = base_action_stats["mean"].detach().to(torch_mod.float32).cpu()
+    base_action_std = base_action_stats["std"].detach().to(torch_mod.float32).cpu()
+    prior_action_mean = prior_action_stats["mean"].detach().to(torch_mod.float32).cpu()
+    prior_action_std = prior_action_stats["std"].detach().to(torch_mod.float32).cpu()
+    action_stats_exact_match = bool(
+        torch_mod.equal(base_action_mean, prior_action_mean)
+        and torch_mod.equal(base_action_std, prior_action_std)
+    )
+    if not action_stats_exact_match:
+        raise RuntimeError("paired Base/Prior action unnormalization statistics differ")
     audit = {
         "elapsed_seconds": round(time.monotonic() - started, 3),
         "base": parameter_audit(base_policy),
@@ -482,6 +614,13 @@ def load_models(args: argparse.Namespace, torch_mod: Any) -> tuple[Any, Any, dic
         "checkpoint_compatible_author_commit": CHECKPOINT_COMPATIBLE_COMMIT,
         "execution_source_path": str(execution_source),
         "prior_image_projection_shape": prior_projection_shape,
+        "action_normalization": {
+            "mode": "MEAN_STD",
+            "base_prior_statistics_exact_match": action_stats_exact_match,
+            "mean": [round(float(value), 9) for value in base_action_mean.tolist()],
+            "std": [round(float(value), 9) for value in base_action_std.tolist()],
+            "policy_outputs_are_unnormalized_before_environment_step": True,
+        },
         "serializer_compatibility_repair": (
             "strict-load public prior with the author's immediately preceding "
             "checkpoint-compatible source; no tensor reshape or non-strict load"
@@ -506,6 +645,8 @@ def trace_episode(
     task_id: int,
     init_state_id: int,
     torch_mod: Any,
+    outcome_suppressed: bool = False,
+    max_steps_override: int | None = None,
 ) -> dict[str, Any]:
     condition = CONDITIONS[condition_name]
     e = int(condition["execution_horizon"])
@@ -516,6 +657,7 @@ def trace_episode(
     base_policy.reset()
     prior_policy.reset()
     obs = reset_env(env, suite, task_id, init_state_id)
+    action_recorder = NativeActionPathRecorder(env)
     action_plan: deque[dict[str, Any]] = deque()
     pending_actions: list[dict[str, Any]] = []
     first_chunk = True
@@ -525,13 +667,14 @@ def trace_episode(
     image_rotation_count = 0
     correction_deltas: list[float] = []
     action_finite = True
-    action_legal = True
+    raw_actions_within_nominal_bounds = True
     max_action_abs = 0.0
-    success = False
+    success: bool | None = None if outcome_suppressed else False
     step = 0
+    max_steps = int(max_steps_override or MAX_STEPS)
     exception: dict[str, Any] | None = None
     try:
-        while step < MAX_STEPS:
+        while step < max_steps:
             if not action_plan:
                 observation = prepare_observation(obs, task_description, torch_mod)
                 image_rotation_count += 2
@@ -544,10 +687,12 @@ def trace_episode(
                 if hidden is None or tuple(hidden.shape) != (1, 960):
                     raise RuntimeError(f"unexpected base vlm_hidden {None if hidden is None else tuple(hidden.shape)}")
                 chunk = raw_chunk[0].detach().to(torch_mod.float32).cpu().numpy()
+                source_chunk_index = chunk_index
                 entries = [
                     {
                         "action": chunk[index].copy(),
                         "time_offset": index,
+                        "source_chunk_index": source_chunk_index,
                         "source_chunk": chunk.copy(),
                         "vlm_hidden": hidden.detach().clone(),
                     }
@@ -593,17 +738,40 @@ def trace_episode(
                 prior_forward_count += 1
 
             finite = bool(np.isfinite(action).all())
-            legal = bool(np.max(np.abs(action)) <= 1.000001)
+            nominal = bool(np.max(np.abs(action)) <= 1.0)
             action_finite = action_finite and finite
-            action_legal = action_legal and legal
+            raw_actions_within_nominal_bounds = raw_actions_within_nominal_bounds and nominal
             max_action_abs = max(max_action_abs, float(np.max(np.abs(action))))
             if not finite:
                 raise RuntimeError("nonfinite action")
-            obs, _, done, _ = env.step(action)
+            if tuple(action.shape) != (7,):
+                raise RuntimeError(f"official environment requires a 7D action, got {tuple(action.shape)}")
+            action_recorder.begin_step(
+                {
+                    "condition": condition_name,
+                    "task_id": int(task_id),
+                    "official_init_state_id": int(init_state_id),
+                    "step": int(step),
+                    "source_chunk_index": int(entry["source_chunk_index"]),
+                    "source_action_offset": int(entry["time_offset"]),
+                },
+                action,
+            )
+            try:
+                if outcome_suppressed:
+                    obs, _, _, _ = env.step(action)
+                    done = False
+                else:
+                    obs, _, done, _ = env.step(action)
+            except Exception:
+                action_recorder.finish_step(controller_accepted=False)
+                raise
+            action_recorder.finish_step(controller_accepted=True)
             step += 1
-            success = bool(done or env.check_success())
-            if success:
-                break
+            if not outcome_suppressed:
+                success = bool(done or env.check_success())
+                if success:
+                    break
     except Exception as exc:
         exception = {
             "type": type(exc).__name__,
@@ -611,7 +779,16 @@ def trace_episode(
             "traceback": traceback.format_exc().splitlines()[-40:],
         }
     finally:
+        action_recorder.close()
         env.close()
+
+    action_path = summarize_action_path(action_recorder.records)
+    action_semantics_valid = bool(
+        action_finite
+        and action_path.get("valid")
+        and action_recorder.controller_rejection_count == 0
+        and exception is None
+    )
 
     return {
         "condition": condition_name,
@@ -624,8 +801,9 @@ def trace_episode(
         "inference_delay": d,
         "uses_prior": with_prior,
         "success": success,
+        "outcome_suppressed": bool(outcome_suppressed),
         "episode_length": step,
-        "max_steps": MAX_STEPS,
+        "max_steps": max_steps,
         "base_model_forward_count": base_forward_count,
         "prior_module_forward_count": prior_forward_count,
         "prior_mean_abs_correction": round(float(np.mean(correction_deltas)), 9) if correction_deltas else 0.0,
@@ -633,7 +811,12 @@ def trace_episode(
         "image_rotation_count": image_rotation_count,
         "reset_stabilization_steps": NUM_STEPS_WAIT,
         "action_finite": action_finite,
-        "action_legal": action_legal,
+        "action_legal": raw_actions_within_nominal_bounds,
+        "raw_actions_within_nominal_bounds": raw_actions_within_nominal_bounds,
+        "raw_bound_exceedance_is_diagnostic_only": True,
+        "action_semantics_valid": action_semantics_valid,
+        "controller_rejection_count": action_recorder.controller_rejection_count,
+        "raw_action_diagnostics": action_path,
         "max_action_abs": round(max_action_abs, 9),
         "uses_expert_or_future_action_at_live_inference": False,
         "base_chunk_noise_seed_rule": "SHA256(root_seed,task_id,init_state_id,chunk_index)",
@@ -646,7 +829,7 @@ def trace_episode(
 def run_empirical(args: argparse.Namespace) -> dict[str, Any]:
     import torch
 
-    if args.mode not in {"smoke", "panel"}:
+    if args.mode not in {"smoke", "semantics_smoke", "panel"}:
         raise ValueError(args.mode)
     set_runtime_environment(args)
     set_seed(ROOT_SEED)
@@ -666,7 +849,11 @@ def run_empirical(args: argparse.Namespace) -> dict[str, Any]:
         "run_id": run_id,
         "run_dir": str(run_dir),
         "mode": args.mode,
-        "job_classification": "PRIOR_ACTUAL_PATH_PREFLIGHT" if args.mode == "smoke" else "PRIOR_CLOSED_LOOP_ROLLOUT",
+        "job_classification": (
+            "PRIOR_ACTUAL_PATH_PREFLIGHT"
+            if args.mode in {"smoke", "semantics_smoke"}
+            else "PRIOR_CLOSED_LOOP_ROLLOUT"
+        ),
         "fidelity_label": FIDELITY_LABEL,
         "official_commit": OFFICIAL_COMMIT,
         "checkpoint_compatible_author_commit": CHECKPOINT_COMPATIBLE_COMMIT,
@@ -745,6 +932,58 @@ def run_empirical(args: argparse.Namespace) -> dict[str, Any]:
                     ),
                 }
             )
+        elif args.mode == "semantics_smoke":
+            requested = [
+                (condition_name, task_id, init_state_id)
+                for task_id, init_state_id in OFFICIAL_SEMANTICS_SMOKE_IDENTITIES
+                for condition_name in ("BASE_DELAYED_E40_D10", "PRIOR_DELAYED_E40_D10")
+            ]
+            completed_technical = []
+            for condition_name, task_id, init_state_id in requested:
+                trace = trace_episode(
+                    base_policy=base_policy,
+                    prior_policy=prior_policy,
+                    condition_name=condition_name,
+                    task_id=task_id,
+                    init_state_id=init_state_id,
+                    torch_mod=torch,
+                    outcome_suppressed=True,
+                    max_steps_override=OFFICIAL_SEMANTICS_SMOKE_STEPS,
+                )
+                technical = {key: value for key, value in trace.items() if key != "success"}
+                technical.update(
+                    {
+                        "task_success_persisted": False,
+                        "task_success_counted": False,
+                        "task_success_inspected_by_runner": False,
+                        "scientific_episode_row": False,
+                    }
+                )
+                append_jsonl(episodes_path, technical)
+                completed_technical.append(technical)
+                write_json(
+                    heartbeat_path,
+                    {
+                        "state": "running",
+                        "pid": os.getpid(),
+                        "completed": len(completed_technical),
+                        "planned": len(requested),
+                        "last_key": [condition_name, task_id, init_state_id],
+                        "updated_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                    },
+                )
+            smoke_adjudication = adjudicate_official_semantics_smoke(completed_technical)
+            report.update(
+                {
+                    "task_success_persisted": False,
+                    "task_success_counted": False,
+                    "task_success_inspected_by_runner": False,
+                    "scientific_episode_rows": 0,
+                    "technical_traces": completed_technical,
+                    "adjudication": smoke_adjudication,
+                    "final_decision": smoke_adjudication["final_decision"],
+                }
+            )
         else:
             existing = read_jsonl(episodes_path)
             existing_keys = [episode_key(row) for row in existing]
@@ -789,6 +1028,7 @@ def run_empirical(args: argparse.Namespace) -> dict[str, Any]:
                     raise RuntimeError(f"episode failed for {key}: {row['exception']}")
             rows = [rows_by_key[key] for key in planned if key in rows_by_key]
             adjudication = adjudicate_panel(rows)
+            panel_action_diagnostics = aggregate_panel_action_diagnostics(rows)
             report.update(
                 {
                     "episodes_path": str(episodes_path),
@@ -796,6 +1036,7 @@ def run_empirical(args: argparse.Namespace) -> dict[str, Any]:
                     "completed_scientific_rows": len(rows),
                     "duplicate_scientific_keys": len(rows) - len({episode_key(row) for row in rows}),
                     "adjudication": adjudication,
+                    "panel_action_diagnostics": panel_action_diagnostics,
                     "final_decision": adjudication["final_decision"],
                 }
             )
@@ -807,6 +1048,17 @@ def run_empirical(args: argparse.Namespace) -> dict[str, Any]:
         }
         if args.mode == "smoke":
             report["final_decision"] = "A2C2_CORRECTED_ACTUAL_PATH_SMOKE_FAIL"
+        elif args.mode == "semantics_smoke":
+            message = str(exc).lower()
+            if "nonfinite" in message or "nan" in message or "inf" in message:
+                report["final_decision"] = "CORRECTED_A2C2_NONFINITE_ACTION_FAILURE"
+            elif "controller" in message or "environment" in message or "action dimension" in message:
+                report["final_decision"] = "CORRECTED_A2C2_CONTROLLER_REJECTION"
+            else:
+                report["final_decision"] = "CORRECTED_A2C2_ACTION_SEMANTICS_INVALID"
+            report["scientific_episode_rows"] = 0
+            report["task_success_persisted"] = False
+            report["task_success_counted"] = False
         else:
             rows = read_jsonl(episodes_path)
             report["completed_scientific_rows"] = len(rows)
@@ -863,15 +1115,17 @@ def main() -> int:
         report = metadata_preflight(args)
         default_json = REPO_ROOT / "reports/a2c2_prior/fidelity_corrected_metadata_preflight_result.json"
         default_md = REPO_ROOT / "reports/a2c2_prior/fidelity_corrected_metadata_preflight_result.md"
-    elif args.mode in {"smoke", "panel"}:
+    elif args.mode in {"smoke", "semantics_smoke", "panel"}:
         report = run_empirical(args)
         print(json.dumps({"run_id": report.get("run_id"), "final_decision": report["final_decision"]}, indent=2))
         return 0 if report["final_decision"] in {
             "A2C2_CORRECTED_ACTUAL_PATH_SMOKE_PASS",
+            "CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS",
             "CORRECTED_A2C2_PRIOR_IMPROVES_AND_LEAVES_RESIDUAL",
             "CORRECTED_A2C2_PRIOR_SATURATES_DELAY",
             "CORRECTED_A2C2_PRIOR_NO_IMPROVEMENT",
             "CORRECTED_A2C2_BASE_NOT_COMPETENT",
+            "CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP",
         } else 1
     else:
         report = adjudicate_existing(args)

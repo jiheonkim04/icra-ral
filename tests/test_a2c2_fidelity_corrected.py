@@ -4,6 +4,7 @@ import numpy as np
 from pathlib import Path
 from dataclasses import dataclass
 import json
+from types import SimpleNamespace
 
 from tca_map.smolvla.a2c2_fidelity_corrected import (
     ALLOWED_FINAL_DECISIONS,
@@ -11,10 +12,13 @@ from tca_map.smolvla.a2c2_fidelity_corrected import (
     EVAL_TASK_IDS,
     VERIFICATION_INIT_STATE_IDS,
     adjudicate_panel,
+    adjudicate_official_semantics_smoke,
+    OFFICIAL_SEMANTICS_SMOKE_IDENTITIES,
     noise_seed,
     phase_feature,
     refresh_action_plan,
     rotate_live_rgb_180,
+    summarize_action_path,
 )
 
 
@@ -102,6 +106,7 @@ def make_rows(
                         "success": (task_id, init_state_id) in outcomes[condition],
                         "action_finite": True,
                         "action_legal": True,
+                        "action_semantics_valid": True,
                         "base_model_forward_count": 1,
                         "prior_module_forward_count": 1 if with_prior else 0,
                         "prior_mean_abs_correction": 0.01 if with_prior else 0.0,
@@ -169,11 +174,173 @@ def test_corrected_adjudicator_distinguishes_base_invalid_and_resource_failures(
     assert resource_result["final_decision"] in ALLOWED_FINAL_DECISIONS
 
 
-def test_illegal_action_invalidates_the_corrected_panel() -> None:
+def test_corrected_adjudicator_reports_no_repeatable_delay_gap_separately() -> None:
+    clean = {(task, init) for task in EVAL_TASK_IDS for init in (5, 6, 7)}
+    delayed = set(clean) - {(0, 7)}
+    result = adjudicate_panel(
+        make_rows(clean_success=clean, delayed_success=delayed, prior_success=delayed)
+    )
+
+    assert result["final_decision"] == "CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP"
+    assert result["gates"]["manifest_valid"] is True
+    assert result["gates"]["base_competent"] is True
+    assert result["gates"]["repeatable_delay_gap"] is False
+
+
+def _semantics_smoke_rows(*, substantial: bool = False) -> list[dict]:
+    rows = []
+    for task_id, init_state_id in OFFICIAL_SEMANTICS_SMOKE_IDENTITIES:
+        for condition in ("BASE_DELAYED_E40_D10", "PRIOR_DELAYED_E40_D10"):
+            uses_prior = condition.startswith("PRIOR")
+            max_exceedance = 0.02 + (0.08 if substantial and uses_prior else 0.0)
+            fraction = 0.01 + (0.03 if substantial and uses_prior else 0.0)
+            rows.append(
+                {
+                    "condition": condition,
+                    "task_id": task_id,
+                    "official_init_state_id": init_state_id,
+                    "action_finite": True,
+                    "action_semantics_valid": True,
+                    "controller_rejection_count": 0,
+                    "base_model_forward_count": 2,
+                    "prior_module_forward_count": 80 if uses_prior else 0,
+                    "task_success_persisted": False,
+                    "task_success_counted": False,
+                    "exception": None,
+                    "raw_action_diagnostics": {
+                        "max_exceedance_magnitude": max_exceedance,
+                        "above_nominal_element_fraction": fraction,
+                        "native_arm_clip_step_fraction": fraction,
+                    },
+                }
+            )
+    return rows
+
+
+def test_official_semantics_smoke_uses_frozen_reproducible_instability_rule() -> None:
+    passing = adjudicate_official_semantics_smoke(_semantics_smoke_rows())
+    assert passing["final_decision"] == "CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS"
+    assert passing["reproducible_prior_specific_instability"] is False
+
+    unstable = adjudicate_official_semantics_smoke(_semantics_smoke_rows(substantial=True))
+    assert unstable["final_decision"] == "CORRECTED_A2C2_PRIOR_SPECIFIC_ACTION_INSTABILITY"
+    assert unstable["reproducible_prior_specific_instability"] is True
+
+
+def test_native_action_summary_treats_raw_exceedance_as_diagnostic() -> None:
+    records = []
+    for step, raw_max in enumerate((1.05, 0.8)):
+        records.append(
+            {
+                "condition": "BASE_DELAYED_E40_D10",
+                "task_id": 2,
+                "official_init_state_id": 11,
+                "step": step,
+                "source_chunk_index": 0,
+                "source_action_offset": step,
+                "raw_action": [raw_max, 0.0, 0.0, 0.0, 0.0, 0.0, -1.1],
+                "arm_effective": [0.05, 0.0, 0.0, 0.0, 0.0, 0.0],
+                "gripper_effective": [-0.1, 0.1],
+                "gripper_actuator": [-20.0, 20.0],
+                "torques": [0.0] * 7,
+                "arm_output_low": [-0.05, -0.05, -0.05, -0.5, -0.5, -0.5],
+                "arm_output_high": [0.05, 0.05, 0.05, 0.5, 0.5, 0.5],
+                "gripper_actuator_low": [-40.0, -40.0],
+                "gripper_actuator_high": [40.0, 40.0],
+                "torque_low": [-87.0] * 7,
+                "torque_high": [87.0] * 7,
+                "arm_input_clipped": raw_max > 1.0,
+                "gripper_saturation_calls": 0,
+                "simulator_state_finite": True,
+                "controller_accepted": True,
+            }
+        )
+    result = summarize_action_path(records)
+
+    assert result["valid"] is True
+    assert result["above_nominal_element_count"] == 3
+    assert result["max_exceedance_magnitude"] == 0.1
+    assert result["arm_effective_within_bounds"] is True
+    assert result["gripper_effective_within_bounds"] is True
+
+
+def test_native_action_recorder_returns_unmodified_native_outputs() -> None:
+    import importlib.util
+
+    runner_path = Path(__file__).resolve().parents[1] / "scripts" / "run_a2c2_fidelity_corrected.py"
+    spec = importlib.util.spec_from_file_location("a2c2_corrected_runner_recorder", runner_path)
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    class FakeController:
+        input_min = np.full(6, -1.0)
+        input_max = np.full(6, 1.0)
+        output_min = np.asarray([-0.05] * 3 + [-0.5] * 3)
+        output_max = np.asarray([0.05] * 3 + [0.5] * 3)
+
+        def scale_action(self, action):
+            return np.asarray(action) * np.asarray([0.05] * 3 + [0.5] * 3)
+
+    class FakeGripper:
+        actuators = ["left", "right"]
+        speed = 0.01
+
+        def __init__(self):
+            self.current_action = np.zeros(2)
+
+        def format_action(self, action):
+            self.current_action = self.current_action + np.asarray([-1.0, 1.0]) * self.speed * np.sign(action)
+            return self.current_action
+
+    controller = FakeController()
+    gripper = FakeGripper()
+    model = SimpleNamespace(
+        actuator_name2id=lambda name: {"left": 0, "right": 1}[name],
+        actuator_ctrlrange=np.asarray([[-40.0, 40.0], [-40.0, 40.0]]),
+    )
+    sim = SimpleNamespace(
+        model=model,
+        data=SimpleNamespace(ctrl=np.asarray([-0.4, 0.4])),
+        get_state=lambda: np.asarray([0.0, 1.0]),
+    )
+    robot = SimpleNamespace(
+        controller=controller,
+        gripper=gripper,
+        torques=np.zeros(7),
+        torque_limits=(np.full(7, -87.0), np.full(7, 87.0)),
+    )
+    env = SimpleNamespace(env=SimpleNamespace(robots=[robot], sim=sim))
+    recorder = module.NativeActionPathRecorder(env)
+    raw = np.asarray([0.5, -0.5, 0.25, 0.2, -0.2, 0.1, 0.7])
+    recorder.begin_step(
+        {
+            "condition": "BASE_DELAYED_E40_D10",
+            "task_id": 2,
+            "official_init_state_id": 11,
+            "step": 0,
+            "source_chunk_index": 0,
+            "source_action_offset": 0,
+        },
+        raw,
+    )
+    arm_return = controller.scale_action(raw[:6])
+    gripper_return = gripper.format_action(raw[6:])
+    record = recorder.finish_step(controller_accepted=True)
+    recorder.close()
+
+    np.testing.assert_allclose(arm_return, raw[:6] * np.asarray([0.05] * 3 + [0.5] * 3))
+    np.testing.assert_allclose(gripper_return, np.asarray([-0.01, 0.01]))
+    assert record is not None
+    np.testing.assert_allclose(record["arm_effective"], arm_return)
+    np.testing.assert_allclose(record["gripper_effective"], gripper_return)
+
+
+def test_invalid_official_action_semantics_invalidates_the_corrected_panel() -> None:
     clean = {(task, init) for task in EVAL_TASK_IDS for init in (5, 6, 7)}
     delayed = {(task, 5) for task in EVAL_TASK_IDS}
     rows = make_rows(clean_success=clean, delayed_success=delayed, prior_success=set(delayed))
-    rows[0]["action_legal"] = False
+    rows[0]["action_semantics_valid"] = False
 
     result = adjudicate_panel(rows)
     assert result["final_decision"] == "CORRECTED_A2C2_EVALUATION_INVALID"
@@ -186,7 +353,7 @@ def test_runner_and_downloader_pin_the_frozen_path_without_training() -> None:
     downloader = (repo_root / "scripts" / "download_a2c2_corrected_assets.ps1").read_text(encoding="utf-8")
     launcher = (repo_root / "scripts" / "run_a2c2_fidelity_corrected_wsl.sh").read_text(encoding="utf-8")
 
-    assert 'choices=("metadata_preflight", "smoke", "panel", "adjudicate")' in runner
+    assert 'choices=("metadata_preflight", "smoke", "semantics_smoke", "panel", "adjudicate")' in runner
     assert "A2C2_FIDELITY_CORRECTED_LOCAL_PORT" not in runner  # imported from the frozen helper
     assert "predict_action_chunk" in runner
     assert "rotate_live_rgb_180" in runner

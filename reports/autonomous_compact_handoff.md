@@ -10,13 +10,14 @@ Updated: 2026-07-19 KST
 - Resource-continuation source HEAD: `d276cf139ba09cc051cf3329775328499772848b`
 - Fidelity-continuation source HEAD: `80591dd57034cf29c04d006cec683058d35a1703`
 - Focused-audit pushed HEAD before corrected preflight closure: `d972dfb4e21d9f262ad64b0f26a1a4e60a65fffb`
+- Official-action-semantics continuation source HEAD: `c079af2b276837e868a992b4450a6fc5d0749dee`
 - Epoch/cycle: `5 / 0`
-- Campaign state: focused asynchronous-delay fidelity/strong-Prior continuation stopped at its frozen corrected-path preflight; historical `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` remains preserved.
+- Campaign state: `A2C2_OFFICIAL_ACTION_SEMANTICS_CORRECTION_AUTHORIZED`; historical `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` remains preserved.
 - Closed Pivot Epoch 1 thesis: action-chunk reactivity under asynchronous inference delay. The historical results `PRIOR_INFRASTRUCTURE_BLOCKED` and `A2C2_RESOURCE_FUNDAMENTALLY_BLOCKED_ON_CURRENT_24GB_HOST` remain preserved; the later clean-host continuation validly completed the frozen panel and returned `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
-- Active stage: none. The single corrected actual-path preflight completed technically but failed frozen raw-action legality; the 45-row panel was not started.
+- Active stage: the official action-path audit returned `OFFICIAL_ACTION_SEMANTICS_VERIFIED` and the practical diagnostic rule is frozen before the new smoke. The outcome-suppressed smoke and 45-row panel have not started.
 - Current novelty decision: not applicable; Ours remains unauthorized.
 - Active training/rollout worker: none.
-- Current scientific decision: `CORRECTED_A2C2_EVALUATION_INVALID`; v1 independently remains `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
+- Current scientific decision: none for the active correction. `CORRECTED_A2C2_EVALUATION_INVALID` is preserved only as `HISTORICAL_LOCAL_STRICT_RAW_BOUND_GATE_RESULT`; v1 independently remains `A2C2_PRIOR_NO_LOCAL_IMPROVEMENT`.
 - Paper-level decision: no `PAPER_CANDIDATE_GO`; historical `NO_DEFENSIBLE_LOCAL_RESEARCH_PATH_FOUND` is not erased.
 - Paper status: no `PROTOTYPE_GO`, `PAPER_CANDIDATE_GO`, or paper-ready package.
 - Preserve pre-existing ignored `rollouts/2026_07_17/` and `rollouts/2026_07_18/`.
@@ -62,6 +63,10 @@ Updated: 2026-07-19 KST
 - A2C2 single corrected protocol: `reports/a2c2_prior/fidelity_corrected_protocol.json`
 - A2C2 corrected metadata preflight: `reports/a2c2_prior/fidelity_corrected_metadata_preflight_result.json`
 - A2C2 corrected actual-path decision: `reports/a2c2_prior/fidelity_corrected_actual_path_smoke_result.json`
+- A2C2 official-action-semantics authority: `reports/a2c2_prior/official_action_semantics_continuation_authorization.json`
+- A2C2 official-action-semantics audit: `reports/a2c2_prior/official_action_semantics_audit_result.json`
+- A2C2 official-action-semantics protocol: `reports/a2c2_prior/official_action_semantics_protocol.json`
+- A2C2 official-action-semantics preregistration validation: `reports/a2c2_prior/official_action_semantics_preregistration_validation.json`
 - Pivot Epoch 2 selection: `reports/strategic_pivot_epoch2_selection_result.json`
 - Final strategic-pivot decision: `reports/strategic_pivot_final_decision.json`
 
@@ -139,19 +144,30 @@ No physical robot manipulation experiment may be proposed or required. Only afte
 
 ## Current immediate next action
 
-Stop and wait for explicit authority. The focused audit remains
-`A2C2_OBJECTIVE_FIDELITY_DEFECT_FOUND`, but the only corrected path ended as
-`CORRECTED_A2C2_EVALUATION_INVALID` during its outcome-suppressed actual-path
-preflight. Exact author checkpoints strict-loaded on CUDA, and the prior ran
-94 live forwards with nonzero corrections, but Base and Prior raw actions
-exceeded the frozen `[-1,1]` legality bounds (`1.024949789` and
-`1.000505567`). No clipping or threshold relaxation is permitted.
+Continue the one explicitly authorized official-action-semantics correction.
+The official evaluator, paired Base/Prior normalization, LIBERO wrapper,
+robosuite `SingleArm`, OSC controller, Panda gripper, native arm scaling,
+gripper saturation, actuator mapping, and torque handling have been audited.
+The exact audit decision is `OFFICIAL_ACTION_SEMANTICS_VERIFIED`: the evaluator
+passes the unnormalized 7-D policy action unchanged, robosuite performs its
+documented native controller/gripper handling, and the same path applies to
+Base and Prior.
 
-The corrected 45-row panel was not started and has zero scientific rows. The
-steer authorizes an additional Prior after corrected no-improvement, not after
-corrected evaluation invalidity. Therefore do not launch that panel, select
-another Prior, design Ours, execute Stage 0/A/B, or generate a paper package.
-The temporary `.wslconfig` is absent, WSL is shut down, and no worker exists.
+The historical strict-raw-bound result remains immutable evidence under the
+role `HISTORICAL_LOCAL_STRICT_RAW_BOUND_GATE_RESULT`; it is neither erased nor
+relabelled as a scientific success/failure. For the active correction, finite
+raw 7-D output, controller acceptance, native effective bounds, actuator and
+torque bounds, and finite simulator state are the validity criteria. Raw
+`[-1,1]` exceedance is a mandatory diagnostic, not an automatic invalidity.
+No external action clipping is allowed.
+
+Run exactly one outcome-suppressed smoke on task/init `(2,11)` and `(6,11)`,
+matched delayed Base/Prior, 80 fixed steps per trace. Do not inspect, persist,
+or count success, done, or reward. Only
+`CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS` opens the unchanged 45-row panel
+for tasks `0,4,8` and official init states `5..9`. Until the smoke passes, do
+not launch that panel, select an additional Prior, design Ours, or create a
+paper package.
 
 ## Historical pre-clean-host resource conclusion
 

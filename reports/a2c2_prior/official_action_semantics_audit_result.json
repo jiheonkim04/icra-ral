@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "job_classification": "PRIOR_ACTION_SEMANTICS_AUDIT",
+  "fidelity_label": "A2C2_FIDELITY_CORRECTED_LOCAL_PORT",
+  "official_reproduction_claim": false,
+  "final_decision": "OFFICIAL_ACTION_SEMANTICS_VERIFIED",
+  "historical_local_strict_raw_bound_result_preserved": true,
+  "sources": {
+    "author_evaluator": {
+      "commit": "54dd088302a0ef3f50c4add3ec927ab94d76a406",
+      "path": "/home/jiheon/assets/repos/a2c2-libero/eval_libero/evaluation_libero.py",
+      "sha256": "941E5894CC0A607F35E0295F174BA27E88B957F51E24154CBAB26B75D6CCF400",
+      "relevant_lines": [229, 230, 305, 306, 311, 313]
+    },
+    "paired_base_policy": {
+      "checkpoint_revision": "caa0efcb24e261574c824366526c5775d3664cac",
+      "checkpoint_sha256": "45F3B6FC1B8AE0B7CF3AB8EBD22336AB23EB3798A8BFEF027F5D45596C45A9BE",
+      "source_commit": "c197a011aabf070cf2c0b2b0705be5f33d178ad7",
+      "source_path": "/home/jiheon/assets/repos/a2c2-libero-checkpoint-compat-c197a01/src/lerobot/policies/smolvla/modeling_smolvla.py",
+      "source_sha256": "4D50D33A4D5A04CCDB6B5945EB557383BF91E74C7CC6BEC73148FA44E45690AF",
+      "relevant_lines": [398, 401, 405, 421, 427]
+    },
+    "corrected_prior": {
+      "checkpoint_revision": "9c89cca4aae8eecc42a20084ef414ff74f94ba05",
+      "checkpoint_sha256": "85D00523E8273A4141E288E4F6692224D50AAF8DF99AD8CCF7E72EE7BF3AB712",
+      "source_commit": "c197a011aabf070cf2c0b2b0705be5f33d178ad7",
+      "source_path": "/home/jiheon/assets/repos/a2c2-libero-checkpoint-compat-c197a01/src/lerobot/policies/residual_transformer/modeling_residual_transformer.py",
+      "source_sha256": "AE4077EB854E6B5BD7CDF6C74CD4469C62BED6949D31765D219AA8AE555927A3",
+      "relevant_lines": [48, 50, 61, 64, 109, 124, 125]
+    },
+    "normalization": {
+      "path": "/home/jiheon/assets/repos/a2c2-libero-checkpoint-compat-c197a01/src/lerobot/policies/normalize.py",
+      "sha256": "A28FBEC9127C0E23510D5720747CF14F42E0B997C361556EC1F9702C63D559D5",
+      "relevant_lines": [167, 172, 228, 240, 245]
+    },
+    "libero_wrapper": {
+      "path": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/libero/libero/envs/env_wrapper.py",
+      "sha256": "A782FB76C9792268D28979474FE72849E1E98ADA49C8E997A65359A8D6B6ACD0",
+      "relevant_lines": [12, 17, 27, 47, 56, 87, 88]
+    },
+    "robosuite": {
+      "version": "1.4.0",
+      "robot_env_sha256": "A0B39012C175272A2037A7A66A771D416B905A5A7B847E53C60A0588407398AF",
+      "single_arm_sha256": "D233B1B785E8F88FFB5DF1357666B02A397AE930CE98181B079E0496AB35FC57",
+      "base_controller_sha256": "61F99A2DAEB4EB6E39BFB996D94C5A5689EF3BC771D030D070193EA56D6A8332",
+      "osc_sha256": "CFA62A0E719BC53EF0C701EFA66F7B3E2272D4FCA2150EC73C05BB145EBA85CB",
+      "manipulator_sha256": "D37FF4C00112CFBA9BF4B96BF48AD5664422FD824DD4FBCD1EEBDA650A451B64",
+      "panda_gripper_sha256": "A3760A8FC4599FA6F79914304B82466F3C1BDA1A945943CA693BB57F00DC59EB"
+    }
+  },
+  "action_normalization": {
+    "mode": "MEAN_STD",
+    "base_prior_statistics_exact_match": true,
+    "mean": [0.153124884, 0.137072414, -0.15526779, -0.005176474, -0.011208757, -0.020194255, 0.084236361],
+    "std": [0.41273132, 0.347266555, 0.508674741, 0.037264362, 0.072449192, 0.05762336, 0.996445775],
+    "base_output_status_at_environment": "unnormalized 7D environment action",
+    "prior_output_status_at_environment": "unnormalized 7D environment action",
+    "note": "The checkpoint-compatible prior graph predicts the normalized final refined action and unnormalizes it before return; the later public source/checkpoint incompatibility remains a declared local-port deviation."
+  },
+  "official_environment_path": {
+    "wrapper": "libero.libero.envs.env_wrapper.OffScreenRenderEnv",
+    "wrapper_step": "delegates action unchanged to inner env.step",
+    "inner_environment": "libero.libero.envs.problems.libero_tabletop_manipulation.Libero_Tabletop_Manipulation",
+    "robot": "robosuite.robots.single_arm.SingleArm",
+    "controller": "robosuite.controllers.osc.OperationalSpaceController",
+    "gripper": "robosuite.models.grippers.panda_gripper.PandaGripper",
+    "action_dimension": 7,
+    "action_spec_low": [-1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0],
+    "action_spec_high": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+  },
+  "native_handling": {
+    "external_evaluator_clip": false,
+    "arm_dimensions": [0, 1, 2, 3, 4, 5],
+    "arm_input_low": [-1.0, -1.0, -1.0, -1.0, -1.0, -1.0],
+    "arm_input_high": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+    "arm_native_operation": "BaseController.scale_action clips to controller input bounds, then linearly scales.",
+    "arm_output_low": [-0.05, -0.05, -0.05, -0.5, -0.5, -0.5],
+    "arm_output_high": [0.05, 0.05, 0.05, 0.5, 0.5, 0.5],
+    "gripper_dimension": 6,
+    "gripper_semantics": "PandaGripper uses sign(raw) to increment two-finger current_action by speed 0.01 and natively saturates current_action to [-1,1].",
+    "gripper_actuator_mapping": "Manipulator.grip_action maps the two native gripper values to each actuator control range.",
+    "torque_handling": "SingleArm clips produced joint torques to robot torque limits.",
+    "same_post_policy_path_for_base_and_prior": true
+  },
+  "passive_observability": {
+    "observable_without_policy_modification": true,
+    "arm": "passively wrap controller.scale_action, call the original once, record original input/output, and return the identical output",
+    "gripper": "passively wrap gripper.format_action, call the original once, record input/native state/output, and return the identical output",
+    "additional_observables": [
+      "gripper actuator ctrl after env.step",
+      "robot torques and torque limits",
+      "simulator state finiteness"
+    ],
+    "external_wrapper_clip_added": false
+  },
+  "audit_checks": {
+    "raw_policy_output_identified": true,
+    "normalized_unnormalized_status_identified": true,
+    "environment_bounds_identified": true,
+    "native_clip_scale_point_identified": true,
+    "base_prior_post_policy_path_matches": true,
+    "special_gripper_semantics_identified": true,
+    "effective_action_observable_passively": true,
+    "action_path_implementation_defect_found": false
+  },
+  "next_action": "Freeze the practical diagnostics and run one outcome-suppressed official-semantics smoke."
+}

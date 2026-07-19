@@ -1118,3 +1118,47 @@ and no worker remains.
 
 The authoritative result is
 `reports/a2c2_prior/fidelity_corrected_actual_path_smoke_result.json`.
+
+## A2C2 Official Action-Semantics Correction
+
+Effective `2026-07-19`, the user explicitly authorized exactly one evaluation-
+semantics correction through a steer with SHA-256
+`CDC674DB9E0EFDC85F3529FA7387D4E3A9BD31DF91A66B0D9B87C1279DA6C0B0`.
+This authority does not erase or rewrite the prior
+`CORRECTED_A2C2_EVALUATION_INVALID`; preserve that result as
+`HISTORICAL_LOCAL_STRICT_RAW_BOUND_GATE_RESULT`. It authorizes no method,
+checkpoint, task, reset, delay, timeout, success, outcome-threshold, or
+scientific-panel change and no external wrapper action clipping.
+
+The required primary-source audit returned
+`OFFICIAL_ACTION_SEMANTICS_VERIFIED`. The author evaluator passes the
+unnormalized 7-D policy output unchanged to LIBERO. The official wrapper passes
+it unchanged to robosuite. Robosuite's `SingleArm` sends the first six values to
+the OSC controller, whose native `scale_action` clips/scales to controller
+output bounds, and sends the seventh to the Panda gripper's signed incremental
+native saturation path. It then applies actuator mapping and torque limits.
+Base and Prior have exactly matching action mean/std and traverse the same
+post-policy environment path.
+
+For the active correction, raw nominal-bound exceedance is required diagnostic
+evidence and not an automatic invalidity. Validity instead requires finite 7-D
+raw output, unchanged action delivery, controller acceptance, native arm and
+gripper effective values within their official bounds, actuator and torque
+bounds, and finite simulator state. The frozen practical Prior-instability rule
+requires a Prior-minus-matched-Base maximum exceedance increase of at least
+`0.05` on both development identities plus either a raw exceedance-fraction
+increase of at least `0.02` or a native arm clip-step-fraction increase of at
+least `0.10` on both identities. No outcome was used to set this rule.
+
+The next stage is exactly four outcome-suppressed technical traces: matched
+delayed Base/Prior on task/init `(2,11)` and `(6,11)`, each for 80 fixed steps.
+The runner may not inspect, persist, or count success, done, or reward. Only
+`CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS` opens the unchanged 45-row panel
+on tasks `0,4,8`, official init states `5..9`, and the three previously frozen
+conditions. Until that pass, do not run the panel, choose another Prior, design
+Ours, or prepare a paper package.
+
+Authoritative records are
+`reports/a2c2_prior/official_action_semantics_continuation_authorization.json`,
+`reports/a2c2_prior/official_action_semantics_audit_result.json`, and
+`reports/a2c2_prior/official_action_semantics_protocol.json`.

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "stage": "A2C2_OFFICIAL_ACTION_SEMANTICS_PREREGISTRATION_VALIDATION",
+  "empirical_execution_happened": false,
+  "results": [
+    {
+      "command": "python -m pytest tests/test_a2c2_*.py -q (eight explicit A2C2 files)",
+      "status": "PASS",
+      "passed": 49,
+      "failed": 0
+    },
+    {
+      "command": "python -m py_compile scripts/run_a2c2_fidelity_corrected.py tca_map/smolvla/a2c2_fidelity_corrected.py",
+      "status": "PASS"
+    },
+    {
+      "command": "PowerShell parser: scripts/monitor_a2c2_fidelity_corrected.ps1",
+      "status": "PASS"
+    },
+    {
+      "command": "python scripts/check_current_research_governance.py",
+      "status": "PASS"
+    },
+    {
+      "command": "python -m pytest tests/test_current_research_governance.py -q",
+      "status": "PREEXISTING_STALE_ASSERTION",
+      "passed": 5,
+      "failed": 1,
+      "failure": "test_active_state_records_amp_selection_and_rap_stage_0_failure expects current_epoch=4 while the authoritative state already records current_epoch=5",
+      "failure_predates_this_stage": true,
+      "failing_test_modified_by_this_stage": false,
+      "state_file_modified_by_this_stage": false
+    },
+    {
+      "command": "powershell -ExecutionPolicy Bypass -File scripts/99_tree_check.ps1",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    }
+  ],
+  "protocol_sha256": "5ABBFA6517D8AFA3DA05676FFB07BCEE0F82124214BF12C60735AF43C6B84A13",
+  "historical_result_preserved": true,
+  "outcome_used": false,
+  "smoke_started": false,
+  "scientific_panel_started": false,
+  "final_decision": "A2C2_OFFICIAL_ACTION_SEMANTICS_PREREGISTRATION_VALIDATED"
+}

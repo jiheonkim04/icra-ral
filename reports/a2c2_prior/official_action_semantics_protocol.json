@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-19 KST",
+  "stage": "A2C2_OFFICIAL_ACTION_SEMANTICS_CORRECTION",
+  "frozen_before_new_semantics_smoke": true,
+  "authority_sha256": "CDC674DB9E0EFDC85F3529FA7387D4E3A9BD31DF91A66B0D9B87C1279DA6C0B0",
+  "audit_decision": "OFFICIAL_ACTION_SEMANTICS_VERIFIED",
+  "implementation_label": "A2C2_FIDELITY_CORRECTED_LOCAL_PORT",
+  "historical_invalidity": {
+    "decision": "CORRECTED_A2C2_EVALUATION_INVALID",
+    "role": "HISTORICAL_LOCAL_STRICT_RAW_BOUND_GATE_RESULT",
+    "preserved": true
+  },
+  "scientific_legality": {
+    "raw_action_must_be_finite": true,
+    "raw_action_dimension": 7,
+    "base_prior_same_normalization_and_environment_path": true,
+    "external_wrapper_clipping": false,
+    "outcome_dependent_action_modification": false,
+    "controller_acceptance_required": true,
+    "native_arm_effective_bounds_required": true,
+    "native_gripper_effective_bounds_required": true,
+    "native_actuator_control_bounds_required": true,
+    "native_torque_bounds_required": true,
+    "finite_simulator_state_required": true,
+    "raw_nominal_bound_exceedance": "required diagnostic, not automatic invalidity",
+    "raw_hard_diagnostic_cap": 2.0
+  },
+  "practical_prior_instability_rule": {
+    "purpose": "Do not call a negligible accepted raw excursion prior-specific instability.",
+    "development_identities_required": 2,
+    "reproducible_on_every_identity": true,
+    "prior_minus_matched_base_max_exceedance_min": 0.05,
+    "and_one_of": {
+      "prior_minus_base_raw_element_exceedance_fraction_min": 0.02,
+      "prior_minus_base_native_arm_clip_step_fraction_min": 0.10
+    },
+    "outcome_used_to_set_rule": false
+  },
+  "outcome_suppressed_smoke": {
+    "identities": [
+      {"task_id": 2, "official_init_state_id": 11},
+      {"task_id": 6, "official_init_state_id": 11}
+    ],
+    "conditions": ["BASE_DELAYED_E40_D10", "PRIOR_DELAYED_E40_D10"],
+    "fixed_steps_per_trace": 80,
+    "planned_technical_traces": 4,
+    "success_done_or_reward_inspected_by_runner": false,
+    "success_persisted_or_counted": false,
+    "scientific_rows": 0,
+    "required_for_pass": [
+      "strict Base/Prior CUDA load",
+      "identical action mean/std",
+      "exact RGB orientation and delayed queue",
+      "nonzero Base and Prior forwards",
+      "finite 7D raw actions",
+      "controller accepts every action",
+      "native effective values remain within official bounds",
+      "finite simulator state",
+      "no reproducible substantial Prior-specific instability",
+      "zero swap and no offload"
+    ],
+    "allowed_decisions": [
+      "CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS",
+      "CORRECTED_A2C2_NONFINITE_ACTION_FAILURE",
+      "CORRECTED_A2C2_CONTROLLER_REJECTION",
+      "CORRECTED_A2C2_PRIOR_SPECIFIC_ACTION_INSTABILITY",
+      "CORRECTED_A2C2_ACTION_SEMANTICS_INVALID"
+    ]
+  },
+  "scientific_panel_after_smoke_pass_only": {
+    "tasks": [0, 4, 8],
+    "official_init_state_ids": [5, 6, 7, 8, 9],
+    "conditions": ["BASE_STANDARD_E10_D0", "BASE_DELAYED_E40_D10", "PRIOR_DELAYED_E40_D10"],
+    "planned_rows": 45,
+    "max_steps": 220,
+    "all_previous_tasks_identities_delays_success_and_effect_thresholds_unchanged": true,
+    "atomic_rows": true,
+    "resume_missing_keys_only": true,
+    "allowed_decisions": [
+      "CORRECTED_A2C2_PRIOR_IMPROVES_AND_LEAVES_RESIDUAL",
+      "CORRECTED_A2C2_PRIOR_SATURATES_DELAY",
+      "CORRECTED_A2C2_PRIOR_NO_IMPROVEMENT",
+      "CORRECTED_A2C2_BASE_NOT_COMPETENT",
+      "CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP",
+      "CORRECTED_A2C2_EVALUATION_INVALID",
+      "CORRECTED_A2C2_IMPLEMENTATION_OR_RESOURCE_FAILURE"
+    ]
+  },
+  "resource_contract": {
+    "wsl_memory_gib": 12,
+    "swap_gib": 0,
+    "sequential": true,
+    "full_backbone_residencies": 1,
+    "cpu_or_disk_offload": false,
+    "repeat_resource_qualification": false
+  },
+  "forbidden": [
+    "external np.clip or torch.clamp on policy actions",
+    "checkpoint or model change",
+    "task, reset, delay, timeout, success, or outcome-threshold change",
+    "A2C2 retuning",
+    "scientific outcome use during smoke"
+  ]
+}

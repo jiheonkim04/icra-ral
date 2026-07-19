@@ -1,6 +1,6 @@
 param(
     [Parameter(Mandatory = $true)]
-    [ValidateSet("smoke", "panel")]
+    [ValidateSet("smoke", "semantics_smoke", "panel")]
     [string]$Mode,
 
     [Parameter(Mandatory = $true)]
@@ -153,12 +153,16 @@ $memoryReleaseVerified = [double]$postShutdown.used_fraction -le ([double]$basel
 $swapZero = [bool]($null -ne $internal -and [int64]$internal.swap_total_bytes_at_end -eq 0)
 $offloadVerified = [bool]($null -ne $internal -and $internal.model_load_audit.no_cpu_or_disk_offload)
 $internalDecision = if ($null -ne $internal) { [string]$internal.final_decision } else { $null }
-$smokePass = $Mode -eq "smoke" -and $internalDecision -eq "A2C2_CORRECTED_ACTUAL_PATH_SMOKE_PASS"
+$smokePass = (
+    ($Mode -eq "smoke" -and $internalDecision -eq "A2C2_CORRECTED_ACTUAL_PATH_SMOKE_PASS") -or
+    ($Mode -eq "semantics_smoke" -and $internalDecision -eq "CORRECTED_A2C2_OFFICIAL_SEMANTICS_SMOKE_PASS")
+)
 $panelAllowed = @(
     "CORRECTED_A2C2_PRIOR_IMPROVES_AND_LEAVES_RESIDUAL",
     "CORRECTED_A2C2_PRIOR_SATURATES_DELAY",
     "CORRECTED_A2C2_PRIOR_NO_IMPROVEMENT",
     "CORRECTED_A2C2_BASE_NOT_COMPETENT",
+    "CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP",
     "CORRECTED_A2C2_EVALUATION_INVALID"
 )
 $panelComplete = $Mode -eq "panel" -and $null -ne $internal -and [int]$internal.completed_scientific_rows -eq 45 -and $internalDecision -in $panelAllowed
@@ -170,7 +174,7 @@ if ($hostCeilingTerminated) {
 } elseif (-not $memoryReleaseVerified -or $pagefileGrowthMiB -gt 0) {
     $decision = "A2C2_CORRECTED_HOST_FAIL_MEMORY_OR_PAGEFILE"
 } elseif (($smokePass -or $panelComplete) -and $offloadVerified -and $swapZero -and $peakUsedFraction -le 0.82) {
-    $decision = if ($Mode -eq "smoke") { "A2C2_CORRECTED_HOST_SMOKE_PASS" } else { "A2C2_CORRECTED_HOST_PANEL_PASS" }
+    $decision = if ($Mode -in @("smoke", "semantics_smoke")) { "A2C2_CORRECTED_HOST_SMOKE_PASS" } else { "A2C2_CORRECTED_HOST_PANEL_PASS" }
 } else {
     $decision = "A2C2_CORRECTED_HOST_FAIL_IMPLEMENTATION_OR_EXECUTION"
 }
