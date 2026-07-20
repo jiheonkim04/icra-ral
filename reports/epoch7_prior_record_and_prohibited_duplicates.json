@@ -1,0 +1,319 @@
+{
+  "schema_version": "epoch7.prior_record_and_prohibited_duplicates.v1",
+  "generated_at": "2026-07-20T13:23:31.8543705+09:00",
+  "authority": {
+    "complete_history_audit": {
+      "path": "reports/autonomous_research_full_history_audit.md",
+      "route_count": 95,
+      "selected_ours_count": 50,
+      "scientific_or_bounded_no_pass_count": 28,
+      "non_scientific_failure_or_blocker_count": 43,
+      "unresolved_or_unfinished_count": 13,
+      "diagnostic_or_no_claim_count": 11
+    },
+    "epoch6_closure_registry": {
+      "path": "reports/epoch6_closure_registry.json",
+      "sha256": "45469159563C9EAEC28BCC169192ADD40A15F2EDDFD3A38C87B901F7AAE7D0AB"
+    },
+    "epoch6_evidence_index": {
+      "path": "reports/epoch6_evidence_index.json",
+      "sha256": "E8188C05A6068319C49BDA4497EAAEF4E97EA7DE03BCD6341ECF893526F1FA3D"
+    },
+    "interpretation": "This file indexes the complete 95-route history through its authoritative ledger and makes the Epoch 7 category boundaries explicit. It does not broaden any scoped negative result into a field-wide claim."
+  },
+  "scientifically_closed_methods": [
+    {
+      "id": "css_shield_v1",
+      "decision": "SIMPLE_BASELINE_EXPLAINS_METHOD",
+      "scope": "exact target-aware CSS-Shield formulation"
+    },
+    {
+      "id": "pse_photometric_sensor_ensemble_vla",
+      "decision": "VALID_SCIENTIFIC_METHOD_FAILURE",
+      "scope": "fixed photometric-transform ensemble on its frozen SmolVLA two-task panel"
+    },
+    {
+      "id": "mtf_vla_r20_ret100",
+      "decision": "VALID_SCIENTIFIC_METHOD_FAILURE_SIMPLE_ABLATION_SUPERIOR",
+      "scope": "selected MTF retention configuration"
+    },
+    {
+      "id": "awf_xvla_v1",
+      "decision": "AWF_XVLA_STAGE0_NO_GO",
+      "scope": "agentview-as-wrist fill under persistent wrist dropout"
+    },
+    {
+      "id": "rifa_xvla_v1",
+      "decision": "RIFA_XVLA_STAGE0_DESIGN_FAILURE",
+      "scope": "exact reliability-coupling formulation"
+    },
+    {
+      "id": "cvlr_xvla_v1",
+      "decision": "CVLR_XVLA_STAGE0_DESIGN_FAILURE",
+      "scope": "uncalibrated direct reconstructed wrist-token insertion"
+    },
+    {
+      "id": "action_consistent_missing_view_distillation_v1",
+      "decision": "STAGE0_MECHANISM_NOT_SUPPORTED",
+      "scope": "exact reconstruction-auxiliary action-consistent missing-view formulation"
+    },
+    {
+      "id": "a2c2_v1_local_port",
+      "decision": "A2C2_PRIOR_NO_LOCAL_IMPROVEMENT",
+      "scope": "mechanism-faithful A2C2 local port v1 on its frozen panel; not the official paper method"
+    },
+    {
+      "id": "tca_target_prior_action_heatmap_campaign",
+      "decision": "ARCHIVED_NO_VALID_ONLINE_ACTION_SOURCE",
+      "scope": "historical low-compute TCA/ActionMap target-conditioned heatmap route"
+    },
+    {
+      "id": "historical_stage_a_b_closures",
+      "members": [
+        "ActionMap mini-anchor",
+        "ExecSpec-Repair",
+        "phase/event retiming",
+        "TL-ChunkRepair",
+        "PRISM-VLA",
+        "PatchGuard-VLA",
+        "TG-7D",
+        "FCAR",
+        "PhaseBarrier-VLA",
+        "FEDO",
+        "PTC-VLA",
+        "SACF-VLA",
+        "OCFN-VLA",
+        "CBFD-VLA",
+        "SCVC-VLA",
+        "RCV-VLA",
+        "FANG-VLA",
+        "EvoState-VLA",
+        "RAC-VLA",
+        "DAGR-VLA",
+        "MARC-VLA",
+        "EAC-VLA",
+        "BR-XVLA",
+        "MPR-XVLA"
+      ],
+      "scope": "each route is closed only at the exact formulation and frozen evidence recorded in the complete history audit"
+    }
+  ],
+  "closed_problem_axes": [
+    {
+      "id": "wrist_camera_dropout_method_development_axis",
+      "decision": "KEY_COMPONENT_NOT_SUPPORTED_AND_AXIS_CLOSED_FOR_CAMPAIGN",
+      "scope": "claim-defining wrist-camera dropout method development in this campaign; not missing-view robotics in general"
+    },
+    {
+      "id": "corrected_a2c2_claim_specific_async_delay_axis",
+      "decision": "CORRECTED_A2C2_NO_REPEATABLE_DELAY_GAP",
+      "scope": "local asynchronous-inference-delay thesis on the frozen official-semantics panel; not all timing research"
+    },
+    {
+      "id": "natural_reset_residual_identity_mining",
+      "decision": "NO_ELIGIBLE_REPEATED_CROSS_PRIOR_RESIDUAL_AT_FINAL_CAP",
+      "scope": "unbounded natural-reset identity mining; controlled new conditions remain open"
+    }
+  ],
+  "infrastructure_or_resource_only_blocks": [
+    {
+      "id": "rap_vla_v1_stage0",
+      "decision": "IMPLEMENTATION_METHOD_MISMATCH",
+      "scientific_efficacy_adjudicated": false
+    },
+    {
+      "id": "task75_second_prior",
+      "decision": "TASK75_SECOND_PRIOR_INFRASTRUCTURE_BLOCKED",
+      "scientific_efficacy_adjudicated": false
+    },
+    {
+      "id": "activevla_active_camera_historical_path",
+      "decision": "REJECTED_OFFICIAL_ARTIFACT_AND_LOCAL_INTERFACE_INFEASIBLE",
+      "scientific_efficacy_adjudicated": false
+    },
+    {
+      "id": "flare_safe_recovery_historical_path",
+      "decision": "REJECTED_PRIOR_UNAVAILABLE_AND_CLOSED_FAMILY_OVERLAP",
+      "scientific_efficacy_adjudicated": false
+    },
+    {
+      "id": "epoch6_schedule_invariant_stochastic_vla_evaluation_closed_loop",
+      "decision": "INFRASTRUCTURE_OR_RESOURCE_BLOCKED_FOUR_ENVIRONMENT_HOST_MEMORY_CEILING",
+      "scientific_episode_rows": 0,
+      "scientific_efficacy_adjudicated": false
+    },
+    {
+      "id": "epoch6_non_gripper_contact_transition_topology_stage0a",
+      "decision": "STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE_PAGEFILE_AND_TEARDOWN",
+      "scientific_efficacy_adjudicated": false
+    },
+    {
+      "id": "epoch6_persistent_success_problem_verification",
+      "decision": "NOT_EXECUTED_SHARED_LIBERO_WSL_RESOURCE_BLOCKER",
+      "scientific_efficacy_adjudicated": false
+    },
+    {
+      "id": "historical_pre_rollout_failures",
+      "members": [
+        "ContactTube-Aug",
+        "SafeTrace-VLA",
+        "CensorCredit",
+        "COVI-VLA",
+        "LIFT-VLA",
+        "IARC-VLA",
+        "FAMR-VLA",
+        "PCAV-VLA",
+        "SPARC-VLA",
+        "NICE-VLA",
+        "HEST-VLA",
+        "HASTE-VLA",
+        "KITE-VLA",
+        "VDR-VLA",
+        "AMP-VLA",
+        "CFR-VLA",
+        "TSC-VLA",
+        "CCIF-VLA",
+        "URF-VLA",
+        "S2C-VLA",
+        "LCG-VLA",
+        "AFID-VLA",
+        "BRID-VLA",
+        "MHS-VLA",
+        "DCCG-VLA",
+        "CSPR-VLA",
+        "MCI-VLA",
+        "R2R-OFT"
+      ],
+      "scientific_efficacy_adjudicated": false,
+      "source": "reports/autonomous_research_full_history_audit.md"
+    }
+  ],
+  "positioning_rejections": [
+    {
+      "id": "epoch6_causal_low_motion_counterfactual_preservation",
+      "decision": "NOVELTY_HARD_FILTER_NO_GO_TOO_OVERLAPPING_WITH_VLA_ARENA"
+    },
+    {
+      "id": "epoch6_outcome_separated_vla_selection_reporting",
+      "decision": "NOVELTY_HARD_FILTER_NO_GO_TOO_OVERLAPPING_WITH_ROUTERVLA_NSCORE_AND_STANDARD_HOLDOUT"
+    },
+    {
+      "id": "epoch6_generic_contact_mode_distillation",
+      "decision": "ACTIVE_THESIS_NO_GO_CLOSE_PRIOR_COLLISION_BACKUP_GATE_ONLY"
+    },
+    {
+      "id": "prc_xvla",
+      "decision": "NOT_ELEVATED_NO_INDEPENDENT_DISTRACTOR_CONFUSION_EVIDENCE"
+    }
+  ],
+  "reusable_positive_evidence": [
+    {
+      "id": "rl4il_missing_camera_local_port",
+      "status": "EXPLORATORY_POSITIVE_NOT_CONFIRMATORY",
+      "claim_limit": "mechanism-faithful local port only; never an official RL4IL reproduction"
+    },
+    {
+      "id": "epoch6_schedule_invariant_stochastic_vla_evaluation_stage0",
+      "status": "ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO",
+      "claim_limit": "action sequences only; no task-success evidence"
+    },
+    {
+      "id": "cavm_vla",
+      "status": "UNRESOLVED_NEAR_MISS",
+      "evidence": "24/58 versus nearest-success memory 23/58, Base 22/58, no-contrast 21/58",
+      "claim_limit": "closed under its expansion protocol; not paper-ready"
+    },
+    {
+      "id": "official_prior_diagnostics",
+      "evidence": [
+        "X-VLA solved the historical LIBERO task8 residual 8/8",
+        "Quantized OpenVLA-OFT INT4 solved the spatial task5 residual 1/1",
+        "OpenVLA-OFT INT4 hard-slice diagnostic reached 20/20"
+      ],
+      "claim_limit": "prior evidence and target removal, not Ours evidence"
+    }
+  ],
+  "reusable_negative_evidence": [
+    "completed Stage B closures show that many small post-hoc action filters, residuals, memories, and visual transforms lose to Base or simple controls",
+    "BR-XVLA and MPR-XVLA show that hand-designed phase or object weighting must beat a matched uniform-adaptation control",
+    "wrist reconstruction quality alone did not produce a practically meaningful action-semantic advantage",
+    "natural-reset residual mining often saturates under a stronger second prior or lacks legal headroom",
+    "offline action distance or representation quality cannot substitute for official closed-loop success"
+  ],
+  "reusable_infrastructure": [
+    "pinned official X-VLA/LIBERO single-backbone closed-loop path",
+    "official SmolVLA/LeRobot loader and action semantics",
+    "Quantized OpenVLA-OFT INT4 diagnostic path when its retained artifact is available",
+    "official LIBERO datasets and reset handling",
+    "serial one-environment WSL CUDA rollout path",
+    "atomic episode persistence and missing-key-only resume utilities",
+    "host/WSL/GPU telemetry and resource qualification",
+    "paired bootstrap, McNemar, and task-balanced reporting utilities",
+    "durable worker heartbeat, PID, log, and exception accounting patterns"
+  ],
+  "prohibited_near_duplicate_formulations": [
+    {
+      "family": "wrist_camera_dropout_or_missing_view",
+      "prohibited": [
+        "renamed AWF agentview fill",
+        "renamed RIFA reliability coupling",
+        "renamed CVLR direct latent insertion",
+        "renamed action-consistent reconstruction distillation",
+        "another local wrist-dropout method whose claim-defining axis is unchanged"
+      ]
+    },
+    {
+      "family": "asynchronous_delay_or_chunk_repair",
+      "prohibited": [
+        "renamed A2C2 local-port correction",
+        "EAC scheduler variant",
+        "TL-ChunkRepair variant",
+        "phase-retiming variant",
+        "schedule-invariance method chosen from sunk cost"
+      ]
+    },
+    {
+      "family": "small_posthoc_policy_attachment",
+      "prohibited": [
+        "another acronym for a residual MLP without a new verified problem",
+        "static threshold, hold-last, fixed copy, or trivial interpolation",
+        "retrieval or memory mechanism functionally equivalent to a closed simple control",
+        "generic LoRA, QLoRA, prompting, or augmentation presented as the scientific contribution"
+      ]
+    },
+    {
+      "family": "target_grounding",
+      "prohibited": [
+        "historical TCA/ActionMap heatmap or selector under a new name",
+        "BR-XVLA or MPR-XVLA reweighting with renamed object or phase labels",
+        "PRC-XVLA without independent distractor evidence"
+      ],
+      "reconsideration_rule": "at least two major scientific dimensions must change and the new audit must explain why prior evidence no longer answers the question"
+    },
+    {
+      "family": "evaluation_or_systems",
+      "prohibited": [
+        "outcome-separated reporting without a new finite-sample method",
+        "schedule study that silently replaces four-shard arrival order with serial or two-shard execution",
+        "offline proxy presented as official closed-loop task success",
+        "negative-results collection presented as a benchmark without an independently useful protocol"
+      ]
+    }
+  ],
+  "reconsideration_contract": {
+    "minimum_material_changes": 2,
+    "eligible_dimensions": [
+      "problem definition",
+      "observation modality",
+      "language role",
+      "failure condition",
+      "supervision",
+      "inference mechanism",
+      "action representation",
+      "temporal reasoning",
+      "benchmark",
+      "comparator ecosystem"
+    ],
+    "required_explanation": "why the previous negative or blocked result does not answer the new question"
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "schema_version": "epoch7.resource_inventory.v1",
+  "generated_at": "2026-07-20T13:23:31.8543705+09:00",
+  "execution_type": "SETUP_PREFLIGHT",
+  "repository": {
+    "path": "C:/Users/jiheo/tca_map",
+    "branch": "codex/epoch7-new-thesis-paper-convergence",
+    "head": "981de268fa05426d3926ae1883b98e3e0b0dc6fe",
+    "origin_branch_at_start": "origin/codex/epoch6-ral-submission-convergence-v2",
+    "protected_untracked_paths": [
+      "rollouts/2026_07_17/",
+      "rollouts/2026_07_18/"
+    ]
+  },
+  "worker_audit": {
+    "windows_research_worker": false,
+    "wsl_research_worker": false,
+    "cleanup_or_deletion_worker": false,
+    "gpu_research_compute_worker": false,
+    "classification": "NO_CONFLICTING_SCIENTIFIC_OR_CLEANUP_WORKER"
+  },
+  "host": {
+    "os": "Windows 11",
+    "timezone": "Asia/Seoul",
+    "cpu": "AMD Ryzen 7 7800X3D",
+    "physical_memory_total_kib": 24288100,
+    "physical_memory_free_kib": 13704284,
+    "pagefile": {
+      "path": "C:/pagefile.sys",
+      "allocated_mib": 40960,
+      "current_usage_mib": 67,
+      "peak_usage_mib": 79
+    },
+    "gpu": {
+      "name": "NVIDIA GeForce RTX 5080",
+      "driver": "596.21",
+      "vram_total_mib": 16303,
+      "vram_used_mib": 2143,
+      "vram_free_mib": 13837
+    }
+  },
+  "storage": {
+    "windows_c": {
+      "total_gib": 930.52,
+      "free_gib": 291.12,
+      "free_percent": 31.29,
+      "required_reserve_gib": 186.104,
+      "reserve_rule": "max(60 GiB, 20 percent of volume)",
+      "reserve_headroom_gib": 105.016,
+      "status": "PASS"
+    },
+    "wsl_root": {
+      "filesystem_size_gib_reported": 1007,
+      "available_gib_reported": 899,
+      "status": "PASS"
+    },
+    "cleanup": {
+      "report": "reports/storage_cleanup/storage_cleanup_report.json",
+      "terminal_status": "CLEANUP_COMPLETE_COMPACTION_PENDING",
+      "delete_manifest_targets_remaining": 0,
+      "optional_vhdx_compaction": "PENDING_HUMAN_ELEVATION_NOT_REQUIRED_FOR_EPOCH7_RESERVE",
+      "research_may_proceed": true
+    }
+  },
+  "wsl": {
+    "distribution": "Ubuntu-22.04",
+    "version": 2,
+    "wslconfig": "ABSENT_DEFAULT_ALLOCATION",
+    "memory_total_human": "11 GiB visible at idle audit",
+    "memory_used_human": "436 MiB at idle audit",
+    "swap_total_human": "3.0 GiB",
+    "swap_used_bytes": 0,
+    "research_rule": "all empirical VLA jobs must qualify with zero WSL swap use and bounded host memory"
+  },
+  "retained_runtime": {
+    "environment": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero",
+    "python": "3.10.20",
+    "torch": "2.10.0+cu128",
+    "torch_cuda": "12.8",
+    "cuda_available": true,
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "cuda_device_bytes": 17094475776,
+    "packages": {
+      "lerobot": "0.4.4",
+      "mujoco": "3.8.1",
+      "numpy": "2.2.6",
+      "robosuite": "1.4.0",
+      "scipy": "1.15.3",
+      "torchvision": "0.25.0+cu128",
+      "transformers": "4.57.6"
+    }
+  },
+  "runnable_primary_path": {
+    "ready_without_model_download": true,
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "model_snapshot": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "model_bytes_human": "3.3 GiB retained cache",
+    "backing_blob_hashes_verified_after_cleanup": true,
+    "source_repo": "C:/assets/repos/X-VLA",
+    "source_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "source_dirty": false,
+    "source_license": "Apache-2.0",
+    "benchmark_runtime": "C:/assets/repos/LIBERO",
+    "benchmark_head": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+    "benchmark_data": "C:/assets/data/libero",
+    "benchmark_data_gib": 93.545,
+    "benchmark_data_license": "Apache-2.0",
+    "lerobot_dataset": "C:/assets/datasets/lerobot_libero",
+    "lerobot_dataset_gib": 1.803,
+    "lerobot_dataset_license": "Apache-2.0",
+    "execution_envelope": "one full backbone, one official simulator environment, serial paired rollouts"
+  },
+  "retained_checkpoint_inventory": [
+    {
+      "path": "C:/assets/checkpoints/smolvla",
+      "gib": 1.689,
+      "status": "RETAINED"
+    },
+    {
+      "path": "C:/assets/checkpoints/a2c2_official",
+      "gib": 0.959,
+      "status": "ARCHIVED_ROUTE_DEPENDENCY"
+    },
+    {
+      "path": "C:/assets/checkpoints/smolvla_libero",
+      "gib": 0.844,
+      "status": "RETAINED"
+    },
+    {
+      "path": "/home/jiheon/assets/checkpoints/xvla_hf_cache",
+      "gib_human": 3.3,
+      "status": "SELECTED_RUNNABLE_CHECKPOINT"
+    },
+    {
+      "path": "/home/jiheon/assets/checkpoints/lightvla",
+      "gib_human": 15,
+      "status": "USER_OWNED_LOCAL_MODIFICATIONS_AND_BACKUPS"
+    },
+    {
+      "path": "/home/jiheon/assets/checkpoints/openpi",
+      "gib_human": 12,
+      "status": "USER_OWNED_REVISION_NOT_IMMUTABLY_BOUND"
+    }
+  ],
+  "external_source_clones": [
+    {
+      "path": "C:/assets/repos/X-VLA",
+      "head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+      "dirty": false
+    },
+    {
+      "path": "C:/assets/repos/LIBERO",
+      "head": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+      "dirty": false
+    },
+    {
+      "path": "C:/assets/repos/robosuite",
+      "head": "fbee5844ff5632f5b5698e204ec5357ca50be0df",
+      "dirty": true,
+      "policy": "READ_ONLY_PRESERVE_USER_MODIFICATIONS"
+    },
+    {
+      "path": "C:/assets/repos/openvla-oft",
+      "head": "e4287e94541f459edc4feabc4e181f537cd569a8",
+      "dirty": false
+    },
+    {
+      "path": "C:/assets/repos/LightVLA",
+      "head": "a4680fda5ffe73029190ac97328aa34b0e87a45a",
+      "dirty": true,
+      "policy": "READ_ONLY_PRESERVE_USER_MODIFICATIONS"
+    },
+    {
+      "path": "C:/assets/repos/RL4IL-Missing-Camera",
+      "head": "e1dd5b741ebb6b392bfd1f8cbb61bad82417e9bd",
+      "dirty": true,
+      "policy": "READ_ONLY_ARCHIVED_ROUTE"
+    },
+    {
+      "path": "C:/assets/repos/vla-evaluation-harness",
+      "head": "a7eb023a962456bb0b6be40aa4336c31b7ac4ce6",
+      "dirty": false
+    }
+  ],
+  "known_large_scientific_outputs": [
+    {
+      "path": "runs/openvla_oft_int4",
+      "gib": 3.863,
+      "policy": "KEEP_OR_REVIEW"
+    },
+    {
+      "path": "runs/xvla_prior",
+      "gib": 2.566,
+      "policy": "KEEP_OR_REVIEW"
+    },
+    {
+      "path": "runs/nice_vla",
+      "gib": 1.724,
+      "policy": "KEEP_OR_REVIEW"
+    },
+    {
+      "path": "runs/a2c2_prior",
+      "gib": 0.753,
+      "policy": "ARCHIVED_EVIDENCE"
+    }
+  ],
+  "qualification": {
+    "idle_inventory_only": true,
+    "outcome_bearing_execution_started": false,
+    "heavy_execution_authorized_now": false,
+    "next_required_gate": "fresh literature/artifact selection followed by thesis-specific outcome-free resource smoke"
+  },
+  "new_public_artifacts": {
+    "libero_para": {
+      "path": "C:/assets/repos/LIBERO-Para",
+      "revision": "5a2198299a6d7a49bdb3cd519c7e92ed803adf5f",
+      "local_bytes": 457087965,
+      "license": "MIT",
+      "serial_environment_smoke": "PASS"
+    }
+  },
+  "status": "SETUP_PREFLIGHT_PASS"
+}

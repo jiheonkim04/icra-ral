@@ -1,0 +1,96 @@
+{
+  "schema_version": "epoch7.epoch6_archive_lock.v1",
+  "generated_at": "2026-07-20T13:23:31.8543705+09:00",
+  "epoch7_branch": "codex/epoch7-new-thesis-paper-convergence",
+  "epoch7_source_head": "981de268fa05426d3926ae1883b98e3e0b0dc6fe",
+  "policy": {
+    "mode": "READ_ONLY_USER_OWNED_EVIDENCE",
+    "may_delete": false,
+    "may_rewrite": false,
+    "may_relabel": false,
+    "may_use_as_primary_epoch7_thesis": false,
+    "limited_reuse": [
+      "supplementary diagnostics for a scientifically compatible new method",
+      "future replication or extension on a clean host with at least 48 GB physical RAM",
+      "correctly limited systems or reproducibility observation"
+    ]
+  },
+  "preserved_facts": {
+    "route": "schedule-invariant stochastic VLA evaluation",
+    "archived_and_resumable": true,
+    "stage0_decision": "ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO",
+    "action_level_schedule_sensitivity_observed": true,
+    "four_shard_closed_loop_outcomes_observed": 0,
+    "frozen_closed_loop_episode_budget": 40,
+    "zero_of_forty_semantics": "zero episodes executed, not zero percent success",
+    "ours_authorized": false,
+    "ours_evaluated": false,
+    "closed_loop_decision": "INFRASTRUCTURE_OR_RESOURCE_BLOCKED",
+    "blocker": "four simultaneous official LIBERO environments exceeded the frozen host-memory ceiling before the sole model loaded",
+    "host_physical_memory_bytes_reported": 24871014400,
+    "resume_host_guidance": "clean equivalent host with at least 48 GB physical RAM",
+    "scientific_interpretation": "action-level dependence only; official closed-loop task-success effect remains unobserved"
+  },
+  "tracked_artifacts": [
+    {
+      "path": "reports/epoch6_campaign_state.json",
+      "sha256": "2D68810CCF14174E1075DC47D12A60BE8F06E6DEB1B716C4B9BD48E04160F4D8",
+      "bytes": 11125
+    },
+    {
+      "path": "reports/epoch6_schedule_invariant_evaluation/stage0_result.json",
+      "sha256": "2CE2222184C9AE2D0EB49DCDD4A3D3BAED1D76F1BC1B79EFC3AE0BDA0D2BD617",
+      "bytes": 4072
+    },
+    {
+      "path": "reports/epoch6_schedule_invariant_evaluation/closed_loop_execution_manifest.json",
+      "sha256": "93DEA8F3A9EAAE864A0A691B11312492E9E2D585606859597228E6F23D0FB242",
+      "bytes": 9137
+    },
+    {
+      "path": "reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json",
+      "sha256": "C63BB981CB7F5DDA453F46F99C1DC48D2D37BB621673556EF7812C9E63634E9B",
+      "bytes": 7566
+    },
+    {
+      "path": "reports/epoch6_schedule_invariant_evaluation/closed_loop_process_start_repair_audit.json",
+      "sha256": "43A642AD0ABDEB0D74AEB0243BAF764BE4F4067212D349E8F07EA7D5DF5745B3",
+      "bytes": 4363
+    },
+    {
+      "path": "reports/epoch6_evidence_index.json",
+      "sha256": "E8188C05A6068319C49BDA4497EAAEF4E97EA7DE03BCD6341ECF893526F1FA3D",
+      "bytes": 25207
+    },
+    {
+      "path": "reports/epoch6_closure_registry.json",
+      "sha256": "45469159563C9EAEC28BCC169192ADD40A15F2EDDFD3A38C87B901F7AAE7D0AB",
+      "bytes": 12467
+    },
+    {
+      "path": "reports/epoch6_resource_inventory.json",
+      "sha256": "9805CA1245ABE69C46E8D60CA1CBAD46F85387BB444B2BA1E067F6320E334118",
+      "bytes": 14044
+    },
+    {
+      "path": "reports/storage_cleanup/storage_cleanup_report.json",
+      "sha256": "152AD2972CEB7D0708929F2E8196E33BCA4DCACC2757DF771119E87B079BD090",
+      "bytes": 9024
+    }
+  ],
+  "protected_untracked_artifacts": [
+    {
+      "path": "rollouts/2026_07_17/",
+      "files": 27,
+      "bytes": 5143751,
+      "exists": true
+    },
+    {
+      "path": "rollouts/2026_07_18/",
+      "files": 10,
+      "bytes": 924633,
+      "exists": true
+    }
+  ],
+  "integrity_status": "PASS_READABLE_AND_HASHED"
+}

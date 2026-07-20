@@ -1,0 +1,62 @@
+{
+  "schema_version": "epoch7_literature_artifact_audit_v1",
+  "audit_date": "2026-07-20",
+  "status": "LITERATURE_REFRESH_COMPLETE_WITH_HIGH_NOVELTY_RISK",
+  "primary_problem": {
+    "name": "meaning_preserving_instruction_robustness_with_intent_selectivity",
+    "benchmark": "LIBERO-Para",
+    "published_xvla_goal_success_percent": 97.8,
+    "published_xvla_para_success_percent": 62.1,
+    "published_xvla_drop_percentage_points": 35.7,
+    "local_problem_verification_required": true
+  },
+  "verified_artifacts": {
+    "libero_para": {
+      "url": "https://github.com/cau-hai-lab/LIBERO-Para",
+      "revision": "5a2198299a6d7a49bdb3cd519c7e92ed803adf5f",
+      "license": "MIT",
+      "local_path": "C:\\assets\\repos\\LIBERO-Para",
+      "local_bytes": 457087965,
+      "paraphrase_count": 4092,
+      "scenario_count": 10,
+      "serial_environment_smoke": "PASS",
+      "stock_ten_environment_lifecycle_allowed": false
+    },
+    "xvla_original": {
+      "source_url": "https://github.com/2toinf/X-VLA",
+      "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+      "checkpoint_id": "2toINF/X-VLA-Libero",
+      "checkpoint_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+      "license": "Apache-2.0",
+      "retained": true
+    },
+    "xvla_lerobot_conversion": {
+      "checkpoint_id": "lerobot/xvla-libero",
+      "checkpoint_revision": "12e8783e996944f5c97e490d37d4c145484ed70a",
+      "listed_bytes": 3519090679,
+      "license": "Apache-2.0",
+      "downloaded": false,
+      "identity_with_retained_original_proven": false
+    }
+  },
+  "direct_prior_families": [
+    "RobustVLA semantic-preserving action consistency",
+    "RoVLA instructional consistency",
+    "RSS Monte Carlo syntactic integration and residual affordance steering",
+    "CAST counterfactual instruction-action augmentation",
+    "CAG conditional versus vision-only action guidance",
+    "ProGAL-VLA verified entity grounding",
+    "step-wise language-sensitivity alignment"
+  ],
+  "prohibited_new_claims": [
+    "plain paraphrase augmentation",
+    "plain action consistency under paraphrases",
+    "generic language amplification",
+    "generic object-name canonicalization",
+    "generic temporal language gating",
+    "generic metamorphic paraphrase evaluation"
+  ],
+  "remaining_testable_boundary": "joint within-intent invariance and between-intent selectivity using real demonstration supervision",
+  "method_discovery_authorized": false,
+  "next_gate": "BASE_PRIOR_PROBLEM_HEADROOM"
+}

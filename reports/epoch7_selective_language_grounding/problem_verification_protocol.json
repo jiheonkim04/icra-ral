@@ -1,0 +1,93 @@
+{
+  "schema_version": "epoch7.problem_verification_protocol.v1",
+  "frozen_at": "2026-07-20T00:00:00+09:00",
+  "thesis_id": "selective_language_grounding",
+  "status": "FROZEN_BEFORE_CLOSED_LOOP_OUTCOMES",
+  "ours_authorized": false,
+  "base": {
+    "name": "X-VLA-Libero",
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "local_files_only": true,
+    "precision": "float32",
+    "denoise_steps": 10,
+    "domain_id": 3
+  },
+  "benchmark": {
+    "name": "LIBERO-Para",
+    "revision": "5a2198299a6d7a49bdb3cd519c7e92ed803adf5f",
+    "camera_resolution": 360,
+    "controller": "absolute_eef",
+    "settle_steps": 10,
+    "horizon": 300,
+    "success_semantics": "libero.libero.envs.OffScreenRenderEnv.check_success",
+    "live_environment_limit": 1
+  },
+  "prior": {
+    "name": "CAG-TF local mechanism-faithful port",
+    "reference": "arXiv:2602.17659v2",
+    "formula": "a_cond + omega * (a_cond - a_empty)",
+    "omega": 1.5,
+    "sequential_branches": true,
+    "shared_rng_state": true,
+    "one_model_resident": true,
+    "status": "IMPLEMENTATION_NOT_YET_VALIDATED"
+  },
+  "control": {
+    "name": "character_trigram_canonicalizer",
+    "candidate_catalog": "ten canonical LIBERO-Goal instructions",
+    "similarity": "cosine over character-trigram count vectors after lowercase alphanumeric token normalization",
+    "legal_inputs": ["observed instruction", "fixed canonical instruction catalog"],
+    "forbidden_inputs": ["BDDL filename", "eval_id", "simulator state", "reward", "done", "success", "outcome"],
+    "full_metadata_accuracy": {"correct": 3476, "total": 4092, "fraction": 0.8494623655913979},
+    "discovery_panel_accuracy": {"correct": 24, "total": 30, "fraction": 0.8}
+  },
+  "pairing": {
+    "act": {"seed": 7, "initial_state_index": 0},
+    "obj": {"seed": 8, "initial_state_index": 1},
+    "comp": {"seed": 9, "initial_state_index": 2},
+    "canonical_and_paraphrase_share_all_nonlanguage_inputs": true,
+    "canonical_and_paraphrase_share_model_query_seed_schedule": true
+  },
+  "selection_rule": "For every eval_id in 0..9 and family in {act,obj,comp}, select the metadata row minimizing (structural_similarity, keyword_similarity, new_instruction) lexicographically; selection used no rollout outcomes.",
+  "tasks": [
+    {"eval_id": 0, "goal_bddl": "open_the_middle_drawer_of_the_cabinet.bddl", "canonical_instruction": "open the middle drawer of the cabinet", "conditions": {"act": "act_structural_coordination_eval0_ver9.bddl", "obj": "obj_lexical_same_polarity_habitual_eval0_ver7.bddl", "comp": "comp_lexical+structural_addition_deletion+coordination_eval0_ver8.bddl"}},
+    {"eval_id": 1, "goal_bddl": "open_the_top_drawer_and_put_the_bowl_inside.bddl", "canonical_instruction": "open the top drawer and put the bowl inside", "conditions": {"act": "act_pragmatical_question_directive_eval1_ver4.bddl", "obj": "obj_lexical_addition_deletion_eval1_ver10.bddl", "comp": "comp_lexical+pragmatical_same_polarity_habitual+question_directive_eval1_ver2.bddl"}},
+    {"eval_id": 2, "goal_bddl": "push_the_plate_to_the_front_of_the_stove.bddl", "canonical_instruction": "push the plate to the front of the stove", "conditions": {"act": "act_pragmatical_hint_eval2_ver8.bddl", "obj": "obj_lexical_addition_deletion_eval2_ver4.bddl", "comp": "comp_lexical+pragmatical_addition_deletion+hint_eval2_ver7.bddl"}},
+    {"eval_id": 3, "goal_bddl": "put_the_bowl_on_the_plate.bddl", "canonical_instruction": "put the bowl on the plate", "conditions": {"act": "act_structural_coordination_eval3_ver5.bddl", "obj": "obj_lexical_addition_deletion_eval3_ver9.bddl", "comp": "comp_lexical+pragmatical_addition_deletion+permission_directive_eval3_ver3.bddl"}},
+    {"eval_id": 4, "goal_bddl": "put_the_bowl_on_the_stove.bddl", "canonical_instruction": "put the bowl on the stove", "conditions": {"act": "act_pragmatical_hint_eval4_ver9.bddl", "obj": "obj_lexical_addition_deletion_eval4_ver9.bddl", "comp": "comp_lexical+pragmatical_addition_deletion+question_directive_eval4_ver7.bddl"}},
+    {"eval_id": 5, "goal_bddl": "put_the_bowl_on_top_of_the_cabinet.bddl", "canonical_instruction": "put the bowl on top of the cabinet", "conditions": {"act": "act_pragmatical_question_directive_eval5_ver6.bddl", "obj": "obj_lexical_addition_deletion_eval5_ver8.bddl", "comp": "comp_lexical+pragmatical_addition_deletion+question_directive_eval5_ver8.bddl"}},
+    {"eval_id": 6, "goal_bddl": "put_the_cream_cheese_in_the_bowl.bddl", "canonical_instruction": "put the cream cheese in the bowl", "conditions": {"act": "act_pragmatical_question_directive_eval6_ver1.bddl", "obj": "obj_lexical_same_polarity_habitual_eval6_ver10.bddl", "comp": "comp_lexical+pragmatical_addition_deletion+question_directive_eval6_ver6.bddl"}},
+    {"eval_id": 7, "goal_bddl": "put_the_wine_bottle_on_the_rack.bddl", "canonical_instruction": "put the wine bottle on the rack", "conditions": {"act": "act_pragmatical_permission_directive_eval7_ver6.bddl", "obj": "obj_lexical_same_polarity_contextual_eval7_ver9.bddl", "comp": "comp_lexical+pragmatical_addition_deletion+permission_directive_eval7_ver9.bddl"}},
+    {"eval_id": 8, "goal_bddl": "put_the_wine_bottle_on_top_of_the_cabinet.bddl", "canonical_instruction": "put the wine bottle on top of the cabinet", "conditions": {"act": "act_pragmatical_hint_eval8_ver6.bddl", "obj": "obj_lexical_same_polarity_contextual_eval8_ver9.bddl", "comp": "comp_lexical+pragmatical_same_polarity_habitual+hint_eval8_ver8.bddl"}},
+    {"eval_id": 9, "goal_bddl": "turn_on_the_stove.bddl", "canonical_instruction": "turn on the stove", "conditions": {"act": "act_pragmatical_question_directive_eval9_ver9.bddl", "obj": "obj_lexical_same_polarity_habitual_eval9_ver8.bddl", "comp": "comp_lexical+pragmatical_same_polarity_contextual+embedded_imperative_eval9_ver4.bddl"}}
+  ],
+  "gates": {
+    "base_competence": {"canonical_success_min": 18, "canonical_total": 30, "task_success_coverage_min": 6},
+    "problem_gap": {"success_gap_percentage_points_min": 15, "canonical_win_discordant_pairs_min": 5, "adverse_task_coverage_min": 4, "adverse_family_coverage_min": 2},
+    "headroom": {"canonical_recoverable_failed_paraphrase_pairs_min": 5},
+    "prior_retention": {"canonical_success_drop_percentage_points_max": 5},
+    "future_method": {"base_gain_percentage_points_min": 10, "prior_gain_percentage_points_min": 5, "canonical_drop_percentage_points_max": 5}
+  },
+  "stage_order": [
+    "outcome-free manifest and parser validation",
+    "one canonical Base end-to-end smoke",
+    "paired Base panel",
+    "canonicalizer Control panel where mapping differs or paraphrase fails",
+    "CAG-TF action-semantics validation",
+    "paired CAG-TF panel",
+    "problem/headroom adjudication"
+  ],
+  "allowed_terminal_labels": [
+    "PROBLEM_VERIFIED_POSITIVE_PRIOR_RESIDUAL",
+    "PROBLEM_VERIFIED_STRONG_COMPARATOR_RESIDUAL",
+    "PROBLEM_PROMISING_NEEDS_BOUNDED_EXPANSION",
+    "PRIOR_SATURATES_PROBLEM",
+    "BASE_NOT_COMPETENT",
+    "NO_REPEATABLE_GAP",
+    "NO_LEGAL_HEADROOM",
+    "EVALUATION_INVALID",
+    "RESOURCE_OR_ARTIFACT_BLOCKED"
+  ]
+}
