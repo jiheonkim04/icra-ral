@@ -117,3 +117,69 @@ Assessment: `WEAK`; infrastructure only.
 - No Ours design or training is authorized in Cycle 2.
 
 Candidate F rotated because exact-init expert replay did not establish legal headroom across all three required families. Candidate H then closed because it supplied fewer than two material changes relative to the unresolved Epoch 6 stochastic-schedule route and collided with SDN at the method boundary. A fresh portfolio rotation is required; Candidates G and I remain blocked/weak and are not promoted.
+
+## Cycle 3 fresh rotation
+
+Rotation 3 reconsiders only scientifically unadjudicated routes and adds current July 2026 overlap. SafeVLA-Bench already measures successful-but-unsafe rollouts with task-aware temporal constraints; vla-eval exposes protocol ambiguity but supports only native success; VLA-SCT uses a visual-memory termination detector; Pre-VLA and agentic RL already occupy generic action verification and recovery. The surviving boundary is narrower: whether a native first-hit goal predicate certifies a state that remains achieved when the policy stops and the controller neutrally holds.
+
+### Candidate J - stability-qualified task completion
+
+Assessment: `PLAUSIBLE`; selected primary for a frozen expert-replay problem/headroom gate only.
+
+- One-sentence thesis: a manipulation rollout should count as complete only when its native goal remains satisfied during a short policy-independent neutral dwell, because first-hit success can certify transient states and distort VLA comparisons.
+- Robotics problem and importance: deployment requires the placed object, grasp, mechanism, or multi-step goal to remain achieved after motion stops; a one-frame predicate hit is not necessarily durable completion.
+- What current evaluation misses: LIBERO runners terminate on native first-hit success; vla-eval standardizes that host metric; PhAIL models time-to-first-success; SafeVLA-Bench adds safety constraints while preserving native success; VLA-SCT detects when to stop but does not validate that the achieved native goal persists after stopping.
+- Closest primary Prior: vla-eval (arXiv:2603.13966), SafeVLA-Bench (arXiv:2606.00773), VLA-SCT (arXiv:2602.01811), PhAIL (arXiv:2605.29710), and Beyond Binary Success (arXiv:2603.13616).
+- Base/comparator ecosystem: official demonstrations first establish predicate behavior and recoverability; retained X-VLA, SmolVLA, and OpenVLA-OFT INT4 are conditional policy comparators. Native first-hit success, immediate neutral dwell, full expert suffix plus dwell, and last-action-repeat are controls.
+- Exact condition: on the same exact-init trajectory, identify the first native success, replace future actions with 30 zero-motion controller commands that preserve the last gripper command, and evaluate the unchanged official predicate after every hold step. In a separate branch, execute the unused demonstration suffix before the same hold.
+- Residual hypothesis: native first-hit success fails the immediate dwell on multiple tasks and mechanisms, while the frozen expert suffix recovers stable completion, proving that the first-hit state is premature rather than the task being unsatisfiable.
+- Headroom: a selected standard-success demonstration must become persistent after its unused suffix and neutral dwell. Expert actions are controls, not policy successes.
+- Legal inputs: the policy is not modified; the evaluator may use native success only to switch into the post-policy hold. The neutral action uses zero pose delta and the last executed gripper sign. Rewards, future observations, and expert actions never enter policy inference.
+- Possible mechanism: none before problem verification. A later benchmark paper may include a simple consecutive-success/dwell endpoint; a learned termination method would have to exceed VLA-SCT and is not assumed.
+- Closed-loop path: official policy rollouts report both native and persistent success, persistence curves, and native-success/persistent-failure counts.
+- Retention/generalization: native success remains reported unchanged; persistent completion is additional. Paper level requires at least two competent policy families, Goal and Long or a second compatible suite, and placement, containment/insertion, push, and articulation mechanisms.
+- Main objections: a neutral dwell may be a benchmark bugfix; the action may be controller-specific; SafeVLA-Bench's stable-object constraints may already explain the effect; rankings may not change.
+- Archived overlap: the route was an unexecuted Epoch 6 backup blocked by the then-shared simulator resource rule. It does not reopen schedule, delay, recovery, or outcome-selection axes. The current mission explicitly permits serial one-environment replay and treats small pagefile-allocation jitter as nonfatal.
+- Resources/artifacts: no new download, one 64x64 environment at a time, CPU-only expert gate, below 8 GiB expected host increment, negligible storage, and roughly 10-30 minutes. LIBERO source/data are Apache-2.0/CC BY 4.0 as previously audited.
+- Cheapest falsifier: all ten LIBERO-Goal tasks, lowest-index standard-success demo selected without persistence outcomes, then paired immediate-hold and expert-suffix-hold branches. Kill if fewer than three tasks/two mechanisms show native-to-persistent disagreement or fewer than two tasks/two mechanisms show suffix-recoverable headroom.
+- Required main table: task/mechanism, native first-hit, immediate-dwell persistence curve, suffix-dwell recovery, policy-native and policy-persistent success, paired disagreements, confidence intervals, ranking changes, and hold overhead.
+- Contribution if successful: a reproducible completion endpoint showing when native first-hit success overstates durable manipulation and changes conclusions across policies.
+
+### Candidate K - typed non-gripper contact-transition supervision
+
+Assessment: `PLAUSIBLE`; selected fallback if Candidate J closes.
+
+- Thesis: training-only supervision of typed non-robot contact-edge births and deaths may improve contact-boundary arm actions beyond binary contact, gripper events, phase, and action history without privileged deployment inputs.
+- Importance/gap: manipulation is defined by object-environment relation changes, but common VLA losses and coarse stage labels may not emphasize lift, placement, insertion, and release boundaries.
+- Prior/ecosystem: FD-VLA, HapticVLA, CALAMARI, TacCoRL, StaKe, GAP, binary contact, stage/gripper, history, and shuffled-label controls; retained SmolVLA is the trainable Base.
+- Exact condition/headroom: replay frozen LIBERO states, remove all robot/gripper geoms, debounce typed non-static contact-edge births/deaths, then require task-held-out visual predictability and arm-action oracle information beyond all controls before any VLA training.
+- Legal inputs/path: MuJoCo contacts are training-only supervision; inference is ordinary RGB/language/proprioception/history. Official closed-loop success, Base retention, task-held-out tasks, and multiple contact mechanisms are mandatory.
+- Objections/overlap: the label may be an incremental force/tactile or phase variant; the historical exact route is scientifically unadjudicated but resource-blocked. Reconsideration is allowed because the blocker was operational and the current serial simulator path plus corrected pagefile policy materially changes feasibility, not the scientific formulation.
+- Resources: state replay and small probes first; later one SmolVLA plus a small auxiliary head. No new checkpoint. Expected under 16 GiB VRAM, 20 GiB host RAM, 5 GiB artifacts, and 12 GPU-hours.
+- Cheapest falsifier: execute the already frozen Stage 0A label gate under a documented outcome-free resource amendment, then Stage 0B only if labels are valid.
+- Contribution if successful: evidence that typed scene-contact transitions provide task-held-out action supervision beyond generic phase/contact signals and improve official closed-loop manipulation.
+
+### Candidate L - false-premise selective non-execution
+
+Assessment: `BLOCKED`.
+
+- Thesis: a VLA should detect absent, impossible, or contradictory instruction premises and avoid unsafe plausible actions while retaining true-premise task success.
+- Importance/path: false premises are deployment-relevant and directly language-grounded; evaluation would pair true and false instructions in matched scenes and measure action suppression, explanation, and ordinary success.
+- Prior and veto: DoWhat?, IVA, IGAR/ICBench, LIBERO-CF, ProGAL-VLA, and current safety benchmarks already occupy detection, rejection, correction, and counterfactual language-action coupling. The retained checkpoints do not expose a trained clarification/refusal channel. A no-op threshold or prompt-only wrapper would be weak and duplicate current work.
+- Artifacts/resources: simulator construction is possible, but no competent runnable Base/comparator with the required accept/clarify/refuse interface exists locally. No empirical execution is authorized.
+- Contribution if successful: calibrated selective execution under false premises; presently a direct-collision/artifact hard veto.
+
+### Candidate M - serial low-memory evaluation runtime
+
+Assessment: `WEAK`; systems support only.
+
+- Thesis: transactional one-environment execution can reproduce official VLA scores within workstation memory limits while supporting exact resume.
+- Prior/objection: vla-eval already provides a unified, versioned, massively parallel harness; serial lifecycle and atomic manifests are useful infrastructure but not a new robotics result.
+- Path/resources: already locally implemented and used; a throughput/RAM/score-identity table is feasible, but success would not satisfy a RA-L contribution sentence without a distinct scientific endpoint.
+
+## Cycle 3 selection
+
+- Primary: Candidate J, thesis id `persistent_completion`, benchmark/evaluation archetype, authorized only for the frozen official-demonstration problem/headroom gate.
+- Fallback: Candidate K, thesis id `contact_transition_topology`, method archetype, authorized only after Candidate J closes and only by resuming its frozen pre-method label gate under a new outcome-free resource amendment.
+- Candidates L and M are not empirically authorized.
+- No Ours, policy rollout, method training, or confirmatory outcome is authorized by this selection.

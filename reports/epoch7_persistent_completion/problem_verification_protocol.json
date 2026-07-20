@@ -1,0 +1,75 @@
+{
+  "schema_version": "epoch7.persistent_completion.problem_protocol.v1",
+  "frozen_at": "2026-07-20T16:38:00+09:00",
+  "frozen_repo_head": "09a952aac88b25656008f7088be88075c1c65229",
+  "status": "FROZEN_BEFORE_TASK_PERSISTENCE_OUTCOMES",
+  "thesis_id": "persistent_completion",
+  "archetype": "benchmark_evaluation",
+  "execution_type": "PRE_POLICY_OFFICIAL_DEMONSTRATION_PROBLEM_AND_HEADROOM_GATE",
+  "policy_loaded_or_queried": false,
+  "ours_authorized": false,
+  "benchmark": {
+    "name": "LIBERO-Goal",
+    "libero_source_revision": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+    "bddl_source_revision": "5a2198299a6d7a49bdb3cd519c7e92ed803adf5f",
+    "success_semantics": "libero.libero.envs.OffScreenRenderEnv.check_success",
+    "controller": "absolute_eef",
+    "camera_resolution": 64,
+    "live_environment_limit": 1
+  },
+  "selection": {
+    "rule": "for each task, test demos in numeric index order under exact-init standard replay and select the lowest-index replay reaching native official success; neither persistence branch may affect selection",
+    "max_demo_attempts": 50,
+    "dataset_rewards_or_dones_used_for_selection": false,
+    "expert_actions_counted_as_policy_success": false
+  },
+  "hold_contract": {
+    "primary_name": "gripper_latched_neutral",
+    "steps": 30,
+    "pose_delta": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+    "gripper_rule": "+1 if the last executed action's gripper component is nonnegative, else -1",
+    "persistent_success_rule": "official success is true after every one of the 30 hold steps",
+    "native_first_hit_unchanged": true,
+    "secondary_control": "repeat the exact last executed action for 30 steps; never use it as the primary endpoint"
+  },
+  "branches": [
+    "immediate_neutral_hold_at_first_native_success",
+    "unused_expert_suffix_then_neutral_hold",
+    "last_action_repeat_sensitivity_control"
+  ],
+  "tasks": [
+    {"task_id": 0, "task_name": "open_the_middle_drawer_of_the_cabinet", "mechanism": "articulation", "hdf5": "open_the_middle_drawer_of_the_cabinet_demo.hdf5", "hdf5_sha256": "20252C7CF98CD7437061F7F200AE7B6CB6219FABBD53B4536DFAA8ABDA6AB737"},
+    {"task_id": 1, "task_name": "put_the_bowl_on_the_stove", "mechanism": "placement", "hdf5": "put_the_bowl_on_the_stove_demo.hdf5", "hdf5_sha256": "FF77D3BF0F89A147D423840ECBD842CD63C3C55AEEAD91F88DBC0917BE473E99"},
+    {"task_id": 2, "task_name": "put_the_wine_bottle_on_top_of_the_cabinet", "mechanism": "placement", "hdf5": "put_the_wine_bottle_on_top_of_the_cabinet_demo.hdf5", "hdf5_sha256": "7DC087A7596D5CBBE394F681B21A0BE434438B0DCA73AC430C293FE4C818404A"},
+    {"task_id": 3, "task_name": "open_the_top_drawer_and_put_the_bowl_inside", "mechanism": "composite_articulation_containment", "hdf5": "open_the_top_drawer_and_put_the_bowl_inside_demo.hdf5", "hdf5_sha256": "1B50D99A053A7E4547C9AE9CCD2E3CD762543D27BE78F240F13440D7AE487AE8"},
+    {"task_id": 4, "task_name": "put_the_bowl_on_top_of_the_cabinet", "mechanism": "placement", "hdf5": "put_the_bowl_on_top_of_the_cabinet_demo.hdf5", "hdf5_sha256": "E14C84EBC820A13EF9A92CA82A7F04BB299F0EE96DFE9CC907BAB71AEB2683B2"},
+    {"task_id": 5, "task_name": "push_the_plate_to_the_front_of_the_stove", "mechanism": "planar_push", "hdf5": "push_the_plate_to_the_front_of_the_stove_demo.hdf5", "hdf5_sha256": "36B4E1BCED49D2F4FF6B2FCE6B1596A63978E14199E2513CD0DF71E127BF47A6"},
+    {"task_id": 6, "task_name": "put_the_cream_cheese_in_the_bowl", "mechanism": "containment", "hdf5": "put_the_cream_cheese_in_the_bowl_demo.hdf5", "hdf5_sha256": "EE58A7D72C143A71BF1448674E70940AC7781C1D1BB10A1B0C7A5C69B26ABBEF"},
+    {"task_id": 7, "task_name": "turn_on_the_stove", "mechanism": "articulation", "hdf5": "turn_on_the_stove_demo.hdf5", "hdf5_sha256": "387FC10747696B80DEA6ED8D7F2BEAA162BF92AE11750B241073CBD33AAC73D5"},
+    {"task_id": 8, "task_name": "put_the_bowl_on_the_plate", "mechanism": "placement", "hdf5": "put_the_bowl_on_the_plate_demo.hdf5", "hdf5_sha256": "E69528B0CF10DFC59B20698E12EC2AFFC03F3887309034D3EB74CAC3EC929406"},
+    {"task_id": 9, "task_name": "put_the_wine_bottle_on_the_rack", "mechanism": "insertion", "hdf5": "put_the_wine_bottle_on_the_rack_demo.hdf5", "hdf5_sha256": "F9092AA70734FC4083E97FC58C3BA25F87C614D18326182DDC7A455F0AB4DA2E"}
+  ],
+  "gates": {
+    "execution": {"completed_tasks_min": 10, "exception_count_max": 0, "finite_action_fraction_min": 1.0, "cold_repeat_task_ids": [0, 8], "cold_repeat_trace_match_required": true},
+    "coverage": {"native_success_tasks_min": 8, "required_mechanisms": ["placement", "containment_or_insertion", "planar_push", "articulation"]},
+    "problem": {"immediate_persistence_failure_tasks_min": 3, "failure_mechanisms_min": 2, "failure_fraction_among_native_success_min": 0.2, "single_predicate_explanation_fraction_max": 0.6666666667},
+    "headroom": {"suffix_recovered_tasks_min": 2, "suffix_recovered_mechanisms_min": 2}
+  },
+  "prohibitions": [
+    "no policy load or inference",
+    "no Ours or training",
+    "no persistence-outcome-based demonstration selection",
+    "no task deletion or hold-length change after outcomes",
+    "no dataset reward or done signal for selection",
+    "no confirmatory identities or policy outcomes"
+  ],
+  "allowed_decisions": [
+    "PROBLEM_VERIFIED_STRONG_COMPARATOR_RESIDUAL",
+    "PRIOR_SATURATES_PROBLEM",
+    "BASE_NOT_COMPETENT",
+    "NO_REPEATABLE_GAP",
+    "NO_LEGAL_HEADROOM",
+    "EVALUATION_INVALID",
+    "RESOURCE_OR_ARTIFACT_BLOCKED"
+  ]
+}

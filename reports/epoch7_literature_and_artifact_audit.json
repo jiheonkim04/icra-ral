@@ -1,7 +1,7 @@
 {
-  "schema_version": "epoch7_literature_artifact_audit_v4",
+  "schema_version": "epoch7_literature_artifact_audit_v5",
   "audit_date": "2026-07-20",
-  "status": "ROTATION2_EXHAUSTED_FRESH_PORTFOLIO_ROTATION_REQUIRED",
+  "status": "ROTATION3_PERSISTENT_COMPLETION_PROBLEM_GATE_FROZEN",
   "cycle1": {
     "problem": "meaning_preserving_instruction_robustness_with_intent_selectivity",
     "published_xvla_goal_success_percent": 97.8,
@@ -161,5 +161,15 @@
     "closure_path": "reports/epoch7_policy_rng_reliability/overlap_adjudication.json",
     "rollouts_run": 0
   },
-  "next_gate": "FRESH_METHOD_BENCHMARK_SYSTEMS_PORTFOLIO_ROTATION"
+  "cycle3": {
+    "primary": "persistent_completion",
+    "primary_status": "FROZEN_PRE_POLICY_PROBLEM_AND_HEADROOM_GATE",
+    "bounded_gap": "native first-hit task success versus durability under a policy-independent neutral controller dwell",
+    "closest_work": ["vla-eval", "SafeVLA-Bench", "VLA-SCT", "PhAIL", "Beyond Binary Success"],
+    "fallback": "contact_transition_topology",
+    "fallback_status": "PRESPECIFIED_SCIENTIFICALLY_UNADJUDICATED_RESOURCE_REPAIR_ONLY_IF_PRIMARY_CLOSES",
+    "blocked_language_candidate": "false_premise_selective_non_execution",
+    "method_or_policy_execution_authorized": false
+  },
+  "next_gate": "RUN_FROZEN_TEN_TASK_PERSISTENT_COMPLETION_EXPERT_REPLAY"
 }
