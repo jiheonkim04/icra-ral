@@ -159,3 +159,14 @@ support, and 90.06% of transition frames were outside the frozen gripper-event
 window. Exact replay and cold-repeat hashes matched completely, with no robot
 edges, outcome access, simulator actions, or success calls. This authorizes
 only the frozen visual-predictability and oracle-action-headroom Stage 0B.
+
+### Contact-transition Stage 0B closure
+
+The valid frozen Stage 0B gate returned `STAGE0_TRIVIAL_EQUIVALENCE`. Median
+visual any-transition AUPRC was 0.0674, below the same-width causal nonvisual
+control at 0.1016 and only 1.19 times prevalence. Typed macro AP was also below
+the nonvisual control, and visual won on one of four validation tasks. In the
+independent oracle diagnostic, adding typed topology to the strongest binary
+control changed held-out arm NRMSE from 0.244320 to 0.244540 (-0.09% relative
+reduction). Candidate K is therefore scientifically closed before any method,
+VLA training, or rollout.

@@ -198,3 +198,11 @@ frozen gates passing. This establishes a deterministic, nontrivial typed
 contact-transition signal but not visual predictability or action headroom.
 Only the already-frozen Stage 0B probes are now authorized; Candidate K remains
 premethod and no Ours, VLA training, policy rollout, or paper work is legal.
+
+Stage 0B then validly closed Candidate K as `STAGE0_TRIVIAL_EQUIVALENCE`.
+Visual any-transition and typed-bin prediction were both worse than the causal
+nonvisual control, and typed topology slightly worsened aggregate held-out arm
+NRMSE beyond the strongest binary-contact control. The exact formulation is
+closed with zero VLA training and zero policy rollout. Cycle 3 is exhausted;
+a fresh portfolio rotation is required rather than a weaker contact-label
+rescue.

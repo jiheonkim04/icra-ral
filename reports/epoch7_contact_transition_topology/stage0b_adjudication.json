@@ -1,0 +1,107 @@
+{
+  "schema_version": "epoch7.contact_topology.stage0b_adjudication.v1",
+  "adjudicated_at": "2026-07-20T17:30:12+09:00",
+  "execution_type": "DISCOVERY_PREMETHOD_PREDICTABILITY_AND_ACTION_HEADROOM",
+  "run_id": "epoch7_contact_stage0b_20260720_1725_kst",
+  "source_artifacts": {
+    "stage0b_result": {
+      "path": "runs/epoch7_contact_transition_topology/stage0b/epoch7_contact_stage0b_20260720_1725_kst/stage0b_result.json",
+      "sha256": "21A355D6BAF3FA79A88F94EA1511332D33DFFA25BF36D9F0728655AFD6D31DD3"
+    },
+    "row_manifest": {
+      "path": "runs/epoch7_contact_transition_topology/stage0b/epoch7_contact_stage0b_20260720_1725_kst/row_manifest.json",
+      "sha256": "33AEAFA617F534D941D09592972E3110B36F1695145B7827F7348D1E2F21048C"
+    },
+    "visual_seed_sha256": {
+      "620260721": "07B83B73F3D12FD8C587A241C49A52E8375D7A471014DB1BE5869205CD3BAF96",
+      "620260722": "BC74821097565E4E221F9D4719D9B58090DAF7818FF6462E44B9CE5C05D880C8",
+      "620260723": "7BBB35B7C4908DA7A8D54E602AA00D034D71C6BA5D05420E8E9B2DECA85AC0F9"
+    }
+  },
+  "scientific_protocol_sha256": "7FA28AAEEAC9886F36DD5CCD059CA7AC4CD65B21FABFBBCA4AFFA53B0A256240",
+  "stage0b_contract_sha256": "D50FE6287B68BEF93F292F6AD9C207740F1B56DD599D6B1004B5E984D2764A20",
+  "stage0a_result_sha256": "3D18F9D7C6FA2E6311E4667853D1247FFC515B1BCD3325671A46BB0994160E06",
+  "row_counts": {
+    "aligned_rows": 7888,
+    "oracle_boundary_rows": 1768,
+    "oracle_train_rows": 977,
+    "oracle_tune_rows": 164,
+    "oracle_validation_rows": 627
+  },
+  "visual_probe": {
+    "gates_passed": {
+      "any_transition_auprc_over_prevalence_ratio": false,
+      "any_transition_auprc_over_nonvisual": false,
+      "supported_typed_bin_macro_ap_over_nonvisual": false,
+      "validation_tasks_beating_nonvisual_any_transition": false
+    },
+    "metrics": {
+      "validation_prevalence": 0.05672203004360199,
+      "visual_any_transition_auprc_median": 0.06739259663369034,
+      "nonvisual_any_transition_auprc_median": 0.1016036362220285,
+      "visual_over_prevalence_ratio": 1.1881203086083196,
+      "visual_minus_nonvisual_any_transition_auprc": -0.03421103958833817,
+      "visual_supported_typed_bin_macro_ap_median": 0.00892663083274903,
+      "nonvisual_supported_typed_bin_macro_ap_median": 0.020767260445121238,
+      "visual_minus_nonvisual_supported_typed_macro_ap": -0.011840629612372207,
+      "validation_tasks_beating_nonvisual": 1
+    },
+    "seed_results": [
+      {
+        "seed": 620260721,
+        "visual_selected_epoch": 17,
+        "visual_any_transition_auprc": 0.0656849621537122,
+        "nonvisual_selected_epoch": 3,
+        "nonvisual_any_transition_auprc": 0.1219039179889082
+      },
+      {
+        "seed": 620260722,
+        "visual_selected_epoch": 20,
+        "visual_any_transition_auprc": 0.06764331887070973,
+        "nonvisual_selected_epoch": 20,
+        "nonvisual_any_transition_auprc": 0.1016036362220285
+      },
+      {
+        "seed": 620260723,
+        "visual_selected_epoch": 15,
+        "visual_any_transition_auprc": 0.06739259663369034,
+        "nonvisual_selected_epoch": 20,
+        "nonvisual_any_transition_auprc": 0.10075611794753699
+      }
+    ]
+  },
+  "oracle_action_headroom": {
+    "strongest_control": "binary_control",
+    "gates_passed": {
+      "aggregate_arm_nrmse_relative_reduction": false,
+      "validation_tasks_with_lower_arm_nrmse": false,
+      "shuffled_topology_fraction_of_full_gain": false,
+      "finite_prediction_fraction": true
+    },
+    "metrics": {
+      "strongest_control_validation_nrmse": 0.24432034599716462,
+      "full_typed_validation_nrmse": 0.24453980210562348,
+      "aggregate_arm_nrmse_relative_reduction": -0.0008982309989909993,
+      "validation_tasks_with_lower_arm_nrmse": 2,
+      "shuffled_topology_fraction_of_full_gain": null,
+      "shuffle_fraction_reason": "The full typed model had nonpositive aggregate gain, so the prespecified ratio is undefined and fails.",
+      "finite_prediction_fraction": 1.0
+    }
+  },
+  "scientific_firewall": {
+    "forbidden_dataset_access_count": 0,
+    "reward_success_done_read": false,
+    "simulator_actions_executed": 0,
+    "success_check_calls": 0,
+    "policy_inference_calls": 0,
+    "vla_training_happened": false,
+    "policy_rollout_happened": false,
+    "wsl_swap_used_bytes_after": 0
+  },
+  "interpretation": "Typed contact transitions are a real, deterministic label signal, but under the frozen causal controls they do not provide task-held-out visual predictability or arm-action information beyond nonvisual history and binary transition timing.",
+  "final_decision": "STAGE0_TRIVIAL_EQUIVALENCE",
+  "method_contract_authorized": false,
+  "vla_training_authorized": false,
+  "policy_rollout_authorized": false,
+  "paper_generation_authorized": false
+}
