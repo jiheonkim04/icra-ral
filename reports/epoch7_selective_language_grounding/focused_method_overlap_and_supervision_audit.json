@@ -6,7 +6,7 @@
     "working_name": "equivalence-selective action-energy ranking",
     "paper_name_frozen": false,
     "base": "2toINF/X-VLA-Libero@129e71460678b7236cee6fc9707f09d9fa0c3590",
-    "energy": "mean over a frozen time/noise bank of X-VLA's scaled clean-action reconstruction MSE, 100*||f_theta(t*epsilon+(1-t)*a,o,l,t)-a||^2",
+    "energy": "mean over a frozen time/noise bank of the official X-VLA ee6d clean-action loss: 500*position_MSE + 10*rotation6D_MSE + gripper_BCE over the padded 20D single-arm representation",
     "positive_energy": "0.5*E(o,l_factual,a_real)+0.5*E(o,l_equivalent,a_real)",
     "rank_loss": "softplus((margin+E_positive-E(o,l_distinct_feasible,a_real))/temperature)",
     "total_loss": "E_positive+lambda_rank*rank_loss",
@@ -33,6 +33,14 @@
       "act": 870,
       "comp": 2963,
       "obj": 259
+    },
+    "official_xvla_format_execution_data": {
+      "dataset_id": "2toINF/Libero-XVLA-format",
+      "revision": "27ddd36538ee4812bd31fd8b494f8d7c6a11ef9d",
+      "license": "Apache-2.0",
+      "goal_files": 428,
+      "goal_bytes": 1899116312,
+      "purpose": "exact X-VLA action/image training and energy execution; avoids local action conversion"
     },
     "required_restriction": "negative ranking only in a frozen early pre-interaction window",
     "pair_selection_uses_outcomes": false
@@ -115,7 +123,7 @@
   },
   "authorization": {
     "partition_freeze": true,
-    "raw_to_xvla_conversion_preflight": true,
+    "official_xvla_format_data_preflight": true,
     "base_energy_falsifier": true,
     "bounded_real_training_if_falsifier_passes": true,
     "ours_closed_loop": false,

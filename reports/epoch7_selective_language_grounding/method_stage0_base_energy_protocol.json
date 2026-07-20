@@ -1,0 +1,108 @@
+{
+  "schema_version": "epoch7.method_stage0_base_energy_protocol.v1",
+  "frozen_at": "2026-07-20T16:30:00+09:00",
+  "status": "FROZEN_BEFORE_BASE_ENERGY_OUTCOMES",
+  "selected_mechanism": "equivalence-selective action-energy ranking",
+  "mechanism_classification": "INCREMENTAL_BUT_DEFENSIBLE_WITH_STRONG_EVIDENCE",
+  "execution_type": "VLA_INFERENCE",
+  "ours_execution_authorized": false,
+  "training_authorized": false,
+  "closed_loop_authorized": false,
+  "confirmatory_use_authorized": false,
+  "partition_manifest": {
+    "path": "reports/epoch7_selective_language_grounding/method_partition_manifest.json",
+    "sha256": "6dc4ff322941f4a9f8fd7fa95bc726e2d9bb516a4af21f94ae2403f25b750c2f",
+    "assignment_sha256": "041e3cb49f2daf72fe5dd55e71cc7c5dd0bfddc1e11d2dc2707181457110bfd1",
+    "status_required": "FROZEN_BEFORE_OURS_EXECUTION"
+  },
+  "base": {
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "precision": "float32",
+    "device": "cuda:0",
+    "domain_id": 3,
+    "local_files_only": true,
+    "checkpoint_changed": false
+  },
+  "data": {
+    "dataset_id": "2toINF/Libero-XVLA-format",
+    "dataset_revision": "27ddd36538ee4812bd31fd8b494f8d7c6a11ef9d",
+    "dataset_license": "Apache-2.0",
+    "libero_para_revision": "5a2198299a6d7a49bdb3cd519c7e92ed803adf5f",
+    "demo_split": "validation",
+    "paraphrase_split": "validation",
+    "task_count": 10,
+    "families": ["act", "obj", "comp"],
+    "paired_samples": 30,
+    "sample_selection_used_outcomes": false,
+    "official_loader_semantics": "LiberoHandler drops the first image, samples a 31-point 30 Hz/1 s absolute trajectory, concatenates a zero right arm, then action_slice uses point 0 as proprio and points 1..30 as targets"
+  },
+  "energy": {
+    "noisy_action": "x_t=t*epsilon+(1-t)*a_real",
+    "prediction": "released X-VLA clean-action denoiser f_theta(x_t,o,l,t)",
+    "position_loss_scale": 500.0,
+    "rotation6d_loss_scale": 10.0,
+    "gripper_loss": "BCEWithLogits over indices 9 and 19",
+    "total": "position_loss+rotate6D_loss+gripper_loss",
+    "time_noise_seeds": [1701, 1702],
+    "paired_noise": true,
+    "conditions_per_sample": ["canonical", "paraphrase", "hard_negative"],
+    "hard_negative_selection": "maximum canonical lowercase-whitespace-token Jaccard, lowest eval_id tie break",
+    "model_forward_per_sample": 6,
+    "expected_total_model_forwards": 180
+  },
+  "primary_metrics": {
+    "canonical_selectivity_accuracy": "fraction E(canonical)<E(hard_negative)",
+    "equivalence_drift_rate": "fraction E(canonical)<E(paraphrase)",
+    "ranking_violation_rate": "fraction E(paraphrase)>=E(hard_negative)",
+    "instruction_action_connection": "paired mean absolute clean-action prediction difference under shared o,a,t,epsilon"
+  },
+  "decision_rules": {
+    "BASE_ENERGY_HEADROOM_GO": {
+      "all_180_forwards_finite": true,
+      "zero_swap": true,
+      "canonical_selectivity_accuracy_min": 0.6,
+      "canonical_selectivity_task_coverage_min": 5,
+      "equivalence_drift_rate_min": 0.5,
+      "equivalence_drift_task_coverage_min": 5,
+      "equivalence_drift_family_coverage_min": 2,
+      "ranking_violation_rate_min": 0.2,
+      "ranking_violation_task_coverage_min": 3,
+      "ranking_violation_family_coverage_min": 2,
+      "canonical_negative_prediction_mean_abs_delta_min": 0.0001,
+      "next_action": "freeze scale-aware margin/lambda and run one-batch real-gradient Full-versus-Ablation audit"
+    },
+    "BASE_ENERGY_PROMISING_ONE_FIXED_EXPANSION": {
+      "allowed_only_if": "instruction/action connection and canonical selectivity pass, while exactly one coverage/rate threshold misses by no more than two pairs",
+      "fixed_expansion": "add the remaining three validation demonstrations per task with the same paraphrases, negatives, and seeds; no threshold or formulation change"
+    },
+    "BASE_ENERGY_FALSIFIER_FAIL": {
+      "trigger_any": [
+        "nonfinite or incomplete forward",
+        "nonzero WSL swap",
+        "canonical selectivity below 0.6",
+        "equivalence drift below 0.5",
+        "ranking violations below 0.2",
+        "canonical-negative prediction mean absolute delta below 0.0001"
+      ],
+      "next_action": "close this exact mechanism; do not rescue it as augmentation alone"
+    }
+  },
+  "future_role_lock": {
+    "Base": "unmodified released X-VLA-Libero",
+    "Prior": "corrected mechanism-faithful CAG-TF port",
+    "Ours": "not authorized until this Base falsifier passes",
+    "Ablation": "same real canonical+paraphrase positive loss with lambda_rank=0",
+    "Control": "frozen all-MiniLM-L6-v2 semantic canonicalizer",
+    "Oracle": "canonical-instruction legal-headroom condition; not a deployable policy"
+  },
+  "forbidden": [
+    "training or optimizer steps in this job",
+    "simulator construction or episode execution",
+    "reward/done/success reads",
+    "confirmatory images/actions/paraphrase text",
+    "threshold changes after results",
+    "synthetic counterfactual actions"
+  ]
+}

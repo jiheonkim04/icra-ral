@@ -1,7 +1,7 @@
 {
   "schema_version": "epoch7.resource_inventory.v1",
   "generated_at": "2026-07-20T13:23:31.8543705+09:00",
-  "last_updated_at": "2026-07-20T15:50:00+09:00",
+  "last_updated_at": "2026-07-20T16:35:00+09:00",
   "execution_type": "SETUP_PREFLIGHT",
   "repository": {
     "path": "C:/Users/jiheo/tca_map",
@@ -43,11 +43,11 @@
   "storage": {
     "windows_c": {
       "total_gib": 930.52,
-      "free_gib": 289.673,
-      "free_percent": 31.13,
+      "free_gib": 287.84,
+      "free_percent": 30.93,
       "required_reserve_gib": 186.104,
       "reserve_rule": "max(60 GiB, 20 percent of volume)",
-      "reserve_headroom_gib": 103.569,
+      "reserve_headroom_gib": 101.736,
       "status": "PASS"
     },
     "wsl_root": {
@@ -247,6 +247,17 @@
       "goal_demonstrations": 500,
       "goal_frames": 63728,
       "offline_supervision_audit": "REAL_DEMONSTRATION_SELECTIVITY_SUPERVISION_LEGAL"
+    },
+    "official_xvla_format_goal_demonstrations": {
+      "dataset_id": "2toINF/Libero-XVLA-format",
+      "path": "C:/assets/datasets/Libero-XVLA-format/libero_goal",
+      "revision": "27ddd36538ee4812bd31fd8b494f8d7c6a11ef9d",
+      "license": "Apache-2.0",
+      "files": 428,
+      "bytes": 1899116312,
+      "task_count": 10,
+      "partition_assignment_sha256": "041e3cb49f2daf72fe5dd55e71cc7c5dd0bfddc1e11d2dc2707181457110bfd1",
+      "status": "RETAINED_EXACT_XVLA_FORMAT"
     }
   },
   "status": "SETUP_PREFLIGHT_PASS"

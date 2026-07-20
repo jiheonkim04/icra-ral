@@ -12,13 +12,14 @@ For a real demonstration tuple containing observation `o`, factual instruction `
 
 ```text
 x_t = t epsilon + (1 - t) a
-E_theta(o, l, a) = mean_(t,epsilon) [100 ||f_theta(x_t, o, l, t) - a||^2]
+E_theta(o, l, a) = mean_(t,epsilon) L_XVLA(f_theta(x_t, o, l, t), a)
+L_XVLA = 500 MSE(position) + 10 MSE(rotation-6D) + BCE(gripper)
 E_pos = 0.5 E_theta(o, l+, a) + 0.5 E_theta(o, l~, a)
 L_rank = softplus((margin + E_pos - E_theta(o, l-, a)) / temperature)
 L_total = E_pos + lambda_rank L_rank
 ```
 
-This matches the official X-VLA implementation: its training forward constructs `x_t = t*noise + (1-t)*action`, predicts the clean action, and applies scaled mean-squared error on the real action dimensions. It is not described as a velocity-field loss.
+This matches the official X-VLA `ee6d` implementation: its training forward constructs `x_t = t*noise + (1-t)*action`, predicts the clean action, and applies position MSE scaled by 500, rotation-6D MSE scaled by 10, and gripper BCE over the padded 20D single-arm representation. It is not described as a velocity-field loss or a generic uniform MSE.
 
 The negative instruction is never paired with a fabricated correct action and is never supervised as the target of `a`. It only requires the factual real action to have lower denoising energy under its factual/equivalent intent than under a different feasible intent. Negative ranking is restricted to a frozen early, pre-interaction window where all ten Goal intents remain feasible in the shared world. At deployment the trained X-VLA receives the ordinary images, proprioception, and one instruction and executes its ordinary single conditional denoising branch; there is no router, retrieval model, symbolic planner, vision-only branch, or privileged simulator input.
 
@@ -26,7 +27,7 @@ The causal path is direct: the ranking term changes gradients through X-VLA's in
 
 ## Real-supervision legality
 
-The retained raw LIBERO corpus is complete enough for this test: 130 HDF5 files, 100,442,942,572 bytes, including all ten LIBERO-Goal task files. The Goal suite contains 500 demonstrations and 63,728 frames. Each task has 50 demonstrations; every inspected numeric array is finite; all ten aggregate action arrays are noncollapsed. The ten Goal BDDLs share an exact world signature over regions, fixtures, objects, and initialization, while declaring ten distinct goals. Consequently, each factual sample has nine distinct declared Goal instructions available as feasible early-window negatives.
+The retained raw LIBERO corpus is complete enough for the supervision-legality audit: 130 HDF5 files, 100,442,942,572 bytes, including all ten LIBERO-Goal task files. The Goal suite contains 500 demonstrations and 63,728 frames. Each task has 50 demonstrations; every inspected numeric array is finite; all ten aggregate action arrays are noncollapsed. The ten Goal BDDLs share an exact world signature over regions, fixtures, objects, and initialization, while declaring ten distinct goals. Consequently, each factual sample has nine distinct declared Goal instructions available as feasible early-window negatives. Actual X-VLA training/energy execution instead uses the authors' separately released `2toINF/Libero-XVLA-format` Goal subset at revision `27ddd36538ee4812bd31fd8b494f8d7c6a11ef9d` (428 converted demonstrations, 1,899,116,312 bytes), eliminating local action-conversion ambiguity.
 
 LIBERO-Para supplies 4,092 declared equivalent instructions: 870 action, 2,963 compositional, and 259 object variants. Equivalent positives reuse the real demonstrated action chunk. Pair construction is deterministic and outcome-free. No simulator success, Base/Prior/Ours result, or future checkpoint performance may select the pairs.
 
@@ -34,7 +35,7 @@ Legality boundary:
 
 - Allowed: factual and declared-equivalent text with the same real action target; a different feasible instruction used only as an incompatibility ranking negative.
 - Prohibited: inventing the action that should satisfy `l-`; treating `a` as correct for `l-`; selecting negatives or early-window length using Ours outcomes; simulator state at inference.
-- Required before training: materialize the exact raw-to-X-VLA action/image conversion, verify action reconstruction against the official rollout convention, and freeze hashes for train/validation/confirmatory partitions.
+- Required before training: use the authors' exact released X-VLA-format demonstrations, verify their loader semantics, and freeze hashes for train/validation/confirmatory partitions.
 
 The machine-readable source audit is `selectivity_supervision_audit.json`; the final LIBERO-CF runtime preflights are `libero_cf_artifact_preflight.json` and `libero_cf_ood_artifact_preflight.json`.
 

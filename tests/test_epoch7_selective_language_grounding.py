@@ -15,6 +15,11 @@ from tca_map.epoch7_selective_language_grounding import (
 )
 from scripts.run_epoch7_semantic_canonicalizer_preflight import metadata_row_to_bddl
 from scripts.run_epoch7_language_grounding_base import build_semantic_episode_plan
+from scripts.run_epoch7_method_partition_freeze import (
+    hard_negative_map,
+    split_demo_paths,
+    split_paraphrase_rows,
+)
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -140,3 +145,51 @@ def test_semantic_control_mismatch_plan_uses_mapping_not_outcomes() -> None:
     assert plan[0]["instruction"] == "turn on the stove"
     assert "success" not in plan[0]
     assert "reward" not in plan[0]
+
+
+def test_method_demo_partition_is_disjoint_and_reserves_eight_per_task() -> None:
+    paths = [Path("task_demo") / f"demo_{index}.hdf5" for index in range(37)]
+    split = split_demo_paths(paths)
+
+    assert len(split["train"]) == 29
+    assert len(split["validation"]) == 4
+    assert len(split["confirmatory"]) == 4
+    assert not (set(split["train"]) & set(split["validation"]))
+    assert not (set(split["train"]) & set(split["confirmatory"]))
+    assert not (set(split["validation"]) & set(split["confirmatory"]))
+    assert split == split_demo_paths(reversed(paths))
+
+
+def test_method_paraphrase_partition_is_deterministic_and_disjoint() -> None:
+    rows = [
+        {
+            "eval": "0",
+            "high": "act",
+            "mid": "lexical",
+            "low": "addition_deletion",
+            "batch_idx": str(index),
+            "original_instruction": "turn on the stove",
+            "new_instruction": f"switch the stove on variant {index}",
+        }
+        for index in range(20)
+    ]
+    split = split_paraphrase_rows(rows)
+
+    assert [len(split[name]) for name in ("train", "validation", "confirmatory")] == [14, 3, 3]
+    ids = [{row["new_instruction"] for row in split[name]} for name in split]
+    assert not (ids[0] & ids[1] or ids[0] & ids[2] or ids[1] & ids[2])
+    assert split == split_paraphrase_rows(reversed(rows))
+
+
+def test_hard_negative_map_uses_text_only_and_excludes_factual_intent() -> None:
+    canonical = {
+        0: "put the bowl on the stove",
+        1: "put the bowl on the plate",
+        2: "turn on the stove",
+    }
+    negatives = hard_negative_map(canonical)
+
+    assert negatives[0]["eval_id"] == 1
+    assert negatives[0]["eval_id"] != 0
+    assert "success" not in negatives[0]
+    assert "reward" not in negatives[0]
