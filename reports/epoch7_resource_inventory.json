@@ -1,6 +1,7 @@
 {
   "schema_version": "epoch7.resource_inventory.v1",
   "generated_at": "2026-07-20T13:23:31.8543705+09:00",
+  "last_updated_at": "2026-07-20T15:50:00+09:00",
   "execution_type": "SETUP_PREFLIGHT",
   "repository": {
     "path": "C:/Users/jiheo/tca_map",
@@ -42,11 +43,11 @@
   "storage": {
     "windows_c": {
       "total_gib": 930.52,
-      "free_gib": 291.12,
-      "free_percent": 31.29,
+      "free_gib": 289.673,
+      "free_percent": 31.13,
       "required_reserve_gib": 186.104,
       "reserve_rule": "max(60 GiB, 20 percent of volume)",
-      "reserve_headroom_gib": 105.016,
+      "reserve_headroom_gib": 103.569,
       "status": "PASS"
     },
     "wsl_root": {
@@ -155,6 +156,13 @@
       "dirty": false
     },
     {
+      "path": "C:/assets/repos/LIBERO-CF",
+      "head": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
+      "dirty": false,
+      "license": "MIT",
+      "policy": "READ_ONLY_OFFICIAL_COUNTERFACTUAL_BENCHMARK"
+    },
+    {
       "path": "C:/assets/repos/robosuite",
       "head": "fbee5844ff5632f5b5698e204ec5357ca50be0df",
       "dirty": true,
@@ -206,10 +214,13 @@
     }
   ],
   "qualification": {
-    "idle_inventory_only": true,
-    "outcome_bearing_execution_started": false,
-    "heavy_execution_authorized_now": false,
-    "next_required_gate": "fresh literature/artifact selection followed by thesis-specific outcome-free resource smoke"
+    "idle_inventory_only": false,
+    "outcome_bearing_execution_started": true,
+    "heavy_execution_authorized_now": "BOUNDED_STAGE0_ONLY_AFTER_PARTITION_AND_CONVERSION_PREFLIGHT",
+    "next_required_gate": "frozen partitions and Base action-energy falsifier",
+    "latest_gpu_vram_total_mib": 16303,
+    "latest_gpu_vram_free_mib": 13748,
+    "latest_gpu_utilization_percent": 8
   },
   "new_public_artifacts": {
     "libero_para": {
@@ -218,6 +229,24 @@
       "local_bytes": 457087965,
       "license": "MIT",
       "serial_environment_smoke": "PASS"
+    },
+    "libero_cf": {
+      "path": "C:/assets/repos/LIBERO-CF",
+      "revision": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
+      "license": "MIT",
+      "license_sha256": "cc5140f551c81edf07536dada09c1ec3f9ba343b3f06025d135b0f59b9287989",
+      "counterfactual_tasks": 65,
+      "serial_spatial_environment_smoke": "PASS",
+      "serial_ood_environment_smoke": "PASS",
+      "official_xvla_adapter": false
+    },
+    "libero_raw_demonstrations": {
+      "path": "C:/assets/data/libero",
+      "files": 130,
+      "bytes": 100442942572,
+      "goal_demonstrations": 500,
+      "goal_frames": 63728,
+      "offline_supervision_audit": "REAL_DEMONSTRATION_SELECTIVITY_SUPERVISION_LEGAL"
     }
   },
   "status": "SETUP_PREFLIGHT_PASS"

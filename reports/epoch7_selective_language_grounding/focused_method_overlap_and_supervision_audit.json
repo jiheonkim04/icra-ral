@@ -1,0 +1,126 @@
+{
+  "schema_version": "epoch7.focused_method_overlap_and_supervision_audit.v1",
+  "decision_date": "2026-07-20",
+  "status": "INCREMENTAL_BUT_DEFENSIBLE_WITH_STRONG_EVIDENCE",
+  "selected_mechanism": {
+    "working_name": "equivalence-selective action-energy ranking",
+    "paper_name_frozen": false,
+    "base": "2toINF/X-VLA-Libero@129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "energy": "mean over a frozen time/noise bank of X-VLA's scaled clean-action reconstruction MSE, 100*||f_theta(t*epsilon+(1-t)*a,o,l,t)-a||^2",
+    "positive_energy": "0.5*E(o,l_factual,a_real)+0.5*E(o,l_equivalent,a_real)",
+    "rank_loss": "softplus((margin+E_positive-E(o,l_distinct_feasible,a_real))/temperature)",
+    "total_loss": "E_positive+lambda_rank*rank_loss",
+    "negative_action_target_created": false,
+    "negative_instruction_supervised_as_correct": false,
+    "inference": "ordinary single-branch X-VLA images+proprioception+instruction inference",
+    "privileged_inference_input": false,
+    "causal_action_connection": "ranking gradients update the instruction-conditioned X-VLA action denoiser, whose generated chunks directly control the simulator"
+  },
+  "supervision": {
+    "decision": "REAL_DEMONSTRATION_SELECTIVITY_SUPERVISION_LEGAL",
+    "raw_libero_files": 130,
+    "raw_libero_bytes": 100442942572,
+    "goal_tasks": 10,
+    "goal_demonstrations": 500,
+    "goal_frames": 63728,
+    "all_numeric_arrays_finite": true,
+    "all_goal_action_arrays_noncollapsed": true,
+    "shared_goal_world_signature": true,
+    "distinct_goals": 10,
+    "feasible_negative_instructions_per_positive": 9,
+    "libero_para_rows": 4092,
+    "libero_para_families": {
+      "act": 870,
+      "comp": 2963,
+      "obj": 259
+    },
+    "required_restriction": "negative ranking only in a frozen early pre-interaction window",
+    "pair_selection_uses_outcomes": false
+  },
+  "closest_overlap": [
+    {
+      "work": "RobustVLA",
+      "primary_url": "https://arxiv.org/abs/2510.00037",
+      "overlap": "semantics-preserving instruction perturbations and action consistency",
+      "major_differences": ["explicit feasible between-intent ranking", "X-VLA clean-action energy rather than within-intent consistency alone"]
+    },
+    {
+      "work": "RoVLA",
+      "primary_url": "https://arxiv.org/abs/2605.19678",
+      "overlap": "synonymous instruction sampling and instructional consistency",
+      "major_differences": ["explicit alternative-intent negative", "real-action incompatibility ranking"]
+    },
+    {
+      "work": "CAST",
+      "primary_url": "https://arxiv.org/abs/2508.13446",
+      "code_url": "https://github.com/catglossop/CAST",
+      "overlap": "observation-conditioned instruction/action selectivity",
+      "major_differences": ["no synthetic counterfactual action target", "no VLM or atomic-policy generation teacher", "single-branch deployment"]
+    },
+    {
+      "work": "CAG",
+      "primary_url": "https://arxiv.org/abs/2602.17659",
+      "code_url": "https://github.com/yuffish/LIBERO-CF",
+      "overlap": "language reliance under feasible counterfactual intent",
+      "major_differences": ["training-time discrimination instead of inference guidance", "one conditional branch instead of conditional/unconditional branches"]
+    },
+    {
+      "work": "RSS",
+      "primary_url": "https://aclanthology.org/2026.acl-long.190/",
+      "overlap": "paraphrase robustness and language-versus-vision residual",
+      "major_differences": ["explicit feasible-intent labels", "real action-denoiser gradients", "no inference ensemble"]
+    },
+    {
+      "work": "ProGAL-VLA",
+      "primary_url": "https://arxiv.org/abs/2604.09824",
+      "overlap": "contrastive language grounding",
+      "major_differences": ["no planner/3D graph/entity labels", "action compatibility rather than entity embedding contrast"]
+    }
+  ],
+  "candidates": [
+    {
+      "id": "M1",
+      "name": "equivalence-selective action-energy ranking",
+      "classification": "INCREMENTAL_BUT_DEFENSIBLE_WITH_STRONG_EVIDENCE",
+      "decision": "SELECTED_FOR_FROZEN_STAGE0",
+      "key_ablation": "same canonical+paraphrase positive reconstruction with lambda_rank=0; local RoVLA-IC-style proxy, not official reproduction",
+      "simple_control": "frozen all-MiniLM-L6-v2 semantic canonicalizer at 25/30",
+      "external_prior": "corrected mechanism-faithful CAG-TF port",
+      "cheap_falsifier": "Base paired action-energy discrimination on frozen held-out early real chunks"
+    },
+    {
+      "id": "M2",
+      "name": "learned semantic router or canonical prompt",
+      "classification": "TOO_OVERLAPPING_FOR_RAL_METHOD_CLAIM",
+      "decision": "REJECTED",
+      "reason": "functionally indistinguishable from the executed semantic canonicalizer/retrieval control"
+    },
+    {
+      "id": "M3",
+      "name": "learned language amplification or dual-branch guidance",
+      "classification": "TOO_OVERLAPPING_FOR_RAL_METHOD_CLAIM",
+      "decision": "REJECTED",
+      "reason": "direct CAG/RSS overlap plus IGAR/ProGAL adjacency and observed CAG retention risk"
+    }
+  ],
+  "libero_cf": {
+    "repository": "https://github.com/yuffish/LIBERO-CF",
+    "revision": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
+    "license": "MIT",
+    "counterfactual_tasks": 65,
+    "spatial_runtime_preflight": "PASS",
+    "ood_runtime_preflight": "PASS",
+    "official_xvla_adapter": false,
+    "xvla_role": "matched adaptation generalization only"
+  },
+  "authorization": {
+    "partition_freeze": true,
+    "raw_to_xvla_conversion_preflight": true,
+    "base_energy_falsifier": true,
+    "bounded_real_training_if_falsifier_passes": true,
+    "ours_closed_loop": false,
+    "confirmatory_identities": false,
+    "paper_claim": false
+  },
+  "next_hard_gate": "FROZEN_PARTITIONS_AND_STAGE0_BASE_ENERGY_FALSIFIER"
+}

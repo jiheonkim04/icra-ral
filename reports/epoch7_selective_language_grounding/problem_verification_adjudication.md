@@ -4,7 +4,7 @@ Decision date: 2026-07-20
 
 Status: `PROBLEM_VERIFIED_STRONG_COMPARATOR_RESIDUAL`.
 
-This status authorizes a bounded method-overlap and supervision-legality audit. It does not authorize training, Ours rollouts, confirmatory identities, or a paper claim.
+This status authorized a bounded method-overlap and supervision-legality audit. The completed focused audit selects equivalence-selective action-energy ranking as `INCREMENTAL_BUT_DEFENSIBLE_WITH_STRONG_EVIDENCE`. It now authorizes a frozen Stage-0 Base energy falsifier and raw-to-X-VLA conversion preflight, but not Ours rollouts, confirmatory identities, or a paper claim.
 
 ## Frozen evidence
 
@@ -23,7 +23,7 @@ The reference-aligned CAG-TF Prior was correctly action-connected but not compet
 5. Strong-comparator residual: pass narrowly (five pairs; 16.7 points).
 6. Legal recoverable headroom: pass (30/30 canonical; no privileged inference state).
 7. Infrastructure/normalization/reset explanation: rejected by exact matched pairing, official success, finite actions, zero exceptions, one-live-environment execution, and zero swap.
-8. Plausible method-level mechanism after overlap audit: not yet passed; this is the next hard gate.
+8. Plausible method-level mechanism after overlap audit: pass with a high evidence burden; canonicalization and guidance alternatives were rejected as too overlapping.
 
 ## Skeptical reviewer view
 
@@ -31,7 +31,7 @@ The strongest simple Control already explains six of 11 Base failures and reache
 
 ## Adjudicator boundary
 
-Proceed only to one-to-three bounded mechanism specifications and a focused equation/supervision/inference overlap matrix. A mechanism is eligible only if it:
+The focused equation/supervision/inference audit retained exactly one mechanism. Its Stage-0 path remains eligible only if it:
 
 - uses real retained demonstration supervision without synthetic or unverified counterfactual actions;
 - models both within-intent equivalence and between-intent selectivity;
@@ -40,4 +40,4 @@ Proceed only to one-to-three bounded mechanism specifications and a focused equa
 - differs from every direct prior by at least two major dimensions;
 - has a cheap Stage 0 falsifier and can beat the 25/30 semantic Control while retaining the 30/30 Base standard condition.
 
-If no mechanism clears this boundary, rotate the thesis; do not weaken the contribution sentence.
+The next hard gate is a hash-frozen partition and Base action-energy falsifier. If that falsifier or the subsequent real-gradient audit fails, close the selected mechanism; do not weaken it into augmentation alone.

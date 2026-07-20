@@ -1,0 +1,69 @@
+{
+  "artifact": {
+    "head": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
+    "license": "MIT",
+    "license_sha256": "cc5140f551c81edf07536dada09c1ec3f9ba343b3f06025d135b0f59b9287989",
+    "repository": "https://github.com/yuffish/LIBERO-CF",
+    "root": "/mnt/c/assets/repos/LIBERO-CF",
+    "working_tree_note": "Windows Git reported a clean working tree immediately after acquisition; WSL Git status is intentionally omitted because the Windows checkout uses CRLF conversion."
+  },
+  "created_at": "2026-07-20T15:08:48+0900",
+  "decision": "LIBERO_CF_RETAINED_RUNTIME_PREFLIGHT_FAIL",
+  "environment_smoke": {
+    "completed": false,
+    "exception": {
+      "message": "No module named 'libero.libero'",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_epoch7_libero_cf_preflight.py\", line 135, in main\n    from libero.libero.envs import OffScreenRenderEnv\nModuleNotFoundError: No module named 'libero.libero'\n",
+      "type": "ModuleNotFoundError"
+    },
+    "init_index": 0,
+    "settle_steps": 10,
+    "suite": "libero_cf_spatial",
+    "task_stem": "01-pick_up_the_cookie_box_and_place_it_on_the_plate"
+  },
+  "execution_classification": "PRIOR_ARTIFACT_FEASIBILITY_NO_OURS",
+  "ours_design_happened": false,
+  "ours_rollout_happened": false,
+  "policy_forward_happened": false,
+  "schema_version": "epoch7.libero_cf_artifact_preflight.v1",
+  "scientific_outcome_inspected": false,
+  "suite_inventory": {
+    "libero_cf_long": {
+      "bddl_files": 10,
+      "condition_file_sha256": "8d3026700e6a9995d1aba2780e9b3024814a2f8d745b096546cdfcbdae6df4f9",
+      "condition_predicates": 22,
+      "condition_tasks": 10,
+      "pruned_init_files": 10
+    },
+    "libero_cf_object": {
+      "bddl_files": 10,
+      "condition_file_sha256": "4f6f0deb9835619ec72a1b7d5b63a6d272a102de890ecbba888d321ad1f7dd8b",
+      "condition_predicates": 20,
+      "condition_tasks": 10,
+      "pruned_init_files": 10
+    },
+    "libero_cf_ood": {
+      "bddl_files": 15,
+      "condition_file_sha256": "e983bbc3153585ab476c88af2e2c82334f155050d83740409201c90756a0ea27",
+      "condition_predicates": 60,
+      "condition_tasks": 15,
+      "pruned_init_files": 15
+    },
+    "libero_cf_spatial": {
+      "bddl_files": 15,
+      "condition_file_sha256": "c4fda658e63c01bb3794030bc0dcbd40065bdf413d622e456d47101eef3a9a00",
+      "condition_predicates": 60,
+      "condition_tasks": 15,
+      "pruned_init_files": 15
+    },
+    "libero_cf_spatial_focused": {
+      "bddl_files": 15,
+      "condition_file_sha256": "64140efc99bd5e0c12289361cf3f8d64f28c9be738b2abd12097c6ec0bdbf1fb",
+      "condition_predicates": 60,
+      "condition_tasks": 15,
+      "pruned_init_files": 15
+    }
+  },
+  "training_happened": false,
+  "vla_loaded": false
+}

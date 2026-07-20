@@ -37,6 +37,25 @@
       "license": "Apache-2.0",
       "downloaded": false,
       "identity_with_retained_original_proven": false
+    },
+    "libero_cf": {
+      "url": "https://github.com/yuffish/LIBERO-CF",
+      "revision": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
+      "license": "MIT",
+      "local_path": "C:\\assets\\repos\\LIBERO-CF",
+      "license_sha256": "cc5140f551c81edf07536dada09c1ec3f9ba343b3f06025d135b0f59b9287989",
+      "counterfactual_task_count": 65,
+      "suites": {
+        "libero_cf_spatial": 15,
+        "libero_cf_spatial_focused": 15,
+        "libero_cf_object": 10,
+        "libero_cf_long": 10,
+        "libero_cf_ood": 15
+      },
+      "cag_equation_in_source": "uncond_actions + scale*(cond_actions-uncond_actions)",
+      "serial_spatial_runtime_preflight": "PASS",
+      "serial_ood_runtime_preflight": "PASS",
+      "official_xvla_adapter": false
     }
   },
   "direct_prior_families": [
@@ -57,6 +76,7 @@
     "generic metamorphic paraphrase evaluation"
   ],
   "remaining_testable_boundary": "joint within-intent invariance and between-intent selectivity using real demonstration supervision",
-  "method_discovery_authorized": false,
-  "next_gate": "BASE_PRIOR_PROBLEM_HEADROOM"
+  "method_discovery_authorized": true,
+  "focused_method_audit_status": "INCREMENTAL_BUT_DEFENSIBLE_WITH_STRONG_EVIDENCE",
+  "next_gate": "FROZEN_PARTITIONS_AND_STAGE0_BASE_ENERGY_FALSIFIER"
 }

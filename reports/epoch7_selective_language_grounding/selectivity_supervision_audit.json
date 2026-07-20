@@ -1,0 +1,682 @@
+{
+  "created_at": "2026-07-20T15:20:27+0900",
+  "data_root": "C:\\assets\\data\\libero",
+  "decision": "REAL_DEMONSTRATION_SELECTIVITY_SUPERVISION_LEGAL",
+  "equivalence_supervision": {
+    "metadata_path": "C:\\assets\\repos\\LIBERO-Para\\metrics\\libero_para_metadata.csv",
+    "metadata_sha256": "c34b49822843189bc325382f6e9a086f801646343022aacc00c6ac7136b0627e",
+    "paraphrases": 4092,
+    "per_eval_id": {
+      "0": 416,
+      "1": 410,
+      "2": 406,
+      "3": 386,
+      "4": 403,
+      "5": 410,
+      "6": 411,
+      "7": 413,
+      "8": 423,
+      "9": 414
+    },
+    "per_family": {
+      "act": 870,
+      "comp": 2963,
+      "obj": 259
+    }
+  },
+  "execution_type": "OFFLINE_DIAGNOSTIC_NO_MODEL_NO_SIMULATOR_NO_OUTCOMES",
+  "goal_supervision": {
+    "all_numeric_arrays_finite": true,
+    "all_task_action_arrays_noncollapsed": true,
+    "all_tasks_have_50_demonstrations": true,
+    "demonstrations": 500,
+    "distinct_goal_count": 10,
+    "frames": 63728,
+    "legal_negative_instructions_per_positive": 9,
+    "records": [
+      {
+        "bddl_path": "C:\\assets\\repos\\LIBERO-Para\\libero\\libero\\bddl_files\\libero_goal\\open_the_middle_drawer_of_the_cabinet.bddl",
+        "bddl_sha256": "a472ba8d20f97d8a8d20b36d1f42d6bf2b76a35e8f29cbad33f4bc404b485dfa",
+        "demonstrations": {
+          "action_max": [
+            0.8491071428571428,
+            0.9375,
+            0.9375,
+            0.3085714285714286,
+            0.34714285714285714,
+            0.375,
+            -1.0
+          ],
+          "action_min": [
+            -0.7633928571428571,
+            -0.8785714285714287,
+            -0.9375,
+            -0.24857142857142855,
+            -0.375,
+            -0.28714285714285714,
+            -1.0
+          ],
+          "action_shape": [
+            7
+          ],
+          "action_std": [
+            0.2921383608967536,
+            0.4151667801179882,
+            0.3486620608577417,
+            0.06470327365083281,
+            0.09926439090101284,
+            0.1116720567024298,
+            0.0
+          ],
+          "bytes": 702223367,
+          "demonstrations": 50,
+          "finite_numeric_arrays": true,
+          "frames": 7027,
+          "gripper_negative_fraction": 1.0,
+          "gripper_positive_fraction": 0.0,
+          "max_demo_frames": 196,
+          "min_demo_frames": 116,
+          "path": "C:\\assets\\data\\libero\\libero_goal\\open_the_middle_drawer_of_the_cabinet_demo.hdf5",
+          "robot_state_tail_shapes": [
+            [
+              9
+            ]
+          ],
+          "sha256": "20252c7cf98cd7437061f7f200ae7b6cb6219fabbd53b4536dfaa8abda6ab737",
+          "sim_state_tail_shapes": [
+            [
+              79
+            ]
+          ]
+        },
+        "goal": "(:goal (and (open wooden_cabinet_1_middle_region)) )",
+        "instruction": "open the middle layer of the drawer",
+        "objects": "(:objects akita_black_bowl_1 - akita_black_bowl cream_cheese_1 - cream_cheese wine_bottle_1 - wine_bottle plate_1 - plate )",
+        "task_stem": "open_the_middle_drawer_of_the_cabinet",
+        "world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+      },
+      {
+        "bddl_path": "C:\\assets\\repos\\LIBERO-Para\\libero\\libero\\bddl_files\\libero_goal\\open_the_top_drawer_and_put_the_bowl_inside.bddl",
+        "bddl_sha256": "331974c58b0c7ec65ab2f8a075144d93fae91d5b9db4658844fd7bbf495ff1c4",
+        "demonstrations": {
+          "action_max": [
+            0.9375,
+            0.9375,
+            0.9375,
+            0.2667857142857143,
+            0.3589285714285715,
+            0.2217857142857143,
+            1.0
+          ],
+          "action_min": [
+            -0.9375,
+            -0.7767857142857144,
+            -0.9375,
+            -0.25821428571428573,
+            -0.2732142857142857,
+            -0.21749999999999997,
+            -1.0
+          ],
+          "action_shape": [
+            7
+          ],
+          "action_std": [
+            0.442113716019813,
+            0.3161364384710011,
+            0.5195844415983228,
+            0.03276073327033764,
+            0.06960351396130214,
+            0.04399775475587628,
+            0.9576275805257208
+          ],
+          "bytes": 1017886342,
+          "demonstrations": 50,
+          "finite_numeric_arrays": true,
+          "frames": 10208,
+          "gripper_negative_fraction": 0.6440047021943573,
+          "gripper_positive_fraction": 0.35599529780564265,
+          "max_demo_frames": 299,
+          "min_demo_frames": 170,
+          "path": "C:\\assets\\data\\libero\\libero_goal\\open_the_top_drawer_and_put_the_bowl_inside_demo.hdf5",
+          "robot_state_tail_shapes": [
+            [
+              9
+            ]
+          ],
+          "sha256": "1b50d99a053a7e4547c9ae9ccd2e3cd762543d27be78f240f13440d7ae487ae8",
+          "sim_state_tail_shapes": [
+            [
+              79
+            ]
+          ]
+        },
+        "goal": "(:goal (and (in akita_black_bowl_1 wooden_cabinet_1_top_region)) )",
+        "instruction": "open the top layer of the drawer and put the bowl inside",
+        "objects": "(:objects akita_black_bowl_1 - akita_black_bowl cream_cheese_1 - cream_cheese wine_bottle_1 - wine_bottle plate_1 - plate )",
+        "task_stem": "open_the_top_drawer_and_put_the_bowl_inside",
+        "world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+      },
+      {
+        "bddl_path": "C:\\assets\\repos\\LIBERO-Para\\libero\\libero\\bddl_files\\libero_goal\\push_the_plate_to_the_front_of_the_stove.bddl",
+        "bddl_sha256": "aeb7a582f75e366904bbcc9fadf46112c424742f55bc6f0d75f62284650dd4fe",
+        "demonstrations": {
+          "action_max": [
+            0.9375,
+            0.9375,
+            0.7794642857142858,
+            0.14357142857142857,
+            0.22392857142857145,
+            0.15321428571428575,
+            -1.0
+          ],
+          "action_min": [
+            -0.9375,
+            -0.9375,
+            -0.9375,
+            -0.14678571428571427,
+            -0.2710714285714286,
+            -0.1992857142857143,
+            -1.0
+          ],
+          "action_shape": [
+            7
+          ],
+          "action_std": [
+            0.5221719764910807,
+            0.468383667983499,
+            0.24813762624649593,
+            0.027373233508628633,
+            0.05571870752524495,
+            0.04189973128187644,
+            0.0
+          ],
+          "bytes": 762855139,
+          "demonstrations": 50,
+          "finite_numeric_arrays": true,
+          "frames": 7638,
+          "gripper_negative_fraction": 1.0,
+          "gripper_positive_fraction": 0.0,
+          "max_demo_frames": 220,
+          "min_demo_frames": 115,
+          "path": "C:\\assets\\data\\libero\\libero_goal\\push_the_plate_to_the_front_of_the_stove_demo.hdf5",
+          "robot_state_tail_shapes": [
+            [
+              9
+            ]
+          ],
+          "sha256": "36b4e1bced49d2f4ff6b2fce6b1596a63978e14199e2513cd0df71e127bf47a6",
+          "sim_state_tail_shapes": [
+            [
+              79
+            ]
+          ]
+        },
+        "goal": "(:goal (and (on plate_1 main_table_stove_front_region)) )",
+        "instruction": "push the plate to the front of the stove",
+        "objects": "(:objects akita_black_bowl_1 - akita_black_bowl cream_cheese_1 - cream_cheese wine_bottle_1 - wine_bottle plate_1 - plate )",
+        "task_stem": "push_the_plate_to_the_front_of_the_stove",
+        "world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+      },
+      {
+        "bddl_path": "C:\\assets\\repos\\LIBERO-Para\\libero\\libero\\bddl_files\\libero_goal\\put_the_bowl_on_the_plate.bddl",
+        "bddl_sha256": "edf5f0dd59fe7e6f5db25d8444c8abea0cc2917254d1320199a3dfc8b39ba74d",
+        "demonstrations": {
+          "action_max": [
+            0.9375,
+            0.47946428571428573,
+            0.9375,
+            0.1725,
+            0.20464285714285715,
+            0.13285714285714284,
+            1.0
+          ],
+          "action_min": [
+            -0.8303571428571429,
+            -0.5464285714285714,
+            -0.9375,
+            -0.11785714285714285,
+            -0.2571428571428572,
+            -0.18107142857142858,
+            -1.0
+          ],
+          "action_shape": [
+            7
+          ],
+          "action_std": [
+            0.46361382372203414,
+            0.13841375205060152,
+            0.5448561952769007,
+            0.02998087810306201,
+            0.05858258264241855,
+            0.0340070356663688,
+            0.9996063136617915
+          ],
+          "bytes": 468246288,
+          "demonstrations": 50,
+          "finite_numeric_arrays": true,
+          "frames": 4669,
+          "gripper_negative_fraction": 0.5140286999357464,
+          "gripper_positive_fraction": 0.4859713000642536,
+          "max_demo_frames": 126,
+          "min_demo_frames": 79,
+          "path": "C:\\assets\\data\\libero\\libero_goal\\put_the_bowl_on_the_plate_demo.hdf5",
+          "robot_state_tail_shapes": [
+            [
+              9
+            ]
+          ],
+          "sha256": "e69528b0cf10dfc59b20698e12ec2affc03f3887309034d3eb74cac3ec929406",
+          "sim_state_tail_shapes": [
+            [
+              79
+            ]
+          ]
+        },
+        "goal": "(:goal (and (on akita_black_bowl_1 plate_1)) )",
+        "instruction": "put the bowl on the plate",
+        "objects": "(:objects akita_black_bowl_1 - akita_black_bowl cream_cheese_1 - cream_cheese wine_bottle_1 - wine_bottle plate_1 - plate )",
+        "task_stem": "put_the_bowl_on_the_plate",
+        "world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+      },
+      {
+        "bddl_path": "C:\\assets\\repos\\LIBERO-Para\\libero\\libero\\bddl_files\\libero_goal\\put_the_bowl_on_the_stove.bddl",
+        "bddl_sha256": "b17f6f0f05ff950a914088ff70cef55bca119d2a6785a2c0114388358b9a9cc2",
+        "demonstrations": {
+          "action_max": [
+            0.9375,
+            0.8919642857142858,
+            0.9375,
+            0.14678571428571427,
+            0.19821428571428573,
+            0.12535714285714286,
+            1.0
+          ],
+          "action_min": [
+            -0.9321428571428573,
+            -0.5223214285714286,
+            -0.9375,
+            -0.12107142857142857,
+            -0.1275,
+            -0.16285714285714287,
+            -1.0
+          ],
+          "action_shape": [
+            7
+          ],
+          "action_std": [
+            0.3963264575313541,
+            0.28073524467731775,
+            0.5212476602096608,
+            0.02804168580125493,
+            0.045412554962783715,
+            0.035836367520445306,
+            0.9999023641045504
+          ],
+          "bytes": 509123820,
+          "demonstrations": 50,
+          "finite_numeric_arrays": true,
+          "frames": 5081,
+          "gripper_negative_fraction": 0.49301318638063374,
+          "gripper_positive_fraction": 0.5069868136193663,
+          "max_demo_frames": 123,
+          "min_demo_frames": 90,
+          "path": "C:\\assets\\data\\libero\\libero_goal\\put_the_bowl_on_the_stove_demo.hdf5",
+          "robot_state_tail_shapes": [
+            [
+              9
+            ]
+          ],
+          "sha256": "ff77d3bf0f89a147d423840ecbd842cd63c3c55aeead91f88dbc0917be473e99",
+          "sim_state_tail_shapes": [
+            [
+              79
+            ]
+          ]
+        },
+        "goal": "(:goal (and (on akita_black_bowl_1 flat_stove_1_cook_region)) )",
+        "instruction": "put the bowl on the stove",
+        "objects": "(:objects akita_black_bowl_1 - akita_black_bowl cream_cheese_1 - cream_cheese wine_bottle_1 - wine_bottle plate_1 - plate )",
+        "task_stem": "put_the_bowl_on_the_stove",
+        "world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+      },
+      {
+        "bddl_path": "C:\\assets\\repos\\LIBERO-Para\\libero\\libero\\bddl_files\\libero_goal\\put_the_bowl_on_top_of_the_cabinet.bddl",
+        "bddl_sha256": "47a09c56b47b8c1263130aead030a3ac044174b201bf4651108d7e0fe99e3454",
+        "demonstrations": {
+          "action_max": [
+            0.9375,
+            0.8571428571428572,
+            0.9375,
+            0.1285714285714286,
+            0.2646428571428571,
+            0.15107142857142855,
+            1.0
+          ],
+          "action_min": [
+            -0.825,
+            -0.9375,
+            -0.9375,
+            -0.1725,
+            -0.2775,
+            -0.17785714285714288,
+            -1.0
+          ],
+          "action_shape": [
+            7
+          ],
+          "action_std": [
+            0.32937118876329907,
+            0.31692658136988366,
+            0.6669816337104929,
+            0.03465708863700536,
+            0.06104520979582505,
+            0.03678560951067558,
+            0.9869586970412488
+          ],
+          "bytes": 510414285,
+          "demonstrations": 50,
+          "finite_numeric_arrays": true,
+          "frames": 5094,
+          "gripper_negative_fraction": 0.41951315272870043,
+          "gripper_positive_fraction": 0.5804868472712996,
+          "max_demo_frames": 148,
+          "min_demo_frames": 86,
+          "path": "C:\\assets\\data\\libero\\libero_goal\\put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+          "robot_state_tail_shapes": [
+            [
+              9
+            ]
+          ],
+          "sha256": "e14c84ebc820a13ef9a92ca82a7f04bb299f0ee96dfe9cc907bab71aeb2683b2",
+          "sim_state_tail_shapes": [
+            [
+              79
+            ]
+          ]
+        },
+        "goal": "(:goal (and (on akita_black_bowl_1 wooden_cabinet_1_top_side)) )",
+        "instruction": "put the bowl on the top of the drawer",
+        "objects": "(:objects akita_black_bowl_1 - akita_black_bowl cream_cheese_1 - cream_cheese wine_bottle_1 - wine_bottle plate_1 - plate )",
+        "task_stem": "put_the_bowl_on_top_of_the_cabinet",
+        "world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+      },
+      {
+        "bddl_path": "C:\\assets\\repos\\LIBERO-Para\\libero\\libero\\bddl_files\\libero_goal\\put_the_cream_cheese_in_the_bowl.bddl",
+        "bddl_sha256": "478bd5726ad7d9bde05e8f26f6a9984d503dc4a91c27d0565f5f0beea1ed3bb1",
+        "demonstrations": {
+          "action_max": [
+            0.9375,
+            0.7982142857142857,
+            0.9375,
+            0.1725,
+            0.18857142857142858,
+            0.14035714285714285,
+            1.0
+          ],
+          "action_min": [
+            -0.91875,
+            -0.9375,
+            -0.9375,
+            -0.15214285714285716,
+            -0.3439285714285714,
+            -0.16178571428571425,
+            -1.0
+          ],
+          "action_shape": [
+            7
+          ],
+          "action_std": [
+            0.3799368803486074,
+            0.32942239065034207,
+            0.5431504383966766,
+            0.02983860524986607,
+            0.05913912874562014,
+            0.032451999881422715,
+            0.9809536577735241
+          ],
+          "bytes": 535715512,
+          "demonstrations": 50,
+          "finite_numeric_arrays": true,
+          "frames": 5349,
+          "gripper_negative_fraction": 0.5971209571882595,
+          "gripper_positive_fraction": 0.40287904281174053,
+          "max_demo_frames": 169,
+          "min_demo_frames": 85,
+          "path": "C:\\assets\\data\\libero\\libero_goal\\put_the_cream_cheese_in_the_bowl_demo.hdf5",
+          "robot_state_tail_shapes": [
+            [
+              9
+            ]
+          ],
+          "sha256": "ee58a7d72c143a71bf1448674e70940ac7781c1d1bb10a1b0c7a5c69b26abbef",
+          "sim_state_tail_shapes": [
+            [
+              79
+            ]
+          ]
+        },
+        "goal": "(:goal (and (on cream_cheese_1 akita_black_bowl_1)) )",
+        "instruction": "put the cream cheese on the bowl",
+        "objects": "(:objects akita_black_bowl_1 - akita_black_bowl cream_cheese_1 - cream_cheese wine_bottle_1 - wine_bottle plate_1 - plate )",
+        "task_stem": "put_the_cream_cheese_in_the_bowl",
+        "world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+      },
+      {
+        "bddl_path": "C:\\assets\\repos\\LIBERO-Para\\libero\\libero\\bddl_files\\libero_goal\\put_the_wine_bottle_on_the_rack.bddl",
+        "bddl_sha256": "bfe7b14240a61700419ec2dd99857177f373aa1ead1f0a991458815a843c5772",
+        "demonstrations": {
+          "action_max": [
+            0.6964285714285715,
+            0.8276785714285715,
+            0.9375,
+            0.35571428571428576,
+            0.375,
+            0.375,
+            1.0
+          ],
+          "action_min": [
+            -0.6508928571428572,
+            -0.7392857142857142,
+            -0.7285714285714285,
+            -0.24214285714285713,
+            -0.375,
+            -0.2775,
+            -1.0
+          ],
+          "action_shape": [
+            7
+          ],
+          "action_std": [
+            0.18684760279069257,
+            0.21955479000469275,
+            0.37735211197389995,
+            0.10909909549412763,
+            0.09623303494999397,
+            0.1485324186010887,
+            0.9857045258581474
+          ],
+          "bytes": 878958730,
+          "demonstrations": 50,
+          "finite_numeric_arrays": true,
+          "frames": 8808,
+          "gripper_negative_fraction": 0.5842415985467757,
+          "gripper_positive_fraction": 0.41575840145322435,
+          "max_demo_frames": 347,
+          "min_demo_frames": 138,
+          "path": "C:\\assets\\data\\libero\\libero_goal\\put_the_wine_bottle_on_the_rack_demo.hdf5",
+          "robot_state_tail_shapes": [
+            [
+              9
+            ]
+          ],
+          "sha256": "f9092aa70734fc4083e97fc58c3ba25f87c614d18326182ddc7a455f0ab4da2e",
+          "sim_state_tail_shapes": [
+            [
+              79
+            ]
+          ]
+        },
+        "goal": "(:goal (and (on wine_bottle_1 wine_rack_1_top_region)) )",
+        "instruction": "put the wine bottle on the rack",
+        "objects": "(:objects akita_black_bowl_1 - akita_black_bowl cream_cheese_1 - cream_cheese wine_bottle_1 - wine_bottle plate_1 - plate )",
+        "task_stem": "put_the_wine_bottle_on_the_rack",
+        "world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+      },
+      {
+        "bddl_path": "C:\\assets\\repos\\LIBERO-Para\\libero\\libero\\bddl_files\\libero_goal\\put_the_wine_bottle_on_top_of_the_cabinet.bddl",
+        "bddl_sha256": "38242c40f3640cc6076a1569271647ab9a063e69345309da843193d9b0241265",
+        "demonstrations": {
+          "action_max": [
+            0.8571428571428572,
+            0.34285714285714286,
+            0.9375,
+            0.2142857142857143,
+            0.375,
+            0.11892857142857141,
+            1.0
+          ],
+          "action_min": [
+            -0.8624999999999999,
+            -0.8437500000000001,
+            -0.9,
+            -0.15642857142857142,
+            -0.19392857142857142,
+            -0.1285714285714286,
+            -1.0
+          ],
+          "action_shape": [
+            7
+          ],
+          "action_std": [
+            0.39344552962814033,
+            0.20459873866902975,
+            0.5264669843116253,
+            0.03968689235323496,
+            0.09317466182324509,
+            0.029809011817553306,
+            0.9895435598127806
+          ],
+          "bytes": 540179470,
+          "demonstrations": 50,
+          "finite_numeric_arrays": true,
+          "frames": 5394,
+          "gripper_negative_fraction": 0.4278828327771598,
+          "gripper_positive_fraction": 0.5721171672228402,
+          "max_demo_frames": 146,
+          "min_demo_frames": 87,
+          "path": "C:\\assets\\data\\libero\\libero_goal\\put_the_wine_bottle_on_top_of_the_cabinet_demo.hdf5",
+          "robot_state_tail_shapes": [
+            [
+              9
+            ]
+          ],
+          "sha256": "7dc087a7596d5cbbe394f681b21a0be434438b0dca73ac430c293fe4c818404a",
+          "sim_state_tail_shapes": [
+            [
+              79
+            ]
+          ]
+        },
+        "goal": "(:goal (and (on wine_bottle_1 wooden_cabinet_1_top_side)) )",
+        "instruction": "put the wine bottle on the top of the drawer",
+        "objects": "(:objects akita_black_bowl_1 - akita_black_bowl cream_cheese_1 - cream_cheese wine_bottle_1 - wine_bottle plate_1 - plate )",
+        "task_stem": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+      },
+      {
+        "bddl_path": "C:\\assets\\repos\\LIBERO-Para\\libero\\libero\\bddl_files\\libero_goal\\turn_on_the_stove.bddl",
+        "bddl_sha256": "c9f2ca9dc069c3597b1824f014f3865f7c8029fdc101545ec21d75ac1a10720f",
+        "demonstrations": {
+          "action_max": [
+            0.46071428571428574,
+            0.9080357142857143,
+            0.4580357142857143,
+            0.19821428571428573,
+            0.24535714285714286,
+            0.375,
+            1.0
+          ],
+          "action_min": [
+            -0.8839285714285714,
+            -0.39375,
+            -0.9375,
+            -0.17464285714285716,
+            -0.1285714285714286,
+            -0.14357142857142857,
+            -1.0
+          ],
+          "action_shape": [
+            7
+          ],
+          "action_std": [
+            0.23680868495582577,
+            0.262835868495198,
+            0.28009789071266383,
+            0.03975617143171886,
+            0.05102736933976689,
+            0.16956539516940392,
+            0.9993880972895133
+          ],
+          "bytes": 447509922,
+          "demonstrations": 50,
+          "finite_numeric_arrays": true,
+          "frames": 4460,
+          "gripper_negative_fraction": 0.5174887892376682,
+          "gripper_positive_fraction": 0.48251121076233183,
+          "max_demo_frames": 119,
+          "min_demo_frames": 75,
+          "path": "C:\\assets\\data\\libero\\libero_goal\\turn_on_the_stove_demo.hdf5",
+          "robot_state_tail_shapes": [
+            [
+              9
+            ]
+          ],
+          "sha256": "387fc10747696b80dea6ed8d7f2beaa162bf92ae11750b241073cbd33aac73d5",
+          "sim_state_tail_shapes": [
+            [
+              79
+            ]
+          ]
+        },
+        "goal": "(:goal (and (turnon flat_stove_1)) )",
+        "instruction": "turn on the stove",
+        "objects": "(:objects akita_black_bowl_1 - akita_black_bowl cream_cheese_1 - cream_cheese wine_bottle_1 - wine_bottle plate_1 - plate )",
+        "task_stem": "turn_on_the_stove",
+        "world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+      }
+    ],
+    "shared_world_signature": true,
+    "tasks": 10
+  },
+  "legality": {
+    "counterfactual_action_target_created": false,
+    "equivalent_positive_target": "the same real demonstrated action chunk paired with a LIBERO-Para instruction whose metadata declares the same task intent",
+    "negative_instruction_action_supervised_as_correct": false,
+    "negative_use": "rank the factual action chunk as more compatible with its factual/equivalent instruction than with another feasible Goal instruction in the same declared world",
+    "outcome_used_for_pair_selection": false,
+    "positive_action_target": "real demonstrated action chunk for the factual instruction",
+    "privileged_inference_input": false,
+    "required_safety_restriction": "use negative ranking only on an early pre-interaction clip window so alternative Goal intents remain feasible; freeze the window before Ours outcomes"
+  },
+  "policy": {
+    "checkpoint_written": false,
+    "closed_loop_outcome_read": false,
+    "model_loaded": false,
+    "optimizer_step_happened": false,
+    "ours_rollout_happened": false,
+    "simulator_episode_count": 0,
+    "training_happened": false
+  },
+  "raw_hdf5_inventory": {
+    "bytes": 100442942572,
+    "files": 130,
+    "suite_counts": {
+      "libero_10": 10,
+      "libero_90": 90,
+      "libero_goal": 10,
+      "libero_object": 10,
+      "libero_spatial": 10
+    }
+  },
+  "schema_version": "epoch7.selectivity_supervision_audit.v1"
+}

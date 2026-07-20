@@ -44,7 +44,7 @@ One narrower hypothesis remains eligible only for problem/headroom verification:
 ### Counterfactual selectivity and language reliance
 
 1. [CAST](https://arxiv.org/abs/2508.13446) generates alternative feasible instructions and synthetic action branches so different instructions yield different actions under similar observations. Official MIT code/data/checkpoints are available at [catglossop/CAST](https://github.com/catglossop/CAST). Its data pipeline needs Gemini/GCP and an atomic policy; that exact official pipeline is not locally credential-free.
-2. [When Vision Overrides Language / CAG](https://arxiv.org/abs/2602.17659) introduces LIBERO-CF and combines language-conditioned and language-unconditioned action branches at inference. It directly addresses visual shortcuts and counterfactual failures without changing the VLA backbone.
+2. [When Vision Overrides Language / CAG](https://arxiv.org/abs/2602.17659) introduces LIBERO-CF and combines language-conditioned and language-unconditioned action branches at inference. Its [official MIT-licensed artifact](https://github.com/yuffish/LIBERO-CF) was verified locally at `8460457bfca6e0ef2e856bc104e2c60b023ef2a7`. The released source implements `uncond + scale*(cond-uncond)` and provides 65 counterfactual tasks across spatial, spatial-focused, object, long-horizon, and OOD suites. The artifact supports OpenPI pi0/pi0.5 and OpenVLA-OFT, not X-VLA.
 3. [ProGAL-VLA](https://arxiv.org/abs/2604.09824) uses a symbolic planner, 3D entity graph, contrastive grounding, and ambiguity-aware selective prediction. It is a strong direct precedent against generic object-name canonicalization or entity-grounding claims.
 4. [IGAR](https://arxiv.org/abs/2603.06001) is a train-free attention recalibration method for contradictory instructions, evaluated on a purpose-built instruction-conflict benchmark.
 5. [Metamorphic Testing of VLA-Enabled Robots](https://arxiv.org/abs/2602.22579) already formalizes meaning-preserving input transformations as robot test relations across five VLAs, two robots, and four tasks. This limits a benchmark-only metamorphic-testing thesis.
@@ -83,7 +83,7 @@ The remaining distinction is not “add paraphrases,” “make actions consiste
 | LIBERO + raw goal demonstrations | verified and retained | Apache-2.0 | executable simulator/data |
 | LIBERO-Para | cloned and smoke-tested | MIT | executable benchmark after serial lifecycle adaptation |
 | `lerobot/xvla-libero` conversion | remote revision/size verified | Apache-2.0 | not downloaded; retained original preferred until identity need is justified |
-| CAG | primary method description verified | public paper/project; official code not established in this audit | mechanism-faithful local port may be used and must be labeled |
+| CAG + LIBERO-CF | official artifact verified at `8460457`; serial spatial and OOD runtime preflights pass | MIT | official benchmark/runtime retained; local CAG-TF remains a mechanism-faithful X-VLA port because the release has no X-VLA adapter |
 | CAST | public code/data/checkpoint | MIT; generation needs Gemini/GCP | read-only comparator design; official generation blocked locally |
 | OptimusVLA | source overlay and memory assets released | MIT | required base checkpoint identity unresolved; not a runnable fallback yet |
 | RoVLA / ProGAL | paper-level design verified | announced/public paper; complete runnable identity not established | novelty comparator, not official reproduction |
@@ -92,4 +92,4 @@ The remaining distinction is not “add paraphrases,” “make actions consiste
 
 `LITERATURE_REFRESH_COMPLETE_WITH_HIGH_NOVELTY_RISK`.
 
-The current executable problem is real, but the method space is saturated. Proceed only with a preregistered Base/Prior/headroom test of the paired equivalence-selectivity boundary. A failed boundary test closes the language candidate rather than authorizing a weaker paraphrase adapter.
+The current executable problem is real, but the method space is saturated. The later focused audit classifies real-action equivalence/selectivity ranking as `INCREMENTAL_BUT_DEFENSIBLE_WITH_STRONG_EVIDENCE`; every simpler canonicalization, augmentation-only, or guidance formulation is prohibited. A failed frozen Stage-0 test closes that mechanism rather than authorizing a weaker paraphrase adapter.

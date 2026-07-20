@@ -6,6 +6,9 @@
   "training_authorized": false,
   "ours_rollout_authorized": false,
   "confirmatory_identity_use_authorized": false,
+  "method_gate_updated_at": "2026-07-20T15:45:00+09:00",
+  "selected_mechanism": "equivalence-selective action-energy ranking",
+  "selected_mechanism_classification": "INCREMENTAL_BUT_DEFENSIBLE_WITH_STRONG_EVIDENCE",
   "evidence": {
     "base_canonical": "30/30",
     "base_paraphrase": "19/30",
@@ -28,7 +31,7 @@
     "strong_comparator_residual": "PASS_NARROW",
     "legal_headroom": "PASS",
     "infrastructure_validity": "PASS",
-    "plausible_distinct_method_after_overlap": "PENDING_HARD_GATE"
+    "plausible_distinct_method_after_overlap": "PASS_INCREMENTAL_STRONG_EVIDENCE_REQUIRED"
   },
   "strong_comparator": {
     "name": "all-MiniLM-L6-v2 semantic canonicalizer",
@@ -41,7 +44,7 @@
     "reference": "arXiv:2602.17659v2",
     "reason_not_strong_comparator": "Fails both canonical retention and primary paraphrase improvement."
   },
-  "next_hard_gate": "FOCUSED_METHOD_OVERLAP_AND_REAL_SUPERVISION_LEGALITY",
+  "next_hard_gate": "FROZEN_PARTITIONS_AND_STAGE0_BASE_ENERGY_FALSIFIER",
   "rotate_if": [
     "No method differs from every direct prior by at least two major dimensions.",
     "The remaining five pairs are better characterized as benchmark ambiguity or retrieval only.",
