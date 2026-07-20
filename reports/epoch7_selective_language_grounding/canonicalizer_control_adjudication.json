@@ -1,0 +1,77 @@
+{
+  "schema_version": "epoch7.canonicalizer_control_adjudication.v1",
+  "adjudicated_at": "2026-07-20T14:16:20+09:00",
+  "execution_type": "FROZEN_SIMPLE_CONTROL_CLOSED_LOOP_PANEL_NO_OURS",
+  "decision": "SIMPLE_CONTROL_IMPROVES_BUT_DOES_NOT_SATURATE",
+  "scope_limit": "The frozen character-trigram control leaves a residual. A stronger compact semantic-retrieval control and CAG-TF are still required before problem verification.",
+  "panel": {
+    "pairs": 30,
+    "episodes": 30,
+    "completed_episodes": 30,
+    "exceptions": 0,
+    "run_complete": true
+  },
+  "closed_loop_results": {
+    "base_paraphrase": {"successes": 19, "episodes": 30, "success_rate": 0.6333333333333333},
+    "canonicalizer_control": {"successes": 24, "episodes": 30, "success_rate": 0.8},
+    "base_canonical_oracle": {"successes": 30, "episodes": 30, "success_rate": 1.0},
+    "control_gain_over_raw_paraphrase_percentage_points": 16.66666666666667,
+    "control_residual_to_canonical_percentage_points": 20.0,
+    "base_paraphrase_failures": 11,
+    "base_failures_fixed_by_control": 6,
+    "base_failures_unresolved_by_control": 5,
+    "control_induced_failures_from_base_paraphrase_success": 1,
+    "control_total_failures": 6
+  },
+  "retrieval_results": {
+    "correct_task_mappings": 24,
+    "incorrect_task_mappings": 6,
+    "correct_mapping_closed_loop_successes": 24,
+    "incorrect_mapping_closed_loop_successes": 0,
+    "control_failure_equals_mapping_error_on_this_panel": true,
+    "failed_pairs": ["eval1_comp", "eval4_act", "eval5_act", "eval8_act", "eval8_comp", "eval9_act"]
+  },
+  "interpretation": {
+    "simple_control_saturates_problem": false,
+    "simple_control_materially_explains_problem": true,
+    "residual_description": "The remaining closed-loop gap is entirely associated with task-identification errors by the frozen lexical retriever, not execution after a correct canonical mapping.",
+    "reviewer_risk": "A stronger off-the-shelf semantic retriever may remove this residual without VLA adaptation; this must be tested before a method claim."
+  },
+  "resources": {
+    "wall_seconds": 369.1,
+    "minimum_wsl_memory_available_gib": 8.259,
+    "maximum_wsl_swap_used_kib": 0,
+    "maximum_cuda_allocated_gib": 3.436,
+    "one_live_environment_limit_respected": true
+  },
+  "artifacts": [
+    {
+      "path": "runs/epoch7_language_grounding/control_discovery_panel_v1/result.json",
+      "bytes": 83271,
+      "sha256": "bfad539bba4ea37b30fa2c80ec5c7a008af767544679f24e1ae5e6b43cedc629"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/control_discovery_panel_v1/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/control_discovery_panel_v1/stderr.log",
+      "bytes": 1872,
+      "sha256": "b530874289223d8626474b92c79d50599dc0493a981f976e80ca205ed189b455"
+    }
+  ],
+  "integrity": {
+    "control_uses_instruction_and_fixed_canonical_catalog_only": true,
+    "bddl_filename_or_eval_id_used_at_inference": false,
+    "simulator_state_reward_done_or_success_used_at_inference": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "ours_design_happened": false,
+    "ours_rollout_happened": false,
+    "confirmatory_identity_used": false,
+    "protected_rollout_directories_touched": false
+  },
+  "next_action": "Implement and validate the frozen CAG-TF Prior. In parallel only at the outcome-free artifact level, verify a compact licensed semantic-retrieval control before any method authorization."
+}
