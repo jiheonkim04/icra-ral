@@ -1,0 +1,85 @@
+{
+  "schema_version": "epoch7.contact_topology.stage0a_adjudication.v1",
+  "adjudicated_at": "2026-07-20T17:15:55+09:00",
+  "execution_type": "DISCOVERY_PREMETHOD_PROBLEM_AND_SUPERVISION_VERIFICATION",
+  "run_id": "epoch7_contact_stage0a_20260720_1710_kst",
+  "source_result": {
+    "path": "runs/epoch7_contact_transition_topology/stage0a/epoch7_contact_stage0a_20260720_1710_kst/stage0a_result.json",
+    "sha256": "3D18F9D7C6FA2E6311E4667853D1247FFC515B1BCD3325671A46BB0994160E06"
+  },
+  "scientific_protocol_sha256": "7FA28AAEEAC9886F36DD5CCD059CA7AC4CD65B21FABFBBCA4AFFA53B0A256240",
+  "resource_amendment_sha256": "7CCDCE5D9AA0B24C356AF873D0481AF76312D3C7FCF6871C4CA80FD6621ACFEB",
+  "panel": {
+    "tasks": 10,
+    "demos_per_task": 6,
+    "validation_tasks": 4,
+    "cold_repeats": 10
+  },
+  "gates_passed": {
+    "cold_repeat": true,
+    "exception_count": true,
+    "full_typed_support": true,
+    "off_gripper_fraction": true,
+    "off_gripper_task_coverage": true,
+    "robot_geom_resolution": true,
+    "state_restore_fraction": true,
+    "state_roundtrip": true,
+    "validation_demo_coverage": true,
+    "validation_prevalence_lower": true,
+    "validation_prevalence_upper": true,
+    "validation_transition_count": true,
+    "validation_typed_support": true,
+    "zero_actions": true,
+    "zero_forbidden_access": true,
+    "zero_outcome_reads": true,
+    "zero_retained_robot_edges": true,
+    "zero_success_checks": true
+  },
+  "metrics": {
+    "cold_repeat_graph_hash_match_fraction": 1.0,
+    "exception_count": 0,
+    "forbidden_dataset_access_count": 0,
+    "full_panel_supported_typed_direction_bins": 9,
+    "retained_edges_touching_robot": 0,
+    "reward_success_done_read": false,
+    "robot_contact_geom_resolution_fraction": 1.0,
+    "selected_state_restore_fraction": 1.0,
+    "simulator_actions_executed": 0,
+    "state_roundtrip_max_abs_error": 0.0,
+    "success_check_calls": 0,
+    "validation_debounced_transition_frames": 181,
+    "validation_eligible_frame_pairs": 3239,
+    "validation_supported_typed_direction_bins": 8,
+    "validation_tasks_with_transition_in_at_least_three_demos": 4,
+    "validation_task_demo_transition_coverage": {
+      "libero_goal_task0": 6,
+      "libero_goal_task6": 6,
+      "libero_goal_task7": 6,
+      "libero_goal_task9": 6
+    },
+    "validation_tasks_with_off_gripper_transitions": 4,
+    "validation_transition_fraction_outside_plus_minus_two_gripper_change_frames": 0.9005524861878453,
+    "validation_transition_prevalence": 0.05588144489039827,
+    "validation_typed_direction_counts": {
+      "articulated-articulated:birth": 24,
+      "articulated-articulated:death": 15,
+      "articulated-static:birth": 30,
+      "articulated-static:death": 21,
+      "free-articulated:birth": 34,
+      "free-articulated:death": 33,
+      "free-free:birth": 8,
+      "free-free:death": 2,
+      "free-static:birth": 11,
+      "free-static:death": 17
+    }
+  },
+  "scientific_firewall": {
+    "policy_rollout_happened": false,
+    "vla_training_happened": false,
+    "method_design_authorized": false,
+    "paper_generation_authorized": false
+  },
+  "final_decision": "CONTACT_TOPOLOGY_LABEL_GATE_GO",
+  "stage0b_authorized": true,
+  "authorization": "Execute only the unchanged frozen Stage 0B visual-predictability and oracle-action-headroom gate. No method, VLA training, policy rollout, or paper generation is authorized."
+}

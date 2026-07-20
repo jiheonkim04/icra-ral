@@ -148,3 +148,14 @@ swap, no sampled paging writes, at most 16 MiB allocation-only pagefile
 jitter, and bounded controlled cache release. No contact-label row or outcome
 was accessed while writing or testing the amendment. A valid actual-path
 resource smoke is required before Stage 0A can resume.
+
+### Contact-transition Stage 0A result
+
+The amended actual-path smoke passed and the unchanged ten-task, six-demo
+label gate returned `CONTACT_TOPOLOGY_LABEL_GATE_GO`. All 18 gates passed:
+validation prevalence was 5.59%, all four held-out tasks contained transitions
+in all six demonstrations, eight typed birth/death bins had validation
+support, and 90.06% of transition frames were outside the frozen gripper-event
+window. Exact replay and cold-repeat hashes matched completely, with no robot
+edges, outcome access, simulator actions, or success calls. This authorizes
+only the frozen visual-predictability and oracle-action-headroom Stage 0B.

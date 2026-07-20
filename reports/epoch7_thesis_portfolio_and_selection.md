@@ -192,3 +192,9 @@ The scientific protocol remains unchanged at SHA-256
 `7FA28AAEEAC9886F36DD5CCD059CA7AC4CD65B21FABFBBCA4AFFA53B0A256240`.
 Only a passing outcome-free actual-path resource smoke may now authorize the
 already-frozen Stage 0A label gate.
+
+Stage 0A subsequently returned `CONTACT_TOPOLOGY_LABEL_GATE_GO` with all 18
+frozen gates passing. This establishes a deterministic, nontrivial typed
+contact-transition signal but not visual predictability or action headroom.
+Only the already-frozen Stage 0B probes are now authorized; Candidate K remains
+premethod and no Ours, VLA training, policy rollout, or paper work is legal.
