@@ -51,6 +51,22 @@
     "full_metadata_accuracy": {"correct": 3476, "total": 4092, "fraction": 0.8494623655913979},
     "discovery_panel_accuracy": {"correct": 24, "total": 30, "fraction": 0.8}
   },
+  "strong_semantic_control": {
+    "frozen_at": "2026-07-20T14:52:00+09:00",
+    "reason": "The lexical Control materially improved success and all remaining failures were retrieval errors; a stronger off-the-shelf semantic retriever is the decisive simple-explanation test.",
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "license": "Apache-2.0",
+    "parameter_count_reported": 22700000,
+    "embedding_dimension": 384,
+    "implementation": "Hugging Face Transformers AutoTokenizer/AutoModel; attention-mask mean pooling; L2 normalization; cosine nearest neighbor",
+    "catalog": "the same fixed ten canonical LIBERO-Goal instructions",
+    "legal_inputs": ["observed instruction", "fixed canonical instruction catalog"],
+    "forbidden_inputs": ["BDDL filename", "eval_id", "simulator state", "reward", "done", "success", "outcome"],
+    "selection_or_tuning_on_panel_mapping_results": false,
+    "selection_or_tuning_on_closed_loop_outcomes": false,
+    "status": "FROZEN_BEFORE_MODEL_DOWNLOAD_OR_MAPPING_RESULTS"
+  },
   "pairing": {
     "act": {"seed": 7, "initial_state_index": 0},
     "obj": {"seed": 8, "initial_state_index": 1},

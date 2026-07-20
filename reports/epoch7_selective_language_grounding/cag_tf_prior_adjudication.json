@@ -1,0 +1,73 @@
+{
+  "schema_version": "epoch7.cag_tf_prior_adjudication.v1",
+  "adjudicated_at": "2026-07-20T14:50:00+09:00",
+  "execution_type": "FROZEN_REFERENCE_ALIGNED_CAG_TF_PANEL_NO_OURS",
+  "decision": "CAG_TF_PRIOR_INCOMPETENT_RETENTION_AND_PRIMARY_FAILURE",
+  "scope_limit": "CAG-TF cannot serve as the competent strong Prior on this checkpoint/protocol. The thesis remains gated on a stronger semantic Control and a defensible comparator path.",
+  "implementation": {
+    "formula": "a_empty + 1.5 * (a_cond - a_empty)",
+    "reference": "arXiv:2602.17659v2 Eq. 4",
+    "shared_rng_state_per_chunk": true,
+    "one_model_resident": true,
+    "mixing_space": "native X-VLA action output before unchanged LIBERO conversion",
+    "author_code_claimed": false,
+    "exceptions": 0,
+    "action_connection_valid": true
+  },
+  "results": {
+    "base_canonical": {"successes": 30, "episodes": 30, "success_rate": 1.0},
+    "base_paraphrase": {"successes": 19, "episodes": 30, "success_rate": 0.6333333333333333},
+    "cag_canonical": {"successes": 14, "episodes": 30, "success_rate": 0.4666666666666667},
+    "cag_paraphrase": {"successes": 11, "episodes": 30, "success_rate": 0.36666666666666664},
+    "canonical_drop_vs_base_percentage_points": 53.33333333333333,
+    "paraphrase_gain_vs_base_percentage_points": -26.66666666666667,
+    "paraphrase_gap_below_simple_control_percentage_points": 43.333333333333336,
+    "canonical_pair_gains": 0,
+    "canonical_pair_harms": 16,
+    "paraphrase_pair_gains": 2,
+    "paraphrase_pair_harms": 10
+  },
+  "gate_checks": {
+    "canonical_retention_within_5_percentage_points": false,
+    "improves_paraphrase_success_over_base": false,
+    "outperforms_simple_control": false,
+    "prior_correctly_action_connected": true,
+    "prior_competent": false,
+    "frozen_prior_residual_gate": "FAIL"
+  },
+  "resources": {
+    "wall_seconds": 1096.0,
+    "minimum_wsl_memory_available_gib": 8.264,
+    "maximum_wsl_swap_used_kib": 0,
+    "maximum_cuda_allocated_gib": 3.436,
+    "one_live_environment_limit_respected": true
+  },
+  "artifacts": [
+    {
+      "path": "runs/epoch7_language_grounding/cag_discovery_panel_v2/result.json",
+      "bytes": 413067,
+      "sha256": "1dd1c48bc1555a3487374f6f56e0e0fa90e30a5d7b4992544dd48689655c8b9f"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/cag_discovery_panel_v2/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/cag_discovery_panel_v2/stderr.log",
+      "bytes": 1872,
+      "sha256": "b530874289223d8626474b92c79d50599dc0493a981f976e80ca205ed189b455"
+    }
+  ],
+  "invalid_predecessor_excluded": "reports/epoch7_selective_language_grounding/cag_tf_formula_defect_repair.json",
+  "integrity": {
+    "omega_tuned_after_outcome": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "ours_design_happened": false,
+    "ours_rollout_happened": false,
+    "confirmatory_identity_used": false
+  },
+  "next_action": "Run the preregistered compact semantic-retrieval Control. If it saturates or nearly saturates the panel, rotate the thesis; otherwise determine whether a competent strong comparator is still locally executable before method discovery."
+}
