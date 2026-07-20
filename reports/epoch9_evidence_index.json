@@ -1,0 +1,132 @@
+{
+  "artifacts": [
+    {
+      "bytes": 8642,
+      "path": "reports/epoch9_active_property_overlap_delta.md",
+      "sha256": "CADD71314157166953636202ACDAFD54CEEC4F51616DEE27D2751D5126642DF0"
+    },
+    {
+      "bytes": 1358,
+      "path": "reports/epoch9_resource_preflight.json",
+      "sha256": "D8B7185D7225D48FFAC84156763BDE0245B8738A0E2445E0FB7CDFD13B1E438B"
+    },
+    {
+      "bytes": 66354,
+      "path": "reports/epoch9_active_grounding_protocol.json",
+      "sha256": "6A6FAEDC895C80009CAB99D26590E99C506C677DEFEED55C0EBAA7B170610548"
+    },
+    {
+      "bytes": 40831,
+      "path": "reports/epoch9_active_grounding_protocol_rotation3.json",
+      "sha256": "FDBE73066A22126B9941540DAF882DE05441E6BDC66C83D472DA3447EB2E8988"
+    },
+    {
+      "bytes": 4558,
+      "path": "reports/epoch9_paired_probe_route_adjudication.json",
+      "sha256": "31C875E92C962E47F67A3E2CFEBB586E26830D84C7CD0D584ED0E7D8FB139508"
+    },
+    {
+      "bytes": 9989,
+      "path": "reports/epoch9_terminal_adjudication.json",
+      "sha256": "165589725D1F7FB0DF04EA8207135EFEB72D167BE24522367723E73AE04B2FB5"
+    },
+    {
+      "bytes": 1587,
+      "path": "reports/epoch9_campaign_state.json",
+      "sha256": "41F8D29D01FA58917289C08AC93EDA3D85ED471689CE2C309E40125A33821AAD"
+    },
+    {
+      "bytes": 2050,
+      "path": "reports/epoch9_terminal_handoff.md",
+      "sha256": "32D557EEE53258E89750548FDC0FFD33E20D5E9F522F827C425801CB32579F4D"
+    },
+    {
+      "bytes": 35457,
+      "path": "scripts/run_epoch9_probe_controller_development.py",
+      "sha256": "6BCFE0F458945CDAB184868A848ECB878B2B6E7DED88EDB9C857AA6677F98132"
+    },
+    {
+      "bytes": 19890,
+      "path": "scripts/run_epoch9_relational_probe_dataset.py",
+      "sha256": "9A9EDCE554D04D89F66DF01156C64DC45EB47E504CDAF9B59CB3CBD9A9E8333D"
+    },
+    {
+      "bytes": 32057,
+      "path": "scripts/run_epoch9_temporal_relational_model.py",
+      "sha256": "D2D670019D2156EBC814815FE6C5E88FE0B404015F268D7D14E7D2B2FBC446DF"
+    },
+    {
+      "bytes": 3799,
+      "path": "tca_map/epoch9_active_grounding.py",
+      "sha256": "6143F2405C7003A4E84BB266519B4ED0ADC3A2448B804AE8141B763A4EA27495"
+    },
+    {
+      "bytes": 8151,
+      "path": "tests/test_epoch9_active_grounding.py",
+      "sha256": "DEDBA8C543967F9977C0FE7A53C547C090493A1CEBA06A3D8CC59A1E020AFF89"
+    },
+    {
+      "bytes": 395079,
+      "path": "reports/epoch9_relational_probe_dataset/development/paired_v1/result.json",
+      "sha256": "10F452353AFFEC2810F0FA17531D28DD09D00C056ABC6CA2C9D31CEC41403617"
+    },
+    {
+      "bytes": 199092,
+      "path": "reports/epoch9_relational_probe_dataset/development/repair1_front_first_v1/result.json",
+      "sha256": "6184350B3B36672EAC6B17649639C63399213CA306019F206E63B29AF4A61850"
+    },
+    {
+      "bytes": 202618,
+      "path": "reports/epoch9_relational_probe_dataset/development/repair2_full_v1/result.json",
+      "sha256": "CEF1ACEF04D33B91FCCE9CD513F2BD948F39FCE8417CC0CBEB43C15EB6AFF1F8"
+    },
+    {
+      "bytes": 42006,
+      "path": "reports/epoch9_relational_probe_dataset/development/repair3_demo31_33_diagnostic/result.json",
+      "sha256": "3C63F87BF13C2EE6E750048608BA347ECFB2AF59775574C6CAC1AC5DBDECB944"
+    },
+    {
+      "bytes": 43677,
+      "path": "reports/epoch9_relational_probe_dataset/development/repair4_demo31_33_diagnostic/result.json",
+      "sha256": "B97D3CEF092DCBCD15F3EEB3A4524174045FDCB19FF2E7F0F9EECF56890B988A"
+    },
+    {
+      "bytes": 134209,
+      "path": "reports/epoch9_relational_probe_dataset/development/rotation1_front_reference_v1/result.json",
+      "sha256": "045F39C0D3584B09C8B6CCCDBACF041A50DB4BBBB47EACB25A7CBF92445C0FC8"
+    },
+    {
+      "bytes": 14177,
+      "path": "reports/epoch9_relational_probe_dataset/development/rotation1_repair1_demo37_diagnostic/result.json",
+      "sha256": "4E14068AB554C305FC817A1B6EA521D841AA97320C103E934B061A0E1798E4C8"
+    },
+    {
+      "bytes": 14313,
+      "path": "reports/epoch9_relational_probe_dataset/development/rotation2_demo37_diagnostic/result.json",
+      "sha256": "C19CD9FBB52A2C519C941633AD3097F84CBF3A1BC0C70F828914630E720B19E5"
+    },
+    {
+      "bytes": 14256,
+      "path": "reports/epoch9_relational_probe_dataset/development/rotation3_demo37_diagnostic/result.json",
+      "sha256": "599F93C720BE56B3A0AF6B7B6E25B765C503347A62CBDEDCAFF17EC6EAA529DF"
+    }
+  ],
+  "protected_rollouts": [
+    {
+      "file_count": 27,
+      "manifest_sha256": "25DE8FF5AA6112D7EFF8BCF38D3A4C3F0F3C8C8EE0458E5FA83D17438719EC54",
+      "path": "rollouts/2026_07_17/",
+      "total_bytes": 5143751,
+      "touched_by_epoch9": false
+    },
+    {
+      "file_count": 10,
+      "manifest_sha256": "CF701D6F73D4783F016E48A72C093DC9FD6D940B7081DA8FBEC128DB94C24A00",
+      "path": "rollouts/2026_07_18/",
+      "total_bytes": 924633,
+      "touched_by_epoch9": false
+    }
+  ],
+  "schema_version": "epoch9.evidence_index.v1",
+  "timestamp": "2026-07-20T23:41:01+09:00"
+}

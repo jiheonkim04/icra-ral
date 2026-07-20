@@ -1,0 +1,449 @@
+{
+  "evidence_class": "DEVELOPMENT",
+  "partition": "development",
+  "protocol_path": "reports/epoch9_active_grounding_protocol_rotation3.json",
+  "protocol_status": "FROZEN_ZERO_TRAVEL_CONTACT_HOLD_BEFORE_OUTCOMES",
+  "rows": [
+    {
+      "back_mass_factor": 1.0,
+      "candidate_final_displacement_m_eval_only": {
+        "back": 0.0,
+        "front": 0.030191134365628435
+      },
+      "completed": true,
+      "demo_index": 37,
+      "episode_final_eef_displacement_m_eval_only": 0.0028444340375923852,
+      "episode_final_eef_eval_only": [
+        -0.20007793702130852,
+        0.002021660203892737,
+        1.1725209704958608
+      ],
+      "episode_id": "development_demo37_front8_back1_front-first",
+      "episode_initial_eef_eval_only": [
+        -0.20212304011819682,
+        0.00212946108945848,
+        1.1705469549725218
+      ],
+      "exception": null,
+      "expert_actions_used_online": false,
+      "forbidden_online_inputs_used": [],
+      "front_mass_factor": 8.0,
+      "heavier_slot_training_label": "front",
+      "lighter_slot_training_label": "back",
+      "mass_used_online": false,
+      "online_inputs": [
+        "fixed slot calibration",
+        "agentview RGB",
+        "end-effector proprioception",
+        "executed action and controller-command history",
+        "elapsed controller phase"
+      ],
+      "partition": "development",
+      "probe_order": [
+        "front"
+      ],
+      "probes": [
+        {
+          "final_eef": [
+            -0.20007793702130852,
+            0.002021660203892737,
+            1.1725209704958608
+          ],
+          "final_eef_displacement_m": 0.0028444340375923852,
+          "final_target_eval_only": [
+            0.14413956087296664,
+            0.1554154465895658,
+            0.898386615352325
+          ],
+          "finite_bounded_actions": true,
+          "frozen_contact_eef": [
+            0.05,
+            0.169,
+            0.926
+          ],
+          "frozen_gripper_command": -1.0,
+          "frozen_push_scale": 0.0,
+          "frozen_return_variant": "clearance_first",
+          "initial_eef": [
+            -0.20212304011819682,
+            0.00212946108945848,
+            1.1705469549725218
+          ],
+          "initial_target_eval_only": [
+            0.1142615907211111,
+            0.15107827293762804,
+            0.8984070750980836
+          ],
+          "phase_reached": {
+            "approach_above": true,
+            "approach_contact": true,
+            "lift_clear": true,
+            "probe_inward": true,
+            "return_central_high": true,
+            "return_neutral": true,
+            "return_prehome": true,
+            "withdraw_clear": true,
+            "withdraw_contact": true
+          },
+          "privileged_fields_in_trace": [],
+          "slot": "front",
+          "steps": 136,
+          "target_contact_eval_only": true,
+          "target_displacement_m_eval_only": 0.030191134365628435,
+          "trace_fields": [
+            "phase",
+            "action",
+            "eef_pos",
+            "eef_quat",
+            "controller_goal_pos",
+            "controller_error",
+            "rgb_diff_32"
+          ],
+          "trace_path": "reports/epoch9_relational_probe_dataset/development/rotation3_demo37_diagnostic/traces/development_demo37_front8_back1_front-first_front.npz",
+          "visual_return_estimate": {
+            "dx": 0.0,
+            "dy": 0.0,
+            "quality": 1.0
+          }
+        }
+      ],
+      "simulator_state_used_for_actions": false,
+      "timestamp": "2026-07-20T23:37:18+09:00"
+    },
+    {
+      "back_mass_factor": 8.0,
+      "candidate_final_displacement_m_eval_only": {
+        "back": 2.0462125778294662e-05,
+        "front": 0.04193514858315894
+      },
+      "completed": true,
+      "demo_index": 37,
+      "episode_final_eef_displacement_m_eval_only": 0.0028429130593975423,
+      "episode_final_eef_eval_only": [
+        -0.20007913336217403,
+        0.0020216584699494734,
+        1.172520018182661
+      ],
+      "episode_id": "development_demo37_front1_back8_front-first",
+      "episode_initial_eef_eval_only": [
+        -0.20212304011819682,
+        0.00212946108945848,
+        1.1705469549725218
+      ],
+      "exception": null,
+      "expert_actions_used_online": false,
+      "forbidden_online_inputs_used": [],
+      "front_mass_factor": 1.0,
+      "heavier_slot_training_label": "back",
+      "lighter_slot_training_label": "front",
+      "mass_used_online": false,
+      "online_inputs": [
+        "fixed slot calibration",
+        "agentview RGB",
+        "end-effector proprioception",
+        "executed action and controller-command history",
+        "elapsed controller phase"
+      ],
+      "partition": "development",
+      "probe_order": [
+        "front"
+      ],
+      "probes": [
+        {
+          "final_eef": [
+            -0.20007913336217403,
+            0.0020216584699494734,
+            1.172520018182661
+          ],
+          "final_eef_displacement_m": 0.0028429130593975423,
+          "final_target_eval_only": [
+            0.15593059468669804,
+            0.14636119808052464,
+            0.8984070750980836
+          ],
+          "finite_bounded_actions": true,
+          "frozen_contact_eef": [
+            0.05,
+            0.169,
+            0.926
+          ],
+          "frozen_gripper_command": -1.0,
+          "frozen_push_scale": 0.0,
+          "frozen_return_variant": "clearance_first",
+          "initial_eef": [
+            -0.20212304011819682,
+            0.00212946108945848,
+            1.1705469549725218
+          ],
+          "initial_target_eval_only": [
+            0.1142615907211111,
+            0.15107827293762804,
+            0.8984070750980836
+          ],
+          "phase_reached": {
+            "approach_above": true,
+            "approach_contact": true,
+            "lift_clear": true,
+            "probe_inward": true,
+            "return_central_high": true,
+            "return_neutral": true,
+            "return_prehome": true,
+            "withdraw_clear": true,
+            "withdraw_contact": true
+          },
+          "privileged_fields_in_trace": [],
+          "slot": "front",
+          "steps": 135,
+          "target_contact_eval_only": true,
+          "target_displacement_m_eval_only": 0.04193514858315894,
+          "trace_fields": [
+            "phase",
+            "action",
+            "eef_pos",
+            "eef_quat",
+            "controller_goal_pos",
+            "controller_error",
+            "rgb_diff_32"
+          ],
+          "trace_path": "reports/epoch9_relational_probe_dataset/development/rotation3_demo37_diagnostic/traces/development_demo37_front1_back8_front-first_front.npz",
+          "visual_return_estimate": {
+            "dx": 0.0,
+            "dy": 0.0,
+            "quality": 0.9999803900718689
+          }
+        }
+      ],
+      "simulator_state_used_for_actions": false,
+      "timestamp": "2026-07-20T23:37:27+09:00"
+    },
+    {
+      "back_mass_factor": 2.0,
+      "candidate_final_displacement_m_eval_only": {
+        "back": 2.9250718004843774e-06,
+        "front": 0.024128423952322318
+      },
+      "completed": true,
+      "demo_index": 37,
+      "episode_final_eef_displacement_m_eval_only": 0.0028429424436534714,
+      "episode_final_eef_eval_only": [
+        -0.20007911046776464,
+        0.0020216585321928392,
+        1.1725200368082949
+      ],
+      "episode_id": "development_demo37_front4_back2_front-first",
+      "episode_initial_eef_eval_only": [
+        -0.20212304011819682,
+        0.00212946108945848,
+        1.1705469549725218
+      ],
+      "exception": null,
+      "expert_actions_used_online": false,
+      "forbidden_online_inputs_used": [],
+      "front_mass_factor": 4.0,
+      "heavier_slot_training_label": "front",
+      "lighter_slot_training_label": "back",
+      "mass_used_online": false,
+      "online_inputs": [
+        "fixed slot calibration",
+        "agentview RGB",
+        "end-effector proprioception",
+        "executed action and controller-command history",
+        "elapsed controller phase"
+      ],
+      "partition": "development",
+      "probe_order": [
+        "front"
+      ],
+      "probes": [
+        {
+          "final_eef": [
+            -0.20007911046776464,
+            0.0020216585321928392,
+            1.1725200368082949
+          ],
+          "final_eef_displacement_m": 0.0028429424436534714,
+          "final_target_eval_only": [
+            0.13799840578269615,
+            0.15540775052617942,
+            0.8983983021087466
+          ],
+          "finite_bounded_actions": true,
+          "frozen_contact_eef": [
+            0.05,
+            0.169,
+            0.926
+          ],
+          "frozen_gripper_command": -1.0,
+          "frozen_push_scale": 0.0,
+          "frozen_return_variant": "clearance_first",
+          "initial_eef": [
+            -0.20212304011819682,
+            0.00212946108945848,
+            1.1705469549725218
+          ],
+          "initial_target_eval_only": [
+            0.1142615907211111,
+            0.15107827293762804,
+            0.8984070750980836
+          ],
+          "phase_reached": {
+            "approach_above": true,
+            "approach_contact": true,
+            "lift_clear": true,
+            "probe_inward": true,
+            "return_central_high": true,
+            "return_neutral": true,
+            "return_prehome": true,
+            "withdraw_clear": true,
+            "withdraw_contact": true
+          },
+          "privileged_fields_in_trace": [],
+          "slot": "front",
+          "steps": 135,
+          "target_contact_eval_only": true,
+          "target_displacement_m_eval_only": 0.024128423952322318,
+          "trace_fields": [
+            "phase",
+            "action",
+            "eef_pos",
+            "eef_quat",
+            "controller_goal_pos",
+            "controller_error",
+            "rgb_diff_32"
+          ],
+          "trace_path": "reports/epoch9_relational_probe_dataset/development/rotation3_demo37_diagnostic/traces/development_demo37_front4_back2_front-first_front.npz",
+          "visual_return_estimate": {
+            "dx": 0.0,
+            "dy": 0.0,
+            "quality": 1.0
+          }
+        }
+      ],
+      "simulator_state_used_for_actions": false,
+      "timestamp": "2026-07-20T23:37:35+09:00"
+    },
+    {
+      "back_mass_factor": 4.0,
+      "candidate_final_displacement_m_eval_only": {
+        "back": 8.774006974592957e-06,
+        "front": 0.03065760895237623
+      },
+      "completed": true,
+      "demo_index": 37,
+      "episode_final_eef_displacement_m_eval_only": 0.0028429236794433217,
+      "episode_final_eef_eval_only": [
+        -0.20007912501213052,
+        0.0020216585044510317,
+        1.172520024836718
+      ],
+      "episode_id": "development_demo37_front2_back4_front-first",
+      "episode_initial_eef_eval_only": [
+        -0.20212304011819682,
+        0.00212946108945848,
+        1.1705469549725218
+      ],
+      "exception": null,
+      "expert_actions_used_online": false,
+      "forbidden_online_inputs_used": [],
+      "front_mass_factor": 2.0,
+      "heavier_slot_training_label": "back",
+      "lighter_slot_training_label": "front",
+      "mass_used_online": false,
+      "online_inputs": [
+        "fixed slot calibration",
+        "agentview RGB",
+        "end-effector proprioception",
+        "executed action and controller-command history",
+        "elapsed controller phase"
+      ],
+      "partition": "development",
+      "probe_order": [
+        "front"
+      ],
+      "probes": [
+        {
+          "final_eef": [
+            -0.20007912501213052,
+            0.0020216585044510317,
+            1.172520024836718
+          ],
+          "final_eef_displacement_m": 0.0028429236794433217,
+          "final_target_eval_only": [
+            0.1445063440537413,
+            0.15609263969436907,
+            0.8984041503649195
+          ],
+          "finite_bounded_actions": true,
+          "frozen_contact_eef": [
+            0.05,
+            0.169,
+            0.926
+          ],
+          "frozen_gripper_command": -1.0,
+          "frozen_push_scale": 0.0,
+          "frozen_return_variant": "clearance_first",
+          "initial_eef": [
+            -0.20212304011819682,
+            0.00212946108945848,
+            1.1705469549725218
+          ],
+          "initial_target_eval_only": [
+            0.1142615907211111,
+            0.15107827293762804,
+            0.8984070750980836
+          ],
+          "phase_reached": {
+            "approach_above": true,
+            "approach_contact": true,
+            "lift_clear": true,
+            "probe_inward": true,
+            "return_central_high": true,
+            "return_neutral": true,
+            "return_prehome": true,
+            "withdraw_clear": true,
+            "withdraw_contact": true
+          },
+          "privileged_fields_in_trace": [],
+          "slot": "front",
+          "steps": 135,
+          "target_contact_eval_only": true,
+          "target_displacement_m_eval_only": 0.03065760895237623,
+          "trace_fields": [
+            "phase",
+            "action",
+            "eef_pos",
+            "eef_quat",
+            "controller_goal_pos",
+            "controller_error",
+            "rgb_diff_32"
+          ],
+          "trace_path": "reports/epoch9_relational_probe_dataset/development/rotation3_demo37_diagnostic/traces/development_demo37_front2_back4_front-first_front.npz",
+          "visual_return_estimate": {
+            "dx": 0.0,
+            "dy": 0.0,
+            "quality": 1.0
+          }
+        }
+      ],
+      "simulator_state_used_for_actions": false,
+      "timestamp": "2026-07-20T23:37:42+09:00"
+    }
+  ],
+  "run_id": "rotation3_demo37_diagnostic",
+  "schema_version": "epoch9.relational_probe_dataset.v1",
+  "status": "FINISHED",
+  "summary": {
+    "bounded_action_fraction": 1.0,
+    "completed_episodes": 4,
+    "contact_fraction": 1.0,
+    "exception_count": 0,
+    "execution_gate_pass": false,
+    "expected_episodes": 4,
+    "max_candidate_final_displacement_m": 0.04193514858315894,
+    "max_episode_final_eef_displacement_m": 0.0028444340375923852,
+    "max_visual_return_residual_pixels": 0.0,
+    "probe_count": 4,
+    "recorded_episodes": 4
+  },
+  "timestamp": "2026-07-20T23:37:17+09:00"
+}

@@ -1,0 +1,32 @@
+{
+  "active_workers": 0,
+  "branch": "codex/epoch9-active-physical-grounding",
+  "confirmation_accessed": false,
+  "epoch8_scientific_checkpoint": "a1d0d7f262038d43cbedf7640373c411b8f2e383",
+  "epoch8_status": "EPOCH8_EXACT_METHODS_FINISHED_CONTINUATION_REQUIRED",
+  "epoch9_status": "ACTIVE_FIXED_SLOT_CONTACT_ROUTE_FALSIFIED_CONTINUATION_REQUIRED",
+  "paper_status": "PAPER_NOT_AUTHORIZED",
+  "program_status": "CONTINUATION_REQUIRED",
+  "protected_rollouts": [
+    {
+      "file_count": 27,
+      "manifest_sha256": "25DE8FF5AA6112D7EFF8BCF38D3A4C3F0F3C8C8EE0458E5FA83D17438719EC54",
+      "path": "rollouts/2026_07_17/",
+      "total_bytes": 5143751,
+      "touched_by_epoch9": false
+    },
+    {
+      "file_count": 10,
+      "manifest_sha256": "CF701D6F73D4783F016E48A72C093DC9FD6D940B7081DA8FBEC128DB94C24A00",
+      "path": "rollouts/2026_07_18/",
+      "total_bytes": 924633,
+      "touched_by_epoch9": false
+    }
+  ],
+  "safe_resume": "Start a new method cycle with a preregistered learned RGB/proprio contact-aware exploration and object-restoration controller, or a purpose-built non-grasping probe geometry. Do not reopen the sealed 40..49 identities or fit the prepared temporal model until a new same-scene development controller passes every contact, action, 3 cm object, 5 cm EEF, and 5 px visual gate.",
+  "schema_version": "epoch9.campaign_state.v1",
+  "source_checkpoint": "f8314938e440aaefb6399d80594c78431043aa7f",
+  "terminal_adjudication": "reports/epoch9_terminal_adjudication.json",
+  "timestamp": "2026-07-20T23:41:01+09:00",
+  "validation_accessed": false
+}

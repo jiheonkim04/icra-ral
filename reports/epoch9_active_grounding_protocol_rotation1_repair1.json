@@ -1,0 +1,1174 @@
+{
+  "claim_boundary": "A pass supports active relative-mass grounding only for this complementary two-candidate LIBERO generator with one safe reference probe. It does not support arbitrary candidate sets, two-probe order invariance, general material understanding, real-robot transfer, or unrestricted VLA physical reasoning.",
+  "confirmation_rule": "confirmation may run once, without repair, only if every validation execution and mechanism gate passes; the same thresholds apply and validation plus confirmation are reported separately",
+  "development_repair3_basis": {
+    "diagnostic_evidence": "The repair2 back probe lifted the light bowl from z=0.8984 m to z=1.1182 m. In the official HDF5 demonstration, gripper action -1 is held throughout approach and changes to +1 only at grasp closure.",
+    "failed_runs": [
+      "reports/epoch9_relational_probe_dataset/development/repair1_front_first_v1/result.json",
+      "reports/epoch9_relational_probe_dataset/development/repair2_full_v1/result.json"
+    ],
+    "label_blind_rationale": "The change corrects verified action semantics and removes accidental grasping; it does not use response features or classification correctness.",
+    "repair": "Hold the official open command -1 during every approach, contact, hold, withdrawal, and return step. Restore the original 2/3 push scale for both slots; keep fixed front-to-back order and every split, assignment, model input, and 3 cm/5 cm/5 px gate unchanged.",
+    "root_cause": "The inherited controller used +1 during approach/return and 0 during contact under the mistaken description 'neutral gripper'; the paired reset geometry allowed the closing gripper to catch a bowl."
+  },
+  "development_repair_basis": {
+    "claim_limit": "No probe-order invariance claim is authorized.",
+    "diagnosis": "The unconstrained-orientation return left a configuration-dependent sequential interaction. The failure was order-specific and not monotonic in the latent mass label.",
+    "failed_run": "reports/epoch9_relational_probe_dataset/development/paired_v1/result.json",
+    "observation": "Three demo-30 back-first episodes completed legal contact but the later front probe displaced the back bowl 0.241-0.251 m; every observed front-first episode remained within 0.03 m.",
+    "repair": "Fix the controller and deployment order to front then back. No waypoint, action, visual threshold, mass assignment, split identity, model input, or mechanism threshold changes."
+  },
+  "episode_specs": {
+    "confirmation": [
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 45,
+        "episode_id": "confirmation_demo45_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 45,
+        "episode_id": "confirmation_demo45_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 45,
+        "episode_id": "confirmation_demo45_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 45,
+        "episode_id": "confirmation_demo45_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 46,
+        "episode_id": "confirmation_demo46_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 46,
+        "episode_id": "confirmation_demo46_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 46,
+        "episode_id": "confirmation_demo46_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 46,
+        "episode_id": "confirmation_demo46_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 47,
+        "episode_id": "confirmation_demo47_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 47,
+        "episode_id": "confirmation_demo47_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 47,
+        "episode_id": "confirmation_demo47_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 47,
+        "episode_id": "confirmation_demo47_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 48,
+        "episode_id": "confirmation_demo48_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 48,
+        "episode_id": "confirmation_demo48_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 48,
+        "episode_id": "confirmation_demo48_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 48,
+        "episode_id": "confirmation_demo48_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 49,
+        "episode_id": "confirmation_demo49_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 49,
+        "episode_id": "confirmation_demo49_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 49,
+        "episode_id": "confirmation_demo49_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 49,
+        "episode_id": "confirmation_demo49_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "confirmation",
+        "probe_order": [
+          "front"
+        ]
+      }
+    ],
+    "development": [
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 30,
+        "episode_id": "development_demo30_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 30,
+        "episode_id": "development_demo30_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 30,
+        "episode_id": "development_demo30_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 30,
+        "episode_id": "development_demo30_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 31,
+        "episode_id": "development_demo31_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 31,
+        "episode_id": "development_demo31_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 31,
+        "episode_id": "development_demo31_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 31,
+        "episode_id": "development_demo31_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 32,
+        "episode_id": "development_demo32_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 32,
+        "episode_id": "development_demo32_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 32,
+        "episode_id": "development_demo32_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 32,
+        "episode_id": "development_demo32_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 33,
+        "episode_id": "development_demo33_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 33,
+        "episode_id": "development_demo33_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 33,
+        "episode_id": "development_demo33_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 33,
+        "episode_id": "development_demo33_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 34,
+        "episode_id": "development_demo34_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 34,
+        "episode_id": "development_demo34_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 34,
+        "episode_id": "development_demo34_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 34,
+        "episode_id": "development_demo34_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 35,
+        "episode_id": "development_demo35_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 35,
+        "episode_id": "development_demo35_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 35,
+        "episode_id": "development_demo35_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 35,
+        "episode_id": "development_demo35_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 36,
+        "episode_id": "development_demo36_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 36,
+        "episode_id": "development_demo36_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 36,
+        "episode_id": "development_demo36_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 36,
+        "episode_id": "development_demo36_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 37,
+        "episode_id": "development_demo37_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 37,
+        "episode_id": "development_demo37_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 37,
+        "episode_id": "development_demo37_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 37,
+        "episode_id": "development_demo37_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 38,
+        "episode_id": "development_demo38_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 38,
+        "episode_id": "development_demo38_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 38,
+        "episode_id": "development_demo38_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 38,
+        "episode_id": "development_demo38_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 39,
+        "episode_id": "development_demo39_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 39,
+        "episode_id": "development_demo39_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 39,
+        "episode_id": "development_demo39_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 39,
+        "episode_id": "development_demo39_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "development",
+        "probe_order": [
+          "front"
+        ]
+      }
+    ],
+    "validation": [
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 40,
+        "episode_id": "validation_demo40_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 40,
+        "episode_id": "validation_demo40_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 40,
+        "episode_id": "validation_demo40_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 40,
+        "episode_id": "validation_demo40_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 41,
+        "episode_id": "validation_demo41_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 41,
+        "episode_id": "validation_demo41_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 41,
+        "episode_id": "validation_demo41_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 41,
+        "episode_id": "validation_demo41_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 42,
+        "episode_id": "validation_demo42_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 42,
+        "episode_id": "validation_demo42_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 42,
+        "episode_id": "validation_demo42_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 42,
+        "episode_id": "validation_demo42_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 43,
+        "episode_id": "validation_demo43_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 43,
+        "episode_id": "validation_demo43_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 43,
+        "episode_id": "validation_demo43_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 43,
+        "episode_id": "validation_demo43_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 1.0,
+        "demo_index": 44,
+        "episode_id": "validation_demo44_front8_back1_front-first",
+        "front_mass_factor": 8.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 8.0,
+        "demo_index": 44,
+        "episode_id": "validation_demo44_front1_back8_front-first",
+        "front_mass_factor": 1.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 2.0,
+        "demo_index": 44,
+        "episode_id": "validation_demo44_front4_back2_front-first",
+        "front_mass_factor": 4.0,
+        "heavier_slot_training_label": "front",
+        "lighter_slot_training_label": "back",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      },
+      {
+        "back_mass_factor": 4.0,
+        "demo_index": 44,
+        "episode_id": "validation_demo44_front2_back4_front-first",
+        "front_mass_factor": 2.0,
+        "heavier_slot_training_label": "back",
+        "lighter_slot_training_label": "front",
+        "partition": "validation",
+        "probe_order": [
+          "front"
+        ]
+      }
+    ]
+  },
+  "factorial_design": {
+    "balance": "each reset identity contains both latent-property directions and 8x/1x and 4x/2x contrasts; only the front reference candidate is actively probed",
+    "mass_assignments_front_back": [
+      [
+        8.0,
+        1.0
+      ],
+      [
+        1.0,
+        8.0
+      ],
+      [
+        4.0,
+        2.0
+      ],
+      [
+        2.0,
+        4.0
+      ]
+    ],
+    "probe_orders": [
+      [
+        "front"
+      ]
+    ]
+  },
+  "frozen_at": "2026-07-20T23:32:30+09:00",
+  "frozen_probe_controller": {
+    "attempt_id": "v12_visual_tolerance_calibration",
+    "development_evidence": [
+      "reports/epoch9_controller_development/v11_front_contact_depth/result.json",
+      "reports/epoch9_controller_development/v11_front_contact_depth_scale1/result.json",
+      "reports/epoch9_controller_development/v12_visual_tolerance_calibration/result.json"
+    ],
+    "forbidden_action_inputs": [
+      "mass or inertia",
+      "simulator object pose or identity lookup",
+      "segmentation",
+      "force/torque",
+      "reward, success, done, future observations, or expert actions"
+    ],
+    "legal_recorded_trace_fields": [
+      "phase",
+      "action",
+      "eef_pos",
+      "eef_quat",
+      "controller_goal_pos",
+      "controller_error",
+      "rgb_diff_32"
+    ],
+    "online_inputs": [
+      "fixed candidate-slot calibration",
+      "agentview RGB",
+      "end-effector position and quaternion",
+      "executed action and controller-command history",
+      "elapsed controller phase"
+    ],
+    "source_sha256": "6BCFE0F458945CDAB184868A848ECB878B2B6E7DED88EDB9C857AA6677F98132"
+  },
+  "method_rotation": {
+    "closed_route": "paired fixed-slot sequential probing",
+    "closure_evidence": [
+      "reports/epoch9_relational_probe_dataset/development/paired_v1/result.json",
+      "reports/epoch9_relational_probe_dataset/development/repair1_front_first_v1/result.json",
+      "reports/epoch9_relational_probe_dataset/development/repair2_full_v1/result.json",
+      "reports/epoch9_relational_probe_dataset/development/repair3_demo31_33_diagnostic/result.json",
+      "reports/epoch9_relational_probe_dataset/development/repair4_demo31_33_diagnostic/result.json"
+    ],
+    "new_controlled_residual": "Probe only the front candidate with the verified open-gripper controller. The task generator guarantees one member of the front/back pair is heavier, so the back belief is the complement of the inferred front belief. This is an active reference-comparison task, not general multi-object system identification.",
+    "scientific_question": "Can a temporal legal response representation ground relative heaviest/lightest selection under a controlled complementary-pair intervention, beyond RGB-only and non-temporal controls?"
+  },
+  "model_freeze_rule": "architecture, legal feature transform, temporal length, optimizer, seed ensemble, checkpoint rule, and all gates must be fixed using development identities only before validation simulation starts",
+  "paired_probe_controller": {
+    "contact_override_by_slot": {
+      "front": [
+        0.05,
+        0.169,
+        0.926
+      ]
+    },
+    "controller_id": "front_reference_v2_short_open_push",
+    "gripper_command": -1.0,
+    "push_scale_by_slot": {
+      "back": 0.6666666666666666,
+      "front": 0.4444444444444444
+    },
+    "runner_path": "scripts/run_epoch9_relational_probe_dataset.py",
+    "runner_sha256": "5D4889BBE6F206F8F47E506DA361ACE9632A05D3904DA1B860A2BA4F2EF8A59F"
+  },
+  "partitions": {
+    "confirmation": {
+      "demo_indices": [
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "outcome_access": "sealed until validation gate passes",
+      "physical_pair_episodes": 20
+    },
+    "development": {
+      "demo_indices": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "outcome_access": "development allowed",
+      "physical_pair_episodes": 40
+    },
+    "validation": {
+      "demo_indices": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "outcome_access": "only after full system freeze",
+      "physical_pair_episodes": 20
+    }
+  },
+  "planned_controls": [
+    "balanced no-probe prior",
+    "initial RGB-only control",
+    "single mean controller-error feature",
+    "Epoch 8 shared agentview aggregate features",
+    "endpoint-only response model",
+    "temporally shuffled response model",
+    "probe classifier without complementary relational selection",
+    "offline oracle mass-label headroom"
+  ],
+  "rotation_repair_basis": {
+    "failed_run": "reports/epoch9_relational_probe_dataset/development/rotation1_front_reference_v1/result.json",
+    "observation": "The first 32 physical pairs remained within gate; demo 37 at front factor 1x displaced 0.04290 m, while its observed 2x/4x/8x counterparts displaced 0.02152-0.02212 m.",
+    "repair": "Shorten the sole front inward push from 2/3 to 4/9 of the original 18 mm delta (12 mm to 8 mm). Keep the open gripper, contact waypoint, return, identities, assignments, model, and all gates unchanged.",
+    "repair_budget": "This is the only controller repair authorized for the rotated front-reference method. A repeated execution-gate failure closes the rotation before model fitting."
+  },
+  "schema_version": "epoch9.active_grounding.protocol.rotation1.repair1.v1",
+  "source_artifacts": {
+    "bddl": "/mnt/c/assets/repos/LIBERO/libero/libero/bddl_files/libero_90/KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl",
+    "bddl_sha256": "5983CA24B85928E7CC35DBB3BE82E83521CC797F52DAFB5159744ACC1DC566E7",
+    "hdf5": "/mnt/c/assets/data/libero/libero_90/KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate_demo.hdf5",
+    "hdf5_sha256": "77C5479B280D4BDC8C7C3BAD72D9A287ED1A3A1F765104C495B9100C47F41588"
+  },
+  "source_checkpoint": "f8314938e440aaefb6399d80594c78431043aa7f",
+  "status": "FROZEN_FRONT_REFERENCE_SHORT_PUSH_BEFORE_REPAIR_OUTCOMES",
+  "supersedes_for_future_collection": "reports/epoch9_active_grounding_protocol_rotation1.json",
+  "task": {
+    "candidate_slots": [
+      "front",
+      "back"
+    ],
+    "controlled_pair_constraint": "exactly one candidate is heavier for every declared assignment; deployment is restricted to this generator",
+    "middle_slot_role": "excluded candidate and untouched distractor because Epoch 8 exposed middle-slot competence confounding",
+    "primary_unit": "one physical complementary front/back mass assignment with one active front reference probe; inverse language queries are not counted as independent trials",
+    "property_labels": "simulator mass interventions are offline training/evaluation labels only and are forbidden online policy inputs",
+    "queries": [
+      "select the heaviest candidate",
+      "select the lightest candidate"
+    ],
+    "scene": "LIBERO Kitchen Scene 2 with visually identical front, middle, and back black bowls"
+  },
+  "validation_gates": {
+    "bounded_action_fraction": 1.0,
+    "contact_fraction": 1.0,
+    "exact_binomial_one_sided_p_vs_half_max": 0.05,
+    "execution_exception_count_max": 0,
+    "final_each_candidate_displacement_m_max": 0.03,
+    "final_eef_displacement_m_max": 0.05,
+    "front_reference_probe_only_required": true,
+    "mass_contrast_accuracy_each_min": 0.7,
+    "must_beat_initial_rgb_control": true,
+    "must_beat_no_probe_prior": true,
+    "must_not_underperform_best_non_temporal_control": true,
+    "physical_pair_accuracy_min": 0.8,
+    "visual_return_residual_pixels_max": 5.0
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "attempt_id": "v4_full_pose_rgb_proprio_return",
+  "controller": "fixed-slot short push probe with neutral gripper, full pose feedback, low-clearance staged return, and RGB residual verification",
+  "demo_indices": [
+    30
+  ],
+  "evidence_class": "DEVELOPMENT",
+  "mass_factors": [
+    1.0,
+    8.0
+  ],
+  "rows": [
+    {
+      "attempt_id": "v4_full_pose_rgb_proprio_return",
+      "completed": false,
+      "demo_index": 30,
+      "exception": "AttributeError: module 'robosuite.utils.transform_utils' has no attribute 'mat2axisangle'",
+      "mass_factor": 1.0,
+      "slot": "front"
+    },
+    {
+      "attempt_id": "v4_full_pose_rgb_proprio_return",
+      "completed": false,
+      "demo_index": 30,
+      "exception": "AttributeError: module 'robosuite.utils.transform_utils' has no attribute 'mat2axisangle'",
+      "mass_factor": 8.0,
+      "slot": "front"
+    },
+    {
+      "attempt_id": "v4_full_pose_rgb_proprio_return",
+      "completed": false,
+      "demo_index": 30,
+      "exception": "AttributeError: module 'robosuite.utils.transform_utils' has no attribute 'mat2axisangle'",
+      "mass_factor": 1.0,
+      "slot": "back"
+    },
+    {
+      "attempt_id": "v4_full_pose_rgb_proprio_return",
+      "completed": false,
+      "demo_index": 30,
+      "exception": "AttributeError: module 'robosuite.utils.transform_utils' has no attribute 'mat2axisangle'",
+      "mass_factor": 8.0,
+      "slot": "back"
+    }
+  ],
+  "schema_version": "epoch9.probe_controller_development.v1",
+  "summary": {
+    "bounded_action_count": 0,
+    "contact_count": 0,
+    "development_milestone_pass": false,
+    "eef_return_count": 0,
+    "episodes": 4,
+    "max_eef_displacement_m": Infinity,
+    "max_target_displacement_m": Infinity,
+    "max_visual_residual_pixels": Infinity,
+    "target_return_count": 0,
+    "valid": false,
+    "visual_return_gate": false
+  },
+  "timestamp": "2026-07-20T22:30:11+09:00",
+  "visual_feedback_role": "post-return template residual is a controller completion gate; no action-prefix inversion is used"
+}

@@ -1,0 +1,220 @@
+{
+  "branch": "codex/epoch9-active-physical-grounding",
+  "claim_boundary": "These results falsify the enumerated local controller family, not active physical grounding in general. No temporal-property, VLA improvement, benchmark, real-robot, or paper-level positive claim is authorized.",
+  "closed_scope": [
+    "sequential paired fixed-slot Cartesian probing with this gripper geometry",
+    "front-reference fixed-contact probing under the 3 cm reversibility gate",
+    "shortened inward travel, clearance-first return, and zero-travel contact/hold variants",
+    "reset-specific waypoint repair on development identities"
+  ],
+  "confirmation_accessed": false,
+  "controller_development": {
+    "adjudication": "The independent-task v12 mechanics passed, but later same-scene evidence exposed wrong gripper-action semantics and non-generalizing candidate disturbance; it is not a deployable controller.",
+    "path": "reports/epoch9_controller_development/v12_visual_tolerance_calibration/result.json",
+    "summary": {
+      "bounded_action_count": 20,
+      "contact_count": 20,
+      "development_milestone_pass": true,
+      "eef_return_count": 20,
+      "episodes": 20,
+      "max_eef_displacement_m": 0.00250043843737055,
+      "max_target_displacement_m": 0.02826623763015584,
+      "max_visual_residual_pixels": 4.0,
+      "target_return_count": 20,
+      "valid": true,
+      "visual_residual_limit_pixels": 5.0,
+      "visual_return_gate": true
+    }
+  },
+  "decision": "ACTIVE_FIXED_SLOT_CONTACT_ROUTE_FALSIFIED_CONTINUATION_REQUIRED",
+  "epoch8_scientific_checkpoint": "a1d0d7f262038d43cbedf7640373c411b8f2e383",
+  "epoch8_status_correction": "EPOCH8_EXACT_METHODS_FINISHED_CONTINUATION_REQUIRED",
+  "evidence_class": "DEVELOPMENT_ONLY",
+  "model_fit_executed": false,
+  "model_fit_reason": "No same-scene controller passed the frozen execution gate, so response-model fitting was unauthorized.",
+  "official_closed_loop_ours_episodes": 0,
+  "open_scope": [
+    "learned RGB/proprio contact-aware exploration and explicit object-restoration control",
+    "non-contact or purpose-built non-grasping probe geometry",
+    "new tasks whose safe interaction envelope is validated before property-model fitting",
+    "other active physical properties and real-robot studies under separate authorization"
+  ],
+  "paper_status": "PAPER_NOT_AUTHORIZED",
+  "program_status": "CONTINUATION_REQUIRED",
+  "protected_rollouts": [
+    {
+      "file_count": 27,
+      "manifest_sha256": "25DE8FF5AA6112D7EFF8BCF38D3A4C3F0F3C8C8EE0458E5FA83D17438719EC54",
+      "path": "rollouts/2026_07_17/",
+      "total_bytes": 5143751,
+      "touched_by_epoch9": false
+    },
+    {
+      "file_count": 10,
+      "manifest_sha256": "CF701D6F73D4783F016E48A72C093DC9FD6D940B7081DA8FBEC128DB94C24A00",
+      "path": "rollouts/2026_07_18/",
+      "total_bytes": 924633,
+      "touched_by_epoch9": false
+    }
+  ],
+  "same_scene_attempts": {
+    "clearance_first_return": {
+      "path": "reports/epoch9_relational_probe_dataset/development/rotation2_demo37_diagnostic/result.json",
+      "sha256": "C19CD9FBB52A2C519C941633AD3097F84CBF3A1BC0C70F828914630E720B19E5",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 4,
+        "contact_fraction": 1.0,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 4,
+        "max_candidate_final_displacement_m": 0.042321808972276165,
+        "max_episode_final_eef_displacement_m": 0.002845792627990516,
+        "max_visual_return_residual_pixels": 0.0,
+        "probe_count": 4,
+        "recorded_episodes": 4
+      }
+    },
+    "front_reference": {
+      "path": "reports/epoch9_relational_probe_dataset/development/rotation1_front_reference_v1/result.json",
+      "sha256": "045F39C0D3584B09C8B6CCCDBACF041A50DB4BBBB47EACB25A7CBF92445C0FC8",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 40,
+        "contact_fraction": 1.0,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 40,
+        "max_candidate_final_displacement_m": 0.042900517166753874,
+        "max_episode_final_eef_displacement_m": 0.0027003528199881117,
+        "max_visual_return_residual_pixels": 0.0,
+        "probe_count": 40,
+        "recorded_episodes": 40
+      }
+    },
+    "front_reference_short_push": {
+      "path": "reports/epoch9_relational_probe_dataset/development/rotation1_repair1_demo37_diagnostic/result.json",
+      "sha256": "4E14068AB554C305FC817A1B6EA521D841AA97320C103E934B061A0E1798E4C8",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 4,
+        "contact_fraction": 1.0,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 4,
+        "max_candidate_final_displacement_m": 0.042321808972276165,
+        "max_episode_final_eef_displacement_m": 0.0020758463398040574,
+        "max_visual_return_residual_pixels": 0.0,
+        "probe_count": 4,
+        "recorded_episodes": 4
+      }
+    },
+    "paired_balanced_order": {
+      "path": "reports/epoch9_relational_probe_dataset/development/paired_v1/result.json",
+      "sha256": "10F452353AFFEC2810F0FA17531D28DD09D00C056ABC6CA2C9D31CEC41403617",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 80,
+        "contact_fraction": 1.0,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 80,
+        "max_candidate_final_displacement_m": 0.2513522463280994,
+        "max_episode_final_eef_displacement_m": 0.005565013945836106,
+        "max_visual_return_residual_pixels": 16.278820596099706,
+        "probe_count": 160,
+        "recorded_episodes": 80
+      }
+    },
+    "paired_fixed_order": {
+      "path": "reports/epoch9_relational_probe_dataset/development/repair1_front_first_v1/result.json",
+      "sha256": "6184350B3B36672EAC6B17649639C63399213CA306019F206E63B29AF4A61850",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 40,
+        "contact_fraction": 1.0,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 40,
+        "max_candidate_final_displacement_m": 0.2430072282264635,
+        "max_episode_final_eef_displacement_m": 0.005565013945836106,
+        "max_visual_return_residual_pixels": 16.278820596099706,
+        "probe_count": 80,
+        "recorded_episodes": 40
+      }
+    },
+    "paired_open_contact_calibration": {
+      "path": "reports/epoch9_relational_probe_dataset/development/repair4_demo31_33_diagnostic/result.json",
+      "sha256": "B97D3CEF092DCBCD15F3EEB3A4524174045FDCB19FF2E7F0F9EECF56890B988A",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 8,
+        "contact_fraction": 0.625,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 8,
+        "max_candidate_final_displacement_m": 0.01050840148901641,
+        "max_episode_final_eef_displacement_m": 0.005087302893755519,
+        "max_visual_return_residual_pixels": 0.0,
+        "probe_count": 16,
+        "recorded_episodes": 8
+      }
+    },
+    "paired_open_gripper": {
+      "path": "reports/epoch9_relational_probe_dataset/development/repair3_demo31_33_diagnostic/result.json",
+      "sha256": "3C63F87BF13C2EE6E750048608BA347ECFB2AF59775574C6CAC1AC5DBDECB944",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 8,
+        "contact_fraction": 0.5,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 8,
+        "max_candidate_final_displacement_m": 0.01050840148901641,
+        "max_episode_final_eef_displacement_m": 0.005087286511770419,
+        "max_visual_return_residual_pixels": 0.0,
+        "probe_count": 16,
+        "recorded_episodes": 8
+      }
+    },
+    "paired_short_back_push": {
+      "path": "reports/epoch9_relational_probe_dataset/development/repair2_full_v1/result.json",
+      "sha256": "CEF1ACEF04D33B91FCCE9CD513F2BD948F39FCE8417CC0CBEB43C15EB6AFF1F8",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 40,
+        "contact_fraction": 1.0,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 40,
+        "max_candidate_final_displacement_m": 0.24728079854275145,
+        "max_episode_final_eef_displacement_m": 0.005565067317655075,
+        "max_visual_return_residual_pixels": 16.278820596099706,
+        "probe_count": 80,
+        "recorded_episodes": 40
+      }
+    },
+    "zero_travel_contact_hold": {
+      "path": "reports/epoch9_relational_probe_dataset/development/rotation3_demo37_diagnostic/result.json",
+      "sha256": "599F93C720BE56B3A0AF6B7B6E25B765C503347A62CBDEDCAFF17EC6EAA529DF",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 4,
+        "contact_fraction": 1.0,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 4,
+        "max_candidate_final_displacement_m": 0.04193514858315894,
+        "max_episode_final_eef_displacement_m": 0.0028444340375923852,
+        "max_visual_return_residual_pixels": 0.0,
+        "probe_count": 4,
+        "recorded_episodes": 4
+      }
+    }
+  },
+  "schema_version": "epoch9.active_physical_grounding.terminal_adjudication.v1",
+  "source_checkpoint": "f8314938e440aaefb6399d80594c78431043aa7f",
+  "terminal_finding": "The final zero-travel contact/hold probe retained 100% contact and action legality but moved the light bowl 0.04194 m on the offending development identity, above the unchanged 0.03 m reversibility gate. The same identity remained unsafe after shortening inward travel and changing to clearance-first return, localizing the disturbance to reaching the fixed contact boundary itself.",
+  "timestamp": "2026-07-20T23:41:01+09:00",
+  "validation_accessed": false
+}

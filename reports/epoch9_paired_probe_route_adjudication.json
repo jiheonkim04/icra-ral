@@ -1,0 +1,108 @@
+{
+  "attempts": [
+    {
+      "attempt": "v1_balanced_order",
+      "path": "reports/epoch9_relational_probe_dataset/development/paired_v1/result.json",
+      "status": "FINISHED",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 80,
+        "contact_fraction": 1.0,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 80,
+        "max_candidate_final_displacement_m": 0.2513522463280994,
+        "max_episode_final_eef_displacement_m": 0.005565013945836106,
+        "max_visual_return_residual_pixels": 16.278820596099706,
+        "probe_count": 160,
+        "recorded_episodes": 80
+      }
+    },
+    {
+      "attempt": "repair1_fixed_order",
+      "path": "reports/epoch9_relational_probe_dataset/development/repair1_front_first_v1/result.json",
+      "status": "FINISHED",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 40,
+        "contact_fraction": 1.0,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 40,
+        "max_candidate_final_displacement_m": 0.2430072282264635,
+        "max_episode_final_eef_displacement_m": 0.005565013945836106,
+        "max_visual_return_residual_pixels": 16.278820596099706,
+        "probe_count": 80,
+        "recorded_episodes": 40
+      }
+    },
+    {
+      "attempt": "repair2_short_back_push",
+      "path": "reports/epoch9_relational_probe_dataset/development/repair2_full_v1/result.json",
+      "status": "FINISHED",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 40,
+        "contact_fraction": 1.0,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 40,
+        "max_candidate_final_displacement_m": 0.24728079854275145,
+        "max_episode_final_eef_displacement_m": 0.005565067317655075,
+        "max_visual_return_residual_pixels": 16.278820596099706,
+        "probe_count": 80,
+        "recorded_episodes": 40
+      }
+    },
+    {
+      "attempt": "repair3_open_gripper",
+      "path": "reports/epoch9_relational_probe_dataset/development/repair3_demo31_33_diagnostic/result.json",
+      "status": "FINISHED",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 8,
+        "contact_fraction": 0.5,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 8,
+        "max_candidate_final_displacement_m": 0.01050840148901641,
+        "max_episode_final_eef_displacement_m": 0.005087286511770419,
+        "max_visual_return_residual_pixels": 0.0,
+        "probe_count": 16,
+        "recorded_episodes": 8
+      }
+    },
+    {
+      "attempt": "repair4_open_back_contact",
+      "path": "reports/epoch9_relational_probe_dataset/development/repair4_demo31_33_diagnostic/result.json",
+      "status": "FINISHED",
+      "summary": {
+        "bounded_action_fraction": 1.0,
+        "completed_episodes": 8,
+        "contact_fraction": 0.625,
+        "exception_count": 0,
+        "execution_gate_pass": false,
+        "expected_episodes": 8,
+        "max_candidate_final_displacement_m": 0.01050840148901641,
+        "max_episode_final_eef_displacement_m": 0.005087302893755519,
+        "max_visual_return_residual_pixels": 0.0,
+        "probe_count": 16,
+        "recorded_episodes": 8
+      }
+    }
+  ],
+  "closed_scope": "This closes the exact sequential paired fixed-slot Cartesian controller and reset-by-reset waypoint repair. It does not close active physical grounding, visual contact feedback, learned exploration, or the separately preregistered complementary front-reference task.",
+  "confirmation_accessed": false,
+  "decision": "PAIRED_FIXED_SLOT_PROBE_ROUTE_CLOSED_ROTATE_TO_CONTROLLED_REFERENCE",
+  "evidence_class": "DEVELOPMENT_ROUTE_ADJUDICATION",
+  "failure_chain": [
+    "Balanced order exposed catastrophic back-bowl sweep after a back-first probe.",
+    "Fixed order removed that interaction but exceeded the unchanged 3 cm displacement gate on a new reset.",
+    "A shorter back push exposed accidental grasp/lift because the inherited gripper sign was wrong.",
+    "The official open-gripper correction restored safety but missed every back contact in the targeted diagnostic.",
+    "The sole open-tool back contact recalibration reached only 62.5% aggregate contact and failed the 100% gate."
+  ],
+  "schema_version": "epoch9.paired_fixed_slot_probe.adjudication.v1",
+  "timestamp": "2026-07-20T23:29:46+09:00",
+  "validation_accessed": false
+}

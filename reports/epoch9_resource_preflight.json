@@ -1,0 +1,36 @@
+{
+  "schema_version": "epoch9.resource_preflight.v1",
+  "timestamp": "2026-07-20T22:25:00+09:00",
+  "branch": "codex/epoch9-active-physical-grounding",
+  "head": "f8314938e440aaefb6399d80594c78431043aa7f",
+  "current_stage": "development_task_and_controller",
+  "source": "existing local LIBERO, demonstrations, and installed WSL Python environment",
+  "download_bytes": 0,
+  "license_or_token_required": false,
+  "paid_service": false,
+  "physical_robot": false,
+  "live_simulator_environment_limit": 1,
+  "resident_vla_backbones": 0,
+  "gpu_required": false,
+  "estimated_peak_wsl_ram_gib": 2.0,
+  "estimated_runtime_minutes_per_diagnostic": 5,
+  "available_disk_bytes_observed": 307783221248,
+  "host_total_physical_bytes_observed": 24871014400,
+  "host_free_physical_kib_observed": 14747988,
+  "wsl_total_gib_observed": 11,
+  "wsl_available_gib_observed": 10,
+  "wsl_swap_used_bytes_observed": 0,
+  "gpu": "NVIDIA GeForce RTX 5080 16 GB; unused by this stage",
+  "protections": {
+    "one_live_environment": true,
+    "serial_execution": true,
+    "no_cpu_or_disk_model_offload": true,
+    "zero_wsl_swap_required": true,
+    "atomic_persistence_for_generated_results": true,
+    "protected_rollout_directories_excluded": [
+      "rollouts/2026_07_17/",
+      "rollouts/2026_07_18/"
+    ]
+  },
+  "decision": "SAFE_TO_RUN_BOUNDED_SIMULATOR_DEVELOPMENT"
+}

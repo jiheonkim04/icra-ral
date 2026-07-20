@@ -1,0 +1,306 @@
+{
+  "attempt_id": "v6_official_orientation_error_return",
+  "controller": "fixed-slot short push probe with neutral gripper, position-only contact, official OSC orientation-error return feedback, and RGB residual verification",
+  "demo_indices": [
+    30
+  ],
+  "evidence_class": "DEVELOPMENT",
+  "mass_factors": [
+    1.0,
+    8.0
+  ],
+  "rows": [
+    {
+      "attempt_id": "v6_official_orientation_error_return",
+      "completed": true,
+      "demo_index": 30,
+      "exception": null,
+      "expert_actions_used_online": false,
+      "final_eef": [
+        0.04047366709260712,
+        -0.003285914741820232,
+        1.1827073197404983
+      ],
+      "final_eef_displacement_m": 0.24092215137965287,
+      "final_target_displacement_m_eval_only": 0.003327076438808214,
+      "final_target_eval_only": [
+        0.07378824483145334,
+        0.13449778164005283,
+        0.8984070750980836
+      ],
+      "finite_bounded_actions": true,
+      "forbidden_online_inputs_used": [],
+      "initial_eef": [
+        -0.19949877171625127,
+        -0.0030412629151259666,
+        1.1613379074179098
+      ],
+      "initial_eef_quat": [
+        0.9995412541715212,
+        -0.0007072030404086105,
+        -0.030276410733059797,
+        -0.00034644798207644247
+      ],
+      "initial_target_eval_only": [
+        0.07707662408966764,
+        0.1339918177245226,
+        0.8984070750980836
+      ],
+      "mass_factor": 1.0,
+      "max_controller_error_m": 0.0773012413856116,
+      "mean_controller_error_m": 0.037671558638900975,
+      "online_inputs": [
+        "fixed slot calibration",
+        "agentview RGB",
+        "end-effector proprioception",
+        "command history",
+        "elapsed steps"
+      ],
+      "p90_controller_error_m": 0.05666464834267709,
+      "phase_reached": {
+        "approach_above": true,
+        "approach_contact": true,
+        "probe_inward": false,
+        "return_central": false,
+        "return_neutral": false,
+        "return_prehome": false,
+        "return_retreat_side": false,
+        "withdraw_contact": false,
+        "withdraw_low_above": true
+      },
+      "simulator_state_used_for_actions": false,
+      "slot": "front",
+      "steps": 484,
+      "target_contact_eval_only": true,
+      "trace_path": "reports/epoch9_controller_development/v6_official_orientation_error_return/traces/front_demo30_mass1.npz",
+      "visual_return_estimate": {
+        "dx": 0.0,
+        "dy": 0.0,
+        "quality": 0.9999938011169434
+      }
+    },
+    {
+      "attempt_id": "v6_official_orientation_error_return",
+      "completed": true,
+      "demo_index": 30,
+      "exception": null,
+      "expert_actions_used_online": false,
+      "final_eef": [
+        0.04047366685126807,
+        -0.003285913272271939,
+        1.1827073193587732
+      ],
+      "final_eef_displacement_m": 0.24092215110391452,
+      "final_target_displacement_m_eval_only": 0.004266666455253126,
+      "final_target_eval_only": [
+        0.0729828185878182,
+        0.13519380797082786,
+        0.898386615352325
+      ],
+      "finite_bounded_actions": true,
+      "forbidden_online_inputs_used": [],
+      "initial_eef": [
+        -0.19949877171625127,
+        -0.0030412629151259666,
+        1.1613379074179098
+      ],
+      "initial_eef_quat": [
+        0.9995412541715212,
+        -0.0007072030404086105,
+        -0.030276410733059797,
+        -0.00034644798207644247
+      ],
+      "initial_target_eval_only": [
+        0.07707662408966764,
+        0.1339918177245226,
+        0.8984070750980836
+      ],
+      "mass_factor": 8.0,
+      "max_controller_error_m": 0.0773012413856116,
+      "mean_controller_error_m": 0.03761340911180659,
+      "online_inputs": [
+        "fixed slot calibration",
+        "agentview RGB",
+        "end-effector proprioception",
+        "command history",
+        "elapsed steps"
+      ],
+      "p90_controller_error_m": 0.05666487023924418,
+      "phase_reached": {
+        "approach_above": true,
+        "approach_contact": true,
+        "probe_inward": false,
+        "return_central": false,
+        "return_neutral": false,
+        "return_prehome": false,
+        "return_retreat_side": false,
+        "withdraw_contact": true,
+        "withdraw_low_above": true
+      },
+      "simulator_state_used_for_actions": false,
+      "slot": "front",
+      "steps": 483,
+      "target_contact_eval_only": true,
+      "trace_path": "reports/epoch9_controller_development/v6_official_orientation_error_return/traces/front_demo30_mass8.npz",
+      "visual_return_estimate": {
+        "dx": 0.0,
+        "dy": 0.0,
+        "quality": 0.9999938011169434
+      }
+    },
+    {
+      "attempt_id": "v6_official_orientation_error_return",
+      "completed": true,
+      "demo_index": 30,
+      "exception": null,
+      "expert_actions_used_online": false,
+      "final_eef": [
+        -0.2066742702647172,
+        -0.004000947342291276,
+        1.1777692817085506
+      ],
+      "final_eef_displacement_m": 0.0024422864052057246,
+      "final_target_displacement_m_eval_only": 0.012408430070222529,
+      "final_target_eval_only": [
+        -0.1505214066736881,
+        0.023678601357351392,
+        0.8984070750980836
+      ],
+      "finite_bounded_actions": true,
+      "forbidden_online_inputs_used": [],
+      "initial_eef": [
+        -0.20837242208921297,
+        -0.0038966789292732844,
+        1.1760170912611216
+      ],
+      "initial_eef_quat": [
+        0.9996068988350264,
+        -0.00030018855563385127,
+        -0.02803464751544475,
+        -0.00012738499017240362
+      ],
+      "initial_target_eval_only": [
+        -0.14972223414378116,
+        0.036061269085876,
+        0.8984070750980836
+      ],
+      "mass_factor": 1.0,
+      "max_controller_error_m": 0.06952614606219416,
+      "mean_controller_error_m": 0.025751115480200305,
+      "online_inputs": [
+        "fixed slot calibration",
+        "agentview RGB",
+        "end-effector proprioception",
+        "command history",
+        "elapsed steps"
+      ],
+      "p90_controller_error_m": 0.04448984210592636,
+      "phase_reached": {
+        "approach_above": true,
+        "approach_contact": true,
+        "probe_inward": true,
+        "return_central": true,
+        "return_neutral": true,
+        "return_prehome": true,
+        "return_retreat_side": true,
+        "withdraw_contact": true,
+        "withdraw_low_above": true
+      },
+      "simulator_state_used_for_actions": false,
+      "slot": "back",
+      "steps": 102,
+      "target_contact_eval_only": true,
+      "trace_path": "reports/epoch9_controller_development/v6_official_orientation_error_return/traces/back_demo30_mass1.npz",
+      "visual_return_estimate": {
+        "dx": -2.0,
+        "dy": 0.0,
+        "quality": 0.827669620513916
+      }
+    },
+    {
+      "attempt_id": "v6_official_orientation_error_return",
+      "completed": true,
+      "demo_index": 30,
+      "exception": null,
+      "expert_actions_used_online": false,
+      "final_eef": [
+        -0.20667390324421847,
+        -0.00400093686557399,
+        1.1777695867774183
+      ],
+      "final_eef_displacement_m": 0.0024427600206985032,
+      "final_target_displacement_m_eval_only": 0.012582794009497938,
+      "final_target_eval_only": [
+        -0.15034620468488766,
+        0.02349397234997882,
+        0.898386615352325
+      ],
+      "finite_bounded_actions": true,
+      "forbidden_online_inputs_used": [],
+      "initial_eef": [
+        -0.20837242208921297,
+        -0.0038966789292732844,
+        1.1760170912611216
+      ],
+      "initial_eef_quat": [
+        0.9996068988350264,
+        -0.00030018855563385127,
+        -0.02803464751544475,
+        -0.00012738499017240362
+      ],
+      "initial_target_eval_only": [
+        -0.14972223414378116,
+        0.036061269085876,
+        0.8984070750980836
+      ],
+      "mass_factor": 8.0,
+      "max_controller_error_m": 0.06953481412018621,
+      "mean_controller_error_m": 0.025851489894082747,
+      "online_inputs": [
+        "fixed slot calibration",
+        "agentview RGB",
+        "end-effector proprioception",
+        "command history",
+        "elapsed steps"
+      ],
+      "p90_controller_error_m": 0.044492640051126936,
+      "phase_reached": {
+        "approach_above": true,
+        "approach_contact": true,
+        "probe_inward": true,
+        "return_central": true,
+        "return_neutral": true,
+        "return_prehome": true,
+        "return_retreat_side": true,
+        "withdraw_contact": true,
+        "withdraw_low_above": true
+      },
+      "simulator_state_used_for_actions": false,
+      "slot": "back",
+      "steps": 102,
+      "target_contact_eval_only": true,
+      "trace_path": "reports/epoch9_controller_development/v6_official_orientation_error_return/traces/back_demo30_mass8.npz",
+      "visual_return_estimate": {
+        "dx": -2.0,
+        "dy": 0.0,
+        "quality": 0.8335714340209961
+      }
+    }
+  ],
+  "schema_version": "epoch9.probe_controller_development.v1",
+  "summary": {
+    "bounded_action_count": 4,
+    "contact_count": 4,
+    "development_milestone_pass": false,
+    "eef_return_count": 2,
+    "episodes": 4,
+    "max_eef_displacement_m": 0.24092215137965287,
+    "max_target_displacement_m": 0.012582794009497938,
+    "max_visual_residual_pixels": 2.0,
+    "target_return_count": 4,
+    "valid": true,
+    "visual_return_gate": true
+  },
+  "timestamp": "2026-07-20T22:36:53+09:00",
+  "visual_feedback_role": "post-return template residual is a controller completion gate; no action-prefix inversion is used"
+}
