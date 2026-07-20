@@ -1,0 +1,75 @@
+{
+  "schema_version": "epoch7.base_smoke_adjudication.v1",
+  "adjudicated_at": "2026-07-20T13:55:24+09:00",
+  "execution_type": "BASE_ONLY_CLOSED_LOOP_SMOKE",
+  "decision": "BASE_SMOKE_PASS_AUTHORIZE_FROZEN_PAIRED_BASE_PANEL",
+  "scope_limit": "One canonical task/reset is an execution-reality check, not a Base-competence or paperability result.",
+  "identity": {
+    "episode_id": "base_eval0_act_canonical",
+    "eval_id": 0,
+    "family_pair": "act",
+    "condition": "canonical",
+    "goal_bddl": "open_the_middle_drawer_of_the_cabinet.bddl",
+    "instruction": "open the middle drawer of the cabinet",
+    "seed": 7,
+    "model_seed": 7000000,
+    "initial_state_index": 0
+  },
+  "policy": {
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "model_type": "XVLA",
+    "processor_type": "XVLAProcessor",
+    "parameter_count": 879482456,
+    "denoise_steps": 10
+  },
+  "closed_loop_result": {
+    "completed": true,
+    "official_success": true,
+    "actions_executed": 114,
+    "action_chunks_generated": 4,
+    "raw_action_chunk_shape": [30, 20],
+    "raw_action_min": -0.99358731508255,
+    "raw_action_max": 1.17130267620087,
+    "elapsed_seconds": 13.27,
+    "one_live_environment_limit_respected": true
+  },
+  "resources": {
+    "cuda_allocated_after_load_bytes": 3518954496,
+    "cuda_max_allocated_bytes": 3689555456,
+    "cuda_max_allocated_gib": 3.436,
+    "wsl_swap_used_kib_before": 0,
+    "wsl_swap_used_kib_after_load": 0,
+    "wsl_swap_used_kib_after_episode": 0,
+    "wsl_swap_used_kib_at_exit": 0,
+    "wsl_memory_available_gib_after_episode": 8.578
+  },
+  "artifacts": [
+    {
+      "path": "runs/epoch7_language_grounding/base_smoke_eval0_act_canonical/result.json",
+      "bytes": 4661,
+      "sha256": "2c168eb12500c4297816360686d7c121ec4ff8e0f8f063742edf8720043d286b"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/base_smoke_eval0_act_canonical/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/base_smoke_eval0_act_canonical/stderr.log",
+      "bytes": 1872,
+      "sha256": "b530874289223d8626474b92c79d50599dc0493a981f976e80ca205ed189b455"
+    }
+  ],
+  "integrity": {
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "ours_design_happened": false,
+    "ours_rollout_happened": false,
+    "paraphrase_outcome_observed_in_this_smoke": false,
+    "protected_rollout_directories_touched": false
+  },
+  "next_action": "Run the frozen 30-pair canonical/paraphrase Base panel serially and adjudicate competence, repeatable gap, and oracle canonical headroom."
+}
