@@ -4,7 +4,9 @@ State: `LOCAL_PROGRAM_BLOCKED_WITH_AUDITABLE_EXHAUSTION`
 
 Branch: `codex/epoch8-language-grounding-convergence`
 
-Scientific source checkpoint: `4422a95be5412bdb774287fce9f42004a8631f39`
+Campaign source checkpoint: `4422a95be5412bdb774287fce9f42004a8631f39`
+
+Epoch 8 scientific checkpoint: `a1d0d7f262038d43cbedf7640373c411b8f2e383`
 
 The exact checkpoint containing this handoff is recorded by the subsequent
 checkpoint commit and remote branch head. No paper is authorized because

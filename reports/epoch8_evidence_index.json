@@ -1,8 +1,8 @@
 {
   "schema_version": "epoch8.evidence_index.v1",
-  "generated_at": "2026-07-20T21:34:01+09:00",
+  "generated_at": "2026-07-20T21:34:50+09:00",
   "branch": "codex/epoch8-language-grounding-convergence",
-  "source_commit": "4422a95be5412bdb774287fce9f42004a8631f39",
+  "source_commit": "a1d0d7f262038d43cbedf7640373c411b8f2e383",
   "terminal_state": "LOCAL_PROGRAM_BLOCKED_WITH_AUDITABLE_EXHAUSTION",
   "critical_artifact_count": 38,
   "all_present": true,
@@ -184,13 +184,13 @@
     },
     {
       "path": "reports/epoch8_campaign_state.json",
-      "bytes": 4731,
-      "sha256": "91F8353C06B2BCC98A9FF2B7ADFD463B418D4F92A08CA130FADC29D317C5D5D0"
+      "bytes": 4746,
+      "sha256": "B42FE3DA7D4C5B80E6844E9131EA05208E370A22854AB55FD3FC1EA421F7C974"
     },
     {
       "path": "reports/epoch8_terminal_handoff.md",
-      "bytes": 3051,
-      "sha256": "BE823F1536019F8EC9F42C0E751B11A26F04242390AE8B304DF42D17D1E109ED"
+      "bytes": 3124,
+      "sha256": "F16648C4AAD849C592CAD5CAE465FD9C166D5CBED80FE212DA7BDB6B7DD915CF"
     },
     {
       "path": "reports/epoch8_change_scope_justification.md",

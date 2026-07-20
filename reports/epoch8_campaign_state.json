@@ -1,12 +1,12 @@
 {
   "schema_version": "epoch8.campaign_state.v1",
-  "updated_at": "2026-07-20T21:31:40+09:00",
+  "updated_at": "2026-07-20T21:34:32+09:00",
   "terminal_state": "LOCAL_PROGRAM_BLOCKED_WITH_AUDITABLE_EXHAUSTION",
   "paper_authorized": false,
   "paper_package_generated": false,
   "branch": "codex/epoch8-language-grounding-convergence",
   "source_commit": "4422a95be5412bdb774287fce9f42004a8631f39",
-  "scientific_checkpoint_commit": "PENDING_CHECKPOINT_COMMIT",
+  "scientific_checkpoint_commit": "a1d0d7f262038d43cbedf7640373c411b8f2e383",
   "protected_evidence": {
     "rollouts/2026_07_17": {
       "files": 27,
