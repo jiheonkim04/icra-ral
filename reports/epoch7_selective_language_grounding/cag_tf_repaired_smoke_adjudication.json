@@ -1,0 +1,51 @@
+{
+  "schema_version": "epoch7.cag_tf_repaired_smoke_adjudication.v1",
+  "adjudicated_at": "2026-07-20T14:33:00+09:00",
+  "decision": "CAG_REFERENCE_ALIGNED_SMOKE_PASS_AUTHORIZE_FULL_PRIOR_PANEL",
+  "identity": "cag_eval0_act_canonical",
+  "formula": "a_empty + 1.5 * (a_cond - a_empty)",
+  "reference": "arXiv:2602.17659v2 Eq. 4",
+  "result": {
+    "completed": true,
+    "official_success": true,
+    "actions_executed": 194,
+    "guided_chunks": 7,
+    "branch_queries": 14,
+    "guided_chunk_finite": true,
+    "guided_min": -1.00290286540985,
+    "guided_max": 1.20502805709839,
+    "elapsed_seconds": 18.42,
+    "wsl_swap_used_kib": 0
+  },
+  "matched_comparison": {
+    "base_success": true,
+    "invalid_formula_raw_success_excluded": false,
+    "correct_formula_success": true,
+    "repair_validated_on_same_identity": true
+  },
+  "artifacts": [
+    {
+      "path": "runs/epoch7_language_grounding/cag_v2_smoke_eval0_act_canonical/result.json",
+      "bytes": 8994,
+      "sha256": "0572666f4698786f84a0271e5757ede67a5a24b4bedc6b372a4762981fad0da1"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/cag_v2_smoke_eval0_act_canonical/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/cag_v2_smoke_eval0_act_canonical/stderr.log",
+      "bytes": 1872,
+      "sha256": "b530874289223d8626474b92c79d50599dc0493a981f976e80ca205ed189b455"
+    }
+  ],
+  "integrity": {
+    "identities_seeds_initial_states_horizon_or_scale_changed": false,
+    "outcome_tuning": false,
+    "training_happened": false,
+    "ours_design_happened": false,
+    "ours_rollout_happened": false
+  },
+  "next_action": "Run all 30 corrected CAG-TF canonical/paraphrase pairs serially in cag_discovery_panel_v2."
+}
