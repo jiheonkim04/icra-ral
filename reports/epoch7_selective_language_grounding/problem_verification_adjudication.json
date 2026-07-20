@@ -1,0 +1,51 @@
+{
+  "schema_version": "epoch7.problem_verification_adjudication.v1",
+  "adjudicated_at": "2026-07-20T15:00:00+09:00",
+  "status": "PROBLEM_VERIFIED_STRONG_COMPARATOR_RESIDUAL",
+  "method_discovery_authorized": true,
+  "training_authorized": false,
+  "ours_rollout_authorized": false,
+  "confirmatory_identity_use_authorized": false,
+  "evidence": {
+    "base_canonical": "30/30",
+    "base_paraphrase": "19/30",
+    "lexical_control": "24/30",
+    "semantic_control": "25/30",
+    "cag_tf_canonical": "14/30",
+    "cag_tf_paraphrase": "11/30",
+    "base_gap_percentage_points": 36.66666666666667,
+    "semantic_control_residual_percentage_points": 16.666666666666668,
+    "canonical_win_paraphrase_failure_pairs": 11,
+    "semantic_control_residual_pairs": 5,
+    "discordant_task_count": 7,
+    "discordant_family_count": 3
+  },
+  "gates": {
+    "base_competence": "PASS",
+    "repeatable_problem_gap": "PASS",
+    "multi_identity_task_coverage": "PASS",
+    "strong_comparator_correctness": "PASS",
+    "strong_comparator_residual": "PASS_NARROW",
+    "legal_headroom": "PASS",
+    "infrastructure_validity": "PASS",
+    "plausible_distinct_method_after_overlap": "PENDING_HARD_GATE"
+  },
+  "strong_comparator": {
+    "name": "all-MiniLM-L6-v2 semantic canonicalizer",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "license": "Apache-2.0",
+    "success": "25/30"
+  },
+  "negative_prior": {
+    "name": "CAG-TF local mechanism-faithful port",
+    "reference": "arXiv:2602.17659v2",
+    "reason_not_strong_comparator": "Fails both canonical retention and primary paraphrase improvement."
+  },
+  "next_hard_gate": "FOCUSED_METHOD_OVERLAP_AND_REAL_SUPERVISION_LEGALITY",
+  "rotate_if": [
+    "No method differs from every direct prior by at least two major dimensions.",
+    "The remaining five pairs are better characterized as benchmark ambiguity or retrieval only.",
+    "Between-intent supervision requires synthetic or unverified counterfactual actions.",
+    "A proposed method cannot beat 25/30 while retaining the 30/30 canonical Base under local resources."
+  ]
+}

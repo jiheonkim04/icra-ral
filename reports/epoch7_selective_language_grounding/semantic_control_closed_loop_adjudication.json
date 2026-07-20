@@ -1,0 +1,82 @@
+{
+  "schema_version": "epoch7.semantic_control_closed_loop_adjudication.v1",
+  "adjudicated_at": "2026-07-20T14:59:00+09:00",
+  "execution_type": "STRONG_SEMANTIC_CONTROL_EXACT_REUSE_PLUS_MISMATCH_ROLLOUTS_NO_OURS",
+  "decision": "STRONG_SEMANTIC_CONTROL_LEAVES_FIVE_PAIR_RESIDUAL",
+  "combined_result": {
+    "successes": 25,
+    "episodes": 30,
+    "success_rate": 0.8333333333333334,
+    "exact_mapping_base_episodes_reused": 25,
+    "wrong_mapping_episodes_executed": 5,
+    "wrong_mapping_successes": 0,
+    "wrong_mapping_failures": 5
+  },
+  "comparison": {
+    "base_canonical_success": "30/30",
+    "base_paraphrase_success": "19/30",
+    "lexical_control_success": "24/30",
+    "semantic_control_success": "25/30",
+    "cag_tf_paraphrase_success": "11/30",
+    "semantic_control_gain_over_base_paraphrase_percentage_points": 20.0,
+    "semantic_control_gain_over_lexical_control_percentage_points": 3.3333333333333335,
+    "semantic_control_residual_to_canonical_percentage_points": 16.666666666666668
+  },
+  "executed_wrong_mapping_pairs": [
+    {"pair_id": "eval4_act", "true_eval_id": 4, "predicted_eval_id": 9, "predicted_instruction": "turn on the stove", "success": false, "actions": 300},
+    {"pair_id": "eval5_act", "true_eval_id": 5, "predicted_eval_id": 3, "predicted_instruction": "put the bowl on the plate", "success": false, "actions": 300},
+    {"pair_id": "eval8_act", "true_eval_id": 8, "predicted_eval_id": 7, "predicted_instruction": "put the wine bottle on the rack", "success": false, "actions": 300},
+    {"pair_id": "eval8_obj", "true_eval_id": 8, "predicted_eval_id": 7, "predicted_instruction": "put the wine bottle on the rack", "success": false, "actions": 300},
+    {"pair_id": "eval8_comp", "true_eval_id": 8, "predicted_eval_id": 3, "predicted_instruction": "put the bowl on the plate", "success": false, "actions": 300}
+  ],
+  "reuse_integrity": {
+    "selected_instruction_equals_canonical_string": true,
+    "same_environment_bddl": true,
+    "same_initial_state_index": true,
+    "same_environment_seed": true,
+    "same_model_query_seed": true,
+    "same_policy_checkpoint_and_action_pipeline": true,
+    "same_horizon_and_success_endpoint": true,
+    "reused_successes": 25,
+    "reused_failures": 0
+  },
+  "resources_for_five_new_rollouts": {
+    "wall_seconds": 120.8,
+    "minimum_wsl_memory_available_gib": 8.4,
+    "maximum_wsl_swap_used_kib": 0,
+    "maximum_cuda_allocated_gib": 3.436,
+    "one_live_environment_limit_respected": true
+  },
+  "artifacts": [
+    {
+      "path": "runs/epoch7_language_grounding/semantic_control_mismatch_rollouts_v1/result.json",
+      "bytes": 21501,
+      "sha256": "693423fe3e00d46b89d2589a27cda9057564f472764cfc56e827592fe741c21e"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/semantic_control_mismatch_rollouts_v1/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/semantic_control_mismatch_rollouts_v1/stderr.log",
+      "bytes": 1872,
+      "sha256": "b530874289223d8626474b92c79d50599dc0493a981f976e80ca205ed189b455"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/base_discovery_panel_v1/result.json",
+      "sha256": "5147bfb19519ff6e2b2dcd09d3c45f3ec87c0496d3070dee81a46ff4c538bf20"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/semantic_control_preflight_v1/result.json",
+      "sha256": "a1868a0cd10ebd465f10faf38462cbc18c662a02b5aed81555e5c282a5947984"
+    }
+  ],
+  "integrity": {
+    "mismatch_selection_uses_text_mapping_only": true,
+    "mismatch_selection_uses_closed_loop_outcomes": false,
+    "training_happened": false,
+    "ours_design_happened": false,
+    "ours_rollout_happened": false
+  }
+}
