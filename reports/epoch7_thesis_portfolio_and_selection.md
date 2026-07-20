@@ -185,3 +185,10 @@ Assessment: `WEAK`; systems support only.
 - Active fallback: Candidate K, thesis id `contact_transition_topology`, method archetype, authorized only for a source/fidelity audit and an outcome-free resource-rule amendment before resuming its already frozen Stage 0A label gate.
 - Candidates L and M are not empirically authorized.
 - No Ours, policy rollout, method training, or confirmatory outcome is authorized by this selection.
+
+Candidate K's resource amendment is now frozen at SHA-256
+`7CCDCE5D9AA0B24C356AF873D0481AF76312D3C7FCF6871C4CA80FD6621ACFEB`.
+The scientific protocol remains unchanged at SHA-256
+`7FA28AAEEAC9886F36DD5CCD059CA7AC4CD65B21FABFBBCA4AFFA53B0A256240`.
+Only a passing outcome-free actual-path resource smoke may now authorize the
+already-frozen Stage 0A label gate.

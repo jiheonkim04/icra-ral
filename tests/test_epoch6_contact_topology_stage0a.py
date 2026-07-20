@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import inspect
+import json
 from pathlib import Path
 
 
@@ -95,3 +96,71 @@ def test_resource_smoke_revalidates_only_its_frozen_task_file() -> None:
     assert "validate_preflight(run_dir, task)" in source
     valid_source = inspect.getsource(stage0a.valid_host_smoke)
     assert "monitor_script_sha256" in valid_source
+
+
+def _write_epoch7_smoke_pair(run_dir: Path) -> dict:
+    internal = {
+        "status": "ACTUAL_PATH_CONTACT_RESOURCE_SMOKE_PASS",
+        "protocol_sha256": stage0a.EXPECTED_PROTOCOL_SHA256,
+        "contact_label_gate_rows": 0,
+        "forbidden_dataset_access_count": 0,
+        "simulator_actions_executed": 0,
+        "success_check_calls": 0,
+        "reward_success_done_read": False,
+        "resources_after": {"swap_used_bytes": 0},
+    }
+    internal_path = run_dir / "resource_smoke.json"
+    internal_path.write_text(json.dumps(internal), encoding="utf-8")
+    monitor = SCRIPT.parents[1] / "scripts" / "monitor_epoch7_contact_stage0a_smoke.ps1"
+    host = {
+        "schema_version": "epoch7.contact_topology.host_resource_smoke.v1",
+        "protocol_sha256": stage0a.EXPECTED_PROTOCOL_SHA256,
+        "resource_amendment_sha256": stage0a.EXPECTED_RESOURCE_AMENDMENT_SHA256,
+        "final_decision": "EPOCH7_CONTACT_STAGE0A_RESOURCE_SMOKE_PASS",
+        "child_exit_code": 0,
+        "thresholds": {
+            "baseline_used_fraction_max": 0.70,
+            "peak_used_fraction_max": 0.85,
+            "pagefile_allocation_growth_mib_max": 16.0,
+        },
+        "baseline": {"used_fraction": 0.60},
+        "peak": {"used_fraction": 0.75},
+        "pagefile_current_growth_mib": 1.0,
+        "pagefile_write_activity": False,
+        "memory_release_verified": True,
+        "gpu_release_verified": True,
+        "internal_valid": True,
+        "scientific_gate_rows": 0,
+        "simulator_actions_executed": 0,
+        "reward_success_done_read": False,
+        "wsl_shutdown_after_child_requested": False,
+        "wsl_cache_drop_after_child_requested": True,
+        "internal_report_sha256": stage0a.sha256_file(internal_path),
+        "monitor_script_sha256": stage0a.sha256_file(monitor),
+    }
+    (run_dir / "resource_smoke_host.json").write_text(json.dumps(host), encoding="utf-8")
+    return host
+
+
+def test_epoch7_resource_amendment_accepts_only_allocation_jitter(tmp_path: Path) -> None:
+    _write_epoch7_smoke_pair(tmp_path)
+    assert stage0a.valid_host_smoke(tmp_path)
+
+
+def test_epoch7_resource_amendment_rejects_paging_writes(tmp_path: Path) -> None:
+    host = _write_epoch7_smoke_pair(tmp_path)
+    host["pagefile_write_activity"] = True
+    (tmp_path / "resource_smoke_host.json").write_text(json.dumps(host), encoding="utf-8")
+    assert not stage0a.valid_host_smoke(tmp_path)
+
+
+def test_epoch7_monitor_preserves_scientific_protocol_and_never_shuts_down_wsl() -> None:
+    monitor = (
+        SCRIPT.parents[1] / "scripts" / "monitor_epoch7_contact_stage0a_smoke.ps1"
+    ).read_text(encoding="utf-8")
+    assert stage0a.EXPECTED_PROTOCOL_SHA256 in monitor
+    assert stage0a.EXPECTED_RESOURCE_AMENDMENT_SHA256 in monitor
+    assert "$PeakUsedFractionMax = 0.85" in monitor
+    assert "$PagefileGrowthMiBMax = 16.0" in monitor
+    assert "/proc/sys/vm/drop_caches" in monitor
+    assert "wsl.exe --shutdown" not in monitor

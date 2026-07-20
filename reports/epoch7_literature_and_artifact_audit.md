@@ -135,3 +135,16 @@ False-premise language grounding was reconsidered and rejected. DoWhat?, IVA, IG
 The ten-task official-demonstration gate was valid but returned `NO_REPEATABLE_GAP`. Native success occurred on all ten tasks; immediate neutral dwell failed on three, and the unused expert suffix recovered all three. Every failure was nevertheless an `On` placement predicate, so the effect covered one mechanism and one predicate family rather than the frozen cross-mechanism requirement. No policy was loaded or queried. The result is retained as an actionable LIBERO predicate observation, not promoted into a general VLA benchmark.
 
 The prespecified typed non-gripper contact-transition fallback is now active only for an audit of its former operational blocker. Its scientific labels and thresholds remain frozen. Any repair must be outcome-free and limited to the resource rule; label extraction cannot begin until the amended rule is written and hashed.
+
+### Contact-transition resource amendment freeze
+
+The outcome-free amendment is frozen at
+`reports/epoch7_contact_transition_topology/resource_rule_amendment.json`,
+SHA-256
+`7CCDCE5D9AA0B24C356AF873D0481AF76312D3C7FCF6871C4CA80FD6621ACFEB`.
+It preserves the Epoch 6 scientific protocol hash and every label/headroom
+gate. It changes only host qualification: an 85% peak-RAM ceiling, zero WSL
+swap, no sampled paging writes, at most 16 MiB allocation-only pagefile
+jitter, and bounded controlled cache release. No contact-label row or outcome
+was accessed while writing or testing the amendment. A valid actual-path
+resource smoke is required before Stage 0A can resume.

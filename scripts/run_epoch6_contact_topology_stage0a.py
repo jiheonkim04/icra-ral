@@ -28,6 +28,15 @@ PROTOCOL_PATH = (
     / "problem_verification_protocol.json"
 )
 EXPECTED_PROTOCOL_SHA256 = "7FA28AAEEAC9886F36DD5CCD059CA7AC4CD65B21FABFBBCA4AFFA53B0A256240"
+RESOURCE_AMENDMENT_PATH = (
+    REPO_ROOT
+    / "reports"
+    / "epoch7_contact_transition_topology"
+    / "resource_rule_amendment.json"
+)
+EXPECTED_RESOURCE_AMENDMENT_SHA256 = (
+    "7CCDCE5D9AA0B24C356AF873D0481AF76312D3C7FCF6871C4CA80FD6621ACFEB"
+)
 LIBERO_ROOT = Path("/mnt/c/assets/repos/LIBERO")
 DATA_ROOT = Path("/mnt/c/assets/data/libero")
 LIBERO_REVISION = "8f1084e3132a39270c3a13ebe37270a43ece2a01"
@@ -557,22 +566,57 @@ def valid_host_smoke(run_dir: Path) -> bool:
         host_path = run_dir / "resource_smoke_host.json"
         internal = json.loads(internal_path.read_text(encoding="utf-8"))
         host = json.loads(host_path.read_text(encoding="utf-8-sig"))
-        return bool(
+        internal_valid = bool(
             internal["status"] == "ACTUAL_PATH_CONTACT_RESOURCE_SMOKE_PASS"
+            and internal["protocol_sha256"] == EXPECTED_PROTOCOL_SHA256
             and internal["contact_label_gate_rows"] == 0
             and internal["forbidden_dataset_access_count"] == 0
             and internal["simulator_actions_executed"] == 0
             and internal["success_check_calls"] == 0
             and not internal["reward_success_done_read"]
             and internal["resources_after"]["swap_used_bytes"] == 0
-            and host["final_decision"] == "EPOCH6_CONTACT_STAGE0A_RESOURCE_SMOKE_PASS"
+            and host["internal_report_sha256"] == sha256_file(internal_path)
+        )
+        old_valid = bool(
+            host.get("schema_version") == "epoch6.contact_topology.host_resource_smoke.v1"
+            and host.get("final_decision")
+            == "EPOCH6_CONTACT_STAGE0A_RESOURCE_SMOKE_PASS"
             and host["child_exit_code"] == 0
             and host["pagefile_current_growth_mib"] <= 0
             and not host["pagefile_write_activity"]
-            and host["internal_report_sha256"] == sha256_file(internal_path)
             and host["monitor_script_sha256"]
             == sha256_file(REPO_ROOT / "scripts" / "monitor_epoch6_contact_stage0a_smoke.ps1")
         )
+        epoch7_valid = bool(
+            sha256_file(RESOURCE_AMENDMENT_PATH)
+            == EXPECTED_RESOURCE_AMENDMENT_SHA256
+            and host.get("schema_version")
+            == "epoch7.contact_topology.host_resource_smoke.v1"
+            and host.get("protocol_sha256") == EXPECTED_PROTOCOL_SHA256
+            and host.get("resource_amendment_sha256")
+            == EXPECTED_RESOURCE_AMENDMENT_SHA256
+            and host.get("final_decision")
+            == "EPOCH7_CONTACT_STAGE0A_RESOURCE_SMOKE_PASS"
+            and host["child_exit_code"] == 0
+            and host["thresholds"]["baseline_used_fraction_max"] == 0.70
+            and host["thresholds"]["peak_used_fraction_max"] == 0.85
+            and host["thresholds"]["pagefile_allocation_growth_mib_max"] == 16.0
+            and host["baseline"]["used_fraction"] <= 0.70
+            and host["peak"]["used_fraction"] <= 0.85
+            and host["pagefile_current_growth_mib"] <= 16.0
+            and not host["pagefile_write_activity"]
+            and host["memory_release_verified"]
+            and host["gpu_release_verified"]
+            and host["internal_valid"]
+            and host["scientific_gate_rows"] == 0
+            and host["simulator_actions_executed"] == 0
+            and not host["reward_success_done_read"]
+            and not host["wsl_shutdown_after_child_requested"]
+            and host["wsl_cache_drop_after_child_requested"]
+            and host["monitor_script_sha256"]
+            == sha256_file(REPO_ROOT / "scripts" / "monitor_epoch7_contact_stage0a_smoke.ps1")
+        )
+        return internal_valid and (old_valid or epoch7_valid)
     except Exception:
         return False
 

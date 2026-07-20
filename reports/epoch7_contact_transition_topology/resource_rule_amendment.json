@@ -1,0 +1,77 @@
+{
+  "schema_version": "epoch7.contact_topology.resource_rule_amendment.v1",
+  "frozen_at": "2026-07-20T17:00:03+09:00",
+  "thesis_id": "non_gripper_object_environment_contact_transition_topology",
+  "amendment_scope": "OUTCOME_FREE_HOST_RESOURCE_QUALIFICATION_ONLY",
+  "scientific_protocol": {
+    "path": "reports/epoch6_contact_transition_topology/problem_verification_protocol.json",
+    "sha256": "7FA28AAEEAC9886F36DD5CCD059CA7AC4CD65B21FABFBBCA4AFFA53B0A256240",
+    "status": "UNCHANGED_AND_STILL_BINDING"
+  },
+  "superseded_resource_requirements_only": {
+    "host_pagefile_growth_mib_max": 0,
+    "host_used_fraction_max": 0.75
+  },
+  "amended_host_qualification": {
+    "baseline_used_fraction_max": 0.7,
+    "peak_used_fraction_max": 0.85,
+    "wsl_swap_used_bytes_max": 0,
+    "pagefile_allocation_growth_mib_max": 16,
+    "pagefile_write_activity_allowed": false,
+    "minimum_free_disk_bytes": 60000000000,
+    "controlled_release": {
+      "wsl_cache_drop_after_child_allowed": true,
+      "wsl_shutdown_after_child_allowed": false,
+      "physical_used_bytes_above_baseline_max": 2147483648,
+      "gpu_used_mib_above_baseline_max": 256
+    }
+  },
+  "interpretation": {
+    "small_allocation_only_pagefile_jitter": "Nonfatal only when allocation growth is at most 16 MiB and every sampled PageWritesPersec and PagesOutputPersec value is zero.",
+    "sustained_paging": "Any sampled positive PageWritesPersec or PagesOutputPersec value fails qualification.",
+    "cache_release": "The monitor may explicitly drop reclaimable WSL caches after the child exits, without shutting down user-owned WSL sessions; the post-release bounds must pass.",
+    "qualification_extent": "The smoke executes the exact simulator construction, state restore, contact graph, and teardown path for one state. Full Stage 0A remains serial with one live environment and retains its internal zero-swap and free-disk guards."
+  },
+  "evidence_for_amendment": {
+    "source": "reports/epoch6_contact_transition_topology/operational_blocker.json",
+    "attempt_count": 4,
+    "peak_host_used_fraction_range": [
+      0.5912711163079862,
+      0.6099158023888242
+    ],
+    "pagefile_allocation_growth_mib_range": [
+      0,
+      1
+    ],
+    "attempts_with_pagefile_write_activity": 0,
+    "attempts_with_internal_actual_path_pass": 4,
+    "common_wsl_swap_used_bytes": 0,
+    "scientific_label_rows_exposed": 0,
+    "outcomes_exposed": false
+  },
+  "immutable_scientific_fields": [
+    "root seed",
+    "task and split membership",
+    "demo IDs",
+    "allowed and forbidden datasets",
+    "contact graph construction",
+    "robot geometry exclusion",
+    "typed birth/death bins",
+    "two-frame debounce",
+    "all Stage 0A scientific gates",
+    "all Stage 0B headroom gates",
+    "decision logic"
+  ],
+  "prohibitions": {
+    "contact_label_access_before_amendment_freeze": true,
+    "reward_success_done_access": true,
+    "simulator_step_during_resource_smoke": true,
+    "scientific_threshold_change": true,
+    "policy_load_or_rollout": true,
+    "method_training": true,
+    "wsl_shutdown": true
+  },
+  "qualified_monitor_path": "scripts/monitor_epoch7_contact_stage0a_smoke.ps1",
+  "pass_decision": "EPOCH7_CONTACT_STAGE0A_RESOURCE_SMOKE_PASS",
+  "authorization_after_pass": "Resume only the already frozen Stage 0A contact-label gate. Stage 0B, a method, VLA training, policy rollout, and paper generation remain unauthorized."
+}
