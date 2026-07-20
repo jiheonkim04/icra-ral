@@ -1,0 +1,278 @@
+{
+  "attempt_id": "d1_guarded_lateral_nudge",
+  "calibration_path": "reports/epoch9b_dynamic_nudge/controller_calibration.json",
+  "calibration_sha256": "5C3B168344AA5583FD024B4428E24A614E9DF13787972020BFD30BC19164A592",
+  "completed_at": "2026-07-21T01:15:33+09:00",
+  "confirmation_accessed": false,
+  "controller_config": {
+    "approach_control_steps_per_increment": 4,
+    "approach_increment_m": 0.003,
+    "approach_start_offset_x_m": -0.095,
+    "approach_stop_offset_x_m": -0.04,
+    "close_steps": 8,
+    "coast_steps": 5,
+    "controller_error_consecutive_steps": 2,
+    "controller_error_contact_m": 0.012,
+    "controller_error_over_baseline_m": 0.006,
+    "gripper_closed_command": 1.0,
+    "impulse_action_x": 0.18,
+    "impulse_steps": 3,
+    "move_gain_denominator_m": 0.04,
+    "neutral_tolerance_m": 0.004,
+    "paddle_y_offset_m": 0.018,
+    "paddle_z_m": 0.93,
+    "visual_contact_threshold_pixels": 1.0,
+    "visual_quality_min": 0.42
+  },
+  "evidence_class": "DEVELOPMENT",
+  "manifest": [
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.161,
+          0.03
+        ],
+        "front": [
+          0.089,
+          0.13
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "CONTROLLER_DEVELOPMENT",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_controller_dev_000",
+      "source_state_demo_index": 31
+    }
+  ],
+  "protocol_path": "reports/epoch9b_v2_task_preservation_protocol.json",
+  "protocol_sha256": "73372173E2A6D9064D2200EE24000BE061CA04FF9757D07F86A4DAAB919AD484",
+  "rows": [
+    {
+      "canonical_vla_endpoint": {
+        "note": "same-state canonical endpoint is deferred until controller feasibility GO to avoid resident-VLA cost during tuning",
+        "pre_oracle_state_persisted_in_memory_only": true,
+        "status": "NOT_RUN_DURING_CONTROLLER_DEVELOPMENT"
+      },
+      "completed": true,
+      "exception": null,
+      "heavy_rank_correct": false,
+      "initial_candidate_positions_eval_only": {
+        "back": [
+          -0.16099999999991768,
+          0.029999999999866408,
+          0.8984041501888524
+        ],
+        "front": [
+          0.0890003879171301,
+          0.1299995061998689,
+          0.8983632303470955
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": false,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": true
+        },
+        "steps": 178,
+        "target_slot_eval_only": "front"
+      },
+      "post_probe_state_length": 77,
+      "predicted_heavy_slot": "back",
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 5.551115123125783e-16,
+            "front": 0.009258841674587055
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            0.08648384154516152,
+            0.1309836739294875,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0021701975941773185,
+          "final_eef_z_m": 1.1735401460063462,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.009258841674587055,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.2692584171369052,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": -5.0,
+            "dy": 4.0,
+            "magnitude_pixels": 6.4031242374328485,
+            "quality": 0.722640872001648,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": false,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.0142642061301976,
+          "response_tracker_quality_min": 0.55064457654953,
+          "response_visual_displacement_pixels": 2.23606797749979,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 236,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d1_guarded_lateral_nudge/traces/epoch9b_controller_dev_000_front.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.011756531009357644,
+            "front": 0.0
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            -0.15661196299377286,
+            0.02620466278219067,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0007007096965117932,
+          "final_eef_z_m": 1.1739721347022858,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.011756531009357644,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.26693143448700246,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": -4.0,
+            "dy": 0.0,
+            "magnitude_pixels": 4.0,
+            "quality": 0.7202820777893066,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.011363636363636364,
+          "response_tracker_quality_min": 0.7518488168716431,
+          "response_visual_displacement_pixels": 1.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 141,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d1_guarded_lateral_nudge/traces/epoch9b_controller_dev_000_back.npz"
+        }
+      ],
+      "response_score_rule": "smaller calibrated peak displacement predicts heavier candidate",
+      "response_scores_m": {
+        "back": 0.011363636363636364,
+        "front": 0.0142642061301976
+      },
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.161,
+            0.03
+          ],
+          "front": [
+            0.089,
+            0.13
+          ]
+        },
+        "completion_target_slot_eval_only": "front",
+        "heavy_slot": "front",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "partition": "CONTROLLER_DEVELOPMENT",
+        "probe_order": [
+          "front",
+          "back"
+        ],
+        "scene_id": "epoch9b_controller_dev_000",
+        "source_state_demo_index": 31
+      },
+      "scene_id": "epoch9b_controller_dev_000",
+      "wall_seconds": 27.973285846999993
+    }
+  ],
+  "schema_version": "epoch9b.dynamic_nudge.development.v1",
+  "started_at": "2026-07-21T01:15:02+09:00",
+  "summary": {
+    "both_candidates_contacted_scenes": 1,
+    "canonical_vla_endpoint_completed_scenes": 0,
+    "distance_limit_pass_probes": 2,
+    "finite_bounded_action_probes": 2,
+    "heavy_rank_by_position": {
+      "back": {
+        "rank_correct": 0,
+        "scenes": 0
+      },
+      "front": {
+        "rank_correct": 0,
+        "scenes": 1
+      }
+    },
+    "heavy_rank_correct_scenes": 0,
+    "intended_contact_probes": 2,
+    "lane_reachability_pass_probes": 2,
+    "legacy_3cm_reference_exceedance_count": 0,
+    "minimal_feasibility_panel_go": false,
+    "oracle_completion_success_scenes": 0,
+    "probe_count": 2,
+    "scenes_completed": 1,
+    "scenes_recorded": 1,
+    "v2_limit_m": 0.05
+  },
+  "validation_accessed": false
+}

@@ -1,0 +1,1251 @@
+{
+  "attempt_id": "d17_centered_contact_edge_stress",
+  "calibration_path": "reports/epoch9b_dynamic_nudge/controller_calibration_repair1.json",
+  "calibration_sha256": "10AE3D151E47A030BBDCC2DAB0850B69926A4A903F8E2B830B38450F8B2EEB7B",
+  "completed_at": "2026-07-21T02:16:44+09:00",
+  "confirmation_accessed": false,
+  "controller_config": {
+    "approach_control_steps_per_increment": 4,
+    "approach_increment_m": 0.003,
+    "approach_start_offset_x_m": -0.095,
+    "approach_stop_offset_x_m": -0.04,
+    "back_heavy_threshold_m": 0.005219466062047384,
+    "close_steps": 8,
+    "coast_steps": 2,
+    "contact_verify_retract_m": 0.008,
+    "contact_verify_steps": 7,
+    "controller_error_consecutive_steps": 2,
+    "controller_error_contact_m": 0.012,
+    "controller_error_over_baseline_m": 0.006,
+    "front_centered_contact": true,
+    "front_clear_approach_y_m": 0.105,
+    "front_contact_transition_offset_x_m": -0.062,
+    "gripper_closed_command": 1.0,
+    "impulse_action_x": 0.65,
+    "impulse_steps": 3,
+    "move_gain_denominator_m": 0.04,
+    "neutral_tolerance_m": 0.004,
+    "paddle_y_offset_m": 0.018,
+    "paddle_z_m": 0.93,
+    "visual_contact_threshold_pixels": 0.55,
+    "visual_quality_min": 0.5
+  },
+  "evidence_class": "DEVELOPMENT",
+  "manifest": [
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.158,
+          0.034
+        ],
+        "front": [
+          0.084,
+          0.174
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "CONTROLLER_REPAIR1_EDGE_STRESS_DEVELOPMENT",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_edge_stress_dev_000",
+      "source_state_demo_index": 32
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.166,
+          0.044000000000000004
+        ],
+        "front": [
+          0.092,
+          0.173
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "heavy_slot": "back",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "CONTROLLER_REPAIR1_EDGE_STRESS_DEVELOPMENT",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_edge_stress_dev_001",
+      "source_state_demo_index": 32
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.14200000000000002,
+          0.054000000000000006
+        ],
+        "front": [
+          0.1,
+          0.172
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "CONTROLLER_REPAIR1_EDGE_STRESS_DEVELOPMENT",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_edge_stress_dev_002",
+      "source_state_demo_index": 32
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.15000000000000002,
+          0.064
+        ],
+        "front": [
+          0.10800000000000001,
+          0.17099999999999999
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "heavy_slot": "back",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "CONTROLLER_REPAIR1_EDGE_STRESS_DEVELOPMENT",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_edge_stress_dev_003",
+      "source_state_demo_index": 32
+    }
+  ],
+  "protocol_path": "reports/epoch9b_v2_task_preservation_protocol_repair1.json",
+  "protocol_sha256": "FCC4F3488C623EA41A44FAF154E6D694DCA7C37E108E0AC4A4E947B90785B30B",
+  "rows": [
+    {
+      "canonical_vla_endpoint": {
+        "note": "same-state canonical endpoint is deferred until controller feasibility GO to avoid resident-VLA cost during tuning",
+        "pre_oracle_state_persisted_in_memory_only": true,
+        "status": "NOT_RUN_DURING_CONTROLLER_DEVELOPMENT"
+      },
+      "completed": true,
+      "exception": null,
+      "heavy_rank_correct": true,
+      "initial_candidate_positions_eval_only": {
+        "back": [
+          -0.158,
+          0.034,
+          0.8984070750980836
+        ],
+        "front": [
+          0.08400019277833701,
+          0.173999754579136,
+          0.8983866153523257
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": true,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": true
+        },
+        "steps": 181,
+        "target_object_positions_eval_only": {
+          "after_close": [
+            0.0924623906305697,
+            0.17240576586205272,
+            0.8993116866177473
+          ],
+          "after_lift": [
+            0.0844860535499366,
+            0.19933808538429523,
+            1.018196772245719
+          ],
+          "after_release": [
+            0.011071753818053472,
+            -0.0034666827119736406,
+            0.9063025813914223
+          ],
+          "initial": [
+            0.09337275539193234,
+            0.17630203093776375,
+            0.898386615352325
+          ],
+          "plate": [
+            0.02120030476279802,
+            0.0008930501027344639,
+            0.902506338529415
+          ]
+        },
+        "target_slot_eval_only": "front"
+      },
+      "post_probe_state_length": 77,
+      "predicted_heavy_slot": "front",
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_distractor_contact_records_eval_only": [],
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.0,
+            "front": 0.009651186785948201
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "persistent_rgb_after_retract",
+          "contact_verification": [
+            {
+              "approach_offset_x_m": -0.055999999999999966,
+              "persistent_subpixel_motion_pixels": 0.7362421667127512,
+              "retract_reached": true,
+              "tracker_quality": 0.6577144265174866,
+              "trigger": "visual_event",
+              "trigger_subpixel_motion_pixels": 1.0439415179709601,
+              "trigger_tracker_quality": 0.6561859846115112,
+              "verified": true
+            }
+          ],
+          "estimated_initial_target_xyz_m": [
+            0.08154138899389923,
+            0.1752600295657726,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0027834560476038264,
+          "final_eef_z_m": 1.1740214491877237,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.009651186785948201,
+          "intended_target_contact_eval_only": true,
+          "intended_target_contact_or_excitation_eval_only": true,
+          "intended_target_excitation_peak_m_eval_only": 0.009652482054385389,
+          "intended_target_excited_eval_only": true,
+          "lane_and_reachability_continuous_pass": false,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.27957829777536486,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": 3.0,
+            "dy": 5.0,
+            "magnitude_pixels": 5.830951894845301,
+            "quality": 0.6480975151062012,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "subpixel_dx": 3.106486947366058,
+            "subpixel_dy": 4.71171316738177,
+            "subpixel_magnitude_pixels": 5.643624910094083,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "preimpulse_clearance": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.0044062554626720625,
+          "response_eval_only_expected_axis_peak_m": 0.005140869020100178,
+          "response_incremental_expected_axis_peak_m": 0.0044062554626720625,
+          "response_incremental_expected_axis_settled_m": 0.003435072809433535,
+          "response_peak_estimated_displacement_m": 0.004413435832945028,
+          "response_tracker_quality_min": 0.646294116973877,
+          "response_visual_displacement_pixels": 1.4123053281221882,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 175,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d17_centered_contact_edge_stress/traces/epoch9b_edge_stress_dev_000_front.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_distractor_contact_records_eval_only": [],
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.022004945226600896,
+            "front": 0.0
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "persistent_rgb_after_retract",
+          "contact_verification": [
+            {
+              "approach_offset_x_m": -0.055999999999999966,
+              "persistent_subpixel_motion_pixels": 0.7116284531199804,
+              "retract_reached": true,
+              "tracker_quality": 0.752030074596405,
+              "trigger": "visual_event",
+              "trigger_subpixel_motion_pixels": 0.7049290711520283,
+              "trigger_tracker_quality": 0.745500922203064,
+              "verified": true
+            }
+          ],
+          "estimated_initial_target_xyz_m": [
+            -0.15762596518955746,
+            0.03328878856986116,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0009350624457046293,
+          "final_eef_z_m": 1.1745929814401412,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.022004945226600896,
+          "intended_target_contact_eval_only": true,
+          "intended_target_contact_or_excitation_eval_only": true,
+          "intended_target_excitation_peak_m_eval_only": 0.022015875846555698,
+          "intended_target_excited_eval_only": true,
+          "lane_and_reachability_continuous_pass": false,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.2700618642286817,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": -3.0,
+            "dy": 0.0,
+            "magnitude_pixels": 3.0,
+            "quality": 0.833001971244812,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "subpixel_dx": -2.979885886575449,
+            "subpixel_dy": 0.0892321932290443,
+            "subpixel_magnitude_pixels": 2.98122160889123,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "preimpulse_clearance": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.016424416672995497,
+          "response_eval_only_expected_axis_peak_m": 0.015595031064496084,
+          "response_incremental_expected_axis_peak_m": 0.016424416672995497,
+          "response_incremental_expected_axis_settled_m": 0.016291112264496636,
+          "response_peak_estimated_displacement_m": 0.016426794632493358,
+          "response_tracker_quality_min": 0.7506538033485413,
+          "response_visual_displacement_pixels": 2.1566409418184955,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 162,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d17_centered_contact_edge_stress/traces/epoch9b_edge_stress_dev_000_back.npz"
+        }
+      ],
+      "response_raw_scores_m": {
+        "back": 0.016424416672995497,
+        "front": 0.0044062554626720625
+      },
+      "response_score_rule": "complementary mass evidence from frozen back-slot response threshold; smaller predicts heavier",
+      "response_scores_m": {
+        "back": 0.011204950610948113,
+        "front": -0.011204950610948113
+      },
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.158,
+            0.034
+          ],
+          "front": [
+            0.084,
+            0.174
+          ]
+        },
+        "completion_target_slot_eval_only": "front",
+        "heavy_slot": "front",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "partition": "CONTROLLER_REPAIR1_EDGE_STRESS_DEVELOPMENT",
+        "probe_order": [
+          "front",
+          "back"
+        ],
+        "scene_id": "epoch9b_edge_stress_dev_000",
+        "source_state_demo_index": 32
+      },
+      "scene_id": "epoch9b_edge_stress_dev_000",
+      "wall_seconds": 20.638372160000003
+    },
+    {
+      "canonical_vla_endpoint": {
+        "note": "same-state canonical endpoint is deferred until controller feasibility GO to avoid resident-VLA cost during tuning",
+        "pre_oracle_state_persisted_in_memory_only": true,
+        "status": "NOT_RUN_DURING_CONTROLLER_DEVELOPMENT"
+      },
+      "completed": true,
+      "exception": null,
+      "heavy_rank_correct": true,
+      "initial_candidate_positions_eval_only": {
+        "back": [
+          -0.16599980722166321,
+          0.04399975457913586,
+          0.8983866153523257
+        ],
+        "front": [
+          0.092,
+          0.173,
+          0.8984070750980836
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": true,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": true
+        },
+        "steps": 147,
+        "target_object_positions_eval_only": {
+          "after_close": [
+            -0.1591096322617357,
+            0.03930203126671945,
+            0.9004644129891664
+          ],
+          "after_lift": [
+            -0.16195776198512823,
+            0.04000047099240946,
+            1.0594383172212385
+          ],
+          "after_release": [
+            0.022132767348698023,
+            0.01413145465862835,
+            0.9068134416440071
+          ],
+          "initial": [
+            -0.1562715242236299,
+            0.043794095349589814,
+            0.898386615352325
+          ],
+          "plate": [
+            0.011685635307408819,
+            0.011591825658399418,
+            0.902506338529415
+          ]
+        },
+        "target_slot_eval_only": "back"
+      },
+      "post_probe_state_length": 77,
+      "predicted_heavy_slot": "back",
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_distractor_contact_records_eval_only": [],
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.0,
+            "front": 0.011228956078777153
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "persistent_rgb_after_retract",
+          "contact_verification": [
+            {
+              "approach_offset_x_m": -0.055999999999999966,
+              "persistent_subpixel_motion_pixels": 1.142322844284104,
+              "retract_reached": true,
+              "tracker_quality": 0.7450587749481201,
+              "trigger": "visual_event",
+              "trigger_subpixel_motion_pixels": 1.137786324353729,
+              "trigger_tracker_quality": 0.7000280022621155,
+              "verified": true
+            }
+          ],
+          "estimated_initial_target_xyz_m": [
+            0.09060795244295086,
+            0.17460607833030012,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0026678701421777315,
+          "final_eef_z_m": 1.188254903145104,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.011228956078777153,
+          "intended_target_contact_eval_only": true,
+          "intended_target_contact_or_excitation_eval_only": true,
+          "intended_target_excitation_peak_m_eval_only": 0.011228956078777153,
+          "intended_target_excited_eval_only": true,
+          "lane_and_reachability_continuous_pass": false,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.28845270642699566,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": 3.0,
+            "dy": 3.0,
+            "magnitude_pixels": 4.242640687119285,
+            "quality": 0.5929178595542908,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "subpixel_dx": 3.382472906855501,
+            "subpixel_dy": 3.4061280307183353,
+            "subpixel_magnitude_pixels": 4.800294900030275,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "preimpulse_clearance": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.001755778651100339,
+          "response_eval_only_expected_axis_peak_m": 0.0044399118902746365,
+          "response_incremental_expected_axis_peak_m": 0.001755778651100339,
+          "response_incremental_expected_axis_settled_m": 0.0013143233656959246,
+          "response_peak_estimated_displacement_m": 0.001767820431768859,
+          "response_tracker_quality_min": 0.7355701327323914,
+          "response_visual_displacement_pixels": 1.41320677781163,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 189,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d17_centered_contact_edge_stress/traces/epoch9b_edge_stress_dev_001_front.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_distractor_contact_records_eval_only": [],
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.009730456608429113,
+            "front": 0.0
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "persistent_rgb_after_retract",
+          "contact_verification": [
+            {
+              "approach_offset_x_m": -0.052999999999999964,
+              "persistent_subpixel_motion_pixels": 0.6453031379885867,
+              "retract_reached": true,
+              "tracker_quality": 0.7439523935317993,
+              "trigger": "visual_event",
+              "trigger_subpixel_motion_pixels": 0.5599323606319826,
+              "trigger_tracker_quality": 0.704736590385437,
+              "verified": true
+            }
+          ],
+          "estimated_initial_target_xyz_m": [
+            -0.16695884769059152,
+            0.04425201311080609,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.001232038483696111,
+          "final_eef_z_m": 1.1890238388763459,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.009730456608429113,
+          "intended_target_contact_eval_only": true,
+          "intended_target_contact_or_excitation_eval_only": true,
+          "intended_target_excitation_peak_m_eval_only": 0.009730456608429113,
+          "intended_target_excited_eval_only": true,
+          "lane_and_reachability_continuous_pass": false,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.2910255374095957,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": -1.0,
+            "dy": 1.0,
+            "magnitude_pixels": 1.4142135623730951,
+            "quality": 0.7595036029815674,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "subpixel_dx": -1.401181552679379,
+            "subpixel_dy": 0.910525853320042,
+            "subpixel_magnitude_pixels": 1.671037723432115,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "preimpulse_clearance": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.004751651371808097,
+          "response_eval_only_expected_axis_peak_m": 0.003973221899291807,
+          "response_incremental_expected_axis_peak_m": 0.004751651371808097,
+          "response_incremental_expected_axis_settled_m": 0.004389478114915372,
+          "response_peak_estimated_displacement_m": 0.00476707877831038,
+          "response_tracker_quality_min": 0.7442331910133362,
+          "response_visual_displacement_pixels": 1.0657329112946132,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 163,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d17_centered_contact_edge_stress/traces/epoch9b_edge_stress_dev_001_back.npz"
+        }
+      ],
+      "response_raw_scores_m": {
+        "back": 0.004751651371808097,
+        "front": 0.001755778651100339
+      },
+      "response_score_rule": "complementary mass evidence from frozen back-slot response threshold; smaller predicts heavier",
+      "response_scores_m": {
+        "back": -0.0004678146902392863,
+        "front": 0.0004678146902392863
+      },
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.166,
+            0.044000000000000004
+          ],
+          "front": [
+            0.092,
+            0.173
+          ]
+        },
+        "completion_target_slot_eval_only": "back",
+        "heavy_slot": "back",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "partition": "CONTROLLER_REPAIR1_EDGE_STRESS_DEVELOPMENT",
+        "probe_order": [
+          "front",
+          "back"
+        ],
+        "scene_id": "epoch9b_edge_stress_dev_001",
+        "source_state_demo_index": 32
+      },
+      "scene_id": "epoch9b_edge_stress_dev_001",
+      "wall_seconds": 19.535783159999994
+    },
+    {
+      "canonical_vla_endpoint": {
+        "note": "same-state canonical endpoint is deferred until controller feasibility GO to avoid resident-VLA cost during tuning",
+        "pre_oracle_state_persisted_in_memory_only": true,
+        "status": "NOT_RUN_DURING_CONTROLLER_DEVELOPMENT"
+      },
+      "completed": true,
+      "exception": null,
+      "heavy_rank_correct": true,
+      "initial_candidate_positions_eval_only": {
+        "back": [
+          -0.14200000000000002,
+          0.054000000000000006,
+          0.8984070750980836
+        ],
+        "front": [
+          0.10000019277833701,
+          0.171999754579136,
+          0.8983866153523257
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": true,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": true
+        },
+        "steps": 189,
+        "target_object_positions_eval_only": {
+          "after_close": [
+            0.10278378679380332,
+            0.17206297920330574,
+            0.8995110087068025
+          ],
+          "after_lift": [
+            0.09153338650423148,
+            0.1802573398875866,
+            1.0432177654883532
+          ],
+          "after_release": [
+            0.006713949707190424,
+            -0.00722521138660532,
+            0.907091027006773
+          ],
+          "initial": [
+            0.10296704303673464,
+            0.1755887264234186,
+            0.898386615352325
+          ],
+          "plate": [
+            0.02120030476279802,
+            0.000893050102734465,
+            0.902506338529415
+          ]
+        },
+        "target_slot_eval_only": "front"
+      },
+      "post_probe_state_length": 77,
+      "predicted_heavy_slot": "front",
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_distractor_contact_records_eval_only": [],
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.018088156181812337,
+            "front": 0.0
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "persistent_rgb_after_retract",
+          "contact_verification": [
+            {
+              "approach_offset_x_m": -0.055999999999999966,
+              "persistent_subpixel_motion_pixels": 0.821521679769769,
+              "retract_reached": true,
+              "tracker_quality": 0.7638348340988159,
+              "trigger": "visual_event",
+              "trigger_subpixel_motion_pixels": 0.8234432588778621,
+              "trigger_tracker_quality": 0.7612645030021667,
+              "verified": true
+            }
+          ],
+          "estimated_initial_target_xyz_m": [
+            -0.1408152450141092,
+            0.05459622953344564,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0018706749860130112,
+          "final_eef_z_m": 1.1734796096897175,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.018088156181812337,
+          "intended_target_contact_eval_only": true,
+          "intended_target_contact_or_excitation_eval_only": true,
+          "intended_target_excitation_peak_m_eval_only": 0.018088156181812337,
+          "intended_target_excited_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.25310341707048484,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": 0.0,
+            "dy": -1.0,
+            "magnitude_pixels": 1.0,
+            "quality": 0.7161580920219421,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "subpixel_dx": 0.08838561218071561,
+            "subpixel_dy": -1.3901111822104042,
+            "subpixel_magnitude_pixels": 1.392918201240463,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "preimpulse_clearance": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.012338016467968302,
+          "response_eval_only_expected_axis_peak_m": 0.011275536150316873,
+          "response_incremental_expected_axis_peak_m": 0.012338016467968302,
+          "response_incremental_expected_axis_settled_m": 0.011673349272477287,
+          "response_peak_estimated_displacement_m": 0.012340549631217128,
+          "response_tracker_quality_min": 0.7136190533638,
+          "response_visual_displacement_pixels": 1.9078601996882318,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 157,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d17_centered_contact_edge_stress/traces/epoch9b_edge_stress_dev_002_back.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_distractor_contact_records_eval_only": [],
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.0,
+            "front": 0.00465649217274199
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "persistent_rgb_after_retract",
+          "contact_verification": [
+            {
+              "approach_offset_x_m": -0.05899999999999997,
+              "persistent_subpixel_motion_pixels": 0.7485728782842008,
+              "retract_reached": true,
+              "tracker_quality": 0.7902923226356506,
+              "trigger": "visual_event",
+              "trigger_subpixel_motion_pixels": 0.7401363729011189,
+              "trigger_tracker_quality": 0.7637476325035095,
+              "verified": true
+            }
+          ],
+          "estimated_initial_target_xyz_m": [
+            0.09951091658266084,
+            0.17204657531208,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0019049819514366968,
+          "final_eef_z_m": 1.174636713832915,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.00465649217274199,
+          "intended_target_contact_eval_only": true,
+          "intended_target_contact_or_excitation_eval_only": true,
+          "intended_target_excitation_peak_m_eval_only": 0.004657405529104644,
+          "intended_target_excited_eval_only": true,
+          "lane_and_reachability_continuous_pass": false,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.25310341707048484,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": 3.0,
+            "dy": 2.0,
+            "magnitude_pixels": 3.605551275463989,
+            "quality": 0.726035475730896,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "subpixel_dx": 3.293016761577359,
+            "subpixel_dy": 2.1241011946000974,
+            "subpixel_magnitude_pixels": 3.9186432954443555,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "preimpulse_clearance": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.0032180942868612243,
+          "response_eval_only_expected_axis_peak_m": 0.00256106686539527,
+          "response_incremental_expected_axis_peak_m": 0.0032180942868612243,
+          "response_incremental_expected_axis_settled_m": 0.00268507876431782,
+          "response_peak_estimated_displacement_m": 0.0034951739568640896,
+          "response_tracker_quality_min": 0.6242384910583496,
+          "response_visual_displacement_pixels": 0.7994974683138012,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 185,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d17_centered_contact_edge_stress/traces/epoch9b_edge_stress_dev_002_front.npz"
+        }
+      ],
+      "response_raw_scores_m": {
+        "back": 0.012338016467968302,
+        "front": 0.0032180942868612243
+      },
+      "response_score_rule": "complementary mass evidence from frozen back-slot response threshold; smaller predicts heavier",
+      "response_scores_m": {
+        "back": 0.007118550405920918,
+        "front": -0.007118550405920918
+      },
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.14200000000000002,
+            0.054000000000000006
+          ],
+          "front": [
+            0.1,
+            0.172
+          ]
+        },
+        "completion_target_slot_eval_only": "front",
+        "heavy_slot": "front",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "partition": "CONTROLLER_REPAIR1_EDGE_STRESS_DEVELOPMENT",
+        "probe_order": [
+          "back",
+          "front"
+        ],
+        "scene_id": "epoch9b_edge_stress_dev_002",
+        "source_state_demo_index": 32
+      },
+      "scene_id": "epoch9b_edge_stress_dev_002",
+      "wall_seconds": 20.83476732599999
+    },
+    {
+      "canonical_vla_endpoint": {
+        "note": "same-state canonical endpoint is deferred until controller feasibility GO to avoid resident-VLA cost during tuning",
+        "pre_oracle_state_persisted_in_memory_only": true,
+        "status": "NOT_RUN_DURING_CONTROLLER_DEVELOPMENT"
+      },
+      "completed": true,
+      "exception": null,
+      "heavy_rank_correct": true,
+      "initial_candidate_positions_eval_only": {
+        "back": [
+          -0.14999980722166323,
+          0.06399975457913601,
+          0.8983866153523257
+        ],
+        "front": [
+          0.10800000000000001,
+          0.17099999999999999,
+          0.8984070750980836
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": true,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": true
+        },
+        "steps": 146,
+        "target_object_positions_eval_only": {
+          "after_close": [
+            -0.14187037028551594,
+            0.05949472785024985,
+            0.9003792494381988
+          ],
+          "after_lift": [
+            -0.1446055827529119,
+            0.06021066865885636,
+            1.0593714617779082
+          ],
+          "after_release": [
+            0.02119840368099554,
+            0.014141365832215489,
+            0.9066458673582874
+          ],
+          "initial": [
+            -0.1389613871855679,
+            0.06374376714943765,
+            0.898386615352325
+          ],
+          "plate": [
+            0.011685635307408819,
+            0.011591825658399418,
+            0.902506338529415
+          ]
+        },
+        "target_slot_eval_only": "back"
+      },
+      "post_probe_state_length": 77,
+      "predicted_heavy_slot": "back",
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_distractor_contact_records_eval_only": [],
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.011041387886377086,
+            "front": 0.0
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "persistent_rgb_after_retract",
+          "contact_verification": [
+            {
+              "approach_offset_x_m": -0.055999999999999966,
+              "persistent_subpixel_motion_pixels": 0.7894892192257287,
+              "retract_reached": true,
+              "tracker_quality": 0.7730199098587036,
+              "trigger": "visual_event",
+              "trigger_subpixel_motion_pixels": 0.758781605410432,
+              "trigger_tracker_quality": 0.7562050223350525,
+              "verified": true
+            }
+          ],
+          "estimated_initial_target_xyz_m": [
+            -0.14877671362737283,
+            0.0650047651519556,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0031435670347897677,
+          "final_eef_z_m": 1.1888968511442182,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.011041387886377086,
+          "intended_target_contact_eval_only": true,
+          "intended_target_contact_or_excitation_eval_only": true,
+          "intended_target_excitation_peak_m_eval_only": 0.011041389732285873,
+          "intended_target_excited_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.2692467757391238,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": 2.0,
+            "dy": -1.0,
+            "magnitude_pixels": 2.23606797749979,
+            "quality": 0.7605687379837036,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "subpixel_dx": 1.5872147412461501,
+            "subpixel_dy": -0.6895019442432044,
+            "subpixel_magnitude_pixels": 1.7305096260767354,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "preimpulse_clearance": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.003427190030375322,
+          "response_eval_only_expected_axis_peak_m": 0.005072600392715398,
+          "response_incremental_expected_axis_peak_m": 0.003427190030375322,
+          "response_incremental_expected_axis_settled_m": 0.003133650817720616,
+          "response_peak_estimated_displacement_m": 0.003439402189742318,
+          "response_tracker_quality_min": 0.7648441195487976,
+          "response_visual_displacement_pixels": 1.091607472988978,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 152,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d17_centered_contact_edge_stress/traces/epoch9b_edge_stress_dev_003_back.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_distractor_contact_records_eval_only": [],
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.0,
+            "front": 0.007743265634428596
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "persistent_rgb_after_retract",
+          "contact_verification": [
+            {
+              "approach_offset_x_m": -0.055999999999999966,
+              "persistent_subpixel_motion_pixels": 1.1881458112387162,
+              "retract_reached": true,
+              "tracker_quality": 0.7034871578216553,
+              "trigger": "visual_event",
+              "trigger_subpixel_motion_pixels": 1.1873356730495035,
+              "trigger_tracker_quality": 0.6459214687347412,
+              "verified": true
+            }
+          ],
+          "estimated_initial_target_xyz_m": [
+            0.10708444978275018,
+            0.1703909529646097,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.002508743361981534,
+          "final_eef_z_m": 1.1904239809118105,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.007743265634428596,
+          "intended_target_contact_eval_only": true,
+          "intended_target_contact_or_excitation_eval_only": true,
+          "intended_target_excitation_peak_m_eval_only": 0.007743265634428596,
+          "intended_target_excited_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.2692467757391238,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": 3.0,
+            "dy": 1.0,
+            "magnitude_pixels": 3.1622776601683795,
+            "quality": 0.7744056582450867,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "subpixel_dx": 3.314995221056872,
+            "subpixel_dy": 1.033512413787232,
+            "subpixel_magnitude_pixels": 3.4723682444525106,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "preimpulse_clearance": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.0012409478767584237,
+          "response_eval_only_expected_axis_peak_m": 0.00231801881953185,
+          "response_incremental_expected_axis_peak_m": 0.0012409478767584237,
+          "response_incremental_expected_axis_settled_m": 0.0010005231786526852,
+          "response_peak_estimated_displacement_m": 0.001272012718372731,
+          "response_tracker_quality_min": 0.7034871578216553,
+          "response_visual_displacement_pixels": 1.3157505453799703,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 192,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d17_centered_contact_edge_stress/traces/epoch9b_edge_stress_dev_003_front.npz"
+        }
+      ],
+      "response_raw_scores_m": {
+        "back": 0.003427190030375322,
+        "front": 0.0012409478767584237
+      },
+      "response_score_rule": "complementary mass evidence from frozen back-slot response threshold; smaller predicts heavier",
+      "response_scores_m": {
+        "back": -0.0017922760316720614,
+        "front": 0.0017922760316720614
+      },
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.15000000000000002,
+            0.064
+          ],
+          "front": [
+            0.10800000000000001,
+            0.17099999999999999
+          ]
+        },
+        "completion_target_slot_eval_only": "back",
+        "heavy_slot": "back",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "partition": "CONTROLLER_REPAIR1_EDGE_STRESS_DEVELOPMENT",
+        "probe_order": [
+          "back",
+          "front"
+        ],
+        "scene_id": "epoch9b_edge_stress_dev_003",
+        "source_state_demo_index": 32
+      },
+      "scene_id": "epoch9b_edge_stress_dev_003",
+      "wall_seconds": 19.335938327999997
+    }
+  ],
+  "schema_version": "epoch9b.dynamic_nudge.development.v2",
+  "started_at": "2026-07-21T02:15:23+09:00",
+  "summary": {
+    "both_candidates_contacted_scenes": 4,
+    "candidate_distractor_collision_probes": 0,
+    "candidate_pair_collision_probes": 0,
+    "canonical_vla_endpoint_completed_scenes": 0,
+    "distance_limit_pass_probes": 8,
+    "finite_bounded_action_probes": 8,
+    "heavy_rank_by_position": {
+      "back": {
+        "rank_correct": 2,
+        "scenes": 2
+      },
+      "front": {
+        "rank_correct": 2,
+        "scenes": 2
+      }
+    },
+    "heavy_rank_correct_scenes": 4,
+    "intended_contact_or_excitation_probes": 8,
+    "intended_contact_probes": 8,
+    "lane_reachability_pass_probes": 3,
+    "legacy_3cm_reference_exceedance_count": 0,
+    "minimal_feasibility_panel_go": false,
+    "neutral_return_pass_probes": 8,
+    "oracle_completion_success_scenes": 4,
+    "probe_count": 8,
+    "sampled_instantaneous_contact_probes": 8,
+    "scenes_completed": 4,
+    "scenes_recorded": 4,
+    "tracker_quality_pass_probes": 8,
+    "v2_limit_m": 0.05
+  },
+  "validation_accessed": false
+}

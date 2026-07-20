@@ -1,0 +1,978 @@
+{
+  "branch": "codex/epoch9b-adaptive-probe-paper-continuation",
+  "clean_reset_basis": {
+    "by_slot": {
+      "back": {
+        "center_xyz_max_m": [
+          -0.1345530900616681,
+          0.0742914787821129,
+          0.8984070750980836
+        ],
+        "center_xyz_min_m": [
+          -0.17437676452400264,
+          0.029276045131800908,
+          0.8984070750980836
+        ],
+        "center_xyz_sample_std_m": [
+          0.014247103652699428,
+          0.01526451917159799,
+          0.0
+        ],
+        "center_xyz_span_m": [
+          0.039823674462334535,
+          0.04501543365031199,
+          0.0
+        ],
+        "development_demo_indices": [
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39
+        ],
+        "identity_count": 10,
+        "maximum_within_identity_repeat_span_m": 0.0
+      },
+      "front": {
+        "center_xyz_max_m": [
+          0.11788620086912945,
+          0.16220434488250052,
+          0.8984070750980836
+        ],
+        "center_xyz_min_m": [
+          0.07707662408966764,
+          0.12698537993426176,
+          0.8984070750980836
+        ],
+        "center_xyz_sample_std_m": [
+          0.014861133649711311,
+          0.012392405315712252,
+          0.0
+        ],
+        "center_xyz_span_m": [
+          0.0408095767794618,
+          0.03521896494823876,
+          0.0
+        ],
+        "development_demo_indices": [
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39
+        ],
+        "identity_count": 10,
+        "maximum_within_identity_repeat_span_m": 0.0
+      }
+    },
+    "source": "reports/epoch9_relational_probe_dataset/development/paired_v1/result.json",
+    "source_sha256": "10F452353AFFEC2810F0FA17531D28DD09D00C056ABC6CA2C9D31CEC41403617",
+    "untouched_first_probe_only": true,
+    "validation_or_confirmation_identity_used": false
+  },
+  "controller_information_boundary": {
+    "allowed": [
+      "agentview RGB",
+      "ordinary robot proprioception",
+      "commanded/executed actions",
+      "elapsed time",
+      "internal history"
+    ],
+    "forbidden": [
+      "simulator object pose",
+      "mass/property label",
+      "force",
+      "reward",
+      "segmentation",
+      "success",
+      "oracle target identity"
+    ],
+    "identical_policy": "same gains, contact detector, micro-impulse magnitude, and stopping rule for both slots after applying the preregistered slot-frame transform"
+  },
+  "evidence_partition": "DEVELOPMENT",
+  "feasibility_manifest": [
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.1694,
+          0.0332
+        ],
+        "front": [
+          0.0898,
+          0.1372
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912000,
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_repair2_scene_000",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.128,
+          0.051199999999999996
+        ],
+        "front": [
+          0.11180000000000001,
+          0.1603
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912001,
+      "heavy_slot": "front",
+      "instruction_property": "lightest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_repair2_scene_001",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.16019999999999998,
+          0.0692
+        ],
+        "front": [
+          0.1338,
+          0.1405
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912002,
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_repair2_scene_002",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.11879999999999999,
+          0.0332
+        ],
+        "front": [
+          0.0854,
+          0.1636
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912003,
+      "heavy_slot": "front",
+      "instruction_property": "lightest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_repair2_scene_003",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.151,
+          0.051199999999999996
+        ],
+        "front": [
+          0.1074,
+          0.14379999999999998
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912004,
+      "heavy_slot": "back",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_repair2_scene_004",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.10959999999999999,
+          0.0692
+        ],
+        "front": [
+          0.12940000000000002,
+          0.124
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912005,
+      "heavy_slot": "back",
+      "instruction_property": "lightest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_repair2_scene_005",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.14179999999999998,
+          0.0332
+        ],
+        "front": [
+          0.081,
+          0.1471
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912006,
+      "heavy_slot": "back",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_repair2_scene_006",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.174,
+          0.051199999999999996
+        ],
+        "front": [
+          0.10300000000000001,
+          0.1273
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912007,
+      "heavy_slot": "back",
+      "instruction_property": "lightest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_repair2_scene_007",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.1326,
+          0.0692
+        ],
+        "front": [
+          0.125,
+          0.1504
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912008,
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_repair2_scene_008",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.1648,
+          0.0332
+        ],
+        "front": [
+          0.14700000000000002,
+          0.1306
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912009,
+      "heavy_slot": "front",
+      "instruction_property": "lightest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_repair2_scene_009",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.12339999999999998,
+          0.051199999999999996
+        ],
+        "front": [
+          0.09860000000000001,
+          0.1537
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912010,
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_repair2_scene_010",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.1556,
+          0.0692
+        ],
+        "front": [
+          0.12060000000000001,
+          0.1339
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912011,
+      "heavy_slot": "front",
+      "instruction_property": "lightest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_repair2_scene_011",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.1142,
+          0.0332
+        ],
+        "front": [
+          0.1426,
+          0.157
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912012,
+      "heavy_slot": "back",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_repair2_scene_012",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.14639999999999997,
+          0.051199999999999996
+        ],
+        "front": [
+          0.0942,
+          0.1372
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912013,
+      "heavy_slot": "back",
+      "instruction_property": "lightest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_repair2_scene_013",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.10499999999999998,
+          0.0692
+        ],
+        "front": [
+          0.1162,
+          0.1603
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912014,
+      "heavy_slot": "back",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_repair2_scene_014",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.1372,
+          0.0332
+        ],
+        "front": [
+          0.1382,
+          0.1405
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912015,
+      "heavy_slot": "back",
+      "instruction_property": "lightest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_repair2_scene_015",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.1694,
+          0.051199999999999996
+        ],
+        "front": [
+          0.0898,
+          0.1636
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912016,
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_repair2_scene_016",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.128,
+          0.0692
+        ],
+        "front": [
+          0.11180000000000001,
+          0.14379999999999998
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912017,
+      "heavy_slot": "front",
+      "instruction_property": "lightest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_repair2_scene_017",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.16019999999999998,
+          0.0332
+        ],
+        "front": [
+          0.1338,
+          0.124
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912018,
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_repair2_scene_018",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.11879999999999999,
+          0.051199999999999996
+        ],
+        "front": [
+          0.0854,
+          0.1471
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912019,
+      "heavy_slot": "front",
+      "instruction_property": "lightest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_repair2_scene_019",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.151,
+          0.0692
+        ],
+        "front": [
+          0.1074,
+          0.1273
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912020,
+      "heavy_slot": "back",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_repair2_scene_020",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.10959999999999999,
+          0.0332
+        ],
+        "front": [
+          0.12940000000000002,
+          0.1504
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912021,
+      "heavy_slot": "back",
+      "instruction_property": "lightest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_repair2_scene_021",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.14179999999999998,
+          0.051199999999999996
+        ],
+        "front": [
+          0.081,
+          0.1306
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912022,
+      "heavy_slot": "back",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_repair2_scene_022",
+      "source_state_demo_index": 34
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.174,
+          0.0692
+        ],
+        "front": [
+          0.10300000000000001,
+          0.1537
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "fresh_scene_construction": "replace both candidate free-joint XY positions with new frozen interior-lane coordinates before settling",
+      "generator_seed": 912023,
+      "heavy_slot": "back",
+      "instruction_property": "lightest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "DEVELOPMENT_FEASIBILITY_REPAIR2",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_repair2_scene_023",
+      "source_state_demo_index": 34
+    }
+  ],
+  "frozen_at": "2026-07-21T02:18:45+09:00",
+  "geometric_basis": {
+    "collision_box_count": 40,
+    "maximum_planar_collision_diameter_m": 0.10789828667147298,
+    "maximum_planar_collision_radius_m": 0.05394914333573649,
+    "method": "maximum XY radius over every rotated vertex of every group-0 collision box",
+    "source": "C:/assets/repos/LIBERO/libero/libero/assets/stable_scanned_objects/akita_black_bowl/akita_black_bowl.xml",
+    "source_sha256": "D266D22492296C9C98353A1B1F0B055F6359372D2079AD89579504FC0A44A417"
+  },
+  "manifest_balance_audit": {
+    "all_scene_ids_new": true,
+    "back_first": 12,
+    "front_first": 12,
+    "heaviest_instruction": 12,
+    "heavy_back": 12,
+    "heavy_front": 12,
+    "lightest_instruction": 12,
+    "scene_count": 24,
+    "sealed_identity_used": false
+  },
+  "minimal_feasibility_go": {
+    "both_candidates_contacted": ">=22/24 scenes",
+    "canonical_vla_completion": "reported separately as practical headroom; no threshold selected from its outcomes",
+    "finite_bounded_actions": "48/48 probes",
+    "intended_candidate_contact": ">=46/48 probes",
+    "label_blind_heavy_rank": ">=20/24 overall and >=10/12 in each heavy-slot stratum",
+    "lane_and_reachability": "48/48 candidates",
+    "position_and_order_shortcut": "ranking gate must pass independently in each heavy-slot stratum and be reported by probe order",
+    "post_probe_oracle_completion": ">=20/24 scenes"
+  },
+  "parent_panel_no_go": {
+    "parent_panel_summary": {
+      "both_candidates_contacted_scenes": 24,
+      "candidate_distractor_collision_probes": 0,
+      "candidate_pair_collision_probes": 0,
+      "canonical_vla_endpoint_completed_scenes": 0,
+      "distance_limit_pass_probes": 48,
+      "finite_bounded_action_probes": 48,
+      "heavy_rank_by_position": {
+        "back": {
+          "rank_correct": 10,
+          "scenes": 12
+        },
+        "front": {
+          "rank_correct": 12,
+          "scenes": 12
+        }
+      },
+      "heavy_rank_correct_scenes": 22,
+      "intended_contact_or_excitation_probes": 48,
+      "intended_contact_probes": 48,
+      "lane_reachability_pass_probes": 47,
+      "legacy_3cm_reference_exceedance_count": 0,
+      "minimal_feasibility_panel_go": false,
+      "neutral_return_pass_probes": 48,
+      "oracle_completion_success_scenes": 21,
+      "probe_count": 48,
+      "sampled_instantaneous_contact_probes": 48,
+      "scenes_completed": 24,
+      "scenes_recorded": 24,
+      "tracker_quality_pass_probes": 48,
+      "v2_limit_m": 0.05
+    },
+    "path": "reports/epoch9b_dynamic_nudge/feasibility_panel_result.json",
+    "reason": "one front candidate exceeded the frozen y-lane ceiling by 0.004117 m; all other minimum feasibility thresholds passed",
+    "sha256": "F73E0419390667908409BFFBAB4CB4BF15FC8E9E00CA838C0DFC5B076C9F219C"
+  },
+  "parent_protocol_path": "reports/epoch9b_v2_task_preservation_protocol_repair1.json",
+  "parent_protocol_sha256": "FCC4F3488C623EA41A44FAF154E6D694DCA7C37E108E0AC4A4E947B90785B30B",
+  "parent_repair1_development_no_go": {
+    "path": "reports/epoch9b_dynamic_nudge/development/d17_centered_contact_edge_stress/result.json",
+    "reason": "centered contact exceeded the front y-lane ceiling in three of four near-boundary stress probes",
+    "sha256": "9649ECFB76736648DB3372BFB0F78EE8989E62FCD0CEB3CDC7CC77015B83C366",
+    "summary": {
+      "both_candidates_contacted_scenes": 4,
+      "candidate_distractor_collision_probes": 0,
+      "candidate_pair_collision_probes": 0,
+      "canonical_vla_endpoint_completed_scenes": 0,
+      "distance_limit_pass_probes": 8,
+      "finite_bounded_action_probes": 8,
+      "heavy_rank_by_position": {
+        "back": {
+          "rank_correct": 2,
+          "scenes": 2
+        },
+        "front": {
+          "rank_correct": 2,
+          "scenes": 2
+        }
+      },
+      "heavy_rank_correct_scenes": 4,
+      "intended_contact_or_excitation_probes": 8,
+      "intended_contact_probes": 8,
+      "lane_reachability_pass_probes": 3,
+      "legacy_3cm_reference_exceedance_count": 0,
+      "minimal_feasibility_panel_go": false,
+      "neutral_return_pass_probes": 8,
+      "oracle_completion_success_scenes": 4,
+      "probe_count": 8,
+      "sampled_instantaneous_contact_probes": 8,
+      "scenes_completed": 4,
+      "scenes_recorded": 4,
+      "tracker_quality_pass_probes": 8,
+      "v2_limit_m": 0.05
+    }
+  },
+  "per_probe_validity": {
+    "required": [
+      "intended candidate physically contacted or excited (simulator contact is evaluation-only)",
+      "all raw 7-D actions finite and within [-1,1]",
+      "candidate center remains inside its frozen lane at every sampled step",
+      "candidate displacement <= 0.05 m and is reported continuously",
+      "candidate remains upright with center z in the reachable envelope",
+      "no candidate-candidate or candidate-distractor collision, identity swap, fall, or workspace exit",
+      "audited RGB tracker remains on the intended instance with template quality >= 0.50",
+      "end effector returns within 0.05 m of episode-neutral pose and final z >= 1.10 m"
+    ],
+    "visual_change_reporting": "pixel dx, dy, magnitude, confidence, changed support, and continuous trajectory; no binary-only concealment"
+  },
+  "per_scene_task_preservation": {
+    "canonical_vla_endpoint": "separately run oracle-routed canonical X-VLA from the same post-probe state using the selected front/back task language; report success without substituting it for the oracle gate",
+    "oracle_privilege_boundary": "post-probe simulator pose may route the scripted headroom controller only; it is forbidden to the probe controller and learned inference",
+    "required": [
+      "both candidate identities remain trackable and distinct after sequential probing",
+      "both candidates remain inside lane and reachable envelopes",
+      "pose-adaptive scripted oracle completes the property-conditioned task with official env.check_success"
+    ]
+  },
+  "reachable_center_envelope_m": {
+    "verification": "pose-adaptive scripted completion must grasp from the observed post-probe pose and achieve official task success",
+    "x": [
+      -0.195,
+      0.19
+    ],
+    "y": [
+      0.005,
+      0.185
+    ],
+    "z": [
+      0.888,
+      0.915
+    ]
+  },
+  "repair_scope": "after fixture-clear transit, select the front contact side from RGB-estimated y relative to the fixed lane midpoint so the incidental lateral response points inward; preserve impulse, response threshold, lanes, displacement rule, and GO thresholds",
+  "safe_center_lanes_m": {
+    "back": {
+      "x": [
+        -0.185,
+        -0.07
+      ],
+      "y": [
+        0.015,
+        0.09
+      ]
+    },
+    "candidate_pair_minimum_center_separation_m": 0.11289828667147299,
+    "coordinate_frame": "LIBERO world XY; evaluation only",
+    "front": {
+      "x": [
+        0.065,
+        0.18
+      ],
+      "y": [
+        0.115,
+        0.175
+      ]
+    },
+    "intended_nudge_axis": "+x for both candidates",
+    "lane_membership_checked_continuously": true
+  },
+  "schema_version": "epoch9b.v2_task_preservation.repair2.v1",
+  "sealed_identity_contract": {
+    "access_authorized": false,
+    "confirmation_demo_indices": [
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "validation_demo_indices": [
+      40,
+      41,
+      42,
+      43,
+      44
+    ]
+  },
+  "source_checkpoint": "d805e0a84fc8bcb720ecfd0cafeeda153aa603b4",
+  "status": "FROZEN_BEFORE_REPAIR2_CONTROLLER_OUTCOME",
+  "v2_absolute_displacement_rule": {
+    "justification": [
+      "0.05 m is below the independently reconstructed 0.053949 m bowl collision radius, limiting a probe to less than one object radius.",
+      "The largest clean coordinate span over untouched development resets is 0.045015 m; the cap covers the task's natural placement scale while the lane rule separately prevents cross-lane motion.",
+      "Expanding the observed initial XY extrema by 0.05 m only along the intended +x nudge and by 0.01 m cross-lane yields the frozen rectangles below.",
+      "The absolute limit is subordinate to official post-probe task recoverability: meeting distance alone never makes a probe valid."
+    ],
+    "legacy_v1_reference_m_reported_only": 0.03,
+    "limit_m": 0.05,
+    "threshold_set_from_epoch9_v1_0419m_outcome": false
+  }
+}

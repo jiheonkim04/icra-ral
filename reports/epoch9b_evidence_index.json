@@ -1,0 +1,93 @@
+{
+  "artifacts": {
+    "attribution_protocol": {
+      "bytes": 3596,
+      "path": "reports/epoch9c_attribution_feedback_protocol.json",
+      "sha256": "6A0E4BC40AEEA32F8C7C90D244D328EDBA2F6FCEEFB29439AD6D0D7054EE233A"
+    },
+    "attribution_result": {
+      "bytes": 54530,
+      "path": "reports/epoch9c_attribution_feedback_result.json",
+      "sha256": "6C8E7269F08398070A9BF6BAF7C83E71580FCDDC0F5A91AC3D2BBF67A9555358"
+    },
+    "metric_integrity": {
+      "bytes": 41714,
+      "path": "reports/epoch9b_metric_integrity_result.json",
+      "sha256": "5B183676552B6F6C3970383600088FDE63D2F8913A11514225DDE5B2C2594D11"
+    },
+    "observability": {
+      "bytes": 12471,
+      "path": "reports/epoch9b_observability_diagnostic.json",
+      "sha256": "BBAE146E95EDC1584EF0E0EBBE7647E7EF2F921CD4A76F75DCF5DBD27C1438E3"
+    },
+    "original_controller_freeze": {
+      "bytes": 2939,
+      "path": "reports/epoch9b_dynamic_nudge/controller_freeze.json",
+      "sha256": "C985931BBA917D06C491B4D4E7061BB8CF9E9C6C2753517E71C36BD7DBB871FB"
+    },
+    "original_panel": {
+      "bytes": 270402,
+      "path": "reports/epoch9b_dynamic_nudge/feasibility_panel_result.json",
+      "sha256": "F73E0419390667908409BFFBAB4CB4BF15FC8E9E00CA838C0DFC5B076C9F219C"
+    },
+    "repair1_edge_development": {
+      "bytes": 45717,
+      "path": "reports/epoch9b_dynamic_nudge/development/d17_centered_contact_edge_stress/result.json",
+      "sha256": "9649ECFB76736648DB3372BFB0F78EE8989E62FCD0CEB3CDC7CC77015B83C366"
+    },
+    "repair1_protocol": {
+      "bytes": 27766,
+      "path": "reports/epoch9b_v2_task_preservation_protocol_repair1.json",
+      "sha256": "FCC4F3488C623EA41A44FAF154E6D694DCA7C37E108E0AC4A4E947B90785B30B"
+    },
+    "repair2_balanced_development": {
+      "bytes": 89198,
+      "path": "reports/epoch9b_dynamic_nudge/development/d19_inward_contact_balanced/result.json",
+      "sha256": "F770A3F439692714A0D4E17B375B695F8357F3416426349F735212AA7A65F04C"
+    },
+    "repair2_edge_development": {
+      "bytes": 46219,
+      "path": "reports/epoch9b_dynamic_nudge/development/d18_inward_contact_edge_stress/result.json",
+      "sha256": "981AEAFAC32021C1101712F2911F7B0C6E74EF1638BD29FE52449C149D4F2A88"
+    },
+    "repair2_protocol": {
+      "bytes": 29460,
+      "path": "reports/epoch9b_v2_task_preservation_protocol_repair2.json",
+      "sha256": "2B2D1893A5FF7F38F2DD685BCBFB9357636CD47728470AC3F8F68C4685F68CD1"
+    },
+    "repair3_controller_freeze": {
+      "bytes": 3038,
+      "path": "reports/epoch9b_dynamic_nudge/controller_freeze_repair3.json",
+      "sha256": "FC56D2E0EE35CAAF26A132F85D30E0E564FACF3917AD20130A2C011523B715C4"
+    },
+    "repair3_panel": {
+      "bytes": 271391,
+      "path": "reports/epoch9b_dynamic_nudge/feasibility_panel_repair3_result.json",
+      "sha256": "DC3592FFA5FDFBB0F99267662486A0F3CCB589520525710926A6BABF860AE29B"
+    },
+    "repair3_protocol": {
+      "bytes": 31598,
+      "path": "reports/epoch9b_v2_task_preservation_protocol_repair3.json",
+      "sha256": "EC98A3C8E59412EDF09A6954CE7FEC286B31FADB43FF815037EB6BA17233A770"
+    },
+    "score_calibration": {
+      "bytes": 5500,
+      "path": "reports/epoch9b_dynamic_nudge/back_response_threshold_calibration.json",
+      "sha256": "8E57AC139EDB3CBDFA257256BEACCA1717F5AE5723E2C51EE6A982475CBED34F"
+    },
+    "v2_protocol": {
+      "bytes": 27814,
+      "path": "reports/epoch9b_v2_task_preservation_protocol.json",
+      "sha256": "73372173E2A6D9064D2200EE24000BE061CA04FF9757D07F86A4DAAB919AD484"
+    }
+  },
+  "generated_at": "2026-07-21T02:45:32+09:00",
+  "schema_version": "epoch9b.evidence_index.v1",
+  "sealed_validation_or_confirmation_accessed": false,
+  "terminal_adjudication": {
+    "bytes": 9090,
+    "path": "reports/epoch9b_terminal_adjudication.json",
+    "sha256": "F30969843DCBBAE8863EF3250A6EDCE39873B8875F34A2930F9ED3FBCA3923FF"
+  },
+  "terminal_decision": "NO_DEFENSIBLE_LOCAL_PATH_AFTER_EMPIRICAL_ROTATIONS"
+}

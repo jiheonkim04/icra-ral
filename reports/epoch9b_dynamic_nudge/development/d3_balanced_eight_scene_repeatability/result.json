@@ -1,0 +1,2015 @@
+{
+  "attempt_id": "d3_balanced_eight_scene_repeatability",
+  "calibration_path": "reports/epoch9b_dynamic_nudge/controller_calibration_repair1.json",
+  "calibration_sha256": "10AE3D151E47A030BBDCC2DAB0850B69926A4A903F8E2B830B38450F8B2EEB7B",
+  "completed_at": "2026-07-21T01:21:29+09:00",
+  "confirmation_accessed": false,
+  "controller_config": {
+    "approach_control_steps_per_increment": 4,
+    "approach_increment_m": 0.003,
+    "approach_start_offset_x_m": -0.095,
+    "approach_stop_offset_x_m": -0.04,
+    "close_steps": 8,
+    "coast_steps": 5,
+    "controller_error_consecutive_steps": 2,
+    "controller_error_contact_m": 0.012,
+    "controller_error_over_baseline_m": 0.006,
+    "gripper_closed_command": 1.0,
+    "impulse_action_x": 0.18,
+    "impulse_steps": 3,
+    "move_gain_denominator_m": 0.04,
+    "neutral_tolerance_m": 0.004,
+    "paddle_y_offset_m": 0.018,
+    "paddle_z_m": 0.93,
+    "visual_contact_threshold_pixels": 1.0,
+    "visual_quality_min": 0.42
+  },
+  "evidence_class": "DEVELOPMENT",
+  "manifest": [
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.161,
+          0.03
+        ],
+        "front": [
+          0.089,
+          0.13
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "CONTROLLER_DEVELOPMENT",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_controller_dev_000",
+      "source_state_demo_index": 31
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.14300000000000002,
+          0.056999999999999995
+        ],
+        "front": [
+          0.11599999999999999,
+          0.148
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "heavy_slot": "back",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "CONTROLLER_DEVELOPMENT",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_controller_dev_001",
+      "source_state_demo_index": 31
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.17,
+          0.039
+        ],
+        "front": [
+          0.098,
+          0.166
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "CONTROLLER_DEVELOPMENT",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_controller_dev_002",
+      "source_state_demo_index": 31
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.15200000000000002,
+          0.066
+        ],
+        "front": [
+          0.08,
+          0.139
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "heavy_slot": "back",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "CONTROLLER_DEVELOPMENT",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_controller_dev_003",
+      "source_state_demo_index": 31
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.134,
+          0.048
+        ],
+        "front": [
+          0.107,
+          0.157
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "CONTROLLER_DEVELOPMENT",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_controller_dev_004",
+      "source_state_demo_index": 31
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.161,
+          0.03
+        ],
+        "front": [
+          0.089,
+          0.13
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "heavy_slot": "back",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "CONTROLLER_DEVELOPMENT",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_controller_dev_005",
+      "source_state_demo_index": 31
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.14300000000000002,
+          0.056999999999999995
+        ],
+        "front": [
+          0.11599999999999999,
+          0.148
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "CONTROLLER_DEVELOPMENT",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_controller_dev_006",
+      "source_state_demo_index": 31
+    },
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.17,
+          0.039
+        ],
+        "front": [
+          0.098,
+          0.166
+        ]
+      },
+      "completion_target_slot_eval_only": "back",
+      "heavy_slot": "back",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "partition": "CONTROLLER_DEVELOPMENT",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_controller_dev_007",
+      "source_state_demo_index": 31
+    }
+  ],
+  "protocol_path": "reports/epoch9b_v2_task_preservation_protocol.json",
+  "protocol_sha256": "73372173E2A6D9064D2200EE24000BE061CA04FF9757D07F86A4DAAB919AD484",
+  "rows": [
+    {
+      "canonical_vla_endpoint": {
+        "note": "same-state canonical endpoint is deferred until controller feasibility GO to avoid resident-VLA cost during tuning",
+        "pre_oracle_state_persisted_in_memory_only": true,
+        "status": "NOT_RUN_DURING_CONTROLLER_DEVELOPMENT"
+      },
+      "completed": true,
+      "exception": null,
+      "heavy_rank_correct": true,
+      "initial_candidate_positions_eval_only": {
+        "back": [
+          -0.16099999999991768,
+          0.029999999999866408,
+          0.8984041501888524
+        ],
+        "front": [
+          0.0890003879171301,
+          0.1299995061998689,
+          0.8983632303470955
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": true,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": true
+        },
+        "steps": 203,
+        "target_object_positions_eval_only": {
+          "after_close": [
+            0.09769998964921872,
+            0.12645483782953706,
+            0.899209376908187
+          ],
+          "after_lift": [
+            0.08563249439938304,
+            0.1473533207464533,
+            1.0207291557243665
+          ],
+          "after_release": [
+            -0.02533287242596258,
+            0.02005897670911493,
+            0.906326884343833
+          ],
+          "initial": [
+            0.09825798416964536,
+            0.13015136396386318,
+            0.8983632302438218
+          ],
+          "plate": [
+            -0.015324105727578759,
+            0.021827506024851263,
+            0.9024998346667837
+          ]
+        },
+        "target_slot_eval_only": "front"
+      },
+      "post_probe_state_length": 77,
+      "predicted_heavy_slot": "front",
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 5.551115123125783e-16,
+            "front": 0.009258841674587055
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            0.08648384154516152,
+            0.1309836739294875,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0021701975941773185,
+          "final_eef_z_m": 1.1735401460063462,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.009258841674587055,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.2692584171369052,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": -5.0,
+            "dy": 4.0,
+            "magnitude_pixels": 6.4031242374328485,
+            "quality": 0.722640872001648,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": false,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.0071321030650988,
+          "response_peak_estimated_displacement_m": 0.0142642061301976,
+          "response_tracker_quality_min": 0.55064457654953,
+          "response_visual_displacement_pixels": 2.23606797749979,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 236,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_000_front.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.011756531009357644,
+            "front": 0.0
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            -0.15661196299377286,
+            0.02620466278219067,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0007007096965117932,
+          "final_eef_z_m": 1.1739721347022858,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.011756531009357644,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.26693143448700246,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": -4.0,
+            "dy": 0.0,
+            "magnitude_pixels": 4.0,
+            "quality": 0.7202820777893066,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.011363636363636364,
+          "response_peak_estimated_displacement_m": 0.011363636363636364,
+          "response_tracker_quality_min": 0.7518488168716431,
+          "response_visual_displacement_pixels": 1.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 141,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_000_back.npz"
+        }
+      ],
+      "response_score_rule": "smaller calibrated peak displacement predicts heavier candidate",
+      "response_scores_m": {
+        "back": 0.011363636363636364,
+        "front": 0.0071321030650988
+      },
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.161,
+            0.03
+          ],
+          "front": [
+            0.089,
+            0.13
+          ]
+        },
+        "completion_target_slot_eval_only": "front",
+        "heavy_slot": "front",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "partition": "CONTROLLER_DEVELOPMENT",
+        "probe_order": [
+          "front",
+          "back"
+        ],
+        "scene_id": "epoch9b_controller_dev_000",
+        "source_state_demo_index": 31
+      },
+      "scene_id": "epoch9b_controller_dev_000",
+      "wall_seconds": 28.65975608899999
+    },
+    {
+      "canonical_vla_endpoint": {
+        "note": "same-state canonical endpoint is deferred until controller feasibility GO to avoid resident-VLA cost during tuning",
+        "pre_oracle_state_persisted_in_memory_only": true,
+        "status": "NOT_RUN_DURING_CONTROLLER_DEVELOPMENT"
+      },
+      "completed": true,
+      "exception": null,
+      "heavy_rank_correct": true,
+      "initial_candidate_positions_eval_only": {
+        "back": [
+          -0.14299961208286982,
+          0.056999506199869016,
+          0.8983632303470955
+        ],
+        "front": [
+          0.11600000000008232,
+          0.14799999999986643,
+          0.8984041501888524
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": true,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": true
+        },
+        "steps": 148,
+        "target_object_positions_eval_only": {
+          "after_close": [
+            -0.13537262482296655,
+            0.05214673013021675,
+            0.900019718171151
+          ],
+          "after_lift": [
+            -0.13822983512048942,
+            0.05326324687169091,
+            1.0594016509751425
+          ],
+          "after_release": [
+            0.005700950969010607,
+            0.017877250169125364,
+            0.9069941610856745
+          ],
+          "initial": [
+            -0.13346841459479683,
+            0.056856750759858944,
+            0.8983632302438218
+          ],
+          "plate": [
+            -0.00596704637019105,
+            0.013365417026227091,
+            0.9024998346667837
+          ]
+        },
+        "target_slot_eval_only": "back"
+      },
+      "post_probe_state_length": 77,
+      "predicted_heavy_slot": "back",
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 1.0328071663841333e-10,
+            "front": 0.008974729382150382
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            0.1142616193229393,
+            0.14575908764107143,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0017371229335117826,
+          "final_eef_z_m": 1.1664090327664751,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.008974729382150382,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.27452119941949954,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": -1.0,
+            "dy": 0.0,
+            "magnitude_pixels": 1.0,
+            "quality": 0.7057458162307739,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.014042085544346007,
+          "response_peak_estimated_displacement_m": 0.014042085544346007,
+          "response_tracker_quality_min": 0.6062126159667969,
+          "response_visual_displacement_pixels": 2.23606797749979,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 184,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_001_front.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.009532266501515176,
+            "front": 0.0
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            -0.1452483266301365,
+            0.06092688500441289,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.001808152278608834,
+          "final_eef_z_m": 1.167507290056994,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.009532266501515176,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.27418335148197703,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": 1.0,
+            "dy": -1.0,
+            "magnitude_pixels": 1.4142135623730951,
+            "quality": 0.790587842464447,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.011363636363636364,
+          "response_peak_estimated_displacement_m": 0.011363636363636364,
+          "response_tracker_quality_min": 0.7844603657722473,
+          "response_visual_displacement_pixels": 1.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 147,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_001_back.npz"
+        }
+      ],
+      "response_score_rule": "smaller calibrated peak displacement predicts heavier candidate",
+      "response_scores_m": {
+        "back": 0.011363636363636364,
+        "front": 0.014042085544346007
+      },
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.14300000000000002,
+            0.056999999999999995
+          ],
+          "front": [
+            0.11599999999999999,
+            0.148
+          ]
+        },
+        "completion_target_slot_eval_only": "back",
+        "heavy_slot": "back",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "partition": "CONTROLLER_DEVELOPMENT",
+        "probe_order": [
+          "front",
+          "back"
+        ],
+        "scene_id": "epoch9b_controller_dev_001",
+        "source_state_demo_index": 31
+      },
+      "scene_id": "epoch9b_controller_dev_001",
+      "wall_seconds": 24.410162325
+    },
+    {
+      "canonical_vla_endpoint": {
+        "note": "same-state canonical endpoint is deferred until controller feasibility GO to avoid resident-VLA cost during tuning",
+        "pre_oracle_state_persisted_in_memory_only": true,
+        "status": "NOT_RUN_DURING_CONTROLLER_DEVELOPMENT"
+      },
+      "completed": true,
+      "exception": null,
+      "heavy_rank_correct": true,
+      "initial_candidate_positions_eval_only": {
+        "back": [
+          -0.1699999999999177,
+          0.03899999999986649,
+          0.8984041501888524
+        ],
+        "front": [
+          0.0980003879171301,
+          0.16599950619986892,
+          0.8983632303470955
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": true,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": true
+        },
+        "steps": 210,
+        "target_object_positions_eval_only": {
+          "after_close": [
+            0.10660856512713304,
+            0.16131805021622928,
+            0.899402868537039
+          ],
+          "after_lift": [
+            0.09809978280470491,
+            0.1875608856944036,
+            1.0231967269471087
+          ],
+          "after_release": [
+            -0.02544555068891448,
+            0.018987774943940248,
+            0.9062666489498271
+          ],
+          "initial": [
+            0.10721410021477017,
+            0.16537213807321754,
+            0.8983632302438218
+          ],
+          "plate": [
+            -0.01532410572757876,
+            0.021827506024851263,
+            0.9024998346667837
+          ]
+        },
+        "target_slot_eval_only": "front"
+      },
+      "post_probe_state_length": 77,
+      "predicted_heavy_slot": "front",
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.010934102029262786,
+            "front": 1.0328071676602116e-10
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            -0.16797559935740922,
+            0.04009355167107956,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.00013615679362962343,
+          "final_eef_z_m": 1.1723171446503846,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.010934102029262786,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.2867180549247015,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": -2.0,
+            "dy": 1.0,
+            "magnitude_pixels": 2.23606797749979,
+            "quality": 0.7707393169403076,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.011363636363636364,
+          "response_peak_estimated_displacement_m": 0.011363636363636364,
+          "response_tracker_quality_min": 0.7548652291297913,
+          "response_visual_displacement_pixels": 1.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 146,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_002_back.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": true,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.0,
+            "front": 0.009235046564751317
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            0.09342828598960597,
+            0.16659242097440477,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0023719310332400087,
+          "final_eef_z_m": 1.1737563051573883,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.009235046564751317,
+          "intended_target_contact_eval_only": false,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.286711848232189,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": 2.0,
+            "dy": 3.0,
+            "magnitude_pixels": 3.605551275463989,
+            "quality": 0.6009240746498108,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.0071321030650988,
+          "response_peak_estimated_displacement_m": 0.0071321030650988,
+          "response_tracker_quality_min": 0.6223807334899902,
+          "response_visual_displacement_pixels": 1.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 172,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_002_front.npz"
+        }
+      ],
+      "response_score_rule": "smaller calibrated peak displacement predicts heavier candidate",
+      "response_scores_m": {
+        "back": 0.011363636363636364,
+        "front": 0.0071321030650988
+      },
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.17,
+            0.039
+          ],
+          "front": [
+            0.098,
+            0.166
+          ]
+        },
+        "completion_target_slot_eval_only": "front",
+        "heavy_slot": "front",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "partition": "CONTROLLER_DEVELOPMENT",
+        "probe_order": [
+          "back",
+          "front"
+        ],
+        "scene_id": "epoch9b_controller_dev_002",
+        "source_state_demo_index": 31
+      },
+      "scene_id": "epoch9b_controller_dev_002",
+      "wall_seconds": 26.614644728000002
+    },
+    {
+      "canonical_vla_endpoint": {
+        "note": "same-state canonical endpoint is deferred until controller feasibility GO to avoid resident-VLA cost during tuning",
+        "pre_oracle_state_persisted_in_memory_only": true,
+        "status": "NOT_RUN_DURING_CONTROLLER_DEVELOPMENT"
+      },
+      "completed": true,
+      "exception": null,
+      "heavy_rank_correct": false,
+      "initial_candidate_positions_eval_only": {
+        "back": [
+          -0.15199961208286983,
+          0.065999506199869,
+          0.8983632303470955
+        ],
+        "front": [
+          0.08000000000008232,
+          0.13899999999986645,
+          0.8984041501888524
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": true,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": true
+        },
+        "steps": 150,
+        "target_object_positions_eval_only": {
+          "after_close": [
+            -0.14376264856154256,
+            0.060894205048364236,
+            0.899930767121024
+          ],
+          "after_lift": [
+            -0.14655469876153673,
+            0.06199454085286405,
+            1.059445717928157
+          ],
+          "after_release": [
+            0.005741883932685782,
+            0.01771218310981275,
+            0.9070063116763086
+          ],
+          "initial": [
+            -0.1423997584872763,
+            0.06595124397789195,
+            0.8983632302438218
+          ],
+          "plate": [
+            -0.005967046372640367,
+            0.013365417036030117,
+            0.9024998346667837
+          ]
+        },
+        "target_slot_eval_only": "back"
+      },
+      "post_probe_state_length": 77,
+      "predicted_heavy_slot": "front",
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.009599974914659156,
+            "front": 5.551115123125783e-16
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            -0.15661196299377286,
+            0.06787132944885733,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0013965723082112267,
+          "final_eef_z_m": 1.1661951220626936,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.009599974914659156,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.2340892422362752,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": 2.0,
+            "dy": 0.0,
+            "magnitude_pixels": 2.0,
+            "quality": 0.6913273334503174,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.011363636363636364,
+          "response_peak_estimated_displacement_m": 0.011363636363636364,
+          "response_tracker_quality_min": 0.7318604588508606,
+          "response_visual_displacement_pixels": 1.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 153,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_003_back.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 5.327678715619125e-12,
+            "front": 0.008418141655323239
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            0.07953939710071707,
+            0.14324726731010218,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.002732584733336768,
+          "final_eef_z_m": 1.1678377814564902,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.008418141655323239,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.2340892422362752,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": -3.0,
+            "dy": 5.0,
+            "magnitude_pixels": 5.830951894845301,
+            "quality": 0.7454615235328674,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.0071321030650988,
+          "response_peak_estimated_displacement_m": 0.0071321030650988,
+          "response_tracker_quality_min": 0.6760877966880798,
+          "response_visual_displacement_pixels": 1.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 168,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_003_front.npz"
+        }
+      ],
+      "response_score_rule": "smaller calibrated peak displacement predicts heavier candidate",
+      "response_scores_m": {
+        "back": 0.011363636363636364,
+        "front": 0.0071321030650988
+      },
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.15200000000000002,
+            0.066
+          ],
+          "front": [
+            0.08,
+            0.139
+          ]
+        },
+        "completion_target_slot_eval_only": "back",
+        "heavy_slot": "back",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "partition": "CONTROLLER_DEVELOPMENT",
+        "probe_order": [
+          "back",
+          "front"
+        ],
+        "scene_id": "epoch9b_controller_dev_003",
+        "source_state_demo_index": 31
+      },
+      "scene_id": "epoch9b_controller_dev_003",
+      "wall_seconds": 24.775581596999984
+    },
+    {
+      "canonical_vla_endpoint": {
+        "note": "same-state canonical endpoint is deferred until controller feasibility GO to avoid resident-VLA cost during tuning",
+        "pre_oracle_state_persisted_in_memory_only": true,
+        "status": "NOT_RUN_DURING_CONTROLLER_DEVELOPMENT"
+      },
+      "completed": true,
+      "exception": null,
+      "heavy_rank_correct": true,
+      "initial_candidate_positions_eval_only": {
+        "back": [
+          -0.13399999999991768,
+          0.04799999999986649,
+          0.8984041501888524
+        ],
+        "front": [
+          0.1070003879171301,
+          0.1569995061998689,
+          0.8983632303470955
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": true,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": false
+        },
+        "steps": 230,
+        "target_object_positions_eval_only": {
+          "after_close": [
+            0.11444614835863011,
+            0.1528672244871269,
+            0.8996197095576844
+          ],
+          "after_lift": [
+            0.10941607264926842,
+            0.17138282120284803,
+            1.0304176638194829
+          ],
+          "after_release": [
+            -0.0220302896096966,
+            0.0039418508675148674,
+            0.9071047354873983
+          ],
+          "initial": [
+            0.11489992575714376,
+            0.15694311217404341,
+            0.8983632302438237
+          ],
+          "plate": [
+            -0.00937706804677318,
+            0.01981912956864526,
+            0.9024998346667857
+          ]
+        },
+        "target_slot_eval_only": "front"
+      },
+      "post_probe_state_length": 77,
+      "predicted_heavy_slot": "front",
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": true,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 5.551115123125783e-16,
+            "front": 0.007899739133158131
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            0.10731717487849485,
+            0.1580226810216861,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0020096005574462604,
+          "final_eef_z_m": 1.17344756263105,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.007899739133158131,
+          "intended_target_contact_eval_only": false,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.2645034580646149,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": 1.0,
+            "dy": 1.0,
+            "magnitude_pixels": 1.4142135623730951,
+            "quality": 0.7980249524116516,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.0071321030650988,
+          "response_peak_estimated_displacement_m": 0.0071321030650988,
+          "response_tracker_quality_min": 0.6261658668518066,
+          "response_visual_displacement_pixels": 1.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 159,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_004_front.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.012333819361480938,
+            "front": 7.162874682589104e-16
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            -0.13388469026650013,
+            0.047037996115524006,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0031041955012631895,
+          "final_eef_z_m": 1.1756811454850224,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.012333819361480938,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.26017620164067384,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": -1.0,
+            "dy": -2.0,
+            "magnitude_pixels": 2.23606797749979,
+            "quality": 0.7575000524520874,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.011363636363636364,
+          "response_peak_estimated_displacement_m": 0.011363636363636364,
+          "response_tracker_quality_min": 0.7363176941871643,
+          "response_visual_displacement_pixels": 1.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 139,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_004_back.npz"
+        }
+      ],
+      "response_score_rule": "smaller calibrated peak displacement predicts heavier candidate",
+      "response_scores_m": {
+        "back": 0.011363636363636364,
+        "front": 0.0071321030650988
+      },
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.134,
+            0.048
+          ],
+          "front": [
+            0.107,
+            0.157
+          ]
+        },
+        "completion_target_slot_eval_only": "front",
+        "heavy_slot": "front",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "partition": "CONTROLLER_DEVELOPMENT",
+        "probe_order": [
+          "front",
+          "back"
+        ],
+        "scene_id": "epoch9b_controller_dev_004",
+        "source_state_demo_index": 31
+      },
+      "scene_id": "epoch9b_controller_dev_004",
+      "wall_seconds": 27.05613388499998
+    },
+    {
+      "canonical_vla_endpoint": {
+        "note": "same-state canonical endpoint is deferred until controller feasibility GO to avoid resident-VLA cost during tuning",
+        "pre_oracle_state_persisted_in_memory_only": true,
+        "status": "NOT_RUN_DURING_CONTROLLER_DEVELOPMENT"
+      },
+      "completed": true,
+      "exception": null,
+      "heavy_rank_correct": true,
+      "initial_candidate_positions_eval_only": {
+        "back": [
+          -0.1609996120828698,
+          0.029999506199868978,
+          0.8983632303470955
+        ],
+        "front": [
+          0.08900000000008232,
+          0.12999999999986644,
+          0.8984041501888524
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": true,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": true
+        },
+        "steps": 146,
+        "target_object_positions_eval_only": {
+          "after_close": [
+            -0.1527171780119555,
+            0.025065328727061707,
+            0.9000538539518156
+          ],
+          "after_lift": [
+            -0.15600251409825477,
+            0.02629594424306912,
+            1.0593803492477654
+          ],
+          "after_release": [
+            0.006725084854921099,
+            0.01367581203411994,
+            0.9071653609516371
+          ],
+          "initial": [
+            -0.15121302717686283,
+            0.030081273538405368,
+            0.8983632302438218
+          ],
+          "plate": [
+            -0.00596704637019105,
+            0.01336541702622709,
+            0.9024998346667837
+          ]
+        },
+        "target_slot_eval_only": "back"
+      },
+      "post_probe_state_length": 77,
+      "predicted_heavy_slot": "back",
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 1.032807169259955e-10,
+            "front": 0.009700239946767782
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            0.08648384154516152,
+            0.1309836739294875,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0024437844839217578,
+          "final_eef_z_m": 1.1668284704566407,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.009700239946767782,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.2692580635777913,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": -5.0,
+            "dy": 4.0,
+            "magnitude_pixels": 6.4031242374328485,
+            "quality": 0.7292689681053162,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": false,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.0142642061301976,
+          "response_peak_estimated_displacement_m": 0.0142642061301976,
+          "response_tracker_quality_min": 0.6044818162918091,
+          "response_visual_displacement_pixels": 2.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 243,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_005_front.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.009786926484029164,
+            "front": 0.0
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            -0.15661196299377286,
+            0.02620466278219067,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.00015171510569331211,
+          "final_eef_z_m": 1.1667533896909146,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.009786926484029164,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.26920026433782324,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": -4.0,
+            "dy": 0.0,
+            "magnitude_pixels": 4.0,
+            "quality": 0.7146801352500916,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.011363636363636364,
+          "response_peak_estimated_displacement_m": 0.011363636363636364,
+          "response_tracker_quality_min": 0.7654101252555847,
+          "response_visual_displacement_pixels": 1.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 142,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_005_back.npz"
+        }
+      ],
+      "response_score_rule": "smaller calibrated peak displacement predicts heavier candidate",
+      "response_scores_m": {
+        "back": 0.011363636363636364,
+        "front": 0.0142642061301976
+      },
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.161,
+            0.03
+          ],
+          "front": [
+            0.089,
+            0.13
+          ]
+        },
+        "completion_target_slot_eval_only": "back",
+        "heavy_slot": "back",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "partition": "CONTROLLER_DEVELOPMENT",
+        "probe_order": [
+          "front",
+          "back"
+        ],
+        "scene_id": "epoch9b_controller_dev_005",
+        "source_state_demo_index": 31
+      },
+      "scene_id": "epoch9b_controller_dev_005",
+      "wall_seconds": 29.02090442300002
+    },
+    {
+      "canonical_vla_endpoint": {
+        "note": "same-state canonical endpoint is deferred until controller feasibility GO to avoid resident-VLA cost during tuning",
+        "pre_oracle_state_persisted_in_memory_only": true,
+        "status": "NOT_RUN_DURING_CONTROLLER_DEVELOPMENT"
+      },
+      "completed": true,
+      "exception": null,
+      "heavy_rank_correct": false,
+      "initial_candidate_positions_eval_only": {
+        "back": [
+          -0.1429999999999177,
+          0.056999999999866484,
+          0.8984041501888524
+        ],
+        "front": [
+          0.11600038791713009,
+          0.1479995061998689,
+          0.8983632303470955
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": true,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": true
+        },
+        "steps": 184,
+        "target_object_positions_eval_only": {
+          "after_close": [
+            0.1250532210349624,
+            0.143966152467325,
+            0.8997719891043934
+          ],
+          "after_lift": [
+            0.11650825860775976,
+            0.15406183386340971,
+            1.0513192548173642
+          ],
+          "after_release": [
+            -0.030135275821316497,
+            0.01188198220071859,
+            0.9070662156912375
+          ],
+          "initial": [
+            0.12455619441924647,
+            0.1488057821520298,
+            0.8983632302438218
+          ],
+          "plate": [
+            -0.01532410572757876,
+            0.021827506024851263,
+            0.9024998346667837
+          ]
+        },
+        "target_slot_eval_only": "front"
+      },
+      "post_probe_state_length": 77,
+      "predicted_heavy_slot": "back",
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.012478499521535685,
+            "front": 1.0328071676602116e-10
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            -0.1452483266301365,
+            0.06092688500441289,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0036544428883872695,
+          "final_eef_z_m": 1.1747767600910692,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.012478499521535685,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.26275701133918855,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": 1.0,
+            "dy": -1.0,
+            "magnitude_pixels": 1.4142135623730951,
+            "quality": 0.7767888903617859,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.011363636363636364,
+          "response_peak_estimated_displacement_m": 0.011363636363636364,
+          "response_tracker_quality_min": 0.754015326499939,
+          "response_visual_displacement_pixels": 1.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 142,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_006_back.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.0,
+            "front": 0.008593713155555738
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            0.1142616193229393,
+            0.14575908764107143,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0015820605465227296,
+          "final_eef_z_m": 1.1757328060160768,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.008593713155555738,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.26275829508166165,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": -1.0,
+            "dy": 0.0,
+            "magnitude_pixels": 1.0,
+            "quality": 0.684415876865387,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.014042085544346007,
+          "response_peak_estimated_displacement_m": 0.014042085544346007,
+          "response_tracker_quality_min": 0.59429931640625,
+          "response_visual_displacement_pixels": 2.23606797749979,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 192,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_006_front.npz"
+        }
+      ],
+      "response_score_rule": "smaller calibrated peak displacement predicts heavier candidate",
+      "response_scores_m": {
+        "back": 0.011363636363636364,
+        "front": 0.014042085544346007
+      },
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.14300000000000002,
+            0.056999999999999995
+          ],
+          "front": [
+            0.11599999999999999,
+            0.148
+          ]
+        },
+        "completion_target_slot_eval_only": "front",
+        "heavy_slot": "front",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "partition": "CONTROLLER_DEVELOPMENT",
+        "probe_order": [
+          "back",
+          "front"
+        ],
+        "scene_id": "epoch9b_controller_dev_006",
+        "source_state_demo_index": 31
+      },
+      "scene_id": "epoch9b_controller_dev_006",
+      "wall_seconds": 27.81579340600001
+    },
+    {
+      "canonical_vla_endpoint": {
+        "note": "same-state canonical endpoint is deferred until controller feasibility GO to avoid resident-VLA cost during tuning",
+        "pre_oracle_state_persisted_in_memory_only": true,
+        "status": "NOT_RUN_DURING_CONTROLLER_DEVELOPMENT"
+      },
+      "completed": true,
+      "exception": null,
+      "heavy_rank_correct": false,
+      "initial_candidate_positions_eval_only": {
+        "back": [
+          -0.16999961208286982,
+          0.03899950619986902,
+          0.8983632303470955
+        ],
+        "front": [
+          0.09800000000008233,
+          0.16599999999986645,
+          0.8984041501888524
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": true,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": true
+        },
+        "steps": 149,
+        "target_object_positions_eval_only": {
+          "after_close": [
+            -0.16266774544927048,
+            0.03374037751683311,
+            0.9000007493864549
+          ],
+          "after_lift": [
+            -0.1653811201966352,
+            0.03470723437577319,
+            1.0593787711399811
+          ],
+          "after_release": [
+            0.006086706572124647,
+            0.01291905123012576,
+            0.9070374849675139
+          ],
+          "initial": [
+            -0.16132179532731922,
+            0.03892643362245553,
+            0.8983632302438237
+          ],
+          "plate": [
+            -0.005967046370189303,
+            0.013365417026220083,
+            0.9024998346667857
+          ]
+        },
+        "target_slot_eval_only": "back"
+      },
+      "post_probe_state_length": 77,
+      "predicted_heavy_slot": "front",
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.008678124408214097,
+            "front": 5.551115123125783e-16
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            -0.16797559935740922,
+            0.04009355167107956,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.00016066419543341032,
+          "final_eef_z_m": 1.165458163118218,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.008678124408214097,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.28878276403501213,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": -2.0,
+            "dy": 1.0,
+            "magnitude_pixels": 2.23606797749979,
+            "quality": 0.776796817779541,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.011363636363636364,
+          "response_peak_estimated_displacement_m": 0.011363636363636364,
+          "response_tracker_quality_min": 0.7236766815185547,
+          "response_visual_displacement_pixels": 1.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 145,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_007_back.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": true,
+          "candidate_final_displacement_m_eval_only": {
+            "back": 4.352412558712864e-15,
+            "front": 0.00973240725382124
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "rgb_motion",
+          "estimated_initial_target_xyz_m": [
+            0.09342828598960597,
+            0.16659242097440477,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0024011166520066067,
+          "final_eef_z_m": 1.1669102431062617,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.00973240725382124,
+          "intended_target_contact_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.28878276403501213,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": 2.0,
+            "dy": 3.0,
+            "magnitude_pixels": 3.605551275463989,
+            "quality": 0.5989172458648682,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.0071321030650988,
+          "response_peak_estimated_displacement_m": 0.0071321030650988,
+          "response_tracker_quality_min": 0.6517515182495117,
+          "response_visual_displacement_pixels": 1.0,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 175,
+          "trace_path": "reports/epoch9b_dynamic_nudge/development/d3_balanced_eight_scene_repeatability/traces/epoch9b_controller_dev_007_front.npz"
+        }
+      ],
+      "response_score_rule": "smaller calibrated peak displacement predicts heavier candidate",
+      "response_scores_m": {
+        "back": 0.011363636363636364,
+        "front": 0.0071321030650988
+      },
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.17,
+            0.039
+          ],
+          "front": [
+            0.098,
+            0.166
+          ]
+        },
+        "completion_target_slot_eval_only": "back",
+        "heavy_slot": "back",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "partition": "CONTROLLER_DEVELOPMENT",
+        "probe_order": [
+          "back",
+          "front"
+        ],
+        "scene_id": "epoch9b_controller_dev_007",
+        "source_state_demo_index": 31
+      },
+      "scene_id": "epoch9b_controller_dev_007",
+      "wall_seconds": 25.25345921500002
+    }
+  ],
+  "schema_version": "epoch9b.dynamic_nudge.development.v1",
+  "started_at": "2026-07-21T01:17:57+09:00",
+  "summary": {
+    "both_candidates_contacted_scenes": 6,
+    "canonical_vla_endpoint_completed_scenes": 0,
+    "distance_limit_pass_probes": 16,
+    "finite_bounded_action_probes": 16,
+    "heavy_rank_by_position": {
+      "back": {
+        "rank_correct": 2,
+        "scenes": 4
+      },
+      "front": {
+        "rank_correct": 3,
+        "scenes": 4
+      }
+    },
+    "heavy_rank_correct_scenes": 5,
+    "intended_contact_probes": 14,
+    "lane_reachability_pass_probes": 16,
+    "legacy_3cm_reference_exceedance_count": 0,
+    "minimal_feasibility_panel_go": false,
+    "oracle_completion_success_scenes": 8,
+    "probe_count": 16,
+    "scenes_completed": 8,
+    "scenes_recorded": 8,
+    "v2_limit_m": 0.05
+  },
+  "validation_accessed": false
+}

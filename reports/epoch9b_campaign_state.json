@@ -1,0 +1,32 @@
+{
+  "active_workers": 0,
+  "branch": "codex/epoch9b-adaptive-probe-paper-continuation",
+  "confirmation_accessed": false,
+  "epoch9b_status": "ACTIVE_PROPERTY_THESIS_EMPIRICALLY_INFEASIBLE_ROTATING",
+  "epoch9c_status": "NO_DEFENSIBLE_LOCAL_PATH_AFTER_EMPIRICAL_ROTATIONS",
+  "evidence_index": "reports/epoch9b_evidence_index.json",
+  "paper_status": "PAPER_NOT_AUTHORIZED",
+  "program_status": "NO_DEFENSIBLE_LOCAL_PATH_AFTER_EMPIRICAL_ROTATIONS",
+  "protected_rollouts": [
+    {
+      "file_count": 27,
+      "manifest_sha256": "25DE8FF5AA6112D7EFF8BCF38D3A4C3F0F3C8C8EE0458E5FA83D17438719EC54",
+      "path": "rollouts/2026_07_17/",
+      "total_bytes": 5143751,
+      "touched_by_epoch9b": false
+    },
+    {
+      "file_count": 10,
+      "manifest_sha256": "CF701D6F73D4783F016E48A72C093DC9FD6D940B7081DA8FBEC128DB94C24A00",
+      "path": "rollouts/2026_07_18/",
+      "total_bytes": 924633,
+      "touched_by_epoch9b": false
+    }
+  ],
+  "safe_resume": "No paper or sealed-stage continuation is authorized from these outcomes. A future cycle requires a materially new task/data/robot capability and a fresh preregistered protocol; do not retune the closed response threshold or reuse the frozen panels as development.",
+  "schema_version": "epoch9b.campaign_state.v1",
+  "source_checkpoint": "d805e0a84fc8bcb720ecfd0cafeeda153aa603b4",
+  "terminal_adjudication": "reports/epoch9b_terminal_adjudication.json",
+  "timestamp": "2026-07-21T02:45:32+09:00",
+  "validation_accessed": false
+}

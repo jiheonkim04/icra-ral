@@ -1,0 +1,127 @@
+{
+  "attempt_id": "d4_retract_subpixel_incremental_smoke",
+  "calibration_path": "reports/epoch9b_dynamic_nudge/controller_calibration_repair1.json",
+  "calibration_sha256": "10AE3D151E47A030BBDCC2DAB0850B69926A4A903F8E2B830B38450F8B2EEB7B",
+  "completed_at": "2026-07-21T01:31:26+09:00",
+  "confirmation_accessed": false,
+  "controller_config": {
+    "approach_checkpoint_offset_x_m": -0.055,
+    "approach_control_steps_per_increment": 4,
+    "approach_increment_m": 0.003,
+    "approach_start_offset_x_m": -0.095,
+    "approach_stop_offset_x_m": -0.04,
+    "close_steps": 8,
+    "coast_steps": 4,
+    "contact_verify_retract_m": 0.008,
+    "contact_verify_steps": 7,
+    "controller_error_consecutive_steps": 2,
+    "controller_error_contact_m": 0.012,
+    "controller_error_over_baseline_m": 0.006,
+    "gripper_closed_command": 1.0,
+    "impulse_action_x": 0.35,
+    "impulse_steps": 2,
+    "move_gain_denominator_m": 0.04,
+    "neutral_tolerance_m": 0.004,
+    "paddle_y_offset_m": 0.018,
+    "paddle_z_m": 0.93,
+    "preimpulse_contact_offset_x_m": -0.055,
+    "visual_contact_threshold_pixels": 0.55,
+    "visual_quality_min": 0.5
+  },
+  "evidence_class": "DEVELOPMENT",
+  "manifest": [
+    {
+      "candidate_initial_xy_m": {
+        "back": [
+          -0.161,
+          0.03
+        ],
+        "front": [
+          0.089,
+          0.13
+        ]
+      },
+      "completion_target_slot_eval_only": "front",
+      "heavy_slot": "front",
+      "instruction_property": "heaviest",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "partition": "CONTROLLER_DEVELOPMENT",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_controller_dev_000",
+      "source_state_demo_index": 31
+    }
+  ],
+  "protocol_path": "reports/epoch9b_v2_task_preservation_protocol.json",
+  "protocol_sha256": "73372173E2A6D9064D2200EE24000BE061CA04FF9757D07F86A4DAAB919AD484",
+  "rows": [
+    {
+      "completed": false,
+      "exception": "ValueError: invalid literal for int() with base 10: ''",
+      "scene": {
+        "candidate_initial_xy_m": {
+          "back": [
+            -0.161,
+            0.03
+          ],
+          "front": [
+            0.089,
+            0.13
+          ]
+        },
+        "completion_target_slot_eval_only": "front",
+        "heavy_slot": "front",
+        "instruction_property": "heaviest",
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "partition": "CONTROLLER_DEVELOPMENT",
+        "probe_order": [
+          "front",
+          "back"
+        ],
+        "scene_id": "epoch9b_controller_dev_000",
+        "source_state_demo_index": 31
+      },
+      "scene_id": "epoch9b_controller_dev_000",
+      "wall_seconds": 0.9075224779999989
+    }
+  ],
+  "schema_version": "epoch9b.dynamic_nudge.development.v2",
+  "started_at": "2026-07-21T01:31:24+09:00",
+  "summary": {
+    "both_candidates_contacted_scenes": 0,
+    "canonical_vla_endpoint_completed_scenes": 0,
+    "distance_limit_pass_probes": 0,
+    "finite_bounded_action_probes": 0,
+    "heavy_rank_by_position": {
+      "back": {
+        "rank_correct": 0,
+        "scenes": 0
+      },
+      "front": {
+        "rank_correct": 0,
+        "scenes": 0
+      }
+    },
+    "heavy_rank_correct_scenes": 0,
+    "intended_contact_probes": 0,
+    "lane_reachability_pass_probes": 0,
+    "legacy_3cm_reference_exceedance_count": 0,
+    "minimal_feasibility_panel_go": false,
+    "neutral_return_pass_probes": 0,
+    "oracle_completion_success_scenes": 0,
+    "probe_count": 0,
+    "scenes_completed": 0,
+    "scenes_recorded": 1,
+    "tracker_quality_pass_probes": 0,
+    "v2_limit_m": 0.05
+  },
+  "validation_accessed": false
+}

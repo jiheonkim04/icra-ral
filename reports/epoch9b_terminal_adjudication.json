@@ -1,0 +1,232 @@
+{
+  "active_property_adjudication": {
+    "closure_basis": [
+      "the audited old fixed-probe trajectories carried no reliable mass signal after grouped nuisance-controlled evaluation",
+      "adaptive RGB localization, subpixel tracking, retract-and-reobserve contact verification, and a bounded ballistic response were implemented",
+      "fixture-clear mirrored, centered, and inward-biased contact geometries were tested on distinct development evidence",
+      "two complete 24-scene frozen panels exposed a non-rescuable task-preservation versus ranking/headroom tradeoff",
+      "no post-panel threshold retuning, temporal-model fitting, or sealed-stage access was performed"
+    ],
+    "original_frozen_panel": {
+      "both_candidates_contacted_scenes": 24,
+      "candidate_distractor_collision_probes": 0,
+      "candidate_pair_collision_probes": 0,
+      "canonical_vla_endpoint_completed_scenes": 0,
+      "distance_limit_pass_probes": 48,
+      "finite_bounded_action_probes": 48,
+      "heavy_rank_by_position": {
+        "back": {
+          "rank_correct": 10,
+          "scenes": 12
+        },
+        "front": {
+          "rank_correct": 12,
+          "scenes": 12
+        }
+      },
+      "heavy_rank_correct_scenes": 22,
+      "intended_contact_or_excitation_probes": 48,
+      "intended_contact_probes": 48,
+      "lane_reachability_pass_probes": 47,
+      "legacy_3cm_reference_exceedance_count": 0,
+      "minimal_feasibility_panel_go": false,
+      "neutral_return_pass_probes": 48,
+      "oracle_completion_success_scenes": 21,
+      "probe_count": 48,
+      "sampled_instantaneous_contact_probes": 48,
+      "scenes_completed": 24,
+      "scenes_recorded": 24,
+      "tracker_quality_pass_probes": 48,
+      "v2_limit_m": 0.05
+    },
+    "original_panel_finding": "substantive thresholds passed, but one real 0.004117 m front-y lane excursion made the exact frozen panel NO-GO",
+    "repair1_centered_edge_stress": {
+      "both_candidates_contacted_scenes": 4,
+      "candidate_distractor_collision_probes": 0,
+      "candidate_pair_collision_probes": 0,
+      "canonical_vla_endpoint_completed_scenes": 0,
+      "distance_limit_pass_probes": 8,
+      "finite_bounded_action_probes": 8,
+      "heavy_rank_by_position": {
+        "back": {
+          "rank_correct": 2,
+          "scenes": 2
+        },
+        "front": {
+          "rank_correct": 2,
+          "scenes": 2
+        }
+      },
+      "heavy_rank_correct_scenes": 4,
+      "intended_contact_or_excitation_probes": 8,
+      "intended_contact_probes": 8,
+      "lane_reachability_pass_probes": 3,
+      "legacy_3cm_reference_exceedance_count": 0,
+      "minimal_feasibility_panel_go": false,
+      "neutral_return_pass_probes": 8,
+      "oracle_completion_success_scenes": 4,
+      "probe_count": 8,
+      "sampled_instantaneous_contact_probes": 8,
+      "scenes_completed": 4,
+      "scenes_recorded": 4,
+      "tracker_quality_pass_probes": 8,
+      "v2_limit_m": 0.05
+    },
+    "repair2_balanced_development": {
+      "both_candidates_contacted_scenes": 8,
+      "candidate_distractor_collision_probes": 0,
+      "candidate_pair_collision_probes": 0,
+      "canonical_vla_endpoint_completed_scenes": 0,
+      "distance_limit_pass_probes": 16,
+      "finite_bounded_action_probes": 16,
+      "heavy_rank_by_position": {
+        "back": {
+          "rank_correct": 4,
+          "scenes": 4
+        },
+        "front": {
+          "rank_correct": 4,
+          "scenes": 4
+        }
+      },
+      "heavy_rank_correct_scenes": 8,
+      "intended_contact_or_excitation_probes": 16,
+      "intended_contact_probes": 16,
+      "lane_reachability_pass_probes": 16,
+      "legacy_3cm_reference_exceedance_count": 0,
+      "minimal_feasibility_panel_go": false,
+      "neutral_return_pass_probes": 16,
+      "oracle_completion_success_scenes": 5,
+      "probe_count": 16,
+      "sampled_instantaneous_contact_probes": 16,
+      "scenes_completed": 8,
+      "scenes_recorded": 8,
+      "tracker_quality_pass_probes": 16,
+      "v2_limit_m": 0.05
+    },
+    "repair2_inward_edge_stress": {
+      "both_candidates_contacted_scenes": 4,
+      "candidate_distractor_collision_probes": 0,
+      "candidate_pair_collision_probes": 0,
+      "canonical_vla_endpoint_completed_scenes": 0,
+      "distance_limit_pass_probes": 8,
+      "finite_bounded_action_probes": 8,
+      "heavy_rank_by_position": {
+        "back": {
+          "rank_correct": 2,
+          "scenes": 2
+        },
+        "front": {
+          "rank_correct": 2,
+          "scenes": 2
+        }
+      },
+      "heavy_rank_correct_scenes": 4,
+      "intended_contact_or_excitation_probes": 8,
+      "intended_contact_probes": 8,
+      "lane_reachability_pass_probes": 3,
+      "legacy_3cm_reference_exceedance_count": 0,
+      "minimal_feasibility_panel_go": false,
+      "neutral_return_pass_probes": 8,
+      "oracle_completion_success_scenes": 3,
+      "probe_count": 8,
+      "sampled_instantaneous_contact_probes": 8,
+      "scenes_completed": 4,
+      "scenes_recorded": 4,
+      "tracker_quality_pass_probes": 8,
+      "v2_limit_m": 0.05
+    },
+    "repair3_finding": "all 48 probes were mechanically valid, but ranking was 19/24 with 7/12 back-heavy and oracle completion was 16/24; both missed frozen GO thresholds",
+    "repair3_frozen_panel": {
+      "both_candidates_contacted_scenes": 24,
+      "candidate_distractor_collision_probes": 0,
+      "candidate_pair_collision_probes": 0,
+      "canonical_vla_endpoint_completed_scenes": 0,
+      "distance_limit_pass_probes": 48,
+      "finite_bounded_action_probes": 48,
+      "heavy_rank_by_position": {
+        "back": {
+          "rank_correct": 7,
+          "scenes": 12
+        },
+        "front": {
+          "rank_correct": 12,
+          "scenes": 12
+        }
+      },
+      "heavy_rank_correct_scenes": 19,
+      "intended_contact_or_excitation_probes": 48,
+      "intended_contact_probes": 48,
+      "lane_reachability_pass_probes": 48,
+      "legacy_3cm_reference_exceedance_count": 1,
+      "minimal_feasibility_panel_go": false,
+      "neutral_return_pass_probes": 48,
+      "oracle_completion_success_scenes": 16,
+      "probe_count": 48,
+      "sampled_instantaneous_contact_probes": 48,
+      "scenes_completed": 24,
+      "scenes_recorded": 24,
+      "tracker_quality_pass_probes": 48,
+      "v2_limit_m": 0.05
+    }
+  },
+  "active_property_status": "ACTIVE_PROPERTY_THESIS_EMPIRICALLY_INFEASIBLE_ROTATING",
+  "attribution_adjudication": {
+    "already_available_families": [
+      "articulated_drawer",
+      "pick_transport_place"
+    ],
+    "closure_basis": "the final pose-preserving, low-gain feedback oracle contacted the target in both exact-init conditions but completed neither, so a third legal manipulation family could not be established and VLA attribution rollout remained unauthorized",
+    "final_feedback_result": {
+      "conditions": [
+        {
+          "condition": "standard",
+          "minimum_goal_distance_m": 0.25716449061685226,
+          "official_success": false,
+          "target_contact": true
+        },
+        {
+          "condition": "latent_dynamics_intervention",
+          "minimum_goal_distance_m": 0.24178760731231336,
+          "official_success": false,
+          "target_contact": true
+        }
+      ],
+      "decision": "NO_DEFENSIBLE_LOCAL_PATH_AFTER_EMPIRICAL_ROTATIONS",
+      "first_observation_exact": true,
+      "paired_initial_state_exact": true
+    },
+    "missing_family": "planar_push",
+    "purpose": "independent semantic-versus-physical causal-attribution rotation required after active-property closure"
+  },
+  "attribution_rotation_status": "NO_DEFENSIBLE_LOCAL_PATH_AFTER_EMPIRICAL_ROTATIONS",
+  "branch": "codex/epoch9b-adaptive-probe-paper-continuation",
+  "claim_boundary": "This is an auditable local empirical exhaustion result for the two routes mandated by the continuation prompt. It is not a claim that active physical grounding, causal attribution, or VLA research is impossible in general.",
+  "confirmation_accessed": false,
+  "decision": "NO_DEFENSIBLE_LOCAL_PATH_AFTER_EMPIRICAL_ROTATIONS",
+  "final_temporal_model_fit": false,
+  "metric_integrity_decision": "VISUAL_METRIC_TARGET_CROP_DEFECT_CONFIRMED",
+  "observability_decision": "NO_RELIABLE_MASS_SIGNAL_IN_EXISTING_FIXED_PROBE_TRAJECTORIES",
+  "official_closed_loop_ours_episodes": 0,
+  "paper_status": "PAPER_NOT_AUTHORIZED",
+  "protected_rollouts": [
+    {
+      "file_count": 27,
+      "manifest_sha256": "25DE8FF5AA6112D7EFF8BCF38D3A4C3F0F3C8C8EE0458E5FA83D17438719EC54",
+      "path": "rollouts/2026_07_17/",
+      "total_bytes": 5143751,
+      "touched_by_epoch9b": false
+    },
+    {
+      "file_count": 10,
+      "manifest_sha256": "CF701D6F73D4783F016E48A72C093DC9FD6D940B7081DA8FBEC128DB94C24A00",
+      "path": "rollouts/2026_07_18/",
+      "total_bytes": 924633,
+      "touched_by_epoch9b": false
+    }
+  ],
+  "schema_version": "epoch9b.empirical_rotations.terminal_adjudication.v1",
+  "source_checkpoint": "d805e0a84fc8bcb720ecfd0cafeeda153aa603b4",
+  "timestamp": "2026-07-21T02:45:32+09:00",
+  "validation_accessed": false
+}

@@ -1,0 +1,574 @@
+{
+  "conditional_signal_rule": {
+    "pass": false,
+    "residualized_accuracy_min": 0.6,
+    "temporal_accuracy_min": 0.65,
+    "temporal_minus_shuffled_min": 0.05
+  },
+  "dataset": {
+    "dataset_execution_gate_pass": false,
+    "demo_indices": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "diagnostic_legal_trace_basis": {
+      "bounded_action_fraction": 1.0,
+      "contact_fraction": 1.0,
+      "note": "task-preservation failure prevents final-model use but does not erase trajectory observability"
+    },
+    "episodes": 80,
+    "path": "reports/epoch9_relational_probe_dataset/development/paired_v1/result.json",
+    "sha256": "10F452353AFFEC2810F0FA17531D28DD09D00C056ABC6CA2C9D31CEC41403617"
+  },
+  "decision": "NO_RELIABLE_MASS_SIGNAL_IN_EXISTING_FIXED_PROBE_TRAJECTORIES",
+  "evidence_class": "DEVELOPMENT_ONLY_DIAGNOSTIC_NOT_FOR_CLAIMS",
+  "frozen_lda_control": {
+    "available_features": 5,
+    "missing_feature_rule": "original training mean (zero normalized contribution)",
+    "missing_wrist_features": 2,
+    "refit": false,
+    "source": "reports/epoch8_active_property_probe_belief_stage0_repair1.json",
+    "source_sha256": "B50CC22DC429689F290CD48A013B087D99068C314D10107650139EB3A8AAB469"
+  },
+  "interpretation": "Existing legal fixed-probe trajectories do not provide a reliable grouped mass signal. A new dynamic probe would need to establish observability before model investment.",
+  "models": {
+    "balanced_no_probe_chance": {
+      "accuracy": 0.5,
+      "by_heavy_position": {
+        "back": {
+          "accuracy": 0.0,
+          "episodes": 40
+        },
+        "front": {
+          "accuracy": 1.0,
+          "episodes": 40
+        }
+      },
+      "by_mass_contrast": {
+        "4x_vs_2x": {
+          "accuracy": 0.5,
+          "episodes": 40
+        },
+        "8x_vs_1x": {
+          "accuracy": 0.5,
+          "episodes": 40
+        }
+      },
+      "by_probe_order": {
+        "back/front": {
+          "accuracy": 0.5,
+          "episodes": 40
+        },
+        "front/back": {
+          "accuracy": 0.5,
+          "episodes": 40
+        }
+      },
+      "episodes": 80,
+      "reset_group_bootstrap_ci95": [
+        0.5,
+        0.5
+      ],
+      "successes": 40
+    },
+    "candidate_position_and_order_only_eval_control": {
+      "accuracy": 0.5,
+      "by_heavy_position": {
+        "back": {
+          "accuracy": 0.0,
+          "episodes": 40
+        },
+        "front": {
+          "accuracy": 1.0,
+          "episodes": 40
+        }
+      },
+      "by_mass_contrast": {
+        "4x_vs_2x": {
+          "accuracy": 0.5,
+          "episodes": 40
+        },
+        "8x_vs_1x": {
+          "accuracy": 0.5,
+          "episodes": 40
+        }
+      },
+      "by_probe_order": {
+        "back/front": {
+          "accuracy": 0.5,
+          "episodes": 40
+        },
+        "front/back": {
+          "accuracy": 0.5,
+          "episodes": 40
+        }
+      },
+      "episodes": 80,
+      "reset_group_bootstrap_ci95": [
+        0.5,
+        0.5
+      ],
+      "successes": 40
+    },
+    "endpoint_only_controller_error": {
+      "accuracy": 0.5125,
+      "by_heavy_position": {
+        "back": {
+          "accuracy": 0.475,
+          "episodes": 40
+        },
+        "front": {
+          "accuracy": 0.55,
+          "episodes": 40
+        }
+      },
+      "by_mass_contrast": {
+        "4x_vs_2x": {
+          "accuracy": 0.5,
+          "episodes": 40
+        },
+        "8x_vs_1x": {
+          "accuracy": 0.525,
+          "episodes": 40
+        }
+      },
+      "by_probe_order": {
+        "back/front": {
+          "accuracy": 0.525,
+          "episodes": 40
+        },
+        "front/back": {
+          "accuracy": 0.5,
+          "episodes": 40
+        }
+      },
+      "episodes": 80,
+      "reset_group_bootstrap_ci95": [
+        0.5,
+        0.5375
+      ],
+      "successes": 41
+    },
+    "final_displacement_only_eval_control": {
+      "accuracy": 0.4625,
+      "by_heavy_position": {
+        "back": {
+          "accuracy": 0.575,
+          "episodes": 40
+        },
+        "front": {
+          "accuracy": 0.35,
+          "episodes": 40
+        }
+      },
+      "by_mass_contrast": {
+        "4x_vs_2x": {
+          "accuracy": 0.475,
+          "episodes": 40
+        },
+        "8x_vs_1x": {
+          "accuracy": 0.45,
+          "episodes": 40
+        }
+      },
+      "by_probe_order": {
+        "back/front": {
+          "accuracy": 0.45,
+          "episodes": 40
+        },
+        "front/back": {
+          "accuracy": 0.475,
+          "episodes": 40
+        }
+      },
+      "episodes": 80,
+      "reset_group_bootstrap_ci95": [
+        0.4,
+        0.5
+      ],
+      "successes": 37
+    },
+    "first_frame_rgb": {
+      "accuracy": 0.5125,
+      "by_heavy_position": {
+        "back": {
+          "accuracy": 0.425,
+          "episodes": 40
+        },
+        "front": {
+          "accuracy": 0.6,
+          "episodes": 40
+        }
+      },
+      "by_mass_contrast": {
+        "4x_vs_2x": {
+          "accuracy": 0.525,
+          "episodes": 40
+        },
+        "8x_vs_1x": {
+          "accuracy": 0.5,
+          "episodes": 40
+        }
+      },
+      "by_probe_order": {
+        "back/front": {
+          "accuracy": 0.525,
+          "episodes": 40
+        },
+        "front/back": {
+          "accuracy": 0.5,
+          "episodes": 40
+        }
+      },
+      "episodes": 80,
+      "reset_group_bootstrap_ci95": [
+        0.5,
+        0.5375
+      ],
+      "successes": 41
+    },
+    "frozen_epoch8_aggregate_lda_shared_channels": {
+      "accuracy": 0.5,
+      "by_heavy_position": {
+        "back": {
+          "accuracy": 1.0,
+          "episodes": 40
+        },
+        "front": {
+          "accuracy": 0.0,
+          "episodes": 40
+        }
+      },
+      "by_mass_contrast": {
+        "4x_vs_2x": {
+          "accuracy": 0.5,
+          "episodes": 40
+        },
+        "8x_vs_1x": {
+          "accuracy": 0.5,
+          "episodes": 40
+        }
+      },
+      "by_probe_order": {
+        "back/front": {
+          "accuracy": 0.5,
+          "episodes": 40
+        },
+        "front/back": {
+          "accuracy": 0.5,
+          "episodes": 40
+        }
+      },
+      "episodes": 80,
+      "reset_group_bootstrap_ci95": [
+        0.5,
+        0.5
+      ],
+      "successes": 40
+    },
+    "position_displacement_order_eval_control": {
+      "accuracy": 0.475,
+      "by_heavy_position": {
+        "back": {
+          "accuracy": 0.525,
+          "episodes": 40
+        },
+        "front": {
+          "accuracy": 0.425,
+          "episodes": 40
+        }
+      },
+      "by_mass_contrast": {
+        "4x_vs_2x": {
+          "accuracy": 0.475,
+          "episodes": 40
+        },
+        "8x_vs_1x": {
+          "accuracy": 0.475,
+          "episodes": 40
+        }
+      },
+      "by_probe_order": {
+        "back/front": {
+          "accuracy": 0.45,
+          "episodes": 40
+        },
+        "front/back": {
+          "accuracy": 0.5,
+          "episodes": 40
+        }
+      },
+      "episodes": 80,
+      "reset_group_bootstrap_ci95": [
+        0.4375,
+        0.5
+      ],
+      "successes": 38
+    },
+    "raw_sequence_temporal_encoder": {
+      "accuracy": 0.4125,
+      "by_heavy_position": {
+        "back": {
+          "accuracy": 0.475,
+          "episodes": 40
+        },
+        "front": {
+          "accuracy": 0.35,
+          "episodes": 40
+        }
+      },
+      "by_mass_contrast": {
+        "4x_vs_2x": {
+          "accuracy": 0.425,
+          "episodes": 40
+        },
+        "8x_vs_1x": {
+          "accuracy": 0.4,
+          "episodes": 40
+        }
+      },
+      "by_probe_order": {
+        "back/front": {
+          "accuracy": 0.4,
+          "episodes": 40
+        },
+        "front/back": {
+          "accuracy": 0.425,
+          "episodes": 40
+        }
+      },
+      "episodes": 80,
+      "reset_group_bootstrap_ci95": [
+        0.3,
+        0.5
+      ],
+      "successes": 33
+    },
+    "response_summary_residualized_against_position_displacement_order": {
+      "accuracy": 0.475,
+      "by_heavy_position": {
+        "back": {
+          "accuracy": 0.4,
+          "episodes": 40
+        },
+        "front": {
+          "accuracy": 0.55,
+          "episodes": 40
+        }
+      },
+      "by_mass_contrast": {
+        "4x_vs_2x": {
+          "accuracy": 0.475,
+          "episodes": 40
+        },
+        "8x_vs_1x": {
+          "accuracy": 0.475,
+          "episodes": 40
+        }
+      },
+      "by_probe_order": {
+        "back/front": {
+          "accuracy": 0.45,
+          "episodes": 40
+        },
+        "front/back": {
+          "accuracy": 0.5,
+          "episodes": 40
+        }
+      },
+      "episodes": 80,
+      "reset_group_bootstrap_ci95": [
+        0.425,
+        0.5
+      ],
+      "successes": 38
+    },
+    "shuffled_temporal_order": {
+      "accuracy": 0.45,
+      "by_heavy_position": {
+        "back": {
+          "accuracy": 0.5,
+          "episodes": 40
+        },
+        "front": {
+          "accuracy": 0.4,
+          "episodes": 40
+        }
+      },
+      "by_mass_contrast": {
+        "4x_vs_2x": {
+          "accuracy": 0.45,
+          "episodes": 40
+        },
+        "8x_vs_1x": {
+          "accuracy": 0.45,
+          "episodes": 40
+        }
+      },
+      "by_probe_order": {
+        "back/front": {
+          "accuracy": 0.45,
+          "episodes": 40
+        },
+        "front/back": {
+          "accuracy": 0.45,
+          "episodes": 40
+        }
+      },
+      "episodes": 80,
+      "reset_group_bootstrap_ci95": [
+        0.35,
+        0.5
+      ],
+      "successes": 36
+    }
+  },
+  "schema_version": "epoch9b.observability_diagnostic.v1",
+  "sealed_access": {
+    "confirmation_45_49": false,
+    "validation_40_44": false
+  },
+  "split_audit": {
+    "every_test_fold_position_and_order_balanced": true,
+    "folds": [
+      {
+        "fold": 0,
+        "group_overlap": [],
+        "test_back_first": 8,
+        "test_back_heavy": 8,
+        "test_demo_indices": [
+          30,
+          35
+        ],
+        "test_front_first": 8,
+        "test_front_heavy": 8,
+        "train_demo_indices": [
+          31,
+          32,
+          33,
+          34,
+          36,
+          37,
+          38,
+          39
+        ]
+      },
+      {
+        "fold": 1,
+        "group_overlap": [],
+        "test_back_first": 8,
+        "test_back_heavy": 8,
+        "test_demo_indices": [
+          31,
+          36
+        ],
+        "test_front_first": 8,
+        "test_front_heavy": 8,
+        "train_demo_indices": [
+          30,
+          32,
+          33,
+          34,
+          35,
+          37,
+          38,
+          39
+        ]
+      },
+      {
+        "fold": 2,
+        "group_overlap": [],
+        "test_back_first": 8,
+        "test_back_heavy": 8,
+        "test_demo_indices": [
+          32,
+          37
+        ],
+        "test_front_first": 8,
+        "test_front_heavy": 8,
+        "train_demo_indices": [
+          30,
+          31,
+          33,
+          34,
+          35,
+          36,
+          38,
+          39
+        ]
+      },
+      {
+        "fold": 3,
+        "group_overlap": [],
+        "test_back_first": 8,
+        "test_back_heavy": 8,
+        "test_demo_indices": [
+          33,
+          38
+        ],
+        "test_front_first": 8,
+        "test_front_heavy": 8,
+        "train_demo_indices": [
+          30,
+          31,
+          32,
+          34,
+          35,
+          36,
+          37,
+          39
+        ]
+      },
+      {
+        "fold": 4,
+        "group_overlap": [],
+        "test_back_first": 8,
+        "test_back_heavy": 8,
+        "test_demo_indices": [
+          34,
+          39
+        ],
+        "test_front_first": 8,
+        "test_front_heavy": 8,
+        "train_demo_indices": [
+          30,
+          31,
+          32,
+          33,
+          35,
+          36,
+          37,
+          38
+        ]
+      }
+    ],
+    "grouping": "five-fold GroupKFold by demo/reset identity",
+    "same_trajectory_or_identity_crosses_fold": false
+  },
+  "temporal_model": {
+    "architecture": "shared Linear(.,32)+bidirectional GRU(16x2)+attention; relational delta MLP",
+    "epochs": 120,
+    "input_dimension": 60,
+    "online_inputs_only": [
+      "RGB response",
+      "EEF proprioception",
+      "controller goal/error",
+      "actions",
+      "time"
+    ],
+    "seeds": [
+      9009,
+      9010
+    ],
+    "sequence_length": 64
+  },
+  "timestamp": "2026-07-21T01:06:09+09:00"
+}

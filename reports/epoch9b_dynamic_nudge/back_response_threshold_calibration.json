@@ -1,0 +1,184 @@
+{
+  "audit_rows": [
+    {
+      "back_response_m": 0.011926179948251736,
+      "label_development_only": "light",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_controller_dev_000",
+      "validity": {
+        "contact_or_excitation": true,
+        "distance_limit": true,
+        "finite_bounded_actions": true,
+        "lane_reachability": true,
+        "no_candidate_pair_collision": true,
+        "no_distractor_collision": true,
+        "tracker_quality": true
+      }
+    },
+    {
+      "back_response_m": 0.0041775440701041985,
+      "label_development_only": "heavy",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_controller_dev_001",
+      "validity": {
+        "contact_or_excitation": true,
+        "distance_limit": true,
+        "finite_bounded_actions": true,
+        "lane_reachability": true,
+        "no_candidate_pair_collision": true,
+        "no_distractor_collision": true,
+        "tracker_quality": true
+      }
+    },
+    {
+      "back_response_m": 0.011391430398895463,
+      "label_development_only": "light",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_controller_dev_002",
+      "validity": {
+        "contact_or_excitation": true,
+        "distance_limit": true,
+        "finite_bounded_actions": true,
+        "lane_reachability": true,
+        "no_candidate_pair_collision": true,
+        "no_distractor_collision": true,
+        "tracker_quality": true
+      }
+    },
+    {
+      "back_response_m": 0.004978578276275478,
+      "label_development_only": "heavy",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_controller_dev_003",
+      "validity": {
+        "contact_or_excitation": true,
+        "distance_limit": true,
+        "finite_bounded_actions": true,
+        "lane_reachability": true,
+        "no_candidate_pair_collision": true,
+        "no_distractor_collision": true,
+        "tracker_quality": true
+      }
+    },
+    {
+      "back_response_m": 0.005460353847819288,
+      "label_development_only": "light",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_controller_dev_004",
+      "validity": {
+        "contact_or_excitation": true,
+        "distance_limit": true,
+        "finite_bounded_actions": true,
+        "lane_reachability": true,
+        "no_candidate_pair_collision": true,
+        "no_distractor_collision": true,
+        "tracker_quality": true
+      }
+    },
+    {
+      "back_response_m": 0.0035638130471065312,
+      "label_development_only": "heavy",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9b_controller_dev_005",
+      "validity": {
+        "contact_or_excitation": true,
+        "distance_limit": true,
+        "finite_bounded_actions": true,
+        "lane_reachability": true,
+        "no_candidate_pair_collision": true,
+        "no_distractor_collision": true,
+        "tracker_quality": true
+      }
+    },
+    {
+      "back_response_m": 0.012708910622796705,
+      "label_development_only": "light",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_controller_dev_006",
+      "validity": {
+        "contact_or_excitation": true,
+        "distance_limit": true,
+        "finite_bounded_actions": true,
+        "lane_reachability": true,
+        "no_candidate_pair_collision": true,
+        "no_distractor_collision": true,
+        "tracker_quality": true
+      }
+    },
+    {
+      "back_response_m": 0.004672302743706537,
+      "label_development_only": "heavy",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9b_controller_dev_007",
+      "validity": {
+        "contact_or_excitation": true,
+        "distance_limit": true,
+        "finite_bounded_actions": true,
+        "lane_reachability": true,
+        "no_candidate_pair_collision": true,
+        "no_distractor_collision": true,
+        "tracker_quality": true
+      }
+    }
+  ],
+  "back_heavy_threshold_m": 0.005219466062047384,
+  "development_separation_margin_m": 0.00048177557154380993,
+  "evidence_class": "DEVELOPMENT_SCORE_CALIBRATION",
+  "frozen_at": "2026-07-21T01:58:54+09:00",
+  "heavy_back_response_m": [
+    0.0041775440701041985,
+    0.004978578276275478,
+    0.0035638130471065312,
+    0.004672302743706537
+  ],
+  "heavy_back_summary_m": {
+    "max": 0.004978578276275478,
+    "mean": 0.004348059534298187
+  },
+  "light_back_response_m": [
+    0.011926179948251736,
+    0.011391430398895463,
+    0.005460353847819288,
+    0.012708910622796705
+  ],
+  "light_back_summary_m": {
+    "mean": 0.010371718704440798,
+    "min": 0.005460353847819288
+  },
+  "ranking_rule": {
+    "back_response_above_threshold": "predict front candidate heavy",
+    "back_response_at_or_below_threshold": "predict back candidate heavy",
+    "front_response_role": "reported but not used because front development response was less separable"
+  },
+  "schema_version": "epoch9b.dynamic_nudge.back_response_threshold.v1",
+  "sealed_validation_or_confirmation_accessed": false,
+  "source_back_probes_all_v2_valid": true,
+  "source_back_probes_only": true,
+  "source_path": "reports/epoch9b_dynamic_nudge/development/d14_balanced_mirrored_event_ballistic/result.json",
+  "source_sha256": "E2858AA0CF89C980C533ADD25B65F8F8E7BE0B87BDBF87723AD3B21C2D281FBA",
+  "status": "FROZEN_BEFORE_SAFE_PATH_REPEATABILITY_AND_24_SCENE_PANEL"
+}
