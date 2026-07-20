@@ -1,0 +1,475 @@
+{
+  "completed_at": "2026-07-20T16:27:23+09:00",
+  "execution_type": "FROZEN_STANDARD_ONLY_DEMO_SELECTION_PAIRED_EXPERT_REPLAY_NO_POLICY",
+  "expert_actions_counted_as_policy_success": false,
+  "policy_loaded_or_queried": false,
+  "protocol": "/mnt/c/Users/jiheo/tca_map/reports/epoch7_latent_dynamics_attribution/discovery_protocol.json",
+  "resumed_at": "2026-07-20T16:27:23+09:00",
+  "runtime": {
+    "camera_resolution": 64,
+    "python": "3.10.12"
+  },
+  "schema_version": "epoch7.latent_dynamics.expert_feasibility.v1",
+  "selection_rule": "for each task, test demos in numeric index order under standard exact-init replay and select the lowest-index valid successful replay; intervention outcomes never affect selection",
+  "started_at": "2026-07-20T16:24:21+09:00",
+  "summary": {
+    "decision": "EXPERT_FEASIBILITY_FAIL",
+    "eligible_collapsed_families": [
+      "articulated",
+      "pick_transport_place"
+    ],
+    "eligible_families": [
+      "articulated_drawer",
+      "pick_transport_place"
+    ],
+    "eligible_task_ids": [
+      0,
+      3
+    ],
+    "headroom_gate_pass": false,
+    "intervention_success_tasks": 2,
+    "standard_success_tasks": 4,
+    "tasks": 4
+  },
+  "tasks": [
+    {
+      "eval_id": 0,
+      "family": "articulated_drawer",
+      "hdf5_path": "/mnt/c/assets/data/libero/libero_goal/open_the_middle_drawer_of_the_cabinet_demo.hdf5",
+      "intervention": {
+        "completed": true,
+        "condition": "latent_dynamics_intervention",
+        "error": null,
+        "final_official_success": true,
+        "first_success_step": 133,
+        "first_target_contact_step": 83,
+        "mutation": {
+          "axis": "joint_damping",
+          "changed_values": 1,
+          "factor": 4.0,
+          "records": [
+            {
+              "after": [
+                200.0
+              ],
+              "array": "dof_damping",
+              "before": [
+                50.0
+              ],
+              "indices": [
+                34
+              ]
+            }
+          ],
+          "records_sha256": "772652060cd71e1a35b64630af1a8bbd4f10f85d6800ba7dbb8f7176311d9443"
+        },
+        "steps": 134,
+        "success": true,
+        "target_contact_any": true,
+        "wall_seconds": 12.997
+      },
+      "intervention_success": true,
+      "selected_demo": {
+        "action_sha256": "14b0b1439d13a2479afbaa67ad77b2940588bd49faf0a8ea4a0e8cf751c87546",
+        "demo_name": "demo_0",
+        "full_action_steps": 138,
+        "hdf5_first_signal_step": 137,
+        "init_state_sha256": "662983d89d2abb8cc80ea6349e252757d6c3b1e19034c28c658a3aea20a027b5",
+        "replay_steps": 138
+      },
+      "selection_used_intervention_outcomes": false,
+      "standard": {
+        "completed": true,
+        "condition": "standard",
+        "error": null,
+        "final_official_success": true,
+        "first_success_step": 126,
+        "first_target_contact_step": 83,
+        "mutation": null,
+        "steps": 127,
+        "success": true,
+        "target_contact_any": true,
+        "wall_seconds": 13.85
+      },
+      "standard_attempts": [
+        {
+          "completed": true,
+          "demo_name": "demo_0",
+          "error": null,
+          "steps": 127,
+          "success": true
+        }
+      ],
+      "standard_success": true
+    },
+    {
+      "eval_id": 2,
+      "family": "planar_push",
+      "hdf5_path": "/mnt/c/assets/data/libero/libero_goal/push_the_plate_to_the_front_of_the_stove_demo.hdf5",
+      "intervention": {
+        "completed": true,
+        "condition": "latent_dynamics_intervention",
+        "error": null,
+        "final_official_success": false,
+        "first_success_step": null,
+        "first_target_contact_step": 46,
+        "mutation": {
+          "axis": "target_contact_friction",
+          "changed_values": 30,
+          "factor": 0.25,
+          "records": [
+            {
+              "after": [
+                [
+                  0.2375,
+                  0.075,
+                  0.025
+                ],
+                [
+                  0.2375,
+                  0.075,
+                  0.025
+                ],
+                [
+                  0.2375,
+                  0.075,
+                  0.025
+                ],
+                [
+                  0.2375,
+                  0.075,
+                  0.025
+                ],
+                [
+                  0.2375,
+                  0.075,
+                  0.025
+                ],
+                [
+                  0.2375,
+                  0.075,
+                  0.025
+                ],
+                [
+                  0.2375,
+                  0.075,
+                  0.025
+                ],
+                [
+                  0.2375,
+                  0.075,
+                  0.025
+                ],
+                [
+                  0.2375,
+                  0.075,
+                  0.025
+                ],
+                [
+                  0.2375,
+                  0.075,
+                  0.025
+                ]
+              ],
+              "array": "geom_friction",
+              "before": [
+                [
+                  0.95,
+                  0.3,
+                  0.1
+                ],
+                [
+                  0.95,
+                  0.3,
+                  0.1
+                ],
+                [
+                  0.95,
+                  0.3,
+                  0.1
+                ],
+                [
+                  0.95,
+                  0.3,
+                  0.1
+                ],
+                [
+                  0.95,
+                  0.3,
+                  0.1
+                ],
+                [
+                  0.95,
+                  0.3,
+                  0.1
+                ],
+                [
+                  0.95,
+                  0.3,
+                  0.1
+                ],
+                [
+                  0.95,
+                  0.3,
+                  0.1
+                ],
+                [
+                  0.95,
+                  0.3,
+                  0.1
+                ],
+                [
+                  0.95,
+                  0.3,
+                  0.1
+                ]
+              ],
+              "components": [
+                0,
+                1,
+                2
+              ],
+              "geom_indices": [
+                151,
+                152,
+                153,
+                154,
+                155,
+                156,
+                157,
+                158,
+                159,
+                160
+              ],
+              "geom_names": [
+                "plate_1_g1",
+                "plate_1_g2",
+                "plate_1_g3",
+                "plate_1_g4",
+                "plate_1_g5",
+                "plate_1_g6",
+                "plate_1_g7",
+                "plate_1_g8",
+                "plate_1_g9",
+                "plate_1_g10"
+              ]
+            }
+          ],
+          "records_sha256": "24837f54e663de954b236f6a44f69d73afd62c30dc08efac5ae5bbc2f6f3598c"
+        },
+        "steps": 125,
+        "success": false,
+        "target_contact_any": true,
+        "wall_seconds": 12.956
+      },
+      "intervention_success": false,
+      "selected_demo": {
+        "action_sha256": "551cf3c89dcaef0274a6f82e6db03f032aa554c309d60c7ddbddcb6ca115df1c",
+        "demo_name": "demo_2",
+        "full_action_steps": 125,
+        "hdf5_first_signal_step": 124,
+        "init_state_sha256": "bc96748e02b7862c01742165d40736ab09a6d81a3a6afde5d447a972a021dfe4",
+        "replay_steps": 125
+      },
+      "selection_used_intervention_outcomes": false,
+      "standard": {
+        "completed": true,
+        "condition": "standard",
+        "error": null,
+        "final_official_success": true,
+        "first_success_step": 110,
+        "first_target_contact_step": 46,
+        "mutation": null,
+        "steps": 111,
+        "success": true,
+        "target_contact_any": true,
+        "wall_seconds": 11.993
+      },
+      "standard_attempts": [
+        {
+          "completed": true,
+          "demo_name": "demo_0",
+          "error": null,
+          "steps": 155,
+          "success": false
+        },
+        {
+          "completed": true,
+          "demo_name": "demo_1",
+          "error": null,
+          "steps": 128,
+          "success": false
+        },
+        {
+          "completed": true,
+          "demo_name": "demo_2",
+          "error": null,
+          "steps": 111,
+          "success": true
+        }
+      ],
+      "standard_success": true
+    },
+    {
+      "eval_id": 3,
+      "family": "pick_transport_place",
+      "hdf5_path": "/mnt/c/assets/data/libero/libero_goal/put_the_bowl_on_the_plate_demo.hdf5",
+      "intervention": {
+        "completed": true,
+        "condition": "latent_dynamics_intervention",
+        "error": null,
+        "final_official_success": true,
+        "first_success_step": 74,
+        "first_target_contact_step": 36,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            },
+            {
+              "after": [
+                7.265442846430394e-05,
+                4.88395485704244e-05,
+                4.572954418096629e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558037992e-06,
+                6.10494357130305e-06,
+                5.716193022620786e-06
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            }
+          ],
+          "records_sha256": "e5708bd279ee8deda8d21424f3f8a5332cef8193ef2d7669afe1575672e81e61"
+        },
+        "steps": 75,
+        "success": true,
+        "target_contact_any": true,
+        "wall_seconds": 10.372
+      },
+      "intervention_success": true,
+      "selected_demo": {
+        "action_sha256": "188252671e10bda0eb93d1f706879706384199e192f7e47503dd1f65923ac996",
+        "demo_name": "demo_1",
+        "full_action_steps": 88,
+        "hdf5_first_signal_step": 87,
+        "init_state_sha256": "d62e5821bbbf6cf1f0c14efb3c815e357197f3d2883a4a5272d06b8c32fe8169",
+        "replay_steps": 88
+      },
+      "selection_used_intervention_outcomes": false,
+      "standard": {
+        "completed": true,
+        "condition": "standard",
+        "error": null,
+        "final_official_success": true,
+        "first_success_step": 75,
+        "first_target_contact_step": 36,
+        "mutation": null,
+        "steps": 76,
+        "success": true,
+        "target_contact_any": true,
+        "wall_seconds": 10.53
+      },
+      "standard_attempts": [
+        {
+          "completed": true,
+          "demo_name": "demo_0",
+          "error": null,
+          "steps": 90,
+          "success": false
+        },
+        {
+          "completed": true,
+          "demo_name": "demo_1",
+          "error": null,
+          "steps": 76,
+          "success": true
+        }
+      ],
+      "standard_success": true
+    },
+    {
+      "eval_id": 9,
+      "family": "articulated_button",
+      "hdf5_path": "/mnt/c/assets/data/libero/libero_goal/turn_on_the_stove_demo.hdf5",
+      "intervention": {
+        "completed": true,
+        "condition": "latent_dynamics_intervention",
+        "error": null,
+        "final_official_success": false,
+        "first_success_step": null,
+        "first_target_contact_step": 40,
+        "mutation": {
+          "axis": "joint_damping",
+          "changed_values": 1,
+          "factor": 4.0,
+          "records": [
+            {
+              "after": [
+                4.0
+              ],
+              "array": "dof_damping",
+              "before": [
+                1.0
+              ],
+              "indices": [
+                36
+              ]
+            }
+          ],
+          "records_sha256": "61333f2fb3305d797c8979e7930a25f4d5c37377bcf5ef016254e3472fbc4b6c"
+        },
+        "steps": 80,
+        "success": false,
+        "target_contact_any": true,
+        "wall_seconds": 11.37
+      },
+      "intervention_success": false,
+      "selected_demo": {
+        "action_sha256": "fae1aaf367e14bac7f4536ee27741df19a8050463a79b89258cc5f48aa740cd8",
+        "demo_name": "demo_0",
+        "full_action_steps": 80,
+        "hdf5_first_signal_step": 79,
+        "init_state_sha256": "86fb03badc25f5ad319bb25f4cff0e4641df26c82b0bd9806edb24b3ab641273",
+        "replay_steps": 80
+      },
+      "selection_used_intervention_outcomes": false,
+      "standard": {
+        "completed": true,
+        "condition": "standard",
+        "error": null,
+        "final_official_success": true,
+        "first_success_step": 79,
+        "first_target_contact_step": 40,
+        "mutation": null,
+        "steps": 80,
+        "success": true,
+        "target_contact_any": true,
+        "wall_seconds": 10.97
+      },
+      "standard_attempts": [
+        {
+          "completed": true,
+          "demo_name": "demo_0",
+          "error": null,
+          "steps": 80,
+          "success": true
+        }
+      ],
+      "standard_success": true
+    }
+  ]
+}

@@ -1,82 +1,163 @@
 {
-  "schema_version": "epoch7_literature_artifact_audit_v1",
+  "schema_version": "epoch7_literature_artifact_audit_v3",
   "audit_date": "2026-07-20",
-  "status": "LITERATURE_REFRESH_COMPLETE_WITH_HIGH_NOVELTY_RISK",
-  "primary_problem": {
-    "name": "meaning_preserving_instruction_robustness_with_intent_selectivity",
-    "benchmark": "LIBERO-Para",
+  "status": "ROTATION2_PRIMARY_NO_LEGAL_HEADROOM_FALLBACK_AUDIT_ACTIVE",
+  "cycle1": {
+    "problem": "meaning_preserving_instruction_robustness_with_intent_selectivity",
     "published_xvla_goal_success_percent": 97.8,
     "published_xvla_para_success_percent": 62.1,
-    "published_xvla_drop_percentage_points": 35.7,
-    "local_problem_verification_required": true
+    "local_base_canonical_success": "30/30",
+    "local_base_paraphrase_success": "19/30",
+    "selected_mechanism_terminal": "STAGE0_MECHANISM_NOT_SUPPORTED",
+    "closure_commit": "b8f4cd0",
+    "prohibited_rescues": [
+      "plain paraphrase augmentation",
+      "post-outcome negative sampling",
+      "renamed action-energy ranker",
+      "generic language amplification or canonicalization"
+    ]
   },
-  "verified_artifacts": {
-    "libero_para": {
-      "url": "https://github.com/cau-hai-lab/LIBERO-Para",
-      "revision": "5a2198299a6d7a49bdb3cd519c7e92ed803adf5f",
-      "license": "MIT",
-      "local_path": "C:\\assets\\repos\\LIBERO-Para",
-      "local_bytes": 457087965,
-      "paraphrase_count": 4092,
-      "scenario_count": 10,
-      "serial_environment_smoke": "PASS",
-      "stock_ten_environment_lifecycle_allowed": false
+  "cycle2_primary_boundary": {
+    "thesis_id": "latent_dynamics_attribution",
+    "archetype": "benchmark_evaluation",
+    "selection_status": "CLOSED_NO_LEGAL_HEADROOM",
+    "bounded_gap": "paired object/environment dynamics interventions with matched instruction and initial rendering, correct-target contact, and completion conditional on grounding",
+    "novelty_language": "No primary paper or official artifact found in the bounded refresh combines all four elements; this is not a universal absence claim.",
+    "required_axes": [
+      "target-body mass",
+      "target/support contact friction",
+      "articulated-joint damping or resistance"
+    ],
+    "required_families": [
+      "push",
+      "pick_transport_place",
+      "articulated_actuation"
+    ],
+    "method_design_authorized": false
+  },
+  "closest_current_primary_work": [
+    {
+      "key": "chen2026physicalreasoning",
+      "arxiv": "2606.30686v1",
+      "submitted": "2026-06-28",
+      "role": "conceptual closest prior; calls for semantics-fixed physical-configuration interventions and separate semantic/physical outcomes",
+      "artifact": "no empirical benchmark artifact linked"
     },
-    "xvla_original": {
-      "source_url": "https://github.com/2toinf/X-VLA",
+    {
+      "key": "jo2026jointfaults",
+      "arxiv": "2606.10501v1",
+      "submitted": "2026-06-09",
+      "role": "closest physical-execution empirical prior; robot-side joint lock/range/friction and J-PARC residual calibration",
+      "models": ["OpenVLA-OFT", "pi0.5"],
+      "benchmark": "four LIBERO suites, 50 episodes per task",
+      "unresolved_difference": "object/environment dynamics plus grounding-conditional completion rather than robot-side faults plus task success"
+    },
+    {
+      "key": "liu2025evavla",
+      "arxiv": "2509.18953",
+      "submitted": "2025-09-23",
+      "role": "visible physical-variation closest benchmark",
+      "axes": ["object 3D pose", "illumination", "adversarial patch"],
+      "latent_object_dynamics_axis": false
+    },
+    {
+      "key": "zhou2025liberopro",
+      "arxiv": "2510.03827v2",
+      "submitted": "2025-10-04",
+      "role": "structured LIBERO perturbation benchmark",
+      "axes": ["object", "position", "semantic", "task", "environment"],
+      "official_repo": "https://github.com/Zxy-MLlab/LIBERO-PRO",
+      "code_license": "MIT",
+      "data_license": "CC-BY-4.0"
+    },
+    {
+      "key": "fang2026visionoverrides",
+      "arxiv": "2602.17659v2",
+      "role": "counterfactual language and contact-grounding closest prior",
+      "official_repo": "https://github.com/yuffish/LIBERO-CF",
+      "revision": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
+      "license": "MIT",
+      "xvla_in_paper": true,
+      "official_xvla_adapter": false
+    },
+    {
+      "key": "yu2026robosemanticbench",
+      "arxiv": "2606.02277v1",
+      "submitted": "2026-06-01",
+      "role": "semantic target-selection versus grasp-success decomposition",
+      "official_repo": "https://github.com/ZGC-EmbodyAI/RoboSemanticBench"
+    },
+    {
+      "key": "arkhangelskiy2026phail",
+      "arxiv": "2605.29710v1",
+      "submitted": "2026-05-28",
+      "role": "distributional evaluation and confidence-interval control"
+    }
+  ],
+  "new_overlap_that_closes_simple_methods": [
+    {
+      "key": "dalal2026anchoralign",
+      "arxiv": "2607.13429v1",
+      "submitted": "2026-07-15",
+      "overlap": "frozen-VLM representation anchoring and language-action alignment"
+    },
+    {
+      "key": "jiang2026robott",
+      "arxiv": "2607.15275v1",
+      "submitted": "2026-07-16",
+      "overlap": "8K-timestep fast-weight context, on-the-fly improvement, and perturbation robustness"
+    },
+    {
+      "key": "nguyen2026sdn",
+      "arxiv": "2606.14084v1",
+      "submitted": "2026-06-12",
+      "overlap": "training-free diffusion-noise selection and action smoothing"
+    }
+  ],
+  "verified_local_artifacts": {
+    "xvla": {
       "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
       "checkpoint_id": "2toINF/X-VLA-Libero",
       "checkpoint_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
       "license": "Apache-2.0",
-      "retained": true
+      "role": "discovery Base"
     },
-    "xvla_lerobot_conversion": {
-      "checkpoint_id": "lerobot/xvla-libero",
-      "checkpoint_revision": "12e8783e996944f5c97e490d37d4c145484ed70a",
-      "listed_bytes": 3519090679,
+    "libero": {
+      "source_revision": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
       "license": "Apache-2.0",
-      "downloaded": false,
-      "identity_with_retained_original_proven": false
+      "serial_environment_construction": "PASS",
+      "writable_arrays_seen": ["body_mass", "geom_friction", "dof_damping"],
+      "goal_scene_named_targets_seen": ["plate_1_main", "akita_black_bowl_1_main", "wooden_cabinet_1_middle_level", "flat_stove_1_button"]
     },
-    "libero_cf": {
-      "url": "https://github.com/yuffish/LIBERO-CF",
-      "revision": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
-      "license": "MIT",
-      "local_path": "C:\\assets\\repos\\LIBERO-CF",
-      "license_sha256": "cc5140f551c81edf07536dada09c1ec3f9ba343b3f06025d135b0f59b9287989",
-      "counterfactual_task_count": 65,
-      "suites": {
-        "libero_cf_spatial": 15,
-        "libero_cf_spatial_focused": 15,
-        "libero_cf_object": 10,
-        "libero_cf_long": 10,
-        "libero_cf_ood": 15
-      },
-      "cag_equation_in_source": "uncond_actions + scale*(cond_actions-uncond_actions)",
-      "serial_spatial_runtime_preflight": "PASS",
-      "serial_ood_runtime_preflight": "PASS",
-      "official_xvla_adapter": false
+    "openvla_oft": {
+      "source_revision": "e4287e94541f459edc4feabc4e181f537cd569a8",
+      "code_license": "MIT",
+      "retained_int4_runtime": true,
+      "role": "conditional expansion comparator"
+    },
+    "smolvla": {
+      "retained_checkpoint": true,
+      "runtime_verified_in_prior epochs": true,
+      "role": "conditional expansion comparator"
     }
   },
-  "direct_prior_families": [
-    "RobustVLA semantic-preserving action consistency",
-    "RoVLA instructional consistency",
-    "RSS Monte Carlo syntactic integration and residual affordance steering",
-    "CAST counterfactual instruction-action augmentation",
-    "CAG conditional versus vision-only action guidance",
-    "ProGAL-VLA verified entity grounding",
-    "step-wise language-sensitivity alignment"
-  ],
-  "prohibited_new_claims": [
-    "plain paraphrase augmentation",
-    "plain action consistency under paraphrases",
-    "generic language amplification",
-    "generic object-name canonicalization",
-    "generic temporal language gating",
-    "generic metamorphic paraphrase evaluation"
-  ],
-  "remaining_testable_boundary": "joint within-intent invariance and between-intent selectivity using real demonstration supervision",
-  "method_discovery_authorized": true,
-  "focused_method_audit_status": "INCREMENTAL_BUT_DEFENSIBLE_WITH_STRONG_EVIDENCE",
-  "next_gate": "FROZEN_PARTITIONS_AND_STAGE0_BASE_ENERGY_FALSIFIER"
+  "cycle2_primary_closure": {
+    "decision": "NO_LEGAL_HEADROOM",
+    "closure_path": "reports/epoch7_latent_dynamics_attribution/closure_adjudication.json",
+    "simulator_preflight": "PASS_4_OF_4",
+    "standard_selected_expert_success_and_contact": "4_OF_4",
+    "same_trajectory_intervention_success_and_contact": "2_OF_4",
+    "eligible_collapsed_families": ["articulated", "pick_transport_place"],
+    "required_collapsed_families": ["articulated", "planar_push", "pick_transport_place"],
+    "policy_loaded_or_queried": false,
+    "xvla_dynamics_rollouts": 0,
+    "claim_limit": "The frozen legal oracle did not verify three-family altered-condition headroom; this is not evidence that any altered task is physically impossible."
+  },
+  "selected_fallback": {
+    "thesis_id": "policy_rng_reliability",
+    "status": "ACTIVE_FOR_FOCUSED_OVERLAP_AND_PAPERABILITY_AUDIT_ONLY",
+    "closest_prior": "SDN and distributional robot-policy evaluation",
+    "cheapest_falsifier": "three tasks x three resets x five policy-seed schedules with all simulator inputs fixed"
+  },
+  "next_gate": "AUDIT_POLICY_RNG_RELIABILITY_AGAINST_SDN_AND_ARCHIVED_STOCHASTIC_ROUTES"
 }

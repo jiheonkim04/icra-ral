@@ -1,0 +1,967 @@
+{
+  "completed_at": "2026-07-20T16:20:14+09:00",
+  "execution_type": "OUTCOME_FREE_NO_MODEL_NO_TASK_OUTCOME",
+  "model_loaded": false,
+  "ours_authorized": false,
+  "policy_actions_generated": false,
+  "protocol": "/mnt/c/Users/jiheo/tca_map/reports/epoch7_latent_dynamics_attribution/discovery_protocol.json",
+  "protocol_schema": "epoch7.latent_dynamics_attribution.discovery_protocol.v1",
+  "reward_or_success_recorded": false,
+  "runtime": {
+    "camera_resolution": 64,
+    "pid": 300,
+    "python": "3.10.12",
+    "torch": "2.10.0+cpu"
+  },
+  "schema_version": "epoch7.latent_dynamics.outcome_free_preflight.v1",
+  "started_at": "2026-07-20T16:19:46+09:00",
+  "summary": {
+    "decision": "OUTCOME_FREE_SIMULATOR_PREFLIGHT_FAIL",
+    "exceptions": 0,
+    "passed": 0,
+    "tasks": 4
+  },
+  "tasks": [
+    {
+      "eval_id": 0,
+      "exception": null,
+      "family": "articulated_drawer",
+      "goal_bddl": "open_the_middle_drawer_of_the_cabinet.bddl",
+      "initial_contact_snapshot": {
+        "other_gripper_contacts": [],
+        "target_body": "wooden_cabinet_1_cabinet_middle",
+        "target_body_ids": [
+          30
+        ],
+        "target_contact": false,
+        "target_contacts": []
+      },
+      "initial_state_count": 50,
+      "intervention": {
+        "array": "dof_damping",
+        "axis": "joint_damping",
+        "factor": 4.0,
+        "joint_name": "wooden_cabinet_1_middle_level"
+      },
+      "intervention_mutation": {
+        "axis": "joint_damping",
+        "changed_values": 1,
+        "factor": 4.0,
+        "records": [
+          {
+            "after": [
+              200.0
+            ],
+            "array": "dof_damping",
+            "before": [
+              50.0
+            ],
+            "indices": [
+              34
+            ]
+          }
+        ],
+        "records_sha256": "772652060cd71e1a35b64630af1a8bbd4f10f85d6800ba7dbb8f7176311d9443"
+      },
+      "intervention_observation_equivalence": {
+        "eligible": false,
+        "image_exact": false,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 15.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 1.3021130306264256e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 3.129255961037414e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 48.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 6.3893724811525665e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 1.4594158202818619e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 1.4145420531241903e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0002073169248076566,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": false,
+        "required_images_present": true
+      },
+      "no_op_mutation": {
+        "axis": "joint_damping",
+        "changed_values": 0,
+        "factor": 1.0,
+        "records": [
+          {
+            "after": [
+              50.0
+            ],
+            "array": "dof_damping",
+            "before": [
+              50.0
+            ],
+            "indices": [
+              34
+            ]
+          }
+        ],
+        "records_sha256": "5e7d493f2de27f7c399129c667fce8fff8db512638f86db19d032a25d182b5f5"
+      },
+      "no_op_observation_equivalence": {
+        "eligible": false,
+        "image_exact": false,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 15.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 1.3021130306264256e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 3.129255961037414e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 48.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 6.3893724811525665e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 1.4594158202818619e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 1.4145420531241903e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0002073169248076566,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": false,
+        "required_images_present": true
+      },
+      "pass": false,
+      "state_index": 0,
+      "target_body": "wooden_cabinet_1_cabinet_middle",
+      "target_body_ids": [
+        30
+      ]
+    },
+    {
+      "eval_id": 2,
+      "exception": null,
+      "family": "planar_push",
+      "goal_bddl": "push_the_plate_to_the_front_of_the_stove.bddl",
+      "initial_contact_snapshot": {
+        "other_gripper_contacts": [],
+        "target_body": "plate_1_main",
+        "target_body_ids": [
+          26
+        ],
+        "target_contact": false,
+        "target_contacts": []
+      },
+      "initial_state_count": 50,
+      "intervention": {
+        "array": "geom_friction",
+        "axis": "target_contact_friction",
+        "body_name": "plate_1_main",
+        "collision_geoms_only": true,
+        "components": [
+          0,
+          1,
+          2
+        ],
+        "factor": 0.25
+      },
+      "intervention_mutation": {
+        "axis": "target_contact_friction",
+        "changed_values": 30,
+        "factor": 0.25,
+        "records": [
+          {
+            "after": [
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ]
+            ],
+            "array": "geom_friction",
+            "before": [
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ]
+            ],
+            "components": [
+              0,
+              1,
+              2
+            ],
+            "geom_indices": [
+              151,
+              152,
+              153,
+              154,
+              155,
+              156,
+              157,
+              158,
+              159,
+              160
+            ],
+            "geom_names": [
+              "plate_1_g1",
+              "plate_1_g2",
+              "plate_1_g3",
+              "plate_1_g4",
+              "plate_1_g5",
+              "plate_1_g6",
+              "plate_1_g7",
+              "plate_1_g8",
+              "plate_1_g9",
+              "plate_1_g10"
+            ]
+          }
+        ],
+        "records_sha256": "24837f54e663de954b236f6a44f69d73afd62c30dc08efac5ae5bbc2f6f3598c"
+      },
+      "intervention_observation_equivalence": {
+        "eligible": false,
+        "image_exact": false,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 4.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 1.9249292892986603e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 6.436776781816936e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 56.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 6.402926167686784e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 8.048738160304492e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 6.698278673888947e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0006013633205303251,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": false,
+        "required_images_present": true
+      },
+      "no_op_mutation": {
+        "axis": "target_contact_friction",
+        "changed_values": 0,
+        "factor": 1.0,
+        "records": [
+          {
+            "after": [
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ]
+            ],
+            "array": "geom_friction",
+            "before": [
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ]
+            ],
+            "components": [
+              0,
+              1,
+              2
+            ],
+            "geom_indices": [
+              151,
+              152,
+              153,
+              154,
+              155,
+              156,
+              157,
+              158,
+              159,
+              160
+            ],
+            "geom_names": [
+              "plate_1_g1",
+              "plate_1_g2",
+              "plate_1_g3",
+              "plate_1_g4",
+              "plate_1_g5",
+              "plate_1_g6",
+              "plate_1_g7",
+              "plate_1_g8",
+              "plate_1_g9",
+              "plate_1_g10"
+            ]
+          }
+        ],
+        "records_sha256": "a9e0baba03a61cb93698c4c18ab2b5e9a2f6468669c26db4f8dc5f7a466af89a"
+      },
+      "no_op_observation_equivalence": {
+        "eligible": false,
+        "image_exact": false,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 4.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 1.9249292892986603e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 6.436776781816936e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 56.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 6.402926167686784e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 8.048738160304492e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 6.698278673888947e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0006013633205303251,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": false,
+        "required_images_present": true
+      },
+      "pass": false,
+      "state_index": 0,
+      "target_body": "plate_1_main",
+      "target_body_ids": [
+        26
+      ]
+    },
+    {
+      "eval_id": 3,
+      "exception": null,
+      "family": "pick_transport_place",
+      "goal_bddl": "put_the_bowl_on_the_plate.bddl",
+      "initial_contact_snapshot": {
+        "other_gripper_contacts": [],
+        "target_body": "akita_black_bowl_1_main",
+        "target_body_ids": [
+          23
+        ],
+        "target_contact": false,
+        "target_contacts": []
+      },
+      "initial_state_count": 50,
+      "intervention": {
+        "arrays": [
+          "body_mass",
+          "body_inertia"
+        ],
+        "axis": "target_mass",
+        "body_name": "akita_black_bowl_1_main",
+        "factor": 8.0
+      },
+      "intervention_mutation": {
+        "axis": "target_mass",
+        "changed_values": 4,
+        "factor": 8.0,
+        "records": [
+          {
+            "after": [
+              0.04473037264639999
+            ],
+            "array": "body_mass",
+            "before": [
+              0.005591296580799999
+            ],
+            "body_id": 23,
+            "body_name": "akita_black_bowl_1_main"
+          },
+          {
+            "after": [
+              7.265442846430394e-05,
+              4.88395485704244e-05,
+              4.572954418096629e-05
+            ],
+            "array": "body_inertia",
+            "before": [
+              9.081803558037992e-06,
+              6.10494357130305e-06,
+              5.716193022620786e-06
+            ],
+            "body_id": 23,
+            "body_name": "akita_black_bowl_1_main"
+          }
+        ],
+        "records_sha256": "e5708bd279ee8deda8d21424f3f8a5332cef8193ef2d7669afe1575672e81e61"
+      },
+      "intervention_observation_equivalence": {
+        "eligible": false,
+        "image_exact": false,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 2.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 2.7543088221837486e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 7.998336922478144e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 37.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 6.401361057485622e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 4.868540248503805e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 2.7910908632329014e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 7.930045814356652e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": false,
+        "required_images_present": true
+      },
+      "no_op_mutation": {
+        "axis": "target_mass",
+        "changed_values": 0,
+        "factor": 1.0,
+        "records": [
+          {
+            "after": [
+              0.005591296580799999
+            ],
+            "array": "body_mass",
+            "before": [
+              0.005591296580799999
+            ],
+            "body_id": 23,
+            "body_name": "akita_black_bowl_1_main"
+          },
+          {
+            "after": [
+              9.081803558037992e-06,
+              6.10494357130305e-06,
+              5.716193022620786e-06
+            ],
+            "array": "body_inertia",
+            "before": [
+              9.081803558037992e-06,
+              6.10494357130305e-06,
+              5.716193022620786e-06
+            ],
+            "body_id": 23,
+            "body_name": "akita_black_bowl_1_main"
+          }
+        ],
+        "records_sha256": "c2ef0fe4b1c5926aaf4b5e6e8fb4d27f77d2c17fddc195a20c780e24cf846010"
+      },
+      "no_op_observation_equivalence": {
+        "eligible": false,
+        "image_exact": false,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 2.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 2.7543088221837486e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 7.998336922478144e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 37.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 6.401361057485622e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 4.868540248503805e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 2.7910908632329014e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 7.930045814356652e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": false,
+        "required_images_present": true
+      },
+      "pass": false,
+      "state_index": 0,
+      "target_body": "akita_black_bowl_1_main",
+      "target_body_ids": [
+        23
+      ]
+    },
+    {
+      "eval_id": 9,
+      "exception": null,
+      "family": "articulated_button",
+      "goal_bddl": "turn_on_the_stove.bddl",
+      "initial_contact_snapshot": {
+        "other_gripper_contacts": [],
+        "target_body": "flat_stove_1_button",
+        "target_body_ids": [
+          36
+        ],
+        "target_contact": false,
+        "target_contacts": []
+      },
+      "initial_state_count": 50,
+      "intervention": {
+        "array": "dof_damping",
+        "axis": "joint_damping",
+        "factor": 4.0,
+        "joint_name": "flat_stove_1_button"
+      },
+      "intervention_mutation": {
+        "axis": "joint_damping",
+        "changed_values": 1,
+        "factor": 4.0,
+        "records": [
+          {
+            "after": [
+              4.0
+            ],
+            "array": "dof_damping",
+            "before": [
+              1.0
+            ],
+            "indices": [
+              36
+            ]
+          }
+        ],
+        "records_sha256": "61333f2fb3305d797c8979e7930a25f4d5c37377bcf5ef016254e3472fbc4b6c"
+      },
+      "intervention_observation_equivalence": {
+        "eligible": false,
+        "image_exact": false,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 19.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 1.6344163939752132e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 4.9112103751886016e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 35.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 6.389491369891698e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 6.403712394154049e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 5.330391319058325e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0005161702931354498,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": false,
+        "required_images_present": true
+      },
+      "no_op_mutation": {
+        "axis": "joint_damping",
+        "changed_values": 0,
+        "factor": 1.0,
+        "records": [
+          {
+            "after": [
+              1.0
+            ],
+            "array": "dof_damping",
+            "before": [
+              1.0
+            ],
+            "indices": [
+              36
+            ]
+          }
+        ],
+        "records_sha256": "5f07eef034c5a21fedede8ef2f970fefbcc8ea44c02fd970117dacbee5483005"
+      },
+      "no_op_observation_equivalence": {
+        "eligible": false,
+        "image_exact": false,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 19.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 1.6344163939752132e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 4.9112103751886016e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 35.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 6.389491369891698e-06,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 6.403712394154049e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 5.330391319058325e-05,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0005161702931354498,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": false,
+        "required_images_present": true
+      },
+      "pass": false,
+      "state_index": 0,
+      "target_body": "flat_stove_1_button",
+      "target_body_ids": [
+        36
+      ]
+    }
+  ]
+}

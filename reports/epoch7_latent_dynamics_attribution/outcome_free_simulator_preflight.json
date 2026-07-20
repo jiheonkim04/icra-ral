@@ -1,0 +1,1127 @@
+{
+  "completed_at": "2026-07-20T16:22:21+09:00",
+  "execution_type": "OUTCOME_FREE_NO_MODEL_NO_TASK_OUTCOME",
+  "model_loaded": false,
+  "ours_authorized": false,
+  "policy_actions_generated": false,
+  "protocol": "/mnt/c/Users/jiheo/tca_map/reports/epoch7_latent_dynamics_attribution/discovery_protocol.json",
+  "protocol_schema": "epoch7.latent_dynamics_attribution.discovery_protocol.v1",
+  "reward_or_success_recorded": false,
+  "runtime": {
+    "camera_resolution": 64,
+    "pid": 314,
+    "python": "3.10.12",
+    "torch": "2.10.0+cpu"
+  },
+  "schema_version": "epoch7.latent_dynamics.outcome_free_preflight.v1",
+  "started_at": "2026-07-20T16:21:53+09:00",
+  "summary": {
+    "decision": "OUTCOME_FREE_SIMULATOR_PREFLIGHT_PASS",
+    "exceptions": 0,
+    "passed": 4,
+    "tasks": 4
+  },
+  "tasks": [
+    {
+      "eval_id": 0,
+      "exception": null,
+      "family": "articulated_drawer",
+      "goal_bddl": "open_the_middle_drawer_of_the_cabinet.bddl",
+      "initial_contact_snapshot": {
+        "other_gripper_contacts": [],
+        "target_body": "wooden_cabinet_1_cabinet_middle",
+        "target_body_ids": [
+          30
+        ],
+        "target_contact": false,
+        "target_contacts": []
+      },
+      "initial_state_count": 50,
+      "intervention": {
+        "array": "dof_damping",
+        "axis": "joint_damping",
+        "factor": 4.0,
+        "joint_name": "wooden_cabinet_1_middle_level"
+      },
+      "intervention_mutation": {
+        "axis": "joint_damping",
+        "changed_values": 1,
+        "factor": 4.0,
+        "records": [
+          {
+            "after": [
+              200.0
+            ],
+            "array": "dof_damping",
+            "before": [
+              50.0
+            ],
+            "indices": [
+              34
+            ]
+          }
+        ],
+        "records_sha256": "772652060cd71e1a35b64630af1a8bbd4f10f85d6800ba7dbb8f7176311d9443"
+      },
+      "intervention_observation_equivalence": {
+        "eligible": true,
+        "image_exact": true,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": true,
+        "required_images_present": true
+      },
+      "no_op_mutation": {
+        "axis": "joint_damping",
+        "changed_values": 0,
+        "factor": 1.0,
+        "records": [
+          {
+            "after": [
+              50.0
+            ],
+            "array": "dof_damping",
+            "before": [
+              50.0
+            ],
+            "indices": [
+              34
+            ]
+          }
+        ],
+        "records_sha256": "5e7d493f2de27f7c399129c667fce8fff8db512638f86db19d032a25d182b5f5"
+      },
+      "no_op_observation_equivalence": {
+        "eligible": true,
+        "image_exact": true,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": true,
+        "required_images_present": true
+      },
+      "observation_regenerated_after_mutation": false,
+      "pass": true,
+      "render_model_hash_equivalence": {
+        "after": {
+          "body_pos": "7a253720ae95c05202a13dbd8308b0b7fb291ab18f1221debd2bc8dde8561e0b",
+          "body_quat": "3ab48d5e9a195c88a753d458de4f6a4e620cb299c742c7603331bbe0a930716d",
+          "cam_pos": "0fc2f0213024478b58d9861e5ff55460d205c461569ca9965d12a05f9cb624d5",
+          "cam_quat": "4f6507bdf4f8573e35c7d3789409cf8115c726d3c693fa363543684a3e4df274",
+          "geom_matid": "094b9261ec23c6a070051eb50bc8cfa5f22ce6c5de9f8ddc44600e6eaf7415cc",
+          "geom_pos": "aed730fa5ad3f0a114009cfb968da62d1a3b502a748a3dacd68399620136c4b5",
+          "geom_quat": "0ecdc94bcf468eac9c099f6bf9b01b1e8d8cd961992e0984e86475a374a6cec9",
+          "geom_rgba": "7575bcdfe8d1f2203b8a783ab56fd2398857a89ebbcae2c9447cb37cf6981f7c",
+          "geom_size": "fc4c542152a61afde9d7343162d246745f52b7aa247c43376b9eedd7275a6614",
+          "light_ambient": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+          "light_diffuse": "b11500257174f11f2cccf85e4eccc10732bba7f304b9c74bba5d48c157b5d731",
+          "light_dir": "ed77c708f3b0daece12a6b338005485c7a7f7935950a9bdabaaf556179d16155",
+          "light_pos": "af1c32ed695dd6c9f826d24e0609f717615409c141f94151a52a4bdc8f3ab68a",
+          "light_specular": "82e8cf916ab0d8a8a1ed55d86b4fc31146281670d4c712a611761a5e5b5bee40"
+        },
+        "before": {
+          "body_pos": "7a253720ae95c05202a13dbd8308b0b7fb291ab18f1221debd2bc8dde8561e0b",
+          "body_quat": "3ab48d5e9a195c88a753d458de4f6a4e620cb299c742c7603331bbe0a930716d",
+          "cam_pos": "0fc2f0213024478b58d9861e5ff55460d205c461569ca9965d12a05f9cb624d5",
+          "cam_quat": "4f6507bdf4f8573e35c7d3789409cf8115c726d3c693fa363543684a3e4df274",
+          "geom_matid": "094b9261ec23c6a070051eb50bc8cfa5f22ce6c5de9f8ddc44600e6eaf7415cc",
+          "geom_pos": "aed730fa5ad3f0a114009cfb968da62d1a3b502a748a3dacd68399620136c4b5",
+          "geom_quat": "0ecdc94bcf468eac9c099f6bf9b01b1e8d8cd961992e0984e86475a374a6cec9",
+          "geom_rgba": "7575bcdfe8d1f2203b8a783ab56fd2398857a89ebbcae2c9447cb37cf6981f7c",
+          "geom_size": "fc4c542152a61afde9d7343162d246745f52b7aa247c43376b9eedd7275a6614",
+          "light_ambient": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+          "light_diffuse": "b11500257174f11f2cccf85e4eccc10732bba7f304b9c74bba5d48c157b5d731",
+          "light_dir": "ed77c708f3b0daece12a6b338005485c7a7f7935950a9bdabaaf556179d16155",
+          "light_pos": "af1c32ed695dd6c9f826d24e0609f717615409c141f94151a52a4bdc8f3ab68a",
+          "light_specular": "82e8cf916ab0d8a8a1ed55d86b4fc31146281670d4c712a611761a5e5b5bee40"
+        },
+        "unchanged": true
+      },
+      "sim_state_equivalence": {
+        "qpos_max_abs": 0.0,
+        "qvel_max_abs": 0.0
+      },
+      "state_index": 0,
+      "target_body": "wooden_cabinet_1_cabinet_middle",
+      "target_body_ids": [
+        30
+      ]
+    },
+    {
+      "eval_id": 2,
+      "exception": null,
+      "family": "planar_push",
+      "goal_bddl": "push_the_plate_to_the_front_of_the_stove.bddl",
+      "initial_contact_snapshot": {
+        "other_gripper_contacts": [],
+        "target_body": "plate_1_main",
+        "target_body_ids": [
+          26
+        ],
+        "target_contact": false,
+        "target_contacts": []
+      },
+      "initial_state_count": 50,
+      "intervention": {
+        "array": "geom_friction",
+        "axis": "target_contact_friction",
+        "body_name": "plate_1_main",
+        "collision_geoms_only": true,
+        "components": [
+          0,
+          1,
+          2
+        ],
+        "factor": 0.25
+      },
+      "intervention_mutation": {
+        "axis": "target_contact_friction",
+        "changed_values": 30,
+        "factor": 0.25,
+        "records": [
+          {
+            "after": [
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ],
+              [
+                0.2375,
+                0.075,
+                0.025
+              ]
+            ],
+            "array": "geom_friction",
+            "before": [
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ]
+            ],
+            "components": [
+              0,
+              1,
+              2
+            ],
+            "geom_indices": [
+              151,
+              152,
+              153,
+              154,
+              155,
+              156,
+              157,
+              158,
+              159,
+              160
+            ],
+            "geom_names": [
+              "plate_1_g1",
+              "plate_1_g2",
+              "plate_1_g3",
+              "plate_1_g4",
+              "plate_1_g5",
+              "plate_1_g6",
+              "plate_1_g7",
+              "plate_1_g8",
+              "plate_1_g9",
+              "plate_1_g10"
+            ]
+          }
+        ],
+        "records_sha256": "24837f54e663de954b236f6a44f69d73afd62c30dc08efac5ae5bbc2f6f3598c"
+      },
+      "intervention_observation_equivalence": {
+        "eligible": true,
+        "image_exact": true,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": true,
+        "required_images_present": true
+      },
+      "no_op_mutation": {
+        "axis": "target_contact_friction",
+        "changed_values": 0,
+        "factor": 1.0,
+        "records": [
+          {
+            "after": [
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ]
+            ],
+            "array": "geom_friction",
+            "before": [
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ],
+              [
+                0.95,
+                0.3,
+                0.1
+              ]
+            ],
+            "components": [
+              0,
+              1,
+              2
+            ],
+            "geom_indices": [
+              151,
+              152,
+              153,
+              154,
+              155,
+              156,
+              157,
+              158,
+              159,
+              160
+            ],
+            "geom_names": [
+              "plate_1_g1",
+              "plate_1_g2",
+              "plate_1_g3",
+              "plate_1_g4",
+              "plate_1_g5",
+              "plate_1_g6",
+              "plate_1_g7",
+              "plate_1_g8",
+              "plate_1_g9",
+              "plate_1_g10"
+            ]
+          }
+        ],
+        "records_sha256": "a9e0baba03a61cb93698c4c18ab2b5e9a2f6468669c26db4f8dc5f7a466af89a"
+      },
+      "no_op_observation_equivalence": {
+        "eligible": true,
+        "image_exact": true,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": true,
+        "required_images_present": true
+      },
+      "observation_regenerated_after_mutation": false,
+      "pass": true,
+      "render_model_hash_equivalence": {
+        "after": {
+          "body_pos": "5799cd7eb3600de2dc678105ddd9728f2d01c768d2f36943548d99799e08b767",
+          "body_quat": "3ab48d5e9a195c88a753d458de4f6a4e620cb299c742c7603331bbe0a930716d",
+          "cam_pos": "0fc2f0213024478b58d9861e5ff55460d205c461569ca9965d12a05f9cb624d5",
+          "cam_quat": "4f6507bdf4f8573e35c7d3789409cf8115c726d3c693fa363543684a3e4df274",
+          "geom_matid": "094b9261ec23c6a070051eb50bc8cfa5f22ce6c5de9f8ddc44600e6eaf7415cc",
+          "geom_pos": "aed730fa5ad3f0a114009cfb968da62d1a3b502a748a3dacd68399620136c4b5",
+          "geom_quat": "0ecdc94bcf468eac9c099f6bf9b01b1e8d8cd961992e0984e86475a374a6cec9",
+          "geom_rgba": "7575bcdfe8d1f2203b8a783ab56fd2398857a89ebbcae2c9447cb37cf6981f7c",
+          "geom_size": "fc4c542152a61afde9d7343162d246745f52b7aa247c43376b9eedd7275a6614",
+          "light_ambient": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+          "light_diffuse": "b11500257174f11f2cccf85e4eccc10732bba7f304b9c74bba5d48c157b5d731",
+          "light_dir": "ed77c708f3b0daece12a6b338005485c7a7f7935950a9bdabaaf556179d16155",
+          "light_pos": "af1c32ed695dd6c9f826d24e0609f717615409c141f94151a52a4bdc8f3ab68a",
+          "light_specular": "82e8cf916ab0d8a8a1ed55d86b4fc31146281670d4c712a611761a5e5b5bee40"
+        },
+        "before": {
+          "body_pos": "5799cd7eb3600de2dc678105ddd9728f2d01c768d2f36943548d99799e08b767",
+          "body_quat": "3ab48d5e9a195c88a753d458de4f6a4e620cb299c742c7603331bbe0a930716d",
+          "cam_pos": "0fc2f0213024478b58d9861e5ff55460d205c461569ca9965d12a05f9cb624d5",
+          "cam_quat": "4f6507bdf4f8573e35c7d3789409cf8115c726d3c693fa363543684a3e4df274",
+          "geom_matid": "094b9261ec23c6a070051eb50bc8cfa5f22ce6c5de9f8ddc44600e6eaf7415cc",
+          "geom_pos": "aed730fa5ad3f0a114009cfb968da62d1a3b502a748a3dacd68399620136c4b5",
+          "geom_quat": "0ecdc94bcf468eac9c099f6bf9b01b1e8d8cd961992e0984e86475a374a6cec9",
+          "geom_rgba": "7575bcdfe8d1f2203b8a783ab56fd2398857a89ebbcae2c9447cb37cf6981f7c",
+          "geom_size": "fc4c542152a61afde9d7343162d246745f52b7aa247c43376b9eedd7275a6614",
+          "light_ambient": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+          "light_diffuse": "b11500257174f11f2cccf85e4eccc10732bba7f304b9c74bba5d48c157b5d731",
+          "light_dir": "ed77c708f3b0daece12a6b338005485c7a7f7935950a9bdabaaf556179d16155",
+          "light_pos": "af1c32ed695dd6c9f826d24e0609f717615409c141f94151a52a4bdc8f3ab68a",
+          "light_specular": "82e8cf916ab0d8a8a1ed55d86b4fc31146281670d4c712a611761a5e5b5bee40"
+        },
+        "unchanged": true
+      },
+      "sim_state_equivalence": {
+        "qpos_max_abs": 0.0,
+        "qvel_max_abs": 0.0
+      },
+      "state_index": 0,
+      "target_body": "plate_1_main",
+      "target_body_ids": [
+        26
+      ]
+    },
+    {
+      "eval_id": 3,
+      "exception": null,
+      "family": "pick_transport_place",
+      "goal_bddl": "put_the_bowl_on_the_plate.bddl",
+      "initial_contact_snapshot": {
+        "other_gripper_contacts": [],
+        "target_body": "akita_black_bowl_1_main",
+        "target_body_ids": [
+          23
+        ],
+        "target_contact": false,
+        "target_contacts": []
+      },
+      "initial_state_count": 50,
+      "intervention": {
+        "arrays": [
+          "body_mass",
+          "body_inertia"
+        ],
+        "axis": "target_mass",
+        "body_name": "akita_black_bowl_1_main",
+        "factor": 8.0
+      },
+      "intervention_mutation": {
+        "axis": "target_mass",
+        "changed_values": 4,
+        "factor": 8.0,
+        "records": [
+          {
+            "after": [
+              0.04473037264639999
+            ],
+            "array": "body_mass",
+            "before": [
+              0.005591296580799999
+            ],
+            "body_id": 23,
+            "body_name": "akita_black_bowl_1_main"
+          },
+          {
+            "after": [
+              7.265442846430394e-05,
+              4.88395485704244e-05,
+              4.572954418096629e-05
+            ],
+            "array": "body_inertia",
+            "before": [
+              9.081803558037992e-06,
+              6.10494357130305e-06,
+              5.716193022620786e-06
+            ],
+            "body_id": 23,
+            "body_name": "akita_black_bowl_1_main"
+          }
+        ],
+        "records_sha256": "e5708bd279ee8deda8d21424f3f8a5332cef8193ef2d7669afe1575672e81e61"
+      },
+      "intervention_observation_equivalence": {
+        "eligible": true,
+        "image_exact": true,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": true,
+        "required_images_present": true
+      },
+      "no_op_mutation": {
+        "axis": "target_mass",
+        "changed_values": 0,
+        "factor": 1.0,
+        "records": [
+          {
+            "after": [
+              0.005591296580799999
+            ],
+            "array": "body_mass",
+            "before": [
+              0.005591296580799999
+            ],
+            "body_id": 23,
+            "body_name": "akita_black_bowl_1_main"
+          },
+          {
+            "after": [
+              9.081803558037992e-06,
+              6.10494357130305e-06,
+              5.716193022620786e-06
+            ],
+            "array": "body_inertia",
+            "before": [
+              9.081803558037992e-06,
+              6.10494357130305e-06,
+              5.716193022620786e-06
+            ],
+            "body_id": 23,
+            "body_name": "akita_black_bowl_1_main"
+          }
+        ],
+        "records_sha256": "c2ef0fe4b1c5926aaf4b5e6e8fb4d27f77d2c17fddc195a20c780e24cf846010"
+      },
+      "no_op_observation_equivalence": {
+        "eligible": true,
+        "image_exact": true,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": true,
+        "required_images_present": true
+      },
+      "observation_regenerated_after_mutation": false,
+      "pass": true,
+      "render_model_hash_equivalence": {
+        "after": {
+          "body_pos": "b1feb19a1db740262affe47f558092d1036a214a066f35140557928631ce0fa2",
+          "body_quat": "3ab48d5e9a195c88a753d458de4f6a4e620cb299c742c7603331bbe0a930716d",
+          "cam_pos": "0fc2f0213024478b58d9861e5ff55460d205c461569ca9965d12a05f9cb624d5",
+          "cam_quat": "4f6507bdf4f8573e35c7d3789409cf8115c726d3c693fa363543684a3e4df274",
+          "geom_matid": "094b9261ec23c6a070051eb50bc8cfa5f22ce6c5de9f8ddc44600e6eaf7415cc",
+          "geom_pos": "aed730fa5ad3f0a114009cfb968da62d1a3b502a748a3dacd68399620136c4b5",
+          "geom_quat": "0ecdc94bcf468eac9c099f6bf9b01b1e8d8cd961992e0984e86475a374a6cec9",
+          "geom_rgba": "7575bcdfe8d1f2203b8a783ab56fd2398857a89ebbcae2c9447cb37cf6981f7c",
+          "geom_size": "fc4c542152a61afde9d7343162d246745f52b7aa247c43376b9eedd7275a6614",
+          "light_ambient": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+          "light_diffuse": "b11500257174f11f2cccf85e4eccc10732bba7f304b9c74bba5d48c157b5d731",
+          "light_dir": "ed77c708f3b0daece12a6b338005485c7a7f7935950a9bdabaaf556179d16155",
+          "light_pos": "af1c32ed695dd6c9f826d24e0609f717615409c141f94151a52a4bdc8f3ab68a",
+          "light_specular": "82e8cf916ab0d8a8a1ed55d86b4fc31146281670d4c712a611761a5e5b5bee40"
+        },
+        "before": {
+          "body_pos": "b1feb19a1db740262affe47f558092d1036a214a066f35140557928631ce0fa2",
+          "body_quat": "3ab48d5e9a195c88a753d458de4f6a4e620cb299c742c7603331bbe0a930716d",
+          "cam_pos": "0fc2f0213024478b58d9861e5ff55460d205c461569ca9965d12a05f9cb624d5",
+          "cam_quat": "4f6507bdf4f8573e35c7d3789409cf8115c726d3c693fa363543684a3e4df274",
+          "geom_matid": "094b9261ec23c6a070051eb50bc8cfa5f22ce6c5de9f8ddc44600e6eaf7415cc",
+          "geom_pos": "aed730fa5ad3f0a114009cfb968da62d1a3b502a748a3dacd68399620136c4b5",
+          "geom_quat": "0ecdc94bcf468eac9c099f6bf9b01b1e8d8cd961992e0984e86475a374a6cec9",
+          "geom_rgba": "7575bcdfe8d1f2203b8a783ab56fd2398857a89ebbcae2c9447cb37cf6981f7c",
+          "geom_size": "fc4c542152a61afde9d7343162d246745f52b7aa247c43376b9eedd7275a6614",
+          "light_ambient": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+          "light_diffuse": "b11500257174f11f2cccf85e4eccc10732bba7f304b9c74bba5d48c157b5d731",
+          "light_dir": "ed77c708f3b0daece12a6b338005485c7a7f7935950a9bdabaaf556179d16155",
+          "light_pos": "af1c32ed695dd6c9f826d24e0609f717615409c141f94151a52a4bdc8f3ab68a",
+          "light_specular": "82e8cf916ab0d8a8a1ed55d86b4fc31146281670d4c712a611761a5e5b5bee40"
+        },
+        "unchanged": true
+      },
+      "sim_state_equivalence": {
+        "qpos_max_abs": 0.0,
+        "qvel_max_abs": 0.0
+      },
+      "state_index": 0,
+      "target_body": "akita_black_bowl_1_main",
+      "target_body_ids": [
+        23
+      ]
+    },
+    {
+      "eval_id": 9,
+      "exception": null,
+      "family": "articulated_button",
+      "goal_bddl": "turn_on_the_stove.bddl",
+      "initial_contact_snapshot": {
+        "other_gripper_contacts": [],
+        "target_body": "flat_stove_1_button",
+        "target_body_ids": [
+          36
+        ],
+        "target_contact": false,
+        "target_contacts": []
+      },
+      "initial_state_count": 50,
+      "intervention": {
+        "array": "dof_damping",
+        "axis": "joint_damping",
+        "factor": 4.0,
+        "joint_name": "flat_stove_1_button"
+      },
+      "intervention_mutation": {
+        "axis": "joint_damping",
+        "changed_values": 1,
+        "factor": 4.0,
+        "records": [
+          {
+            "after": [
+              4.0
+            ],
+            "array": "dof_damping",
+            "before": [
+              1.0
+            ],
+            "indices": [
+              36
+            ]
+          }
+        ],
+        "records_sha256": "61333f2fb3305d797c8979e7930a25f4d5c37377bcf5ef016254e3472fbc4b6c"
+      },
+      "intervention_observation_equivalence": {
+        "eligible": true,
+        "image_exact": true,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": true,
+        "required_images_present": true
+      },
+      "no_op_mutation": {
+        "axis": "joint_damping",
+        "changed_values": 0,
+        "factor": 1.0,
+        "records": [
+          {
+            "after": [
+              1.0
+            ],
+            "array": "dof_damping",
+            "before": [
+              1.0
+            ],
+            "indices": [
+              36
+            ]
+          }
+        ],
+        "records_sha256": "5f07eef034c5a21fedede8ef2f970fefbcc8ea44c02fd970117dacbee5483005"
+      },
+      "no_op_observation_equivalence": {
+        "eligible": true,
+        "image_exact": true,
+        "keys": {
+          "agentview_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_pos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eef_quat": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_eye_in_hand_image": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_gripper_qpos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_cos": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_pos_sin": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          },
+          "robot0_joint_vel": {
+            "max_abs": 0.0,
+            "present_in_both": true,
+            "shape_equal": true
+          }
+        },
+        "proprio_within_tolerance": true,
+        "required_images_present": true
+      },
+      "observation_regenerated_after_mutation": false,
+      "pass": true,
+      "render_model_hash_equivalence": {
+        "after": {
+          "body_pos": "d932020686c953cbe8b63bdb24a191191a4624e522e1fc55ceea9911085461dc",
+          "body_quat": "3ab48d5e9a195c88a753d458de4f6a4e620cb299c742c7603331bbe0a930716d",
+          "cam_pos": "0fc2f0213024478b58d9861e5ff55460d205c461569ca9965d12a05f9cb624d5",
+          "cam_quat": "4f6507bdf4f8573e35c7d3789409cf8115c726d3c693fa363543684a3e4df274",
+          "geom_matid": "094b9261ec23c6a070051eb50bc8cfa5f22ce6c5de9f8ddc44600e6eaf7415cc",
+          "geom_pos": "aed730fa5ad3f0a114009cfb968da62d1a3b502a748a3dacd68399620136c4b5",
+          "geom_quat": "0ecdc94bcf468eac9c099f6bf9b01b1e8d8cd961992e0984e86475a374a6cec9",
+          "geom_rgba": "7575bcdfe8d1f2203b8a783ab56fd2398857a89ebbcae2c9447cb37cf6981f7c",
+          "geom_size": "fc4c542152a61afde9d7343162d246745f52b7aa247c43376b9eedd7275a6614",
+          "light_ambient": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+          "light_diffuse": "b11500257174f11f2cccf85e4eccc10732bba7f304b9c74bba5d48c157b5d731",
+          "light_dir": "ed77c708f3b0daece12a6b338005485c7a7f7935950a9bdabaaf556179d16155",
+          "light_pos": "af1c32ed695dd6c9f826d24e0609f717615409c141f94151a52a4bdc8f3ab68a",
+          "light_specular": "82e8cf916ab0d8a8a1ed55d86b4fc31146281670d4c712a611761a5e5b5bee40"
+        },
+        "before": {
+          "body_pos": "d932020686c953cbe8b63bdb24a191191a4624e522e1fc55ceea9911085461dc",
+          "body_quat": "3ab48d5e9a195c88a753d458de4f6a4e620cb299c742c7603331bbe0a930716d",
+          "cam_pos": "0fc2f0213024478b58d9861e5ff55460d205c461569ca9965d12a05f9cb624d5",
+          "cam_quat": "4f6507bdf4f8573e35c7d3789409cf8115c726d3c693fa363543684a3e4df274",
+          "geom_matid": "094b9261ec23c6a070051eb50bc8cfa5f22ce6c5de9f8ddc44600e6eaf7415cc",
+          "geom_pos": "aed730fa5ad3f0a114009cfb968da62d1a3b502a748a3dacd68399620136c4b5",
+          "geom_quat": "0ecdc94bcf468eac9c099f6bf9b01b1e8d8cd961992e0984e86475a374a6cec9",
+          "geom_rgba": "7575bcdfe8d1f2203b8a783ab56fd2398857a89ebbcae2c9447cb37cf6981f7c",
+          "geom_size": "fc4c542152a61afde9d7343162d246745f52b7aa247c43376b9eedd7275a6614",
+          "light_ambient": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+          "light_diffuse": "b11500257174f11f2cccf85e4eccc10732bba7f304b9c74bba5d48c157b5d731",
+          "light_dir": "ed77c708f3b0daece12a6b338005485c7a7f7935950a9bdabaaf556179d16155",
+          "light_pos": "af1c32ed695dd6c9f826d24e0609f717615409c141f94151a52a4bdc8f3ab68a",
+          "light_specular": "82e8cf916ab0d8a8a1ed55d86b4fc31146281670d4c712a611761a5e5b5bee40"
+        },
+        "unchanged": true
+      },
+      "sim_state_equivalence": {
+        "qpos_max_abs": 0.0,
+        "qvel_max_abs": 0.0
+      },
+      "state_index": 0,
+      "target_body": "flat_stove_1_button",
+      "target_body_ids": [
+        36
+      ]
+    }
+  ]
+}

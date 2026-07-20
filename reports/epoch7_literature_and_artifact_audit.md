@@ -2,6 +2,32 @@
 
 Audit date: 2026-07-20 (Asia/Seoul)
 
+## Rotation 2 update after the language-mechanism closure
+
+The frozen action-energy falsifier closed the initial language mechanism. A second current-primary-source scan therefore re-opened the method, benchmark/evaluation, and systems archetypes rather than weakening the original claim.
+
+The strongest remaining local boundary is a benchmark question, not a hidden-dynamics method claim. A recent position paper argues that VLA task success does not identify whether success comes from semantic mapping or physical action decisions and specifically calls for controlled interventions that hold semantics fixed while varying surface conditions or dynamics. It proposes separately observable semantic correctness and physical success, including tests involving mass, friction, or material. The paper is conceptual and releases no empirical benchmark artifact.
+
+This direction is constrained by close empirical work:
+
+- Eva-VLA varies target-object 3D pose, illumination, and adversarial-patch placement. These are visible/perceptual changes; the primary paper does not intervene on object mass, object/support friction, or articulated resistance.
+- LIBERO-PRO varies objects, positions, instructions, task logic, and environments. Its official MIT code and CC-BY-4.0 data are public, but its perturbation axes do not isolate visually matched latent dynamics.
+- J-PARC is the closest physical-execution precedent. It evaluates robot-side joint locks, range limits, and increased joint friction across OpenVLA-OFT and pi0.5, 50 episodes per task on all four LIBERO suites, then learns a history-conditioned residual calibrator. It reports official task success, not correct-target contact followed by completion conditional on grounding. Any Epoch 7 contribution must therefore stay on object/environment dynamics and causal failure attribution; a generic physical-fault robustness or residual-calibration claim is prohibited.
+- LIBERO-CF already supplies contact-based target-grounding logic and evaluates X-VLA in its paper, while RoboSemanticBench explicitly separates semantic target choice from grasp success. A new benchmark cannot claim that decomposed grounding is itself novel.
+- PhAIL and Beyond Binary Success make statistical reporting and distributional evaluation strong required controls rather than contributions by themselves.
+
+The scan found no primary paper or official artifact, through 2026-07-20, that combines all of the following in manipulation VLA evaluation: identical instruction and initial rendering, controlled object/environment mass/friction/articulated-dynamics changes, correct-target-contact measurement, and task completion conditional on correct grounding. This is a bounded search inference and must not be written as an exhaustive universal absence claim.
+
+### New language and adaptation overlap
+
+The language route is even more crowded than at the initial audit. RoboSemanticBench tests knowledge-conditioned physical target selection. Breaking Lock-In/DeLock preserves visual grounding under low-data post-training. Anchor-Align, posted 2026-07-15 with linked code, uses frozen-VLM representation anchoring and motion-direction language-action alignment and reports gains across physical robots, LIBERO-PRO, LIBERO-Plus, and CALVIN. These works, together with the failed local mechanism test, close a simple language-alignment rescue.
+
+Long-context and test-time adaptation are also occupied. RoboTTT scales robot-policy context to 8K timesteps using fast weights and reports on-the-fly improvement and perturbation robustness. J-PARC uses recent joint dynamics for physical-fault correction. VLS, TTT-VLA, and related work already steer or adapt policies at inference. A history-conditioned latent-physics adapter is therefore not selected as the fresh fallback.
+
+### Outcome-free local simulator feasibility
+
+Static source inspection and serial environment construction confirmed that the retained LIBERO runtime exposes writable MuJoCo arrays needed for a bounded preflight: `body_mass`, `geom_friction`, and `dof_damping`. The Goal scene includes free bodies for the bowl, cream cheese, wine bottle, and plate; drawer slide joints have named damping entries; the stove button has a named hinge damping entry. LIBERO-CF's public evaluator contains a root-body gripper-contact construction that can be adapted and independently tested. This establishes implementation feasibility only; it is not evidence that any intervention changes VLA outcomes or remains physically meaningful.
+
 ## Decision summary
 
 The refresh found a real, large, executable language-robustness gap, but also found that the obvious method family is already crowded. LIBERO-Para reports an X-VLA drop from 97.8% on LIBERO-Goal to 62.1% on 4,092 meaning-preserving paraphrases. However, paraphrase augmentation, action consistency, residual language guidance, counterfactual guidance, step-wise language alignment, and explicit entity grounding all now have close primary precedents. A plain paraphrase-consistency adapter is therefore prohibited as an Epoch 7 thesis.
@@ -90,6 +116,8 @@ The remaining distinction is not “add paraphrases,” “make actions consiste
 
 ## Audit conclusion
 
-`LITERATURE_REFRESH_COMPLETE_WITH_HIGH_NOVELTY_RISK`.
+`ROTATION2_PRIMARY_NO_LEGAL_HEADROOM_FALLBACK_AUDIT_ACTIVE`.
 
-The current executable problem is real, but the method space is saturated. The later focused audit classifies real-action equivalence/selectivity ranking as `INCREMENTAL_BUT_DEFENSIBLE_WITH_STRONG_EVIDENCE`; every simpler canonicalization, augmentation-only, or guidance formulation is prohibited. A failed frozen Stage-0 test closes that mechanism rather than authorizing a weaker paraphrase adapter.
+The language method space is saturated and the selected real-action mechanism failed, so no weaker language rescue is authorized. The latent-dynamics benchmark also closed before any policy rollout: its outcome-free simulator preflight passed all four tasks, but its frozen standard-only demonstration oracle established altered-condition success for only drawer opening and bowl placement. That is two tasks across two collapsed families, below the prespecified requirement of three tasks spanning all three families. The decision is `NO_LEGAL_HEADROOM`; it does not claim the failed altered tasks are impossible.
+
+The prespecified policy-RNG reliability fallback is now active only for a focused audit against SDN and the archived stochastic schedule/uncertainty routes. No empirical fallback result is authorized until that boundary survives and a new contract is frozen.

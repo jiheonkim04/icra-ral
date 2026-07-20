@@ -1,0 +1,59 @@
+{
+  "schema_version": "epoch7.latent_dynamics_attribution.closure.v1",
+  "adjudicated_at": "2026-07-20T16:31:00+09:00",
+  "thesis_id": "latent_dynamics_attribution",
+  "decision": "NO_LEGAL_HEADROOM",
+  "stage": "PRE_POLICY_EXPERT_FEASIBILITY_GATE",
+  "paperability_contract": "reports/epoch7_latent_dynamics_attribution/paperability_contract.md",
+  "protocol": "reports/epoch7_latent_dynamics_attribution/discovery_protocol.json",
+  "evidence": {
+    "outcome_free_simulator_preflight": {
+      "path": "reports/epoch7_latent_dynamics_attribution/outcome_free_simulator_preflight.json",
+      "decision": "OUTCOME_FREE_SIMULATOR_PREFLIGHT_PASS",
+      "tasks_passed": 4,
+      "tasks_total": 4,
+      "policy_loaded_or_queried": false,
+      "reward_or_success_recorded": false
+    },
+    "expert_feasibility": {
+      "path": "reports/epoch7_latent_dynamics_attribution/expert_feasibility.json",
+      "decision": "EXPERT_FEASIBILITY_FAIL",
+      "selection_rule": "lowest numeric demonstration that succeeds in the standard condition; intervention outcomes never affect selection",
+      "standard_success_and_target_contact_tasks": 4,
+      "intervention_success_and_target_contact_tasks": 2,
+      "eligible_task_ids": [0, 3],
+      "eligible_collapsed_families": [
+        "articulated",
+        "pick_transport_place"
+      ],
+      "required_eligible_tasks": 3,
+      "required_collapsed_families": [
+        "articulated",
+        "planar_push",
+        "pick_transport_place"
+      ]
+    }
+  },
+  "contract_adjudication": {
+    "headroom_gate_pass": false,
+    "failed_condition": "fewer than three feasible tasks spanning all three manipulation families",
+    "bounded_expansion_legal": false,
+    "reason_bounded_expansion_illegal": "The contract permits expansion only after every validity, competence, feasibility, and coverage gate passes; the feasibility and family-coverage gates failed.",
+    "xvla_dynamics_rollouts_authorized_or_run": false,
+    "ours_design_or_training_authorized_or_run": false
+  },
+  "claim_limits": [
+    "The frozen legal oracle did not verify altered-condition headroom for the planar-push and articulated-button tasks.",
+    "This does not establish that either altered task is physically impossible.",
+    "Official demonstrations are feasibility controls and are not VLA-policy successes.",
+    "No X-VLA dynamics-intervention outcome was generated, so no policy-efficacy conclusion is supported."
+  ],
+  "prohibited_rescues": [
+    "select a demonstration using altered-condition outcomes",
+    "scan alternate altered-success demonstrations after the frozen selection rule failed",
+    "weaken or replace intervention severity post hoc",
+    "delete the planar-push family or relax the three-family gate",
+    "recast the failed benchmark gate as a dynamics-adaptation method"
+  ],
+  "next_action": "ROTATE_TO_PRESPECIFIED_POLICY_RNG_RELIABILITY_PAPERABILITY_AUDIT"
+}

@@ -314,6 +314,23 @@
       "reconsideration_rule": "at least two major scientific dimensions must change and a fresh Base falsifier must establish claim-defining headroom before training"
     }
   ],
+  "epoch7_problem_verification_closures": [
+    {
+      "id": "epoch7_latent_dynamics_attribution",
+      "decision": "NO_LEGAL_HEADROOM",
+      "stage": "pre_policy_expert_feasibility",
+      "scope": "the frozen four-task LIBERO-Goal object/environment-dynamics protocol and its standard-only exact-demonstration feasibility oracle",
+      "policy_loaded_or_queried": false,
+      "scientific_policy_efficacy_adjudicated": false,
+      "claim_limit": "the frozen legal oracle did not verify altered-condition headroom for three tasks spanning all three required families; no task-impossibility claim is supported",
+      "prohibited_rescues": [
+        "altered-outcome-selected demonstration scanning",
+        "post-hoc intervention severity weakening or replacement",
+        "post-hoc deletion of the planar-push family or relaxation of family coverage",
+        "recasting the failed benchmark gate as a latent-dynamics adaptation method"
+      ]
+    }
+  ],
   "reconsideration_contract": {
     "minimum_material_changes": 2,
     "eligible_dimensions": [

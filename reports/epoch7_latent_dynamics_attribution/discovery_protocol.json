@@ -1,0 +1,222 @@
+{
+  "schema_version": "epoch7.latent_dynamics_attribution.discovery_protocol.v1",
+  "frozen_at": "2026-07-20T16:14:42+09:00",
+  "frozen_repo_head": "b8f4cd05313184339b09246da7862f1f37900d5b",
+  "status": "FROZEN_BEFORE_CLAIM_SPECIFIC_CLOSED_LOOP_OUTCOMES",
+  "thesis_id": "latent_dynamics_attribution",
+  "archetype": "benchmark_evaluation",
+  "ours_authorized": false,
+  "base": {
+    "name": "X-VLA-Libero",
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "local_files_only": true,
+    "precision": "float32",
+    "denoise_steps": 10,
+    "domain_id": 3
+  },
+  "benchmark": {
+    "name": "LIBERO-Goal controlled latent dynamics",
+    "libero_source_revision": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+    "bddl_and_init_source": "LIBERO-Para retained Goal mirror",
+    "libero_para_revision": "5a2198299a6d7a49bdb3cd519c7e92ed803adf5f",
+    "camera_resolution": 360,
+    "controller": "absolute_eef",
+    "settle_steps_under_standard_dynamics": 10,
+    "horizon": 300,
+    "success_semantics": "libero.libero.envs.OffScreenRenderEnv.check_success",
+    "live_environment_limit": 1
+  },
+  "identities": {
+    "discovery_state_indices": [0, 1, 2],
+    "sealed_confirmation_state_indices": [10, 20, 30],
+    "bounded_expansion_state_indices": [3, 4],
+    "bounded_expansion_authorization": "only_if_all_validity_competence_feasibility_coverage_gates_pass_and_exactly_one_numerical_effect_gate_misses_by_one_episode",
+    "seed_formula": "100000 + 1000*eval_id + state_index",
+    "paired_simulator_and_policy_seed": true,
+    "confirmation_use_in_discovery_forbidden": true
+  },
+  "tasks": [
+    {
+      "eval_id": 0,
+      "family": "articulated_drawer",
+      "goal_bddl": "open_the_middle_drawer_of_the_cabinet.bddl",
+      "instruction": "open the middle drawer of the cabinet",
+      "target_body": "wooden_cabinet_1_cabinet_middle",
+      "target_contact_semantics": "contact between a gripper body and target body or its descendants",
+      "intervention": {
+        "axis": "joint_damping",
+        "joint_name": "wooden_cabinet_1_middle_level",
+        "array": "dof_damping",
+        "factor": 4.0
+      },
+      "init_file_sha256": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f"
+    },
+    {
+      "eval_id": 2,
+      "family": "planar_push",
+      "goal_bddl": "push_the_plate_to_the_front_of_the_stove.bddl",
+      "instruction": "push the plate to the front of the stove",
+      "target_body": "plate_1_main",
+      "target_contact_semantics": "contact between a gripper body and target body or its descendants",
+      "intervention": {
+        "axis": "target_contact_friction",
+        "body_name": "plate_1_main",
+        "array": "geom_friction",
+        "components": [0, 1, 2],
+        "collision_geoms_only": true,
+        "factor": 0.25
+      },
+      "init_file_sha256": "794beed679b18bbd7d9fb851c81877a974915ad63addff2d5ac5af0607fafac9"
+    },
+    {
+      "eval_id": 3,
+      "family": "pick_transport_place",
+      "goal_bddl": "put_the_bowl_on_the_plate.bddl",
+      "instruction": "put the bowl on the plate",
+      "target_body": "akita_black_bowl_1_main",
+      "target_contact_semantics": "contact between a gripper body and target body or its descendants",
+      "intervention": {
+        "axis": "target_mass",
+        "body_name": "akita_black_bowl_1_main",
+        "arrays": ["body_mass", "body_inertia"],
+        "factor": 8.0
+      },
+      "init_file_sha256": "ef3466ffad734754dc40eba1f6f5712e37aa46b9692c595e0da34f16d3a0c668"
+    },
+    {
+      "eval_id": 9,
+      "family": "articulated_button",
+      "goal_bddl": "turn_on_the_stove.bddl",
+      "instruction": "turn on the stove",
+      "target_body": "flat_stove_1_button",
+      "target_contact_semantics": "contact between a gripper body and target body or its descendants",
+      "intervention": {
+        "axis": "joint_damping",
+        "joint_name": "flat_stove_1_button",
+        "array": "dof_damping",
+        "factor": 4.0
+      },
+      "init_file_sha256": "ed121db31d749647d70741c4c4ef0bd8e0876663986578795968e962d9b91340"
+    }
+  ],
+  "conditions": [
+    {
+      "name": "standard",
+      "factor": 1.0,
+      "mutation": false
+    },
+    {
+      "name": "latent_dynamics_intervention",
+      "factor_by_task": true,
+      "mutation": true
+    }
+  ],
+  "intervention_timing": [
+    "reset environment and set frozen initial state",
+    "execute ten dummy settle steps under unmodified dynamics",
+    "set absolute end-effector controller mode",
+    "snapshot paired pre-intervention observation",
+    "mutate only the named model array",
+    "call sim.forward without observation regeneration and without env.step",
+    "validate cached policy-input identity unchanged qpos/qvel and unchanged render-model hashes",
+    "begin both paired policy rollouts from the exact cached post-settle observation"
+  ],
+  "observation_equivalence": {
+    "first_policy_input_source": "exact cached observation returned by the final standard-dynamics settle step",
+    "agentview_rgb_max_abs": 0,
+    "eye_in_hand_rgb_max_abs": 0,
+    "robot_proprio_max_abs": 0,
+    "sim_qpos_max_abs_after_mutation": 0,
+    "sim_qvel_max_abs_after_mutation": 0,
+    "render_defining_model_array_hashes_unchanged": true,
+    "observation_regeneration_before_first_policy_call": false,
+    "semantic_instruction_exact_match": true,
+    "ineligible_on_failure": true,
+    "outcome_independent_repair": {
+      "repaired_at": "2026-07-20T16:20:00+09:00",
+      "invalid_attempt": "reports/epoch7_latent_dynamics_attribution/outcome_free_simulator_preflight_attempt1_invalid_regeneration.json",
+      "reason": "LIBERO observation regeneration changed pixels and proprioception after a no-op despite no env.step; the actual paired evaluator can and must use the cached post-settle observation as its first policy input",
+      "policy_or_reward_queried_in_invalid_attempt": false,
+      "task_interventions_identities_and_gates_changed": false
+    }
+  },
+  "logging": {
+    "required_per_episode": [
+      "all seeds and identities",
+      "model-array names indices before values after values and sha256",
+      "initial observation equivalence metrics",
+      "finite action and action range checks",
+      "target_contact_any and first_target_contact_step",
+      "wrong_object_contact_before_target",
+      "official success and first_success_step",
+      "exception and resource snapshots"
+    ],
+    "atomic_write_after_each_episode": true,
+    "videos_in_discovery": false
+  },
+  "expert_feasibility": {
+    "data_root": "/mnt/c/assets/data/libero/libero_goal",
+    "selection_rule": "for each task, test demos in numeric index order under standard exact-init replay and select the lowest-index valid successful replay; intervention outcomes never affect selection",
+    "standard_success_required": true,
+    "intervention_success_required_for_task_eligibility": true,
+    "minimum_eligible_tasks": 3,
+    "minimum_eligible_families": 3,
+    "expert_actions_as_policy_inputs_forbidden": true,
+    "expert_replay_counted_as_policy_success": false
+  },
+  "controls": {
+    "factor_one_noop": "must preserve model arrays observations and action/outcome semantics on one smoke identity per task",
+    "target_contact_unit_fixtures": "positive exact-target subtree contact and negative wrong-object contact required before outcomes count",
+    "irrelevant_body_mutation": "required only after discovery pass before paper readiness"
+  },
+  "gates": {
+    "execution_validity": {
+      "planned_base_episodes": 24,
+      "completed_fraction_min": 1.0,
+      "finite_action_fraction_min": 1.0,
+      "observation_equivalence_fraction_min": 1.0,
+      "one_live_environment_required": true
+    },
+    "base_competence": {
+      "standard_success_fraction_min": 0.75,
+      "standard_success_task_count_min": 3,
+      "standard_success_family_count_min": 3
+    },
+    "problem_gap": {
+      "paired_success_drop_percentage_points_min": 20.0,
+      "standard_win_intervention_loss_count": "max(3, ceil(0.25*eligible_pairs))",
+      "adverse_task_count_min": 2,
+      "adverse_family_count_min": 2,
+      "intervention_win_count_must_not_exceed_standard_win_count": true
+    },
+    "attribution": {
+      "target_contact_failure_count_min": 2,
+      "target_contact_failure_family_count_min": 2
+    },
+    "headroom": {
+      "eligible_expert_replay_task_count_min": 3,
+      "eligible_expert_replay_family_count_min": 3
+    }
+  },
+  "stage_order": [
+    "outcome-free task mapping model-array and observation-equivalence preflight",
+    "factor-one no-op and contact-detector fixture tests",
+    "standard-only expert replay selection",
+    "paired expert feasibility replay",
+    "one-pair X-VLA execution smoke",
+    "frozen 24-episode paired X-VLA discovery panel",
+    "problem and headroom adjudication"
+  ],
+  "allowed_terminal_labels": [
+    "PROBLEM_VERIFIED_STRONG_COMPARATOR_RESIDUAL",
+    "PROBLEM_PROMISING_NEEDS_BOUNDED_EXPANSION",
+    "PRIOR_SATURATES_PROBLEM",
+    "BASE_NOT_COMPETENT",
+    "NO_REPEATABLE_GAP",
+    "NO_LEGAL_HEADROOM",
+    "EVALUATION_INVALID",
+    "RESOURCE_OR_ARTIFACT_BLOCKED"
+  ]
+}

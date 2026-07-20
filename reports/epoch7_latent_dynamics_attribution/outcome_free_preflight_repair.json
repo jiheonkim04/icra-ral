@@ -1,0 +1,15 @@
+{
+  "schema_version": "epoch7.latent_dynamics.outcome_free_preflight_repair.v1",
+  "repaired_at": "2026-07-20T16:20:00+09:00",
+  "invalid_attempt": "reports/epoch7_latent_dynamics_attribution/outcome_free_simulator_preflight_attempt1_invalid_regeneration.json",
+  "invalid_attempt_decision": "OUTCOME_FREE_SIMULATOR_PREFLIGHT_FAIL",
+  "observed_defect": "Calling LIBERO post-process and observable regeneration after sim.forward changed images and proprioception even for factor-one no-op mutation.",
+  "outcome_independent_basis": "The paired evaluator already holds the observation returned by the final settle env.step. A MuJoCo model-parameter mutation does not require regenerating that observation before the first policy call.",
+  "repair": "Feed the exact cached post-settle observation to both paired first policy calls; after mutation validate unchanged qpos/qvel and hashes of render-defining model arrays, then obtain all later observations only from ordinary env.step calls.",
+  "policy_loaded_or_queried": false,
+  "reward_recorded": false,
+  "success_recorded": false,
+  "task_interventions_changed": false,
+  "identities_changed": false,
+  "gates_changed": false
+}
