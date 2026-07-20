@@ -48,6 +48,86 @@ DEFAULT_PARA_ROOT = Path("/mnt/c/assets/repos/LIBERO-Para")
 DEFAULT_XVLA_ROOT = Path("/mnt/c/assets/repos/X-VLA")
 
 
+class CAGDirectXVLAPolicy(DirectXVLAPolicy):
+    """Training-free Counterfactual Action Guidance for the direct X-VLA path."""
+
+    def __init__(self, denoise_steps: int, omega: float) -> None:
+        super().__init__(denoise_steps=denoise_steps)
+        self.omega = float(omega)
+        self.guided_chunk_shapes: list[list[int]] = []
+        self.guided_chunk_ranges: list[dict[str, Any]] = []
+        self.cag_branch_records: list[dict[str, Any]] = []
+
+    def reset(self) -> None:
+        super().reset()
+        self.guided_chunk_shapes.clear()
+        self.guided_chunk_ranges.clear()
+        self.cag_branch_records.clear()
+
+    def _capture_rng_state(self) -> dict[str, Any]:
+        return {
+            "python": random.getstate(),
+            "numpy": np.random.get_state(),
+            "torch_cpu": self.torch.get_rng_state(),
+            "torch_cuda": self.torch.cuda.get_rng_state_all() if self.torch.cuda.is_available() else None,
+        }
+
+    def _restore_rng_state(self, state: dict[str, Any]) -> None:
+        random.setstate(state["python"])
+        np.random.set_state(state["numpy"])
+        self.torch.set_rng_state(state["torch_cpu"])
+        if self.torch.cuda.is_available() and state["torch_cuda"] is not None:
+            self.torch.cuda.set_rng_state_all(state["torch_cuda"])
+
+    def _query_guided(self, obs: dict[str, Any], instruction: str) -> np.ndarray:
+        common_state = self._capture_rng_state()
+        conditional = super()._query(obs, instruction)
+        self._restore_rng_state(common_state)
+        unconditional = super()._query(obs, "")
+        if conditional.shape != unconditional.shape:
+            raise ValueError(
+                f"CAG branch shape mismatch: conditional={conditional.shape}, unconditional={unconditional.shape}"
+            )
+        guided = conditional + self.omega * (conditional - unconditional)
+        if not np.isfinite(guided).all():
+            raise ValueError("CAG generated a nonfinite guided action chunk")
+        self.guided_chunk_shapes.append([int(dimension) for dimension in guided.shape])
+        self.guided_chunk_ranges.append(
+            {
+                "min": float(np.min(guided)),
+                "max": float(np.max(guided)),
+                "finite": True,
+            }
+        )
+        self.cag_branch_records.append(
+            {
+                "conditional_min": float(np.min(conditional)),
+                "conditional_max": float(np.max(conditional)),
+                "unconditional_min": float(np.min(unconditional)),
+                "unconditional_max": float(np.max(unconditional)),
+                "mean_absolute_language_delta": float(np.mean(np.abs(conditional - unconditional))),
+                "max_absolute_language_delta": float(np.max(np.abs(conditional - unconditional))),
+                "guided_min": float(np.min(guided)),
+                "guided_max": float(np.max(guided)),
+            }
+        )
+        return guided
+
+    def step(self, obs: dict[str, Any], instruction: str) -> np.ndarray:
+        if not self.action_plan:
+            action = self._query_guided(obs, instruction)
+            self.proprio[:9] = action[-1, :9].copy()
+            target_eef = action[:, :3]
+            target_axis = self.action_processor.rotate6d_to_axisangle(action[:, 3:9])
+            target_grip = action[:, 9:10]
+            final_action = np.concatenate([target_eef, target_axis, target_grip], axis=-1)
+            for row in final_action.tolist():
+                self.action_plan.append(row)
+        env_action = np.asarray(self.action_plan.popleft(), dtype=np.float32)
+        env_action[-1] = 1.0 if env_action[-1] > 0.5 else -1.0
+        return env_action
+
+
 def timestamp() -> str:
     return time.strftime("%Y-%m-%dT%H:%M:%S%z")
 
@@ -129,7 +209,7 @@ def build_episode_plan(
     plan: list[dict[str, Any]] = []
     for spec in specs:
         paraphrase_instruction = parse_bddl_instruction(para_bddl_dir / spec["paraphrase_bddl"])
-        if role == "base":
+        if role in {"base", "cag"}:
             conditions = (
                 ("canonical", spec["canonical_instruction"], None),
                 ("paraphrase", paraphrase_instruction, None),
@@ -218,14 +298,16 @@ def run_episode(
             if bool(env.check_success()):
                 record["success"] = True
                 break
+        action_chunk_shapes = getattr(policy, "guided_chunk_shapes", policy.chunk_shapes)
+        action_chunk_ranges = getattr(policy, "guided_chunk_ranges", policy.chunk_ranges)
         record.update(
             {
                 "completed": True,
                 "done_seen": done_seen,
                 "final_reward": final_reward,
-                "action_chunks_generated": len(policy.chunk_shapes),
-                "action_chunk_shapes": list(policy.chunk_shapes),
-                "action_chunk_ranges": list(policy.chunk_ranges),
+                "action_chunks_generated": len(action_chunk_shapes),
+                "action_chunk_shapes": list(action_chunk_shapes),
+                "action_chunk_ranges": list(action_chunk_ranges),
                 "policy_query_seconds": {
                     "count": len(policy.policy_latencies),
                     "mean": float(np.mean(policy.policy_latencies)) if policy.policy_latencies else None,
@@ -233,6 +315,16 @@ def run_episode(
                 },
             }
         )
+        if isinstance(policy, CAGDirectXVLAPolicy):
+            record["cag"] = {
+                "omega": policy.omega,
+                "conditional_instruction": str(episode["instruction"]),
+                "unconditional_instruction": "",
+                "branch_queries": len(policy.chunk_shapes),
+                "guided_chunks": len(policy.guided_chunk_shapes),
+                "shared_rng_state_per_chunk": True,
+                "branch_records": list(policy.cag_branch_records),
+            }
     except Exception as exc:  # pragma: no cover - simulator boundary
         record["exception"] = {
             "type": type(exc).__name__,
@@ -259,7 +351,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--para-root", type=Path, default=DEFAULT_PARA_ROOT)
     parser.add_argument("--xvla-root", type=Path, default=DEFAULT_XVLA_ROOT)
-    parser.add_argument("--role", choices=("base", "control"), default="base")
+    parser.add_argument("--role", choices=("base", "control", "cag"), default="base")
     parser.add_argument("--pair", action="append", default=[], help="Frozen pair ID such as eval0_act; repeatable.")
     parser.add_argument(
         "--condition",
@@ -308,7 +400,11 @@ def main(argv: list[str] | None = None) -> int:
             episode["instruction"] = retrieval["selected_instruction"]
     if args.condition:
         requested_conditions = set(args.condition)
-        legal_conditions = {"canonical", "paraphrase"} if args.role == "base" else {"canonicalizer_control"}
+        legal_conditions = (
+            {"canonical", "paraphrase"}
+            if args.role in {"base", "cag"}
+            else {"canonicalizer_control"}
+        )
         if not requested_conditions <= legal_conditions:
             raise ValueError(
                 f"conditions {sorted(requested_conditions)} are invalid for role {args.role}; "
@@ -322,7 +418,11 @@ def main(argv: list[str] | None = None) -> int:
             "schema_version": "epoch7.language_grounding_base.v1",
             "created_at": timestamp(),
             "last_updated_at": timestamp(),
-            "execution_classification": "BASE_PROBLEM_VERIFICATION_NO_OURS",
+            "execution_classification": (
+                "PRIOR_PROBLEM_VERIFICATION_NO_OURS"
+                if args.role == "cag"
+                else "BASE_PROBLEM_VERIFICATION_NO_OURS"
+            ),
             "role": args.role,
             "protocol_path": str(args.protocol),
             "protocol_schema": protocol["schema_version"],
@@ -344,6 +444,16 @@ def main(argv: list[str] | None = None) -> int:
             "resource_after_load": None,
             "summary": {},
         }
+        if args.role == "cag":
+            result["prior"] = {
+                "name": protocol["prior"]["name"],
+                "reference": protocol["prior"]["reference"],
+                "formula": protocol["prior"]["formula"],
+                "omega": float(protocol["prior"]["omega"]),
+                "shared_rng_state": True,
+                "one_model_resident": True,
+                "implementation": "local mechanism-faithful port; not claimed as official author code",
+            }
     else:
         result = existing
         expected_plan = [episode["episode_id"] for episode in plan]
@@ -364,7 +474,13 @@ def main(argv: list[str] | None = None) -> int:
     result["resource_before_load"] = memory_snapshot(torch)
     heartbeat(heartbeat_path, "load_xvla")
     _prepare_xvla_imports(args.xvla_root)
-    policy = DirectXVLAPolicy(denoise_steps=int(protocol["base"]["denoise_steps"]))
+    if args.role == "cag":
+        policy = CAGDirectXVLAPolicy(
+            denoise_steps=int(protocol["base"]["denoise_steps"]),
+            omega=float(protocol["prior"]["omega"]),
+        )
+    else:
+        policy = DirectXVLAPolicy(denoise_steps=int(protocol["base"]["denoise_steps"]))
     result["resource_after_load"] = memory_snapshot(torch)
     result["model_parameter_count"] = int(sum(parameter.numel() for parameter in policy.model.parameters()))
     result["processor_type"] = type(policy.processor).__name__

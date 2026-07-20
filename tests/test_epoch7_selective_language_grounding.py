@@ -76,3 +76,15 @@ def test_result_summary_uses_only_completed_episodes() -> None:
 def test_protocol_json_round_trips() -> None:
     protocol = load_json(PROTOCOL_PATH)
     assert json.loads(json.dumps(protocol))["schema_version"] == "epoch7.problem_verification_protocol.v1"
+
+
+def test_cag_prior_is_frozen_without_authorizing_ours() -> None:
+    protocol = load_json(PROTOCOL_PATH)
+    prior = protocol["prior"]
+
+    assert prior["formula"] == "a_cond + omega * (a_cond - a_empty)"
+    assert prior["omega"] == 1.5
+    assert prior["sequential_branches"] is True
+    assert prior["shared_rng_state"] is True
+    assert prior["one_model_resident"] is True
+    assert protocol["ours_authorized"] is False
