@@ -13,6 +13,7 @@ from tca_map.epoch7_selective_language_grounding import (
     summarize_episodes,
     validate_protocol,
 )
+from scripts.run_epoch7_semantic_canonicalizer_preflight import metadata_row_to_bddl
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -95,3 +96,18 @@ def test_cag_equation_has_the_reference_parameterization() -> None:
     assert cag_guidance(conditional=2.0, unconditional=1.0, omega=0.0) == 1.0
     assert cag_guidance(conditional=2.0, unconditional=1.0, omega=1.0) == 2.0
     assert cag_guidance(conditional=2.0, unconditional=1.0, omega=1.5) == 2.5
+
+
+def test_metadata_row_to_bddl_matches_benchmark_naming() -> None:
+    assert metadata_row_to_bddl(
+        {"high": "act", "mid": "lexical", "low": "addition_deletion", "eval": "0", "batch_idx": "3"}
+    ) == "act_lexical_addition_deletion_eval0_ver3.bddl"
+    assert metadata_row_to_bddl(
+        {
+            "high": "comp",
+            "mid": "lexical+pragmatical",
+            "low": "addition_deletion+hint",
+            "eval": "2",
+            "batch_idx": "7",
+        }
+    ) == "comp_lexical+pragmatical_addition_deletion+hint_eval2_ver7.bddl"
