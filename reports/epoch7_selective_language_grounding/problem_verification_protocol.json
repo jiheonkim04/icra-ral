@@ -27,12 +27,20 @@
   "prior": {
     "name": "CAG-TF local mechanism-faithful port",
     "reference": "arXiv:2602.17659v2",
-    "formula": "a_cond + omega * (a_cond - a_empty)",
+    "formula": "a_empty + omega * (a_cond - a_empty)",
     "omega": 1.5,
     "sequential_branches": true,
     "shared_rng_state": true,
     "one_model_resident": true,
-    "status": "IMPLEMENTATION_NOT_YET_VALIDATED"
+    "status": "REFERENCE_ALIGNED_IMPLEMENTATION_NOT_YET_VALIDATED",
+    "reference_equation": "arXiv:2602.17659v2 Eq. 4",
+    "reference_alignment_repair": {
+      "repaired_at": "2026-07-20T14:29:00+09:00",
+      "reason": "The initial ledger transcribed CFG as conditional-plus-guidance. The cited paper defines unconditional-plus-scaled-difference; omega=1 must recover the conditional branch.",
+      "outcome_independent_evidence": "The primary-source equation uniquely determines the correction.",
+      "identities_seeds_horizon_and_omega_changed": false,
+      "invalid_prior_episodes_excluded": 14
+    }
   },
   "control": {
     "name": "character_trigram_canonicalizer",

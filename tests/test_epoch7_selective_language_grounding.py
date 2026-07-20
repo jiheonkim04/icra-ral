@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from tca_map.epoch7_selective_language_grounding import (
+    cag_guidance,
     canonicalize_instruction,
     character_ngrams,
     counter_cosine,
@@ -82,9 +83,15 @@ def test_cag_prior_is_frozen_without_authorizing_ours() -> None:
     protocol = load_json(PROTOCOL_PATH)
     prior = protocol["prior"]
 
-    assert prior["formula"] == "a_cond + omega * (a_cond - a_empty)"
+    assert prior["formula"] == "a_empty + omega * (a_cond - a_empty)"
     assert prior["omega"] == 1.5
     assert prior["sequential_branches"] is True
     assert prior["shared_rng_state"] is True
     assert prior["one_model_resident"] is True
     assert protocol["ours_authorized"] is False
+
+
+def test_cag_equation_has_the_reference_parameterization() -> None:
+    assert cag_guidance(conditional=2.0, unconditional=1.0, omega=0.0) == 1.0
+    assert cag_guidance(conditional=2.0, unconditional=1.0, omega=1.0) == 2.0
+    assert cag_guidance(conditional=2.0, unconditional=1.0, omega=1.5) == 2.5

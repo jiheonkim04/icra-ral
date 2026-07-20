@@ -12,6 +12,12 @@ from typing import Any, Iterable, Mapping
 FAMILIES = ("act", "obj", "comp")
 
 
+def cag_guidance(conditional: Any, unconditional: Any, omega: float) -> Any:
+    """Apply CAG Eq. 4; omega=1 recovers the conditional policy."""
+
+    return unconditional + float(omega) * (conditional - unconditional)
+
+
 def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 

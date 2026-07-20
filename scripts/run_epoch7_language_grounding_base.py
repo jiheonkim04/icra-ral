@@ -34,6 +34,7 @@ from scripts.epoch5_xvla_libero10_task8_eval import (  # noqa: E402
 )
 from tca_map.epoch7_selective_language_grounding import (  # noqa: E402
     atomic_write_json,
+    cag_guidance,
     canonicalize_instruction,
     load_json,
     parse_bddl_instruction,
@@ -88,7 +89,7 @@ class CAGDirectXVLAPolicy(DirectXVLAPolicy):
             raise ValueError(
                 f"CAG branch shape mismatch: conditional={conditional.shape}, unconditional={unconditional.shape}"
             )
-        guided = conditional + self.omega * (conditional - unconditional)
+        guided = cag_guidance(conditional, unconditional, self.omega)
         if not np.isfinite(guided).all():
             raise ValueError("CAG generated a nonfinite guided action chunk")
         self.guided_chunk_shapes.append([int(dimension) for dimension in guided.shape])

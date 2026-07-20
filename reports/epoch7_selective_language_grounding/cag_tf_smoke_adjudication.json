@@ -2,8 +2,8 @@
   "schema_version": "epoch7.cag_tf_smoke_adjudication.v1",
   "adjudicated_at": "2026-07-20T14:21:00+09:00",
   "execution_type": "CAG_TF_PRIOR_CANONICAL_CLOSED_LOOP_SMOKE_NO_OURS",
-  "decision": "CAG_ACTION_CONNECTION_PASS_CANONICAL_RETENTION_WARNING",
-  "scope_limit": "One canonical failure cannot adjudicate the Prior, but it forbids treating CAG-TF as retention-safe without the frozen full panel.",
+  "decision": "EVALUATION_INVALID_FORMULA_TRANSCRIPTION_DEFECT",
+  "scope_limit": "This smoke used conditional-plus-guidance rather than the unconditional-plus-scaled-difference equation in the cited paper. Its outcome is excluded from every scientific comparison.",
   "identity": {
     "episode_id": "cag_eval0_act_canonical",
     "eval_id": 0,
@@ -17,7 +17,8 @@
   "prior": {
     "name": "CAG-TF local mechanism-faithful port",
     "reference": "arXiv:2602.17659v2",
-    "formula": "a_cond + 1.5 * (a_cond - a_empty)",
+    "attempted_formula_invalid": "a_cond + 1.5 * (a_cond - a_empty)",
+    "reference_formula": "a_empty + 1.5 * (a_cond - a_empty)",
     "omega": 1.5,
     "same_observation_per_branch": true,
     "shared_restored_rng_state_per_chunk": true,
@@ -27,7 +28,8 @@
   },
   "result": {
     "completed": true,
-    "official_success": false,
+    "official_success": null,
+    "raw_observed_success_excluded": false,
     "actions_executed": 300,
     "guided_chunks": 10,
     "branch_queries": 20,
@@ -38,7 +40,7 @@
     "maximum_absolute_language_delta": 0.60099,
     "elapsed_seconds": 25.55,
     "matched_base_smoke_success": true,
-    "canonical_retention_warning": true,
+    "canonical_retention_warning": null,
     "exception": null
   },
   "resources": {
@@ -71,5 +73,5 @@
     "ours_design_happened": false,
     "ours_rollout_happened": false
   },
-  "next_action": "Run the complete frozen CAG-TF canonical/paraphrase panel at omega=1.5. Do not rescue retention by tuning the scale on discovery outcomes."
+  "next_action": "Repair the formula from the cited primary-source equation, add an omega=1 regression test, and rerun the same frozen identities at omega=1.5."
 }

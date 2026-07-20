@@ -1,0 +1,63 @@
+{
+  "schema_version": "epoch7.cag_tf_formula_defect_repair.v1",
+  "adjudicated_at": "2026-07-20T14:29:00+09:00",
+  "decision": "EVALUATION_INVALID_REPAIR_AND_RERUN_SAME_PROTOCOL",
+  "defect": {
+    "type": "PRIMARY_SOURCE_EQUATION_TRANSCRIPTION_ERROR",
+    "reference": "arXiv:2602.17659v2 Eq. 4",
+    "reference_url": "https://arxiv.org/html/2602.17659#S5.E4",
+    "invalid_formula": "a_cond + omega * (a_cond - a_empty)",
+    "correct_formula": "a_empty + omega * (a_cond - a_empty)",
+    "frozen_omega": 1.5,
+    "diagnostic_identity": "At omega=1, the correct equation equals a_cond; the invalid equation equals 2*a_cond-a_empty.",
+    "scientific_interpretation_allowed": false
+  },
+  "detection": {
+    "trigger": "Implausibly destructive canonical behavior prompted a direct equation audit.",
+    "repair_basis_uses_outcome_magnitude_or_direction": false,
+    "repair_basis": "The cited equation uniquely specifies the branch weights.",
+    "scale_or_identity_tuning": false
+  },
+  "invalid_execution": {
+    "path": "runs/epoch7_language_grounding/cag_discovery_panel_v1",
+    "completed_invalid_episodes": 14,
+    "canonical_invalid_episodes": 7,
+    "paraphrase_invalid_episodes": 7,
+    "worker_stopped_before_more_invalid_compute": true,
+    "exit_code_file_absent_due_to_external_stop": true,
+    "all_outcomes_excluded": true,
+    "maximum_wsl_swap_used_kib": 0
+  },
+  "invalid_artifacts_preserved": [
+    {
+      "path": "runs/epoch7_language_grounding/cag_discovery_panel_v1/result.json",
+      "bytes": 118486,
+      "sha256": "2f8a4ba6d6aa5f5f54ce47c0100827b0ab7adbd925ea49417a189b9bc9b73efb"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/cag_discovery_panel_v1/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/cag_discovery_panel_v1/stderr.log",
+      "bytes": 1872,
+      "sha256": "b530874289223d8626474b92c79d50599dc0493a981f976e80ca205ed189b455"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/cag_discovery_panel_v1/heartbeat.txt",
+      "bytes": 57,
+      "sha256": "94576c09d923e522e6fc68d1f2d72cbd079451881c4885ef6d1268162e7099d0"
+    }
+  ],
+  "repair": {
+    "identities_changed": false,
+    "seeds_changed": false,
+    "initial_states_changed": false,
+    "horizon_changed": false,
+    "omega_changed": false,
+    "endpoint_changed": false,
+    "regression_test": "omega=1 returns the conditional action",
+    "next_valid_run_directory": "runs/epoch7_language_grounding/cag_discovery_panel_v2"
+  }
+}

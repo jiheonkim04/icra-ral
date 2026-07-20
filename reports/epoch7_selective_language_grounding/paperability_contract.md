@@ -34,7 +34,9 @@ The retained original checkpoint is not assumed bit-identical to the LeRobot con
 
 Strong Prior: a mechanism-faithful local port of training-free Counterfactual Action Guidance (CAG-TF), using the same X-VLA as both branches and the published X-VLA guidance scale:
 
-`a_CAG = a_cond + 1.5 * (a_cond - a_empty)`.
+`a_CAG = a_empty + 1.5 * (a_cond - a_empty)`.
+
+This is Eq. 4 of arXiv:2602.17659v2; at guidance scale 1, it recovers the conditional branch. A first implementation mistakenly used conditional-plus-guidance and was stopped after 14 invalid episodes. The primary-source-aligned repair changes no identity, seed, horizon, scale, or outcome rule, and the invalid episodes are excluded.
 
 The conditional and empty-language chunks must be generated sequentially from the same observation and captured RNG state, with only one model resident. Mixing occurs in the model's native 10D absolute action representation before the existing LIBERO conversion. The port must be labeled local, not official, unless an author artifact is found and verified.
 
