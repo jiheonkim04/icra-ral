@@ -124,7 +124,7 @@ Rotation 3 reconsiders only scientifically unadjudicated routes and adds current
 
 ### Candidate J - stability-qualified task completion
 
-Assessment: `PLAUSIBLE`; selected primary for a frozen expert-replay problem/headroom gate only.
+Assessment: `CLOSED_NO_REPEATABLE_GAP`; the frozen expert-replay gate found an `On`-placement-specific effect but failed cross-mechanism diversity.
 
 - One-sentence thesis: a manipulation rollout should count as complete only when its native goal remains satisfied during a short policy-independent neutral dwell, because first-hit success can certify transient states and distort VLA comparisons.
 - Robotics problem and importance: deployment requires the placed object, grasp, mechanism, or multi-step goal to remain achieved after motion stops; a one-frame predicate hit is not necessarily durable completion.
@@ -144,6 +144,8 @@ Assessment: `PLAUSIBLE`; selected primary for a frozen expert-replay problem/hea
 - Cheapest falsifier: all ten LIBERO-Goal tasks, lowest-index standard-success demo selected without persistence outcomes, then paired immediate-hold and expert-suffix-hold branches. Kill if fewer than three tasks/two mechanisms show native-to-persistent disagreement or fewer than two tasks/two mechanisms show suffix-recoverable headroom.
 - Required main table: task/mechanism, native first-hit, immediate-dwell persistence curve, suffix-dwell recovery, policy-native and policy-persistent success, paired disagreements, confidence intervals, ranking changes, and hold overhead.
 - Contribution if successful: a reproducible completion endpoint showing when native first-hit success overstates durable manipulation and changes conclusions across policies.
+
+Closure: all ten standard-selected demonstrations reached native success with valid deterministic execution. Immediate neutral dwell failed for task IDs 2, 4, and 8, and each was recovered by the unused expert suffix. However, all three are `On` placements; one predicate family explained 100% of disagreements and both problem and recoverable headroom spanned only one mechanism. The frozen two-mechanism and single-predicate-explanation gates failed, so the decision is `NO_REPEATABLE_GAP`. No policy was loaded, no policy result exists, and no task/suite expansion is legal.
 
 ### Candidate K - typed non-gripper contact-transition supervision
 
@@ -179,7 +181,7 @@ Assessment: `WEAK`; systems support only.
 
 ## Cycle 3 selection
 
-- Primary: Candidate J, thesis id `persistent_completion`, benchmark/evaluation archetype, authorized only for the frozen official-demonstration problem/headroom gate.
-- Fallback: Candidate K, thesis id `contact_transition_topology`, method archetype, authorized only after Candidate J closes and only by resuming its frozen pre-method label gate under a new outcome-free resource amendment.
+- Closed primary: Candidate J, thesis id `persistent_completion`, decision `NO_REPEATABLE_GAP` after a valid ten-task pre-policy gate.
+- Active fallback: Candidate K, thesis id `contact_transition_topology`, method archetype, authorized only for a source/fidelity audit and an outcome-free resource-rule amendment before resuming its already frozen Stage 0A label gate.
 - Candidates L and M are not empirically authorized.
 - No Ours, policy rollout, method training, or confirmatory outcome is authorized by this selection.

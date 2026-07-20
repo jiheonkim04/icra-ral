@@ -1,7 +1,7 @@
 {
-  "schema_version": "epoch7_literature_artifact_audit_v5",
+  "schema_version": "epoch7_literature_artifact_audit_v6",
   "audit_date": "2026-07-20",
-  "status": "ROTATION3_PERSISTENT_COMPLETION_PROBLEM_GATE_FROZEN",
+  "status": "ROTATION3_PRIMARY_NO_REPEATABLE_GAP_CONTACT_TOPOLOGY_FALLBACK_ACTIVE",
   "cycle1": {
     "problem": "meaning_preserving_instruction_robustness_with_intent_selectivity",
     "published_xvla_goal_success_percent": 97.8,
@@ -163,13 +163,13 @@
   },
   "cycle3": {
     "primary": "persistent_completion",
-    "primary_status": "FROZEN_PRE_POLICY_PROBLEM_AND_HEADROOM_GATE",
+    "primary_status": "CLOSED_NO_REPEATABLE_GAP",
     "bounded_gap": "native first-hit task success versus durability under a policy-independent neutral controller dwell",
     "closest_work": ["vla-eval", "SafeVLA-Bench", "VLA-SCT", "PhAIL", "Beyond Binary Success"],
     "fallback": "contact_transition_topology",
-    "fallback_status": "PRESPECIFIED_SCIENTIFICALLY_UNADJUDICATED_RESOURCE_REPAIR_ONLY_IF_PRIMARY_CLOSES",
+    "fallback_status": "ACTIVE_FOR_SOURCE_FIDELITY_AND_OUTCOME_FREE_RESOURCE_REPAIR_AUDIT",
     "blocked_language_candidate": "false_premise_selective_non_execution",
     "method_or_policy_execution_authorized": false
   },
-  "next_gate": "RUN_FROZEN_TEN_TASK_PERSISTENT_COMPLETION_EXPERT_REPLAY"
+  "next_gate": "AUDIT_AND_AMEND_CONTACT_TRANSITION_STAGE0A_RESOURCE_RULE_WITHOUT_CHANGING_SCIENTIFIC_ROWS"
 }

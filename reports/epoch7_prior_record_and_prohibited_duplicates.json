@@ -346,6 +346,23 @@
         "SDN-like seed or candidate selection without a new independently verified problem",
         "post-outcome best-seed selection"
       ]
+    },
+    {
+      "id": "epoch7_persistent_completion",
+      "decision": "NO_REPEATABLE_GAP",
+      "stage": "pre_policy_official_demonstration_problem_and_headroom_gate",
+      "scope": "general cross-mechanism stability-qualified completion on the frozen ten-task LIBERO-Goal panel",
+      "policy_loaded_or_queried": false,
+      "scientific_policy_efficacy_adjudicated": false,
+      "bounded_observation": "three On-placement tasks failed immediate neutral dwell and were recovered by unused expert suffixes",
+      "claim_limit": "the general benchmark claim failed mechanism diversity and single-predicate-explanation gates; no policy or ranking conclusion exists",
+      "prohibited_rescues": [
+        "post-outcome suite or task expansion",
+        "relaxation of the two-mechanism or single-predicate-explanation gates",
+        "general benchmark framing for an On-predicate-specific result",
+        "promotion of last-action-repeat to the primary endpoint",
+        "termination-method design from the failed general problem gate"
+      ]
     }
   ],
   "reconsideration_contract": {

@@ -1,0 +1,58 @@
+{
+  "schema_version": "epoch7.persistent_completion.closure.v1",
+  "adjudicated_at": "2026-07-20T16:56:00+09:00",
+  "thesis_id": "persistent_completion",
+  "decision": "NO_REPEATABLE_GAP",
+  "stage": "PRE_POLICY_OFFICIAL_DEMONSTRATION_PROBLEM_AND_HEADROOM_GATE",
+  "protocol": "reports/epoch7_persistent_completion/problem_verification_protocol.json",
+  "result": "reports/epoch7_persistent_completion/problem_verification_result.json",
+  "execution": {
+    "completed_tasks": 10,
+    "exception_count": 0,
+    "finite_actions": true,
+    "cold_repeat_pass": true,
+    "policy_loaded_or_queried": false,
+    "ours_authorized_or_run": false,
+    "dataset_rewards_or_dones_read": false
+  },
+  "observations": {
+    "native_success_tasks": 10,
+    "immediate_persistence_failure_tasks": 3,
+    "immediate_persistence_failure_task_ids": [2, 4, 8],
+    "immediate_persistence_failure_fraction": 0.3,
+    "failure_mechanisms": ["placement"],
+    "failure_predicate_families": {"on": 3},
+    "maximum_failure_predicate_family_fraction": 1.0,
+    "suffix_recovered_tasks": 3,
+    "suffix_recovered_task_ids": [2, 4, 8],
+    "suffix_recovered_mechanisms": ["placement"],
+    "additional_non_primary_observation": "the wine-bottle-on-rack task passed immediate dwell but failed after its full expert suffix before the hold"
+  },
+  "contract_adjudication": {
+    "execution_gate_pass": true,
+    "coverage_gate_pass": true,
+    "problem_gate_pass": false,
+    "headroom_gate_pass": false,
+    "failed_problem_conditions": [
+      "immediate-persistence disagreements did not span at least two task mechanisms",
+      "one predicate family explained more than two-thirds of disagreements"
+    ],
+    "failed_headroom_condition": "suffix recoveries did not span at least two mechanisms",
+    "bounded_expansion_legal": false,
+    "reason_bounded_expansion_illegal": "The frozen contract expressly allowed no outcome-driven task expansion and required rotation after any problem or headroom gate failure."
+  },
+  "claim_limits": [
+    "The exact three placement tasks show that an On predicate can fire before neutral-dwell durability, and the unused expert suffix can recover all three.",
+    "The result does not establish a general cross-mechanism persistent-completion problem.",
+    "No policy reliability, policy ranking, or method conclusion is supported.",
+    "Official demonstrations are predicate and recoverability controls, not VLA successes."
+  ],
+  "prohibited_rescues": [
+    "expand to new tasks or suites after observing the single-family result",
+    "relax the two-mechanism or single-predicate-explanation gates",
+    "rebrand an On-predicate-specific bugfix as a general completion benchmark",
+    "use last-action-repeat outcomes as the primary endpoint",
+    "design a termination method from the failed general benchmark claim"
+  ],
+  "next_action": "ACTIVATE_PRESPECIFIED_CONTACT_TRANSITION_TOPOLOGY_FALLBACK_RESOURCE_REPAIR_AUDIT"
+}
