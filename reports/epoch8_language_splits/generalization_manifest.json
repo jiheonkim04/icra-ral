@@ -1,0 +1,261 @@
+{
+  "candidate_independent": true,
+  "frozen_at": "2026-07-20T19:55:00+09:00",
+  "goal_task_holdout": {
+    "canonical_instructions": {
+      "6": "put the cream cheese in the bowl",
+      "9": "turn on the stove"
+    },
+    "confirmatory_paraphrase_rows": [
+      {
+        "batch_idx": 3,
+        "eval_id": 6,
+        "family": "act",
+        "high": "act",
+        "keyword_similarity": 1.0000001192092896,
+        "low": "addition_deletion",
+        "mid": "lexical",
+        "row_id": "0092a92e06181404ddb9ab38a0429b007040f643c3057c65224f323a06dfbca9",
+        "structural_similarity": 0.9333333333333333
+      },
+      {
+        "batch_idx": 5,
+        "eval_id": 6,
+        "family": "obj",
+        "high": "obj",
+        "keyword_similarity": 0.8565261363983154,
+        "low": "same_polarity_habitual",
+        "mid": "lexical",
+        "row_id": "418dd4a48434eac9f952c0aa230f4dddcf4f54a57389effaaaa60784ba06159d",
+        "structural_similarity": 1.0
+      },
+      {
+        "batch_idx": 2,
+        "eval_id": 6,
+        "family": "comp",
+        "high": "comp",
+        "keyword_similarity": 0.7365976572036743,
+        "low": "addition_deletion+same_polarity_contextual",
+        "mid": "lexical+lexical",
+        "row_id": "0ca2785a244150faa886b0e7e78f41bebcab9112b73cee6bef7557e6831386f3",
+        "structural_similarity": 0.9230769230769231
+      },
+      {
+        "batch_idx": 1,
+        "eval_id": 9,
+        "family": "act",
+        "high": "act",
+        "keyword_similarity": 1.0,
+        "low": "embedded_imperative",
+        "mid": "pragmatical",
+        "row_id": "e801a7dfd860f8145b04b48a30b8f03f78950579cfec0594be42f0f6d57cf2b1",
+        "structural_similarity": 0.7272727272727273
+      },
+      {
+        "batch_idx": 9,
+        "eval_id": 9,
+        "family": "obj",
+        "high": "obj",
+        "keyword_similarity": 0.8642547726631165,
+        "low": "same_polarity_contextual",
+        "mid": "lexical",
+        "row_id": "baff16f806aa9cbe41ce354aba393d1857a705f24fe038d3041da4a6d8d68e25",
+        "structural_similarity": 0.5555555555555556
+      },
+      {
+        "batch_idx": 6,
+        "eval_id": 9,
+        "family": "comp",
+        "high": "comp",
+        "keyword_similarity": 0.510055422782898,
+        "low": "same_polarity_habitual+hint",
+        "mid": "lexical+pragmatical",
+        "row_id": "55d67d8d5f0a3b50276d363251da11ee5dac84a4254dd5bac04bfe349256e76f",
+        "structural_similarity": 0.4545454545454546
+      }
+    ],
+    "initial_state_indices": [
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "language_text_sealed": true,
+    "policy_query_seeds": [
+      115,
+      116,
+      117,
+      118,
+      119
+    ],
+    "task_eval_ids": [
+      6,
+      9
+    ],
+    "training_exclusion": true
+  },
+  "libero_cf_holdout": {
+    "artifact_revision": "8460457bfca6e0ef2e856bc104e2c60b023ef2a7",
+    "selection": "two BDDLs per released suite, SHA256-ranked by salt/suite/path before any X-VLA/Ours outcome",
+    "tasks": [
+      {
+        "bddl_relative_path": "bddl_files/libero_cf_spatial/05-pick_up_the_ramekin_and_place_it_on_the_plate.bddl",
+        "bddl_sha256": "e4a4b403f8c69ae2f464a5a5e24a7ffe791024567e4b94f242ca1703a8c9bdc0",
+        "init_relative_path": "init_files/libero_cf_spatial/05-pick_up_the_ramekin_and_place_it_on_the_plate.pruned_init",
+        "init_sha256": "0627f5f5ce3ef23be546571012be8ef603d93bcb4032bc80feb34937ba580140",
+        "initial_state_indices": [
+          0,
+          1,
+          2
+        ],
+        "policy_query_seeds": [
+          211,
+          212,
+          213
+        ],
+        "suite": "libero_cf_spatial",
+        "task_stem": "05-pick_up_the_ramekin_and_place_it_on_the_plate"
+      },
+      {
+        "bddl_relative_path": "bddl_files/libero_cf_spatial/10-pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.bddl",
+        "bddl_sha256": "838206a4dd894343325f385416f7167224553bcb9316c5d82c229b439398f72d",
+        "init_relative_path": "init_files/libero_cf_spatial/10-pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.pruned_init",
+        "init_sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e",
+        "initial_state_indices": [
+          0,
+          1,
+          2
+        ],
+        "policy_query_seeds": [
+          211,
+          212,
+          213
+        ],
+        "suite": "libero_cf_spatial",
+        "task_stem": "10-pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate"
+      },
+      {
+        "bddl_relative_path": "bddl_files/libero_cf_object/01-pick_up_the_cream_cheese_and_place_it_in_the_basket.bddl",
+        "bddl_sha256": "6494bb6f6a866226af5f205e31acadc24294c6a5b796ebdf631d4f95452b0097",
+        "init_relative_path": "init_files/libero_cf_object/01-pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init",
+        "init_sha256": "b9023e5546b239cacb2aaa3c76df3b73c3de6f97500fea5e27a0db9827002a19",
+        "initial_state_indices": [
+          0,
+          1,
+          2
+        ],
+        "policy_query_seeds": [
+          211,
+          212,
+          213
+        ],
+        "suite": "libero_cf_object",
+        "task_stem": "01-pick_up_the_cream_cheese_and_place_it_in_the_basket"
+      },
+      {
+        "bddl_relative_path": "bddl_files/libero_cf_object/07-pick_up_the_ketchup_and_place_it_in_the_basket.bddl",
+        "bddl_sha256": "76908d647a1d2928232b00c503597510454ba24d2ec364ef2c3e2df9f82c7711",
+        "init_relative_path": "init_files/libero_cf_object/07-pick_up_the_ketchup_and_place_it_in_the_basket.pruned_init",
+        "init_sha256": "f0925a8653c5902c5a4d78a2053365382ad7d05be7f059abe19c2004ffc5dc59",
+        "initial_state_indices": [
+          0,
+          1,
+          2
+        ],
+        "policy_query_seeds": [
+          211,
+          212,
+          213
+        ],
+        "suite": "libero_cf_object",
+        "task_stem": "07-pick_up_the_ketchup_and_place_it_in_the_basket"
+      },
+      {
+        "bddl_relative_path": "bddl_files/libero_cf_long/01-put_the_wine_bottle_in_the_bottom_drawer_of_the_cabinet.bddl",
+        "bddl_sha256": "4df03317367f1bb6f319702f584de6641e910747f58f412807dcfba70e8409e9",
+        "init_relative_path": "init_files/libero_cf_long/01-put_the_wine_bottle_in_the_bottom_drawer_of_the_cabinet.pruned_init",
+        "init_sha256": "fb69fed2dcba97a526aee898cb3254bc5abbda6a94cb22fb0752f71b68783d75",
+        "initial_state_indices": [
+          0,
+          1,
+          2
+        ],
+        "policy_query_seeds": [
+          211,
+          212,
+          213
+        ],
+        "suite": "libero_cf_long",
+        "task_stem": "01-put_the_wine_bottle_in_the_bottom_drawer_of_the_cabinet"
+      },
+      {
+        "bddl_relative_path": "bddl_files/libero_cf_long/06-pick_up_the_yellow_and_white_mug_and_place_it_in_the_back_compartment_of_the_caddy.bddl",
+        "bddl_sha256": "9473948464f090f0d13b9433adaff820659d20918f525c005d029f92a8edf67a",
+        "init_relative_path": "init_files/libero_cf_long/06-pick_up_the_yellow_and_white_mug_and_place_it_in_the_back_compartment_of_the_caddy.pruned_init",
+        "init_sha256": "6cd3937ba18d64e72223222af36888d26ea201840415adbc4dae590454d0a5a8",
+        "initial_state_indices": [
+          0,
+          1,
+          2
+        ],
+        "policy_query_seeds": [
+          211,
+          212,
+          213
+        ],
+        "suite": "libero_cf_long",
+        "task_stem": "06-pick_up_the_yellow_and_white_mug_and_place_it_in_the_back_compartment_of_the_caddy"
+      },
+      {
+        "bddl_relative_path": "bddl_files/libero_cf_ood/05-pick_up_the_cup_and_place_it_on_the_plate.bddl",
+        "bddl_sha256": "84582d277d492a9fd9edc858ea262a4dd0aa413bc8919289e6c9a40fb20e337f",
+        "init_relative_path": "init_files/libero_cf_ood/05-pick_up_the_cup_and_place_it_on_the_plate.pruned_init",
+        "init_sha256": "0627f5f5ce3ef23be546571012be8ef603d93bcb4032bc80feb34937ba580140",
+        "initial_state_indices": [
+          0,
+          1,
+          2
+        ],
+        "policy_query_seeds": [
+          211,
+          212,
+          213
+        ],
+        "suite": "libero_cf_ood",
+        "task_stem": "05-pick_up_the_cup_and_place_it_on_the_plate"
+      },
+      {
+        "bddl_relative_path": "bddl_files/libero_cf_ood/04-pick_up_the_cup_and_place_it_on_the_plate.bddl",
+        "bddl_sha256": "3e44ebb3600ffeaa17efe291c8ba39fb35e68f67ae0a66de92ce9a10e18b1159",
+        "init_relative_path": "init_files/libero_cf_ood/04-pick_up_the_cup_and_place_it_on_the_plate.pruned_init",
+        "init_sha256": "27d5b81d739f969e40c72b6c88699e57a91ea61209946b21c593aae5990689cb",
+        "initial_state_indices": [
+          0,
+          1,
+          2
+        ],
+        "policy_query_seeds": [
+          211,
+          212,
+          213
+        ],
+        "suite": "libero_cf_ood",
+        "task_stem": "04-pick_up_the_cup_and_place_it_on_the_plate"
+      }
+    ]
+  },
+  "may_tune_on_outcomes": false,
+  "model_loaded": false,
+  "ours_outcomes_observed": false,
+  "role": "generalization",
+  "salt": "epoch8-language-grounding-splits-v1",
+  "schema_version": "epoch8.language_generalization_manifest.v1",
+  "simulator_episode_count": 0,
+  "source_partition": {
+    "assignment_sha256": "041e3cb49f2daf72fe5dd55e71cc7c5dd0bfddc1e11d2dc2707181457110bfd1",
+    "path": "reports/epoch7_selective_language_grounding/method_partition_manifest.json",
+    "sha256": "6dc4ff322941f4a9f8fd7fa95bc726e2d9bb516a4af21f94ae2403f25b750c2f"
+  },
+  "status": "SEALED_HELD_OUT_TASK_AND_SUITE_GENERALIZATION"
+}

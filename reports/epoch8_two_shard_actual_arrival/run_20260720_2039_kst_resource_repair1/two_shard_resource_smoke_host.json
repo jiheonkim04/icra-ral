@@ -1,0 +1,398 @@
+﻿{
+    "schema_version":  "epoch8.two_shard_actual_arrival.host_resource_smoke.v1",
+    "completed_at":  "2026-07-20T20:52:00.1001486+09:00",
+    "run_id":  "run_20260720_2039_kst_resource_repair1",
+    "protocol_sha256":  "4C5CD89AAE4C36B978FF3DBBD3658D2217A88115E19F3FACBFA60D18DA96904B",
+    "child_exit_code":  null,
+    "peak_used_fraction":  0.84664605300538121,
+    "used_fraction_ceiling":  0.82,
+    "ceiling_breached":  true,
+    "peak_page_writes_per_sec":  0,
+    "peak_pages_output_per_sec":  0,
+    "maximum_consecutive_paging_samples":  0,
+    "sustained_paging_detected":  false,
+    "sample_count":  63,
+    "monitor_exception":  null,
+    "internal_report_sha256":  null,
+    "final_decision":  "TWO_SHARD_RESOURCE_BLOCKED_CURRENT_HOST",
+    "samples":  [
+                    {
+                        "captured_at":  "2026-07-20T20:51:09.2646283+09:00",
+                        "used_fraction":  0.40363898369983653,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:10.0842289+09:00",
+                        "used_fraction":  0.42507697185041238,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:10.9147311+09:00",
+                        "used_fraction":  0.42660809202860661,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:11.7292465+09:00",
+                        "used_fraction":  0.42735364231866635,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:12.5423151+09:00",
+                        "used_fraction":  0.42636138685199743,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:13.3561507+09:00",
+                        "used_fraction":  0.42595526204190526,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:14.1696596+09:00",
+                        "used_fraction":  0.42611435229598038,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:14.9967872+09:00",
+                        "used_fraction":  0.42448079512189096,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:15.8083642+09:00",
+                        "used_fraction":  0.42439169799202081,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:16.6214054+09:00",
+                        "used_fraction":  0.42440339096100554,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:17.4371632+09:00",
+                        "used_fraction":  0.42472980595435628,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:18.2529700+09:00",
+                        "used_fraction":  0.42470658470609068,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:19.0658014+09:00",
+                        "used_fraction":  0.42887257545876378,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:19.8905191+09:00",
+                        "used_fraction":  0.42836006109988023,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:20.7040309+09:00",
+                        "used_fraction":  0.42848901313812116,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:21.5272504+09:00",
+                        "used_fraction":  0.42738575681094859,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:22.3438883+09:00",
+                        "used_fraction":  0.427002029800602,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:23.1698885+09:00",
+                        "used_fraction":  0.42711681852429795,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:23.9804125+09:00",
+                        "used_fraction":  0.4259070079586299,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:24.7927225+09:00",
+                        "used_fraction":  0.42572766087096148,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:25.6069434+09:00",
+                        "used_fraction":  0.4261943914921299,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:26.4162792+09:00",
+                        "used_fraction":  0.42601109185156516,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:27.2293464+09:00",
+                        "used_fraction":  0.42562440042654637,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:28.0377042+09:00",
+                        "used_fraction":  0.42596399059621792,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:28.8518769+09:00",
+                        "used_fraction":  0.42450846299216494,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:29.6677383+09:00",
+                        "used_fraction":  0.42465487213903108,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:30.4840736+09:00",
+                        "used_fraction":  0.42345873081879604,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:31.2972200+09:00",
+                        "used_fraction":  0.42346268337169235,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:32.1087287+09:00",
+                        "used_fraction":  0.42344588502188318,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:32.9227294+09:00",
+                        "used_fraction":  0.4225960861491842,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:33.7327286+09:00",
+                        "used_fraction":  0.42253663316603607,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:34.5594509+09:00",
+                        "used_fraction":  0.42241970347618796,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:35.3703398+09:00",
+                        "used_fraction":  0.45148513057834905,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:36.1949594+09:00",
+                        "used_fraction":  0.48622000074110372,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:37.0075819+09:00",
+                        "used_fraction":  0.52228638716079068,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:37.8366848+09:00",
+                        "used_fraction":  0.55352275394123041,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:38.6505240+09:00",
+                        "used_fraction":  0.57577183888406258,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:39.4764521+09:00",
+                        "used_fraction":  0.59779200513831876,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:40.3061410+09:00",
+                        "used_fraction":  0.60801594196334829,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:41.1193831+09:00",
+                        "used_fraction":  0.60843853574384166,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:41.9327874+09:00",
+                        "used_fraction":  0.61071010083127131,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:42.7450370+09:00",
+                        "used_fraction":  0.619163458648474,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:43.5544027+09:00",
+                        "used_fraction":  0.61904142357780145,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:44.3809835+09:00",
+                        "used_fraction":  0.61392994923439881,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:45.1906270+09:00",
+                        "used_fraction":  0.61462609261325507,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:46.0201879+09:00",
+                        "used_fraction":  0.61481383887582808,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:46.8329969+09:00",
+                        "used_fraction":  0.61631794994256439,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:47.6757966+09:00",
+                        "used_fraction":  0.64382030706395321,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:48.4881948+09:00",
+                        "used_fraction":  0.694524314376176,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:49.3171334+09:00",
+                        "used_fraction":  0.741773131698239,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:50.1313245+09:00",
+                        "used_fraction":  0.74426801602430825,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:50.9630107+09:00",
+                        "used_fraction":  0.7367237453732487,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:51.7883883+09:00",
+                        "used_fraction":  0.77224385604472978,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:52.6196702+09:00",
+                        "used_fraction":  0.77329507042543466,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:53.4324308+09:00",
+                        "used_fraction":  0.77347589972043918,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:54.2451119+09:00",
+                        "used_fraction":  0.77339190797139334,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:55.0574576+09:00",
+                        "used_fraction":  0.77486588082229568,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:55.8739178+09:00",
+                        "used_fraction":  0.77670414729847126,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:56.6829582+09:00",
+                        "used_fraction":  0.78285119050069785,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:57.4963926+09:00",
+                        "used_fraction":  0.79081459644846652,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:58.3080839+09:00",
+                        "used_fraction":  0.795143630008111,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:59.1323982+09:00",
+                        "used_fraction":  0.79869417533689335,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    },
+                    {
+                        "captured_at":  "2026-07-20T20:51:59.9651457+09:00",
+                        "used_fraction":  0.84664605300538121,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    }
+                ]
+}

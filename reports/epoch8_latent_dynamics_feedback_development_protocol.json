@@ -1,0 +1,108 @@
+{
+  "schema_version": "epoch8.latent_dynamics.feedback_development_protocol.v1",
+  "frozen_at": "2026-07-20T20:28:28+09:00",
+  "status": "FROZEN_BEFORE_NEW_FEEDBACK_EXPERT_OUTCOMES",
+  "parent_epoch7_protocol": "reports/epoch7_latent_dynamics_attribution/discovery_protocol.json",
+  "parent_epoch7_decision": "NO_LEGAL_HEADROOM_FROM_STANDARD_DEMONSTRATION_REPLAY",
+  "reopening_basis": "Epoch 8 explicitly permits a new altered-dynamics controller or expert; the Epoch 7 closure states that failed replay did not prove task impossibility.",
+  "purpose": "Restore a third task and collapsed manipulation family for the feasibility oracle before any VLA dynamics rollout.",
+  "policy_loaded_or_queried": false,
+  "expert_role": "privileged feasibility oracle only; never a VLA comparator and never counted as policy success",
+  "task": {
+    "eval_id": 2,
+    "family": "planar_push",
+    "goal_bddl": "push_the_plate_to_the_front_of_the_stove.bddl",
+    "target_body": "plate_1_main",
+    "goal_site": "main_table_stove_front_region",
+    "init_file": "/mnt/c/assets/repos/LIBERO-Para/libero/libero/init_files/libero_para/eval2.pruned_init",
+    "init_file_sha256": "794beed679b18bbd7d9fb851c81877a974915ad63addff2d5ac5af0607fafac9",
+    "intervention": {
+      "axis": "target_contact_friction",
+      "body_name": "plate_1_main",
+      "array": "geom_friction",
+      "components": [0, 1, 2],
+      "collision_geoms_only": true,
+      "factor": 0.25
+    }
+  },
+  "identity_partition": {
+    "development_state_indices": [0, 1, 2],
+    "sealed_validation_state_indices": [10, 20, 30],
+    "sealed_confirmation_state_indices": [40, 45, 49],
+    "validation_or_confirmation_access_during_development_forbidden": true
+  },
+  "simulator": {
+    "libero_source_revision": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+    "libero_para_revision": "5a2198299a6d7a49bdb3cd519c7e92ed803adf5f",
+    "camera_resolution": 64,
+    "live_environment_limit": 1,
+    "settle_steps_under_standard_dynamics": 10,
+    "controller": "LIBERO default delta OSC_POSE",
+    "action_bounds": [-1.0, 1.0],
+    "max_steps": 220,
+    "official_success": "OffScreenRenderEnv.check_success"
+  },
+  "controller": {
+    "legal_privileged_inputs": [
+      "current end-effector Cartesian position",
+      "current target-body Cartesian position",
+      "fixed goal-site Cartesian position",
+      "phase-local step count",
+      "official success only as a stopping predicate"
+    ],
+    "forbidden_inputs": [
+      "intervention label",
+      "friction values",
+      "rewards for action selection",
+      "future states",
+      "demonstration actions",
+      "VLA actions or features"
+    ],
+    "phases": [
+      "move above a point behind the plate along the plate-to-goal axis",
+      "descend to the frozen contact-height offset",
+      "move through the plate toward a point beyond the goal center",
+      "hold the terminal Cartesian target"
+    ],
+    "translation_action": "clip((desired_xyz - current_eef_xyz) / 0.05, -1, 1)",
+    "rotation_action": [0.0, 0.0, 0.0],
+    "gripper_action": -1.0,
+    "waypoint_tolerance_m": 0.012,
+    "minimum_phase_steps": 3,
+    "maximum_phase_steps": 70,
+    "approach_height_m": 0.10,
+    "success_hold_steps": 3
+  },
+  "controller_grid_order": [
+    {"id": "c00", "behind_distance_m": 0.04, "contact_height_m": 0.015, "overshoot_m": 0.04},
+    {"id": "c01", "behind_distance_m": 0.04, "contact_height_m": 0.015, "overshoot_m": 0.08},
+    {"id": "c02", "behind_distance_m": 0.04, "contact_height_m": 0.025, "overshoot_m": 0.04},
+    {"id": "c03", "behind_distance_m": 0.04, "contact_height_m": 0.025, "overshoot_m": 0.08},
+    {"id": "c04", "behind_distance_m": 0.06, "contact_height_m": 0.015, "overshoot_m": 0.04},
+    {"id": "c05", "behind_distance_m": 0.06, "contact_height_m": 0.015, "overshoot_m": 0.08},
+    {"id": "c06", "behind_distance_m": 0.06, "contact_height_m": 0.025, "overshoot_m": 0.04},
+    {"id": "c07", "behind_distance_m": 0.06, "contact_height_m": 0.025, "overshoot_m": 0.08}
+  ],
+  "execution_order": "For each controller in listed order, execute each development identity in listed order, standard then intervention. Stop testing a controller after the first failed or invalid pair. Select and stop at the first controller passing every required episode.",
+  "development_gate": {
+    "required_completed_episodes": 6,
+    "finite_action_fraction": 1.0,
+    "standard_success_fraction": 1.0,
+    "intervention_success_fraction": 1.0,
+    "target_contact_fraction": 1.0,
+    "paired_initial_state_exact": true
+  },
+  "decisions": {
+    "pass": "FEEDBACK_EXPERT_DEVELOPMENT_PASS_FREEZE_SELECTED_CONTROLLER_BEFORE_VALIDATION",
+    "fail": "FEEDBACK_EXPERT_DEVELOPMENT_FAIL_ROTATE",
+    "invalid": "FEEDBACK_EXPERT_DEVELOPMENT_INVALID"
+  },
+  "prohibited_repairs_after_development": [
+    "add controller configurations",
+    "change intervention factor",
+    "change task or family requirement",
+    "use validation or confirmation identities for tuning",
+    "select a controller using VLA outcomes",
+    "count the privileged expert as policy performance"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "assignments": {
+    "0": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18
+    ],
+    "1": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15,
+      17,
+      19
+    ]
+  },
+  "completed_at": "2026-07-20T11:44:58Z",
+  "epoch6_four_shard_outcomes_observed": 0,
+  "epoch6_static_preflight_sha256": "C4E13BF0ADFB543A3308A14F44EF4B7CE94AC1CB69B5A7832733F84C1967BC1F",
+  "protocol_sha256": "4C5CD89AAE4C36B978FF3DBBD3658D2217A88115E19F3FACBFA60D18DA96904B",
+  "required_first_arrival": [
+    1,
+    0
+  ],
+  "runner_sha256": "5452E60D2B2EA1985CCC7792BE22D113897131922C5A9B1409862FFB969E3AF4",
+  "schedules": [
+    "epoch8_single_lane_canonical_serial",
+    "epoch8_two_shards_actual_arrival"
+  ],
+  "schema_version": "epoch8.two_shard_actual_arrival.preflight.v1",
+  "scientific_outcomes_read": false,
+  "status": "EPOCH8_TWO_SHARD_PREFLIGHT_PASS"
+}

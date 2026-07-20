@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  "epoch8.two_shard_actual_arrival.host_resource_smoke.v1",
+    "completed_at":  "2026-07-20T20:47:18.2973830+09:00",
+    "run_id":  "run_20260720_2039_kst",
+    "protocol_sha256":  "4C5CD89AAE4C36B978FF3DBBD3658D2217A88115E19F3FACBFA60D18DA96904B",
+    "child_exit_code":  null,
+    "peak_used_fraction":  0.40907950807185411,
+    "used_fraction_ceiling":  0.82,
+    "ceiling_breached":  false,
+    "peak_page_writes_per_sec":  0,
+    "peak_pages_output_per_sec":  0,
+    "maximum_consecutive_paging_samples":  0,
+    "sustained_paging_detected":  false,
+    "sample_count":  1,
+    "monitor_exception":  null,
+    "internal_report_sha256":  null,
+    "final_decision":  "TWO_SHARD_RESOURCE_BLOCKED_CURRENT_HOST",
+    "samples":  [
+                    {
+                        "captured_at":  "2026-07-20T20:47:17.7873045+09:00",
+                        "used_fraction":  0.40907950807185411,
+                        "page_writes_per_sec":  0,
+                        "pages_output_per_sec":  0
+                    }
+                ]
+}

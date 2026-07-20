@@ -1,0 +1,30 @@
+{
+  "schema_version": "epoch8.active_property.probe_return_protocol.v1",
+  "frozen_at": "2026-07-20T21:19:00+09:00",
+  "status": "FROZEN_BEFORE_PROBE_RETURN_OUTCOMES",
+  "purpose": "Test whether retained scripted demonstration prefixes can form a legal probe-return primitive before any active-property policy is designed.",
+  "tasks": [
+    {"target": "front", "body": "akita_black_bowl_1_main", "bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl", "hdf5": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate_demo.hdf5", "demo": "demo_0"},
+    {"target": "middle", "body": "akita_black_bowl_2_main", "bddl": "KITCHEN_SCENE2_put_the_middle_black_bowl_on_the_plate.bddl", "hdf5": "KITCHEN_SCENE2_put_the_middle_black_bowl_on_the_plate_demo.hdf5", "demo": "demo_0"},
+    {"target": "back", "body": "akita_black_bowl_3_main", "bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl", "hdf5": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate_demo.hdf5", "demo": "demo_0"}
+  ],
+  "mass_factors": [1.0, 8.0],
+  "forward_prefix": "same light-derived prefix ending 30 actions after first target contact for both mass conditions",
+  "return_controller": "reverse prefix order, negate six delta-pose components, retain closed-gripper command, then execute ten zero-pose open-gripper actions",
+  "legal_inputs": "predeclared actions and ordinary controller execution only; no mass, state, segmentation, reward, or success is used for action selection",
+  "evaluation_only_state": ["target-body Cartesian position", "end-effector Cartesian position", "target contact"],
+  "gates": {
+    "completed_episodes": 6,
+    "target_contact_fraction": 1.0,
+    "finite_bounded_action_fraction": 1.0,
+    "final_target_displacement_m_max": 0.03,
+    "final_eef_displacement_m_max": 0.05,
+    "all_positions_and_mass_factors_required": true
+  },
+  "decisions": {
+    "positive": "SCRIPTED_PROBE_RETURN_FEASIBILITY_GO",
+    "negative": "SCRIPTED_PROBE_RETURN_EXACT_CONTROLLER_NOT_FEASIBLE",
+    "invalid": "SCRIPTED_PROBE_RETURN_INVALID"
+  },
+  "claim_limit": "A pass authorizes design work only; a failure closes this exact inverse-delta expert, not active property grounding or all feedback controllers."
+}

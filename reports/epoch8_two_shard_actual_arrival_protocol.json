@@ -1,0 +1,88 @@
+{
+  "schema_version": "epoch8.two_shard_actual_arrival.protocol.v1",
+  "frozen_at": "2026-07-20T20:39:13+09:00",
+  "status": "FROZEN_BEFORE_TWO_SHARD_RESOURCE_OR_SCIENTIFIC_OUTCOMES",
+  "thesis_id": "two_shard_actual_arrival_schedule_dependence",
+  "relationship_to_epoch6": {
+    "classification": "NEW_INDEPENDENT_PROTOCOL_NOT_A_CONTINUATION_OR_SUBSTITUTE",
+    "archived_four_shard_status": "RESOURCE_BLOCKED_WITH_0_OF_40_EPISODES_EXECUTED",
+    "four_shard_result_must_not_be_relabeled": true,
+    "reused_positive_evidence": "Epoch 6 action-only Stage 0 established process-global RNG order dependence under identical inputs.",
+    "material_change": "two live environment processes, even/odd identity allocation, one-second reversed launch offset, and a new outcome-blind resource gate"
+  },
+  "hypothesis": "With one stochastic X-VLA model server and process-global RNG, two live simulator shards create actual request-arrival remapping that changes paired official closed-loop outcomes relative to a serial schedule.",
+  "novelty_and_scope": {
+    "bounded_claim": "evaluation-schedule sensitivity on the pinned local X-VLA/LIBERO stack",
+    "closest_prior_and_overlap": [
+      "vla-eval supplies sharding and broad reproducibility infrastructure",
+      "the archived Epoch 6 protocol proposed four-shard schedule invariance but has no closed-loop outcome",
+      "this experiment is a locally feasible two-shard boundary test, not a claim that schedule dependence is generally new"
+    ],
+    "ral_positive_case": "A positive paired outcome effect tied at the first remapped action trace would establish a robotics consequence beyond seed bookkeeping and authorize an episode-addressed randomness method under a new contract.",
+    "strongest_reject_risk": "The result may be stack-specific systems hygiene, and the exact solution direction is substantially anticipated by reproducible inference work."
+  },
+  "inheritance": {
+    "epoch6_scientific_protocol": "reports/epoch6_schedule_invariant_evaluation/problem_verification_protocol.json",
+    "epoch6_execution_manifest": "reports/epoch6_schedule_invariant_evaluation/closed_loop_execution_manifest.json",
+    "epoch6_stage0_result": "reports/epoch6_schedule_invariant_evaluation/stage0_result.json",
+    "frozen_unchanged_fields": [
+      "X-VLA source, checkpoint, dtype, denoising steps, domain, and root seed",
+      "twenty task/reset identities across four LIBERO suites",
+      "image, proprioception, action-conversion, horizon, and official success semantics",
+      "single shared FIFO model service and process-global noise ordinal",
+      "serial identity order, trace fields, durability, and zero-exception requirements"
+    ]
+  },
+  "resource_gate": {
+    "must_pass_before_scientific_episode": true,
+    "simultaneous_environment_processes": 2,
+    "shared_model_instances": 1,
+    "model_forward_calls": 1,
+    "simulator_actions": 0,
+    "reward_success_done_reads": 0,
+    "host_physical_memory_used_fraction_max": 0.82,
+    "wsl_swap_used_bytes_max": 0,
+    "cpu_or_disk_model_offload_allowed": false,
+    "finite_raw_chunk_required": true,
+    "telemetry_exception_count_max": 0,
+    "failure_decision": "TWO_SHARD_RESOURCE_BLOCKED_CURRENT_HOST"
+  },
+  "schedules": {
+    "epoch8_single_lane_canonical_serial": {
+      "logical_shards": 1,
+      "assignments": {"0": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]},
+      "launch_offsets_seconds": {"0": 0.0}
+    },
+    "epoch8_two_shards_actual_arrival": {
+      "logical_shards": 2,
+      "assignments": {
+        "0": [0, 2, 4, 6, 8, 10, 12, 14, 16, 18],
+        "1": [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+      },
+      "launch_offsets_seconds": {"0": 1.0, "1": 0.0},
+      "required_initial_first_arrival_shard_order": [1, 0],
+      "actual_arrival_log_required": true
+    }
+  },
+  "scientific_gate": {
+    "completed_episode_executions_required": 40,
+    "paired_success_or_timeout_disagreement_fraction_min": 0.20,
+    "success_rate_spread_min": 0.10,
+    "changed_first_remapped_trace_fraction_among_discordant_pairs_min": 0.80,
+    "exception_count_max": 0,
+    "integrity_required": true
+  },
+  "decisions": {
+    "positive": "TWO_SHARD_PROBLEM_VERIFIED_METHOD_DESIGN_AUTHORIZED",
+    "negative": "TWO_SHARD_NO_REPEATABLE_PROBLEM",
+    "invalid": "TWO_SHARD_EVALUATION_INVALID",
+    "resource": "TWO_SHARD_RESOURCE_BLOCKED_CURRENT_HOST"
+  },
+  "prohibitions": [
+    "no claim that this executes or repairs the archived four-shard protocol",
+    "no method, keyed noise, training, threshold change, task change, identity change, schedule change, or post-outcome seed selection before the problem gate",
+    "no same-process environment multiplexing or serial emulation if the two-process resource gate fails",
+    "no swap, CPU offload, disk offload, or hidden paging strategy",
+    "no paper-positive claim from action-trace divergence without the frozen closed-loop gates"
+  ]
+}

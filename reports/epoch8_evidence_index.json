@@ -1,0 +1,213 @@
+{
+  "schema_version": "epoch8.evidence_index.v1",
+  "generated_at": "2026-07-20T21:34:01+09:00",
+  "branch": "codex/epoch8-language-grounding-convergence",
+  "source_commit": "4422a95be5412bdb774287fce9f42004a8631f39",
+  "terminal_state": "LOCAL_PROGRAM_BLOCKED_WITH_AUDITABLE_EXHAUSTION",
+  "critical_artifact_count": 38,
+  "all_present": true,
+  "artifacts": [
+    {
+      "path": "reports/epoch8_route_evidence_ledger.json",
+      "bytes": 220333,
+      "sha256": "43F252493D4CBDC92E8F130D751AC16153DC65AC8ECCFCC930ACC52774D0653B"
+    },
+    {
+      "path": "reports/epoch8_route_evidence_audit.md",
+      "bytes": 4211,
+      "sha256": "C8A0098A73FCD79A4C74C7FF7FE7C57888B8418EE0EA21BE5EFDADD4E211F472"
+    },
+    {
+      "path": "reports/epoch8_language_artifact_matrix.json",
+      "bytes": 43770,
+      "sha256": "FDEC14E24B0493A3A7591853FF4148C7EB583B1F19A51736C9EF8F66B1E9F461"
+    },
+    {
+      "path": "reports/epoch8_language_primary_overlap_audit.md",
+      "bytes": 10538,
+      "sha256": "118ADB2FE4C33FABD3AFF3A98C403CE8290D006A7000CB0AADDBC08F34E03205"
+    },
+    {
+      "path": "reports/epoch8_language_splits/split_index.json",
+      "bytes": 2258,
+      "sha256": "C9E150270B65CB97EDBCF19954574233C5F45188119154E44E0F6FC1526DFA9A"
+    },
+    {
+      "path": "reports/epoch8_candidate_mechanism_comparison.md",
+      "bytes": 8456,
+      "sha256": "1AFA1F6180817EC7866D3A554BAB69E6687F2D02B7B085CBBED7E9B90C00E048"
+    },
+    {
+      "path": "reports/epoch8_action_response_supervision.json",
+      "bytes": 85089,
+      "sha256": "881CDA153F2488CAD0D03CD50A8801CB5C70E1031114489D6EBE106B00DB286D"
+    },
+    {
+      "path": "reports/epoch8_pcat_stage0_protocol.json",
+      "bytes": 8609,
+      "sha256": "89C6D9090D29B5ADDD2F2D4CE65E5F4351D4122BA112CEBC8E9CCE46730D3B0E"
+    },
+    {
+      "path": "scripts/run_epoch8_pcat_stage0.py",
+      "bytes": 50695,
+      "sha256": "B9B2C524665C8A49A8F76962C7F7D3127E139378BA3FD857F921661C30AE82FB"
+    },
+    {
+      "path": "reports/epoch8_pcat_stage0/result.json",
+      "bytes": 30749,
+      "sha256": "64EAA83CA1E9A78B4A3E958698CE1C04B408DD9344EC560C0BA662FF30F47E82"
+    },
+    {
+      "path": "reports/epoch8_pcat_stage0/train_log.jsonl",
+      "bytes": 4025,
+      "sha256": "A172997704646A5B968D73C6EC9DF8382E1DEB3FBB7DB72361E770068F0D10DD"
+    },
+    {
+      "path": "reports/epoch8_pcat_stage0_adjudication.json",
+      "bytes": 6266,
+      "sha256": "F9F26CBB0B0E79F358540F066817C692E45B3FEEBC716AB1493EEC5F67514493"
+    },
+    {
+      "path": "reports/epoch8_rotation_ranking.md",
+      "bytes": 5333,
+      "sha256": "AAD995D16FD6AE861A02B882F3CB65C6639B0B322CFA81DB9A298364AF71F352"
+    },
+    {
+      "path": "reports/epoch8_latent_dynamics_feedback_development_protocol.json",
+      "bytes": 5098,
+      "sha256": "C379E7E11F7495245DAFBCA7BF5AABCE67B8ACBE8F4510A542D8C98F12212D40"
+    },
+    {
+      "path": "scripts/run_epoch8_latent_dynamics_feedback_development.py",
+      "bytes": 13148,
+      "sha256": "34438BE4556B8E333DB25635B659B69206C13FB9639E643770864D04EDA9AFFA"
+    },
+    {
+      "path": "reports/epoch8_latent_dynamics_feedback_development.json",
+      "bytes": 77234,
+      "sha256": "94D24E5D27EE380805D6EB6A602BBCBAF44D45A8316A66A717C5C4BAFF5CD9CB"
+    },
+    {
+      "path": "reports/epoch8_latent_dynamics_feedback_adjudication.md",
+      "bytes": 1882,
+      "sha256": "3A78D562D85785376017D144B4B33F1053DA4BF83E1396B41BEB4F7F28967605"
+    },
+    {
+      "path": "reports/epoch8_two_shard_actual_arrival_protocol.json",
+      "bytes": 4949,
+      "sha256": "0A22BAC09AAC88E51F05DA946C4D7ECE76C063C618EEED335F8C4DA27EB17318"
+    },
+    {
+      "path": "scripts/run_epoch8_two_shard_actual_arrival.py",
+      "bytes": 14568,
+      "sha256": "5452E60D2B2EA1985CCC7792BE22D113897131922C5A9B1409862FFB969E3AF4"
+    },
+    {
+      "path": "scripts/monitor_epoch8_two_shard_resource_smoke.ps1",
+      "bytes": 6525,
+      "sha256": "854DE489C354A0DB5471A005AACE67FA2AC0C53EE95A0A2A7F8B00B8B598F8CE"
+    },
+    {
+      "path": "reports/epoch8_two_shard_actual_arrival/run_20260720_2039_kst_resource_repair1/epoch8_two_shard_preflight.json",
+      "bytes": 920,
+      "sha256": "53B316CAA61EA8FF9B89C505BB2FCB52207D0022B5884BFDE662CD40BB556C24"
+    },
+    {
+      "path": "reports/epoch8_two_shard_actual_arrival/run_20260720_2039_kst_resource_repair1/two_shard_resource_smoke_host.json",
+      "bytes": 19260,
+      "sha256": "6A3CC73E1E978A6BB158746E16859F01D0C779812047A5586661A731C1EE05B7"
+    },
+    {
+      "path": "reports/epoch8_two_shard_actual_arrival/run_20260720_2039_kst_resource_repair1/two_shard_resource_heartbeat.json",
+      "bytes": 697,
+      "sha256": "FDCECCC702412A04FCC31509048D190EAAC5C8C91CA4C94364B8EB6323E0E389"
+    },
+    {
+      "path": "reports/epoch8_active_latent_property_protocol.json",
+      "bytes": 5753,
+      "sha256": "554BBA5863592998010C23A6AB321FC8F0AC368843C02CF9A9C4FE873BC9A1B5"
+    },
+    {
+      "path": "scripts/run_epoch8_active_latent_property_stage_minus1.py",
+      "bytes": 19909,
+      "sha256": "8A9965A47908E2ED59D46C70A5A439B43C3F515D78D606A485257D38C1BC6D43"
+    },
+    {
+      "path": "reports/epoch8_active_latent_property/preflight.json",
+      "bytes": 12892,
+      "sha256": "E4589E2F89FA9EFB0D5A3D6D18F8218DCBF2F923D7F24F8172F64342241391AA"
+    },
+    {
+      "path": "reports/epoch8_active_latent_property/stage_minus1_result.json",
+      "bytes": 59504,
+      "sha256": "025AF2DBAB6D4A0F208E77D733098C9C66745FA0A5790D983ADABC8DDB210DD1"
+    },
+    {
+      "path": "reports/epoch8_active_property_probe_belief_protocol.json",
+      "bytes": 5890,
+      "sha256": "9C55B5BE24F7AE38BD8FCFC2589089094106F722C0ED97974245520D5FC37866"
+    },
+    {
+      "path": "scripts/run_epoch8_active_property_probe_belief_stage0.py",
+      "bytes": 17428,
+      "sha256": "5811EEC7F452F19F0418C1BB93610518214114ED662CF93EABDDAD73E7D28C82"
+    },
+    {
+      "path": "reports/epoch8_active_property_probe_belief_stage0.json",
+      "bytes": 58605,
+      "sha256": "82A01B2BE718ADEE693C92A0B64BB582EF9201E1EBFD9D949883AC722C62A792"
+    },
+    {
+      "path": "reports/epoch8_active_property_probe_belief_stage0_repair1.json",
+      "bytes": 58635,
+      "sha256": "B50CC22DC429689F290CD48A013B087D99068C314D10107650139EB3A8AAB469"
+    },
+    {
+      "path": "reports/epoch8_active_property_probe_return_protocol.json",
+      "bytes": 2245,
+      "sha256": "0942C47B9B11AB316F9AA24E7B59597FCC82496EBADE8D5932F0D67EE60E020E"
+    },
+    {
+      "path": "scripts/run_epoch8_active_property_probe_return.py",
+      "bytes": 7628,
+      "sha256": "39EE4393271EDDA4973EFBDC0B22E3B97971476724E75F72226FBD4BFE455A0E"
+    },
+    {
+      "path": "reports/epoch8_active_property_probe_return_result.json",
+      "bytes": 5400,
+      "sha256": "E680AB8614F336F7B58831CB0CCEB06114027D75930B12EC9C2943AE61A13577"
+    },
+    {
+      "path": "reports/epoch8_terminal_audit.md",
+      "bytes": 7433,
+      "sha256": "49DEBE5E3CA921473178AB0CA4EC7C7202B6DE71C063699592A4F0451AEE08B6"
+    },
+    {
+      "path": "reports/epoch8_campaign_state.json",
+      "bytes": 4731,
+      "sha256": "91F8353C06B2BCC98A9FF2B7ADFD463B418D4F92A08CA130FADC29D317C5D5D0"
+    },
+    {
+      "path": "reports/epoch8_terminal_handoff.md",
+      "bytes": 3051,
+      "sha256": "BE823F1536019F8EC9F42C0E751B11A26F04242390AE8B304DF42D17D1E109ED"
+    },
+    {
+      "path": "reports/epoch8_change_scope_justification.md",
+      "bytes": 1849,
+      "sha256": "3DE8E3BFACEA58A096DEEBC5E2DCA966EC2C96C2C39ABA5D2150762F2CAFA420"
+    }
+  ],
+  "protected_evidence": {
+    "rollouts/2026_07_17": {
+      "files": 27,
+      "bytes": 5143751,
+      "tree_sha256": "6BC7D7A37A2AD98E4A4EE1B20926B923CDFC88CF7D6CACB1352363657E29DE4F"
+    },
+    "rollouts/2026_07_18": {
+      "files": 10,
+      "bytes": 924633,
+      "tree_sha256": "7045345B51D54D7BD25DCA991D1E66D9D32AB4E577BEC3A4A46EC2101D1DD981"
+    }
+  }
+}

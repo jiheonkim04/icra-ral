@@ -1,0 +1,1772 @@
+{
+  "candidate": "PCAT",
+  "candidate_independent_splits_unchanged": true,
+  "classification": "OUTCOME_INDEPENDENT_REAL_DEMONSTRATION_SUPERVISION_AUDIT",
+  "construction": {
+    "action_chunk": [
+      1,
+      30
+    ],
+    "action_delta": "right real clean 30x9 continuous action chunk minus left real clean chunk",
+    "action_delta_raw_standard_deviations": [
+      0.053455513345899985,
+      0.03277961483729202,
+      0.07678708855067891,
+      0.20125685231071277,
+      0.09566474665076106,
+      0.0700697428930286,
+      0.10508464541255585,
+      0.15727534464925585,
+      0.17258250804216463
+    ],
+    "action_delta_scales": [
+      0.053455513345899985,
+      0.03277961483729202,
+      0.07678708855067891,
+      0.20125685231071277,
+      0.09566474665076106,
+      0.0700697428930286,
+      0.10508464541255585,
+      0.15727534464925585,
+      0.17258250804216463
+    ],
+    "frame_index": 0,
+    "gripper_excluded_from_transport_vector": true,
+    "gripper_retained_in_factual_clean_action_loss": true,
+    "no_synthetic_action_label": true,
+    "pair_match_scales": [
+      0.05,
+      0.05,
+      0.05,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "pairing": "one-to-one greedy minimum initial-proprio RMS with deterministic SHA256 tie break",
+    "pre_interaction": true
+  },
+  "counts": {
+    "eligible_training_demonstrations_per_task": {
+      "3": 41,
+      "4": 40,
+      "5": 38,
+      "7": 27,
+      "8": 39
+    },
+    "object_families": 2,
+    "tasks": 5,
+    "training_action_pairs": 48,
+    "training_equivalence_pairs": 15,
+    "validation_action_pairs": 4,
+    "validation_equivalence_pairs": 15
+  },
+  "frozen_at": "2026-07-20T20:10:00+09:00",
+  "gates": {
+    "close_initial_state_matches": true,
+    "maximum_training_initial_proprio_match_rms": 0.25,
+    "maximum_validation_initial_proprio_match_rms": 0.3,
+    "minimum_group_median_action_delta_normalized_rms": 0.25,
+    "minimum_validation_action_delta_normalized_rms": 0.25,
+    "noncollapsed": true
+  },
+  "group_summary": {
+    "bowl_destination_plate_cabinet": {
+      "initial_proprio_match_rms_max": 0.04364148569711097,
+      "initial_proprio_match_rms_median": 0.03183818969206455,
+      "real_action_delta_normalized_rms_median": 0.37878972365431574,
+      "real_action_delta_normalized_rms_min": 0.23196272480524516,
+      "training_pairs": 12
+    },
+    "bowl_destination_plate_stove": {
+      "initial_proprio_match_rms_max": 0.03725678243855701,
+      "initial_proprio_match_rms_median": 0.025762973547047863,
+      "real_action_delta_normalized_rms_median": 0.29562139429279227,
+      "real_action_delta_normalized_rms_min": 0.179031214260358,
+      "training_pairs": 12
+    },
+    "bowl_destination_stove_cabinet": {
+      "initial_proprio_match_rms_max": 0.03487179430148735,
+      "initial_proprio_match_rms_median": 0.02900682766600851,
+      "real_action_delta_normalized_rms_median": 0.4531811233804899,
+      "real_action_delta_normalized_rms_min": 0.28113946157981606,
+      "training_pairs": 12
+    },
+    "wine_destination_rack_cabinet": {
+      "initial_proprio_match_rms_max": 0.11178261201305342,
+      "initial_proprio_match_rms_median": 0.07232902282992268,
+      "real_action_delta_normalized_rms_median": 2.112758206567749,
+      "real_action_delta_normalized_rms_min": 1.8641442258331211,
+      "training_pairs": 12
+    }
+  },
+  "limits": [
+    "Initial end-effector pose is matched, but full simulator state is not present in the released X-VLA-format HDF5 files.",
+    "Real action transport is therefore a matched-demonstration causal proxy; official paired simulator rollouts remain the primary endpoint."
+  ],
+  "model_loaded": false,
+  "optimizer_step_count": 0,
+  "ours_outcomes_observed": false,
+  "schema_version": "epoch8.action_response_supervision.v1",
+  "simulator_episode_count": 0,
+  "sources": {
+    "language_audit": {
+      "path": "reports/epoch8_language_splits/language_pair_audit.json",
+      "sha256": "1b72fb5ad4a1a0b349adbebe380a3686de545a05e68b1e751dc5531491418e64"
+    },
+    "paraphrase_metadata": {
+      "path": "/mnt/c/assets/repos/LIBERO-Para/metrics/libero_para_metadata.csv",
+      "sha256": "c34b49822843189bc325382f6e9a086f801646343022aacc00c6ac7136b0627e"
+    },
+    "training_manifest": {
+      "path": "reports/epoch8_language_splits/training_manifest.json",
+      "sha256": "79c90f7232bf86912bb9540b31b5007bc71046dafa72a6fc920abfc03997e4dd"
+    },
+    "validation_manifest": {
+      "path": "reports/epoch8_language_splits/validation_manifest.json",
+      "sha256": "0eb9201ae7b1e75df1d719988fae84e7274fb68aead493f66da247047b4e7cd5"
+    },
+    "xvla_format_root": "/mnt/c/assets/datasets/Libero-XVLA-format/libero_goal"
+  },
+  "status": "ACTION_RESPONSE_SUPERVISION_PREFLIGHT_PASS",
+  "training_action_pairs": [
+    {
+      "initial_proprio_match_rms": 0.016221044738873737,
+      "left": {
+        "action_sha256": "e287d4f36713ae0b98297f8e51ce1ac643e1850f750b85cdb62347a8232cd57b",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "ff9531c751da1a6a4ce8950f9f7e8986f402c65aab745369ef16db34fb11e40d",
+        "frame_index": 0,
+        "proprio_sha256": "6f4b9db72fc7805d692251d33bbf4ef3ee4d5257dd96ce73c65d226b6e795d25",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_38.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_stove",
+      "pair_id": "43a16dc78ed8ec9e10355cacc8e132e8bd36c8d6f6fe467dfcbb1339ffc842a7",
+      "real_action_delta_normalized_rms": 0.4316915541115916,
+      "right": {
+        "action_sha256": "b7dddc5f3efcdb893ebec2310edaf6f52a11a9a6ce2a9d33cb05dd51e1219b9d",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "2413d14739f7008b880612fe7fa37dd501d79364b20250b8a259e6a41e6174d3",
+        "frame_index": 0,
+        "proprio_sha256": "0720001614d0d29ec76b56a3d49b802b95ae7fc1cad01d9484cc0f91e5447969",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_36.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.019931912473632643,
+      "left": {
+        "action_sha256": "a1b5feae664e462fc3d807b3f7392d2db976c75367a857d6f8b44070243dc43e",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "f0ecc77e857fb12a33dc599dbec04a5a41cdd32bdf8e95e88cc38872701eaffd",
+        "frame_index": 0,
+        "proprio_sha256": "af2b201edc88ef0387de1fc8b0246af5bec8a5a8553b6be6fa36b25f07b05006",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_47.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_stove",
+      "pair_id": "13c40bc74fe0e294bc01241fcd4edcc264479e498126a47a8eb55f60139932c1",
+      "real_action_delta_normalized_rms": 0.38700594011814116,
+      "right": {
+        "action_sha256": "0169468dd432c03417416019b6d0a51bf59a3d25760bbd67e03197d7e342d9cd",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "6ebabff5e794257876c516a903ae33c58b4bf9661c344ee751d77fb5f73a3f19",
+        "frame_index": 0,
+        "proprio_sha256": "66b3b51ee37fd9edc92f9118bcee5517ad93feeb3c3aec72bbd89aae7f1e6106",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_39.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.021687494520332164,
+      "left": {
+        "action_sha256": "9193d9ce96d9e30a01d4fae2533bf12d2264e847e99b37691f74b3997e095f23",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "712e7b877becb95e9b35e622379f731d04cfc5fc0c0fe3da1fd004ddd8458ef8",
+        "frame_index": 0,
+        "proprio_sha256": "b1fdc7fe853c0ba62a2ea30ba90e69d341641cdd4f493eafae379d97f5368a45",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_44.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_stove",
+      "pair_id": "016d297342823551a65320344b48d469d100a250ed633fe93349bb4ed0fde72a",
+      "real_action_delta_normalized_rms": 0.506826889853674,
+      "right": {
+        "action_sha256": "fb1044ae560c7c901aceb0382f9acba784a030f4c6cc68cf48d9a7c04c241017",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "67089cfa0203b1e37f7c6b04a98c7f45eb5e8e6bbbd342a46c9f665a4fb87bec",
+        "frame_index": 0,
+        "proprio_sha256": "ab32f01fb8b9f2eea43b5875373390bf5d8c286f04673ccbf6b92965c6a9afdb",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_30.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.02214844257846266,
+      "left": {
+        "action_sha256": "9f7b4bc8ca279d1ae55bd75750999b60b7be2219c987d0eb24296ed25c43b015",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "945fccd10863a6b95c0d9e5615ff8fb2b902afc5f0207449ad45fd17a67d8688",
+        "frame_index": 0,
+        "proprio_sha256": "e7434ee7cf43dbe482910db819fcff658c8f9546fb89bd79eafc9f6640e63551",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_23.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_stove",
+      "pair_id": "d0d43613d6fdcebd9df57677443bd5a99931d0b86f06822f269897838028cdbb",
+      "real_action_delta_normalized_rms": 0.5573244491055999,
+      "right": {
+        "action_sha256": "4cfc2affe897fccb4b4c836b4abdd96eca65207049b2cfa00e49d412bb494d8a",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "779d6182f823206c98bc353f97297a2844a8202c8d80e5464672b9b8741aba7d",
+        "frame_index": 0,
+        "proprio_sha256": "96a4d6bebd290d0c69bba46b6924bf17579ff298b1f4861dd57d3a295d95642c",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_7.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.024072070028972454,
+      "left": {
+        "action_sha256": "d29e9b904daef8332173697176e2a03205650df1bc7019233670b05539774aab",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "ce107b4f84a342e8644ac9ea9badb30f4e1c9cb095275d85a61bcf0391ddd721",
+        "frame_index": 0,
+        "proprio_sha256": "4c992b3892e8f85fe29d7984cc5515bdcf38135a9f176c5c0c04b69ed830fefe",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_15.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_stove",
+      "pair_id": "979069c52be1d3adc7c05a07007b7449ec282d27a540e3adae83b57489d3b1f8",
+      "real_action_delta_normalized_rms": 0.2479413799465704,
+      "right": {
+        "action_sha256": "a56f63e68867b421f20a5ccf8d6e0f18749707fe336cc3a18bac0784954ab077",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "2c72776cc66396dd114543a98c805035d99642ce3c0b07a7ddf002fe4d124d91",
+        "frame_index": 0,
+        "proprio_sha256": "34b55c7aad83f7ac254b0ad7b8fb1a1d97926f978483996e3e5a574a2acc144a",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_33.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.024713070218346275,
+      "left": {
+        "action_sha256": "3f57c5e7628f3a0aea3266b7a3eae22d9ca0d639b7c7a1c9590038846beccbfe",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "fcebcff22ad023227a1e83c7c71666549268cdf398bb0b1f783d39ba78b6f06c",
+        "frame_index": 0,
+        "proprio_sha256": "d6c773d28bee5f67bde05e8497d1f9ee21d0bea3792ddea530fb606622feba05",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_5.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_stove",
+      "pair_id": "02058ef24d0c306a9e683b5a4cde4bc8692376f5e1a7c13eb0de4a4b0fdd01d9",
+      "real_action_delta_normalized_rms": 0.2685700095238983,
+      "right": {
+        "action_sha256": "1b3d7bf1d68e96adb237fe148cf05774a434ef23d8d42c7223c38d76541030f6",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "c6dd9f42c4ce4e26e7f8cd5a23d35c1e17d576f8ef0ea7ecd6c9adc741516953",
+        "frame_index": 0,
+        "proprio_sha256": "8076244644fd5d37a24731d1d2749c31a749b0d191accb585c75268279e8689a",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_3.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.02681287687574945,
+      "left": {
+        "action_sha256": "63bfbd528a800925c57c0fd1480b0a863937d3fe77c20e4ccc458768b8495773",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "61285f56b4a2d30f86d2cf7e9a40b1f30e0c30acee89c00cc08edd9404f26bd1",
+        "frame_index": 0,
+        "proprio_sha256": "2a84572ef27c29f5bbb480e2255600c040ef0dcf5cec0332b9b411b3c9e5b7a2",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_17.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_stove",
+      "pair_id": "8b0b9b3c618763557b1ac3944eab0a9b06cbfccea442b7e7cd6112f321a3d423",
+      "real_action_delta_normalized_rms": 0.22217155557072005,
+      "right": {
+        "action_sha256": "a0e0610ebc67e2c3c4472c47c419a72f2c3d7674b4fd49cf9b8da458bc0de13d",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "09bc99062065d10bcd4b5ac8029f05589706615c1f4009fece962a98136fce35",
+        "frame_index": 0,
+        "proprio_sha256": "23310f7e1b7dc62008fd09ab555569930a1743817ed6b15d6ebfefb0607d1dd4",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_4.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.028226171356072024,
+      "left": {
+        "action_sha256": "2ba5c0aed6bc085e6b3b40626a9357f11747a437c89e3e495611621a2fa8edc9",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "f28cc3e6cfab9ad291c71825cd07097a63cb38393ef1f4941a699f37c6d0b188",
+        "frame_index": 0,
+        "proprio_sha256": "f55a1705adb7bdb8a231b83341f0b22ca6718eb74471733583716d75ebbb6fb7",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_12.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_stove",
+      "pair_id": "a3872d765012385f23b4249bf275ac1b91f6277435ee0eb22f4354ee5803c2ef",
+      "real_action_delta_normalized_rms": 0.6866265533258683,
+      "right": {
+        "action_sha256": "39820ef8cafe2260976966181283aa548d14466c62fb4165556ac92f6090af83",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "37f8ca7eb30de7b5bdb90ab0d45f5e7afe0dbe266a6488409b8974af7f24b61d",
+        "frame_index": 0,
+        "proprio_sha256": "303a1c59f61c07d35be7c08f8d0800db01cc5dab0feb3841f5ef3418d0e52ebc",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_40.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.02992784029500463,
+      "left": {
+        "action_sha256": "8ce55aa258fefcdf15487d43c397777498440a2fd631078f50a46fbb234e8da0",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "5304bc5bc68fa0553b538fdfa00c572f881befe7d2475306f8109d5b1aeeec28",
+        "frame_index": 0,
+        "proprio_sha256": "e59f76569d51c781daefb0e344960f3ccc110e91b9e80723513f0401b01a4f50",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_42.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_stove",
+      "pair_id": "4cbe21fd17d424b38d5a3ba0e128c7c1238eda04e6822761b20f5fc8552a8786",
+      "real_action_delta_normalized_rms": 0.29610013750312625,
+      "right": {
+        "action_sha256": "5c67c4c51afe56b7e0fad33606cf1e96da3eb9c57be44ac2dec838055cdef8d4",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "075fe95cfad41f23489850d7fbbc29d0929833a4540f97d2958190a3f2d4c0b7",
+        "frame_index": 0,
+        "proprio_sha256": "30962e3cb78dfc2dd43f8656ecf7f850dbd22bb942a08523bda867a9b092a570",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_29.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.03441376897326988,
+      "left": {
+        "action_sha256": "cc68e5ad8cb7616754c0da46a2cae3140f7de01ccd6ce1aefab9126ea5f285b4",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "817e1d20892a79bd0164baf66ffc89853875ef3812f8311252ec340566a2613b",
+        "frame_index": 0,
+        "proprio_sha256": "9754240625daadfad995542d08ae8bfc5707759b5febea2798ef112db62b2a9f",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_32.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_stove",
+      "pair_id": "f1de74005a5601e253f7f8f9d18f62ed64608b3184244d28b9ddf702206170a8",
+      "real_action_delta_normalized_rms": 0.2951426510824583,
+      "right": {
+        "action_sha256": "31e72a41c310f5f30b15605a008efe40adc14e9878a23a8d3147b6f89e39c0e2",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "d0a1eafc622ee0c73f5104d998b0347061c11cb46a065d2742e641fead041e1c",
+        "frame_index": 0,
+        "proprio_sha256": "4e30ca3de74e7bed267447b31ad4e91f6c245bf9bc5c1d292f1c7de45c09a358",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_45.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.03523048650210339,
+      "left": {
+        "action_sha256": "45fbb8c1de4ea36b8f6c3d157cf4c077ff60a80f316974eadffc45efe85239c5",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "f5df21c67dda6e1f60a2cd8f90915278eccf965bd8d8e08ddeb7cd6fcc951dcc",
+        "frame_index": 0,
+        "proprio_sha256": "a3242c31024af2bb08ef8fb01cf4cdd927164b5189750703f0600e7b783b6878",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_41.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_stove",
+      "pair_id": "a11d97a6b1e29e8e8dfff2056a87a7786c2bfe959fd6b854b898c034e3161159",
+      "real_action_delta_normalized_rms": 0.179031214260358,
+      "right": {
+        "action_sha256": "26714ac28959750f5c2c3f1404d5342493266781f93b8facfd4900f24ca6b800",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "dec2d7bfd05acb34c94e2a63abfdaca38c3c4c13d893d8d3fc22c45a708664aa",
+        "frame_index": 0,
+        "proprio_sha256": "fd0c54a9b87e87a2cd3916e628fa27b0378862c85252ac9c22ec2f5c9c0548e9",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_43.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.03725678243855701,
+      "left": {
+        "action_sha256": "2e62067a00288d5efc445cb4309720a1354fad8dd6e96a9991d5a0933ed681bf",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "feec3d4959f396e0a557d44bc8bcb2ac3d5aee6a7c0dff71a2eb9fdd7c31c750",
+        "frame_index": 0,
+        "proprio_sha256": "772aa1f4cae56ae55c1864c0a6e7dacb3a5f7616501208f9b9a2e64c3886a6af",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_1.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_stove",
+      "pair_id": "2f0ad161463c361288ab1c7403d02eb0fc5db53c88493155bcb58043cf9b0a74",
+      "real_action_delta_normalized_rms": 0.27115055002719435,
+      "right": {
+        "action_sha256": "2152f67253152bae76bd296c32039326e7bde993117e28b3f721b44beee5fcbc",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "3938d8222c3d97a73aabca9cedaef11c563409aa794e6435c046b235090aeb77",
+        "frame_index": 0,
+        "proprio_sha256": "b0a1595a15ac6d35a808d5c1d406e99b67738764b5293589d12dfc63f0932415",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_48.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.013710600377908395,
+      "left": {
+        "action_sha256": "2ba5c0aed6bc085e6b3b40626a9357f11747a437c89e3e495611621a2fa8edc9",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "f28cc3e6cfab9ad291c71825cd07097a63cb38393ef1f4941a699f37c6d0b188",
+        "frame_index": 0,
+        "proprio_sha256": "f55a1705adb7bdb8a231b83341f0b22ca6718eb74471733583716d75ebbb6fb7",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_12.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_cabinet",
+      "pair_id": "e0842a515c405dd1a8f5c693013c49e62829f3d876f4fcca0f44dae39289f428",
+      "real_action_delta_normalized_rms": 0.560738867764597,
+      "right": {
+        "action_sha256": "af8fccbccb1a2a746af82067147fb189321bcdb4a0cfbb669d078669fa882c56",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "faf7c11414398b4590565096c304f66bb070bb0f66b17bdff58076864d18936d",
+        "frame_index": 0,
+        "proprio_sha256": "aa9d2bfae754165aaf53dc675308d332f432726f0bc6d8f0903587e1ad5f36fa",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_32.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.028107866848727805,
+      "left": {
+        "action_sha256": "9583dd254a9b9cf2db1948539dd9a9d0b3639448d95f0f30412266df87cdd454",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "faa5f7ae0fc566370b4fb5884f057b74c89f487c7211ec9fe8e81a0ba9bbf24c",
+        "frame_index": 0,
+        "proprio_sha256": "790c406213e505752b97bb8add0a3cb51b6c9f694a249d9a868919bf97d1f48a",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_11.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_cabinet",
+      "pair_id": "d6471756f8247d35b44eb892f0b540590bbb58b6f5fd8a342e0473fbcd2d8668",
+      "real_action_delta_normalized_rms": 0.37851211794701245,
+      "right": {
+        "action_sha256": "7c2a6d8809f8264c40e61a70c5c0c6f4baff958d71560505bcf5b3254f6811ab",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "9e2122e5aba3a0fbfd79fe0756df7ad3ed1ef72a13ed2f407e2ae5ad771c067f",
+        "frame_index": 0,
+        "proprio_sha256": "dcfe1a9a28647cf02daec1089efa21f704144d1ff3a0d9369d8145de023555cb",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_13.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.02895188496663385,
+      "left": {
+        "action_sha256": "5fc652a8dca10e02dbd68a9f9b7fa970c97a296cfd4c7d98d1739b15706d96eb",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "87e916c84eadbd3b2f344cc53f41956fc2abedc186650736fd036c273f700af7",
+        "frame_index": 0,
+        "proprio_sha256": "24c881f590e84a1816be636aae8c928fecdb0a5d4c90cdb185d6a61532cec402",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_33.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_cabinet",
+      "pair_id": "34df97f3732aa1e042faf0cc02e6714efce3e94b05bc5553216c3dd7568bc034",
+      "real_action_delta_normalized_rms": 0.23196272480524516,
+      "right": {
+        "action_sha256": "fa0a57fb882c2281e6e91d755375da4857a6177194527834564d85c88aa2fd63",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "2c71b86670ed676231ac72b7975848667b411755cc34f4b7a72bef61df3709d9",
+        "frame_index": 0,
+        "proprio_sha256": "a9119f6113ddc8a41f2f4e37ecbee36cfc76a4f32b375d53ea7c20a042239def",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_41.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.029718994469804354,
+      "left": {
+        "action_sha256": "63bfbd528a800925c57c0fd1480b0a863937d3fe77c20e4ccc458768b8495773",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "61285f56b4a2d30f86d2cf7e9a40b1f30e0c30acee89c00cc08edd9404f26bd1",
+        "frame_index": 0,
+        "proprio_sha256": "2a84572ef27c29f5bbb480e2255600c040ef0dcf5cec0332b9b411b3c9e5b7a2",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_17.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_cabinet",
+      "pair_id": "c02cb1bbbaf642dd21de6175ce8734380e8819c11c37f4642e31d1194dc415da",
+      "real_action_delta_normalized_rms": 0.4212313554709819,
+      "right": {
+        "action_sha256": "c08582a050384517d0666d104d878b7dd8eee930490a615be68b9fcdf4f71b6f",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "a16a1888cc13c92370089f2fce70e85cbdbe8933a9072378e1023b06904508f9",
+        "frame_index": 0,
+        "proprio_sha256": "d34c684ba4d583fb9e60050d21f77f45b977a609a1a85f6dd37c45f9948cceb5",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_25.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.030684926590134727,
+      "left": {
+        "action_sha256": "d90c1c22c085626994965df09fc4776a7bcbd7ae74f26e3eed73c74a71366be2",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "1e5cb5eb034f4304c61a6f1be144941acdee16d8a3bb33c178a65e698518de1e",
+        "frame_index": 0,
+        "proprio_sha256": "a8c1753fcf6baf7c354c006b3f20e629706985802c6b9a97d362e4aceccc5ec2",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_45.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_cabinet",
+      "pair_id": "dff815c1052e6138f4590cfeb3246a9f0392e986766ea477b6f08ae5c003690a",
+      "real_action_delta_normalized_rms": 0.37906732936161897,
+      "right": {
+        "action_sha256": "1193f2f2ad6c613a7f179d7da9e84e484a604fc80321f7a3a26a08b9d1121094",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "79da2b1982be012b896692924a967e89c16752e4f76ec78512203ab62a7a200e",
+        "frame_index": 0,
+        "proprio_sha256": "f4e080917fc53e6ed014a7cf8dd1b6d85949422d5dc37e390e6bbb3db1fe990e",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_7.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.03155968618160188,
+      "left": {
+        "action_sha256": "d29e9b904daef8332173697176e2a03205650df1bc7019233670b05539774aab",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "ce107b4f84a342e8644ac9ea9badb30f4e1c9cb095275d85a61bcf0391ddd721",
+        "frame_index": 0,
+        "proprio_sha256": "4c992b3892e8f85fe29d7984cc5515bdcf38135a9f176c5c0c04b69ed830fefe",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_15.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_cabinet",
+      "pair_id": "fd1d8ec6aa4a05585ee943ab282849b5894db3286a44d6cf2b1421e9b11c462f",
+      "real_action_delta_normalized_rms": 0.5576320926075327,
+      "right": {
+        "action_sha256": "082f93a6300b65282ca84bef56fa042e38a4035449d070037538e7621c90ed6a",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "d7982ade91d9266c2169917f4ae2c709d4ff9122fe0c166a4a51bf26e7cf4b0c",
+        "frame_index": 0,
+        "proprio_sha256": "d2bdedaa27b5f7e1c990416b5480b468abe5b99d93f1ec87e49e191aab832439",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_35.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.03211669320252721,
+      "left": {
+        "action_sha256": "8ce55aa258fefcdf15487d43c397777498440a2fd631078f50a46fbb234e8da0",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "5304bc5bc68fa0553b538fdfa00c572f881befe7d2475306f8109d5b1aeeec28",
+        "frame_index": 0,
+        "proprio_sha256": "e59f76569d51c781daefb0e344960f3ccc110e91b9e80723513f0401b01a4f50",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_42.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_cabinet",
+      "pair_id": "68eaa7e31466d23d7d4a94f3beadcd9268f784d91d7af667531c527a736ccd20",
+      "real_action_delta_normalized_rms": 0.3928574122595674,
+      "right": {
+        "action_sha256": "80d353c6b8b3ac322c9ee6addbd2cac5fd526b83f1dc357d9f6d58ad93d4295b",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "d6a47592a80f15c05a643b309328eb149afe6da529e84adb988a40a9c43a035c",
+        "frame_index": 0,
+        "proprio_sha256": "939513588dfe9a6c08460a772bdca5c6ed33b03acbc8a69f6d595b1910ab7fda",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_2.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.03306671079939741,
+      "left": {
+        "action_sha256": "2e62067a00288d5efc445cb4309720a1354fad8dd6e96a9991d5a0933ed681bf",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "feec3d4959f396e0a557d44bc8bcb2ac3d5aee6a7c0dff71a2eb9fdd7c31c750",
+        "frame_index": 0,
+        "proprio_sha256": "772aa1f4cae56ae55c1864c0a6e7dacb3a5f7616501208f9b9a2e64c3886a6af",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_1.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_cabinet",
+      "pair_id": "5dfb22d6834f39468dd37ab441df6a8eb34fc76bdacc891506e35bb2e4c1c873",
+      "real_action_delta_normalized_rms": 0.2604810087133471,
+      "right": {
+        "action_sha256": "37afd07a8357e46b62457454642250df51609c3fd0983f0182dcb0c02d87d1c1",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "17acce85d6a9c932eb3debcd2bf31856fdcf2a1dff96c3c758dcd64e7c24f12c",
+        "frame_index": 0,
+        "proprio_sha256": "72a5fecdad97bbda5715417e2f712bae385a142ef7ab72e1803c8744de4112c2",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_43.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.03353336007483888,
+      "left": {
+        "action_sha256": "45fbb8c1de4ea36b8f6c3d157cf4c077ff60a80f316974eadffc45efe85239c5",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "f5df21c67dda6e1f60a2cd8f90915278eccf965bd8d8e08ddeb7cd6fcc951dcc",
+        "frame_index": 0,
+        "proprio_sha256": "a3242c31024af2bb08ef8fb01cf4cdd927164b5189750703f0600e7b783b6878",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_41.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_cabinet",
+      "pair_id": "e7094cbc19a6948d24ba56fd2dfd234d35c41fa0d0ed6d260e2a19057334ad9e",
+      "real_action_delta_normalized_rms": 0.27302072114494985,
+      "right": {
+        "action_sha256": "52640a2663863e3346e214b119c406d6535a6465512bdbabfee9fd0d89d7f1a6",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "c3d9424603116745b792b70b6fc3a71b5726127ce84522a78513923b35027755",
+        "frame_index": 0,
+        "proprio_sha256": "a4caf650e876ac3a85bfda24f0e18bae9a1ad5b66cd4637c95f4e2d051121407",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_3.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.03815986166648403,
+      "left": {
+        "action_sha256": "1c8397d3c444b529939c72147b701ecfa326e58b3009382ef278738af72a1523",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "2266aae09790462c96dfe9248e24e192027b9d5218a92d33a665bbbec9ba16f8",
+        "frame_index": 0,
+        "proprio_sha256": "effeb372c559cebb473808b7968c285260f833be0d79f135c92c3d6dbf4bd84b",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_2.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_cabinet",
+      "pair_id": "b885186a00c63c9289211650d1d81e98e5b8ce86721f0e4e3b71de269d50dd31",
+      "real_action_delta_normalized_rms": 0.33226869210575266,
+      "right": {
+        "action_sha256": "1e6c3326af9fd8e7cce46bec38fb84c3ec1f24ec213a4c8f34f2a912ac9c5ed9",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "a30a6a012eec368c031952a5dd89f13ff90a1a0fb8fceaa211b1ad2bd1db9802",
+        "frame_index": 0,
+        "proprio_sha256": "284b0d5718dd492fe67522a7256ac1d69da1cae5689aeb24b9e65bcdb80eeeab",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_11.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.04341110168404913,
+      "left": {
+        "action_sha256": "d684cca61f559b115a6acab1e9ae76f1e19b163dbf45952b70c9573e8e9a7b58",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "1382a6af3b8f1a9483125a21cc8155996a0e08d942c4667f7082e224ed42cf5b",
+        "frame_index": 0,
+        "proprio_sha256": "deed97c9646d05ccd6538ae3e8eb92f051556c7c5d5e4b138cdf4aaf28235916",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_25.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_cabinet",
+      "pair_id": "5b210de90644f2bcf995d2833ee5a26fc08b87a240611b37b68c447a2d8bcdc6",
+      "real_action_delta_normalized_rms": 0.6148862526066363,
+      "right": {
+        "action_sha256": "e582a75448f658349841dc5210f23e693bfae397bcc525752a794f4fd1e9b729",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "af20fe49d163ab1b4ea433fbbd013c26610e626973e74cc66f0b7f92d06c451d",
+        "frame_index": 0,
+        "proprio_sha256": "d71b3fd517de4b87256756e58f08a423f97bdcf9c0a39fc212c259ca427abcb6",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_16.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.04364148569711097,
+      "left": {
+        "action_sha256": "f72d904a69674a1d0f0bf618ff5be7e7dfa9ad37bb4704fda926f2e2835c45d6",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "ba532675d7f36e21675a045d17086465f5a4a15b032c3187ac620253e977de7c",
+        "frame_index": 0,
+        "proprio_sha256": "b78f7ef8564bb16de3c9d5c0498dc11ed44414e42f8a300a58f8050225b33a76",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_29.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_cabinet",
+      "pair_id": "988dedc19c2520a3fe2e9fd14b1cf69dc4a479f2231e23fbaca60662d94181ea",
+      "real_action_delta_normalized_rms": 0.36857898638661246,
+      "right": {
+        "action_sha256": "5fa231f76d8c65ad0ee38c0a83386fa26a3ad07338f57771a48bb878aad78379",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "fe451b8dbd71d2657ff9ee1e67bf594dadda94bec38e13e7d0e6012b4cd47cf0",
+        "frame_index": 0,
+        "proprio_sha256": "ec930514b08e7a8d4b81a4866f44bc17ebcd38642456c8cc7690e8801de48419",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_9.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.011060547490069066,
+      "left": {
+        "action_sha256": "26714ac28959750f5c2c3f1404d5342493266781f93b8facfd4900f24ca6b800",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "dec2d7bfd05acb34c94e2a63abfdaca38c3c4c13d893d8d3fc22c45a708664aa",
+        "frame_index": 0,
+        "proprio_sha256": "fd0c54a9b87e87a2cd3916e628fa27b0378862c85252ac9c22ec2f5c9c0548e9",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_43.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_stove_cabinet",
+      "pair_id": "4ff4c922329e46b62b053c93aeb88f4cb66cba73b247e3f9e259eb0d2665e3d4",
+      "real_action_delta_normalized_rms": 0.5517007831299853,
+      "right": {
+        "action_sha256": "80d353c6b8b3ac322c9ee6addbd2cac5fd526b83f1dc357d9f6d58ad93d4295b",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "d6a47592a80f15c05a643b309328eb149afe6da529e84adb988a40a9c43a035c",
+        "frame_index": 0,
+        "proprio_sha256": "939513588dfe9a6c08460a772bdca5c6ed33b03acbc8a69f6d595b1910ab7fda",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_2.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.017394062998758796,
+      "left": {
+        "action_sha256": "39820ef8cafe2260976966181283aa548d14466c62fb4165556ac92f6090af83",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "37f8ca7eb30de7b5bdb90ab0d45f5e7afe0dbe266a6488409b8974af7f24b61d",
+        "frame_index": 0,
+        "proprio_sha256": "303a1c59f61c07d35be7c08f8d0800db01cc5dab0feb3841f5ef3418d0e52ebc",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_40.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_stove_cabinet",
+      "pair_id": "525feb82cfac10073dc0c1cea3330670b5f9ef4871faa49a620fc9d74efadf0f",
+      "real_action_delta_normalized_rms": 0.7418945583756644,
+      "right": {
+        "action_sha256": "1e6c3326af9fd8e7cce46bec38fb84c3ec1f24ec213a4c8f34f2a912ac9c5ed9",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "a30a6a012eec368c031952a5dd89f13ff90a1a0fb8fceaa211b1ad2bd1db9802",
+        "frame_index": 0,
+        "proprio_sha256": "284b0d5718dd492fe67522a7256ac1d69da1cae5689aeb24b9e65bcdb80eeeab",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_11.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.018154270117073237,
+      "left": {
+        "action_sha256": "2a1dffd20aa74273431e810bbc769dbff049c5be8924e37736cd83d788cf8d61",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "fbe58509f11c631045cc30e22d498ac7653d937cb1d48ddfb7f1c09e966cefe5",
+        "frame_index": 0,
+        "proprio_sha256": "e78595fcf1abc67958fb3f0215944a0db8a2cc0bf23f73792fa931ed52f9b5ba",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_28.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_stove_cabinet",
+      "pair_id": "4c13cca046da5f847baccbb726593af4ee8c4866286311a41998199158bec9d8",
+      "real_action_delta_normalized_rms": 0.5498607684508484,
+      "right": {
+        "action_sha256": "7c2a6d8809f8264c40e61a70c5c0c6f4baff958d71560505bcf5b3254f6811ab",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "9e2122e5aba3a0fbfd79fe0756df7ad3ed1ef72a13ed2f407e2ae5ad771c067f",
+        "frame_index": 0,
+        "proprio_sha256": "dcfe1a9a28647cf02daec1089efa21f704144d1ff3a0d9369d8145de023555cb",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_13.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.023886364918969533,
+      "left": {
+        "action_sha256": "fb1044ae560c7c901aceb0382f9acba784a030f4c6cc68cf48d9a7c04c241017",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "67089cfa0203b1e37f7c6b04a98c7f45eb5e8e6bbbd342a46c9f665a4fb87bec",
+        "frame_index": 0,
+        "proprio_sha256": "ab32f01fb8b9f2eea43b5875373390bf5d8c286f04673ccbf6b92965c6a9afdb",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_30.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_stove_cabinet",
+      "pair_id": "730601123f1f4d1c7c76f6c7728b96ff74b2b8ef8a03c73ddb46d9afdb3626f6",
+      "real_action_delta_normalized_rms": 0.5232579588539842,
+      "right": {
+        "action_sha256": "af8fccbccb1a2a746af82067147fb189321bcdb4a0cfbb669d078669fa882c56",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "faf7c11414398b4590565096c304f66bb070bb0f66b17bdff58076864d18936d",
+        "frame_index": 0,
+        "proprio_sha256": "aa9d2bfae754165aaf53dc675308d332f432726f0bc6d8f0903587e1ad5f36fa",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_32.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.027090069716935117,
+      "left": {
+        "action_sha256": "90228ca497045f2160048094a3bc0a255256eb492340031787fb98f85034e16a",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "54bff78e7bae512a04bc4ef2faa76c0e6b0e81650db162977921aae3e6a1513d",
+        "frame_index": 0,
+        "proprio_sha256": "7a9646bbd06090289702aaa1fae3bfcfe9bbe8ddb2557ddf6306f0049cc4466c",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_37.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_stove_cabinet",
+      "pair_id": "e48dc681639240de7a80b33c7cb2229b2bb3c93ce0ad044a536c3edf8f810888",
+      "real_action_delta_normalized_rms": 0.33906140250560035,
+      "right": {
+        "action_sha256": "1a217f49b42b48ec1f2c1824d239fb1bcaffafa2e17c501fb39977c19f9d26aa",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "df09ee3a954b748b03b573742eac2d047e06be1ccde8662b09e45f0684843398",
+        "frame_index": 0,
+        "proprio_sha256": "5fa5a7f8d63ef8c887cc08e5b03f6fcfa6f6d1c4988f6722bd6aac16a784487e",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_37.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.02893614505194117,
+      "left": {
+        "action_sha256": "aeead5f3ccc34480a790d8d89c01aade957f94cedf6b033cca7231eef164ccc1",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "d1ecd8fe542ec481236e1169954e489b58d11c1bb127d139fcb8a0243633a887",
+        "frame_index": 0,
+        "proprio_sha256": "0823c4931baaaeecfb3d5fafca01a5657dd7d9918d46c60e2cb5289f50e990a6",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_13.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_stove_cabinet",
+      "pair_id": "42eb03cd32b70edb835896ac2bd9797e7a1fc023cf29a2e69ffc4eb42988ce0a",
+      "real_action_delta_normalized_rms": 0.4174153038121077,
+      "right": {
+        "action_sha256": "4d9d79f7e0d6e0e0395b84545a015759a8da1bed1a60f2e184c23fb63c1877c9",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "7eaea2f5bedf921c49b0eb60c4a4f5e80820e292e96b7eefdc175f4e8b6e8a38",
+        "frame_index": 0,
+        "proprio_sha256": "f1a3e22c21ed56bc33250910bfc2aec40a830ecc7f7a33d5d59656ae01b485ec",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_48.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.02907751028007585,
+      "left": {
+        "action_sha256": "a0e0610ebc67e2c3c4472c47c419a72f2c3d7674b4fd49cf9b8da458bc0de13d",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "09bc99062065d10bcd4b5ac8029f05589706615c1f4009fece962a98136fce35",
+        "frame_index": 0,
+        "proprio_sha256": "23310f7e1b7dc62008fd09ab555569930a1743817ed6b15d6ebfefb0607d1dd4",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_4.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_stove_cabinet",
+      "pair_id": "01e21abc973272dc0884b67c0c6040f994b742d794ae9f1e5fbe69761543efab",
+      "real_action_delta_normalized_rms": 0.4542014300265749,
+      "right": {
+        "action_sha256": "c08582a050384517d0666d104d878b7dd8eee930490a615be68b9fcdf4f71b6f",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "a16a1888cc13c92370089f2fce70e85cbdbe8933a9072378e1023b06904508f9",
+        "frame_index": 0,
+        "proprio_sha256": "d34c684ba4d583fb9e60050d21f77f45b977a609a1a85f6dd37c45f9948cceb5",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_25.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.030347434630092783,
+      "left": {
+        "action_sha256": "61453af552c83edfc6c313d614d49fdd24676bf24eeb5a220d1b4e24a802d869",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "49e596d406984509416d63a28e8082807dc5b7e932c302df8af239bb9fb2393c",
+        "frame_index": 0,
+        "proprio_sha256": "55d57c9912c34824920541cdd6bf4940a4d61c2030337eb47e4b7092015a875a",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_5.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_stove_cabinet",
+      "pair_id": "91a57a09fdd575c5c251ab9835f94e54ce362958702d503565b9c5064d71c5cc",
+      "real_action_delta_normalized_rms": 0.7237325486743298,
+      "right": {
+        "action_sha256": "082f93a6300b65282ca84bef56fa042e38a4035449d070037538e7621c90ed6a",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "d7982ade91d9266c2169917f4ae2c709d4ff9122fe0c166a4a51bf26e7cf4b0c",
+        "frame_index": 0,
+        "proprio_sha256": "d2bdedaa27b5f7e1c990416b5480b468abe5b99d93f1ec87e49e191aab832439",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_35.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.03201750225770346,
+      "left": {
+        "action_sha256": "d55390c086e3e60df85a65fb8413f4d5af3b341d8550701f6272cb5f20e1e144",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "bb9a6546f597b16a7627963ca760d5e7423aa32550d30a2084fe0ecf46d51f5e",
+        "frame_index": 0,
+        "proprio_sha256": "a0ffd17d0593d75935b48ed44c17d0e4e006a6b5be74be98a64e1eb535a53eb9",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_0.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_stove_cabinet",
+      "pair_id": "34b95ae4c6ee8ffd58b02e5e10b15cf495218f103aa7ce7665de0d55f7587c05",
+      "real_action_delta_normalized_rms": 0.4259581322216428,
+      "right": {
+        "action_sha256": "311e2b09dfc4bb4fff66958fbed66dde4a80455e3fd1aa2dad41a7753c8f76df",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "9a94e470faa33a102e6a76f9c0e5f434c146ef067cb853b9559964acedb46db4",
+        "frame_index": 0,
+        "proprio_sha256": "56cbb0e1772b078bc1a46b268ec9d060cb91f5e5e1a68a10fb6b2628a1500b1f",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_33.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.03352662987583779,
+      "left": {
+        "action_sha256": "3ec4aa5659ae434b97aba68724acb8d1c55e9775b8decb3b7e9e4b1e7ae9760c",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "d77d3c19e26141ff4aa9cd6629b9f1af50743364b3bc2ec31e0dcf8c9b96e1c4",
+        "frame_index": 0,
+        "proprio_sha256": "aea467b0923168c74f344c4a7714cda529a2e39ff30ca975811d137d50f390e9",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_41.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_stove_cabinet",
+      "pair_id": "c2b85ae4ebeae0cb3077ec3afa27aab672ed53a40d7818f98c631f05238b5e7e",
+      "real_action_delta_normalized_rms": 0.4521608167344048,
+      "right": {
+        "action_sha256": "03adf8177b9b6edb55b1ad617bed89d2b5c56f86fdb193d2e9f85863c0c33d3d",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "081afde558e7fa7e126033fcda3413caf52a5ad4cffaf69595a946f1087aba08",
+        "frame_index": 0,
+        "proprio_sha256": "b58c2022594037b67184d65d86666b0a615f06ee0efd97cb4e26ff75d1b61282",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_39.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.0337777762693322,
+      "left": {
+        "action_sha256": "2152f67253152bae76bd296c32039326e7bde993117e28b3f721b44beee5fcbc",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "3938d8222c3d97a73aabca9cedaef11c563409aa794e6435c046b235090aeb77",
+        "frame_index": 0,
+        "proprio_sha256": "b0a1595a15ac6d35a808d5c1d406e99b67738764b5293589d12dfc63f0932415",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_48.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_stove_cabinet",
+      "pair_id": "7c153f88627e1032e2aff52ba61aa5fbb65aa4ef73a3aafe2c0fea26beb50e8d",
+      "real_action_delta_normalized_rms": 0.32524334442092045,
+      "right": {
+        "action_sha256": "37afd07a8357e46b62457454642250df51609c3fd0983f0182dcb0c02d87d1c1",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "17acce85d6a9c932eb3debcd2bf31856fdcf2a1dff96c3c758dcd64e7c24f12c",
+        "frame_index": 0,
+        "proprio_sha256": "72a5fecdad97bbda5715417e2f712bae385a142ef7ab72e1803c8744de4112c2",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_43.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.03487179430148735,
+      "left": {
+        "action_sha256": "4cfc2affe897fccb4b4c836b4abdd96eca65207049b2cfa00e49d412bb494d8a",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "779d6182f823206c98bc353f97297a2844a8202c8d80e5464672b9b8741aba7d",
+        "frame_index": 0,
+        "proprio_sha256": "96a4d6bebd290d0c69bba46b6924bf17579ff298b1f4861dd57d3a295d95642c",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_7.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_stove_cabinet",
+      "pair_id": "b492ef948ec53b977f39801faac91c11e68f49aaf9f4237949ecce06352241b2",
+      "real_action_delta_normalized_rms": 0.28113946157981606,
+      "right": {
+        "action_sha256": "da07a860a4ef0a726372b36f78809cb3e71dbb2aa124b0dc00a8fb2810cf8ba1",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "e8aa51d8066776c85350eb4d28f3e0b7ab741cd6e2a1de068647a87fd3f9df6e",
+        "frame_index": 0,
+        "proprio_sha256": "550607ac009fd068a14f5a5ff1c5c946d4723db3ed8256dd3af6f5a5841a51ff",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_15.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.019548168564579867,
+      "left": {
+        "action_sha256": "88edc989e4b23c67c42984aee44d1eeb116f2888e9c30356175633ef18c54f6a",
+        "canonical_instruction": "put the wine bottle on the rack",
+        "eval_id": 7,
+        "file_sha256": "18bff5b4372484587f6adeb01d14c458f9e8ee38dfd898ee3a812df0c1fea73d",
+        "frame_index": 0,
+        "proprio_sha256": "3218058621f7a4c9db679ef114c4bbdd4af5442978108670ae8ee01630556618",
+        "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_28.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "wine_destination_rack_cabinet",
+      "pair_id": "292558a5e886a459684ad295662b7eb6822542535ef8a5505da43af9982ee88f",
+      "real_action_delta_normalized_rms": 1.874099063615667,
+      "right": {
+        "action_sha256": "b4eee0b3cec90bf5e0df99d6d9074bdc980f27c2a246e7f7f07e553c81bdf1d6",
+        "canonical_instruction": "put the wine bottle on top of the cabinet",
+        "eval_id": 8,
+        "file_sha256": "c69c1cf0f97ed8350015101b4fa12ab8b652016846358b22defd092c10348fb2",
+        "frame_index": 0,
+        "proprio_sha256": "e0fee5444550359fd09cb9067a0502b1b7bf6e91daa79a740dcd4b0bb1a9801a",
+        "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_13.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.029726453416039366,
+      "left": {
+        "action_sha256": "77e2654cedec91e8ba635e40026bcfb3ec0abd9463ad802187e9e6e461df125d",
+        "canonical_instruction": "put the wine bottle on the rack",
+        "eval_id": 7,
+        "file_sha256": "dca1f8b06070a81bbee8b94be5c0a167f143e6d4cfb1ce6b2619d39d912b4fd4",
+        "frame_index": 0,
+        "proprio_sha256": "9b46aba4e2d25d902f80f19b38ad963464d3b23da76834ca8bca5603fd6e8894",
+        "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_11.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "wine_destination_rack_cabinet",
+      "pair_id": "5fb016d03f42bc78083c7541ec6aa2a31867b5f215ef1a1c64b44813a5ee3340",
+      "real_action_delta_normalized_rms": 2.028719618541985,
+      "right": {
+        "action_sha256": "37331b58554da06b4f6831478c6db6c25530cd3233f451c1c1c1b88f94ddbc07",
+        "canonical_instruction": "put the wine bottle on top of the cabinet",
+        "eval_id": 8,
+        "file_sha256": "3c0e5ad00be1d00919148bb86635252ddb4fcdf56735f51a54fea29efa54d48c",
+        "frame_index": 0,
+        "proprio_sha256": "f0ef2f21f6d945d5480315fde745d64317030f67e38242b48106df05802c6563",
+        "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_36.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.03869500766401499,
+      "left": {
+        "action_sha256": "066b306a7cfaa0a466511f352e8fa3a6f164d0f97c0f709ea6443b3b5d7911aa",
+        "canonical_instruction": "put the wine bottle on the rack",
+        "eval_id": 7,
+        "file_sha256": "0a23000eeed418c2eb345dcc2e35ff3ff540729da418bd8803b10e7ce1d6b902",
+        "frame_index": 0,
+        "proprio_sha256": "b5bc8489bbacf8f6e61e824de270214e169ad81361ff1dcedfcc80142547564c",
+        "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_15.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "wine_destination_rack_cabinet",
+      "pair_id": "9c65b480c1c5866f716cebb6125ad4bfe4674678aa125087acef4779a423c046",
+      "real_action_delta_normalized_rms": 1.9066673463683392,
+      "right": {
+        "action_sha256": "bb265c381cad10ab65f63e8a2fddee1b7363d4733311afd7b69da13ca1099f6b",
+        "canonical_instruction": "put the wine bottle on top of the cabinet",
+        "eval_id": 8,
+        "file_sha256": "fbce208e9e35933fb3e14dbf4b5280ea294c5d2f0ff9f3f6677eebceeb75af0c",
+        "frame_index": 0,
+        "proprio_sha256": "c32e23a7d1857b83a4182f6e8b48632dfeed1c5e73c3d3dc59d1fa543027a9f9",
+        "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_3.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.05138655020686292,
+      "left": {
+        "action_sha256": "5efe892608dc2a250d222f61b733d30994f7bf3a83be9898b58503c75f4395fe",
+        "canonical_instruction": "put the wine bottle on the rack",
+        "eval_id": 7,
+        "file_sha256": "e443f653b3b35beb6932bed1f8604c40d77c9a090eaf7085a7089ab165bb9c05",
+        "frame_index": 0,
+        "proprio_sha256": "7ff424f0261ddf68ccf608cf3b49b1953f4d91ce1314f74b0c99276cef62089b",
+        "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_18.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "wine_destination_rack_cabinet",
+      "pair_id": "fe149cec9f98c09871d82992c90731bec194f2aa9951328396be39cbf940ddb5",
+      "real_action_delta_normalized_rms": 2.1967967945935127,
+      "right": {
+        "action_sha256": "4eddf79f015e75cc097949effdb4e737cb175b4f46240aea9d9366a72d6ea401",
+        "canonical_instruction": "put the wine bottle on top of the cabinet",
+        "eval_id": 8,
+        "file_sha256": "13ee862b76163264e0f50526cb81d0a5d1574f95f7ac6cea12c61a790247e790",
+        "frame_index": 0,
+        "proprio_sha256": "85dc2dec4c6bb7fd7cd6bbfb923ca91e535b74ac45615ea9f18b7cf8bf3d91d7",
+        "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_48.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.05732294725432357,
+      "left": {
+        "action_sha256": "f8048cfc8f1aa32c29a526826c6ac2e80c053c4a392144017cfb9acac3cf7acd",
+        "canonical_instruction": "put the wine bottle on the rack",
+        "eval_id": 7,
+        "file_sha256": "189a72dcd15160591cad460d0d268e671940599c883a49798a36850e3d8ca7f3",
+        "frame_index": 0,
+        "proprio_sha256": "31729b1ddba134479ac0031ff42e739a40fed9f1ae1677ea22988ad1a068ca7b",
+        "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_49.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "wine_destination_rack_cabinet",
+      "pair_id": "b0c1b4aba8cd9858fb64a818911a061913e68a2bb942309b53666848172f570a",
+      "real_action_delta_normalized_rms": 1.9125547524537803,
+      "right": {
+        "action_sha256": "1c6b23e5d9b0d905a6f3f99058595c94ae441c062cbe9d63b677858c87955576",
+        "canonical_instruction": "put the wine bottle on top of the cabinet",
+        "eval_id": 8,
+        "file_sha256": "64e7d3b675802913e6e61d94032f637e5c1bad44600e49eee51e26e2ef6ebf19",
+        "frame_index": 0,
+        "proprio_sha256": "05c56a0d31895bfe93c9998138a2b39db4e6fbd2cfe09aa7ac255e3119d718af",
+        "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_18.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.07123405486953661,
+      "left": {
+        "action_sha256": "e3176a0689f585bd70d93d9ee77af1bf7c3afca1f97e1f7f9a8b1f0d32cff61e",
+        "canonical_instruction": "put the wine bottle on the rack",
+        "eval_id": 7,
+        "file_sha256": "dec67380d4d6761782c0fba3f8653c5c070fa1430cc946b1c6eb2b8a4d3e825f",
+        "frame_index": 0,
+        "proprio_sha256": "799a78c44599ca18442d0bfa362dae4ffaeaadcf2f0527945449fc5dfe2a02dc",
+        "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_41.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "wine_destination_rack_cabinet",
+      "pair_id": "91167d2fdd8a14cc6fae4698cfc5c584e90ed0fa56fdf7b40502e52fec5967ed",
+      "real_action_delta_normalized_rms": 2.206425999221793,
+      "right": {
+        "action_sha256": "cdd801f4e0d82e88197224772e5c08c28a321f91a7d9a9b3e22bfff6e8d89a86",
+        "canonical_instruction": "put the wine bottle on top of the cabinet",
+        "eval_id": 8,
+        "file_sha256": "09ec57996dbc3f91e320a73c007a037d8d1d97209c1e83b30543ccece6ea2049",
+        "frame_index": 0,
+        "proprio_sha256": "738ecf16fc383b7ec60ae856b6d3697a1840754e8b03fc93dce0d0972cd1ce6e",
+        "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_14.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.07342399079030874,
+      "left": {
+        "action_sha256": "eb1587d38f7a3d8c0ae1d11191f213a6533fbc3cc344e568d27ad9cddae45947",
+        "canonical_instruction": "put the wine bottle on the rack",
+        "eval_id": 7,
+        "file_sha256": "43c7e7b5062b015dd10eec820a638f257a6c4a9eea912247336473626b52a393",
+        "frame_index": 0,
+        "proprio_sha256": "00f9942b0477b57404da42b8a59c4f9eea88610dc70d001ec441a9a2c3e0357b",
+        "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_9.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "wine_destination_rack_cabinet",
+      "pair_id": "40c7e7b6d62f0dbce8b83472537f165135d22b1156a436a5c681cee355b5fcd1",
+      "real_action_delta_normalized_rms": 2.269490029115987,
+      "right": {
+        "action_sha256": "1634a8aedfd466cef6044d0d504e536032a1158745efa3deaad40e3958380eba",
+        "canonical_instruction": "put the wine bottle on top of the cabinet",
+        "eval_id": 8,
+        "file_sha256": "02e96defc6940d1d954a9e1397cf24170d4895a046f0aadbf066c93412876903",
+        "frame_index": 0,
+        "proprio_sha256": "19f1c11fe09134e3355f75a2757ea9eb9763deb0fa17317b73362f85aea1d061",
+        "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_19.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.07716171973815222,
+      "left": {
+        "action_sha256": "81bfe224a5cced42e2b0f7e76b00ac522ce7cbf40b5ad9851a68d689269d13d5",
+        "canonical_instruction": "put the wine bottle on the rack",
+        "eval_id": 7,
+        "file_sha256": "8fa43d7a2f8648fc137b13a5de79fbd8ac986eaecb6b8ce3d7b33962143a462a",
+        "frame_index": 0,
+        "proprio_sha256": "83c790cc54b1e8ca7cd762a937e1cb20312aabb751d76b68429f767c2391ae1d",
+        "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_43.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "wine_destination_rack_cabinet",
+      "pair_id": "b947955d630947e46392a5403c80d1a618c8acd5652ca11eb29e199911ad4a80",
+      "real_action_delta_normalized_rms": 1.8641442258331211,
+      "right": {
+        "action_sha256": "386c9baf5e6306b758940290867f0b7b30cd182c6e9c11b1b530676fa83f89ee",
+        "canonical_instruction": "put the wine bottle on top of the cabinet",
+        "eval_id": 8,
+        "file_sha256": "198358a0629fc73f7301ae5a957b39629bddd1e749f52dd634ed5a6cf1cc97ae",
+        "frame_index": 0,
+        "proprio_sha256": "3d5a12cded0b71c22b8fd91debb007af200c88b4d61a1d63fde6c7196f12eb0d",
+        "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_27.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.08063965397253502,
+      "left": {
+        "action_sha256": "2b67519d8bc253d38dadf4f71b7465b65f25bf33ea1c50068d2b8be9f1fc532f",
+        "canonical_instruction": "put the wine bottle on the rack",
+        "eval_id": 7,
+        "file_sha256": "4b93211230c3d7e8548e94542dd409a7ed7625b74486d32df59acf0d8b5cc2a4",
+        "frame_index": 0,
+        "proprio_sha256": "31fb14e1339c32de6a28af2acb5254a98d57753adb90781e51ca10812880a79d",
+        "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_4.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "wine_destination_rack_cabinet",
+      "pair_id": "7031ab1d1fdce87eb41481d9039dd1cda56ec12f3d9e17d1a9c1626655d86255",
+      "real_action_delta_normalized_rms": 1.9981375784966438,
+      "right": {
+        "action_sha256": "de82da6e3cd554e0189dd13e7ce9e905f997c74cfaef9b998c28acd29a07ec4a",
+        "canonical_instruction": "put the wine bottle on top of the cabinet",
+        "eval_id": 8,
+        "file_sha256": "4e96c61b448aa4c4481e3a3333f136fd746cffcf8623ec7d00b83bb888ba6515",
+        "frame_index": 0,
+        "proprio_sha256": "f87434c23da9247356cce35f16833cc4ad4eaa1bc63eb9634613425c02500b1a",
+        "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_7.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.08742153478308945,
+      "left": {
+        "action_sha256": "e7d5b96e20811991f07f796c654c5451b79347bc79df57445ed30cf3377a792c",
+        "canonical_instruction": "put the wine bottle on the rack",
+        "eval_id": 7,
+        "file_sha256": "d1d7ed6634eaba3d5ebce26936ced4657b9aeeb2a7abaee3015bc4d4eae73fe9",
+        "frame_index": 0,
+        "proprio_sha256": "54918488461554164dfda9384c5c1ff17b0e0a220e8e0084621f520410e95eb0",
+        "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_13.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "wine_destination_rack_cabinet",
+      "pair_id": "1b6840ca2417813fe6c81b4893a114207c098980b1d8cb305dc6406c123ed759",
+      "real_action_delta_normalized_rms": 2.263508630975163,
+      "right": {
+        "action_sha256": "c5bc1afe72de08ba3771ceec1f56cc4fb77c807261d7d5877694236f5b0684c4",
+        "canonical_instruction": "put the wine bottle on top of the cabinet",
+        "eval_id": 8,
+        "file_sha256": "42f3f2df1e60da1df789180362345a8dda2b34b61ed10c47ad885d1680906d69",
+        "frame_index": 0,
+        "proprio_sha256": "24396257e1632e0477140dc875b6288deae3d2374d5cf241a8594b36a90a8d4e",
+        "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_47.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.09653854825224648,
+      "left": {
+        "action_sha256": "627604c55fc61643222c1b8c9cf8684baa259bf41f317afd8c6facd09a41766a",
+        "canonical_instruction": "put the wine bottle on the rack",
+        "eval_id": 7,
+        "file_sha256": "4fa082d57ed33c2d8aeab9c5618589b17f7b6a742dafcc34a79913e9c245e1cc",
+        "frame_index": 0,
+        "proprio_sha256": "a9d197dbc9300b68fcf7cb39033a2e4c3aedb799af402b0e7cdb8576dd2af5c0",
+        "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_14.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "wine_destination_rack_cabinet",
+      "pair_id": "eee2403cae4bf8122597a87344bb861ad66a0027821291eb4e802cfadc4a6327",
+      "real_action_delta_normalized_rms": 2.2562292956548364,
+      "right": {
+        "action_sha256": "77be2812035fc56977a2a73470e8c62972d6658fb4653671fcb2764311aa6ce0",
+        "canonical_instruction": "put the wine bottle on top of the cabinet",
+        "eval_id": 8,
+        "file_sha256": "ae94b7dac491463148876b097edb34ac120d00936e2b9d24d2d5a382a7cb5e1d",
+        "frame_index": 0,
+        "proprio_sha256": "0516c2ec862d168f6e1dfe47524cb980b6646ae9a46e015c72a686d820c9990a",
+        "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_10.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.11178261201305342,
+      "left": {
+        "action_sha256": "c0bad0ab49619f85051117980ffa6086bc55c7578bce70c15afc6e95055e4478",
+        "canonical_instruction": "put the wine bottle on the rack",
+        "eval_id": 7,
+        "file_sha256": "3d31e73ef601b609a2dff3fec6adadd49f622a356ba7dcc3437904f20e8109a1",
+        "frame_index": 0,
+        "proprio_sha256": "719f5445ed992568fe6519bf7744063e2d1493b0e846b4d73d612df2e9a05725",
+        "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_39.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "wine_destination_rack_cabinet",
+      "pair_id": "32ed78b49c25bb401d658e60b991da6bc8856a6d33328cb98b50080adf04f128",
+      "real_action_delta_normalized_rms": 2.2779412765667773,
+      "right": {
+        "action_sha256": "bdb4b06509de1dd164bba1b3de598323c5bfc1fbccb8b2f0358d813096ef2c37",
+        "canonical_instruction": "put the wine bottle on top of the cabinet",
+        "eval_id": 8,
+        "file_sha256": "858ef89e4e417970be4e75fe4c1abd23fcbe7bde1511619962c5bac5b1b799a2",
+        "frame_index": 0,
+        "proprio_sha256": "a647bbce8166584d5cd579b5d2c2eae04b83ca64fd8840c095ca7347f71dc39d",
+        "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_1.hdf5"
+      }
+    }
+  ],
+  "training_equivalence_pairs": [
+    {
+      "canonical_instruction": "put the bowl on the plate",
+      "eval_id": 3,
+      "family": "act",
+      "low": "question_directive",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "What is the plan for the bowl and plate?",
+      "row_id": "50376926d134ac289020f1b89fac312fcb373564653680d7e21d7d8c7af91963"
+    },
+    {
+      "canonical_instruction": "put the bowl on the plate",
+      "eval_id": 3,
+      "family": "obj",
+      "low": "same_polarity_contextual",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the pot on the plate",
+      "row_id": "3463d3a6dcce6ab4ca09d802ac5437d7861285612a9a213c403c2a6a4ec4a9eb"
+    },
+    {
+      "canonical_instruction": "put the bowl on the plate",
+      "eval_id": 3,
+      "family": "comp",
+      "low": "same_polarity_contextual+hint",
+      "mid": "lexical+pragmatical",
+      "paraphrase_instruction": "The serving dish is ready for the basin",
+      "row_id": "3eea2cf6d3d23c0b5f99ef6e74da48c3b79e52ac49f293074730aa07b5a3340a"
+    },
+    {
+      "canonical_instruction": "put the bowl on the stove",
+      "eval_id": 4,
+      "family": "act",
+      "low": "question_directive",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "Does the bowl go on the stove now?",
+      "row_id": "0f2518f40d611de7942da63198f6f712dde95ecbd13f00a46945d0708846f126"
+    },
+    {
+      "canonical_instruction": "put the bowl on the stove",
+      "eval_id": 4,
+      "family": "obj",
+      "low": "same_polarity_contextual",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the bowl on the hotplate",
+      "row_id": "c2ad0a68a6ed38fcb571747a07ef86377366fb3ac1a824dd5c84c7e215cd6c1e"
+    },
+    {
+      "canonical_instruction": "put the bowl on the stove",
+      "eval_id": 4,
+      "family": "comp",
+      "low": "same_polarity_habitual+hint",
+      "mid": "lexical+pragmatical",
+      "paraphrase_instruction": "The container goes on the range",
+      "row_id": "fdeb4506894c3049118ddfe9d05e2e17ccf9a49cb34c643d16d635ae0ad6ed23"
+    },
+    {
+      "canonical_instruction": "put the bowl on top of the cabinet",
+      "eval_id": 5,
+      "family": "act",
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "paraphrase_instruction": "Slowly put the bowl on top of the cabinet",
+      "row_id": "596fd529b4216c785e08d3b577d146e9e86882b255c389daaeed00c8725b983a"
+    },
+    {
+      "canonical_instruction": "put the bowl on top of the cabinet",
+      "eval_id": 5,
+      "family": "obj",
+      "low": "same_polarity_contextual",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the vessel on top of the sideboard",
+      "row_id": "9f008639da9a00b4cbc3a6b9b2e65af030cbf0db548ef881c80ebe6cfb7c3d5a"
+    },
+    {
+      "canonical_instruction": "put the bowl on top of the cabinet",
+      "eval_id": 5,
+      "family": "comp",
+      "low": "addition_deletion+embedded_imperative",
+      "mid": "lexical+pragmatical",
+      "paraphrase_instruction": "Would you please put the salad bowl on top of the cabinet?",
+      "row_id": "e4eaed5ce26875e2d1c41e745c016f4cd3c67fed3ed72ac579af39b346b3d48d"
+    },
+    {
+      "canonical_instruction": "put the wine bottle on the rack",
+      "eval_id": 7,
+      "family": "act",
+      "low": "coordination",
+      "mid": "structural",
+      "paraphrase_instruction": "Pick up the wine bottle. Put it on the rack",
+      "row_id": "c3cf82f76101cace737aed00e3a37b5ac1af82d38d1e8e50041dba0417fac890"
+    },
+    {
+      "canonical_instruction": "put the wine bottle on the rack",
+      "eval_id": 7,
+      "family": "obj",
+      "low": "same_polarity_contextual",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the wine bottle of wine on the rack",
+      "row_id": "7eb3724e156532fc1424bcbc9d181b93fdac5a18cfbe5beb675d92e225a54646"
+    },
+    {
+      "canonical_instruction": "put the wine bottle on the rack",
+      "eval_id": 7,
+      "family": "comp",
+      "low": "same_polarity_contextual+permission_directive",
+      "mid": "lexical+pragmatical",
+      "paraphrase_instruction": "Could I have the container of wine put on the holder?",
+      "row_id": "0bec46612a70918b45d91a69cf115b722f677eb38bec13bc45ea07035800431c"
+    },
+    {
+      "canonical_instruction": "put the wine bottle on top of the cabinet",
+      "eval_id": 8,
+      "family": "act",
+      "low": "need_statement",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "I want the wine bottle placed on top of the cabinet",
+      "row_id": "79621682a9aa5604ae5f65ebaa3ccb5f9c6fd151727cc5b86e3ccae98c582629"
+    },
+    {
+      "canonical_instruction": "put the wine bottle on top of the cabinet",
+      "eval_id": 8,
+      "family": "obj",
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the wine bottle on top of the kitchen cabinet",
+      "row_id": "3354b88fc07fd6d9493d9ac0ef816bc3d981f7e7caaa83750ba4e782fa9c198c"
+    },
+    {
+      "canonical_instruction": "put the wine bottle on top of the cabinet",
+      "eval_id": 8,
+      "family": "comp",
+      "low": "same_polarity_contextual+permission_directive",
+      "mid": "lexical+pragmatical",
+      "paraphrase_instruction": "Can I get the vessel put on top of the hutch?",
+      "row_id": "17a54904b7d39c6c65cae034726b3be211c1806276b6566ec9ed6bfcc611a1ad"
+    }
+  ],
+  "validation_action_pairs": [
+    {
+      "initial_proprio_match_rms": 0.11401333668219876,
+      "left": {
+        "action_sha256": "3d01159141e5da92dbc710b7bc1568dedc58b3c94eba2b35361e2b6d094b5c96",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "15da439cd8d423c0803c929d60f1b64712172c7cb3cff1e2a391dfecf4282579",
+        "frame_index": 0,
+        "proprio_sha256": "9f976de1bf6b0fe204c6b5a068a0b7289db92de992634f4f0a6f4d4c3871ab94",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_22.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_stove",
+      "pair_id": "3a750cdc0c8a1c66ccc1e4f42d5da735616a29bc69156d1ca7898ed15e4fb2ec",
+      "real_action_delta_normalized_rms": 0.7463167225459427,
+      "right": {
+        "action_sha256": "7940bcd82163bb6937265961f127cd6ead1a3f468130a9e4c5aa4c6fa8462fd6",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "fd071fe55549cc6e245d8962e12d5a03b4b8c2492e7246027742d60bd01b4ae3",
+        "frame_index": 0,
+        "proprio_sha256": "c037820665a0baa37c46f0b35715b77b7182941e8fb79094926dd2ca0c172e05",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_14.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.16248536177345976,
+      "left": {
+        "action_sha256": "3d01159141e5da92dbc710b7bc1568dedc58b3c94eba2b35361e2b6d094b5c96",
+        "canonical_instruction": "put the bowl on the plate",
+        "eval_id": 3,
+        "file_sha256": "15da439cd8d423c0803c929d60f1b64712172c7cb3cff1e2a391dfecf4282579",
+        "frame_index": 0,
+        "proprio_sha256": "9f976de1bf6b0fe204c6b5a068a0b7289db92de992634f4f0a6f4d4c3871ab94",
+        "relative_path": "put_the_bowl_on_the_plate_demo/demo_22.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_plate_cabinet",
+      "pair_id": "fcac134ae8dcaeb6cdc3f1185551858e8d454842babab374ec74d0c1a649f64a",
+      "real_action_delta_normalized_rms": 0.45234382855256267,
+      "right": {
+        "action_sha256": "48fb13dedcc55079aadf39ce2162710e14f13f781aeed913e2af1253dc1f8585",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "42da90b377314459d4a38deec3c05582b51e946a7908dfd009573d2b3fd8a07d",
+        "frame_index": 0,
+        "proprio_sha256": "8bda502e13e3c8e6b41dbc0b39d3982f97d0fcd9b9f93e57fef16d29ccfb6005",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_21.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.1447982116175787,
+      "left": {
+        "action_sha256": "7940bcd82163bb6937265961f127cd6ead1a3f468130a9e4c5aa4c6fa8462fd6",
+        "canonical_instruction": "put the bowl on the stove",
+        "eval_id": 4,
+        "file_sha256": "fd071fe55549cc6e245d8962e12d5a03b4b8c2492e7246027742d60bd01b4ae3",
+        "frame_index": 0,
+        "proprio_sha256": "c037820665a0baa37c46f0b35715b77b7182941e8fb79094926dd2ca0c172e05",
+        "relative_path": "put_the_bowl_on_the_stove_demo/demo_14.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "bowl_destination_stove_cabinet",
+      "pair_id": "a60aae99c9a0b74ae2c65b851ad5e4d246db59aef67f96a5d21aaf695ddbd56b",
+      "real_action_delta_normalized_rms": 0.6333071670181829,
+      "right": {
+        "action_sha256": "48fb13dedcc55079aadf39ce2162710e14f13f781aeed913e2af1253dc1f8585",
+        "canonical_instruction": "put the bowl on top of the cabinet",
+        "eval_id": 5,
+        "file_sha256": "42da90b377314459d4a38deec3c05582b51e946a7908dfd009573d2b3fd8a07d",
+        "frame_index": 0,
+        "proprio_sha256": "8bda502e13e3c8e6b41dbc0b39d3982f97d0fcd9b9f93e57fef16d29ccfb6005",
+        "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_21.hdf5"
+      }
+    },
+    {
+      "initial_proprio_match_rms": 0.2442159656929772,
+      "left": {
+        "action_sha256": "74d919c2304d9752672b8dcfd9499c9afafb73a48d1619369f2d1fb81bea5bb6",
+        "canonical_instruction": "put the wine bottle on the rack",
+        "eval_id": 7,
+        "file_sha256": "49b5907fe708b26fa4fa2f0f0af09a9aee54820ca4df8e1a493d2b7655d5d1d3",
+        "frame_index": 0,
+        "proprio_sha256": "1e467635f2697739177d648b9640a0c5f4ba482aad3cb9dc4cf63ac36efce267",
+        "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_36.hdf5"
+      },
+      "orientation": "right_minus_left",
+      "pair_group": "wine_destination_rack_cabinet",
+      "pair_id": "1ad16b8ecbca5246945a21a1abdc2b5d7d606b4963c0ba25815ddf7e4d5cc1ee",
+      "real_action_delta_normalized_rms": 2.055967307639822,
+      "right": {
+        "action_sha256": "454457a45c29284e267229656d89a9167f77c20e84417d29b77b31703f274634",
+        "canonical_instruction": "put the wine bottle on top of the cabinet",
+        "eval_id": 8,
+        "file_sha256": "06763b565adbd581aa21f332c592458899554e7be13b34317a56ac8aa963f5d2",
+        "frame_index": 0,
+        "proprio_sha256": "1074ab8a25bb855fa98693170a0831c86c3590888070799a32f27ee11d43abdd",
+        "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_43.hdf5"
+      }
+    }
+  ],
+  "validation_equivalence_pairs": [
+    {
+      "batch_idx": 1,
+      "canonical_instruction": "put the bowl on the plate",
+      "eval_id": 3,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 1.0,
+      "low": "embedded_imperative",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "Could you put the bowl on the plate?",
+      "row_id": "3491dfaca57bbb2b133a51c8876690b7370a78b80c8814a5afb10a061fa6cc36",
+      "structural_similarity": 0.8
+    },
+    {
+      "batch_idx": 7,
+      "canonical_instruction": "put the bowl on the plate",
+      "eval_id": 3,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the bowl on the side plate",
+      "row_id": "7a4f7c77f0978bcb1e5f9e5c6023a83bb21f50d72aaffa59d5d7dd2df67a121e",
+      "structural_similarity": 0.9230769230769231
+    },
+    {
+      "batch_idx": 7,
+      "canonical_instruction": "put the bowl on the plate",
+      "eval_id": 3,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.6178966164588928,
+      "low": "same_polarity_habitual+same_polarity_contextual",
+      "mid": "lexical+lexical",
+      "paraphrase_instruction": "arrange the bowl on the platter",
+      "row_id": "a3c7a10d32002b52294aaa62fb8df39bced3babbef12355f00cc2e492bb1d0a4",
+      "structural_similarity": 1.0
+    },
+    {
+      "batch_idx": 5,
+      "canonical_instruction": "put the bowl on the stove",
+      "eval_id": 4,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 0.834317684173584,
+      "low": "hint",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "The bowl goes on the stove",
+      "row_id": "99b061087d862a68e5a2973b592f29ec6ed16a2b857dcb33f203464d73667027",
+      "structural_similarity": 0.9166666666666666
+    },
+    {
+      "batch_idx": 3,
+      "canonical_instruction": "put the bowl on the stove",
+      "eval_id": 4,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the mixing bowl on the stove",
+      "row_id": "6e47cbc0b3cef547e8795b4fa5e510f064e6cf1100ab335af7a06b0fc1ac3ec5",
+      "structural_similarity": 0.9230769230769231
+    },
+    {
+      "batch_idx": 8,
+      "canonical_instruction": "put the bowl on the stove",
+      "eval_id": 4,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.39193931221961975,
+      "low": "same_polarity_habitual+coordination",
+      "mid": "lexical+structural",
+      "paraphrase_instruction": "get the receptacle and then place it on the range",
+      "row_id": "2d95e99d23cf6c9a771a1eb06c943c01330450facd2a763bd11b9ab1eb048940",
+      "structural_similarity": 0.5625
+    },
+    {
+      "batch_idx": 7,
+      "canonical_instruction": "put the bowl on top of the cabinet",
+      "eval_id": 5,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 0.854670524597168,
+      "low": "question_directive",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "Is the top of the cabinet the correct place for the bowl?",
+      "row_id": "64630a19d093f5bf2e0c0becf967878ac43d97adcff2535eac59a0004e427fb0",
+      "structural_similarity": 0.5238095238095238
+    },
+    {
+      "batch_idx": 10,
+      "canonical_instruction": "put the bowl on top of the cabinet",
+      "eval_id": 5,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the fruit bowl on top of the cabinet",
+      "row_id": "b9e7e036f93c0525f2c8d6eafef5c748a3e50be46cc5edbcf0953c5ee6a5d278",
+      "structural_similarity": 0.9411764705882353
+    },
+    {
+      "batch_idx": 4,
+      "canonical_instruction": "put the bowl on top of the cabinet",
+      "eval_id": 5,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "addition_deletion+coordination",
+      "mid": "lexical+structural",
+      "paraphrase_instruction": "Get the cereal bowl and then put it on top of the display cabinet",
+      "row_id": "b124a1ed6cbd52834d810c29c4fe4e67e5a73e0a97697e0cc7668e8e00412a15",
+      "structural_similarity": 0.5909090909090908
+    },
+    {
+      "batch_idx": 9,
+      "canonical_instruction": "put the wine bottle on the rack",
+      "eval_id": 7,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 0.8838483095169067,
+      "low": "permission_directive",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "Could I get the wine bottle onto the rack?",
+      "row_id": "f624ae9074031d79770c087cec76f6250809fef43998fa02bb127d0c358902b8",
+      "structural_similarity": 0.7058823529411764
+    },
+    {
+      "batch_idx": 1,
+      "canonical_instruction": "put the wine bottle on the rack",
+      "eval_id": 7,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the wine bottle on the storage rack",
+      "row_id": "68a4f8969af44905af0b4551eb4c39d9bdc3d785bab4c9738a500c97c5693259",
+      "structural_similarity": 0.9333333333333333
+    },
+    {
+      "batch_idx": 1,
+      "canonical_instruction": "put the wine bottle on the rack",
+      "eval_id": 7,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.7478443384170532,
+      "low": "same_polarity_habitual+permission_directive",
+      "mid": "lexical+pragmatical",
+      "paraphrase_instruction": "Could I have the wine vessel put on the stand?",
+      "row_id": "b2842bbc0df1903f9e270af4c603e87cda44a446ac66a00996228aa612e728d3",
+      "structural_similarity": 0.7222222222222222
+    },
+    {
+      "batch_idx": 3,
+      "canonical_instruction": "put the wine bottle on top of the cabinet",
+      "eval_id": 8,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 0.8837364315986633,
+      "low": "question_directive",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "Does the wine bottle belong on top of the cabinet?",
+      "row_id": "cdb06a437f81019116251c9d96387b1eb3597b4ac51317d1ecc00024cb5e177e",
+      "structural_similarity": 0.85
+    },
+    {
+      "batch_idx": 6,
+      "canonical_instruction": "put the wine bottle on top of the cabinet",
+      "eval_id": 8,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 0.7879955768585205,
+      "low": "same_polarity_contextual",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the drink bottle on top of the hutch",
+      "row_id": "af71b66dcbff982b33920d06840370d6792af73f2be04e173e921afd39f25bff",
+      "structural_similarity": 1.0
+    },
+    {
+      "batch_idx": 6,
+      "canonical_instruction": "put the wine bottle on top of the cabinet",
+      "eval_id": 8,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.8068706393241882,
+      "low": "addition_deletion+hint",
+      "mid": "lexical+pragmatical",
+      "paraphrase_instruction": "The top of the storage cabinet is clear for the drink bottle",
+      "row_id": "128e35d675bbcefb6b823789fa4b199c09f7814a9ee07f85628ed0b684118b48",
+      "structural_similarity": 0.5714285714285714
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": "epoch8.campaign_state.v1",
+  "updated_at": "2026-07-20T21:31:40+09:00",
+  "terminal_state": "LOCAL_PROGRAM_BLOCKED_WITH_AUDITABLE_EXHAUSTION",
+  "paper_authorized": false,
+  "paper_package_generated": false,
+  "branch": "codex/epoch8-language-grounding-convergence",
+  "source_commit": "4422a95be5412bdb774287fce9f42004a8631f39",
+  "scientific_checkpoint_commit": "PENDING_CHECKPOINT_COMMIT",
+  "protected_evidence": {
+    "rollouts/2026_07_17": {
+      "files": 27,
+      "bytes": 5143751,
+      "tree_sha256": "6BC7D7A37A2AD98E4A4EE1B20926B923CDFC88CF7D6CACB1352363657E29DE4F"
+    },
+    "rollouts/2026_07_18": {
+      "files": 10,
+      "bytes": 924633,
+      "tree_sha256": "7045345B51D54D7BD25DCA991D1E66D9D32AB4E577BEC3A4A46EC2101D1DD981"
+    }
+  },
+  "ledger": {
+    "raw_inherited_entries": 95,
+    "corrective_and_epoch8_addenda": 14,
+    "total_entries": 109,
+    "unique_empirical_problem_groups": 6,
+    "unique_empirical_method_formulations": 34,
+    "known_official_closed_loop_lower_bound": {
+      "base": 438,
+      "prior": 345,
+      "ours": 577,
+      "controls": 528
+    },
+    "epoch8_new_official_closed_loop": {
+      "base": 12,
+      "prior": 0,
+      "ours": 0,
+      "controls": 0
+    }
+  },
+  "decisions": {
+    "language_pcat": "VALID_SCIENTIFIC_FAILURE_EXACT_PCAT_CLOSED",
+    "latent_dynamics_feedback_expert": "FEEDBACK_EXPERT_DEVELOPMENT_FAIL_ROTATE",
+    "two_shard_actual_arrival": "TWO_SHARD_RESOURCE_BLOCKED_CURRENT_HOST",
+    "active_hidden_mass_stage_minus1": "ACTIVE_LATENT_PROPERTY_BASE_OR_HEADROOM_INCOMPETENT",
+    "probe_response_belief": "PROBE_RESPONSE_BELIEF_EXACT_FEATURE_MECHANISM_NOT_SUPPORTED",
+    "scripted_probe_return": "SCRIPTED_PROBE_RETURN_EXACT_CONTROLLER_NOT_FEASIBLE"
+  },
+  "active_jobs": [],
+  "finished_jobs": [
+    "PCAT Stage 0",
+    "latent-dynamics feedback development",
+    "two-shard outcome-free resource smoke",
+    "active hidden-mass Base Stage -1",
+    "probe-response belief Stage 0",
+    "scripted probe-return feasibility"
+  ],
+  "unobserved_scientific_episode_panels": {
+    "epoch6_four_shard": "0/40",
+    "epoch8_two_shard": "0/40"
+  },
+  "resource_boundary": {
+    "host_physical_bytes": 24871014400,
+    "two_shard_peak_used_fraction": 0.8466460530053812,
+    "two_shard_projected_minimum_decimal_gb": 29.44,
+    "two_shard_smallest_plausible_standard_tier_gb": 32,
+    "four_shard_projected_minimum_decimal_gb": 34.96,
+    "four_shard_smallest_defensible_standard_tier_gb": 48,
+    "wsl_swap_used_bytes_in_accepted_runs": 0
+  },
+  "verification": {
+    "epoch8_python_scripts_compiled": 12,
+    "epoch8_json_files_parsed": 39,
+    "governance_check": "PASS",
+    "relevant_tests_excluding_inherited_stale_assertion": "25/25 PASS",
+    "complete_targeted_test_command": "29 PASS, 1 INHERITED STALE ASSERTION",
+    "inherited_stale_assertion": "Source commit and worktree record Epoch 5/cycle 0; test_active_state_records_amp_selection_and_rap_stage_0_failure expects Epoch 4/cycle 39. Epoch 8 modifies neither file."
+  },
+  "reopen_conditions": {
+    "language": "A causally distinct current language-to-action mechanism with new frozen validation and confirmation evidence; no PCAT or scalar-energy reparameterization.",
+    "latent_dynamics": "A materially different legal altered-dynamics expert frozen before new outcomes and capable across a third manipulation family.",
+    "active_property": "A legal visual-feedback probe-return-select controller plus a causally distinct temporal response representation, new development splits, and untouched confirmation.",
+    "two_shard": "A fresh resource smoke below 82% host use with zero WSL swap/offload on an adequate host.",
+    "four_shard": "A clean equivalent host with at least 48 GB RAM and the unchanged frozen protocol."
+  },
+  "next_safe_commands": {
+    "governance_check": "C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe scripts\\check_current_research_governance.py",
+    "two_shard_preflight_48gb": "wsl.exe -d Ubuntu-22.04 -- /home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python /mnt/c/Users/jiheo/tca_map/scripts/run_epoch8_two_shard_actual_arrival.py --mode preflight --run-dir /mnt/c/Users/jiheo/tca_map/reports/epoch8_two_shard_actual_arrival/<fresh_run_id>",
+    "two_shard_resource_smoke_48gb": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\monitor_epoch8_two_shard_resource_smoke.ps1 -RunId <fresh_run_id>",
+    "two_shard_science_after_pass": "wsl.exe -d Ubuntu-22.04 -- /home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python /mnt/c/Users/jiheo/tca_map/scripts/run_epoch8_two_shard_actual_arrival.py --mode run-all --run-dir /mnt/c/Users/jiheo/tca_map/reports/epoch8_two_shard_actual_arrival/<fresh_run_id>"
+  }
+}

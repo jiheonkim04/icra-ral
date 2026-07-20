@@ -1,0 +1,85 @@
+{
+  "candidate_independent": true,
+  "closed_loop": {
+    "episodes": 60,
+    "initial_state_indices": [
+      0,
+      1,
+      2
+    ],
+    "may_be_reused_as_confirmation": false,
+    "pairs": 30,
+    "policy_query_seeds": [
+      7,
+      8,
+      9
+    ],
+    "protocol": "reports/epoch7_selective_language_grounding/problem_verification_protocol.json",
+    "results": {
+      "canonical": "30/30",
+      "paraphrase": "19/30"
+    }
+  },
+  "epoch7_stage0": {
+    "decision": "STAGE0_MECHANISM_NOT_SUPPORTED_FOR_FROZEN_SCALAR_ACTION_ENERGY",
+    "demo_paths": [
+      "open_the_middle_drawer_of_the_cabinet_demo/demo_4.hdf5",
+      "open_the_top_drawer_and_put_the_bowl_inside_demo/demo_22.hdf5",
+      "push_the_plate_to_the_front_of_the_stove_demo/demo_11.hdf5",
+      "put_the_bowl_on_the_plate_demo/demo_37.hdf5",
+      "put_the_bowl_on_the_stove_demo/demo_21.hdf5",
+      "put_the_bowl_on_top_of_the_cabinet_demo/demo_6.hdf5",
+      "put_the_cream_cheese_in_the_bowl_demo/demo_14.hdf5",
+      "put_the_wine_bottle_on_the_rack_demo/demo_20.hdf5",
+      "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_49.hdf5",
+      "turn_on_the_stove_demo/demo_12.hdf5"
+    ],
+    "may_be_reused_for_epoch8_threshold_or_confirmation": false,
+    "paraphrase_row_ids": [
+      "1a96f2cad5921f95a4fadda2e5f92bdfc99f9fc053a400f22ca0d8cfae7163ed",
+      "1de38bac97722ef76332feff33b3d336f387e24c41e990909f368f01d055fcf2",
+      "228091836b23accab73e651509f4b1b6214ba9c7b235b27d5420c1d67b7bdfe5",
+      "27412139e770022eb0c1dde158866e76dcc96b896ecf85bb0d04c813dd3f0b3f",
+      "32d13ab7c0a890dcae4827e1191882f9ecfa3fc6e1f334dcca212e31af9db7ac",
+      "350aae0aa61de2f56ce4a94c23270a330b43e12d6c02877b2379987f20b5e051",
+      "3cb078f9e8e3ce065519c2676971ba76fbdb562fbbdee8de611c9119d602e1de",
+      "42760a1a2d97dadd9f490a7c208ee14ee55b044a7c40effd071502625a85e282",
+      "49a48df07e99995412bbd7d71844afd6f0c5de58a9884747b4875a567b8696b0",
+      "5c766cff7447d47558e7726f949daca0dabcef43969bc46b1e80359ef43bff60",
+      "6031c3cbaf6f7a641f9ad5f7fcfad623362041c1c8f637d7e7a39cc0e7384780",
+      "650e29a741e9415358769d60f15da8cecfbdfb610e5d1db3794e97be85930a97",
+      "72f2e2bb44585cb269fdc5c037d49bf21c5f8e6625f3978949809468a1e83a01",
+      "84a894ec8caeed734dfa85e40e0b0be30faac497a9f52491eda7f435e0fe0b6e",
+      "9a8a37f16471a3991e77d76c3295f3bac4d09ccb0bdc063e4c4fbb5a8cf844e2",
+      "9afc34a3242dc5e21cfcc0f92af4bf23ea8b76a45cf90ff16fe13449fe6156a0",
+      "a19efcf32fbfba696c0975b14eb726034c6ec36ff7fafbfd1ec7870e9756b7ab",
+      "a281369632f555173b662076caca9543792b3833a0cb4f1e460985d74b7e20d4",
+      "a71466b8d9f6892dd18a2de2cc6bd876cdf510c310f99e3a5766f368d14cd6d3",
+      "a95c4958cf2e62d1b9a7e8df24ab59a0dc1d60f2ac29e2470e34ed30cb481fee",
+      "ac5ba9e8f297d1b3ad2f564e1baf6c424a70d8d47d01a00cdd4e48519b42abdc",
+      "aec0413f787118dbb2987af83cbc8f6b4ebe23d89172ac12b95d5ff459a69822",
+      "b69d168acd38d7bb176dfcc57ac07223a3f3b3b286e91851b4b6c503a40ab4e0",
+      "b77c2855f99b90f00dd24cf34faa0fc7371c114643ace1921f8fe67e56bbf28b",
+      "c036c53f8d9fe87800dc896278e83fcd1ad0dab5b1ade9c8bb9267e338ce9f81",
+      "d759607091deecb0352c5d612b09f322931a20b6b8f5ae35fb5fef9b97266b57",
+      "dde0f85ac765e02a8c76239a5fe2b2be68175438bbbec79168b488d5da0f18af",
+      "def1fbbf9bb482098971b34f7e095dcd99df50066f7e7c54ed6594f5bf605de1",
+      "f83c87984cafad0aed845e2cf53cb32ba02e943efdc13fe8cb3a4f8c83bbe692",
+      "f90c6fb0a393a56c1319db9a28ea989fe582885081d5f83997594dfa851485ed"
+    ],
+    "sample_count": 30
+  },
+  "frozen_at": "2026-07-20T19:55:00+09:00",
+  "model_loaded": false,
+  "ours_outcomes_observed": false,
+  "role": "discovery",
+  "salt": "epoch8-language-grounding-splits-v1",
+  "schema_version": "epoch8.language_discovery_manifest.v1",
+  "simulator_episode_count": 0,
+  "source_partition": {
+    "assignment_sha256": "041e3cb49f2daf72fe5dd55e71cc7c5dd0bfddc1e11d2dc2707181457110bfd1",
+    "path": "reports/epoch7_selective_language_grounding/method_partition_manifest.json",
+    "sha256": "6dc4ff322941f4a9f8fd7fa95bc726e2d9bb516a4af21f94ae2403f25b750c2f"
+  },
+  "status": "CONSUMED_DISCOVERY_EVIDENCE_ONLY"
+}

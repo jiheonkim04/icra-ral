@@ -1,0 +1,2006 @@
+{
+  "classifier": {
+    "direction": [
+      -0.015121871368488294,
+      0.006246697208235374,
+      0.005813228375836403,
+      -0.024022840971339852,
+      -0.06495073382906849,
+      0.07497993215689634,
+      0.04094171174537727
+    ],
+    "feature_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "mean": [
+      0.024837561875541276,
+      0.03472739868513045,
+      0.037100810992852576,
+      2.860160203857554,
+      4.4756266077359514,
+      5.159289888540903,
+      9.281148254871368
+    ],
+    "scale": [
+      0.0038277446073978916,
+      0.005252735002198746,
+      0.004460552667328578,
+      0.6509023123230618,
+      0.6191661155395244,
+      0.961155364959564,
+      1.9820768202266252
+    ],
+    "threshold": -1.0408340855860843e-17
+  },
+  "completed_at": "2026-07-20T21:14:36+09:00",
+  "confirmation_accessed": false,
+  "decision": "PROBE_RESPONSE_BELIEF_STAGE0_INVALID",
+  "execution_type": "EXPERT_ACTION_REPLAY_OFFLINE_MECHANISM_GATE",
+  "policy_loaded_or_queried": false,
+  "protocol_sha256": "729D7632AEB155C08B126CE47544D7A4993C00B1BD4AA3FB268EAA464E9C1A21",
+  "schema_version": "epoch8.active_property_probe_belief.stage0_result.v1",
+  "script_sha256": "3EC98B41B54E179671E68D3D1F4E8F3A35474BD81CD2C3D052E555349B6D204D",
+  "selected_pairs": [
+    {
+      "action_source_sha256": "082246a9a4ff71dc85f2f9a674a071d61c457af8dad8f0e27b32a9d728e99f0b",
+      "demo_name": "demo_0",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "c0e21b9fc42686fd22ebac915fb932799c98a7e88d3981e3f1f3cf21c5c38ece",
+        "executed_steps": 104,
+        "factor": 8.0,
+        "features": [
+          0.01892687321992304,
+          0.0296289063645273,
+          0.035168948273540716,
+          3.5471354126930237,
+          5.292724609375,
+          3.9916069865226746,
+          9.983154296875
+        ],
+        "first_contact_step": 74,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 6.039
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "c0e21b9fc42686fd22ebac915fb932799c98a7e88d3981e3f1f3cf21c5c38ece",
+        "executed_steps": 104,
+        "factor": 1.0,
+        "features": [
+          0.018928272936238628,
+          0.029664168594846888,
+          0.03522137697369374,
+          3.530775245030721,
+          5.328043460845947,
+          3.4974826018015546,
+          10.159912109375
+        ],
+        "first_contact_step": 74,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 7.483
+      },
+      "paired_action_hash_match": true,
+      "partition": "training",
+      "target": "front"
+    },
+    {
+      "action_source_sha256": "dbac7a8c0ad028b6050e7ecef741c44df62981dc9e5fe012e2662ebbce8ebed9",
+      "demo_name": "demo_1",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "a877c7a9f47030af06b76bb969aba8086afcb0cb0fc2d5d14a77c807136a85f8",
+        "executed_steps": 88,
+        "factor": 8.0,
+        "features": [
+          0.020891171349421315,
+          0.027887982581574877,
+          0.03952984866610041,
+          3.6052191734313963,
+          5.1953125,
+          4.779853022098541,
+          10.587158203125
+        ],
+        "first_contact_step": 58,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.592
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "a877c7a9f47030af06b76bb969aba8086afcb0cb0fc2d5d14a77c807136a85f8",
+        "executed_steps": 88,
+        "factor": 1.0,
+        "features": [
+          0.020875687285033428,
+          0.027854803251836927,
+          0.03952549650739914,
+          3.645838765303294,
+          5.319580078125,
+          4.768641567230224,
+          10.522705078125
+        ],
+        "first_contact_step": 58,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.377
+      },
+      "paired_action_hash_match": true,
+      "partition": "training",
+      "target": "front"
+    },
+    {
+      "action_source_sha256": "7a32b1bcdd4bb3d3a3314da77a78f9e0a5c3fb74a1d72a07d04dd1a00f981a8c",
+      "demo_name": "demo_2",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "6bed9d0bbf2bff8fb39b080f393e6c64fec21742e906e27cb4f0399a1076dcba",
+        "executed_steps": 97,
+        "factor": 8.0,
+        "features": [
+          0.01941050721718064,
+          0.027318723917593497,
+          0.029107460069761632,
+          2.8114827473958335,
+          4.453369140625,
+          5.702617732683818,
+          13.100993156433105
+        ],
+        "first_contact_step": 67,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.765
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "6bed9d0bbf2bff8fb39b080f393e6c64fec21742e906e27cb4f0399a1076dcba",
+        "executed_steps": 97,
+        "factor": 1.0,
+        "features": [
+          0.01944352076530499,
+          0.02726641175738108,
+          0.029060046984218258,
+          2.8408609986305238,
+          4.569742679595947,
+          5.855547467867534,
+          12.166666984558105
+        ],
+        "first_contact_step": 67,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.855
+      },
+      "paired_action_hash_match": true,
+      "partition": "training",
+      "target": "front"
+    },
+    {
+      "action_source_sha256": "2a74c4461040f42ab719370c6dec0bd9a48cc197dbbf8ad8834e18f2e002f76d",
+      "demo_name": "demo_3",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "a2ee059fbd24dffc5469f9a2cd789f54406812fced9c03fa25f16023c4f82484",
+        "executed_steps": 91,
+        "factor": 8.0,
+        "features": [
+          0.02233543862478139,
+          0.02945703111578981,
+          0.03054211999580855,
+          3.448342553774516,
+          4.408935546875,
+          3.911550521850586,
+          9.105549812316895
+        ],
+        "first_contact_step": 61,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.565
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "a2ee059fbd24dffc5469f9a2cd789f54406812fced9c03fa25f16023c4f82484",
+        "executed_steps": 91,
+        "factor": 1.0,
+        "features": [
+          0.02231344837668565,
+          0.029405280359990592,
+          0.03049644246961288,
+          3.4864176392555235,
+          4.551676273345947,
+          3.61800674200058,
+          9.081461906433105
+        ],
+        "first_contact_step": 61,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.593
+      },
+      "paired_action_hash_match": true,
+      "partition": "training",
+      "target": "front"
+    },
+    {
+      "action_source_sha256": "0bd0a9a03363d8c73ee257f68fa5f7178d09ac1bee8a443672b4224da074a160",
+      "demo_name": "demo_0",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "a55d319881e06197b6593e73276910d8d645919102825302ade1a69d97d8f53d",
+        "executed_steps": 68,
+        "factor": 8.0,
+        "features": [
+          0.02994606562748184,
+          0.03964830490276613,
+          0.04021866154850509,
+          3.3118136723836265,
+          5.165201663970947,
+          7.027669239044189,
+          10.705159187316895
+        ],
+        "first_contact_step": 38,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 24,
+              "body_name": "akita_black_bowl_2_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 24,
+              "body_name": "akita_black_bowl_2_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 4.781
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "a55d319881e06197b6593e73276910d8d645919102825302ade1a69d97d8f53d",
+        "executed_steps": 68,
+        "factor": 1.0,
+        "features": [
+          0.02992968106271067,
+          0.0396047657882918,
+          0.04019993326303706,
+          3.323453770081202,
+          5.128662109375,
+          6.79125161965688,
+          11.761799812316895
+        ],
+        "first_contact_step": 38,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 4.932
+      },
+      "paired_action_hash_match": true,
+      "partition": "training",
+      "target": "middle"
+    },
+    {
+      "action_source_sha256": "0865de26d6f1b52608bedb44ac986a95017416b971f31fcfbf544d850173d94e",
+      "demo_name": "demo_1",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "e8b4f1c25d087556897abdf2eddbb42ffb63740ef0f1f2e42910fd37529b99d4",
+        "executed_steps": 83,
+        "factor": 8.0,
+        "features": [
+          0.026800439344338345,
+          0.03942258133179257,
+          0.040765874226902,
+          3.059773772954941,
+          4.492757320404053,
+          5.120968929926554,
+          10.899169921875
+        ],
+        "first_contact_step": 53,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 24,
+              "body_name": "akita_black_bowl_2_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 24,
+              "body_name": "akita_black_bowl_2_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.513
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "e8b4f1c25d087556897abdf2eddbb42ffb63740ef0f1f2e42910fd37529b99d4",
+        "executed_steps": 83,
+        "factor": 1.0,
+        "features": [
+          0.026784127366136893,
+          0.039393494749404546,
+          0.04074019443115738,
+          3.0304660280545552,
+          4.454345703125,
+          5.455072704950968,
+          12.603515625
+        ],
+        "first_contact_step": 53,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.531
+      },
+      "paired_action_hash_match": true,
+      "partition": "training",
+      "target": "middle"
+    },
+    {
+      "action_source_sha256": "782dc4556cf97b79900046293379bfe54f588eab1bf13eb45b387bfc58253b0a",
+      "demo_name": "demo_2",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "5cea14598938f47f8ab8d181964ea5d2b5d7ac1854466e24fd8522ad5a86c652",
+        "executed_steps": 87,
+        "factor": 8.0,
+        "features": [
+          0.029198043225885296,
+          0.03706930438496501,
+          0.03808188550345263,
+          3.4807047764460246,
+          5.017659664154053,
+          5.554250725110372,
+          8.8271484375
+        ],
+        "first_contact_step": 57,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 24,
+              "body_name": "akita_black_bowl_2_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 24,
+              "body_name": "akita_black_bowl_2_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 6.01
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "5cea14598938f47f8ab8d181964ea5d2b5d7ac1854466e24fd8522ad5a86c652",
+        "executed_steps": 87,
+        "factor": 1.0,
+        "features": [
+          0.029182114485100864,
+          0.03706317822092926,
+          0.038073753676775575,
+          3.500705325603485,
+          5.0341796875,
+          5.567420776685079,
+          8.822590827941895
+        ],
+        "first_contact_step": 57,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.701
+      },
+      "paired_action_hash_match": true,
+      "partition": "training",
+      "target": "middle"
+    },
+    {
+      "action_source_sha256": "d8d26ef56e76bff7a060e334f5295e567d8fbf364c33ed26b40137912f259e05",
+      "demo_name": "demo_3",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "7054c237b99441f000a82baefb0c6dbaa12c162d3e3a5c56dcec4ca4e157d0fc",
+        "executed_steps": 83,
+        "factor": 8.0,
+        "features": [
+          0.02412768304002843,
+          0.03307528508738953,
+          0.033422094416070566,
+          2.900651049613953,
+          4.330078125,
+          5.61007760365804,
+          7.807454586029053
+        ],
+        "first_contact_step": 53,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 24,
+              "body_name": "akita_black_bowl_2_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 24,
+              "body_name": "akita_black_bowl_2_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.756
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "0be32c7a94c6103b82a0263cf13650eed80b263c0db0a3e2ec34e33435022272",
+        "executed_steps": 84,
+        "factor": 1.0,
+        "features": [
+          0.024976319760684915,
+          0.03305562581731508,
+          0.03339618675941258,
+          3.0593342880407968,
+          4.699951171875,
+          5.1445638338724775,
+          6.117919921875
+        ],
+        "first_contact_step": 54,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.855
+      },
+      "paired_action_hash_match": false,
+      "partition": "training",
+      "target": "middle"
+    },
+    {
+      "action_source_sha256": "9431192a97efe3bf935e1c6618aec16fba6caed533513bee16d202dec14acc81",
+      "demo_name": "demo_0",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "929456b7cd9e73935da5cc9455bf46dac8bef509203f4d74cd18d73f925856e1",
+        "executed_steps": 72,
+        "factor": 8.0,
+        "features": [
+          0.026118735864315037,
+          0.037330826821709365,
+          0.038867771014972456,
+          1.7737603217363358,
+          3.5331218242645264,
+          4.73942600886027,
+          7.610107421875
+        ],
+        "first_contact_step": 42,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 25,
+              "body_name": "akita_black_bowl_3_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 25,
+              "body_name": "akita_black_bowl_3_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.479
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "929456b7cd9e73935da5cc9455bf46dac8bef509203f4d74cd18d73f925856e1",
+        "executed_steps": 72,
+        "factor": 1.0,
+        "features": [
+          0.026100776732061494,
+          0.03728451093515207,
+          0.03881852973858945,
+          1.7351833681265514,
+          3.2320148944854736,
+          4.020401986440023,
+          6.598795413970947
+        ],
+        "first_contact_step": 42,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.52
+      },
+      "paired_action_hash_match": true,
+      "partition": "training",
+      "target": "back"
+    },
+    {
+      "action_source_sha256": "d7d67fafb6be2152be358b007d2e6eaa41b00c4fc6ee0bcc4689af55a6c11e9a",
+      "demo_name": "demo_1",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "577c5a207df368561891c83c18a56daa7c9981343c77a2b05c4f4da42aa81176",
+        "executed_steps": 74,
+        "factor": 8.0,
+        "features": [
+          0.025152791944233015,
+          0.03848210725485873,
+          0.038895932114934174,
+          2.178832991917928,
+          4.1904296875,
+          6.6575249592463175,
+          9.385823249816895
+        ],
+        "first_contact_step": 44,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 25,
+              "body_name": "akita_black_bowl_3_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 25,
+              "body_name": "akita_black_bowl_3_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.526
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "577c5a207df368561891c83c18a56daa7c9981343c77a2b05c4f4da42aa81176",
+        "executed_steps": 74,
+        "factor": 1.0,
+        "features": [
+          0.025126939854121868,
+          0.038435579756915986,
+          0.03885612001436749,
+          2.160205086072286,
+          4.176432132720947,
+          6.542415324846903,
+          9.186360359191895
+        ],
+        "first_contact_step": 44,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.433
+      },
+      "paired_action_hash_match": true,
+      "partition": "training",
+      "target": "back"
+    },
+    {
+      "action_source_sha256": "fd87776142c2331c876f41d8c4bb4dbfb3a99e62ce3f1662b9a79fd51efdf31e",
+      "demo_name": "demo_2",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "12d55031f7e4c934adc975a897447afd20acfe035d5e9479d11de4239f9111ec",
+        "executed_steps": 75,
+        "factor": 8.0,
+        "features": [
+          0.030997327338728866,
+          0.04460643428513175,
+          0.04570251767540657,
+          2.0898166328668593,
+          3.7875163555145264,
+          4.5788194338480634,
+          6.631591796875
+        ],
+        "first_contact_step": 45,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 25,
+              "body_name": "akita_black_bowl_3_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 25,
+              "body_name": "akita_black_bowl_3_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.217
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "12d55031f7e4c934adc975a897447afd20acfe035d5e9479d11de4239f9111ec",
+        "executed_steps": 75,
+        "factor": 1.0,
+        "features": [
+          0.030973905091505386,
+          0.04455978320019108,
+          0.045657769296491325,
+          2.083289929231008,
+          3.7928059101104736,
+          4.942428950468699,
+          6.796956539154053
+        ],
+        "first_contact_step": 45,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.433
+      },
+      "paired_action_hash_match": true,
+      "partition": "training",
+      "target": "back"
+    },
+    {
+      "action_source_sha256": "25466236d73d982aba4682f5de9759a899f5d44eefa4ed28928202651513b496",
+      "demo_name": "demo_3",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "cbb3657d4ff5c54bd79eb5b49fe32941b45c1a8479580709c60f01d9510302fe",
+        "executed_steps": 77,
+        "factor": 8.0,
+        "features": [
+          0.023798369740671125,
+          0.03299816964390987,
+          0.035062199676801915,
+          2.0205702046553293,
+          3.59912109375,
+          4.669517683982849,
+          7.217366695404053
+        ],
+        "first_contact_step": 47,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 25,
+              "body_name": "akita_black_bowl_3_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 25,
+              "body_name": "akita_black_bowl_3_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.202
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "cbb3657d4ff5c54bd79eb5b49fe32941b45c1a8479580709c60f01d9510302fe",
+        "executed_steps": 77,
+        "factor": 1.0,
+        "features": [
+          0.0237632447604175,
+          0.03294430831886711,
+          0.035008300531450307,
+          2.0192111392815906,
+          3.661376953125,
+          5.275840902328492,
+          7.068196773529053
+        ],
+        "first_contact_step": 47,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.356
+      },
+      "paired_action_hash_match": true,
+      "partition": "training",
+      "target": "back"
+    },
+    {
+      "action_source_sha256": "24b718156f000d8b27920cec39ddca084d106eff1513501bcf92d7eea0ac8aca",
+      "demo_name": "demo_10",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "78611590311192ee3a1bd3dd22cdba14b1c9f8be384c209e9e00beffab390c5b",
+        "executed_steps": 90,
+        "factor": 8.0,
+        "features": [
+          0.02059927854325687,
+          0.027665811839712822,
+          0.03452219883449614,
+          2.303643117348353,
+          3.2833659648895264,
+          5.923380525906881,
+          14.929931640625
+        ],
+        "first_contact_step": 60,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 6.251
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "78611590311192ee3a1bd3dd22cdba14b1c9f8be384c209e9e00beffab390c5b",
+        "executed_steps": 90,
+        "factor": 1.0,
+        "features": [
+          0.02054290909778941,
+          0.02794388673327344,
+          0.034498678085479496,
+          2.305121531089147,
+          3.287841796875,
+          5.618071842193603,
+          15.340413093566895
+        ],
+        "first_contact_step": 60,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.557
+      },
+      "paired_action_hash_match": true,
+      "partition": "validation",
+      "target": "front"
+    },
+    {
+      "action_source_sha256": "4a95bee0d89b7167c913ca09b13650d4b13df69975fd75ed68f0ff7589d3a981",
+      "demo_name": "demo_11",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "fc87b51d2fb938e855d13e45b4b1bfde54a01ea5b0d5b16715f794914edc1a25",
+        "executed_steps": 84,
+        "factor": 8.0,
+        "features": [
+          0.016903858647092426,
+          0.024849983757096274,
+          0.026595602658639746,
+          2.4362657288710277,
+          3.9344074726104736,
+          3.2837429523468016,
+          7.99169921875
+        ],
+        "first_contact_step": 54,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 23,
+              "body_name": "akita_black_bowl_1_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.603
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "fc87b51d2fb938e855d13e45b4b1bfde54a01ea5b0d5b16715f794914edc1a25",
+        "executed_steps": 84,
+        "factor": 1.0,
+        "features": [
+          0.016882451033597548,
+          0.02485108604684316,
+          0.026598359693214696,
+          2.437974727153778,
+          3.9706218242645264,
+          3.240296765168508,
+          7.931803226470947
+        ],
+        "first_contact_step": 54,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.988
+      },
+      "paired_action_hash_match": true,
+      "partition": "validation",
+      "target": "front"
+    },
+    {
+      "action_source_sha256": "b96ad7ac71f91e41660d57cd294e156e5c82040128174477d5c5e2d52bd13938",
+      "demo_name": "demo_10",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "48d96e069a8d178954c980e9dfee4c99c6898612a645e4bbf8cb228addec570b",
+        "executed_steps": 68,
+        "factor": 8.0,
+        "features": [
+          0.027858543547638424,
+          0.036335106761743396,
+          0.03691945580777604,
+          2.1220106542110444,
+          4.586995601654053,
+          6.7039116779963175,
+          9.419189453125
+        ],
+        "first_contact_step": 38,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 24,
+              "body_name": "akita_black_bowl_2_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 24,
+              "body_name": "akita_black_bowl_2_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.415
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "48d96e069a8d178954c980e9dfee4c99c6898612a645e4bbf8cb228addec570b",
+        "executed_steps": 68,
+        "factor": 1.0,
+        "features": [
+          0.027845085253567683,
+          0.036326434865205294,
+          0.03691107107198477,
+          2.1116129686435063,
+          4.529296875,
+          6.49059784412384,
+          9.840657234191895
+        ],
+        "first_contact_step": 38,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.373
+      },
+      "paired_action_hash_match": true,
+      "partition": "validation",
+      "target": "middle"
+    },
+    {
+      "action_source_sha256": "2d1471fbaa58ee3ca2977abe48774c8310bad7a6e616dd5b6f2a39e128cf9211",
+      "demo_name": "demo_11",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "0020f0db280b3bbbc692386de678dd004d31e6c2a338a1a8322ead5845268031",
+        "executed_steps": 75,
+        "factor": 8.0,
+        "features": [
+          0.021987893258736617,
+          0.034532997523518495,
+          0.03485047644746503,
+          1.96770289738973,
+          3.1180012226104736,
+          4.708978939056396,
+          7.677652835845947
+        ],
+        "first_contact_step": 45,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 24,
+              "body_name": "akita_black_bowl_2_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 24,
+              "body_name": "akita_black_bowl_2_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.564
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "0020f0db280b3bbbc692386de678dd004d31e6c2a338a1a8322ead5845268031",
+        "executed_steps": 75,
+        "factor": 1.0,
+        "features": [
+          0.021956412196641663,
+          0.03448091433937911,
+          0.03479882227324777,
+          1.9644883930683137,
+          3.1332194805145264,
+          4.613015409310659,
+          8.008056640625
+        ],
+        "first_contact_step": 45,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.817
+      },
+      "paired_action_hash_match": true,
+      "partition": "validation",
+      "target": "middle"
+    },
+    {
+      "action_source_sha256": "48ac29d194a0ce665467a0146ae27bf1d3fe418844508e7cc6d39a7cf40ec9d6",
+      "demo_name": "demo_10",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "fc91efeb9e05f1ea88555baef4c96a53f275373bb0cbd85b5444fe1267272c6f",
+        "executed_steps": 69,
+        "factor": 8.0,
+        "features": [
+          0.02512629936220858,
+          0.03311612872172739,
+          0.03414990456529705,
+          2.0319227556387585,
+          3.60205078125,
+          6.105669482549032,
+          8.198567390441895
+        ],
+        "first_contact_step": 39,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 25,
+              "body_name": "akita_black_bowl_3_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 25,
+              "body_name": "akita_black_bowl_3_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.323
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "fc91efeb9e05f1ea88555baef4c96a53f275373bb0cbd85b5444fe1267272c6f",
+        "executed_steps": 69,
+        "factor": 1.0,
+        "features": [
+          0.025098947446529418,
+          0.03306017838369164,
+          0.034094377228725894,
+          2.037288417418798,
+          3.616455078125,
+          5.209551310539245,
+          6.720377445220947
+        ],
+        "first_contact_step": 39,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.247
+      },
+      "paired_action_hash_match": true,
+      "partition": "validation",
+      "target": "back"
+    },
+    {
+      "action_source_sha256": "2047e1a72dcd90456927a0ad1cfaeefa7074b8dffa816ecd2eb00d5660f9e259",
+      "demo_name": "demo_11",
+      "heavy": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "8c446a082bb2afd6e6fad35dba657915f535b0badf0fa5e8f57e2a387db14509",
+        "executed_steps": 70,
+        "factor": 8.0,
+        "features": [
+          0.024193221247786237,
+          0.03578695841055346,
+          0.03671476019311747,
+          1.6370903968811035,
+          2.3356120586395264,
+          4.881138793627421,
+          8.346354484558105
+        ],
+        "first_contact_step": 40,
+        "mutation": {
+          "axis": "target_mass",
+          "changed_values": 4,
+          "factor": 8.0,
+          "records": [
+            {
+              "after": [
+                0.04473037264639999
+              ],
+              "array": "body_mass",
+              "before": [
+                0.005591296580799999
+              ],
+              "body_id": 25,
+              "body_name": "akita_black_bowl_3_main"
+            },
+            {
+              "after": [
+                7.265442846430406e-05,
+                4.883954857042448e-05,
+                4.572954418096637e-05
+              ],
+              "array": "body_inertia",
+              "before": [
+                9.081803558038008e-06,
+                6.10494357130306e-06,
+                5.716193022620796e-06
+              ],
+              "body_id": 25,
+              "body_name": "akita_black_bowl_3_main"
+            }
+          ],
+          "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+        },
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.323
+      },
+      "light": {
+        "completed": true,
+        "exception": null,
+        "executed_action_sha256": "8c446a082bb2afd6e6fad35dba657915f535b0badf0fa5e8f57e2a387db14509",
+        "executed_steps": 70,
+        "factor": 1.0,
+        "features": [
+          0.024166710016744263,
+          0.03573981667191,
+          0.03667911036206316,
+          1.7205349405606587,
+          2.5476887226104736,
+          4.877088721593221,
+          7.465494632720947
+        ],
+        "first_contact_step": 40,
+        "post_contact_frames": 30,
+        "target_contact": true,
+        "wall_seconds": 5.164
+      },
+      "paired_action_hash_match": true,
+      "partition": "validation",
+      "target": "back"
+    }
+  ],
+  "simulator_success_or_reward_used": false,
+  "single_feature_control_classifier": {
+    "direction": [
+      -0.015121871368488271
+    ],
+    "feature_indices": [
+      0
+    ],
+    "mean": [
+      0.024837561875541272
+    ],
+    "scale": [
+      0.003827744607397891
+    ],
+    "threshold": -1.3118846287074604e-17
+  },
+  "single_feature_control_validation": {
+    "accuracy": 0.5,
+    "rows": [
+      {
+        "correct": false,
+        "demo_name": "demo_10",
+        "features": [
+          0.02054290909778941,
+          0.02794388673327344,
+          0.034498678085479496,
+          2.305121531089147,
+          3.287841796875,
+          5.618071842193603,
+          15.340413093566895
+        ],
+        "label_heavy": 0,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.016966436776363985,
+        "target": "front",
+        "valid": true
+      },
+      {
+        "correct": true,
+        "demo_name": "demo_10",
+        "features": [
+          0.02059927854325687,
+          0.027665811839712822,
+          0.03452219883449614,
+          2.303643117348353,
+          3.2833659648895264,
+          5.923380525906881,
+          14.929931640625
+        ],
+        "label_heavy": 1,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.016743743887756825,
+        "target": "front",
+        "valid": true
+      },
+      {
+        "correct": false,
+        "demo_name": "demo_11",
+        "features": [
+          0.016882451033597548,
+          0.02485108604684316,
+          0.026598359693214696,
+          2.437974727153778,
+          3.9706218242645264,
+          3.240296765168508,
+          7.931803226470947
+        ],
+        "label_heavy": 0,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.031427426647389886,
+        "target": "front",
+        "valid": true
+      },
+      {
+        "correct": true,
+        "demo_name": "demo_11",
+        "features": [
+          0.016903858647092426,
+          0.024849983757096274,
+          0.026595602658639746,
+          2.4362657288710277,
+          3.9344074726104736,
+          3.2837429523468016,
+          7.99169921875
+        ],
+        "label_heavy": 1,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.03134285382167153,
+        "target": "front",
+        "valid": true
+      },
+      {
+        "correct": true,
+        "demo_name": "demo_10",
+        "features": [
+          0.027845085253567683,
+          0.036326434865205294,
+          0.03691107107198477,
+          2.1116129686435063,
+          4.529296875,
+          6.49059784412384,
+          9.840657234191895
+        ],
+        "label_heavy": 0,
+        "partition": "validation",
+        "predicted_heavy": false,
+        "score": -0.011881508910583687,
+        "target": "middle",
+        "valid": true
+      },
+      {
+        "correct": false,
+        "demo_name": "demo_10",
+        "features": [
+          0.027858543547638424,
+          0.036335106761743396,
+          0.03691945580777604,
+          2.1220106542110444,
+          4.586995601654053,
+          6.7039116779963175,
+          9.419189453125
+        ],
+        "label_heavy": 1,
+        "partition": "validation",
+        "predicted_heavy": false,
+        "score": -0.011934677189204915,
+        "target": "middle",
+        "valid": true
+      },
+      {
+        "correct": false,
+        "demo_name": "demo_11",
+        "features": [
+          0.021956412196641663,
+          0.03448091433937911,
+          0.03479882227324777,
+          1.9644883930683137,
+          3.1332194805145264,
+          4.613015409310659,
+          8.008056640625
+        ],
+        "label_heavy": 0,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.011382257518821,
+        "target": "middle",
+        "valid": true
+      },
+      {
+        "correct": true,
+        "demo_name": "demo_11",
+        "features": [
+          0.021987893258736617,
+          0.034532997523518495,
+          0.03485047644746503,
+          1.96770289738973,
+          3.1180012226104736,
+          4.708978939056396,
+          7.677652835845947
+        ],
+        "label_heavy": 1,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.011257888570426894,
+        "target": "middle",
+        "valid": true
+      },
+      {
+        "correct": true,
+        "demo_name": "demo_10",
+        "features": [
+          0.025098947446529418,
+          0.03306017838369164,
+          0.034094377228725894,
+          2.037288417418798,
+          3.616455078125,
+          5.209551310539245,
+          6.720377445220947
+        ],
+        "label_heavy": 0,
+        "partition": "validation",
+        "predicted_heavy": false,
+        "score": -0.0010326287115452568,
+        "target": "back",
+        "valid": true
+      },
+      {
+        "correct": false,
+        "demo_name": "demo_10",
+        "features": [
+          0.02512629936220858,
+          0.03311612872172739,
+          0.03414990456529705,
+          2.0319227556387585,
+          3.60205078125,
+          6.105669482549032,
+          8.198567390441895
+        ],
+        "label_heavy": 1,
+        "partition": "validation",
+        "predicted_heavy": false,
+        "score": -0.0011406850718840968,
+        "target": "back",
+        "valid": true
+      },
+      {
+        "correct": false,
+        "demo_name": "demo_11",
+        "features": [
+          0.024166710016744263,
+          0.03573981667191,
+          0.03667911036206316,
+          1.7205349405606587,
+          2.5476887226104736,
+          4.877088721593221,
+          7.465494632720947
+        ],
+        "label_heavy": 0,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.00265026446551143,
+        "target": "back",
+        "valid": true
+      },
+      {
+        "correct": true,
+        "demo_name": "demo_11",
+        "features": [
+          0.024193221247786237,
+          0.03578695841055346,
+          0.03671476019311747,
+          1.6370903968811035,
+          2.3356120586395264,
+          4.881138793627421,
+          8.346354484558105
+        ],
+        "label_heavy": 1,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.0025455293102813296,
+        "target": "back",
+        "valid": true
+      }
+    ]
+  },
+  "started_at": "2026-07-20T21:11:21+09:00",
+  "summary": {
+    "execution_pass": false,
+    "mechanism_pass": false,
+    "paired_heavy_score_win_count": 6,
+    "per_task_validation_accuracy": {
+      "back": 0.5,
+      "front": 0.5,
+      "middle": 0.5
+    },
+    "single_feature_validation_accuracy": 0.5,
+    "training_pairs": 12,
+    "validation_accuracy": 0.5,
+    "validation_pairs": 6
+  },
+  "validation": {
+    "accuracy": 0.5,
+    "rows": [
+      {
+        "correct": false,
+        "demo_name": "demo_10",
+        "features": [
+          0.02054290909778941,
+          0.02794388673327344,
+          0.034498678085479496,
+          2.305121531089147,
+          3.287841796875,
+          5.618071842193603,
+          15.340413093566895
+        ],
+        "label_heavy": 0,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.31154153575943616,
+        "target": "front",
+        "valid": true
+      },
+      {
+        "correct": true,
+        "demo_name": "demo_10",
+        "features": [
+          0.02059927854325687,
+          0.027665811839712822,
+          0.03452219883449614,
+          2.303643117348353,
+          3.2833659648895264,
+          5.923380525906881,
+          14.929931640625
+        ],
+        "label_heavy": 1,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.3268811857220529,
+        "target": "front",
+        "valid": true
+      },
+      {
+        "correct": true,
+        "demo_name": "demo_11",
+        "features": [
+          0.016882451033597548,
+          0.02485108604684316,
+          0.026598359693214696,
+          2.437974727153778,
+          3.9706218242645264,
+          3.240296765168508,
+          7.931803226470947
+        ],
+        "label_heavy": 0,
+        "partition": "validation",
+        "predicted_heavy": false,
+        "score": -0.1030214252537707,
+        "target": "front",
+        "valid": true
+      },
+      {
+        "correct": false,
+        "demo_name": "demo_11",
+        "features": [
+          0.016903858647092426,
+          0.024849983757096274,
+          0.026595602658639746,
+          2.4362657288710277,
+          3.9344074726104736,
+          3.2837429523468016,
+          7.99169921875
+        ],
+        "label_heavy": 1,
+        "partition": "validation",
+        "predicted_heavy": false,
+        "score": -0.09462247463335723,
+        "target": "front",
+        "valid": true
+      },
+      {
+        "correct": false,
+        "demo_name": "demo_10",
+        "features": [
+          0.027845085253567683,
+          0.036326434865205294,
+          0.03691107107198477,
+          2.1116129686435063,
+          4.529296875,
+          6.49059784412384,
+          9.840657234191895
+        ],
+        "label_heavy": 0,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.12718223346067964,
+        "target": "middle",
+        "valid": true
+      },
+      {
+        "correct": true,
+        "demo_name": "demo_10",
+        "features": [
+          0.027858543547638424,
+          0.036335106761743396,
+          0.03691945580777604,
+          2.1220106542110444,
+          4.586995601654053,
+          6.7039116779963175,
+          9.419189453125
+        ],
+        "label_heavy": 1,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.12864877523722407,
+        "target": "middle",
+        "valid": true
+      },
+      {
+        "correct": false,
+        "demo_name": "demo_11",
+        "features": [
+          0.021956412196641663,
+          0.03448091433937911,
+          0.03479882227324777,
+          1.9644883930683137,
+          3.1332194805145264,
+          4.613015409310659,
+          8.008056640625
+        ],
+        "label_heavy": 0,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.11305263776910246,
+        "target": "middle",
+        "valid": true
+      },
+      {
+        "correct": true,
+        "demo_name": "demo_11",
+        "features": [
+          0.021987893258736617,
+          0.034532997523518495,
+          0.03485047644746503,
+          1.96770289738973,
+          3.1180012226104736,
+          4.708978939056396,
+          7.677652835845947
+        ],
+        "label_heavy": 1,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.11519661407176995,
+        "target": "middle",
+        "valid": true
+      },
+      {
+        "correct": false,
+        "demo_name": "demo_10",
+        "features": [
+          0.025098947446529418,
+          0.03306017838369164,
+          0.034094377228725894,
+          2.037288417418798,
+          3.616455078125,
+          5.209551310539245,
+          6.720377445220947
+        ],
+        "label_heavy": 0,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.06458933025500466,
+        "target": "back",
+        "valid": true
+      },
+      {
+        "correct": true,
+        "demo_name": "demo_10",
+        "features": [
+          0.02512629936220858,
+          0.03311612872172739,
+          0.03414990456529705,
+          2.0319227556387585,
+          3.60205078125,
+          6.105669482549032,
+          8.198567390441895
+        ],
+        "label_heavy": 1,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.16676903228152354,
+        "target": "back",
+        "valid": true
+      },
+      {
+        "correct": false,
+        "demo_name": "demo_11",
+        "features": [
+          0.024166710016744263,
+          0.03573981667191,
+          0.03667911036206316,
+          1.7205349405606587,
+          2.5476887226104736,
+          4.877088721593221,
+          7.465494632720947
+        ],
+        "label_heavy": 0,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.1880874887553625,
+        "target": "back",
+        "valid": true
+      },
+      {
+        "correct": true,
+        "demo_name": "demo_11",
+        "features": [
+          0.024193221247786237,
+          0.03578695841055346,
+          0.03671476019311747,
+          1.6370903968811035,
+          2.3356120586395264,
+          4.881138793627421,
+          8.346354484558105
+        ],
+        "label_heavy": 1,
+        "partition": "validation",
+        "predicted_heavy": true,
+        "score": 0.2319228346795336,
+        "target": "back",
+        "valid": true
+      }
+    ]
+  }
+}

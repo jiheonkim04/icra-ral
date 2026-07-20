@@ -1,0 +1,121 @@
+{
+  "schema_version": "epoch8.active_property_probe_belief.stage0_protocol.v1",
+  "frozen_at": "2026-07-20T21:08:13+09:00",
+  "status": "FROZEN_BEFORE_PROBE_RESPONSE_MASS_OUTCOMES",
+  "method_id": "PRBM_LDA_V1",
+  "method_name": "Probe-Response Belief Memory",
+  "scientific_method": "Execute a standardized legal grasp/lift probe, encode action-to-proprioception tracking and RGB motion, infer a relative mass belief, then condition target choice while bypassing the probe for ordinary positional instructions.",
+  "stage0_scope": "Test only whether legal probe responses support held-out mass classification across all three visually identical bowl positions. No VLA method rollout occurs.",
+  "base_preservation": "For ordinary front/middle/back instructions, the future closed-loop method calls unmodified X-VLA with no probe or adapter.",
+  "trainable_components": "closed-form standardized linear discriminant over seven frozen response features; X-VLA remains frozen",
+  "inference_inputs": [
+    "executed Cartesian actions",
+    "ordinary end-effector proprioception and controller goal available to the policy stack",
+    "agentview RGB",
+    "wrist RGB",
+    "instruction"
+  ],
+  "forbidden_inference_inputs": [
+    "body mass or inertia",
+    "simulator object identity",
+    "segmentation",
+    "force or torque sensors",
+    "reward, success, done, future observations, or expert action labels"
+  ],
+  "training_only_supervision": "light versus 8x-heavy condition label",
+  "data": {
+    "root": "/mnt/c/assets/data/libero/libero_90",
+    "tasks": [
+      {
+        "target": "front",
+        "body": "akita_black_bowl_1_main",
+        "bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl",
+        "hdf5": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate_demo.hdf5",
+        "hdf5_sha256": "77C5479B280D4BDC8C7C3BAD72D9A287ED1A3A1F765104C495B9100C47F41588"
+      },
+      {
+        "target": "middle",
+        "body": "akita_black_bowl_2_main",
+        "bddl": "KITCHEN_SCENE2_put_the_middle_black_bowl_on_the_plate.bddl",
+        "hdf5": "KITCHEN_SCENE2_put_the_middle_black_bowl_on_the_plate_demo.hdf5",
+        "hdf5_sha256": "6F718241C78EE1B718E0FF74027760CA6E6C66DCA247D7D4E1CB074C254AFB9C"
+      },
+      {
+        "target": "back",
+        "body": "akita_black_bowl_3_main",
+        "bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl",
+        "hdf5": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate_demo.hdf5",
+        "hdf5_sha256": "0A263EB4D59B5672DB9402C9EDEDF96C990E07B686102257708F10189CFDD7E6"
+      }
+    ],
+    "training_candidate_demo_indices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "validation_candidate_demo_indices": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+    "sealed_confirmation_demo_indices": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+    "selection_rule": "Within each task and partition, execute candidate demos in numeric order under light mass and select the first four training or first two validation demos that make target contact. Only after a light replay is selected may its matched heavy replay execute.",
+    "selected_training_demos_per_task": 4,
+    "selected_validation_demos_per_task": 2,
+    "confirmation_access_forbidden": true
+  },
+  "probe": {
+    "action_source": "recorded standard demonstration prefix, used only as a scripted Stage-0 probe feasibility oracle",
+    "controller": "LIBERO default delta OSC_POSE",
+    "light_mass_factor": 1.0,
+    "heavy_mass_factor": 8.0,
+    "stop_rule": "30 executed actions after first correct-target contact, or end of demonstration",
+    "minimum_post_contact_frames": 10,
+    "camera_resolution": 64,
+    "one_live_environment": true
+  },
+  "features_in_order": [
+    "mean_controller_position_tracking_error_m",
+    "p90_controller_position_tracking_error_m",
+    "max_controller_position_tracking_error_m",
+    "mean_agentview_temporal_pixel_mad",
+    "max_agentview_temporal_pixel_mad",
+    "mean_wrist_temporal_pixel_mad",
+    "max_wrist_temporal_pixel_mad"
+  ],
+  "classifier": {
+    "normalization": "training mean and population standard deviation floored at 1e-9",
+    "direction": "normalized heavy-class mean minus normalized light-class mean",
+    "score": "dot(normalized feature, direction)",
+    "threshold": "midpoint of training heavy-score mean and light-score mean",
+    "prediction": "heavy iff score is at least threshold",
+    "checkpoint_selection": "none",
+    "hyperparameter_search": "none"
+  },
+  "controls": {
+    "balanced_no_probe_prior_accuracy": 0.5,
+    "single_feature_control": "same closed-form rule using only mean controller position tracking error",
+    "paired_action_hash_identity_required": true
+  },
+  "gates": {
+    "execution": {
+      "selected_training_pairs_required": 12,
+      "selected_validation_pairs_required": 6,
+      "exception_count_max": 0,
+      "paired_action_hash_match_fraction": 1.0,
+      "minimum_post_contact_frames_all": true,
+      "sealed_confirmation_accessed": false
+    },
+    "mechanism": {
+      "validation_accuracy_min": 0.8333333333333334,
+      "validation_paired_heavy_score_win_count_min": 5,
+      "validation_task_accuracy_min": 0.75,
+      "must_beat_balanced_no_probe_prior": true,
+      "must_not_be_worse_than_single_feature_control": true
+    }
+  },
+  "decisions": {
+    "positive": "PROBE_RESPONSE_BELIEF_STAGE0_GO",
+    "negative": "PROBE_RESPONSE_BELIEF_EXACT_FEATURE_MECHANISM_NOT_SUPPORTED",
+    "invalid": "PROBE_RESPONSE_BELIEF_STAGE0_INVALID"
+  },
+  "prohibitions": [
+    "no feature, coefficient, demo-band, mass factor, threshold, or gate change after response outcomes",
+    "no validation demo used to fit normalization, direction, or threshold",
+    "no confirmation access",
+    "no claim that scripted expert probes are policy closed-loop evidence",
+    "no privileged mass or object state at future inference"
+  ]
+}

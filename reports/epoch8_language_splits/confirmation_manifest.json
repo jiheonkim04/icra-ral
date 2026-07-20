@@ -1,0 +1,726 @@
+{
+  "candidate_independent": true,
+  "demonstrations": [
+    {
+      "bytes": 4204544,
+      "eval_id": 0,
+      "first_dynamic_index": 0,
+      "frames": 116,
+      "relative_path": "open_the_middle_drawer_of_the_cabinet_demo/demo_20.hdf5",
+      "sha256": "c2c6c641a78c762d96af96987aa1c9e00d677b057ee1925a56a36618690a1e3e"
+    },
+    {
+      "bytes": 6431512,
+      "eval_id": 1,
+      "first_dynamic_index": 0,
+      "frames": 177,
+      "relative_path": "open_the_top_drawer_and_put_the_bowl_inside_demo/demo_17.hdf5",
+      "sha256": "018de7d3b6fcba0af0ae9c609610b2a908f7e9cc7985f7ce02331468ac13a691"
+    },
+    {
+      "bytes": 4703952,
+      "eval_id": 2,
+      "first_dynamic_index": 0,
+      "frames": 136,
+      "relative_path": "push_the_plate_to_the_front_of_the_stove_demo/demo_29.hdf5",
+      "sha256": "dc04a7a54394cf20f54e21ca27cf729a9753a5ba6bb553e0ecdf3c6042af467a"
+    },
+    {
+      "bytes": 3550536,
+      "eval_id": 3,
+      "first_dynamic_index": 0,
+      "frames": 93,
+      "relative_path": "put_the_bowl_on_the_plate_demo/demo_18.hdf5",
+      "sha256": "5485dc0eb94024cc73725b51443697e4509984b13a38541767341b9aba363bed"
+    },
+    {
+      "bytes": 3564560,
+      "eval_id": 4,
+      "first_dynamic_index": 0,
+      "frames": 96,
+      "relative_path": "put_the_bowl_on_the_stove_demo/demo_16.hdf5",
+      "sha256": "ddafaf227ce5dede2540ea637fac5ed4ad2f8527a6a3f217de2fe9084bd85c81"
+    },
+    {
+      "bytes": 3409000,
+      "eval_id": 5,
+      "first_dynamic_index": 0,
+      "frames": 90,
+      "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_17.hdf5",
+      "sha256": "0fc5552494977403a8c8902e9b3770df1b8bed9533414bbab3a85b0245349461"
+    },
+    {
+      "bytes": 12826000,
+      "eval_id": 7,
+      "first_dynamic_index": 0,
+      "frames": 347,
+      "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_0.hdf5",
+      "sha256": "3dc19502fda3b3449d3cc33a08684f86fcff87490a1e795ff5dcd9c545bb2473"
+    },
+    {
+      "bytes": 3417152,
+      "eval_id": 8,
+      "first_dynamic_index": 0,
+      "frames": 93,
+      "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_5.hdf5",
+      "sha256": "0229483e048c87267845acee95aeacc925e40a3591ebb52e88a30691904c689f"
+    }
+  ],
+  "episode_count_per_policy": 40,
+  "episodes_per_policy": [
+    {
+      "condition": "canonical",
+      "eval_id": 0,
+      "initial_state_index": 10,
+      "instruction_eval_id": 0,
+      "policy_query_seed": 101
+    },
+    {
+      "condition": "canonical",
+      "eval_id": 1,
+      "initial_state_index": 10,
+      "instruction_eval_id": 1,
+      "policy_query_seed": 101
+    },
+    {
+      "condition": "canonical",
+      "eval_id": 2,
+      "initial_state_index": 10,
+      "instruction_eval_id": 2,
+      "policy_query_seed": 101
+    },
+    {
+      "condition": "canonical",
+      "eval_id": 3,
+      "initial_state_index": 10,
+      "instruction_eval_id": 3,
+      "policy_query_seed": 101
+    },
+    {
+      "condition": "canonical",
+      "eval_id": 4,
+      "initial_state_index": 10,
+      "instruction_eval_id": 4,
+      "policy_query_seed": 101
+    },
+    {
+      "condition": "canonical",
+      "eval_id": 5,
+      "initial_state_index": 10,
+      "instruction_eval_id": 5,
+      "policy_query_seed": 101
+    },
+    {
+      "condition": "canonical",
+      "eval_id": 7,
+      "initial_state_index": 10,
+      "instruction_eval_id": 7,
+      "policy_query_seed": 101
+    },
+    {
+      "condition": "canonical",
+      "eval_id": 8,
+      "initial_state_index": 10,
+      "instruction_eval_id": 8,
+      "policy_query_seed": 101
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 0,
+      "family": "act",
+      "initial_state_index": 11,
+      "instruction_eval_id": 0,
+      "policy_query_seed": 102,
+      "row_id": "a14270cabcd51d1b34ef8c65ddf4b18d62b91ceb5258b84e08e599b7e17c2678"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 0,
+      "family": "obj",
+      "initial_state_index": 12,
+      "instruction_eval_id": 0,
+      "policy_query_seed": 103,
+      "row_id": "04a8f1b751f7fe141fb256ad01f42791b28d3b45248b1d7dc01df80d051eecb5"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 0,
+      "family": "comp",
+      "initial_state_index": 13,
+      "instruction_eval_id": 0,
+      "policy_query_seed": 104,
+      "row_id": "f9ba26191cf148e42fd29870f9b680bd094b730b30d6085a82a599adf6b82ee5"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 1,
+      "family": "act",
+      "initial_state_index": 11,
+      "instruction_eval_id": 1,
+      "policy_query_seed": 102,
+      "row_id": "854093ee5a52253d6f2abf0c6a4a1d49dd1245e58633a6d9c26f87109ce593b6"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 1,
+      "family": "obj",
+      "initial_state_index": 12,
+      "instruction_eval_id": 1,
+      "policy_query_seed": 103,
+      "row_id": "bb2ab07d2e2f515ac5412870974b480411ef61fd2d465c2f6bd5e3b7168d8481"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 1,
+      "family": "comp",
+      "initial_state_index": 13,
+      "instruction_eval_id": 1,
+      "policy_query_seed": 104,
+      "row_id": "714dd389839f1f4619cd3c063b275d0f1af55f4a9bf299007e46000657043cbf"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 2,
+      "family": "act",
+      "initial_state_index": 11,
+      "instruction_eval_id": 2,
+      "policy_query_seed": 102,
+      "row_id": "0d101463d4971a488a93a0292d7c4cf74431722dd48a1610b5c7ea9c03350358"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 2,
+      "family": "obj",
+      "initial_state_index": 12,
+      "instruction_eval_id": 2,
+      "policy_query_seed": 103,
+      "row_id": "d2840e12228225540cf3f61cf7ae29c11c78d442cb4c37f86e2d5590630abdc8"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 2,
+      "family": "comp",
+      "initial_state_index": 13,
+      "instruction_eval_id": 2,
+      "policy_query_seed": 104,
+      "row_id": "b736eee0b593921c1d331451760c35a1aff669f1b2f846ad9ad9096b7d9ebafa"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 3,
+      "family": "act",
+      "initial_state_index": 11,
+      "instruction_eval_id": 3,
+      "policy_query_seed": 102,
+      "row_id": "764be4f14465f045097be928c468db389d28b74e9cc550ab8cceeed9da7711c7"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 3,
+      "family": "obj",
+      "initial_state_index": 12,
+      "instruction_eval_id": 3,
+      "policy_query_seed": 103,
+      "row_id": "c4b41daded5610f20f270e0327ed4a95534108e41bb3434ce2489ef11d622748"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 3,
+      "family": "comp",
+      "initial_state_index": 13,
+      "instruction_eval_id": 3,
+      "policy_query_seed": 104,
+      "row_id": "7e91d51474bf388bed49c7e89abfd0e856c9e686cedff169a7a22a064fbb849b"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 4,
+      "family": "act",
+      "initial_state_index": 11,
+      "instruction_eval_id": 4,
+      "policy_query_seed": 102,
+      "row_id": "74e8771b64ffd8f39c931595058084938c125d4e85be7c60b57477708c7ae921"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 4,
+      "family": "obj",
+      "initial_state_index": 12,
+      "instruction_eval_id": 4,
+      "policy_query_seed": 103,
+      "row_id": "ed6b9655b510279bb95f786e003632b6b55b7c72557bcc74e1630d5d4926ad79"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 4,
+      "family": "comp",
+      "initial_state_index": 13,
+      "instruction_eval_id": 4,
+      "policy_query_seed": 104,
+      "row_id": "7b8b87f02d912d08357c57d1737ba2f4ae7fc641760e63ba08ea982982e44f96"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 5,
+      "family": "act",
+      "initial_state_index": 11,
+      "instruction_eval_id": 5,
+      "policy_query_seed": 102,
+      "row_id": "cffc24161000d9259aa05209d2d835310e7b541bc53d12e84d7834661bcd541a"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 5,
+      "family": "obj",
+      "initial_state_index": 12,
+      "instruction_eval_id": 5,
+      "policy_query_seed": 103,
+      "row_id": "167939d7f14f18cf4e166a42a0feb6506f91ab1fd481a48b209122b60bf3fe3a"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 5,
+      "family": "comp",
+      "initial_state_index": 13,
+      "instruction_eval_id": 5,
+      "policy_query_seed": 104,
+      "row_id": "9312ded83a0223646deb50600cbefb2220150ecce8a2a49011401afb9f1b19b3"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 7,
+      "family": "act",
+      "initial_state_index": 11,
+      "instruction_eval_id": 7,
+      "policy_query_seed": 102,
+      "row_id": "e11a3fa8c4433ff2d1eda6e8c4f50ae178840cf60cde65e6abddd9efe1698333"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 7,
+      "family": "obj",
+      "initial_state_index": 12,
+      "instruction_eval_id": 7,
+      "policy_query_seed": 103,
+      "row_id": "568eef353ad50472fb6d1551ba8c8864097e907ef35912b9033117b48ba9908c"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 7,
+      "family": "comp",
+      "initial_state_index": 13,
+      "instruction_eval_id": 7,
+      "policy_query_seed": 104,
+      "row_id": "946d692fd3ce2e0fd98b2d1ddee2acc5e028abde42e254a5495920f1c941ad0d"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 8,
+      "family": "act",
+      "initial_state_index": 11,
+      "instruction_eval_id": 8,
+      "policy_query_seed": 102,
+      "row_id": "469fc35662e010782530d4f417627537f6d1367c36353ee9116e152ab131bdbf"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 8,
+      "family": "obj",
+      "initial_state_index": 12,
+      "instruction_eval_id": 8,
+      "policy_query_seed": 103,
+      "row_id": "a8f08ff8399a74e00001977567e940567240297ca1773044ede345713dd576cd"
+    },
+    {
+      "condition": "paraphrase",
+      "eval_id": 8,
+      "family": "comp",
+      "initial_state_index": 13,
+      "instruction_eval_id": 8,
+      "policy_query_seed": 104,
+      "row_id": "1d223b276757642a81713dae425631a8b3f5ecdda6e34f665676762d7ae6db21"
+    },
+    {
+      "condition": "target_swap",
+      "eval_id": 4,
+      "initial_state_index": 14,
+      "instruction": "put the bowl on the stove",
+      "instruction_eval_id": 4,
+      "policy_query_seed": 105,
+      "requires_world_signature_identity": true,
+      "state_source_eval_id": 3
+    },
+    {
+      "condition": "target_swap",
+      "eval_id": 3,
+      "initial_state_index": 14,
+      "instruction": "put the bowl on the plate",
+      "instruction_eval_id": 3,
+      "policy_query_seed": 105,
+      "requires_world_signature_identity": true,
+      "state_source_eval_id": 4
+    },
+    {
+      "condition": "target_swap",
+      "eval_id": 5,
+      "initial_state_index": 14,
+      "instruction": "put the bowl on top of the cabinet",
+      "instruction_eval_id": 5,
+      "policy_query_seed": 105,
+      "requires_world_signature_identity": true,
+      "state_source_eval_id": 4
+    },
+    {
+      "condition": "target_swap",
+      "eval_id": 4,
+      "initial_state_index": 14,
+      "instruction": "put the bowl on the stove",
+      "instruction_eval_id": 4,
+      "policy_query_seed": 105,
+      "requires_world_signature_identity": true,
+      "state_source_eval_id": 5
+    },
+    {
+      "condition": "target_swap",
+      "eval_id": 5,
+      "initial_state_index": 14,
+      "instruction": "put the bowl on top of the cabinet",
+      "instruction_eval_id": 5,
+      "policy_query_seed": 105,
+      "requires_world_signature_identity": true,
+      "state_source_eval_id": 3
+    },
+    {
+      "condition": "target_swap",
+      "eval_id": 3,
+      "initial_state_index": 14,
+      "instruction": "put the bowl on the plate",
+      "instruction_eval_id": 3,
+      "policy_query_seed": 105,
+      "requires_world_signature_identity": true,
+      "state_source_eval_id": 5
+    },
+    {
+      "condition": "target_swap",
+      "eval_id": 8,
+      "initial_state_index": 14,
+      "instruction": "put the wine bottle on top of the cabinet",
+      "instruction_eval_id": 8,
+      "policy_query_seed": 105,
+      "requires_world_signature_identity": true,
+      "state_source_eval_id": 7
+    },
+    {
+      "condition": "target_swap",
+      "eval_id": 7,
+      "initial_state_index": 14,
+      "instruction": "put the wine bottle on the rack",
+      "instruction_eval_id": 7,
+      "policy_query_seed": 105,
+      "requires_world_signature_identity": true,
+      "state_source_eval_id": 8
+    }
+  ],
+  "frozen_at": "2026-07-20T19:55:00+09:00",
+  "language_pairs": [
+    {
+      "batch_idx": 2,
+      "eval_id": 0,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 0.830460786819458,
+      "low": "question_directive",
+      "mid": "pragmatical",
+      "row_id": "a14270cabcd51d1b34ef8c65ddf4b18d62b91ceb5258b84e08e599b7e17c2678",
+      "structural_similarity": 0.7
+    },
+    {
+      "batch_idx": 10,
+      "eval_id": 0,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 0.6796069741249084,
+      "low": "same_polarity_contextual",
+      "mid": "lexical",
+      "row_id": "04a8f1b751f7fe141fb256ad01f42791b28d3b45248b1d7dc01df80d051eecb5",
+      "structural_similarity": 1.0
+    },
+    {
+      "batch_idx": 2,
+      "eval_id": 0,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.7282756567001343,
+      "low": "same_polarity_habitual+same_polarity_contextual",
+      "mid": "lexical+lexical",
+      "row_id": "f9ba26191cf148e42fd29870f9b680bd094b730b30d6085a82a599adf6b82ee5",
+      "structural_similarity": 0.8
+    },
+    {
+      "batch_idx": 7,
+      "eval_id": 1,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 1.0,
+      "low": "embedded_imperative",
+      "mid": "pragmatical",
+      "row_id": "854093ee5a52253d6f2abf0c6a4a1d49dd1245e58633a6d9c26f87109ce593b6",
+      "structural_similarity": 0.782608695652174
+    },
+    {
+      "batch_idx": 5,
+      "eval_id": 1,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 0.908251941204071,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "row_id": "bb2ab07d2e2f515ac5412870974b480411ef61fd2d465c2f6bd5e3b7168d8481",
+      "structural_similarity": 0.8
+    },
+    {
+      "batch_idx": 2,
+      "eval_id": 1,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.8884360194206238,
+      "low": "same_polarity_habitual+embedded_imperative",
+      "mid": "lexical+pragmatical",
+      "row_id": "714dd389839f1f4619cd3c063b275d0f1af55f4a9bf299007e46000657043cbf",
+      "structural_similarity": 0.8181818181818181
+    },
+    {
+      "batch_idx": 4,
+      "eval_id": 2,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 1.0,
+      "low": "subordination",
+      "mid": "structural",
+      "row_id": "0d101463d4971a488a93a0292d7c4cf74431722dd48a1610b5c7ea9c03350358",
+      "structural_similarity": 0.8181818181818181
+    },
+    {
+      "batch_idx": 3,
+      "eval_id": 2,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 1.0,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "row_id": "d2840e12228225540cf3f61cf7ae29c11c78d442cb4c37f86e2d5590630abdc8",
+      "structural_similarity": 0.9473684210526316
+    },
+    {
+      "batch_idx": 8,
+      "eval_id": 2,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.6721851825714111,
+      "low": "same_polarity_contextual+hint",
+      "mid": "lexical+pragmatical",
+      "row_id": "b736eee0b593921c1d331451760c35a1aff669f1b2f846ad9ad9096b7d9ebafa",
+      "structural_similarity": 0.75
+    },
+    {
+      "batch_idx": 10,
+      "eval_id": 3,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "row_id": "764be4f14465f045097be928c468db389d28b74e9cc550ab8cceeed9da7711c7",
+      "structural_similarity": 0.9230769230769231
+    },
+    {
+      "batch_idx": 2,
+      "eval_id": 3,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "row_id": "c4b41daded5610f20f270e0327ed4a95534108e41bb3434ce2489ef11d622748",
+      "structural_similarity": 0.9230769230769231
+    },
+    {
+      "batch_idx": 4,
+      "eval_id": 3,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.6981483101844788,
+      "low": "same_polarity_habitual+need_statement",
+      "mid": "lexical+pragmatical",
+      "row_id": "7e91d51474bf388bed49c7e89abfd0e856c9e686cedff169a7a22a064fbb849b",
+      "structural_similarity": 0.6875
+    },
+    {
+      "batch_idx": 7,
+      "eval_id": 4,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "subordination",
+      "mid": "structural",
+      "row_id": "74e8771b64ffd8f39c931595058084938c125d4e85be7c60b57477708c7ae921",
+      "structural_similarity": 0.6666666666666667
+    },
+    {
+      "batch_idx": 6,
+      "eval_id": 4,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "row_id": "ed6b9655b510279bb95f786e003632b6b55b7c72557bcc74e1630d5d4926ad79",
+      "structural_similarity": 0.8571428571428572
+    },
+    {
+      "batch_idx": 0,
+      "eval_id": 4,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.46642208099365234,
+      "low": "same_polarity_contextual+same_polarity_contextual",
+      "mid": "lexical+lexical",
+      "row_id": "7b8b87f02d912d08357c57d1737ba2f4ae7fc641760e63ba08ea982982e44f96",
+      "structural_similarity": 1.0
+    },
+    {
+      "batch_idx": 7,
+      "eval_id": 5,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "embedded_imperative",
+      "mid": "pragmatical",
+      "row_id": "cffc24161000d9259aa05209d2d835310e7b541bc53d12e84d7834661bcd541a",
+      "structural_similarity": 0.8
+    },
+    {
+      "batch_idx": 6,
+      "eval_id": 5,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 0.9338160157203674,
+      "low": "same_polarity_habitual",
+      "mid": "lexical",
+      "row_id": "167939d7f14f18cf4e166a42a0feb6506f91ab1fd481a48b209122b60bf3fe3a",
+      "structural_similarity": 1.0
+    },
+    {
+      "batch_idx": 5,
+      "eval_id": 5,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.781180739402771,
+      "low": "same_polarity_habitual+coordination",
+      "mid": "lexical+structural",
+      "row_id": "9312ded83a0223646deb50600cbefb2220150ecce8a2a49011401afb9f1b19b3",
+      "structural_similarity": 0.6190476190476191
+    },
+    {
+      "batch_idx": 3,
+      "eval_id": 7,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "coordination",
+      "mid": "structural",
+      "row_id": "e11a3fa8c4433ff2d1eda6e8c4f50ae178840cf60cde65e6abddd9efe1698333",
+      "structural_similarity": 0.5263157894736843
+    },
+    {
+      "batch_idx": 0,
+      "eval_id": 7,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "same_polarity_contextual",
+      "mid": "lexical",
+      "row_id": "568eef353ad50472fb6d1551ba8c8864097e907ef35912b9033117b48ba9908c",
+      "structural_similarity": 0.8
+    },
+    {
+      "batch_idx": 7,
+      "eval_id": 7,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.567757785320282,
+      "low": "same_polarity_contextual+question_directive",
+      "mid": "lexical+pragmatical",
+      "row_id": "946d692fd3ce2e0fd98b2d1ddee2acc5e028abde42e254a5495920f1c941ad0d",
+      "structural_similarity": 0.4736842105263158
+    },
+    {
+      "batch_idx": 2,
+      "eval_id": 8,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "subordination",
+      "mid": "structural",
+      "row_id": "469fc35662e010782530d4f417627537f6d1367c36353ee9116e152ab131bdbf",
+      "structural_similarity": 0.6923076923076923
+    },
+    {
+      "batch_idx": 5,
+      "eval_id": 8,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 0.9470527768135071,
+      "low": "same_polarity_habitual",
+      "mid": "lexical",
+      "row_id": "a8f08ff8399a74e00001977567e940567240297ca1773044ede345713dd576cd",
+      "structural_similarity": 1.0
+    },
+    {
+      "batch_idx": 5,
+      "eval_id": 8,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.8307892084121704,
+      "low": "same_polarity_contextual+same_polarity_contextual",
+      "mid": "lexical+lexical",
+      "row_id": "1d223b276757642a81713dae425631a8b3f5ecdda6e34f665676762d7ae6db21",
+      "structural_similarity": 0.8888888888888888
+    }
+  ],
+  "language_text_sealed": true,
+  "model_loaded": false,
+  "ours_outcomes_observed": false,
+  "policy_roles": [
+    "Base",
+    "strongest competent Prior if available",
+    "canonicalization control",
+    "plain paraphrase augmentation control",
+    "Ours",
+    "mechanism ablation",
+    "capacity-matched control"
+  ],
+  "role": "confirmation",
+  "salt": "epoch8-language-grounding-splits-v1",
+  "schema_version": "epoch8.language_confirmation_manifest.v1",
+  "sealed_rule": "Paths and hashes may be integrity-audited; images, actions, paraphrase text, and outcomes may not be used for training, checkpoint selection, threshold selection, or debugging before Stage B authorization.",
+  "selection_or_tuning_on_outcomes": false,
+  "simulator_episode_count": 0,
+  "source_partition": {
+    "assignment_sha256": "041e3cb49f2daf72fe5dd55e71cc7c5dd0bfddc1e11d2dc2707181457110bfd1",
+    "path": "reports/epoch7_selective_language_grounding/method_partition_manifest.json",
+    "sha256": "6dc4ff322941f4a9f8fd7fa95bc726e2d9bb516a4af21f94ae2403f25b750c2f"
+  },
+  "status": "SEALED_UNTIL_STAGE_B_AUTHORIZATION",
+  "target_swap_compatibility_audit": "reports/epoch8_language_splits/target_swap_compatibility_audit.json",
+  "task_eval_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "schema_version": "epoch8.pcat_stage0_adjudication.v1",
+  "adjudicated_at": "2026-07-20T20:22:00+09:00",
+  "decision": "VALID_SCIENTIFIC_FAILURE_EXACT_PCAT_CLOSED",
+  "closure_class": 2,
+  "closure_class_name": "scientific mechanism failure",
+  "scope_limit": "This closes the exact PCAT 254090-parameter residual adapter, frame-0 initial-pose matching rule, real 30-step action-transport target, frozen loss weights, 300-step budget, and held-out Stage 0 panel, plus direct reparameterizations that preserve the same causal mechanism. It does not close the verified paraphrase problem, language grounding generally, explicit target mediation, or independent rotation paths.",
+  "protocol": {
+    "path": "reports/epoch8_pcat_stage0_protocol.json",
+    "sha256": "89c6d9090d29b5addd2f2d4ce65e5f4351d4122ba112cebc8e9cce46730d3b0e"
+  },
+  "implementation": {
+    "path": "scripts/run_epoch8_pcat_stage0.py",
+    "sha256": "b9b2c524665c8a49a8f76962c7f7d3127e139378ba3fd857f921661c30ae82fb",
+    "protocol_hash_match": true,
+    "synthetic_cuda_gradient_smoke": "PASS",
+    "transport_sign_oracle": {
+      "status": "PASS",
+      "correct_orientation_loss": 0.0,
+      "reversed_orientation_loss": 0.5867376327514648
+    }
+  },
+  "raw_result": {
+    "path": "reports/epoch8_pcat_stage0/result.json",
+    "sha256": "64eaa83ca1e9a78b4a3e958698ce1c04b408dd9344ec560c0ba662ff30f47e82",
+    "bytes": 30749,
+    "status": "COMPLETE",
+    "decision": "PCAT_STAGE0_NO_GO"
+  },
+  "execution_validity": {
+    "real_cuda_base_forwards": 974,
+    "real_cuda_optimizer_steps": 1200,
+    "optimizer_steps_per_trainable_role": 300,
+    "trainable_roles": 4,
+    "all_first_gradients_positive_finite": true,
+    "all_role_losses_decreased": true,
+    "pcat_output_nonzero": true,
+    "maximum_torch_cuda_allocated_bytes": 3689570816,
+    "swap_used_kib_after": 0,
+    "model_loaded": true,
+    "simulator_constructed": false,
+    "closed_loop_outcome_read": false,
+    "confirmation_content_read": false,
+    "confirmation_outcome_read": false
+  },
+  "role_metrics": {
+    "base": {
+      "canonical_official_energy_mean": 0.012705142439032594,
+      "equivalence_drift_nrmse_mean": 0.2722590893614916,
+      "transport_cosine_mean": 0.8009338604598655,
+      "transport_nrmse_mean": 0.43011573837353606,
+      "legal_action_fraction": 1.0
+    },
+    "capacity_control": {
+      "canonical_official_energy_mean": 0.012314071909834941,
+      "equivalence_drift_nrmse_mean": 0.2685570354463868,
+      "transport_cosine_mean": 0.7827049424386617,
+      "transport_nrmse_mean": 0.438004932843014,
+      "legal_action_fraction": 1.0
+    },
+    "paraphrase_augmentation": {
+      "canonical_official_energy_mean": 0.020659528113901614,
+      "equivalence_drift_nrmse_mean": 0.2916607352054275,
+      "transport_cosine_mean": 0.7809650785227251,
+      "transport_nrmse_mean": 0.4255243350516166,
+      "legal_action_fraction": 1.0
+    },
+    "equivalence_only": {
+      "canonical_official_energy_mean": 0.043688268431772787,
+      "equivalence_drift_nrmse_mean": 0.27368801780891244,
+      "transport_cosine_mean": 0.7808608181752101,
+      "transport_nrmse_mean": 0.4382316879613789,
+      "legal_action_fraction": 1.0
+    },
+    "pcat": {
+      "canonical_official_energy_mean": 0.034632673114538194,
+      "equivalence_drift_nrmse_mean": 0.27875889358112516,
+      "transport_cosine_mean": 0.7544497379946906,
+      "transport_nrmse_mean": 0.44348273493509227,
+      "transport_magnitude_ratio_mean": 0.6248850984126947,
+      "adapter_effect_nrmse_mean": 0.08233639133000989,
+      "legal_action_fraction": 1.0
+    }
+  },
+  "failed_preregistered_checks": [
+    "canonical_retention",
+    "equivalence_improves_base",
+    "transport_cosine_gain",
+    "transport_rmse_gain"
+  ],
+  "scientific_interpretation": [
+    "The Base action field already has high signed alignment to held-out real target-swap transport (mean cosine 0.8009 and signed-coordinate accuracy 0.8940), leaving little headroom for the claimed differential constraint.",
+    "PCAT reduced mean transport cosine to 0.7544 and increased normalized transport error from 0.4301 to 0.4435.",
+    "PCAT changed actions and retained legality, but its canonical official energy was 2.73 times Base and paraphrase equivalence drift was 2.4 percent worse than Base.",
+    "All four target-pair group cosines remained positive, so the failure is not collapse; it is failure to improve the claimed pathway while retaining competence."
+  ],
+  "repair_adjudication": {
+    "implementation_defect_found": false,
+    "scientific_stage0_metrics_observed": true,
+    "semantically_null_repair_available": false,
+    "reason": "Protocol hashes, data hashes, tensor shapes, CUDA forwards, gradients, optimizer steps, checkpoint hashes, and the signed transport equation all passed. Changing transport weight, architecture, matching stage, step budget, or selection rule would tune the scientific mechanism after outcomes rather than repair execution."
+  },
+  "artifacts": [
+    {
+      "path": "reports/epoch8_pcat_stage0/train_log.jsonl",
+      "sha256": "a172997704646a5b968d73c6ec9df8382e1deb3fbb7db72361e770068f0d10dd",
+      "bytes": 4025
+    },
+    {
+      "path": "reports/epoch8_pcat_stage0/capacity_control_adapter.pt",
+      "sha256": "2282e0bfbd915f58393437bf2cd8dba47403654cfd47f44300494b5c832c9ccf",
+      "bytes": 1020821
+    },
+    {
+      "path": "reports/epoch8_pcat_stage0/paraphrase_augmentation_adapter.pt",
+      "sha256": "effbba1c3ace8fbdb293b28287b9ff9d49642e37fa5bac56745972abdefa25fa",
+      "bytes": 1020997
+    },
+    {
+      "path": "reports/epoch8_pcat_stage0/equivalence_only_adapter.pt",
+      "sha256": "49395b196108174cff07c41378c2c7566fa7ddab903cc80188b6d0f8583f48e4",
+      "bytes": 1020821
+    },
+    {
+      "path": "reports/epoch8_pcat_stage0/pcat_adapter.pt",
+      "sha256": "c3ce706acb11425d8712bb164d471fbfd8f1ccc3a16b55709457d7d183402e45",
+      "bytes": 1020565
+    }
+  ],
+  "rotation": {
+    "explicit_binding_candidate": "TRULY_OCCUPIED_AND_INCREMENTAL_BEFORE_OUTCOMES",
+    "language_problem_preserved": true,
+    "next_gate": "Rank the independent local rotation paths using current evidence, then execute the strongest path with a distinct causal hypothesis and frozen falsifier."
+  }
+}

@@ -1,0 +1,564 @@
+{
+  "candidate_independent": true,
+  "closed_loop_screen": {
+    "initial_state_indices": [
+      3,
+      4
+    ],
+    "may_change_task_or_metric_definition": false,
+    "outcomes_may_select_only_predeclared_checkpoint_alternatives": true,
+    "policy_query_seeds": [
+      13,
+      14
+    ]
+  },
+  "demonstrations": [
+    {
+      "bytes": 4656320,
+      "eval_id": 0,
+      "first_dynamic_index": 0,
+      "frames": 131,
+      "relative_path": "open_the_middle_drawer_of_the_cabinet_demo/demo_3.hdf5",
+      "sha256": "6e868fe055831b08ec9a6cc81229741b2fdd23f307fbc91a51179ed3258e9c7a"
+    },
+    {
+      "bytes": 6610096,
+      "eval_id": 1,
+      "first_dynamic_index": 0,
+      "frames": 184,
+      "relative_path": "open_the_top_drawer_and_put_the_bowl_inside_demo/demo_39.hdf5",
+      "sha256": "6922c072228f17d3bd66522bc676a6e06decdb6b384aceb801cf33bccc86eb5f"
+    },
+    {
+      "bytes": 4922120,
+      "eval_id": 2,
+      "first_dynamic_index": 0,
+      "frames": 141,
+      "relative_path": "push_the_plate_to_the_front_of_the_stove_demo/demo_47.hdf5",
+      "sha256": "c0ac8017f206a33716cf652e07c987e125a9856c53f5b73527cfa1ab9248af76"
+    },
+    {
+      "bytes": 3049104,
+      "eval_id": 3,
+      "first_dynamic_index": 0,
+      "frames": 80,
+      "relative_path": "put_the_bowl_on_the_plate_demo/demo_22.hdf5",
+      "sha256": "15da439cd8d423c0803c929d60f1b64712172c7cb3cff1e2a391dfecf4282579"
+    },
+    {
+      "bytes": 4837040,
+      "eval_id": 4,
+      "first_dynamic_index": 0,
+      "frames": 123,
+      "relative_path": "put_the_bowl_on_the_stove_demo/demo_14.hdf5",
+      "sha256": "fd071fe55549cc6e245d8962e12d5a03b4b8c2492e7246027742d60bd01b4ae3"
+    },
+    {
+      "bytes": 3938368,
+      "eval_id": 5,
+      "first_dynamic_index": 0,
+      "frames": 105,
+      "relative_path": "put_the_bowl_on_top_of_the_cabinet_demo/demo_21.hdf5",
+      "sha256": "42da90b377314459d4a38deec3c05582b51e946a7908dfd009573d2b3fd8a07d"
+    },
+    {
+      "bytes": 3386896,
+      "eval_id": 6,
+      "first_dynamic_index": 0,
+      "frames": 96,
+      "relative_path": "put_the_cream_cheese_in_the_bowl_demo/demo_35.hdf5",
+      "sha256": "831de40d81f9698619b5abbe02bd79c1b7de65f552bcd776767838143074dbfd"
+    },
+    {
+      "bytes": 5606088,
+      "eval_id": 7,
+      "first_dynamic_index": 0,
+      "frames": 153,
+      "relative_path": "put_the_wine_bottle_on_the_rack_demo/demo_36.hdf5",
+      "sha256": "49b5907fe708b26fa4fa2f0f0af09a9aee54820ca4df8e1a493d2b7655d5d1d3"
+    },
+    {
+      "bytes": 3389064,
+      "eval_id": 8,
+      "first_dynamic_index": 0,
+      "frames": 92,
+      "relative_path": "put_the_wine_bottle_on_top_of_the_cabinet_demo/demo_43.hdf5",
+      "sha256": "06763b565adbd581aa21f332c592458899554e7be13b34317a56ac8aa963f5d2"
+    },
+    {
+      "bytes": 3252240,
+      "eval_id": 9,
+      "first_dynamic_index": 0,
+      "frames": 91,
+      "relative_path": "turn_on_the_stove_demo/demo_16.hdf5",
+      "sha256": "52b0c13f5a59189f333999514252f8edb2d5a597ebcdff5939ba85a649321042"
+    }
+  ],
+  "frozen_at": "2026-07-20T19:55:00+09:00",
+  "language_pair_audit": "reports/epoch8_language_splits/language_pair_audit.json",
+  "language_pairs": [
+    {
+      "batch_idx": 1,
+      "canonical_instruction": "open the middle drawer of the cabinet",
+      "eval_id": 0,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 0.8564467430114746,
+      "low": "same_polarity_habitual",
+      "mid": "lexical",
+      "paraphrase_instruction": "pull the middle drawer of the cabinet",
+      "row_id": "6ca68453eded7fa301a384c57f63cde5907bdf57172e350237e15b90fecc1645",
+      "structural_similarity": 1.0
+    },
+    {
+      "batch_idx": 9,
+      "canonical_instruction": "open the middle drawer of the cabinet",
+      "eval_id": 0,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 0.8978148698806763,
+      "low": "same_polarity_contextual",
+      "mid": "lexical",
+      "paraphrase_instruction": "open the middle drawer of the chest",
+      "row_id": "6d74ebb17b5157b83888c92dd89c75889f571c9d55420c9b4a70702c9b6729da",
+      "structural_similarity": 1.0
+    },
+    {
+      "batch_idx": 8,
+      "canonical_instruction": "open the middle drawer of the cabinet",
+      "eval_id": 0,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.6984189748764038,
+      "low": "same_polarity_habitual+same_polarity_habitual",
+      "mid": "lexical+lexical",
+      "paraphrase_instruction": "pull the middle bin of the cupboard",
+      "row_id": "f572a394e29e9dfbe5c4717b588afeaa474f9029973959d67723867874bc3a99",
+      "structural_similarity": 0.8571428571428572
+    },
+    {
+      "batch_idx": 1,
+      "canonical_instruction": "open the top drawer and put the bowl inside",
+      "eval_id": 1,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 1.0,
+      "low": "embedded_imperative",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "Can you open the top drawer and put the bowl inside?",
+      "row_id": "ece35e74831d2bedf009ea8340b3476dfff2c7915ca95ce4d4d0dff8c60edbb7",
+      "structural_similarity": 0.8571428571428572
+    },
+    {
+      "batch_idx": 2,
+      "canonical_instruction": "open the top drawer and put the bowl inside",
+      "eval_id": 1,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 0.908251941204071,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "paraphrase_instruction": "open the top drawer and put the soup bowl inside",
+      "row_id": "e18a3787f3cee18457be7603add6f331801a44eed3cdc4a23e9265aeb0ca6e22",
+      "structural_similarity": 0.8421052631578947
+    },
+    {
+      "batch_idx": 9,
+      "canonical_instruction": "open the top drawer and put the bowl inside",
+      "eval_id": 1,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.5121397376060486,
+      "low": "same_polarity_contextual+question_directive",
+      "mid": "lexical+pragmatical",
+      "paraphrase_instruction": "Is the basin meant to go in the top receptacle?",
+      "row_id": "602e99b2fa39ad65bccdddc12bb239e681a841fcc4e3aa11e264acf149d5921a",
+      "structural_similarity": 0.4
+    },
+    {
+      "batch_idx": 7,
+      "canonical_instruction": "push the plate to the front of the stove",
+      "eval_id": 2,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 0.8191940784454346,
+      "low": "hint",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "I thought the plate would be at the front of the stove",
+      "row_id": "d2ca56e627811eb0b061ed72001af980cd30f7a87a6d415ad90628e79e1806dd",
+      "structural_similarity": 0.8095238095238095
+    },
+    {
+      "batch_idx": 6,
+      "canonical_instruction": "push the plate to the front of the stove",
+      "eval_id": 2,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 0.8578870296478271,
+      "low": "same_polarity_contextual",
+      "mid": "lexical",
+      "paraphrase_instruction": "push the platter to the front of the stovetop",
+      "row_id": "21a36799af56ca930521a053cd59bdc24ce2074cf0b631135919b47a3552493c",
+      "structural_similarity": 1.0
+    },
+    {
+      "batch_idx": 7,
+      "canonical_instruction": "push the plate to the front of the stove",
+      "eval_id": 2,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.562766432762146,
+      "low": "same_polarity_habitual+same_polarity_habitual",
+      "mid": "lexical+lexical",
+      "paraphrase_instruction": "slide the platter to the front of the range",
+      "row_id": "68de464f8de61e80cdd61509f2d16bb5cc172f0d7f9a184461a4a1265cc4898a",
+      "structural_similarity": 1.0
+    },
+    {
+      "batch_idx": 1,
+      "canonical_instruction": "put the bowl on the plate",
+      "eval_id": 3,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 1.0,
+      "low": "embedded_imperative",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "Could you put the bowl on the plate?",
+      "row_id": "3491dfaca57bbb2b133a51c8876690b7370a78b80c8814a5afb10a061fa6cc36",
+      "structural_similarity": 0.8
+    },
+    {
+      "batch_idx": 7,
+      "canonical_instruction": "put the bowl on the plate",
+      "eval_id": 3,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the bowl on the side plate",
+      "row_id": "7a4f7c77f0978bcb1e5f9e5c6023a83bb21f50d72aaffa59d5d7dd2df67a121e",
+      "structural_similarity": 0.9230769230769231
+    },
+    {
+      "batch_idx": 7,
+      "canonical_instruction": "put the bowl on the plate",
+      "eval_id": 3,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.6178966164588928,
+      "low": "same_polarity_habitual+same_polarity_contextual",
+      "mid": "lexical+lexical",
+      "paraphrase_instruction": "arrange the bowl on the platter",
+      "row_id": "a3c7a10d32002b52294aaa62fb8df39bced3babbef12355f00cc2e492bb1d0a4",
+      "structural_similarity": 1.0
+    },
+    {
+      "batch_idx": 5,
+      "canonical_instruction": "put the bowl on the stove",
+      "eval_id": 4,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 0.834317684173584,
+      "low": "hint",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "The bowl goes on the stove",
+      "row_id": "99b061087d862a68e5a2973b592f29ec6ed16a2b857dcb33f203464d73667027",
+      "structural_similarity": 0.9166666666666666
+    },
+    {
+      "batch_idx": 3,
+      "canonical_instruction": "put the bowl on the stove",
+      "eval_id": 4,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the mixing bowl on the stove",
+      "row_id": "6e47cbc0b3cef547e8795b4fa5e510f064e6cf1100ab335af7a06b0fc1ac3ec5",
+      "structural_similarity": 0.9230769230769231
+    },
+    {
+      "batch_idx": 8,
+      "canonical_instruction": "put the bowl on the stove",
+      "eval_id": 4,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.39193931221961975,
+      "low": "same_polarity_habitual+coordination",
+      "mid": "lexical+structural",
+      "paraphrase_instruction": "get the receptacle and then place it on the range",
+      "row_id": "2d95e99d23cf6c9a771a1eb06c943c01330450facd2a763bd11b9ab1eb048940",
+      "structural_similarity": 0.5625
+    },
+    {
+      "batch_idx": 7,
+      "canonical_instruction": "put the bowl on top of the cabinet",
+      "eval_id": 5,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 0.854670524597168,
+      "low": "question_directive",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "Is the top of the cabinet the correct place for the bowl?",
+      "row_id": "64630a19d093f5bf2e0c0becf967878ac43d97adcff2535eac59a0004e427fb0",
+      "structural_similarity": 0.5238095238095238
+    },
+    {
+      "batch_idx": 10,
+      "canonical_instruction": "put the bowl on top of the cabinet",
+      "eval_id": 5,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the fruit bowl on top of the cabinet",
+      "row_id": "b9e7e036f93c0525f2c8d6eafef5c748a3e50be46cc5edbcf0953c5ee6a5d278",
+      "structural_similarity": 0.9411764705882353
+    },
+    {
+      "batch_idx": 4,
+      "canonical_instruction": "put the bowl on top of the cabinet",
+      "eval_id": 5,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "addition_deletion+coordination",
+      "mid": "lexical+structural",
+      "paraphrase_instruction": "Get the cereal bowl and then put it on top of the display cabinet",
+      "row_id": "b124a1ed6cbd52834d810c29c4fe4e67e5a73e0a97697e0cc7668e8e00412a15",
+      "structural_similarity": 0.5909090909090908
+    },
+    {
+      "batch_idx": 9,
+      "canonical_instruction": "put the cream cheese in the bowl",
+      "eval_id": 6,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 0.8429254293441772,
+      "low": "need_statement",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "I need to have the cream cheese in the bowl",
+      "row_id": "abae7fedca97137157bee27153de779d29b79b1d8fc34bef7b6148924a7bf5e6",
+      "structural_similarity": 0.8235294117647058
+    },
+    {
+      "batch_idx": 7,
+      "canonical_instruction": "put the cream cheese in the bowl",
+      "eval_id": 6,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 0.8719451427459717,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the cheese in the serving bowl",
+      "row_id": "e6a03935ae5a0831ccec7ac684dd5295f08dd207484de5ff571a659f41c2c84b",
+      "structural_similarity": 0.8571428571428572
+    },
+    {
+      "batch_idx": 5,
+      "canonical_instruction": "put the cream cheese in the bowl",
+      "eval_id": 6,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.7132335901260376,
+      "low": "addition_deletion+hint",
+      "mid": "lexical+pragmatical",
+      "paraphrase_instruction": "The prep bowl is ready for the cheese",
+      "row_id": "5bb2db362b1a5c2cb3c022b1ebda47412b6dd692ef4ddd589a77ce9cf870e930",
+      "structural_similarity": 0.4666666666666667
+    },
+    {
+      "batch_idx": 9,
+      "canonical_instruction": "put the wine bottle on the rack",
+      "eval_id": 7,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 0.8838483095169067,
+      "low": "permission_directive",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "Could I get the wine bottle onto the rack?",
+      "row_id": "f624ae9074031d79770c087cec76f6250809fef43998fa02bb127d0c358902b8",
+      "structural_similarity": 0.7058823529411764
+    },
+    {
+      "batch_idx": 1,
+      "canonical_instruction": "put the wine bottle on the rack",
+      "eval_id": 7,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 1.0000001192092896,
+      "low": "addition_deletion",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the wine bottle on the storage rack",
+      "row_id": "68a4f8969af44905af0b4551eb4c39d9bdc3d785bab4c9738a500c97c5693259",
+      "structural_similarity": 0.9333333333333333
+    },
+    {
+      "batch_idx": 1,
+      "canonical_instruction": "put the wine bottle on the rack",
+      "eval_id": 7,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.7478443384170532,
+      "low": "same_polarity_habitual+permission_directive",
+      "mid": "lexical+pragmatical",
+      "paraphrase_instruction": "Could I have the wine vessel put on the stand?",
+      "row_id": "b2842bbc0df1903f9e270af4c603e87cda44a446ac66a00996228aa612e728d3",
+      "structural_similarity": 0.7222222222222222
+    },
+    {
+      "batch_idx": 3,
+      "canonical_instruction": "put the wine bottle on top of the cabinet",
+      "eval_id": 8,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 0.8837364315986633,
+      "low": "question_directive",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "Does the wine bottle belong on top of the cabinet?",
+      "row_id": "cdb06a437f81019116251c9d96387b1eb3597b4ac51317d1ecc00024cb5e177e",
+      "structural_similarity": 0.85
+    },
+    {
+      "batch_idx": 6,
+      "canonical_instruction": "put the wine bottle on top of the cabinet",
+      "eval_id": 8,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 0.7879955768585205,
+      "low": "same_polarity_contextual",
+      "mid": "lexical",
+      "paraphrase_instruction": "put the drink bottle on top of the hutch",
+      "row_id": "af71b66dcbff982b33920d06840370d6792af73f2be04e173e921afd39f25bff",
+      "structural_similarity": 1.0
+    },
+    {
+      "batch_idx": 6,
+      "canonical_instruction": "put the wine bottle on top of the cabinet",
+      "eval_id": 8,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.8068706393241882,
+      "low": "addition_deletion+hint",
+      "mid": "lexical+pragmatical",
+      "paraphrase_instruction": "The top of the storage cabinet is clear for the drink bottle",
+      "row_id": "128e35d675bbcefb6b823789fa4b199c09f7814a9ee07f85628ed0b684118b48",
+      "structural_similarity": 0.5714285714285714
+    },
+    {
+      "batch_idx": 1,
+      "canonical_instruction": "turn on the stove",
+      "eval_id": 9,
+      "family": "act",
+      "high": "act",
+      "keyword_similarity": 0.6615238785743713,
+      "low": "hint",
+      "mid": "pragmatical",
+      "paraphrase_instruction": "The stove needs to be on now",
+      "row_id": "c228bffcd5a8dcfb16adae2ba6b5ece0c76f31313ce2fecdfb525187ed0b0d28",
+      "structural_similarity": 0.4545454545454546
+    },
+    {
+      "batch_idx": 1,
+      "canonical_instruction": "turn on the stove",
+      "eval_id": 9,
+      "family": "obj",
+      "high": "obj",
+      "keyword_similarity": 0.8284881114959717,
+      "low": "same_polarity_habitual",
+      "mid": "lexical",
+      "paraphrase_instruction": "turn on the cooker",
+      "row_id": "24e09b137e2ea0474ea99854fd1bdc23b2f4008ae13cf29ab247df80a97eb013",
+      "structural_similarity": 1.0
+    },
+    {
+      "batch_idx": 7,
+      "canonical_instruction": "turn on the stove",
+      "eval_id": 9,
+      "family": "comp",
+      "high": "comp",
+      "keyword_similarity": 0.6573025584220886,
+      "low": "same_polarity_habitual+embedded_imperative",
+      "mid": "lexical+pragmatical",
+      "paraphrase_instruction": "Could you please turn on the range?",
+      "row_id": "076f31badb1a1a98bfe863333831bb540a68ade3dc5b409f97b84cdbdece00de",
+      "structural_similarity": 0.6666666666666667
+    }
+  ],
+  "model_loaded": false,
+  "ours_outcomes_observed": false,
+  "primary_stage0_task_eval_ids": [
+    3,
+    4,
+    5,
+    7,
+    8
+  ],
+  "role": "validation",
+  "salt": "epoch8-language-grounding-splits-v1",
+  "schema_version": "epoch8.language_validation_manifest.v1",
+  "selection": "one unused Epoch 7 validation paraphrase per task/family, SHA256-ranked with the Epoch 8 salt; Candidate A and immutable manually rejected rows excluded",
+  "simulator_episode_count": 0,
+  "source_partition": {
+    "assignment_sha256": "041e3cb49f2daf72fe5dd55e71cc7c5dd0bfddc1e11d2dc2707181457110bfd1",
+    "path": "reports/epoch7_selective_language_grounding/method_partition_manifest.json",
+    "sha256": "6dc4ff322941f4a9f8fd7fa95bc726e2d9bb516a4af21f94ae2403f25b750c2f"
+  },
+  "status": "FROZEN_MANUALLY_AUDITED",
+  "target_swap_groups": [
+    {
+      "directed_pairs": [
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "eval_ids": [
+        3,
+        4,
+        5
+      ],
+      "name": "bowl_destination"
+    },
+    {
+      "directed_pairs": [
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "eval_ids": [
+        7,
+        8
+      ],
+      "name": "wine_destination"
+    }
+  ]
+}

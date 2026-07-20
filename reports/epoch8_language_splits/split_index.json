@@ -1,0 +1,58 @@
+{
+  "candidate_independent": true,
+  "files": [
+    {
+      "bytes": 4132,
+      "path": "reports/epoch8_language_splits/discovery_manifest.json",
+      "sha256": "4691bc33522714e29d4bad60222cae14d071b145272337e9e5a00561932275de"
+    },
+    {
+      "bytes": 241704,
+      "path": "reports/epoch8_language_splits/training_manifest.json",
+      "sha256": "79c90f7232bf86912bb9540b31b5007bc71046dafa72a6fc920abfc03997e4dd"
+    },
+    {
+      "bytes": 19334,
+      "path": "reports/epoch8_language_splits/validation_manifest.json",
+      "sha256": "0eb9201ae7b1e75df1d719988fae84e7274fb68aead493f66da247047b4e7cd5"
+    },
+    {
+      "bytes": 22076,
+      "path": "reports/epoch8_language_splits/confirmation_manifest.json",
+      "sha256": "5111c62def4997e67c009f18745410a3c1b2e732d36103f162542df6186d008f"
+    },
+    {
+      "bytes": 9536,
+      "path": "reports/epoch8_language_splits/generalization_manifest.json",
+      "sha256": "00627cd9adb5988a00b1dc4ea7f02191d1ed100f4eab71b453b5a8db41a555d9"
+    },
+    {
+      "bytes": 15730,
+      "path": "reports/epoch8_language_splits/language_pair_audit.json",
+      "sha256": "1b72fb5ad4a1a0b349adbebe380a3686de545a05e68b1e751dc5531491418e64"
+    },
+    {
+      "bytes": 9367,
+      "path": "reports/epoch8_language_splits/language_pair_audit.md",
+      "sha256": "b1652a304e76f07c79a80ed9f379ba762d6fdee5514de7cdf16a65c2e42ffed0"
+    },
+    {
+      "bytes": 10594,
+      "path": "reports/epoch8_language_splits/target_swap_compatibility_audit.json",
+      "sha256": "2b24c1c88e88329337a6169a42dcc56e54bf446d485547328ca339d3e095325a"
+    }
+  ],
+  "frozen_at": "2026-07-20T19:55:00+09:00",
+  "next_gate": "Formulate and compare two causally distinct mechanisms without reading sealed confirmation text or outcomes.",
+  "ours_outcomes_observed": false,
+  "role_integrity": {
+    "candidate_a_rows_excluded_from_validation": true,
+    "confirmation_may_not_select_threshold_task_or_checkpoint": true,
+    "confirmation_text_and_outcomes_sealed": true,
+    "discovery_never_confirmation": true,
+    "goal_generalization_tasks_excluded_from_training": true
+  },
+  "salt": "epoch8-language-grounding-splits-v1",
+  "schema_version": "epoch8.language_split_index.v1",
+  "status": "FROZEN_BEFORE_CANDIDATE_FORMULATION"
+}

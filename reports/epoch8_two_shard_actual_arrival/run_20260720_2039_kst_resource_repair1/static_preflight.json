@@ -1,0 +1,169 @@
+{
+  "captured_at": "2026-07-20T11:48:20Z",
+  "checkpoint_manifest_file_sha256": "3045BE5C766B27FB2CB46C7597EE4A860E3F4F22F73CBBB62573E4AABA99ACBF",
+  "checkpoint_manifest_sha256": "3F87E145B4076E4A8A79E9BF7FA5F1C27AE0950B6812F5E553386EB31B9D9DB8",
+  "outcomes_read": false,
+  "protocol_sha256": "E5BA74354A1947A00045879A4815CCD09856F127E6809CF8BF649F10E2359946",
+  "protocol_stage0": {
+    "decisions": [
+      "ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO",
+      "NO_MATERIAL_ACTION_LEVEL_SCHEDULE_DEPENDENCE",
+      "EVALUATION_INVALID_CANNOT_ISOLATE_SCHEDULE",
+      "PROBLEM_GATE_IMPLEMENTATION_OR_RESOURCE_FAILURE"
+    ],
+    "execution_semantics": {
+      "agentview_transform": "rotate_180_degrees",
+      "denoising_steps": 10,
+      "domain_id": 3,
+      "model_class": "official X-VLA models.modeling_xvla.XVLA",
+      "model_dtype": "float32",
+      "offline_local_checkpoint_only": true,
+      "proprio": "controller_ee_position_plus_contiguous_first_two_rotation_matrix_columns_plus_zero_gripper_then_zero_second_arm",
+      "raw_chunk_shape": [
+        30,
+        20
+      ],
+      "resume": "persist completed prefix and Python, NumPy, CPU Torch, and CUDA Torch RNG states after every new key; restore states after identical model load and execute missing suffix only; never replay a completed query",
+      "seed_once_before_model_load": true,
+      "sequence_isolation": "one fresh operating-system process per sequence",
+      "session_state": "none; rebuild identical input mapping before every first-chunk call",
+      "wrist_transform": "identity"
+    },
+    "fixture_assignment": "one_identical_fixed_tensor_for_all_keys",
+    "fixture_source": {
+      "capture": [
+        "ordinary_rgb",
+        "language",
+        "ordinary_proprioception"
+      ],
+      "initial_state_indices": [
+        0
+      ],
+      "must_hash_before_inference": true,
+      "state_restore": "direct set_state plus sim.forward, post_process, forced observable update, and get_observations; check_success forbidden",
+      "success_check_calls": 0,
+      "suite": "libero_spatial",
+      "task_id": 0
+    },
+    "gates": {
+      "exception_count_max": 0,
+      "median_order_rms_over_independent_noise_rms_min": 0.1,
+      "reversed_order_changed_hash_fraction_min": 0.95,
+      "same_order_cold_restart_hash_match_fraction_min": 1.0,
+      "same_order_cold_restart_normalized_rms_max_if_hash_differs": 1e-06
+    },
+    "logical_episode_keys": 20,
+    "metric_definitions": {
+      "binary_chunk_hash": "SHA-256 over ASCII dtype, little-endian int64 shape vector, then C-contiguous little-endian float32 bytes",
+      "gripper_disagreement": "fraction of the 30 processed 7-D rows whose thresholded gripper command differs",
+      "independent_reference_contrast": "same logical key in canonical A versus independent-root C",
+      "normalized_rms_pair": "sqrt(mean((x-y)^2))/max(sqrt(mean(x^2)),sqrt(mean(y^2)),1e-12)",
+      "order_contrast": "same logical key in canonical A versus reversed-order B"
+    },
+    "metrics": [
+      "raw_chunk_sha256",
+      "processed_7d_chunk_sha256",
+      "normalized_rms",
+      "gripper_disagreement",
+      "latency_seconds",
+      "peak_vram_mib",
+      "peak_ram_bytes"
+    ],
+    "orders": {
+      "canonical": "0..19",
+      "canonical_cold_restart": "0..19",
+      "independent_reference": "0..19 with root_seed 620260720",
+      "reversed": "19..0"
+    },
+    "policy": "X-VLA-Libero",
+    "resource_smoke": {
+      "forward_calls": 1,
+      "fresh_process": true,
+      "gate_membership": "resource_only_not_in_A_A_repeat_B_or_C",
+      "persist": [
+        "raw_chunk_shape",
+        "finite",
+        "raw_chunk_sha256",
+        "resources"
+      ],
+      "requirements": [
+        "zero WSL swap use",
+        "zero Windows pagefile growth or write activity relative to stable baseline",
+        "host RAM below frozen ceiling",
+        "GPU and process memory release verified after child exit",
+        "telemetry exception count zero"
+      ],
+      "reward_success_done_read": false,
+      "root_seed": 620260719,
+      "simulator_actions_executed": 0
+    },
+    "reward_success_done_read": false,
+    "root_seed": 620260719,
+    "simulator_actions_executed": false
+  },
+  "resources_before": {
+    "captured_at": "2026-07-20T11:47:51Z",
+    "nvidia_smi": {
+      "free_mib": 13453,
+      "name": "NVIDIA GeForce RTX 5080",
+      "total_mib": 16303,
+      "used_mib": 2527
+    },
+    "pid": 305,
+    "process_rss_bytes": 37498880,
+    "system": {
+      "mem_available_bytes": 11437858816,
+      "mem_total_bytes": 12096454656,
+      "swap_free_bytes": 3221225472,
+      "swap_total_bytes": 3221225472,
+      "swap_used_bytes": 0
+    }
+  },
+  "schema_version": "epoch6.schedule_stage0.preflight.v1",
+  "simulator_actions_executed": 0,
+  "source": {
+    "compatibility_helper_sha256": "804F2EA8AF465AE4C4B39C699C097C86EABC8E2DCC574FCE3BE929929676D338",
+    "harness_expected_head": "a7eb023a962456bb0b6be40aa4336c31b7ac4ce6",
+    "harness_head": "a7eb023a962456bb0b6be40aa4336c31b7ac4ce6",
+    "harness_integrity": {
+      "index_clean": true,
+      "scope": [
+        "src/vla_eval/model_servers/xvla.py",
+        "src/vla_eval/model_servers/base.py",
+        "src/vla_eval/model_servers/predict.py",
+        "src/vla_eval/orchestrator.py",
+        "src/vla_eval/recording.py"
+      ],
+      "untracked_files": [],
+      "worktree_clean_ignoring_cr_at_eol": true
+    },
+    "harness_xvla_adapter_sha256": "07493CCECC1E0BF42EFAC0E46D859FE3B7EEC79456AEE74C3FE5845280E7025C",
+    "libero_env_wrapper_sha256": "2880CAD5B3FE46EA105816F42798FAF4C22E16839098B679EBCAD7B51ACFDBD0",
+    "libero_expected_head": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+    "libero_head": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+    "libero_integrity": {
+      "index_clean": true,
+      "scope": [
+        "FULL_REPOSITORY"
+      ],
+      "untracked_files": [],
+      "worktree_clean_ignoring_cr_at_eol": true
+    },
+    "manifest_sha256": "632F6091DAF1C643AE1B4822EB4A8085AA1E927FC5410DEE1BA35024EEDF1CAC",
+    "python_executable": "/home/jiheon/venvs/openvla-oft-int4-rtx5080/bin/python",
+    "python_version": "3.10.20 | packaged by conda-forge | (main, Jun 11 2026, 03:31:56) [GCC 14.3.0]",
+    "runner_sha256": "9EDF9D6FC1AE6A3E9C0C1A9588B64CFF314A226575E91BB9BD7EAE471012E898",
+    "xvla_expected_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "xvla_generate_source_sha256": "F42EE52A4833F60656BECDC5F26DBC3EDD19656F8FEBCAE7147A7D6C5860560A",
+    "xvla_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "xvla_integrity": {
+      "index_clean": true,
+      "scope": [
+        "FULL_REPOSITORY"
+      ],
+      "untracked_files": [],
+      "worktree_clean_ignoring_cr_at_eol": true
+    }
+  },
+  "status": "STATIC_PREFLIGHT_PASS"
+}

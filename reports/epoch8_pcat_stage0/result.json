@@ -1,0 +1,792 @@
+{
+  "action_bounds": {
+    "lower": [
+      -0.273445188999176,
+      -0.08207561075687408,
+      0.8410333395004272,
+      -1.0559297800064087,
+      0.21943095326423645,
+      -0.5352036952972412,
+      0.23359715938568115,
+      -0.4115937352180481,
+      -0.8112879395484924
+    ],
+    "upper": [
+      0.012870891951024532,
+      0.0886056125164032,
+      1.2213726043701172,
+      0.42185646295547485,
+      1.0709607601165771,
+      0.17154516279697418,
+      1.069672703742981,
+      0.9146500825881958,
+      0.12258025258779526
+    ]
+  },
+  "cache": {
+    "base_cuda_transformer_forwards": 684,
+    "base_cuda_vlm_forwards": 290,
+    "train_records": 96,
+    "unique_instruction_contexts": 290,
+    "unique_samples": 82,
+    "validation_equivalence_records": 30,
+    "validation_pair_records": 8
+  },
+  "closed_loop_outcome_read": false,
+  "comparison": {
+    "checks": {
+      "action_legality": true,
+      "all_first_gradients_positive_finite": true,
+      "all_role_losses_decreased": true,
+      "all_roles_trained_exact_steps": true,
+      "canonical_retention": false,
+      "cuda_model_forwards_positive": true,
+      "equivalence_improves_base": false,
+      "equivalence_not_worse_than_augmentation": true,
+      "measurable_action_effect": true,
+      "pcat_output_nonzero": true,
+      "response_magnitude_noncollapsed": true,
+      "swap_remained_zero": true,
+      "transport_all_groups_positive": true,
+      "transport_cosine_absolute": true,
+      "transport_cosine_gain": false,
+      "transport_rmse_gain": false
+    },
+    "strongest_non_pcat_transport_cosine": 0.8009338604598655,
+    "strongest_non_pcat_transport_nrmse": 0.4255243350516166
+  },
+  "confirmation_content_read": false,
+  "confirmation_outcome_read": false,
+  "created_at": "2026-07-20T20:19:19+0900",
+  "decision": "PCAT_STAGE0_NO_GO",
+  "exceptions": [],
+  "execution": {
+    "base_cuda_forwards": 974,
+    "optimizer_steps": 1200,
+    "resources_after": {
+      "mem_available_kib": 8709048,
+      "mem_total_kib": 11812944,
+      "nvidia_smi": "NVIDIA GeForce RTX 5080, 16303, 2914, 13066, 13",
+      "swap_free_kib": 3145728,
+      "swap_total_kib": 3145728,
+      "swap_used_kib": 0,
+      "torch_cuda_allocated_bytes": 22031872,
+      "torch_cuda_peak_allocated_bytes": 3689570816,
+      "torch_cuda_reserved_bytes": 46137344
+    },
+    "trainable_roles": [
+      "capacity_control",
+      "paraphrase_augmentation",
+      "equivalence_only",
+      "pcat"
+    ]
+  },
+  "execution_classification": "FROZEN_STAGE0_REAL_CUDA_TRAINING_AND_OFFLINE_VALIDATION",
+  "last_updated_at": "2026-07-20T20:20:04+0900",
+  "metrics": {
+    "base": {
+      "adapter_effect_nrmse_mean": 0.0,
+      "canonical_continuous_nrmse_mean": 0.10442437009467283,
+      "canonical_official_energy_mean": 0.012705142439032594,
+      "equivalence_drift_nrmse_mean": 0.2722590893614916,
+      "legal_action_fraction": 1.0,
+      "role": "base",
+      "transport_cosine_mean": 0.8009338604598655,
+      "transport_groups": {
+        "bowl_destination_plate_cabinet": {
+          "cosine_mean": 0.5050057494921023,
+          "count": 2,
+          "magnitude_ratio_mean": 0.5348508516052483,
+          "nrmse_mean": 0.3906584680721594
+        },
+        "bowl_destination_plate_stove": {
+          "cosine_mean": 0.8896649388629398,
+          "count": 2,
+          "magnitude_ratio_mean": 0.3796322863305498,
+          "nrmse_mean": 0.5109033455006244
+        },
+        "bowl_destination_stove_cabinet": {
+          "cosine_mean": 0.8285612963109528,
+          "count": 2,
+          "magnitude_ratio_mean": 0.6380853101905944,
+          "nrmse_mean": 0.3745482834587537
+        },
+        "wine_destination_rack_cabinet": {
+          "cosine_mean": 0.980503457173467,
+          "count": 2,
+          "magnitude_ratio_mean": 0.8905242023477108,
+          "nrmse_mean": 0.4443528564626067
+        }
+      },
+      "transport_magnitude_ratio_mean": 0.6107731626185258,
+      "transport_nrmse_mean": 0.43011573837353606,
+      "transport_rows": [
+        {
+          "cosine": 0.8901029065976633,
+          "magnitude_ratio": 0.37865674591917126,
+          "nrmse": 0.5112645198575513,
+          "pair_group": "bowl_destination_plate_stove",
+          "pair_id": "3a750cdc0c8a1c66ccc1e4f42d5da735616a29bc69156d1ca7898ed15e4fb2ec",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.9651162790697675
+        },
+        {
+          "cosine": 0.8892269711282164,
+          "magnitude_ratio": 0.38060782674192833,
+          "nrmse": 0.5105421711436975,
+          "pair_group": "bowl_destination_plate_stove",
+          "pair_id": "3a750cdc0c8a1c66ccc1e4f42d5da735616a29bc69156d1ca7898ed15e4fb2ec",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.9651162790697675
+        },
+        {
+          "cosine": 0.5053872820312377,
+          "magnitude_ratio": 0.5351526514078602,
+          "nrmse": 0.39055630384466183,
+          "pair_group": "bowl_destination_plate_cabinet",
+          "pair_id": "fcac134ae8dcaeb6cdc3f1185551858e8d454842babab374ec74d0c1a649f64a",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.8043478260869565
+        },
+        {
+          "cosine": 0.5046242169529669,
+          "magnitude_ratio": 0.5345490518026363,
+          "nrmse": 0.39076063229965696,
+          "pair_group": "bowl_destination_plate_cabinet",
+          "pair_id": "fcac134ae8dcaeb6cdc3f1185551858e8d454842babab374ec74d0c1a649f64a",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.8043478260869565
+        },
+        {
+          "cosine": 0.8293045904508628,
+          "magnitude_ratio": 0.6362268284854615,
+          "nrmse": 0.37441947432816813,
+          "pair_group": "bowl_destination_stove_cabinet",
+          "pair_id": "a60aae99c9a0b74ae2c65b851ad5e4d246db59aef67f96a5d21aaf695ddbd56b",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.9252873563218391
+        },
+        {
+          "cosine": 0.8278180021710427,
+          "magnitude_ratio": 0.6399437918957274,
+          "nrmse": 0.3746770925893392,
+          "pair_group": "bowl_destination_stove_cabinet",
+          "pair_id": "a60aae99c9a0b74ae2c65b851ad5e4d246db59aef67f96a5d21aaf695ddbd56b",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.9252873563218391
+        },
+        {
+          "cosine": 0.9804459260203954,
+          "magnitude_ratio": 0.8920108902286973,
+          "nrmse": 0.4435676943632127,
+          "pair_group": "wine_destination_rack_cabinet",
+          "pair_id": "1ad16b8ecbca5246945a21a1abdc2b5d7d606b4963c0ba25815ddf7e4d5cc1ee",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.8833333333333333
+        },
+        {
+          "cosine": 0.9805609883265385,
+          "magnitude_ratio": 0.8890375144667243,
+          "nrmse": 0.4451380185620007,
+          "pair_group": "wine_destination_rack_cabinet",
+          "pair_id": "1ad16b8ecbca5246945a21a1abdc2b5d7d606b4963c0ba25815ddf7e4d5cc1ee",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.8791666666666667
+        }
+      ],
+      "transport_signed_coordinate_accuracy_mean": 0.8940003653696408,
+      "validation_equivalence_records": 30,
+      "validation_transport_records": 8
+    },
+    "capacity_control": {
+      "adapter_effect_nrmse_mean": 0.06351759660891837,
+      "canonical_continuous_nrmse_mean": 0.09844301757988486,
+      "canonical_official_energy_mean": 0.012314071909834941,
+      "equivalence_drift_nrmse_mean": 0.2685570354463868,
+      "legal_action_fraction": 1.0,
+      "role": "capacity_control",
+      "transport_cosine_mean": 0.7827049424386617,
+      "transport_groups": {
+        "bowl_destination_plate_cabinet": {
+          "cosine_mean": 0.47870133061115216,
+          "count": 2,
+          "magnitude_ratio_mean": 0.5130676633540977,
+          "nrmse_mean": 0.3974519101459151
+        },
+        "bowl_destination_plate_stove": {
+          "cosine_mean": 0.858349068724193,
+          "count": 2,
+          "magnitude_ratio_mean": 0.3775953589425726,
+          "nrmse_mean": 0.5247418561127364
+        },
+        "bowl_destination_stove_cabinet": {
+          "cosine_mean": 0.8118974572953677,
+          "count": 2,
+          "magnitude_ratio_mean": 0.6140384345115597,
+          "nrmse_mean": 0.39038491291083444
+        },
+        "wine_destination_rack_cabinet": {
+          "cosine_mean": 0.9818719131239341,
+          "count": 2,
+          "magnitude_ratio_mean": 0.88310584683411,
+          "nrmse_mean": 0.43944105220257024
+        }
+      },
+      "transport_magnitude_ratio_mean": 0.596951825910585,
+      "transport_nrmse_mean": 0.438004932843014,
+      "transport_rows": [
+        {
+          "cosine": 0.8585429246806703,
+          "magnitude_ratio": 0.3766195198797344,
+          "nrmse": 0.5251621267468918,
+          "pair_group": "bowl_destination_plate_stove",
+          "pair_id": "3a750cdc0c8a1c66ccc1e4f42d5da735616a29bc69156d1ca7898ed15e4fb2ec",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.9476744186046512
+        },
+        {
+          "cosine": 0.8581552127677159,
+          "magnitude_ratio": 0.37857119800541084,
+          "nrmse": 0.524321585478581,
+          "pair_group": "bowl_destination_plate_stove",
+          "pair_id": "3a750cdc0c8a1c66ccc1e4f42d5da735616a29bc69156d1ca7898ed15e4fb2ec",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.936046511627907
+        },
+        {
+          "cosine": 0.4791272687083162,
+          "magnitude_ratio": 0.513330690639265,
+          "nrmse": 0.39734405819215474,
+          "pair_group": "bowl_destination_plate_cabinet",
+          "pair_id": "fcac134ae8dcaeb6cdc3f1185551858e8d454842babab374ec74d0c1a649f64a",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.7971014492753623
+        },
+        {
+          "cosine": 0.47827539251398815,
+          "magnitude_ratio": 0.5128046360689305,
+          "nrmse": 0.3975597620996754,
+          "pair_group": "bowl_destination_plate_cabinet",
+          "pair_id": "fcac134ae8dcaeb6cdc3f1185551858e8d454842babab374ec74d0c1a649f64a",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.7971014492753623
+        },
+        {
+          "cosine": 0.8123138886492592,
+          "magnitude_ratio": 0.6119044466851645,
+          "nrmse": 0.3905559980532852,
+          "pair_group": "bowl_destination_stove_cabinet",
+          "pair_id": "a60aae99c9a0b74ae2c65b851ad5e4d246db59aef67f96a5d21aaf695ddbd56b",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.8850574712643678
+        },
+        {
+          "cosine": 0.8114810259414762,
+          "magnitude_ratio": 0.6161724223379549,
+          "nrmse": 0.39021382776838365,
+          "pair_group": "bowl_destination_stove_cabinet",
+          "pair_id": "a60aae99c9a0b74ae2c65b851ad5e4d246db59aef67f96a5d21aaf695ddbd56b",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.896551724137931
+        },
+        {
+          "cosine": 0.9818028039261684,
+          "magnitude_ratio": 0.8845782791020863,
+          "nrmse": 0.43862924741311476,
+          "pair_group": "wine_destination_rack_cabinet",
+          "pair_id": "1ad16b8ecbca5246945a21a1abdc2b5d7d606b4963c0ba25815ddf7e4d5cc1ee",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.925
+        },
+        {
+          "cosine": 0.9819410223216998,
+          "magnitude_ratio": 0.8816334145661338,
+          "nrmse": 0.44025285699202565,
+          "pair_group": "wine_destination_rack_cabinet",
+          "pair_id": "1ad16b8ecbca5246945a21a1abdc2b5d7d606b4963c0ba25815ddf7e4d5cc1ee",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.925
+        }
+      ],
+      "transport_signed_coordinate_accuracy_mean": 0.8886916280231977,
+      "validation_equivalence_records": 30,
+      "validation_transport_records": 8
+    },
+    "equivalence_only": {
+      "adapter_effect_nrmse_mean": 0.09039783018180521,
+      "canonical_continuous_nrmse_mean": 0.13174485843692352,
+      "canonical_official_energy_mean": 0.043688268431772787,
+      "equivalence_drift_nrmse_mean": 0.27368801780891244,
+      "legal_action_fraction": 1.0,
+      "role": "equivalence_only",
+      "transport_cosine_mean": 0.7808608181752101,
+      "transport_groups": {
+        "bowl_destination_plate_cabinet": {
+          "cosine_mean": 0.4953495387761223,
+          "count": 2,
+          "magnitude_ratio_mean": 0.5052842454680502,
+          "nrmse_mean": 0.39297401892245853
+        },
+        "bowl_destination_plate_stove": {
+          "cosine_mean": 0.8167814803806831,
+          "count": 2,
+          "magnitude_ratio_mean": 0.39500535808895165,
+          "nrmse_mean": 0.533382468684702
+        },
+        "bowl_destination_stove_cabinet": {
+          "cosine_mean": 0.8288022490348059,
+          "count": 2,
+          "magnitude_ratio_mean": 0.592138691415486,
+          "nrmse_mean": 0.38475733314246646
+        },
+        "wine_destination_rack_cabinet": {
+          "cosine_mean": 0.982510004509229,
+          "count": 2,
+          "magnitude_ratio_mean": 0.8752542893314854,
+          "nrmse_mean": 0.4418129310958888
+        }
+      },
+      "transport_magnitude_ratio_mean": 0.5919206460759934,
+      "transport_nrmse_mean": 0.4382316879613789,
+      "transport_rows": [
+        {
+          "cosine": 0.8199573012741698,
+          "magnitude_ratio": 0.39325284447971287,
+          "nrmse": 0.5328443650430447,
+          "pair_group": "bowl_destination_plate_stove",
+          "pair_id": "3a750cdc0c8a1c66ccc1e4f42d5da735616a29bc69156d1ca7898ed15e4fb2ec",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.9011627906976745
+        },
+        {
+          "cosine": 0.8136056594871964,
+          "magnitude_ratio": 0.3967578716981905,
+          "nrmse": 0.5339205723263594,
+          "pair_group": "bowl_destination_plate_stove",
+          "pair_id": "3a750cdc0c8a1c66ccc1e4f42d5da735616a29bc69156d1ca7898ed15e4fb2ec",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.9011627906976745
+        },
+        {
+          "cosine": 0.4952674222876768,
+          "magnitude_ratio": 0.5057370053873874,
+          "nrmse": 0.39299796524513025,
+          "pair_group": "bowl_destination_plate_cabinet",
+          "pair_id": "fcac134ae8dcaeb6cdc3f1185551858e8d454842babab374ec74d0c1a649f64a",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.8043478260869565
+        },
+        {
+          "cosine": 0.4954316552645679,
+          "magnitude_ratio": 0.5048314855487128,
+          "nrmse": 0.3929500725997868,
+          "pair_group": "bowl_destination_plate_cabinet",
+          "pair_id": "fcac134ae8dcaeb6cdc3f1185551858e8d454842babab374ec74d0c1a649f64a",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.8043478260869565
+        },
+        {
+          "cosine": 0.8284261330160582,
+          "magnitude_ratio": 0.589142507916574,
+          "nrmse": 0.38572865846779575,
+          "pair_group": "bowl_destination_stove_cabinet",
+          "pair_id": "a60aae99c9a0b74ae2c65b851ad5e4d246db59aef67f96a5d21aaf695ddbd56b",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.8793103448275862
+        },
+        {
+          "cosine": 0.8291783650535536,
+          "magnitude_ratio": 0.5951348749143982,
+          "nrmse": 0.3837860078171372,
+          "pair_group": "bowl_destination_stove_cabinet",
+          "pair_id": "a60aae99c9a0b74ae2c65b851ad5e4d246db59aef67f96a5d21aaf695ddbd56b",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.8850574712643678
+        },
+        {
+          "cosine": 0.9824651782101702,
+          "magnitude_ratio": 0.8763217139992926,
+          "nrmse": 0.44109295561020034,
+          "pair_group": "wine_destination_rack_cabinet",
+          "pair_id": "1ad16b8ecbca5246945a21a1abdc2b5d7d606b4963c0ba25815ddf7e4d5cc1ee",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.875
+        },
+        {
+          "cosine": 0.9825548308082876,
+          "magnitude_ratio": 0.8741868646636781,
+          "nrmse": 0.44253290658157735,
+          "pair_group": "wine_destination_rack_cabinet",
+          "pair_id": "1ad16b8ecbca5246945a21a1abdc2b5d7d606b4963c0ba25815ddf7e4d5cc1ee",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.875
+        }
+      ],
+      "transport_signed_coordinate_accuracy_mean": 0.8656736312076521,
+      "validation_equivalence_records": 30,
+      "validation_transport_records": 8
+    },
+    "paraphrase_augmentation": {
+      "adapter_effect_nrmse_mean": 0.07447929640926201,
+      "canonical_continuous_nrmse_mean": 0.12315871903553013,
+      "canonical_official_energy_mean": 0.020659528113901614,
+      "equivalence_drift_nrmse_mean": 0.2916607352054275,
+      "legal_action_fraction": 1.0,
+      "role": "paraphrase_augmentation",
+      "transport_cosine_mean": 0.7809650785227251,
+      "transport_groups": {
+        "bowl_destination_plate_cabinet": {
+          "cosine_mean": 0.46652774643118655,
+          "count": 2,
+          "magnitude_ratio_mean": 0.5629113774401345,
+          "nrmse_mean": 0.40246946129050176
+        },
+        "bowl_destination_plate_stove": {
+          "cosine_mean": 0.8243615298606732,
+          "count": 2,
+          "magnitude_ratio_mean": 0.4041178198676877,
+          "nrmse_mean": 0.526160907164491
+        },
+        "bowl_destination_stove_cabinet": {
+          "cosine_mean": 0.8494174726301871,
+          "count": 2,
+          "magnitude_ratio_mean": 0.6164395588333087,
+          "nrmse_mean": 0.36533406341854147
+        },
+        "wine_destination_rack_cabinet": {
+          "cosine_mean": 0.9835535651688538,
+          "count": 2,
+          "magnitude_ratio_mean": 0.9012057299204413,
+          "nrmse_mean": 0.4081329083329319
+        }
+      },
+      "transport_magnitude_ratio_mean": 0.6211686215153931,
+      "transport_nrmse_mean": 0.4255243350516166,
+      "transport_rows": [
+        {
+          "cosine": 0.8255684350234009,
+          "magnitude_ratio": 0.4024750650321756,
+          "nrmse": 0.526375404472646,
+          "pair_group": "bowl_destination_plate_stove",
+          "pair_id": "3a750cdc0c8a1c66ccc1e4f42d5da735616a29bc69156d1ca7898ed15e4fb2ec",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.9186046511627907
+        },
+        {
+          "cosine": 0.8231546246979454,
+          "magnitude_ratio": 0.4057605747031997,
+          "nrmse": 0.525946409856336,
+          "pair_group": "bowl_destination_plate_stove",
+          "pair_id": "3a750cdc0c8a1c66ccc1e4f42d5da735616a29bc69156d1ca7898ed15e4fb2ec",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.9186046511627907
+        },
+        {
+          "cosine": 0.46693781728575423,
+          "magnitude_ratio": 0.5631343842740851,
+          "nrmse": 0.4023630334513083,
+          "pair_group": "bowl_destination_plate_cabinet",
+          "pair_id": "fcac134ae8dcaeb6cdc3f1185551858e8d454842babab374ec74d0c1a649f64a",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.7971014492753623
+        },
+        {
+          "cosine": 0.46611767557661893,
+          "magnitude_ratio": 0.5626883706061839,
+          "nrmse": 0.4025758891296952,
+          "pair_group": "bowl_destination_plate_cabinet",
+          "pair_id": "fcac134ae8dcaeb6cdc3f1185551858e8d454842babab374ec74d0c1a649f64a",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.7971014492753623
+        },
+        {
+          "cosine": 0.8511202400873716,
+          "magnitude_ratio": 0.614791228195773,
+          "nrmse": 0.36460331047503586,
+          "pair_group": "bowl_destination_stove_cabinet",
+          "pair_id": "a60aae99c9a0b74ae2c65b851ad5e4d246db59aef67f96a5d21aaf695ddbd56b",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.9195402298850575
+        },
+        {
+          "cosine": 0.8477147051730024,
+          "magnitude_ratio": 0.6180878894708444,
+          "nrmse": 0.3660648163620471,
+          "pair_group": "bowl_destination_stove_cabinet",
+          "pair_id": "a60aae99c9a0b74ae2c65b851ad5e4d246db59aef67f96a5d21aaf695ddbd56b",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.9252873563218391
+        },
+        {
+          "cosine": 0.9834753384480048,
+          "magnitude_ratio": 0.9029617019027755,
+          "nrmse": 0.40736543829332816,
+          "pair_group": "wine_destination_rack_cabinet",
+          "pair_id": "1ad16b8ecbca5246945a21a1abdc2b5d7d606b4963c0ba25815ddf7e4d5cc1ee",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.875
+        },
+        {
+          "cosine": 0.983631791889703,
+          "magnitude_ratio": 0.8994497579381072,
+          "nrmse": 0.40890037837253573,
+          "pair_group": "wine_destination_rack_cabinet",
+          "pair_id": "1ad16b8ecbca5246945a21a1abdc2b5d7d606b4963c0ba25815ddf7e4d5cc1ee",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.875
+        }
+      ],
+      "transport_signed_coordinate_accuracy_mean": 0.8782799733854003,
+      "validation_equivalence_records": 30,
+      "validation_transport_records": 8
+    },
+    "pcat": {
+      "adapter_effect_nrmse_mean": 0.08233639133000989,
+      "canonical_continuous_nrmse_mean": 0.1319424662943636,
+      "canonical_official_energy_mean": 0.034632673114538194,
+      "equivalence_drift_nrmse_mean": 0.27875889358112516,
+      "legal_action_fraction": 1.0,
+      "role": "pcat",
+      "transport_cosine_mean": 0.7544497379946906,
+      "transport_groups": {
+        "bowl_destination_plate_cabinet": {
+          "cosine_mean": 0.3747405595281879,
+          "count": 2,
+          "magnitude_ratio_mean": 0.5899143795199346,
+          "nrmse_mean": 0.43052798121306207
+        },
+        "bowl_destination_plate_stove": {
+          "cosine_mean": 0.8424147558517867,
+          "count": 2,
+          "magnitude_ratio_mean": 0.36268818294862576,
+          "nrmse_mean": 0.5384269643104143
+        },
+        "bowl_destination_stove_cabinet": {
+          "cosine_mean": 0.8198029613776707,
+          "count": 2,
+          "magnitude_ratio_mean": 0.6330404169438872,
+          "nrmse_mean": 0.38145577565191907
+        },
+        "wine_destination_rack_cabinet": {
+          "cosine_mean": 0.980840675221117,
+          "count": 2,
+          "magnitude_ratio_mean": 0.9138974142383313,
+          "nrmse_mean": 0.4235202185649737
+        }
+      },
+      "transport_magnitude_ratio_mean": 0.6248850984126947,
+      "transport_nrmse_mean": 0.44348273493509227,
+      "transport_rows": [
+        {
+          "cosine": 0.8441574135078662,
+          "magnitude_ratio": 0.3609625593110528,
+          "nrmse": 0.5386294999881343,
+          "pair_group": "bowl_destination_plate_stove",
+          "pair_id": "3a750cdc0c8a1c66ccc1e4f42d5da735616a29bc69156d1ca7898ed15e4fb2ec",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.9244186046511628
+        },
+        {
+          "cosine": 0.8406720981957071,
+          "magnitude_ratio": 0.3644138065861987,
+          "nrmse": 0.5382244286326944,
+          "pair_group": "bowl_destination_plate_stove",
+          "pair_id": "3a750cdc0c8a1c66ccc1e4f42d5da735616a29bc69156d1ca7898ed15e4fb2ec",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.9244186046511628
+        },
+        {
+          "cosine": 0.3751763386877719,
+          "magnitude_ratio": 0.5901440224608261,
+          "nrmse": 0.4304292880178997,
+          "pair_group": "bowl_destination_plate_cabinet",
+          "pair_id": "fcac134ae8dcaeb6cdc3f1185551858e8d454842babab374ec74d0c1a649f64a",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.7246376811594203
+        },
+        {
+          "cosine": 0.37430478036860393,
+          "magnitude_ratio": 0.5896847365790432,
+          "nrmse": 0.43062667440822444,
+          "pair_group": "bowl_destination_plate_cabinet",
+          "pair_id": "fcac134ae8dcaeb6cdc3f1185551858e8d454842babab374ec74d0c1a649f64a",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.7246376811594203
+        },
+        {
+          "cosine": 0.8177696896463204,
+          "magnitude_ratio": 0.6318343862849237,
+          "nrmse": 0.3830459575644801,
+          "pair_group": "bowl_destination_stove_cabinet",
+          "pair_id": "a60aae99c9a0b74ae2c65b851ad5e4d246db59aef67f96a5d21aaf695ddbd56b",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.9195402298850575
+        },
+        {
+          "cosine": 0.8218362331090212,
+          "magnitude_ratio": 0.6342464476028509,
+          "nrmse": 0.379865593739358,
+          "pair_group": "bowl_destination_stove_cabinet",
+          "pair_id": "a60aae99c9a0b74ae2c65b851ad5e4d246db59aef67f96a5d21aaf695ddbd56b",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.9080459770114943
+        },
+        {
+          "cosine": 0.9808495174486452,
+          "magnitude_ratio": 0.9150896293575321,
+          "nrmse": 0.4226430038663487,
+          "pair_group": "wine_destination_rack_cabinet",
+          "pair_id": "1ad16b8ecbca5246945a21a1abdc2b5d7d606b4963c0ba25815ddf7e4d5cc1ee",
+          "seed": 811,
+          "signed_coordinate_accuracy": 0.8791666666666667
+        },
+        {
+          "cosine": 0.9808318329935888,
+          "magnitude_ratio": 0.9127051991191304,
+          "nrmse": 0.42439743326359863,
+          "pair_group": "wine_destination_rack_cabinet",
+          "pair_id": "1ad16b8ecbca5246945a21a1abdc2b5d7d606b4963c0ba25815ddf7e4d5cc1ee",
+          "seed": 823,
+          "signed_coordinate_accuracy": 0.8833333333333333
+        }
+      ],
+      "transport_signed_coordinate_accuracy_mean": 0.8610248473147147,
+      "validation_equivalence_records": 30,
+      "validation_transport_records": 8
+    }
+  },
+  "model_id": "2toINF/X-VLA-Libero",
+  "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+  "one_backbone_resident_limit": 1,
+  "protocol": {
+    "path": "reports/epoch8_pcat_stage0_protocol.json",
+    "sha256": "89c6d9090d29b5addd2f2d4ce65e5f4351d4122ba112cebc8e9cce46730d3b0e"
+  },
+  "resources_after": {
+    "mem_available_kib": 8709048,
+    "mem_total_kib": 11812944,
+    "nvidia_smi": "NVIDIA GeForce RTX 5080, 16303, 2914, 13066, 13",
+    "swap_free_kib": 3145728,
+    "swap_total_kib": 3145728,
+    "swap_used_kib": 0,
+    "torch_cuda_allocated_bytes": 22031872,
+    "torch_cuda_peak_allocated_bytes": 3689570816,
+    "torch_cuda_reserved_bytes": 46137344
+  },
+  "resources_after_base_load": {
+    "mem_available_kib": 8956372,
+    "mem_total_kib": 11812944,
+    "nvidia_smi": "NVIDIA GeForce RTX 5080, 16303, 6221, 9759, 45",
+    "swap_free_kib": 3145728,
+    "swap_total_kib": 3145728,
+    "swap_used_kib": 0,
+    "torch_cuda_allocated_bytes": 3518954496,
+    "torch_cuda_peak_allocated_bytes": 3518954496,
+    "torch_cuda_reserved_bytes": 3542089728
+  },
+  "resources_after_cache": {
+    "mem_available_kib": 8886032,
+    "mem_total_kib": 11812944,
+    "nvidia_smi": "NVIDIA GeForce RTX 5080, 16303, 6536, 9444, 87",
+    "swap_free_kib": 3145728,
+    "swap_total_kib": 3145728,
+    "swap_used_kib": 0,
+    "torch_cuda_allocated_bytes": 3528534016,
+    "torch_cuda_peak_allocated_bytes": 3689570816,
+    "torch_cuda_reserved_bytes": 3858759680
+  },
+  "resources_before": {
+    "mem_available_kib": 10898744,
+    "mem_total_kib": 11812944,
+    "nvidia_smi": "NVIDIA GeForce RTX 5080, 16303, 2527, 13453, 0",
+    "swap_free_kib": 3145728,
+    "swap_total_kib": 3145728,
+    "swap_used_kib": 0
+  },
+  "runtime": {
+    "base_parameter_count": 879482456,
+    "base_trainable_parameter_count": 0,
+    "base_training_flag": false,
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "import_report": {
+      "optional_server_import_shims_used": [],
+      "runtime_dependency_versions": {
+        "peft": "0.11.1",
+        "timm": "0.9.10",
+        "torch": "2.10.0+cu128",
+        "transformers": "4.40.1"
+      },
+      "transformers_compat_patches": [
+        "Florence2ForConditionalGeneration._supports_sdpa=False",
+        "Florence2LanguageForConditionalGeneration.get_output_embeddings_missing_lm_head_safe"
+      ]
+    },
+    "torch": "2.10.0+cu128"
+  },
+  "schema_version": "epoch8.pcat_stage0_result.v1",
+  "simulator_constructed": false,
+  "simulator_episode_count": 0,
+  "status": "COMPLETE",
+  "training": {
+    "capacity_control": {
+      "checkpoint": "reports/epoch8_pcat_stage0/capacity_control_adapter.pt",
+      "checkpoint_sha256": "2282e0bfbd915f58393437bf2cd8dba47403654cfd47f44300494b5c832c9ccf",
+      "duration_seconds": 1.731109857559204,
+      "final_loss": 0.01080351136624813,
+      "final_parameter_norm": 35.51055908203125,
+      "first_gradient_norm": 1.624703288078308,
+      "initial_loss": 0.018999628722667694,
+      "loss_decreased": true,
+      "minimum_loss": 0.0065489765256643295,
+      "optimizer_steps": 300,
+      "output_layer_weight_norm": 0.49115055799484253,
+      "parameter_count": 254090,
+      "role": "capacity_control"
+    },
+    "equivalence_only": {
+      "checkpoint": "reports/epoch8_pcat_stage0/equivalence_only_adapter.pt",
+      "checkpoint_sha256": "49395b196108174cff07c41378c2c7566fa7ddab903cc80188b6d0f8583f48e4",
+      "duration_seconds": 2.9876203536987305,
+      "final_loss": 0.24383822083473206,
+      "final_parameter_norm": 35.75108337402344,
+      "first_gradient_norm": 7.619018077850342,
+      "initial_loss": 0.9477083683013916,
+      "loss_decreased": true,
+      "minimum_loss": 0.11766985803842545,
+      "optimizer_steps": 300,
+      "output_layer_weight_norm": 0.7294255495071411,
+      "parameter_count": 254090,
+      "role": "equivalence_only"
+    },
+    "paraphrase_augmentation": {
+      "checkpoint": "reports/epoch8_pcat_stage0/paraphrase_augmentation_adapter.pt",
+      "checkpoint_sha256": "effbba1c3ace8fbdb293b28287b9ff9d49642e37fa5bac56745972abdefa25fa",
+      "duration_seconds": 2.411310911178589,
+      "final_loss": 0.0923062115907669,
+      "final_parameter_norm": 35.66310501098633,
+      "first_gradient_norm": 7.029937267303467,
+      "initial_loss": 0.4968803822994232,
+      "loss_decreased": true,
+      "minimum_loss": 0.07303524762392044,
+      "optimizer_steps": 300,
+      "output_layer_weight_norm": 0.9009445905685425,
+      "parameter_count": 254090,
+      "role": "paraphrase_augmentation"
+    },
+    "pcat": {
+      "checkpoint": "reports/epoch8_pcat_stage0/pcat_adapter.pt",
+      "checkpoint_sha256": "c3ce706acb11425d8712bb164d471fbfd8f1ccc3a16b55709457d7d183402e45",
+      "duration_seconds": 3.6936769485473633,
+      "final_loss": 0.408329576253891,
+      "final_parameter_norm": 35.73592758178711,
+      "first_gradient_norm": 7.701488971710205,
+      "initial_loss": 0.5980488061904907,
+      "loss_decreased": true,
+      "minimum_loss": 0.11883608251810074,
+      "optimizer_steps": 300,
+      "output_layer_weight_norm": 0.7529849410057068,
+      "parameter_count": 254090,
+      "role": "pcat"
+    }
+  }
+}

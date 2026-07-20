@@ -1,0 +1,305 @@
+{
+  "candidate_independent": true,
+  "classification": "OUTCOME_SUPPRESSED_STATIC_AND_SIMULATOR_RESET_AUDIT",
+  "created_at": "2026-07-20T19:57:44+0900",
+  "decision": "TARGET_SWAP_RESETS_COMPATIBLE",
+  "directed_pairs": [
+    {
+      "agentview_shape": [
+        256,
+        256,
+        3
+      ],
+      "available_init_states": 50,
+      "completed": true,
+      "exception": null,
+      "eye_in_hand_shape": [
+        256,
+        256,
+        3
+      ],
+      "installation_max_abs_residual": 0.0,
+      "installed_state_finite": true,
+      "installed_state_shape": [
+        79
+      ],
+      "shared_world_signature": true,
+      "source_eval_id": 3,
+      "source_init_sha256": "ef3466ffad734754dc40eba1f6f5712e37aa46b9692c595e0da34f16d3a0c668",
+      "source_instruction": "put the bowl on the plate",
+      "source_state_finite": true,
+      "source_state_shape": [
+        79
+      ],
+      "source_task_stem": "put_the_bowl_on_the_plate",
+      "source_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de",
+      "target_bddl_sha256": "b17f6f0f05ff950a914088ff70cef55bca119d2a6785a2c0114388358b9a9cc2",
+      "target_eval_id": 4,
+      "target_instruction": "put the bowl on the stove",
+      "target_task_stem": "put_the_bowl_on_the_stove",
+      "target_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+    },
+    {
+      "agentview_shape": [
+        256,
+        256,
+        3
+      ],
+      "available_init_states": 50,
+      "completed": true,
+      "exception": null,
+      "eye_in_hand_shape": [
+        256,
+        256,
+        3
+      ],
+      "installation_max_abs_residual": 0.0,
+      "installed_state_finite": true,
+      "installed_state_shape": [
+        79
+      ],
+      "shared_world_signature": true,
+      "source_eval_id": 4,
+      "source_init_sha256": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1",
+      "source_instruction": "put the bowl on the stove",
+      "source_state_finite": true,
+      "source_state_shape": [
+        79
+      ],
+      "source_task_stem": "put_the_bowl_on_the_stove",
+      "source_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de",
+      "target_bddl_sha256": "edf5f0dd59fe7e6f5db25d8444c8abea0cc2917254d1320199a3dfc8b39ba74d",
+      "target_eval_id": 3,
+      "target_instruction": "put the bowl on the plate",
+      "target_task_stem": "put_the_bowl_on_the_plate",
+      "target_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+    },
+    {
+      "agentview_shape": [
+        256,
+        256,
+        3
+      ],
+      "available_init_states": 50,
+      "completed": true,
+      "exception": null,
+      "eye_in_hand_shape": [
+        256,
+        256,
+        3
+      ],
+      "installation_max_abs_residual": 0.0,
+      "installed_state_finite": true,
+      "installed_state_shape": [
+        79
+      ],
+      "shared_world_signature": true,
+      "source_eval_id": 4,
+      "source_init_sha256": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1",
+      "source_instruction": "put the bowl on the stove",
+      "source_state_finite": true,
+      "source_state_shape": [
+        79
+      ],
+      "source_task_stem": "put_the_bowl_on_the_stove",
+      "source_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de",
+      "target_bddl_sha256": "47a09c56b47b8c1263130aead030a3ac044174b201bf4651108d7e0fe99e3454",
+      "target_eval_id": 5,
+      "target_instruction": "put the bowl on the top of the drawer",
+      "target_task_stem": "put_the_bowl_on_top_of_the_cabinet",
+      "target_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+    },
+    {
+      "agentview_shape": [
+        256,
+        256,
+        3
+      ],
+      "available_init_states": 50,
+      "completed": true,
+      "exception": null,
+      "eye_in_hand_shape": [
+        256,
+        256,
+        3
+      ],
+      "installation_max_abs_residual": 0.0,
+      "installed_state_finite": true,
+      "installed_state_shape": [
+        79
+      ],
+      "shared_world_signature": true,
+      "source_eval_id": 5,
+      "source_init_sha256": "c0b7baf82f36f5304488bac91d788800a1c93d0a9fd19a73f448992d5366e145",
+      "source_instruction": "put the bowl on the top of the drawer",
+      "source_state_finite": true,
+      "source_state_shape": [
+        79
+      ],
+      "source_task_stem": "put_the_bowl_on_top_of_the_cabinet",
+      "source_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de",
+      "target_bddl_sha256": "b17f6f0f05ff950a914088ff70cef55bca119d2a6785a2c0114388358b9a9cc2",
+      "target_eval_id": 4,
+      "target_instruction": "put the bowl on the stove",
+      "target_task_stem": "put_the_bowl_on_the_stove",
+      "target_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+    },
+    {
+      "agentview_shape": [
+        256,
+        256,
+        3
+      ],
+      "available_init_states": 50,
+      "completed": true,
+      "exception": null,
+      "eye_in_hand_shape": [
+        256,
+        256,
+        3
+      ],
+      "installation_max_abs_residual": 0.0,
+      "installed_state_finite": true,
+      "installed_state_shape": [
+        79
+      ],
+      "shared_world_signature": true,
+      "source_eval_id": 3,
+      "source_init_sha256": "ef3466ffad734754dc40eba1f6f5712e37aa46b9692c595e0da34f16d3a0c668",
+      "source_instruction": "put the bowl on the plate",
+      "source_state_finite": true,
+      "source_state_shape": [
+        79
+      ],
+      "source_task_stem": "put_the_bowl_on_the_plate",
+      "source_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de",
+      "target_bddl_sha256": "47a09c56b47b8c1263130aead030a3ac044174b201bf4651108d7e0fe99e3454",
+      "target_eval_id": 5,
+      "target_instruction": "put the bowl on the top of the drawer",
+      "target_task_stem": "put_the_bowl_on_top_of_the_cabinet",
+      "target_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+    },
+    {
+      "agentview_shape": [
+        256,
+        256,
+        3
+      ],
+      "available_init_states": 50,
+      "completed": true,
+      "exception": null,
+      "eye_in_hand_shape": [
+        256,
+        256,
+        3
+      ],
+      "installation_max_abs_residual": 0.0,
+      "installed_state_finite": true,
+      "installed_state_shape": [
+        79
+      ],
+      "shared_world_signature": true,
+      "source_eval_id": 5,
+      "source_init_sha256": "c0b7baf82f36f5304488bac91d788800a1c93d0a9fd19a73f448992d5366e145",
+      "source_instruction": "put the bowl on the top of the drawer",
+      "source_state_finite": true,
+      "source_state_shape": [
+        79
+      ],
+      "source_task_stem": "put_the_bowl_on_top_of_the_cabinet",
+      "source_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de",
+      "target_bddl_sha256": "edf5f0dd59fe7e6f5db25d8444c8abea0cc2917254d1320199a3dfc8b39ba74d",
+      "target_eval_id": 3,
+      "target_instruction": "put the bowl on the plate",
+      "target_task_stem": "put_the_bowl_on_the_plate",
+      "target_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+    },
+    {
+      "agentview_shape": [
+        256,
+        256,
+        3
+      ],
+      "available_init_states": 50,
+      "completed": true,
+      "exception": null,
+      "eye_in_hand_shape": [
+        256,
+        256,
+        3
+      ],
+      "installation_max_abs_residual": 0.0,
+      "installed_state_finite": true,
+      "installed_state_shape": [
+        79
+      ],
+      "shared_world_signature": true,
+      "source_eval_id": 7,
+      "source_init_sha256": "fa09aa4ade871c1c6be3dd8c93eb3437ea15190fd7dc73b8c986c8d2d3cfb062",
+      "source_instruction": "put the wine bottle on the rack",
+      "source_state_finite": true,
+      "source_state_shape": [
+        79
+      ],
+      "source_task_stem": "put_the_wine_bottle_on_the_rack",
+      "source_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de",
+      "target_bddl_sha256": "38242c40f3640cc6076a1569271647ab9a063e69345309da843193d9b0241265",
+      "target_eval_id": 8,
+      "target_instruction": "put the wine bottle on the top of the drawer",
+      "target_task_stem": "put_the_wine_bottle_on_top_of_the_cabinet",
+      "target_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+    },
+    {
+      "agentview_shape": [
+        256,
+        256,
+        3
+      ],
+      "available_init_states": 50,
+      "completed": true,
+      "exception": null,
+      "eye_in_hand_shape": [
+        256,
+        256,
+        3
+      ],
+      "installation_max_abs_residual": 0.0,
+      "installed_state_finite": true,
+      "installed_state_shape": [
+        79
+      ],
+      "shared_world_signature": true,
+      "source_eval_id": 8,
+      "source_init_sha256": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b",
+      "source_instruction": "put the wine bottle on the top of the drawer",
+      "source_state_finite": true,
+      "source_state_shape": [
+        79
+      ],
+      "source_task_stem": "put_the_wine_bottle_on_top_of_the_cabinet",
+      "source_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de",
+      "target_bddl_sha256": "bfe7b14240a61700419ec2dd99857177f373aa1ead1f0a991458815a843c5772",
+      "target_eval_id": 7,
+      "target_instruction": "put the wine bottle on the rack",
+      "target_task_stem": "put_the_wine_bottle_on_the_rack",
+      "target_world_signature": "93f8eb84f07478fc3c567265ad10061be8423e73cf077acf4def3ffe2c3065de"
+    }
+  ],
+  "init_index": 14,
+  "model_loaded": false,
+  "one_live_environment_limit": 1,
+  "ours_outcomes_observed": false,
+  "policy_forward_happened": false,
+  "reward_or_done_retained": false,
+  "schema_version": "epoch8.target_swap_compatibility_audit.v1",
+  "simulator_reset_count": 8,
+  "sources": {
+    "confirmation_manifest": "reports/epoch8_language_splits/confirmation_manifest.json",
+    "confirmation_manifest_sha256": "5111c62def4997e67c009f18745410a3c1b2e732d36103f162542df6186d008f",
+    "inherited_audit": "reports/epoch7_selective_language_grounding/selectivity_supervision_audit.json",
+    "inherited_audit_sha256": "fbc7491434f8f5ed29dced47cd75abc8d52dcef7984d76cb1bc0c9ac6ce29f55",
+    "libero_para_root": "/mnt/c/assets/repos/LIBERO-Para"
+  },
+  "success_check_called": false,
+  "training_happened": false
+}

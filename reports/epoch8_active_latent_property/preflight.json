@@ -1,0 +1,239 @@
+{
+  "completed_at": "2026-07-20T12:02:03Z",
+  "decision": "ACTIVE_LATENT_PROPERTY_PREFLIGHT_PASS",
+  "execution_type": "SETUP_PREFLIGHT_OUTCOME_SUPPRESSED",
+  "policy_loaded_or_queried": false,
+  "protocol_sha256": "B68309214B3E53A0798E97295B3729DBF01AF227CB14B5BBB4D72144BCE3C506",
+  "reward_success_done_read": false,
+  "rows": [
+    {
+      "mutation": {
+        "axis": "target_mass",
+        "changed_values": 4,
+        "factor": 8.0,
+        "records": [
+          {
+            "after": [
+              0.04473037264639999
+            ],
+            "array": "body_mass",
+            "before": [
+              0.005591296580799999
+            ],
+            "body_id": 23,
+            "body_name": "akita_black_bowl_1_main"
+          },
+          {
+            "after": [
+              7.265442846430406e-05,
+              4.883954857042448e-05,
+              4.572954418096637e-05
+            ],
+            "array": "body_inertia",
+            "before": [
+              9.081803558038008e-06,
+              6.10494357130306e-06,
+              5.716193022620796e-06
+            ],
+            "body_id": 23,
+            "body_name": "akita_black_bowl_1_main"
+          }
+        ],
+        "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+      },
+      "observation_hashes": {
+        "agentview_image": "2EB50F48873B2F915B58355522D96166D6689F254345391D01F32B91720BE0BA",
+        "akita_black_bowl_1_pos": "769B8F78056CA4CE12B4A3A513EE1A11F26FE9AE55348C9633B0351D4E3B29BD",
+        "akita_black_bowl_1_quat": "305539881F54BBC38FD10A4201AEC1BEE5F75D702BE970333631D1188F4884DF",
+        "akita_black_bowl_1_to_robot0_eef_pos": "DAF2EB48E8B5BC099C867842A50F5A1BC205BCF57A672B37B0A5D8B4CCE07A83",
+        "akita_black_bowl_1_to_robot0_eef_quat": "40C46CB00BB5650D1A1A9A8B8FA27550FF6E9AE7B7C4484C7AE71CAB62D02BE4",
+        "akita_black_bowl_2_pos": "574D5866CDC1A37938EE97C9618BDE1C4015D0409E8AD7740145AED8C78EE740",
+        "akita_black_bowl_2_quat": "305539881F54BBC38FD10A4201AEC1BEE5F75D702BE970333631D1188F4884DF",
+        "akita_black_bowl_2_to_robot0_eef_pos": "8C42D63A763B9044166545B6697C403ED8AB5707FD275DAB96E53F1E7E2DA9B3",
+        "akita_black_bowl_2_to_robot0_eef_quat": "40C46CB00BB5650D1A1A9A8B8FA27550FF6E9AE7B7C4484C7AE71CAB62D02BE4",
+        "akita_black_bowl_3_pos": "D7AA089F280B88142DBD9B5FC954DB5DA4E330B26DEE28376DF1202489588450",
+        "akita_black_bowl_3_quat": "305539881F54BBC38FD10A4201AEC1BEE5F75D702BE970333631D1188F4884DF",
+        "akita_black_bowl_3_to_robot0_eef_pos": "9F89428A9155D5EA580F1362939D4254C97ACB513EAAF419AA976D0EC1AAA2A1",
+        "akita_black_bowl_3_to_robot0_eef_quat": "40C46CB00BB5650D1A1A9A8B8FA27550FF6E9AE7B7C4484C7AE71CAB62D02BE4",
+        "object-state": "C0417EE08662525F8BABDB9646B36B4A15172E010BB794B791448A3ACBB6A548",
+        "plate_1_pos": "1ADF0F26DCB1E54F6ED9F35C435A2B2AC129021A158E7B69BA7A8B8FBAE5CAB4",
+        "plate_1_quat": "EC08051129C069D6546F56636813E203CC366D20C7B7743B137E1FDBC6103928",
+        "plate_1_to_robot0_eef_pos": "50B47585008AE0CCB0745CF1666F33AB2F6F8E7239A34389B4392272116FA960",
+        "plate_1_to_robot0_eef_quat": "C2D7F6CC62ACBDB120F8D439E9E78AAFB63E91AC2BDBE905143CD8D8A91BF03A",
+        "robot0_eef_pos": "5BBC2406B579E604FD888861D4423E34195BE6015B11E7873FF28D7AB1C3383A",
+        "robot0_eef_quat": "365B665E4B55246A322666F7DD62F142DB264D74A5646D24E6F832766C616A71",
+        "robot0_eye_in_hand_image": "07EBA6FD32C7B5F635BBB1A1551FE84DF7AB2C1F07DEE902EB006E0F805D3CD7",
+        "robot0_gripper_qpos": "0644D089670FBC0FEDC10A749C80EFAB507D3D918D5254C7A4E96AEFC8990EAD",
+        "robot0_gripper_qvel": "0DB17FB5BCA4B6DAC7294241374366A810A54A70B5079478511290976EE22E59",
+        "robot0_joint_pos": "D758EA966F434259928C1C8C462631C2B5A6E3C0EA91844850F1FA9CF4A46037",
+        "robot0_joint_pos_cos": "E81B329E8613C089881A0CA77A4E2078EDF93735B012BBB9592FB32FD28B6FF9",
+        "robot0_joint_pos_sin": "8B6998237A1000B0E062E64E1121F7CDD0E96B552178D175A3F270ED19181B3D",
+        "robot0_joint_vel": "13FBB41EB805C8EFBD8FC737C217B285A8A88AD15580089527239F3B6DD36A3D",
+        "robot0_proprio-state": "5785FDC091144AE65E08E95CF6C9072922ABBB22FAE18CB911B7196CE41FB964"
+      },
+      "reference_equivalence": {
+        "all_array_keys_match": true,
+        "max_abs": 0.0
+      },
+      "state_residual": {
+        "qpos_max_abs": 0.0,
+        "qvel_max_abs": 0.0
+      },
+      "target": "front"
+    },
+    {
+      "mutation": {
+        "axis": "target_mass",
+        "changed_values": 4,
+        "factor": 8.0,
+        "records": [
+          {
+            "after": [
+              0.04473037264639999
+            ],
+            "array": "body_mass",
+            "before": [
+              0.005591296580799999
+            ],
+            "body_id": 24,
+            "body_name": "akita_black_bowl_2_main"
+          },
+          {
+            "after": [
+              7.265442846430406e-05,
+              4.883954857042448e-05,
+              4.572954418096637e-05
+            ],
+            "array": "body_inertia",
+            "before": [
+              9.081803558038008e-06,
+              6.10494357130306e-06,
+              5.716193022620796e-06
+            ],
+            "body_id": 24,
+            "body_name": "akita_black_bowl_2_main"
+          }
+        ],
+        "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+      },
+      "observation_hashes": {
+        "agentview_image": "2EB50F48873B2F915B58355522D96166D6689F254345391D01F32B91720BE0BA",
+        "akita_black_bowl_1_pos": "769B8F78056CA4CE12B4A3A513EE1A11F26FE9AE55348C9633B0351D4E3B29BD",
+        "akita_black_bowl_1_quat": "305539881F54BBC38FD10A4201AEC1BEE5F75D702BE970333631D1188F4884DF",
+        "akita_black_bowl_1_to_robot0_eef_pos": "DAF2EB48E8B5BC099C867842A50F5A1BC205BCF57A672B37B0A5D8B4CCE07A83",
+        "akita_black_bowl_1_to_robot0_eef_quat": "40C46CB00BB5650D1A1A9A8B8FA27550FF6E9AE7B7C4484C7AE71CAB62D02BE4",
+        "akita_black_bowl_2_pos": "574D5866CDC1A37938EE97C9618BDE1C4015D0409E8AD7740145AED8C78EE740",
+        "akita_black_bowl_2_quat": "305539881F54BBC38FD10A4201AEC1BEE5F75D702BE970333631D1188F4884DF",
+        "akita_black_bowl_2_to_robot0_eef_pos": "8C42D63A763B9044166545B6697C403ED8AB5707FD275DAB96E53F1E7E2DA9B3",
+        "akita_black_bowl_2_to_robot0_eef_quat": "40C46CB00BB5650D1A1A9A8B8FA27550FF6E9AE7B7C4484C7AE71CAB62D02BE4",
+        "akita_black_bowl_3_pos": "D7AA089F280B88142DBD9B5FC954DB5DA4E330B26DEE28376DF1202489588450",
+        "akita_black_bowl_3_quat": "305539881F54BBC38FD10A4201AEC1BEE5F75D702BE970333631D1188F4884DF",
+        "akita_black_bowl_3_to_robot0_eef_pos": "9F89428A9155D5EA580F1362939D4254C97ACB513EAAF419AA976D0EC1AAA2A1",
+        "akita_black_bowl_3_to_robot0_eef_quat": "40C46CB00BB5650D1A1A9A8B8FA27550FF6E9AE7B7C4484C7AE71CAB62D02BE4",
+        "object-state": "C0417EE08662525F8BABDB9646B36B4A15172E010BB794B791448A3ACBB6A548",
+        "plate_1_pos": "1ADF0F26DCB1E54F6ED9F35C435A2B2AC129021A158E7B69BA7A8B8FBAE5CAB4",
+        "plate_1_quat": "EC08051129C069D6546F56636813E203CC366D20C7B7743B137E1FDBC6103928",
+        "plate_1_to_robot0_eef_pos": "50B47585008AE0CCB0745CF1666F33AB2F6F8E7239A34389B4392272116FA960",
+        "plate_1_to_robot0_eef_quat": "C2D7F6CC62ACBDB120F8D439E9E78AAFB63E91AC2BDBE905143CD8D8A91BF03A",
+        "robot0_eef_pos": "5BBC2406B579E604FD888861D4423E34195BE6015B11E7873FF28D7AB1C3383A",
+        "robot0_eef_quat": "365B665E4B55246A322666F7DD62F142DB264D74A5646D24E6F832766C616A71",
+        "robot0_eye_in_hand_image": "07EBA6FD32C7B5F635BBB1A1551FE84DF7AB2C1F07DEE902EB006E0F805D3CD7",
+        "robot0_gripper_qpos": "0644D089670FBC0FEDC10A749C80EFAB507D3D918D5254C7A4E96AEFC8990EAD",
+        "robot0_gripper_qvel": "0DB17FB5BCA4B6DAC7294241374366A810A54A70B5079478511290976EE22E59",
+        "robot0_joint_pos": "D758EA966F434259928C1C8C462631C2B5A6E3C0EA91844850F1FA9CF4A46037",
+        "robot0_joint_pos_cos": "E81B329E8613C089881A0CA77A4E2078EDF93735B012BBB9592FB32FD28B6FF9",
+        "robot0_joint_pos_sin": "8B6998237A1000B0E062E64E1121F7CDD0E96B552178D175A3F270ED19181B3D",
+        "robot0_joint_vel": "13FBB41EB805C8EFBD8FC737C217B285A8A88AD15580089527239F3B6DD36A3D",
+        "robot0_proprio-state": "5785FDC091144AE65E08E95CF6C9072922ABBB22FAE18CB911B7196CE41FB964"
+      },
+      "reference_equivalence": {
+        "all_array_keys_match": true,
+        "max_abs": 0.0
+      },
+      "state_residual": {
+        "qpos_max_abs": 0.0,
+        "qvel_max_abs": 0.0
+      },
+      "target": "middle"
+    },
+    {
+      "mutation": {
+        "axis": "target_mass",
+        "changed_values": 4,
+        "factor": 8.0,
+        "records": [
+          {
+            "after": [
+              0.04473037264639999
+            ],
+            "array": "body_mass",
+            "before": [
+              0.005591296580799999
+            ],
+            "body_id": 25,
+            "body_name": "akita_black_bowl_3_main"
+          },
+          {
+            "after": [
+              7.265442846430406e-05,
+              4.883954857042448e-05,
+              4.572954418096637e-05
+            ],
+            "array": "body_inertia",
+            "before": [
+              9.081803558038008e-06,
+              6.10494357130306e-06,
+              5.716193022620796e-06
+            ],
+            "body_id": 25,
+            "body_name": "akita_black_bowl_3_main"
+          }
+        ],
+        "records_sha256": "401f330d77c6a61895cce35a880360fcbf2c2136e7f7a5f2161a2fa3f514911e"
+      },
+      "observation_hashes": {
+        "agentview_image": "2EB50F48873B2F915B58355522D96166D6689F254345391D01F32B91720BE0BA",
+        "akita_black_bowl_1_pos": "769B8F78056CA4CE12B4A3A513EE1A11F26FE9AE55348C9633B0351D4E3B29BD",
+        "akita_black_bowl_1_quat": "305539881F54BBC38FD10A4201AEC1BEE5F75D702BE970333631D1188F4884DF",
+        "akita_black_bowl_1_to_robot0_eef_pos": "DAF2EB48E8B5BC099C867842A50F5A1BC205BCF57A672B37B0A5D8B4CCE07A83",
+        "akita_black_bowl_1_to_robot0_eef_quat": "40C46CB00BB5650D1A1A9A8B8FA27550FF6E9AE7B7C4484C7AE71CAB62D02BE4",
+        "akita_black_bowl_2_pos": "574D5866CDC1A37938EE97C9618BDE1C4015D0409E8AD7740145AED8C78EE740",
+        "akita_black_bowl_2_quat": "305539881F54BBC38FD10A4201AEC1BEE5F75D702BE970333631D1188F4884DF",
+        "akita_black_bowl_2_to_robot0_eef_pos": "8C42D63A763B9044166545B6697C403ED8AB5707FD275DAB96E53F1E7E2DA9B3",
+        "akita_black_bowl_2_to_robot0_eef_quat": "40C46CB00BB5650D1A1A9A8B8FA27550FF6E9AE7B7C4484C7AE71CAB62D02BE4",
+        "akita_black_bowl_3_pos": "D7AA089F280B88142DBD9B5FC954DB5DA4E330B26DEE28376DF1202489588450",
+        "akita_black_bowl_3_quat": "305539881F54BBC38FD10A4201AEC1BEE5F75D702BE970333631D1188F4884DF",
+        "akita_black_bowl_3_to_robot0_eef_pos": "9F89428A9155D5EA580F1362939D4254C97ACB513EAAF419AA976D0EC1AAA2A1",
+        "akita_black_bowl_3_to_robot0_eef_quat": "40C46CB00BB5650D1A1A9A8B8FA27550FF6E9AE7B7C4484C7AE71CAB62D02BE4",
+        "object-state": "C0417EE08662525F8BABDB9646B36B4A15172E010BB794B791448A3ACBB6A548",
+        "plate_1_pos": "1ADF0F26DCB1E54F6ED9F35C435A2B2AC129021A158E7B69BA7A8B8FBAE5CAB4",
+        "plate_1_quat": "EC08051129C069D6546F56636813E203CC366D20C7B7743B137E1FDBC6103928",
+        "plate_1_to_robot0_eef_pos": "50B47585008AE0CCB0745CF1666F33AB2F6F8E7239A34389B4392272116FA960",
+        "plate_1_to_robot0_eef_quat": "C2D7F6CC62ACBDB120F8D439E9E78AAFB63E91AC2BDBE905143CD8D8A91BF03A",
+        "robot0_eef_pos": "5BBC2406B579E604FD888861D4423E34195BE6015B11E7873FF28D7AB1C3383A",
+        "robot0_eef_quat": "365B665E4B55246A322666F7DD62F142DB264D74A5646D24E6F832766C616A71",
+        "robot0_eye_in_hand_image": "07EBA6FD32C7B5F635BBB1A1551FE84DF7AB2C1F07DEE902EB006E0F805D3CD7",
+        "robot0_gripper_qpos": "0644D089670FBC0FEDC10A749C80EFAB507D3D918D5254C7A4E96AEFC8990EAD",
+        "robot0_gripper_qvel": "0DB17FB5BCA4B6DAC7294241374366A810A54A70B5079478511290976EE22E59",
+        "robot0_joint_pos": "D758EA966F434259928C1C8C462631C2B5A6E3C0EA91844850F1FA9CF4A46037",
+        "robot0_joint_pos_cos": "E81B329E8613C089881A0CA77A4E2078EDF93735B012BBB9592FB32FD28B6FF9",
+        "robot0_joint_pos_sin": "8B6998237A1000B0E062E64E1121F7CDD0E96B552178D175A3F270ED19181B3D",
+        "robot0_joint_vel": "13FBB41EB805C8EFBD8FC737C217B285A8A88AD15580089527239F3B6DD36A3D",
+        "robot0_proprio-state": "5785FDC091144AE65E08E95CF6C9072922ABBB22FAE18CB911B7196CE41FB964"
+      },
+      "reference_equivalence": {
+        "all_array_keys_match": true,
+        "max_abs": 0.0
+      },
+      "state_residual": {
+        "qpos_max_abs": 0.0,
+        "qvel_max_abs": 0.0
+      },
+      "target": "back"
+    }
+  ],
+  "schema_version": "epoch8.active_latent_property.preflight.v1",
+  "script_sha256": "5132A4CBDBC3C5C2426ED8AED72C465CAD0B2B16201751936FB171D31D9420FC",
+  "simulator_actions_after_intervention": 0,
+  "validation_or_confirmation_accessed": false
+}

@@ -1,0 +1,55 @@
+{
+  "checkpoint_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+  "files": [
+    {
+      "bytes": 6261,
+      "name": "config.json",
+      "resolved_path": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/bfd4ced79bb712954921a836e2d521c20af24a85",
+      "sha256": "872AC07859E9AEC9E01F72F448F8DF33CE9914D60C5EDB8FE8BE615ABB23133F"
+    },
+    {
+      "bytes": 15119,
+      "name": "configuration_florence2.py",
+      "resolved_path": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/b8869617ef8dfd0f04d421cf59b83ca662c363ad",
+      "sha256": "DE2E45A975B3582DE05D2F4D963A3E9F9A3D20DCCF78D28E0052932A0BE93BDF"
+    },
+    {
+      "bytes": 3389,
+      "name": "configuration_xvla.py",
+      "resolved_path": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/df9e17da8699826e7739736b4d9c3cd439c1a1ba",
+      "sha256": "7B65FEA79C870A5C5C3741A2085DEF160541F4BA7C73DAFBD9369E64620702FE"
+    },
+    {
+      "bytes": 3519068172,
+      "name": "model.safetensors",
+      "resolved_path": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/260cc58869125b826e93bcaa60bca3ea37bcc7aaf893d368a991ca14fde9f0c8",
+      "sha256": "260CC58869125B826E93BCAA60BCA3EA37BCC7AAF893D368A991CA14FDE9F0C8"
+    },
+    {
+      "bytes": 766,
+      "name": "preprocessor_config.json",
+      "resolved_path": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/edfb64565c036ca62ef0a2fb7c8581617be50fd7",
+      "sha256": "0A4E041CB57D07F735844A3D06A89BACE2C9EB2A46EB6DDC2E6FBDAE17504692"
+    },
+    {
+      "bytes": 1355863,
+      "name": "tokenizer.json",
+      "resolved_path": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/ad0bcbeb288f0d1373d88e0762e66357f55b8311",
+      "sha256": "847BBEAB6174D66A88898F729D52FA8D355FAFE1BEA101CF960DD404581DF70E"
+    },
+    {
+      "bytes": 34,
+      "name": "tokenizer_config.json",
+      "resolved_path": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/44784bc58d4cb18d3549ad71e062efcf032d9ef5",
+      "sha256": "79FFCF43AF8EBDA99D165F61D243180DA2E2639952E41E71E11611C18770489C"
+    },
+    {
+      "bytes": 1099884,
+      "name": "vocab.json",
+      "resolved_path": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/94a2f4fd50e976bda926c700291522ea1a79323f",
+      "sha256": "394FDC63C71AABE0A9B97117F5D62FB5FCC4D59B2B3EA929A3929E6A53217B3C"
+    }
+  ],
+  "manifest_sha256": "3F87E145B4076E4A8A79E9BF7FA5F1C27AE0950B6812F5E553386EB31B9D9DB8",
+  "snapshot_path": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590"
+}

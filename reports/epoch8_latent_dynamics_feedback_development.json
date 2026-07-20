@@ -1,0 +1,2570 @@
+{
+  "completed_at": "2026-07-20T20:35:42+09:00",
+  "controller_attempts": [
+    {
+      "controller": {
+        "behind_distance_m": 0.04,
+        "contact_height_m": 0.015,
+        "id": "c00",
+        "overshoot_m": 0.04
+      },
+      "pairs": [
+        {
+          "episodes": [
+            {
+              "completed": true,
+              "condition": "standard",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.3927719781543096,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  0.010697118295001674,
+                  0.26604013269225524,
+                  0.9425790454499924
+                ],
+                "final_plate": [
+                  0.05185924290397083,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397088,
+                  -0.028493122928679903,
+                  0.9025063385290465
+                ],
+                "waypoints": [
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393744,
+                    1.0025063385290465
+                  ],
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393744,
+                    0.9175063385290465
+                  ],
+                  [
+                    -0.06571087912617238,
+                    0.2467854356652575,
+                    0.9175063385290465
+                  ]
+                ]
+              },
+              "mutation": null,
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.030089141888141897,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.027132207232010527,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 16.51
+            },
+            {
+              "completed": true,
+              "condition": "intervention",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.39277197815430953,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  0.010697118295001674,
+                  0.26604013269225524,
+                  0.9425790454499924
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.028493122928679695,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397087,
+                  -0.02849312292867988,
+                  0.9025063385290898
+                ],
+                "waypoints": [
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393741,
+                    1.0025063385290898
+                  ],
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393741,
+                    0.9175063385290898
+                  ],
+                  [
+                    -0.06571087912617238,
+                    0.2467854356652575,
+                    0.9175063385290898
+                  ]
+                ]
+              },
+              "mutation": {
+                "axis": "target_contact_friction",
+                "changed_values": 30,
+                "factor": 0.25,
+                "records": [
+                  {
+                    "after": [
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ]
+                    ],
+                    "array": "geom_friction",
+                    "before": [
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ]
+                    ],
+                    "components": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "geom_indices": [
+                      151,
+                      152,
+                      153,
+                      154,
+                      155,
+                      156,
+                      157,
+                      158,
+                      159,
+                      160
+                    ],
+                    "geom_names": [
+                      "plate_1_g1",
+                      "plate_1_g2",
+                      "plate_1_g3",
+                      "plate_1_g4",
+                      "plate_1_g5",
+                      "plate_1_g6",
+                      "plate_1_g7",
+                      "plate_1_g8",
+                      "plate_1_g9",
+                      "plate_1_g10"
+                    ]
+                  }
+                ],
+                "records_sha256": "24837f54e663de954b236f6a44f69d73afd62c30dc08efac5ae5bbc2f6f3598c"
+              },
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.03008914188811678,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.02713220723198582,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 15.245
+            }
+          ],
+          "pass": false,
+          "state_index": 0
+        }
+      ],
+      "pass": false
+    },
+    {
+      "controller": {
+        "behind_distance_m": 0.04,
+        "contact_height_m": 0.015,
+        "id": "c01",
+        "overshoot_m": 0.08
+      },
+      "pairs": [
+        {
+          "episodes": [
+            {
+              "completed": true,
+              "condition": "standard",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.3927719781543096,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  -0.007978687254635661,
+                  0.3063713528685985,
+                  0.9429811273052137
+                ],
+                "final_plate": [
+                  0.05185924290397083,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397088,
+                  -0.028493122928679903,
+                  0.9025063385290465
+                ],
+                "waypoints": [
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393744,
+                    1.0025063385290465
+                  ],
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393744,
+                    0.9175063385290465
+                  ],
+                  [
+                    -0.08142175825234477,
+                    0.28357087133051506,
+                    0.9175063385290465
+                  ]
+                ]
+              },
+              "mutation": null,
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.030089141888141897,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.027132207232010527,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 15.086
+            },
+            {
+              "completed": true,
+              "condition": "intervention",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.39277197815430953,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  -0.007978687254635661,
+                  0.3063713528685985,
+                  0.9429811273052137
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.028493122928679695,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397087,
+                  -0.02849312292867988,
+                  0.9025063385290898
+                ],
+                "waypoints": [
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393741,
+                    1.0025063385290898
+                  ],
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393741,
+                    0.9175063385290898
+                  ],
+                  [
+                    -0.08142175825234477,
+                    0.28357087133051506,
+                    0.9175063385290898
+                  ]
+                ]
+              },
+              "mutation": {
+                "axis": "target_contact_friction",
+                "changed_values": 30,
+                "factor": 0.25,
+                "records": [
+                  {
+                    "after": [
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ]
+                    ],
+                    "array": "geom_friction",
+                    "before": [
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ]
+                    ],
+                    "components": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "geom_indices": [
+                      151,
+                      152,
+                      153,
+                      154,
+                      155,
+                      156,
+                      157,
+                      158,
+                      159,
+                      160
+                    ],
+                    "geom_names": [
+                      "plate_1_g1",
+                      "plate_1_g2",
+                      "plate_1_g3",
+                      "plate_1_g4",
+                      "plate_1_g5",
+                      "plate_1_g6",
+                      "plate_1_g7",
+                      "plate_1_g8",
+                      "plate_1_g9",
+                      "plate_1_g10"
+                    ]
+                  }
+                ],
+                "records_sha256": "24837f54e663de954b236f6a44f69d73afd62c30dc08efac5ae5bbc2f6f3598c"
+              },
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.03008914188811678,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.02713220723198582,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 15.231
+            }
+          ],
+          "pass": false,
+          "state_index": 0
+        }
+      ],
+      "pass": false
+    },
+    {
+      "controller": {
+        "behind_distance_m": 0.04,
+        "contact_height_m": 0.025,
+        "id": "c02",
+        "overshoot_m": 0.04
+      },
+      "pairs": [
+        {
+          "episodes": [
+            {
+              "completed": true,
+              "condition": "standard",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.3927719781543096,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  0.011568089116926913,
+                  0.26602836322271795,
+                  0.9527641299964252
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397088,
+                  -0.028493122928679903,
+                  0.9025063385290465
+                ],
+                "waypoints": [
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393744,
+                    1.0025063385290465
+                  ],
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393744,
+                    0.9275063385290465
+                  ],
+                  [
+                    -0.06571087912617238,
+                    0.2467854356652575,
+                    0.9275063385290465
+                  ]
+                ]
+              },
+              "mutation": null,
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.030089141888141897,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.028046537845525178,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 15.114
+            },
+            {
+              "completed": true,
+              "condition": "intervention",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.39277197815430953,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  0.011568089116926913,
+                  0.26602836322271795,
+                  0.9527641299964252
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397087,
+                  -0.02849312292867988,
+                  0.9025063385290898
+                ],
+                "waypoints": [
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393741,
+                    1.0025063385290898
+                  ],
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393741,
+                    0.9275063385290898
+                  ],
+                  [
+                    -0.06571087912617238,
+                    0.2467854356652575,
+                    0.9275063385290898
+                  ]
+                ]
+              },
+              "mutation": {
+                "axis": "target_contact_friction",
+                "changed_values": 30,
+                "factor": 0.25,
+                "records": [
+                  {
+                    "after": [
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ]
+                    ],
+                    "array": "geom_friction",
+                    "before": [
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ]
+                    ],
+                    "components": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "geom_indices": [
+                      151,
+                      152,
+                      153,
+                      154,
+                      155,
+                      156,
+                      157,
+                      158,
+                      159,
+                      160
+                    ],
+                    "geom_names": [
+                      "plate_1_g1",
+                      "plate_1_g2",
+                      "plate_1_g3",
+                      "plate_1_g4",
+                      "plate_1_g5",
+                      "plate_1_g6",
+                      "plate_1_g7",
+                      "plate_1_g8",
+                      "plate_1_g9",
+                      "plate_1_g10"
+                    ]
+                  }
+                ],
+                "records_sha256": "24837f54e663de954b236f6a44f69d73afd62c30dc08efac5ae5bbc2f6f3598c"
+              },
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.03008914188811678,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.028046537845500326,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 15.211
+            }
+          ],
+          "pass": false,
+          "state_index": 0
+        }
+      ],
+      "pass": false
+    },
+    {
+      "controller": {
+        "behind_distance_m": 0.04,
+        "contact_height_m": 0.025,
+        "id": "c03",
+        "overshoot_m": 0.08
+      },
+      "pairs": [
+        {
+          "episodes": [
+            {
+              "completed": true,
+              "condition": "standard",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.3927719781543096,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  -0.007099107683936401,
+                  0.3063566954045251,
+                  0.9531667615592868
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397088,
+                  -0.028493122928679903,
+                  0.9025063385290465
+                ],
+                "waypoints": [
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393744,
+                    1.0025063385290465
+                  ],
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393744,
+                    0.9275063385290465
+                  ],
+                  [
+                    -0.08142175825234477,
+                    0.28357087133051506,
+                    0.9275063385290465
+                  ]
+                ]
+              },
+              "mutation": null,
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.030089141888141897,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.028046537845525178,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 15.492
+            },
+            {
+              "completed": true,
+              "condition": "intervention",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.39277197815430953,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  -0.007099107683936401,
+                  0.3063566954045251,
+                  0.9531667615592868
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397087,
+                  -0.02849312292867988,
+                  0.9025063385290898
+                ],
+                "waypoints": [
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393741,
+                    1.0025063385290898
+                  ],
+                  [
+                    0.06757012203014326,
+                    -0.06527855859393741,
+                    0.9275063385290898
+                  ],
+                  [
+                    -0.08142175825234477,
+                    0.28357087133051506,
+                    0.9275063385290898
+                  ]
+                ]
+              },
+              "mutation": {
+                "axis": "target_contact_friction",
+                "changed_values": 30,
+                "factor": 0.25,
+                "records": [
+                  {
+                    "after": [
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ]
+                    ],
+                    "array": "geom_friction",
+                    "before": [
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ]
+                    ],
+                    "components": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "geom_indices": [
+                      151,
+                      152,
+                      153,
+                      154,
+                      155,
+                      156,
+                      157,
+                      158,
+                      159,
+                      160
+                    ],
+                    "geom_names": [
+                      "plate_1_g1",
+                      "plate_1_g2",
+                      "plate_1_g3",
+                      "plate_1_g4",
+                      "plate_1_g5",
+                      "plate_1_g6",
+                      "plate_1_g7",
+                      "plate_1_g8",
+                      "plate_1_g9",
+                      "plate_1_g10"
+                    ]
+                  }
+                ],
+                "records_sha256": "24837f54e663de954b236f6a44f69d73afd62c30dc08efac5ae5bbc2f6f3598c"
+              },
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.03008914188811678,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.028046537845500326,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 16.167
+            }
+          ],
+          "pass": false,
+          "state_index": 0
+        }
+      ],
+      "pass": false
+    },
+    {
+      "controller": {
+        "behind_distance_m": 0.06,
+        "contact_height_m": 0.015,
+        "id": "c04",
+        "overshoot_m": 0.04
+      },
+      "pairs": [
+        {
+          "episodes": [
+            {
+              "completed": true,
+              "condition": "standard",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.3927719781543096,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  0.01070500642633131,
+                  0.2660402767033343,
+                  0.9425779885173331
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397088,
+                  -0.028493122928679903,
+                  0.9025063385290465
+                ],
+                "waypoints": [
+                  [
+                    0.07542556159322945,
+                    -0.0836712764265662,
+                    1.0025063385290465
+                  ],
+                  [
+                    0.07542556159322945,
+                    -0.0836712764265662,
+                    0.9175063385290465
+                  ],
+                  [
+                    -0.06571087912617238,
+                    0.2467854356652575,
+                    0.9175063385290465
+                  ]
+                ]
+              },
+              "mutation": null,
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.09659849301254006,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.18100797648165495,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 17.369
+            },
+            {
+              "completed": true,
+              "condition": "intervention",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.39277197815430953,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  0.01070500642633131,
+                  0.2660402767033343,
+                  0.9425779885173331
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397087,
+                  -0.02849312292867988,
+                  0.9025063385290898
+                ],
+                "waypoints": [
+                  [
+                    0.07542556159322944,
+                    -0.08367127642656617,
+                    1.0025063385290898
+                  ],
+                  [
+                    0.07542556159322944,
+                    -0.08367127642656617,
+                    0.9175063385290898
+                  ],
+                  [
+                    -0.06571087912617238,
+                    0.2467854356652575,
+                    0.9175063385290898
+                  ]
+                ]
+              },
+              "mutation": {
+                "axis": "target_contact_friction",
+                "changed_values": 30,
+                "factor": 0.25,
+                "records": [
+                  {
+                    "after": [
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ]
+                    ],
+                    "array": "geom_friction",
+                    "before": [
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ]
+                    ],
+                    "components": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "geom_indices": [
+                      151,
+                      152,
+                      153,
+                      154,
+                      155,
+                      156,
+                      157,
+                      158,
+                      159,
+                      160
+                    ],
+                    "geom_names": [
+                      "plate_1_g1",
+                      "plate_1_g2",
+                      "plate_1_g3",
+                      "plate_1_g4",
+                      "plate_1_g5",
+                      "plate_1_g6",
+                      "plate_1_g7",
+                      "plate_1_g8",
+                      "plate_1_g9",
+                      "plate_1_g10"
+                    ]
+                  }
+                ],
+                "records_sha256": "24837f54e663de954b236f6a44f69d73afd62c30dc08efac5ae5bbc2f6f3598c"
+              },
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.09659849301249732,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.18100797648161185,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 16.77
+            }
+          ],
+          "pass": false,
+          "state_index": 0
+        }
+      ],
+      "pass": false
+    },
+    {
+      "controller": {
+        "behind_distance_m": 0.06,
+        "contact_height_m": 0.015,
+        "id": "c05",
+        "overshoot_m": 0.08
+      },
+      "pairs": [
+        {
+          "episodes": [
+            {
+              "completed": true,
+              "condition": "standard",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.3927719781543096,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  -0.007954666553053439,
+                  0.3063668358151723,
+                  0.9429801864551459
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397088,
+                  -0.028493122928679903,
+                  0.9025063385290465
+                ],
+                "waypoints": [
+                  [
+                    0.07542556159322945,
+                    -0.0836712764265662,
+                    1.0025063385290465
+                  ],
+                  [
+                    0.07542556159322945,
+                    -0.0836712764265662,
+                    0.9175063385290465
+                  ],
+                  [
+                    -0.08142175825234477,
+                    0.28357087133051506,
+                    0.9175063385290465
+                  ]
+                ]
+              },
+              "mutation": null,
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.09659849301254006,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.18100797648165495,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 15.384
+            },
+            {
+              "completed": true,
+              "condition": "intervention",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.39277197815430953,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  -0.007954666553053439,
+                  0.3063668358151723,
+                  0.9429801864551459
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397087,
+                  -0.02849312292867988,
+                  0.9025063385290898
+                ],
+                "waypoints": [
+                  [
+                    0.07542556159322944,
+                    -0.08367127642656617,
+                    1.0025063385290898
+                  ],
+                  [
+                    0.07542556159322944,
+                    -0.08367127642656617,
+                    0.9175063385290898
+                  ],
+                  [
+                    -0.08142175825234477,
+                    0.28357087133051506,
+                    0.9175063385290898
+                  ]
+                ]
+              },
+              "mutation": {
+                "axis": "target_contact_friction",
+                "changed_values": 30,
+                "factor": 0.25,
+                "records": [
+                  {
+                    "after": [
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ]
+                    ],
+                    "array": "geom_friction",
+                    "before": [
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ]
+                    ],
+                    "components": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "geom_indices": [
+                      151,
+                      152,
+                      153,
+                      154,
+                      155,
+                      156,
+                      157,
+                      158,
+                      159,
+                      160
+                    ],
+                    "geom_names": [
+                      "plate_1_g1",
+                      "plate_1_g2",
+                      "plate_1_g3",
+                      "plate_1_g4",
+                      "plate_1_g5",
+                      "plate_1_g6",
+                      "plate_1_g7",
+                      "plate_1_g8",
+                      "plate_1_g9",
+                      "plate_1_g10"
+                    ]
+                  }
+                ],
+                "records_sha256": "24837f54e663de954b236f6a44f69d73afd62c30dc08efac5ae5bbc2f6f3598c"
+              },
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.09659849301249732,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.18100797648161185,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 16.294
+            }
+          ],
+          "pass": false,
+          "state_index": 0
+        }
+      ],
+      "pass": false
+    },
+    {
+      "controller": {
+        "behind_distance_m": 0.06,
+        "contact_height_m": 0.025,
+        "id": "c06",
+        "overshoot_m": 0.04
+      },
+      "pairs": [
+        {
+          "episodes": [
+            {
+              "completed": true,
+              "condition": "standard",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.3927719781543096,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  0.01157623864940141,
+                  0.26602770772576095,
+                  0.9527630178494976
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397088,
+                  -0.028493122928679903,
+                  0.9025063385290465
+                ],
+                "waypoints": [
+                  [
+                    0.07542556159322945,
+                    -0.0836712764265662,
+                    1.0025063385290465
+                  ],
+                  [
+                    0.07542556159322945,
+                    -0.0836712764265662,
+                    0.9275063385290465
+                  ],
+                  [
+                    -0.06571087912617238,
+                    0.2467854356652575,
+                    0.9275063385290465
+                  ]
+                ]
+              },
+              "mutation": null,
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.09659849301254006,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.17104732009738072,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 16.715
+            },
+            {
+              "completed": true,
+              "condition": "intervention",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.39277197815430953,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  0.01157623864940141,
+                  0.26602770772576095,
+                  0.9527630178494976
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397087,
+                  -0.02849312292867988,
+                  0.9025063385290898
+                ],
+                "waypoints": [
+                  [
+                    0.07542556159322944,
+                    -0.08367127642656617,
+                    1.0025063385290898
+                  ],
+                  [
+                    0.07542556159322944,
+                    -0.08367127642656617,
+                    0.9275063385290898
+                  ],
+                  [
+                    -0.06571087912617238,
+                    0.2467854356652575,
+                    0.9275063385290898
+                  ]
+                ]
+              },
+              "mutation": {
+                "axis": "target_contact_friction",
+                "changed_values": 30,
+                "factor": 0.25,
+                "records": [
+                  {
+                    "after": [
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ]
+                    ],
+                    "array": "geom_friction",
+                    "before": [
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ]
+                    ],
+                    "components": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "geom_indices": [
+                      151,
+                      152,
+                      153,
+                      154,
+                      155,
+                      156,
+                      157,
+                      158,
+                      159,
+                      160
+                    ],
+                    "geom_names": [
+                      "plate_1_g1",
+                      "plate_1_g2",
+                      "plate_1_g3",
+                      "plate_1_g4",
+                      "plate_1_g5",
+                      "plate_1_g6",
+                      "plate_1_g7",
+                      "plate_1_g8",
+                      "plate_1_g9",
+                      "plate_1_g10"
+                    ]
+                  }
+                ],
+                "records_sha256": "24837f54e663de954b236f6a44f69d73afd62c30dc08efac5ae5bbc2f6f3598c"
+              },
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.09659849301249732,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.17104732009733759,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 16.821
+            }
+          ],
+          "pass": false,
+          "state_index": 0
+        }
+      ],
+      "pass": false
+    },
+    {
+      "controller": {
+        "behind_distance_m": 0.06,
+        "contact_height_m": 0.025,
+        "id": "c07",
+        "overshoot_m": 0.08
+      },
+      "pairs": [
+        {
+          "episodes": [
+            {
+              "completed": true,
+              "condition": "standard",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.3927719781543096,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  -0.007074202544674033,
+                  0.306351024684505,
+                  0.9531656408282434
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397088,
+                  -0.028493122928679903,
+                  0.9025063385290465
+                ],
+                "waypoints": [
+                  [
+                    0.07542556159322945,
+                    -0.0836712764265662,
+                    1.0025063385290465
+                  ],
+                  [
+                    0.07542556159322945,
+                    -0.0836712764265662,
+                    0.9275063385290465
+                  ],
+                  [
+                    -0.08142175825234477,
+                    0.28357087133051506,
+                    0.9275063385290465
+                  ]
+                ]
+              },
+              "mutation": null,
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.09659849301254006,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.17104732009738072,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 16.462
+            },
+            {
+              "completed": true,
+              "condition": "intervention",
+              "error": null,
+              "final_official_success": false,
+              "finite_actions": true,
+              "first_success_step": null,
+              "first_target_contact_step": null,
+              "geometry": {
+                "direction_xy": [
+                  -0.39277197815430953,
+                  0.9196358916314383
+                ],
+                "final_eef": [
+                  -0.007074202544674033,
+                  0.306351024684505,
+                  0.9531656408282434
+                ],
+                "final_plate": [
+                  0.05185924290397082,
+                  -0.0284931229286797,
+                  0.902506338529415
+                ],
+                "final_plate_goal_xy_distance_m": 0.25933429208117553,
+                "goal": [
+                  -0.05,
+                  0.21,
+                  0.895
+                ],
+                "plate_initial": [
+                  0.05185924290397087,
+                  -0.02849312292867988,
+                  0.9025063385290898
+                ],
+                "waypoints": [
+                  [
+                    0.07542556159322944,
+                    -0.08367127642656617,
+                    1.0025063385290898
+                  ],
+                  [
+                    0.07542556159322944,
+                    -0.08367127642656617,
+                    0.9275063385290898
+                  ],
+                  [
+                    -0.08142175825234477,
+                    0.28357087133051506,
+                    0.9275063385290898
+                  ]
+                ]
+              },
+              "mutation": {
+                "axis": "target_contact_friction",
+                "changed_values": 30,
+                "factor": 0.25,
+                "records": [
+                  {
+                    "after": [
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ],
+                      [
+                        0.2375,
+                        0.075,
+                        0.025
+                      ]
+                    ],
+                    "array": "geom_friction",
+                    "before": [
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ],
+                      [
+                        0.95,
+                        0.3,
+                        0.1
+                      ]
+                    ],
+                    "components": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "geom_indices": [
+                      151,
+                      152,
+                      153,
+                      154,
+                      155,
+                      156,
+                      157,
+                      158,
+                      159,
+                      160
+                    ],
+                    "geom_names": [
+                      "plate_1_g1",
+                      "plate_1_g2",
+                      "plate_1_g3",
+                      "plate_1_g4",
+                      "plate_1_g5",
+                      "plate_1_g6",
+                      "plate_1_g7",
+                      "plate_1_g8",
+                      "plate_1_g9",
+                      "plate_1_g10"
+                    ]
+                  }
+                ],
+                "records_sha256": "24837f54e663de954b236f6a44f69d73afd62c30dc08efac5ae5bbc2f6f3598c"
+              },
+              "paired_state_residual": {
+                "qpos_max_abs": 0.0,
+                "qvel_max_abs": 0.0
+              },
+              "phase_transitions": [
+                {
+                  "distance_m": 0.09659849301249732,
+                  "from": 0,
+                  "reason": "phase_timeout",
+                  "step": 69,
+                  "to": 1
+                },
+                {
+                  "distance_m": 0.17104732009733759,
+                  "from": 1,
+                  "reason": "phase_timeout",
+                  "step": 139,
+                  "to": 2
+                }
+              ],
+              "state_index": 0,
+              "steps": 220,
+              "success": false,
+              "target_contact_any": false,
+              "wall_seconds": 15.333
+            }
+          ],
+          "pass": false,
+          "state_index": 0
+        }
+      ],
+      "pass": false
+    }
+  ],
+  "decision": "FEEDBACK_EXPERT_DEVELOPMENT_FAIL_ROTATE",
+  "execution_type": "PRIVILEGED_FEEDBACK_FEASIBILITY_ORACLE_NO_POLICY",
+  "policy_loaded_or_queried": false,
+  "protocol": "/mnt/c/Users/jiheo/tca_map/reports/epoch8_latent_dynamics_feedback_development_protocol.json",
+  "protocol_sha256": "75227c37fda38cb15d2f290475fccf19aa2337f2707fe2fc23c3e504364c5a02",
+  "runtime": {
+    "camera_resolution": 64,
+    "numpy": "1.26.4",
+    "python": "3.10.20"
+  },
+  "schema_version": "epoch8.latent_dynamics.feedback_development.v1",
+  "script_sha256": "7fa19247dfc0863544a388061807468833858b927bcfb62f46f42dbcb387da29",
+  "selected_controller": null,
+  "started_at": "2026-07-20T20:31:36+09:00",
+  "summary": {
+    "attempted_controllers": 8,
+    "executed_episodes": 16,
+    "sealed_indices_accessed": [],
+    "selected_controller_id": null
+  },
+  "validation_or_confirmation_accessed": false
+}

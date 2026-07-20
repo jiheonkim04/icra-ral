@@ -1,0 +1,29 @@
+{
+  "pid": 394,
+  "resource_snapshot": {
+    "captured_at": "2026-07-20T12:06:24Z",
+    "nvidia_smi": {
+      "free_mib": 9437,
+      "name": "NVIDIA GeForce RTX 5080",
+      "total_mib": 16303,
+      "used_mib": 6543
+    },
+    "pid": 394,
+    "process_rss_bytes": 4900892672,
+    "system": {
+      "mem_available_bytes": 7525691392,
+      "mem_total_bytes": 12096454656,
+      "swap_free_bytes": 3221225472,
+      "swap_total_bytes": 3221225472,
+      "swap_used_bytes": 0
+    },
+    "torch_cuda": {
+      "allocated_bytes": 9568256,
+      "peak_allocated_bytes": 3689558016,
+      "peak_reserved_bytes": 3860856832,
+      "reserved_bytes": 23068672
+    }
+  },
+  "status": "running",
+  "updated_at": "2026-07-20T12:06:24Z"
+}

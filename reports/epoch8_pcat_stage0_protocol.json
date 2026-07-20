@@ -1,0 +1,219 @@
+{
+  "schema_version": "epoch8.pcat_stage0_protocol.v1",
+  "frozen_at": "2026-07-20T20:20:00+09:00",
+  "status": "FROZEN_BEFORE_STAGE0_OUTCOMES",
+  "working_tree_base_commit": "4422a95be5412bdb774287fce9f42004a8631f39",
+  "branch": "codex/epoch8-language-grounding-convergence",
+  "candidate": {
+    "id": "PCAT",
+    "name": "Paired Counterfactual Action Transport",
+    "selected": true,
+    "claim_boundary": "real-demonstration two-sided semantic intervention supervision of the signed numeric action-field response",
+    "not_a_scalar_energy_or_ranking_method": true,
+    "no_synthetic_counterfactual_action_label": true,
+    "single_branch_inference": true,
+    "privileged_inference": false
+  },
+  "authorization": {
+    "stage0_training_and_offline_evaluation": true,
+    "serial_validation_closed_loop": false,
+    "confirmation": false,
+    "generalization_outcomes": false,
+    "confirmation_text_may_be_read": false,
+    "confirmation_outcomes_may_be_read": false
+  },
+  "base": {
+    "model_id": "2toINF/X-VLA-Libero",
+    "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "source_root": "/mnt/c/assets/repos/X-VLA",
+    "torch_dtype": "float32",
+    "domain_id": 3,
+    "frozen": true,
+    "one_resident_backbone": true
+  },
+  "frozen_inputs": [
+    {
+      "path": "reports/epoch8_candidate_mechanism_comparison.md",
+      "sha256": "93d4a2a5c9c9d34aa6b1ee98fb54759584c17fbb28621983a76766071a7f8ccf"
+    },
+    {
+      "path": "reports/epoch8_action_response_supervision.json",
+      "sha256": "881cda153f2488cad0d03cd50a8801cb5c70e1031114489d6ebe106b00db286d"
+    },
+    {
+      "path": "reports/epoch8_language_artifact_matrix.json",
+      "sha256": "fdec14e24b0493a3a7591853ff4148c7eb583b1f19a51736c9ef8f66b1e9f461"
+    },
+    {
+      "path": "reports/epoch8_language_splits/split_index.json",
+      "sha256": "c9e150270b65cb97edbcf19954574233c5f45188119154e44e0f6fc1526dfa9a"
+    },
+    {
+      "path": "reports/epoch8_language_splits/training_manifest.json",
+      "sha256": "79c90f7232bf86912bb9540b31b5007bc71046dafa72a6fc920abfc03997e4dd"
+    },
+    {
+      "path": "reports/epoch8_language_splits/validation_manifest.json",
+      "sha256": "0eb9201ae7b1e75df1d719988fae84e7274fb68aead493f66da247047b4e7cd5"
+    },
+    {
+      "path": "reports/epoch8_language_splits/confirmation_manifest.json",
+      "sha256": "5111c62def4997e67c009f18745410a3c1b2e732d36103f162542df6186d008f"
+    },
+    {
+      "path": "reports/epoch8_language_splits/generalization_manifest.json",
+      "sha256": "00627cd9adb5988a00b1dc4ea7f02191d1ed100f4eab71b453b5a8db41a555d9"
+    }
+  ],
+  "supervision": {
+    "path": "reports/epoch8_action_response_supervision.json",
+    "training_action_pairs": 48,
+    "training_records_after_two_time_noise_seeds": 96,
+    "validation_action_pairs": 4,
+    "validation_transport_records_after_two_time_noise_seeds": 8,
+    "training_equivalence_pairs": 15,
+    "validation_equivalence_pairs": 15,
+    "validation_equivalence_records_after_two_time_noise_seeds": 30,
+    "tasks": [3, 4, 5, 7, 8],
+    "object_families": [
+      "bowl",
+      "wine_bottle"
+    ],
+    "frame_index": 0,
+    "action_chunk": [
+      1,
+      30
+    ]
+  },
+  "implementation": {
+    "script": {
+      "path": "scripts/run_epoch8_pcat_stage0.py",
+      "sha256": "b9b2c524665c8a49a8f76962c7f7d3127e139378ba3fd857f921661c30ae82fb"
+    },
+    "output_dir": "reports/epoch8_pcat_stage0",
+    "adapter": {
+      "context_input": "mean-pooled frozen X-VLA multimodal encoder feature",
+      "context_dimension": 1024,
+      "context_projection_dimension": 128,
+      "hidden_dimensions": [
+        256,
+        256
+      ],
+      "time_feature_dimension": 16,
+      "input_fields": [
+        "pooled_context",
+        "noisy_20D_action",
+        "20D_proprio",
+        "sinusoidal_time",
+        "base_20D_clean_action_prediction"
+      ],
+      "output": "10D left-arm residual; 10D right-arm residual fixed exactly zero",
+      "trainable_parameter_count": 254090,
+      "last_layer_zero_initialized": true,
+      "base_equivalent_at_initialization": true
+    },
+    "deployment": "add the learned residual to each ordinary X-VLA clean-action denoising update using one RGB-language-proprio branch",
+    "counterfactual_branch_at_inference": false
+  },
+  "training": {
+    "adapter_seed": 8202026,
+    "optimizer": "AdamW",
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "optimizer_steps_per_role": 300,
+    "batch_pairs": 8,
+    "trainable_roles": [
+      "capacity_control",
+      "paraphrase_augmentation",
+      "equivalence_only",
+      "pcat"
+    ],
+    "identical_initial_adapter_weights": true,
+    "identical_pair_pool": true,
+    "base_features_and_predictions_cached_from_real_cuda_forwards": true,
+    "checkpoint_selection": "none; evaluate the fixed final step 300 for every role"
+  },
+  "loss_weights": {
+    "factual_each_branch": 1.0,
+    "equivalence": 0.5,
+    "transport": 1.0,
+    "base_anchor": 0.05
+  },
+  "role_objectives": {
+    "capacity_control": "canonical factual normalized clean-action regression only",
+    "paraphrase_augmentation": "canonical plus paraphrase factual regression; no explicit consistency or transport",
+    "equivalence_only": "augmentation plus vector equivalence and Base anchor; no target-swap transport",
+    "pcat": "equivalence-only objective plus signed real-demonstration counterfactual action transport"
+  },
+  "evaluation": {
+    "time_noise_seeds": [
+      811,
+      823
+    ],
+    "shared_noise_within_each_action_pair": true,
+    "derived_seed_rule": "base_seed + item_index * 10000 with disjoint frozen offsets for train, transport validation, and equivalence validation",
+    "roles": [
+      "base",
+      "capacity_control",
+      "paraphrase_augmentation",
+      "equivalence_only",
+      "pcat"
+    ],
+    "metrics": [
+      "official X-VLA canonical clean-action energy",
+      "canonical continuous normalized RMSE",
+      "canonical-paraphrase continuous prediction drift",
+      "signed transport cosine",
+      "transport normalized RMSE",
+      "transport response magnitude ratio",
+      "signed coordinate accuracy",
+      "adapter action-effect normalized RMS",
+      "finite and expanded-training-support action legality",
+      "per-target-pair transport metrics"
+    ],
+    "validation_may_select_checkpoint_or_hyperparameter": false,
+    "confirmation_used": false
+  },
+  "decision_rules": {
+    "canonical_official_energy_ratio_max": 1.05,
+    "equivalence_vs_base_ratio_max": 0.85,
+    "equivalence_vs_augmentation_ratio_max": 1.05,
+    "transport_cosine_min": 0.3,
+    "transport_cosine_gain_min": 0.1,
+    "transport_nrmse_ratio_max": 0.9,
+    "transport_magnitude_ratio_min": 0.25,
+    "transport_magnitude_ratio_max": 2.5,
+    "adapter_effect_nrmse_min": 0.02,
+    "all_target_pair_group_cosines_must_be_positive": true,
+    "legal_action_fraction_required": 1.0,
+    "decision": "PCAT_STAGE0_GO only if every execution, retention, equivalence, selectivity, ablation/control, action-effect, and legality check passes; otherwise PCAT_STAGE0_NO_GO"
+  },
+  "execution_requirements": {
+    "real_cuda_base_forwards": true,
+    "real_cuda_optimizer_steps": true,
+    "expected_total_optimizer_steps": 1200,
+    "finite_nonzero_first_gradient_each_role": true,
+    "loss_decrease_each_role": true,
+    "pcat_output_layer_nonzero_after_training": true,
+    "swap_must_remain_zero": true,
+    "one_backbone_resident": true,
+    "simulator_forbidden": true,
+    "closed_loop_outcomes_forbidden": true,
+    "confirmation_content_forbidden": true,
+    "maximum_new_checkpoint_bytes": 8388608,
+    "maximum_active_gpu_hours": 4
+  },
+  "repair_policy": {
+    "implementation_defect": "preserve the failed result, state whether scientific metrics were observed, make the smallest semantically null repair, hash-freeze a new protocol version, and rerun once",
+    "scientific_no_go": "close only this exact PCAT adapter, matching rule, objective, budget, and validation panel; rotate under the Epoch 8 contract",
+    "underpowered_or_ambiguous": "do not promote; run only a predeclared or newly versioned validation extension without reading confirmation"
+  },
+  "next_if_go": "freeze the final adapter identities and run the already frozen serial closed-loop validation screen at reset indices 3 and 4 before any confirmation access",
+  "next_if_no_go": "adjudicate execution validity, then rotate only if the exact method is validly falsified"
+}

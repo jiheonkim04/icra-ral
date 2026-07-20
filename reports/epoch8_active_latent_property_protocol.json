@@ -1,0 +1,132 @@
+{
+  "schema_version": "epoch8.active_latent_property.stage_minus1_protocol.v1",
+  "frozen_at": "2026-07-20T20:58:38+09:00",
+  "status": "FROZEN_BEFORE_STAGE_MINUS1_BASE_OUTCOMES",
+  "execution_class": "VLA_CLOSED_LOOP_ROLLOUT",
+  "thesis_id": "active_hidden_mass_target_grounding",
+  "stage_purpose": "Verify a competent-Base gap before designing probe-to-belief-to-target supervision or a method.",
+  "hypothesis": "A VLA competent on front/middle/back bowl placement will lose correct-target contact and official completion when the same target is referred to only as the heaviest visually identical bowl.",
+  "novelty_scope": "Executable active hidden-property VLA task and future probe-to-belief-to-target mechanism; the conceptual conditional test is anticipated by physical-reasoning work and adjacent interactive perception.",
+  "model": {
+    "name": "X-VLA-Libero",
+    "model_id": "2toINF/X-VLA-Libero",
+    "checkpoint_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "source_revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "dtype": "float32",
+    "domain_id": 3,
+    "denoising_steps": 10,
+    "device": "cuda:0",
+    "offline_local_only": true,
+    "cpu_or_disk_offload": false
+  },
+  "simulator": {
+    "libero_revision": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+    "suite": "libero_90",
+    "scene": "KITCHEN_SCENE2",
+    "resolution": [256, 256],
+    "horizon": 520,
+    "settle_steps": 10,
+    "env_seed": 7,
+    "controller_after_settle": "absolute use_delta=False",
+    "live_environment_limit": 1,
+    "official_success": "done returned by OffScreenRenderEnv.step",
+    "source_init_file": "/mnt/c/assets/repos/LIBERO/libero/libero/init_files/libero_90/KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.pruned_init",
+    "source_init_file_sha256": "9ACE48C0C248B9401A537CC082F5E3CD969DB593C63EC66626E59321C3B45049"
+  },
+  "targets": [
+    {
+      "id": "front",
+      "body": "akita_black_bowl_1_main",
+      "bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl",
+      "bddl_sha256": "5983CA24B85928E7CC35DBB3BE82E83521CC797F52DAFB5159744ACC1DC566E7",
+      "canonical_instruction": "put the black bowl at the front on the plate"
+    },
+    {
+      "id": "middle",
+      "body": "akita_black_bowl_2_main",
+      "bddl": "KITCHEN_SCENE2_put_the_middle_black_bowl_on_the_plate.bddl",
+      "bddl_sha256": "F84612D02892C0A0FDEA70F95A9D9114185C814235159FD498FE17319FB141AE",
+      "canonical_instruction": "put the black bowl in the middle on the plate"
+    },
+    {
+      "id": "back",
+      "body": "akita_black_bowl_3_main",
+      "bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl",
+      "bddl_sha256": "0D0CAE1A42B51C5B8F8C4A8DAA4FBBC0767AA8B302BFE1CFF536E65B8C1117A2",
+      "canonical_instruction": "put the black bowl at the back on the plate"
+    }
+  ],
+  "hidden_instruction": "put the heaviest black bowl on the plate",
+  "intervention": {
+    "target_only": true,
+    "arrays": ["body_mass", "body_inertia"],
+    "factor": 8.0,
+    "other_bowl_factors": 1.0,
+    "timing": "after standard-dynamics settle, followed by sim.forward; cached last-settle observation is the first policy input",
+    "policy_property_label_input": false
+  },
+  "identity_partition": {
+    "discovery_state_indices": [0, 1],
+    "validation_state_indices": [10, 20],
+    "sealed_confirmation_state_indices": [30, 40],
+    "stage_minus1_uses": "discovery only",
+    "validation_and_confirmation_outcome_access_forbidden": true
+  },
+  "pairing": {
+    "conditions": ["canonical_position", "hidden_heaviest"],
+    "pairs": 6,
+    "episodes": 12,
+    "same_target_mass_and_inertia": true,
+    "same_bddl_and_init_state": true,
+    "same_first_policy_observation": true,
+    "same_per_episode_rng_seed": true,
+    "seed_formula": "880000 + 100*target_ordinal + state_index"
+  },
+  "inputs": {
+    "legal": ["agentview RGB", "wrist RGB", "ordinary proprioception", "instruction", "prior raw action state"],
+    "forbidden": ["body mass", "target identity label", "simulator segmentation", "reward", "success", "future observation", "expert action"]
+  },
+  "endpoints": [
+    "official success",
+    "correct-target contact",
+    "first contacted bowl identity",
+    "wrong-bowl contact before target",
+    "steps and policy-call count",
+    "finite and bounded actions",
+    "paired initial observation and simulator-state equivalence",
+    "VRAM, WSL RAM, swap, latency"
+  ],
+  "gates": {
+    "execution": {
+      "completed_episodes_required": 12,
+      "exception_count_max": 0,
+      "finite_action_fraction": 1.0,
+      "paired_initial_equivalence_required": true,
+      "swap_used_bytes_max": 0
+    },
+    "canonical_heavy_competence": {
+      "success_count_min": 5,
+      "correct_target_contact_count_min": 5
+    },
+    "problem_gap": {
+      "canonical_win_hidden_loss_count_min": 2,
+      "canonical_contact_hidden_miss_count_min": 2,
+      "affected_target_position_count_min": 2
+    }
+  },
+  "decisions": {
+    "positive": "ACTIVE_LATENT_PROPERTY_PROBLEM_VERIFIED_METHOD_DESIGN_AUTHORIZED",
+    "negative": "ACTIVE_LATENT_PROPERTY_NO_REPEATABLE_BASE_GAP",
+    "incompetent": "ACTIVE_LATENT_PROPERTY_BASE_OR_HEADROOM_INCOMPETENT",
+    "invalid": "ACTIVE_LATENT_PROPERTY_STAGE_MINUS1_INVALID",
+    "resource": "ACTIVE_LATENT_PROPERTY_RESOURCE_BLOCKED"
+  },
+  "prohibitions": [
+    "no method or training before the Base problem decision",
+    "no task, target, reset, factor, instruction, seed, threshold, or horizon change after outcomes",
+    "no validation or confirmation outcomes",
+    "no privileged inference",
+    "no claim that Base failure proves a method works",
+    "no problem-axis closure beyond this exact three-bowl hidden-mass construction"
+  ]
+}
