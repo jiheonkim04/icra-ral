@@ -1,0 +1,85 @@
+{
+  "assignment_sha256": "041e3cb49f2daf72fe5dd55e71cc7c5dd0bfddc1e11d2dc2707181457110bfd1",
+  "checkpoint_written": false,
+  "confirmatory_content_read": false,
+  "created_at": "2026-07-20T15:47:16+0900",
+  "decision": "BASE_ENERGY_EXECUTION_FAILURE",
+  "exception": {
+    "message": "No module named 'mmengine'",
+    "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_epoch7_base_action_energy_falsifier.py\", line 402, in main\n    host_sample = load_sample(path, int(demo[\"frame_index\"]), image_transform, torch)\n  File \"/mnt/c/Users/jiheo/tca_map/scripts/run_epoch7_base_action_energy_falsifier.py\", line 126, in load_sample\n    from datasets.utils import decode_image_from_bytes\n  File \"/mnt/c/assets/repos/X-VLA/datasets/__init__.py\", line 19, in <module>\n    from .dataset import InfiniteDataReader\n  File \"/mnt/c/assets/repos/X-VLA/datasets/dataset.py\", line 23, in <module>\n    from mmengine import fileio\nModuleNotFoundError: No module named 'mmengine'\n",
+    "type": "ModuleNotFoundError"
+  },
+  "execution_type": "VLA_INFERENCE",
+  "last_updated_at": "2026-07-20T15:47:25+0900",
+  "manifest_path": "/mnt/c/Users/jiheo/tca_map/reports/epoch7_selective_language_grounding/method_partition_manifest.json",
+  "manifest_sha256": "6dc4ff322941f4a9f8fd7fa95bc726e2d9bb516a4af21f94ae2403f25b750c2f",
+  "model_id": "2toINF/X-VLA-Libero",
+  "model_revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+  "optimizer_step_happened": false,
+  "ours_executed": false,
+  "protocol_path": "/mnt/c/Users/jiheo/tca_map/reports/epoch7_selective_language_grounding/method_stage0_base_energy_protocol.json",
+  "protocol_sha256": "bb595f9d8f5fd647320852bb638ee7e4018657b97cadf9ed74d75169d069321f",
+  "resources_after_cleanup": {
+    "mem_available_kib": 10561764,
+    "mem_total_kib": 11812948,
+    "nvidia_smi": "NVIDIA GeForce RTX 5080, 16303, 2502, 13478, 2",
+    "swap_free_kib": 3145728,
+    "swap_total_kib": 3145728,
+    "swap_used_kib": 0,
+    "torch_cuda_allocated_bytes": 0,
+    "torch_cuda_peak_allocated_bytes": 3518954496,
+    "torch_cuda_reserved_bytes": 0
+  },
+  "resources_after_load": {
+    "mem_available_kib": 10557664,
+    "mem_total_kib": 11812948,
+    "nvidia_smi": "NVIDIA GeForce RTX 5080, 16303, 5880, 10100, 7",
+    "swap_free_kib": 3145728,
+    "swap_total_kib": 3145728,
+    "swap_used_kib": 0,
+    "torch_cuda_allocated_bytes": 3518954496,
+    "torch_cuda_peak_allocated_bytes": 3518954496,
+    "torch_cuda_reserved_bytes": 3542089728
+  },
+  "resources_before": {
+    "mem_available_kib": 10896328,
+    "mem_total_kib": 11812948,
+    "nvidia_smi": "NVIDIA GeForce RTX 5080, 16303, 2243, 13737, 2",
+    "swap_free_kib": 3145728,
+    "swap_total_kib": 3145728,
+    "swap_used_kib": 0
+  },
+  "reward_done_success_read": false,
+  "runtime": {
+    "cuda_device": "NVIDIA GeForce RTX 5080",
+    "device_set": [
+      "cuda:0"
+    ],
+    "import_report": {
+      "optional_server_import_shims_used": [
+        "fastapi",
+        "uvicorn",
+        "json_numpy"
+      ],
+      "runtime_dependency_versions": {
+        "peft": "0.19.1",
+        "timm": "1.0.12",
+        "torch": "2.10.0+cu128",
+        "transformers": "4.57.6"
+      },
+      "transformers_compat_patches": [
+        "Florence2ForConditionalGeneration._supports_sdpa=False",
+        "Florence2LanguageForConditionalGeneration.get_output_embeddings_missing_lm_head_safe"
+      ]
+    },
+    "model_training_flag": false,
+    "parameter_count": 879482456,
+    "torch": "2.10.0+cu128",
+    "trainable_parameter_count": 879482456
+  },
+  "samples": [],
+  "schema_version": "epoch7.base_action_energy_falsifier.v1",
+  "simulator_constructed": false,
+  "simulator_episode_count": 0,
+  "training_happened": false
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "epoch7.base_energy_execution_repair.v1",
+  "repaired_at": "2026-07-20T16:50:00+09:00",
+  "status": "OUTCOME_INDEPENDENT_OFFICIAL_LOADER_REPAIR",
+  "attempt1": {
+    "path": "reports/epoch7_selective_language_grounding/base_action_energy_falsifier_attempt1.json",
+    "model_loaded": true,
+    "sample_forwards": 0,
+    "defect": "Importing X-VLA datasets.utils executed an unused mmengine dependency that was absent.",
+    "repair": "Inline the exact released decode_image_from_bytes implementation without importing the dataset package."
+  },
+  "attempt2": {
+    "path": "reports/epoch7_selective_language_grounding/base_action_energy_falsifier_attempt2_invalid_gripper.json",
+    "model_loaded": true,
+    "sample_forwards": 180,
+    "valid_scientific_outcome": false,
+    "defect": "The direct loader passed stored {-1,1} gripper values into BCE instead of applying the released LiberoHandler expression (abs_action_6d[:,9:] > 0.0).",
+    "unambiguous_symptom": "Several summed action energies were negative even though every official loss component is nonnegative.",
+    "repair": "Threshold only the stored left-arm gripper to {0,1} before zero-right-arm padding; samples, images, actions 0:9, texts, seeds, time/noise pairing, metrics, and decision thresholds remain unchanged."
+  },
+  "primary_source": {
+    "path": "C:/assets/repos/X-VLA/datasets/domain_handler/simulations.py",
+    "revision": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "expression": "left = np.concatenate([a[:, :9], (a[:, 9:] > 0.0)], axis=-1)"
+  },
+  "regressions_added": [
+    "standalone official image byte decoder returns the expected image shape",
+    "stored gripper values [-1,0,1] convert exactly to [0,0,1] before BCE"
+  ],
+  "frozen_scientific_protocol_changed": false,
+  "rerun_authorized": true
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": "epoch7.focused_method_overlap_and_supervision_audit.v1",
   "decision_date": "2026-07-20",
-  "status": "INCREMENTAL_BUT_DEFENSIBLE_WITH_STRONG_EVIDENCE",
+  "status": "CLOSED_AFTER_BASE_ENERGY_FALSIFIER",
   "selected_mechanism": {
     "working_name": "equivalence-selective action-energy ranking",
     "paper_name_frozen": false,
@@ -90,7 +90,7 @@
       "id": "M1",
       "name": "equivalence-selective action-energy ranking",
       "classification": "INCREMENTAL_BUT_DEFENSIBLE_WITH_STRONG_EVIDENCE",
-      "decision": "SELECTED_FOR_FROZEN_STAGE0",
+      "decision": "STAGE0_MECHANISM_NOT_SUPPORTED",
       "key_ablation": "same canonical+paraphrase positive reconstruction with lambda_rank=0; local RoVLA-IC-style proxy, not official reproduction",
       "simple_control": "frozen all-MiniLM-L6-v2 semantic canonicalizer at 25/30",
       "external_prior": "corrected mechanism-faithful CAG-TF port",
@@ -125,10 +125,17 @@
     "partition_freeze": true,
     "official_xvla_format_data_preflight": true,
     "base_energy_falsifier": true,
-    "bounded_real_training_if_falsifier_passes": true,
+    "bounded_real_training_if_falsifier_passes": false,
     "ours_closed_loop": false,
     "confirmatory_identities": false,
     "paper_claim": false
   },
-  "next_hard_gate": "FROZEN_PARTITIONS_AND_STAGE0_BASE_ENERGY_FALSIFIER"
+  "next_hard_gate": "FRESH_THESIS_PORTFOLIO_ROTATION",
+  "closure": {
+    "adjudication": "reports/epoch7_selective_language_grounding/base_action_energy_adjudication.json",
+    "reason": "Base rejected the frozen distinct feasible instruction on 28/30 samples; ranking-violation headroom was 2/30 across two tasks and one family versus gates of 6/30, three tasks, and two families.",
+    "fixed_expansion_eligible": false,
+    "augmentation_only_rescue_prohibited": true,
+    "confirmatory_partition_remains_sealed": true
+  }
 }

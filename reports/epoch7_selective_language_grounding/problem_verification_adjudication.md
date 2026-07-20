@@ -4,7 +4,7 @@ Decision date: 2026-07-20
 
 Status: `PROBLEM_VERIFIED_STRONG_COMPARATOR_RESIDUAL`.
 
-This status authorized a bounded method-overlap and supervision-legality audit. The completed focused audit selects equivalence-selective action-energy ranking as `INCREMENTAL_BUT_DEFENSIBLE_WITH_STRONG_EVIDENCE`. It now authorizes a frozen Stage-0 Base energy falsifier and raw-to-X-VLA conversion preflight, but not Ours rollouts, confirmatory identities, or a paper claim.
+This status authorized a bounded method-overlap and supervision-legality audit. That audit selected equivalence-selective action-energy ranking as `INCREMENTAL_BUT_DEFENSIBLE_WITH_STRONG_EVIDENCE`, but the subsequently executed frozen Base energy falsifier returned `STAGE0_MECHANISM_NOT_SUPPORTED`. Candidate A is closed at that exact formulation. No Ours training or rollout occurred, and the confirmatory partition remained sealed.
 
 ## Frozen evidence
 
@@ -40,4 +40,4 @@ The focused equation/supervision/inference audit retained exactly one mechanism.
 - differs from every direct prior by at least two major dimensions;
 - has a cheap Stage 0 falsifier and can beat the 25/30 semantic Control while retaining the 30/30 Base standard condition.
 
-The next hard gate is a hash-frozen partition and Base action-energy falsifier. If that falsifier or the subsequent real-gradient audit fails, close the selected mechanism; do not weaken it into augmentation alone.
+The Base action-energy falsifier failed the claim-defining headroom gate: only 2/30 ranking violations were observed versus 6/30 required, with insufficient task and family coverage. The exact mechanism is closed and cannot be weakened into augmentation alone. The next action is a fresh portfolio rotation, not method training.

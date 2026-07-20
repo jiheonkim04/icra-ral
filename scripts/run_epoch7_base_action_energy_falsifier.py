@@ -122,11 +122,40 @@ def prepare_official_image_transform() -> Any:
     )
 
 
-def load_sample(path: Path, frame_index: int, image_transform: Any, torch_module: Any) -> dict[str, Any]:
-    from datasets.utils import decode_image_from_bytes
+def decode_official_image_bytes(value: Any) -> Any:
+    """Mirror X-VLA datasets.utils.decode_image_from_bytes without package import.
 
+    Importing ``datasets.utils`` executes X-VLA's dataset package initializer,
+    which requires the unrelated optional ``mmengine`` dependency.  The LIBERO
+    path itself only needs this OpenCV decode used by the released handler.
+    """
+    import cv2
+    from PIL import Image
+
+    array = np.frombuffer(value, dtype=np.uint8) if isinstance(value, (bytes, bytearray)) else value
+    decoded = cv2.imdecode(array, cv2.IMREAD_COLOR)
+    if decoded is None:
+        raw = np.frombuffer(array, dtype=np.uint8)
+        if raw.size == 2764800:
+            decoded = raw.reshape(720, 1280, 3)
+        elif raw.size == 921600:
+            decoded = raw.reshape(480, 640, 3)
+        else:
+            raise ValueError(f"unsupported encoded image payload with {raw.size} bytes")
+    return Image.fromarray(decoded)
+
+
+def official_libero_left_action(abs_action_6d: np.ndarray) -> np.ndarray:
+    """Apply the released LiberoHandler's gripper threshold exactly."""
+    value = np.asarray(abs_action_6d, dtype=np.float32)
+    if value.ndim != 2 or value.shape[1] != 10:
+        raise ValueError(f"expected [T,10] abs_action_6d, got {value.shape}")
+    return np.concatenate([value[:, :9], (value[:, 9:] > 0.0).astype(np.float32)], axis=-1)
+
+
+def load_sample(path: Path, frame_index: int, image_transform: Any, torch_module: Any) -> dict[str, Any]:
     with h5py.File(path, "r") as handle:
-        left = np.asarray(handle["abs_action_6d"], dtype=np.float32)
+        left = official_libero_left_action(np.asarray(handle["abs_action_6d"], dtype=np.float32))
         if frame_index + 30 >= len(left):
             raise ValueError(f"insufficient horizon in {path}")
         right = np.zeros_like(left)
@@ -135,8 +164,8 @@ def load_sample(path: Path, frame_index: int, image_transform: Any, torch_module
         action = absolute[frame_index + 1 : frame_index + 31]
         image_index = frame_index + 1
         images = [
-            decode_image_from_bytes(handle["observation/third_image"][image_index]),
-            decode_image_from_bytes(handle["observation/wrist_image"][image_index]),
+            decode_official_image_bytes(handle["observation/third_image"][image_index]),
+            decode_official_image_bytes(handle["observation/wrist_image"][image_index]),
         ]
         image_input = [image_transform(image) for image in images]
         image_input.append(torch_module.zeros_like(image_input[0]))

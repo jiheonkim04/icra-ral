@@ -1,0 +1,68 @@
+{
+  "schema_version": "epoch7.base_action_energy_adjudication.v1",
+  "adjudicated_at": "2026-07-20T17:18:00+09:00",
+  "decision": "STAGE0_MECHANISM_NOT_SUPPORTED",
+  "execution_decision": "BASE_ENERGY_FALSIFIER_FAIL",
+  "scope_limit": "This closes only equivalence-selective action-energy ranking v1 with the frozen token-Jaccard feasible-instruction negatives, exact X-VLA clean-action energy, and frozen validation panel. It does not close language robustness, counterfactual evaluation, or all discriminative training objectives.",
+  "result": "reports/epoch7_selective_language_grounding/base_action_energy_falsifier.json",
+  "protocol": "reports/epoch7_selective_language_grounding/method_stage0_base_energy_protocol.json",
+  "partition_manifest": "reports/epoch7_selective_language_grounding/method_partition_manifest.json",
+  "frozen_assignment_sha256": "041e3cb49f2daf72fe5dd55e71cc7c5dd0bfddc1e11d2dc2707181457110bfd1",
+  "execution_integrity": {
+    "execution_type": "VLA_INFERENCE",
+    "expected_samples": 30,
+    "completed_samples": 30,
+    "model_forwards": 180,
+    "all_finite": true,
+    "wsl_swap_used_kib": 0,
+    "simulator_constructed": false,
+    "simulator_episode_count": 0,
+    "reward_done_success_read": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "ours_executed": false,
+    "confirmatory_content_read": false
+  },
+  "primary_metrics": {
+    "canonical_selectivity_accuracy": {"observed": 1.0, "minimum": 0.6, "pass": true},
+    "canonical_selectivity_task_coverage": {"observed": 10, "minimum": 5, "pass": true},
+    "equivalence_drift_rate": {"observed": 0.8333333333333334, "minimum": 0.5, "pass": true},
+    "equivalence_drift_task_coverage": {"observed": 10, "minimum": 5, "pass": true},
+    "equivalence_drift_family_coverage": {"observed": 3, "minimum": 2, "pass": true},
+    "ranking_violation_rate": {"observed": 0.06666666666666667, "count": 2, "denominator": 30, "minimum": 0.2, "minimum_count": 6, "pass": false},
+    "ranking_violation_task_coverage": {"observed": 2, "minimum": 3, "pass": false},
+    "ranking_violation_family_coverage": {"observed": 1, "minimum": 2, "pass": false},
+    "canonical_negative_prediction_mean_abs_delta": {"observed": 0.10428002054492633, "minimum": 0.0001, "pass": true}
+  },
+  "ranking_violations": [
+    {
+      "sample_id": "eval4_comp",
+      "canonical_energy": 0.006920624757185578,
+      "paraphrase_energy": 0.7144227921962738,
+      "hard_negative_energy": 0.02756943553686142
+    },
+    {
+      "sample_id": "eval7_comp",
+      "canonical_energy": 0.012289317324757576,
+      "paraphrase_energy": 4.4309399127960205,
+      "hard_negative_energy": 2.570746898651123
+    }
+  ],
+  "fixed_expansion_eligible": false,
+  "fixed_expansion_reason": "The violation-rate gate misses by four pairs, and the result independently misses both task and family coverage. The frozen exception permits exactly one rate or coverage miss by no more than two pairs.",
+  "skeptical_internal_review": {
+    "positive_finding": "Base action generation is strongly instruction connected and paraphrase-conditioned clean-action energy drifts on 25/30 samples.",
+    "fatal_finding": "Base already assigns lower real-action energy to the factual instruction than to the prespecified distinct feasible instruction on 28/30 samples. The proposed between-intent rank term therefore has insufficient error mass to define the claimed method contribution.",
+    "plain_augmentation_boundary": "Training only on canonical and equivalent positive instructions remains plausible but is directly occupied by RobustVLA/RoVLA-style consistency or augmentation and is prohibited as an Epoch 7 rescue.",
+    "alternative_negative_boundary": "Changing the frozen negative sampler after seeing this outcome would redefine the mechanism around validation evidence and is not authorized."
+  },
+  "closure": {
+    "exact_mechanism_closed": true,
+    "bounded_real_training_authorized": false,
+    "ours_closed_loop_authorized": false,
+    "confirmatory_partition_remains_sealed": true,
+    "paper_claim_authorized": false,
+    "next_action": "Record the closure in the prior registry, push the stage decision, and perform a fresh thesis portfolio cycle across method, benchmark/evaluation, and systems archetypes."
+  }
+}

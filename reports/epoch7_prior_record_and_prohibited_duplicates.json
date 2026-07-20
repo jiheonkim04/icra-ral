@@ -1,6 +1,6 @@
 {
   "schema_version": "epoch7.prior_record_and_prohibited_duplicates.v1",
-  "generated_at": "2026-07-20T13:23:31.8543705+09:00",
+  "generated_at": "2026-07-20T17:18:00+09:00",
   "authority": {
     "complete_history_audit": {
       "path": "reports/autonomous_research_full_history_audit.md",
@@ -56,6 +56,11 @@
       "id": "action_consistent_missing_view_distillation_v1",
       "decision": "STAGE0_MECHANISM_NOT_SUPPORTED",
       "scope": "exact reconstruction-auxiliary action-consistent missing-view formulation"
+    },
+    {
+      "id": "epoch7_equivalence_selective_action_energy_ranking_v1",
+      "decision": "STAGE0_MECHANISM_NOT_SUPPORTED",
+      "scope": "exact X-VLA clean-action energy formulation with frozen token-Jaccard feasible-instruction negatives on the official X-VLA-format validation panel; not all language robustness or discriminative objectives"
     },
     {
       "id": "a2c2_v1_local_port",
@@ -298,6 +303,15 @@
         "offline proxy presented as official closed-loop task success",
         "negative-results collection presented as a benchmark without an independently useful protocol"
       ]
+    },
+    {
+      "family": "equivalence_selective_action_energy_ranking",
+      "prohibited": [
+        "rescue as canonical-plus-paraphrase positive augmentation without the failed between-intent mechanism",
+        "alternate negative sampling selected after the frozen validation failure",
+        "renamed action-energy ranking without a new independently verified headroom source"
+      ],
+      "reconsideration_rule": "at least two major scientific dimensions must change and a fresh Base falsifier must establish claim-defining headroom before training"
     }
   ],
   "reconsideration_contract": {

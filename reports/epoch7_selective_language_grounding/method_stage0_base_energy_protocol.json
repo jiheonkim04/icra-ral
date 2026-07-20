@@ -36,7 +36,7 @@
     "families": ["act", "obj", "comp"],
     "paired_samples": 30,
     "sample_selection_used_outcomes": false,
-    "official_loader_semantics": "LiberoHandler drops the first image, samples a 31-point 30 Hz/1 s absolute trajectory, concatenates a zero right arm, then action_slice uses point 0 as proprio and points 1..30 as targets"
+    "official_loader_semantics": "LiberoHandler drops the first image, thresholds stored gripper >0 to {0,1}, samples a 31-point 30 Hz/1 s absolute trajectory, concatenates a zero right arm, then action_slice uses point 0 as proprio and points 1..30 as targets"
   },
   "energy": {
     "noisy_action": "x_t=t*epsilon+(1-t)*a_real",

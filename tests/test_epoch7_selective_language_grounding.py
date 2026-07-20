@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+import numpy as np
+
 from tca_map.epoch7_selective_language_grounding import (
     cag_guidance,
     canonicalize_instruction,
@@ -19,6 +21,10 @@ from scripts.run_epoch7_method_partition_freeze import (
     hard_negative_map,
     split_demo_paths,
     split_paraphrase_rows,
+)
+from scripts.run_epoch7_base_action_energy_falsifier import (
+    decode_official_image_bytes,
+    official_libero_left_action,
 )
 
 
@@ -193,3 +199,28 @@ def test_hard_negative_map_uses_text_only_and_excludes_factual_intent() -> None:
     assert negatives[0]["eval_id"] != 0
     assert "success" not in negatives[0]
     assert "reward" not in negatives[0]
+
+
+def test_standalone_official_image_decoder_avoids_dataset_package_import() -> None:
+    import cv2
+
+    image = np.zeros((8, 9, 3), dtype=np.uint8)
+    image[:, :, 1] = 127
+    ok, encoded = cv2.imencode(".png", image)
+    assert ok
+
+    decoded = decode_official_image_bytes(encoded.tobytes())
+
+    assert decoded.size == (9, 8)
+    assert np.asarray(decoded).shape == (8, 9, 3)
+
+
+def test_official_libero_action_thresholds_gripper_before_bce() -> None:
+    stored = np.zeros((3, 10), dtype=np.float32)
+    stored[:, 9] = [-1.0, 0.0, 1.0]
+
+    converted = official_libero_left_action(stored)
+
+    assert converted.shape == (3, 10)
+    assert converted[:, 9].tolist() == [0.0, 0.0, 1.0]
+    assert np.array_equal(converted[:, :9], stored[:, :9])

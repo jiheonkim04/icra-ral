@@ -85,6 +85,14 @@ Rating: `WEAK`; retained as reproducibility infrastructure only.
 - Method naming: forbidden until Candidate A clears problem/headroom and method-discovery authorization.
 - Paper package: forbidden until a paper-readiness GO.
 
+## Candidate A closure
+
+The frozen Base action-energy falsifier returned `STAGE0_MECHANISM_NOT_SUPPORTED`. All 180 real model forwards were valid, but the claim-defining ranking violation occurred on only 2/30 samples across two tasks and one family, below the gates of 6/30, three tasks, and two families. The protocol's fixed-expansion exception is unavailable because more than one criterion failed and the rate misses by four pairs.
+
+Candidate A therefore closes at its exact selected formulation. Positive-only paraphrase augmentation, a post-outcome negative sampler, and a renamed energy ranker are prohibited rescues. The confirmatory partition was never opened.
+
+Current status: `FRESH_PORTFOLIO_ROTATION_REQUIRED`. No fallback from this initial portfolio is empirically authorized; the next cycle must re-audit method, benchmark/evaluation, and systems archetypes against current primary literature and local artifacts.
+
 ## Rotation rule
 
 Candidate A closes if any one of the following occurs:
