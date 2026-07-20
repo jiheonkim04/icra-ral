@@ -1,0 +1,28 @@
+{
+  "schema_version": "epoch7.campaign_state.v1",
+  "updated_at": "2026-07-20T18:20:00+09:00",
+  "branch": "codex/epoch7-new-thesis-paper-convergence",
+  "report_freeze_parent_head": "e59ff2d21ec2fab6ca0613677b09494715320328",
+  "terminal_state": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER",
+  "paper_candidate_go": false,
+  "paper_generation_authorized": false,
+  "paper_package_complete": false,
+  "completed_portfolio_cycles": 4,
+  "active_thesis": null,
+  "active_paper_archetype": null,
+  "running_command": null,
+  "running_research_worker": false,
+  "latest_scientific_route": "epoch7_contact_transition_topology",
+  "latest_scientific_decision": "STAGE0_TRIVIAL_EQUIVALENCE",
+  "terminal_audit": "reports/epoch7_exhaustive_refresh_terminal_audit.json",
+  "terminal_handoff": "reports/epoch7_terminal_handoff.md",
+  "evidence_index": "reports/epoch7_evidence_index.json",
+  "deletion_manifest": "reports/epoch7_terminal_deletion_manifest.json",
+  "only_serious_unresolved_route": "epoch6_schedule_invariant_stochastic_vla_evaluation_closed_loop",
+  "external_reopen_condition": "clean scientifically equivalent host with at least 48 GB physical RAM, zero WSL swap, no CPU/disk model offload, and unchanged 82% host ceiling",
+  "next_authorized_action": "After the external reopen condition is satisfied, run a fresh immutable exact four-environment outcome-free resource smoke before any scientific episode.",
+  "protected_untracked_paths": [
+    "rollouts/2026_07_17/",
+    "rollouts/2026_07_18/"
+  ]
+}

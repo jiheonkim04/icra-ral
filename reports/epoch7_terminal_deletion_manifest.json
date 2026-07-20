@@ -1,0 +1,16 @@
+{
+  "schema_version": "epoch7.terminal_deletion_manifest.v1",
+  "generated_at": "2026-07-20T18:23:00+09:00",
+  "decision": "NO_DELETION_REQUIRED",
+  "deleted_paths": [],
+  "reason": "The exhaustive refresh created only small tracked reports and performed no checkpoint or dataset download. No disposable Epoch 7 cache, frame payload, incomplete download, or failed-run payload was created by the refresh.",
+  "protected_paths_preserved": [
+    "rollouts/2026_07_17/",
+    "rollouts/2026_07_18/",
+    "all archived Epoch 5 and Epoch 6 evidence",
+    "all retained checkpoints and datasets"
+  ],
+  "windows_c_free_gib_after_refresh": 287.758,
+  "required_reserve_gib": 186.103,
+  "reserve_status": "PASS"
+}

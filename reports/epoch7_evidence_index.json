@@ -1,0 +1,120 @@
+{
+  "schema_version": "epoch7.evidence_index.v1",
+  "generated_at": "2026-07-20T18:22:00+09:00",
+  "branch": "codex/epoch7-new-thesis-paper-convergence",
+  "terminal_decision": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER",
+  "paper_candidate_go": false,
+  "records": [
+    {
+      "id": "epoch7_terminal_audit",
+      "path": "reports/epoch7_exhaustive_refresh_terminal_audit.json",
+      "sha256": "5D968539C6F07560C1ADE2C9303BCEC81E5FBE06CB56F5F20E25539BEAA1B944",
+      "decision": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER"
+    },
+    {
+      "id": "epoch7_terminal_audit_human",
+      "path": "reports/epoch7_exhaustive_refresh_terminal_audit.md",
+      "sha256": "2C73C19531259CA81B24C6309C7742F8EA4CD4FE466DEA8DF70F6BD691E61670"
+    },
+    {
+      "id": "epoch7_portfolio",
+      "path": "reports/epoch7_thesis_portfolio_and_selection.md",
+      "sha256": "93B0192DD8282FA1F2B14E4CCC1BD42AE8D0D2DAB31C37DCF195BC6313470818",
+      "scope": "four completed portfolio cycles"
+    },
+    {
+      "id": "epoch7_current_literature_artifact_audit",
+      "path": "reports/epoch7_literature_and_artifact_audit.json",
+      "sha256": "0F009EE000594BAE244F9E2957DED6F3E40B87C604B544FF26F3234090FA9082",
+      "status": "current through 2026-07-20"
+    },
+    {
+      "id": "epoch7_prior_and_duplicate_registry",
+      "path": "reports/epoch7_prior_record_and_prohibited_duplicates.json",
+      "sha256": "8E11C13EA508ED0279ACDB84D5E3AEC622B2C4F5206B8AA395AAAEC418674EC5",
+      "authority": "complete inherited 95-route audit plus Epoch 7 closures"
+    },
+    {
+      "id": "cycle1_language_method_closure",
+      "path": "reports/epoch7_selective_language_grounding/base_action_energy_adjudication.json",
+      "sha256": "FC5C7EB38DA08B6D89C519F0A17BC5119F873DD18433606527A3E4F07737966A",
+      "decision": "STAGE0_MECHANISM_NOT_SUPPORTED",
+      "claim_limit": "does not close all language-grounding methods"
+    },
+    {
+      "id": "cycle2_latent_dynamics_closure",
+      "path": "reports/epoch7_latent_dynamics_attribution/closure_adjudication.json",
+      "sha256": "ABDEF00469390E926272F74A46059E5E240DA58B21E97553AA0FC77D35CB96F5",
+      "decision": "NO_LEGAL_HEADROOM",
+      "policy_rollouts": 0
+    },
+    {
+      "id": "cycle2_policy_rng_overlap_closure",
+      "path": "reports/epoch7_policy_rng_reliability/overlap_adjudication.json",
+      "sha256": "1898C8AE4D81114F1FA817EB31BB746FE59FD7DDDB17FFC889793BB6CA6B2CE8",
+      "decision": "TOO_OVERLAPPING_OR_TRIVIAL",
+      "policy_rollouts": 0
+    },
+    {
+      "id": "cycle3_persistent_completion_closure",
+      "path": "reports/epoch7_persistent_completion/closure_adjudication.json",
+      "sha256": "FB455B0F112D850173C5F3EDF26DBDF225197738BE8CCD1DC30AECFFD6365B0D",
+      "decision": "NO_REPEATABLE_GAP",
+      "policy_rollouts": 0
+    },
+    {
+      "id": "cycle3_contact_topology_label_gate",
+      "path": "reports/epoch7_contact_transition_topology/stage0a_adjudication.json",
+      "sha256": "1EF9555E54DCF5EB951190C67637053B44124F533E67291329751763CA67FF0D",
+      "decision": "CONTACT_TOPOLOGY_LABEL_GATE_GO",
+      "claim_limit": "label validity only"
+    },
+    {
+      "id": "cycle3_contact_topology_headroom_closure",
+      "path": "reports/epoch7_contact_transition_topology/stage0b_adjudication.json",
+      "sha256": "7AF348B548EC10DCBDF260AC1BB3C4A0D67A042D99151ACA92F27B6DB8E26048",
+      "decision": "STAGE0_TRIVIAL_EQUIVALENCE",
+      "vla_training": false,
+      "policy_rollouts": 0
+    },
+    {
+      "id": "unresolved_schedule_action_gate",
+      "path": "reports/epoch6_schedule_invariant_evaluation/stage0_result.json",
+      "sha256": "2CE2222184C9AE2D0EB49DCDD4A3D3BAED1D76F1BC1B79EFC3AE0BDA0D2BD617",
+      "decision": "ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO",
+      "claim_limit": "action sequences only; no official task-success evidence"
+    },
+    {
+      "id": "unresolved_schedule_closed_loop_resource_blocker",
+      "path": "reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json",
+      "sha256": "C63BB981CB7F5DDA453F46F99C1DC48D2D37BB621673556EF7812C9E63634E9B",
+      "decision": "INFRASTRUCTURE_OR_RESOURCE_BLOCKED",
+      "scientific_episode_executions_completed": 0,
+      "minimum_defensible_standard_host": "48 GB physical RAM"
+    },
+    {
+      "id": "epoch7_resource_inventory",
+      "path": "reports/epoch7_resource_inventory.json",
+      "sha256": "420053999C00FD9CB1CB3BA49E42C0697FBEAC324C1C6C3506C755B5D20B0E44",
+      "storage_reserve": "PASS",
+      "status": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER"
+    },
+    {
+      "id": "epoch7_terminal_deletion_manifest",
+      "path": "reports/epoch7_terminal_deletion_manifest.json",
+      "sha256": "5913B89142668D6EA740D28F1FE00B78A9555661BCF785AC343808CDC5D2D5FF",
+      "decision": "NO_DELETION_REQUIRED"
+    }
+  ],
+  "scientific_interpretation": {
+    "positive_official_closed_loop_ours_exists": false,
+    "paper_generation_authorized": false,
+    "only_serious_unresolved_route": "exact frozen four-shard schedule-invariant stochastic VLA closed loop",
+    "zero_of_forty_means": "zero episodes executed, not zero percent success",
+    "ours_for_schedule_route": "never authorized or evaluated"
+  },
+  "protected_untracked_paths": [
+    "rollouts/2026_07_17/",
+    "rollouts/2026_07_18/"
+  ]
+}

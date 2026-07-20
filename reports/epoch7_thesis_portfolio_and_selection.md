@@ -206,3 +206,144 @@ NRMSE beyond the strongest binary-contact control. The exact formulation is
 closed with zero VLA training and zero policy rollout. Cycle 3 is exhausted;
 a fresh portfolio rotation is required rather than a weaker contact-label
 rescue.
+
+## Cycle 4 exhaustive refresh
+
+Cycle 4 is the required post-primary/post-fallback refresh. It combines a
+current primary-source scan through 2026-07-20 with the complete 95-route local
+history, all three earlier Epoch 7 cycles, official artifact availability, and
+the unchanged workstation resource envelope. The five candidates below are
+materially different at the paper-thesis level; none is promoted merely to
+satisfy a quota.
+
+### Candidate N - consequence-conditioned deployment adaptation
+
+Assessment: `BLOCKED`.
+
+- One-sentence thesis: use realized observation-action-consequence triplets to adapt a VLA online to hidden camera, calibration, or actuation shifts while preserving standard behavior.
+- Robotics problem and importance: the same nominal command can produce different observed motion after deployment, so a reactive policy can be systematically miscalibrated.
+- What is missed: a compact frozen-policy implementation would be cheaper than retraining an in-context VLA, but that efficiency difference is not by itself a new scientific problem.
+- Closest primary Prior: [Reflective VLA](https://arxiv.org/abs/2606.25215), which directly conditions on structured observation-action-consequence triplets and reports LIBERO-Plus gains over a matched history-only control.
+- Base/comparator ecosystem: retained SmolVLA/X-VLA could support a small adapter, but Reflective VLA is the scientific Prior and the local `RAC-VLA` route is the already-executed frozen-policy comparator.
+- Exact condition and residual: paired deployment action-channel or camera-calibration shifts, with identical tasks/resets; Ours would need to beat both reactive Base and action/history-only controls using only realized past observations and executed actions.
+- Headroom source: Reflective VLA's published cross-environment effect is external headroom; no new local headroom remains after RAC.
+- Legal inference inputs: past observations, past executed actions, current observation, instruction, and proprioception; no reward, success, simulator parameters, or future observations.
+- Possible mechanism: a bounded consequence-conditioned calibration state around a frozen policy.
+- Closed-loop/retention/generalization path: paired official rollouts under standard and held-out calibration/camera shifts, with standard retention and a second policy family.
+- Strongest novelty objection: this is a resource-reduced Reflective VLA extension, not a new mechanism class.
+- Strongest experimental objection: the small adapter may only learn a static affine correction.
+- Strongest feasibility objection: no official Reflective VLA code/checkpoint is linked by the paper or project page, so a fair official reproduction is unavailable locally.
+- Archived overlap: local RAC already tested the same frozen-policy action-consequence premise at Stage B; full/Base/proxy were each `1/40`, while the ablation and inverse control were `2/40`. Reopening would change only architecture scale, not two scientific dimensions.
+- Resources/artifacts: a new adapter would fit locally, but the direct Prior artifact is absent and the closest local formulation is scientifically closed. Reflective VLA's project page exposes no code or checkpoint link as of the audit.
+- Cheapest falsifier: already executed by RAC's 40-episode Stage B; no new rollout is warranted.
+- Required main table: shifted and standard success for Base, Reflective Prior, Full, history-only, and affine controls across two policy families.
+- Contribution if successful: a low-compute consequence-conditioned deployment adapter. It is blocked because current Prior and local evidence already answer the proposed formulation.
+
+### Candidate O - temporal-integrity correction for robot demonstrations
+
+Assessment: `WEAK`.
+
+- One-sentence thesis: detect and correct observation-action timestamp misalignment in robot demonstrations before VLA training.
+- Robotics problem and importance: sensor/control desynchronization can attach actions to the wrong scene state and corrupt imitation supervision.
+- What is missed: existing VLA pipelines mention temporal alignment and execution-time staleness, but a public, task-level audit of naturally occurring timestamp error could still be useful on a real heterogeneous corpus.
+- Closest primary Prior: [Green-VLA](https://arxiv.org/abs/2602.00919) includes temporal alignment and quality filtering over 3,000 hours; [DEFLECT](https://arxiv.org/abs/2605.19294) learns from fresh/stale pairs for asynchronous execution; the June 2026 UR5 study identifies temporal alignment as a deployment variable.
+- Base/comparator ecosystem: SmolVLA is trainable, but the retained LIBERO files are simulator-generated and index aligned rather than independently timestamped.
+- Exact condition and residual: estimate an unknown per-modality time offset from a raw timestamped demonstration, correct it without task outcomes, and improve held-out official closed-loop success over uncorrected and fixed-shift controls.
+- Headroom source: a naturally occurring, independently measured timestamp mismatch must precede method design; synthetic frame shifts do not establish the deployment problem.
+- Legal inference inputs: raw sensor/control timestamps and past observations/actions during preprocessing; no task outcomes or confirmatory identities.
+- Possible mechanism: differentiable offset estimation from action-conditioned visual/proprioceptive change, followed by timestamp-preserving resampling.
+- Closed-loop/retention/generalization path: train matched policies on raw versus corrected data, retain clean-data performance, and generalize across two sensors or collection systems.
+- Strongest novelty objection: temporal alignment is already a named part of large VLA data pipelines and stale/fresh correction is directly studied by DEFLECT.
+- Strongest experimental objection: an artificial shift in synchronized simulation would measure robustness to injected corruption, not a real data problem.
+- Strongest feasibility objection: one inspected official LIBERO Goal HDF5 file had equal-length indexed observation/action arrays and no timestamp- or clock-named dataset; no local raw asynchronous corpus or physical collection path exists.
+- Archived overlap: delay, retiming, DICD, and A2C2 routes are closed locally; the only material change would be moving the delay to training data, without a verified real-data premise.
+- Resources/artifacts: synthetic tests fit easily; a defensible study needs raw independently timestamped robot data and likely a collection-specific reference, neither retained nor credential-free locally.
+- Cheapest falsifier: the outcome-free HDF5 interface audit already found no independent timestamps; do not fabricate a mismatch.
+- Required main table: measured native offset distribution, correction accuracy, matched training success, clean retention, and cross-collector generalization.
+- Contribution if successful: a data-integrity method linking measured synchronization error to robot success. The current local path cannot establish the premise, so success on synthetic shifts would remain weak for RA-L.
+
+### Candidate P - executable-policy integrity and architecture-aware monitoring
+
+Assessment: `BLOCKED`.
+
+- One-sentence thesis: certify the complete executable VLA specification and choose architecture-matched black-box action monitors before controller execution.
+- Robotics problem and importance: identical weights can send different physical actions under different normalizers/controllers, and naive motor bounds do not predict all policy failures.
+- What is missed: combining static specification integrity with dynamic monitoring could be useful software, but both scientific components now have direct primary precedents.
+- Closest primary Prior: [Same Weights, Different Robot](https://arxiv.org/abs/2606.03724) formalizes the executable-policy object and an action-normalization certificate; [How VLAs Fail Differently](https://arxiv.org/abs/2605.28726) supplies SafeContract and architecture-specific conformal action monitoring.
+- Base/comparator ecosystem: X-VLA, SmolVLA, OpenVLA-OFT, the local ExecSpec replay suite, and the official Apache-2.0 `vla-edge` repository at remote HEAD `fa445837b4f6214cd2bbeff8d96f79aac1d724f0`.
+- Exact condition and residual: matched checkpoint/observation with a controlled executable-spec mismatch or naturally failing action trace; a joint system must detect the mismatch/failure before execution and preserve task success.
+- Headroom source: the Prior papers already show metadata replay collapse and architecture-specific monitoring AUROC; no unoccupied local residual is identified.
+- Legal inference inputs: checkpoint/config hashes and current/past action vectors; no reward, success, future state, or simulator privilege at runtime.
+- Possible mechanism: a signed executable-spec manifest plus a calibrated monitor selected by action-decoder family.
+- Closed-loop/retention/generalization path: official task success with zero silent mismatch and bounded false interventions across discrete and continuous policies.
+- Strongest novelty objection: this is a direct union of ExecSpec and SafeContract rather than a new robotics insight.
+- Strongest experimental objection: monitoring may correlate with failure without improving success or safety.
+- Strongest feasibility objection: a strong multi-architecture study needs policy families and failure datasets beyond the one-backbone local discovery path.
+- Archived overlap: local ExecSpec-Repair achieved `17/19`, exactly tying diagonal affine calibration at `17/19`; TL-ChunkRepair and multiple action filters also failed to translate cleaner actions into success.
+- Resources/artifacts: static checks fit; SafeContract code is public under Apache-2.0, but a successful implementation would still duplicate current work and prior local systems evidence.
+- Cheapest falsifier: the existing 19-replay baseline-dominance audit already defeats a specialized repair claim.
+- Required main table: mismatch detection, failure AUROC, false-intervention rate, official success, latency, and cross-architecture calibration.
+- Contribution if successful: integrated executable-policy assurance. It is blocked by direct current duplication and the absence of a new causal residual.
+
+### Candidate Q - action-chunk continuity and speed-aware commitment
+
+Assessment: `BLOCKED`.
+
+- One-sentence thesis: adapt chunk commitment and execution speed to keep flow-policy trajectories smooth without sacrificing task success.
+- Robotics problem and importance: independently sampled chunks can disagree at boundaries, while fixed-speed execution is inefficient away from contact.
+- What is missed: a joint scheduler could combine continuity and speed, but that combination is an aggregation of occupied mechanisms rather than a verified new problem.
+- Closest primary Prior: [Adaptive Action Chunking](https://arxiv.org/abs/2604.04161), [SEAM](https://arxiv.org/abs/2607.04609), [TempoVLA](https://arxiv.org/abs/2606.06491), and DEFLECT.
+- Base/comparator ecosystem: trainable SmolVLA and retained X-VLA; direct local controls include fixed queue, direct chunk index, short requery, AAC proxy, DICD, and EAC.
+- Exact condition and residual: identical reset/policy RNG under a frozen boundary or speed condition; Ours must reduce discontinuity and improve official success beyond SEAM/AAC/Tempo-aligned controls.
+- Headroom source: must be a repeated success gap, not jerk alone. No such independent local residual remains.
+- Legal inference inputs: current observation, current and previous chunks/actions, and a deployment-visible speed request; no rewards or future observations.
+- Possible mechanism: analytic tail-consistency steering plus calibrated commitment length.
+- Closed-loop/retention/generalization path: paired official success, boundary jerk, latency, and standard retention across contact and transit tasks and two flow policies.
+- Strongest novelty objection: SEAM already uses the unexecuted previous tail as an analytic consistency reference, while TempoVLA and AAC occupy speed and commitment.
+- Strongest experimental objection: smoother actions need not improve task success.
+- Strongest feasibility objection: an official pi0.5 comparator/checkpoint identity is not retained locally.
+- Archived overlap: DICD full scored `1/10` versus direct chunk-index `2/10`; EAC full scored `29/40` versus Base/AAC/ablation `30/40`; the corrected local async-delay axis had no repeatable gap.
+- Resources/artifacts: a SmolVLA port fits, but the closest official methods are not all locally reproducible and the exact local family is already closed.
+- Cheapest falsifier: existing DICD/EAC Stage A/B evidence and the corrected A2C2 problem audit already supply it.
+- Required main table: official success, paired discordance, jerk/discontinuity, policy calls, latency, and standard retention versus fixed, AAC, SEAM, and speed controls.
+- Contribution if successful: success-preserving smooth and speed-aware flow control. It is prohibited as a near-duplicate rescue without a new independently verified residual.
+
+### Candidate R - schedule-invariant stochastic VLA evaluation
+
+Assessment: `BLOCKED`; scientifically the strongest unresolved candidate, but not locally executable under the frozen intervention.
+
+- One-sentence thesis: official VLA success should be invariant to semantically irrelevant cross-episode batching/arrival schedules, or the evaluation must expose schedule as part of policy identity.
+- Robotics problem and importance: a stochastic batched policy can assign noise to episodes according to queue arrival, changing actions for an identical task/reset and undermining reproducibility.
+- What is missed: action-level dependence is already locally established, but its effect on official task success remains unknown.
+- Closest primary Prior: stochastic-noise selection (SDN), distributional evaluation (PhAIL and Beyond Binary Success), and schedule/reproducibility systems; none substitutes for the archived frozen four-shard intervention.
+- Base/comparator ecosystem: official X-VLA-Libero, the frozen schedule-preserving and schedule-perturbed implementations, and the unchanged 40-episode official LIBERO panel.
+- Exact condition and residual: four simultaneously live official environments feed one shared model under the two frozen arrival schedules, with identical tasks, resets, model, and call-addressed randomness except the claim-defining scheduling intervention.
+- Headroom source: frozen Stage 0 returned `ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO`; only closed-loop task-success headroom remains unobserved.
+- Legal inference inputs: ordinary policy observations and instruction. Reward/success never affect noise assignment, queue order, or model inference.
+- Possible mechanism: none before the evaluation result; this is a benchmark/evaluation thesis, not an authorized schedule-invariance method.
+- Closed-loop/retention/generalization path: execute the frozen 40-episode paired panel, then expand only under a new preregistered contract if task outcomes show a meaningful repeated effect.
+- Strongest novelty objection: it may be interpreted as a reproducibility bug rather than a robotics result.
+- Strongest experimental objection: action differences may not change success.
+- Strongest feasibility objection: the intervention requires four simultaneous environments; they alone drove the current 24.87 GB host to 85.16% before the model loaded.
+- Archived overlap: this is the exact unresolved Epoch 6 route, reconsidered only now after the required complete fresh audit. It is not renamed or altered.
+- Resources/artifacts: conservative projected full-path peak is 28.66 GB used; the frozen 82% ceiling requires 34.96 GB total, and 32 GiB is not certifiable. A standard 48 GB-or-larger host is the smallest defensible tier. Zero WSL swap and no CPU/disk model offload remain mandatory.
+- Cheapest falsifier: the existing exact four-environment outcome-free resource smoke already proves the current host cannot launch the model safely; serial/two-shard execution would change the intervention and is forbidden.
+- Required main table: per-task paired official success under the two schedules, discordant pairs and exact interval, action divergence, standard validity, and resource telemetry.
+- Contribution if successful: evidence that execution schedule is part of the effective stochastic robot policy and a reproducible evaluation protocol that removes or reports this hidden variable.
+
+## Cycle 4 selection and terminal adjudication
+
+No Cycle 4 candidate clears both paperability and local feasibility, so selecting
+an active primary/fallback would violate the hard vetoes. Candidate R is the
+strongest scientifically unresolved route after normal competition, but it is
+not selected for local execution: its exact intervention is externally blocked
+by host memory. Candidates N, P, and Q are directly occupied and answered by
+valid local controls; Candidate O lacks a genuine local problem instance.
+
+Across four Epoch 7 cycles, method, benchmark/evaluation, and systems
+archetypes have now been evaluated. Together with the inherited 95-route audit,
+the result is `HARD_EXTERNAL_BLOCKER_REQUIRES_USER`, not a paper GO and not a
+claim that the field has no open problems. The smallest scientific continuation
+is the unchanged Candidate R panel on a clean scientifically equivalent host
+with at least 48 GB physical RAM. Serial or two-shard substitution is not an
+equivalent repair.

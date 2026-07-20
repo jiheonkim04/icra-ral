@@ -1,6 +1,6 @@
 {
   "schema_version": "epoch7.prior_record_and_prohibited_duplicates.v1",
-  "generated_at": "2026-07-20T17:18:00+09:00",
+  "generated_at": "2026-07-20T18:20:00+09:00",
   "authority": {
     "complete_history_audit": {
       "path": "reports/autonomous_research_full_history_audit.md",
@@ -363,8 +363,62 @@
         "promotion of last-action-repeat to the primary endpoint",
         "termination-method design from the failed general problem gate"
       ]
+    },
+    {
+      "id": "epoch7_contact_transition_topology",
+      "decision": "STAGE0_TRIVIAL_EQUIVALENCE",
+      "stage": "frozen_visual_predictability_and_oracle_action_headroom_stage0b",
+      "scope": "typed non-robot contact-edge birth/death supervision on the frozen ten-task LIBERO demonstration partition",
+      "policy_loaded_or_queried": false,
+      "vla_training": false,
+      "policy_rollouts": 0,
+      "valid_label_gate": "CONTACT_TOPOLOGY_LABEL_GATE_GO",
+      "bounded_observation": "typed contact transitions were deterministic and nontrivial, but visual prediction lost to the causal nonvisual control and typed topology did not improve held-out arm-action oracle prediction",
+      "claim_limit": "the exact typed non-gripper contact-topology formulation lacks visual/action headroom; this does not close all contact or tactile supervision",
+      "prohibited_rescues": [
+        "weaken the visual-to-prevalence or visual-minus-nonvisual gate",
+        "delete held-out tasks after seeing per-task results",
+        "replace exact-t labels with an outcome-selected wider boundary window",
+        "remove the causal nonvisual or strongest binary-contact control",
+        "rename typed topology as phase or event supervision without a new independent problem gate"
+      ]
     }
   ],
+  "epoch7_exhaustive_refresh": {
+    "completed_portfolio_cycles": 4,
+    "archetypes_covered": [
+      "method",
+      "benchmark_evaluation",
+      "data_integrity",
+      "systems_deployment"
+    ],
+    "current_routes_rejected_or_blocked": [
+      {
+        "id": "consequence_conditioned_deployment_adaptation",
+        "decision": "DIRECT_CURRENT_PRIOR_AND_LOCAL_STAGE_B_CLOSURE"
+      },
+      {
+        "id": "demonstration_temporal_integrity",
+        "decision": "NO_GENUINE_LOCAL_TIMESTAMPED_PROBLEM_INSTANCE_SYNTHETIC_ONLY_WEAK"
+      },
+      {
+        "id": "executable_policy_integrity_monitoring",
+        "decision": "DIRECT_EXECSPEC_SAFECONTRACT_OVERLAP_AND_LOCAL_BASELINE_DOMINANCE"
+      },
+      {
+        "id": "chunk_continuity_speed_commitment",
+        "decision": "DIRECT_SEAM_TEMPO_AAC_DEFLECT_OVERLAP_AND_LOCAL_DICD_EAC_CLOSURES"
+      }
+    ],
+    "only_serious_unresolved_route": {
+      "id": "epoch6_schedule_invariant_stochastic_vla_evaluation_closed_loop",
+      "decision": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER",
+      "scientific_status": "action-level positive; official closed-loop unobserved",
+      "minimum_defensible_host": "48 GB physical RAM",
+      "serial_or_two_shard_substitution_allowed": false
+    },
+    "terminal_record": "reports/epoch7_exhaustive_refresh_terminal_audit.json"
+  },
   "reconsideration_contract": {
     "minimum_material_changes": 2,
     "eligible_dimensions": [

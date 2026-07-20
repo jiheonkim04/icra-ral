@@ -1,0 +1,93 @@
+{
+  "schema_version": "epoch7.exhaustive_refresh_terminal_audit.v1",
+  "adjudicated_at": "2026-07-20T18:20:00+09:00",
+  "terminal_decision": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER",
+  "paper_candidate_go": false,
+  "paper_generation_authorized": false,
+  "paper_package_complete": false,
+  "bounded_scope": "retained local assets, complete inherited 95-route record, four Epoch 7 portfolio cycles, and current primary literature audited through 2026-07-20",
+  "cycles": [
+    {
+      "cycle": 1,
+      "primary": "equivalence_selective_action_energy_ranking",
+      "problem_evidence": "X-VLA 30/30 canonical versus 19/30 matched paraphrase",
+      "terminal": "STAGE0_MECHANISM_NOT_SUPPORTED",
+      "key_metric": "2/30 ranking violations versus 6/30 required"
+    },
+    {
+      "cycle": 2,
+      "primary": "latent_dynamics_attribution",
+      "primary_terminal": "NO_LEGAL_HEADROOM",
+      "fallback": "policy_rng_reliability",
+      "fallback_terminal": "TOO_OVERLAPPING_OR_TRIVIAL"
+    },
+    {
+      "cycle": 3,
+      "primary": "persistent_completion",
+      "primary_terminal": "NO_REPEATABLE_GAP",
+      "fallback": "contact_transition_topology",
+      "fallback_terminal": "STAGE0_TRIVIAL_EQUIVALENCE"
+    },
+    {
+      "cycle": 4,
+      "candidates": [
+        {"id": "consequence_conditioned_deployment_adaptation", "assessment": "BLOCKED", "reason": "direct Reflective VLA overlap and local RAC Stage B closure"},
+        {"id": "demonstration_temporal_integrity", "assessment": "WEAK", "reason": "no independent timestamps or natural local mismatch; synthetic-only premise"},
+        {"id": "executable_policy_integrity_monitoring", "assessment": "BLOCKED", "reason": "direct ExecSpec and SafeContract overlap plus local affine baseline dominance"},
+        {"id": "chunk_continuity_speed_commitment", "assessment": "BLOCKED", "reason": "SEAM/Tempo/AAC/DEFLECT overlap plus local DICD/EAC closures"},
+        {"id": "schedule_invariant_stochastic_vla_evaluation", "assessment": "BLOCKED", "reason": "scientifically unresolved but exact intervention requires unavailable host RAM"}
+      ],
+      "active_primary_selected": false,
+      "active_fallback_selected": false,
+      "reason": "no candidate clears both paperability and local-feasibility hard vetoes"
+    }
+  ],
+  "only_serious_unresolved_path": {
+    "id": "epoch6_schedule_invariant_stochastic_vla_evaluation_closed_loop",
+    "scientific_status": "ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO_CLOSED_LOOP_UNADJUDICATED",
+    "scientific_episode_executions_completed": 0,
+    "panel_size": 40,
+    "zero_of_forty_interpretation": "zero episodes executed, not zero percent success",
+    "ours_authorized_or_evaluated": false,
+    "required_intervention": "four simultaneously live official LIBERO environments feeding one shared X-VLA model under the frozen paired schedules",
+    "serial_or_two_shard_equivalent": false,
+    "blocker_artifact": "reports/epoch6_schedule_invariant_evaluation/closed_loop_resource_blocker.json"
+  },
+  "resource_blocker": {
+    "current_host_physical_total_bytes": 24871014400,
+    "environment_only_peak_used_fraction": 0.8515523239775857,
+    "frozen_host_used_fraction_max": 0.82,
+    "model_loaded_before_termination": false,
+    "projected_full_path_peak_used_bytes": 28664598528,
+    "minimum_total_bytes_at_frozen_ceiling": 34956827474,
+    "projected_fraction_on_32_gib_host": 0.8342496156692505,
+    "projected_fraction_on_48_gib_host": 0.556166410446167,
+    "minimum_defensible_standard_tier": "48 GB physical RAM",
+    "wsl_swap_requirement_bytes": 0,
+    "cpu_or_disk_model_offload_allowed": false
+  },
+  "latest_scientific_closure": {
+    "id": "epoch7_contact_transition_topology",
+    "decision": "STAGE0_TRIVIAL_EQUIVALENCE",
+    "aligned_rows": 7888,
+    "visual_any_auprc_median": 0.0673926,
+    "causal_nonvisual_any_auprc_median": 0.1016036,
+    "visual_to_prevalence_ratio": 1.1881,
+    "oracle_binary_nrmse": 0.244320346,
+    "oracle_full_typed_nrmse": 0.244539802,
+    "vla_training": false,
+    "policy_rollouts": 0
+  },
+  "smallest_user_action": "Provide or authorize a clean scientifically equivalent host with at least 48 GB physical RAM, zero WSL swap, no CPU/disk model offload, and the unchanged 82% ceiling; run a fresh immutable exact four-environment resource smoke before any scientific episode.",
+  "alternative_user_action": "Explicitly authorize a new independent concurrency protocol; it must be treated as a new study and cannot inherit the archived four-shard preregistration.",
+  "resume_command": "git switch codex/epoch6-ral-submission-convergence-v2; git pull --ff-only; wsl --shutdown; powershell -ExecutionPolicy Bypass -File scripts/monitor_epoch6_schedule_closed_loop_smoke.ps1 -RunId <fresh_immutable_run_id>",
+  "protected_untracked_paths": [
+    "rollouts/2026_07_17/",
+    "rollouts/2026_07_18/"
+  ],
+  "preservation": {
+    "protected_paths_touched": false,
+    "archived_evidence_deleted_or_rewritten": false,
+    "external_submission_or_upload": false
+  }
+}

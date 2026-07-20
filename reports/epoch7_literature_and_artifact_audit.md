@@ -170,3 +170,48 @@ independent oracle diagnostic, adding typed topology to the strongest binary
 control changed held-out arm NRMSE from 0.244320 to 0.244540 (-0.09% relative
 reduction). Candidate K is therefore scientifically closed before any method,
 VLA training, or rollout.
+
+## Rotation 4: exhaustive current refresh
+
+The final refresh re-opened method, benchmark/evaluation, data, and systems
+archetypes. It also checked the complete local history rather than treating a
+new paper title as a new local opportunity.
+
+Current primary work closes the most tempting residuals:
+
+- [Reflective VLA](https://arxiv.org/abs/2606.25215) directly trains on structured observation-action-consequence triplets and reports 5.4 and 4.2 percentage-point gains on LIBERO-Plus and LIBERO-Plus-Hard over a matched reactive baseline. Its project page exposes no code or checkpoint link as of 2026-07-20. More importantly, the local frozen-policy RAC analogue already completed Stage B and lost to its controls.
+- [DEFLECT](https://arxiv.org/abs/2605.19294) converts fresh/stale asynchronous action pairs into preference supervision. [SEAM](https://arxiv.org/abs/2607.04609) uses the previous chunk's unexecuted tail as an analytic consistency reference. [TempoVLA](https://arxiv.org/abs/2606.06491) retimes demonstrations and explicitly conditions execution speed. These directly occupy stale-state, boundary-smoothing, and speed/commitment variants, while local DICD, EAC, A2C2, retiming, and chunk-repair routes already failed their frozen gates.
+- [Same Weights, Different Robot](https://arxiv.org/abs/2606.03724) formalizes the checkpoint, unnormalizer, metadata, and controller as an executable policy and supplies a pre-rollout certificate. [How VLAs Fail Differently](https://arxiv.org/abs/2605.28726) supplies architecture-matched conformal action monitoring and an official Apache-2.0 `vla-edge` artifact. A new integrity/monitoring wrapper would therefore combine two direct Priors; local ExecSpec repair also tied its diagonal-affine control at 17/19.
+- [Green-VLA](https://arxiv.org/abs/2602.00919) already includes temporal alignment and quality filtering over 3,000 hours of heterogeneous demonstrations. The local LIBERO discovery data are simulator-indexed: the inspected Goal HDF5 trajectory had equal-length observation/action arrays and no timestamp-, clock-, or stamp-named dataset. A synthetic frame shift would not verify a naturally occurring data-integrity problem.
+- [Omega-QVLA](https://arxiv.org/abs/2605.28803) already quantizes both backbone and action head to W4A4 and publishes Apache-2.0 code and prebuilt packs. Its official recipe requires one 40 GB A100 to build and four to eight GPUs for the published multi-suite evaluation; this is both directly occupied and outside the local envelope.
+- [VLA-Trace](https://arxiv.org/abs/2605.30117), VLAFlow, Lumo-2, Multi-Camera View Scaling, and the July color/illumination work further occupy modality attribution, future-latent training, multi-view scaling, and visual-robustness directions. The retained artifacts do not provide a new competent, locally trainable Base/Prior pair on an unclosed condition.
+
+### Official-artifact checks
+
+- `krishnam94/vla-edge`: public Apache-2.0 repository, remote HEAD `fa445837b4f6214cd2bbeff8d96f79aac1d724f0`; supports SmolVLA/OpenVLA profiling and action safety/monitoring.
+- `UCMP13753/Omega-QVLA`: public Apache-2.0 repository, remote HEAD `3727e2203568db43fc5fba06ee8686c1b47c044f`; publishes GR00T-N1.5 and pi0.5 W4A4 packs but requires the original full checkpoints.
+- Reflective VLA, DEFLECT, SEAM, Same Weights, and TempoVLA papers were checked for linked artifacts. No credential-free official checkpoint/code combination compatible with the retained local Base was found for a faithful new comparison; where no code was linked, this is recorded as artifact unavailability rather than inferred scientific weakness.
+
+### Exhaustive boundary
+
+Four Epoch 7 cycles now cover language/selectivity, latent dynamics and
+stochastic reliability, persistent completion and contact topology, and the
+current consequence/data-integrity/execution/chunking/systems refresh. The
+complete inherited audit adds 95 historical routes, including valid Stage B
+closures for RAC and EAC and the baseline-dominance closure for ExecSpec.
+
+The only scientifically serious unresolved route is the exact archived
+schedule-invariant stochastic VLA evaluation. It already passed the
+action-level gate, but its official 40-episode closed-loop panel remains at
+zero episodes executed. The four simultaneously live environments alone
+crossed the frozen 82% RAM ceiling on the 24.87 GB host before model load. The
+conservative full-path projection requires 34.96 GB total at that ceiling;
+32 GiB is not certifiable, and a clean 48 GB-or-larger host is the smallest
+standard tier with defensible headroom.
+
+Final audit decision: `HARD_EXTERNAL_BLOCKER_REQUIRES_USER`.
+
+This is not a scientific failure of the schedule thesis, not 0% task success,
+and not authorization to replace the four-shard intervention with serial or
+two-shard execution. No paper package is generated because no thesis has
+positive official closed-loop evidence satisfying the RA-L gate.

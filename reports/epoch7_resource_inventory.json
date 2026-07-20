@@ -1,12 +1,12 @@
 {
   "schema_version": "epoch7.resource_inventory.v1",
   "generated_at": "2026-07-20T13:23:31.8543705+09:00",
-  "last_updated_at": "2026-07-20T16:35:00+09:00",
+  "last_updated_at": "2026-07-20T18:20:00+09:00",
   "execution_type": "SETUP_PREFLIGHT",
   "repository": {
     "path": "C:/Users/jiheo/tca_map",
     "branch": "codex/epoch7-new-thesis-paper-convergence",
-    "head": "981de268fa05426d3926ae1883b98e3e0b0dc6fe",
+    "head": "e59ff2d21ec2fab6ca0613677b09494715320328",
     "origin_branch_at_start": "origin/codex/epoch6-ral-submission-convergence-v2",
     "protected_untracked_paths": [
       "rollouts/2026_07_17/",
@@ -43,11 +43,11 @@
   "storage": {
     "windows_c": {
       "total_gib": 930.52,
-      "free_gib": 287.84,
-      "free_percent": 30.93,
-      "required_reserve_gib": 186.104,
+      "free_gib": 287.758,
+      "free_percent": 30.925,
+      "required_reserve_gib": 186.103,
       "reserve_rule": "max(60 GiB, 20 percent of volume)",
-      "reserve_headroom_gib": 101.736,
+      "reserve_headroom_gib": 101.654,
       "status": "PASS"
     },
     "wsl_root": {
@@ -216,8 +216,8 @@
   "qualification": {
     "idle_inventory_only": false,
     "outcome_bearing_execution_started": true,
-    "heavy_execution_authorized_now": "BOUNDED_STAGE0_ONLY_AFTER_PARTITION_AND_CONVERSION_PREFLIGHT",
-    "next_required_gate": "frozen partitions and Base action-energy falsifier",
+    "heavy_execution_authorized_now": false,
+    "next_required_gate": "external clean scientifically equivalent host with at least 48 GB physical RAM, then exact frozen four-environment outcome-free resource smoke",
     "latest_gpu_vram_total_mib": 16303,
     "latest_gpu_vram_free_mib": 13748,
     "latest_gpu_utilization_percent": 8
@@ -260,5 +260,5 @@
       "status": "RETAINED_EXACT_XVLA_FORMAT"
     }
   },
-  "status": "SETUP_PREFLIGHT_PASS"
+  "status": "HARD_EXTERNAL_BLOCKER_REQUIRES_USER"
 }
