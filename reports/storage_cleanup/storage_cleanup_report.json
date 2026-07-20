@@ -1,0 +1,159 @@
+{
+  "schema_version": "storage_cleanup.final_report.v1",
+  "generated_at": "2026-07-20T13:08:00+09:00",
+  "terminal_status": "CLEANUP_COMPLETE_COMPACTION_PENDING",
+  "git": {
+    "branch": "codex/epoch6-ral-submission-convergence-v2",
+    "head": "a621a993234847894c0bb54b05ac091a70729aaa",
+    "origin_head_at_cleanup": "a621a993234847894c0bb54b05ac091a70729aaa",
+    "ahead": 0,
+    "behind": 0
+  },
+  "concurrency_refresh": {
+    "old_goal_worker_remaining": false,
+    "windows_research_worker_remaining": false,
+    "wsl_research_worker_remaining": false,
+    "gpu_research_compute_worker_remaining": false,
+    "candidate_roots_modified_in_overlap_window": 0,
+    "epoch6_overlap_state_classification": "KEEP_OR_REVIEW",
+    "open_handle_checks": {
+      "windows": "PASS_EXCLUSIVE_FILESHARE_NONE_FOR_ALL_REGULAR_FILES",
+      "wsl": "PASS_PROC_FD_SCAN"
+    }
+  },
+  "execution": {
+    "delete_manifest_target_count": 784,
+    "windows_targets_deleted": 315,
+    "wsl_targets_deleted": 469,
+    "remaining_manifest_targets": 0,
+    "manifest_estimated_allocated_bytes": 84299406671,
+    "manifest_estimated_allocated_gb": 84.299406671,
+    "windows_manifest_allocated_bytes": 50275757391,
+    "wsl_manifest_allocated_bytes": 34023649280
+  },
+  "commit_scope_audit": {
+    "files": 15,
+    "lines": 41865,
+    "bytes": 1929507,
+    "exceeds_5000_lines": true,
+    "justification": "The 34,136-line delete_manifest.json and two per-target execution ledgers preserve exact identity, size, hash/revision, classification, validation, and deletion status for all 784 permanently deleted targets; compacting away these rows would violate the required audit trail."
+  },
+  "storage": {
+    "windows_c": {
+      "free_bytes_before": 262966239232,
+      "free_bytes_after": 312797159424,
+      "free_bytes_gained": 49830920192,
+      "free_gb_gained": 49.830920192
+    },
+    "wsl_internal": {
+      "free_bytes_before": 932575141888,
+      "free_bytes_after": 964765306880,
+      "free_bytes_gained": 32190164992,
+      "free_gb_gained": 32.190164992
+    },
+    "vhdx": {
+      "distribution": "Ubuntu-22.04",
+      "path": "C:\\Users\\jiheo\\AppData\\Local\\wsl\\{180ce51e-73f9-4a6b-91f0-3a4f1842ad61}\\ext4.vhdx",
+      "physical_bytes_before": 94967431168,
+      "physical_bytes_after": 94967431168,
+      "physical_gb_after": 94.967431168,
+      "host_bytes_reclaimed_by_compaction": 0
+    }
+  },
+  "manifest_bytes_by_category": [
+    {"category": "VLA WSL crash dump", "targets": 2, "bytes": 39943319552},
+    {"category": "closed-route public OpenVLA-OFT checkpoint", "targets": 1, "bytes": 15940550656},
+    {"category": "uv package/source cache", "targets": 10, "bytes": 8582045696},
+    {"category": "pip package-download cache", "targets": 7, "bytes": 7129209094},
+    {"category": "Conda package-download/extraction cache", "targets": 748, "bytes": 4252603134},
+    {"category": "closed-route clean public source clone", "targets": 2, "bytes": 3116694326},
+    {"category": "nonselected public Hugging Face model caches", "targets": 2, "bytes": 4069766677},
+    {"category": "closed RL4IL prior feature cache", "targets": 1, "bytes": 1214111744},
+    {"category": "Torch Hub cache", "targets": 2, "bytes": 46944256},
+    {"category": "Hugging Face transfer logs/metadata/locks", "targets": 9, "bytes": 4161536}
+  ],
+  "largest_deleted_targets": [
+    {
+      "path": "C:\\Users\\jiheo\\AppData\\Local\\Temp\\wsl-crashes\\wsl-crash-1784097862-307-_home_jiheon_miniconda3-official_envs_official-smolvla-libero_bin_python3.10-6.dmp",
+      "bytes": 20145311744,
+      "sha256": "9D17164F0C822CC56D9FEDB32155FFB94A4F683B624CDFE2BA6B229310AE28AF"
+    },
+    {
+      "path": "C:\\Users\\jiheo\\AppData\\Local\\Temp\\wsl-crashes\\wsl-crash-1784097610-314-_home_jiheon_miniconda3-official_envs_official-smolvla-libero_bin_python3.10-6.dmp",
+      "bytes": 19798007808,
+      "sha256": "8F3A0CA82FA76E07CB17F1A8CA40C57B00DC8CB85E02CBFE26CFF67820FF0198"
+    },
+    {
+      "path": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+      "bytes": 15940550656,
+      "public_revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+      "key_file_hashes": "reports/storage_cleanup/delete_manifest.json"
+    },
+    {"path": "/home/jiheon/.cache/uv/archive-v0", "bytes": 8338944000},
+    {"path": "C:\\Users\\jiheo\\AppData\\Local\\pip\\cache\\http-v2", "bytes": 4125038798},
+    {"path": "/home/jiheon/.cache/pip/http-v2", "bytes": 2984443904}
+  ],
+  "retained_large_items": [
+    {"path": "C:\\assets\\data\\libero", "classification": "KEEP", "bytes": 100442962652, "reason": "official benchmark data"},
+    {"path": "/home/jiheon/assets/checkpoints/lightvla", "classification": "USER_DECISION_REQUIRED", "bytes": 15455387648, "reason": "local loader modifications and backups"},
+    {"path": "/home/jiheon/assets/checkpoints/openpi", "classification": "USER_DECISION_REQUIRED", "bytes": 12439199744, "reason": "no immutable checkpoint revision in retained ledger"},
+    {"path": "C:\\Users\\jiheo\\tca_map\\runs", "classification": "KEEP_OR_REVIEW", "bytes": 10311413398, "reason": "unique scientific outputs and overlap-window state"},
+    {"path": "C:\\Users\\jiheo\\AppData\\Local\\Temp\\DiagOutputDir", "classification": "AMBIGUOUS", "bytes": 10195841024, "reason": "Remote Desktop diagnostics outside resolved VLA ownership"},
+    {"path": "C:\\assets\\checkpoints", "classification": "KEEP_OR_REVIEW", "bytes": 3757616540, "reason": "referenced Windows checkpoints"},
+    {"path": "/home/jiheon/assets/checkpoints/xvla_hf_cache", "classification": "KEEP", "bytes": 3522318336, "reason": "selected runnable checkpoint closure"},
+    {"path": "C:\\assets\\datasets\\lerobot_libero", "classification": "KEEP", "bytes": 1935570335, "reason": "retained dataset dependency"}
+  ],
+  "protected_items": [
+    {"path": "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_17", "classification": "PROTECTED", "bytes": 5143751, "exists_after": true},
+    {"path": "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_18", "classification": "PROTECTED", "bytes": 924633, "exists_after": true}
+  ],
+  "runnable_path": {
+    "ready_without_model_download": true,
+    "model_id": "2toINF/X-VLA-Libero",
+    "revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "snapshot": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "snapshot_link_count": 8,
+    "all_backing_blob_hashes_verified_after_cleanup": true,
+    "source_repo": "C:\\assets\\repos\\X-VLA",
+    "source_head": "6bc2513f5f1cbec715cc668b414392a6cae5c671",
+    "environment": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero",
+    "benchmark_runtime": "/home/jiheon/assets/repos/LIBERO",
+    "benchmark_data": "C:\\assets\\data\\libero"
+  },
+  "compaction": {
+    "completed": false,
+    "status": "PENDING_HUMAN_ELEVATION",
+    "installed_wsl_version": "2.7.3.0",
+    "wsl_sparse_command_attempted": "wsl --manage Ubuntu-22.04 --set-sparse true",
+    "wsl_sparse_result": "REFUSED_UNLESS_ALLOW_UNSAFE",
+    "allow_unsafe_used": false,
+    "optimize_vhd_available": false,
+    "current_session_is_admin": false,
+    "diskpart_available": true,
+    "newly_freed_internal_bytes_pending_host_reclaim": 32190164992,
+    "human_command": "Run elevated DiskPart against the exact verified VHDX only: select vdisk file=\"C:\\Users\\jiheo\\AppData\\Local\\wsl\\{180ce51e-73f9-4a6b-91f0-3a4f1842ad61}\\ext4.vhdx\"; attach vdisk readonly; compact vdisk; detach vdisk; exit",
+    "risk_note": "First run wsl --shutdown, reverify the distro is stopped and the exact VHDX path, do not interrupt compaction, and do not use --allow-unsafe or unregister the distro."
+  },
+  "integrity_checks": [
+    {"check": "delete manifest validation", "result": "PASS"},
+    {"check": "remaining deletion targets", "result": "PASS_0_REMAINING"},
+    {"check": "selected X-VLA links and backing blob hashes after cleanup", "result": "PASS_8_OF_8"},
+    {"check": "offline AutoConfig read without model load", "result": "PASS_XVLAConfig"},
+    {"check": "focused Epoch 6 unit tests", "result": "PASS_22"},
+    {"check": "current research governance", "result": "PASS"},
+    {"check": "scaffold tree check", "result": "PASS"},
+    {"check": "cleanup JSON parsing", "result": "PASS"},
+    {"check": "git diff --check", "result": "PASS"},
+    {"check": "X-VLA source clean at pinned HEAD", "result": "PASS"},
+    {"check": "protected rollout existence", "result": "PASS"}
+  ],
+  "research_transition": {
+    "epoch6_schedule_invariance_evidence_preserved": true,
+    "four_shard_closed_loop_outcomes_observed": 0,
+    "archived_state": "RESUMABLE_NOT_DISPROVEN",
+    "resume_host_guidance": "clean host with at least 48 GB RAM",
+    "next_epoch_rule": "fresh literature, artifact, feasibility, and paperability audit for a different VLA/robotics thesis",
+    "old_failed_route_may_be_renamed": false,
+    "new_thesis_search_started": false
+  }
+}

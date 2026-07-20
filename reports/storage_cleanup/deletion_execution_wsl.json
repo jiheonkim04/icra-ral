@@ -1,0 +1,3294 @@
+{
+  "schema_version": "storage_cleanup.wsl_execution.v1",
+  "timestamp": "2026-07-20T13:01:06.943248+09:00",
+  "execute": true,
+  "target_count": 469,
+  "allocated_size_bytes": 34023649280,
+  "workers": [],
+  "open_handles": [],
+  "results": [
+    {
+      "target_id": "wsl-0003",
+      "path": "/home/jiheon/assets/checkpoints/openvla-oft/moojink_openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+      "allocated_size_bytes": 15940550656,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0004",
+      "path": "/home/jiheon/.cache/uv/archive-v0",
+      "allocated_size_bytes": 8338944000,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0006",
+      "path": "/home/jiheon/.cache/pip/http-v2",
+      "allocated_size_bytes": 2984443904,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0007",
+      "path": "/home/jiheon/.cache/huggingface/hub/models--HuggingFaceTB--SmolVLM2-500M-Video-Instruct",
+      "allocated_size_bytes": 2034921472,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0011",
+      "path": "/home/jiheon/.cache/huggingface/hub/models--openai--clip-vit-base-patch32",
+      "allocated_size_bytes": 1214111744,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0012",
+      "path": "/home/jiheon/miniconda3-official/pkgs/cache",
+      "allocated_size_bytes": 614518784,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0013",
+      "path": "/home/jiheon/miniconda3-official/pkgs/sysroot_linux-64-2.34-h087de78_3",
+      "allocated_size_bytes": 482004992,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0014",
+      "path": "/home/jiheon/miniconda3-official/pkgs/gcc_impl_linux-64-15.2.0-he0086c7_19",
+      "allocated_size_bytes": 277336064,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0015",
+      "path": "/home/jiheon/.cache/uv/git-v0",
+      "allocated_size_bytes": 237465600,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0017",
+      "path": "/home/jiheon/miniconda3-official/pkgs/python-3.11.15-h7508c33_1_cpython",
+      "allocated_size_bytes": 107438080,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0018",
+      "path": "/home/jiheon/miniconda3-official/pkgs/icu-78.3-h53478e7_1",
+      "allocated_size_bytes": 98488320,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0019",
+      "path": "/home/jiheon/miniconda3-official/pkgs/cmake-4.1.3-hc85cc9f_0",
+      "allocated_size_bytes": 94617600,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0021",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libstdcxx-devel_linux-64-15.2.0-hd446a21_119",
+      "allocated_size_bytes": 86323200,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0022",
+      "path": "/home/jiheon/miniconda3-official/pkgs/python-3.10.20-h17756b0_1",
+      "allocated_size_bytes": 83992576,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0023",
+      "path": "/home/jiheon/miniconda3-official/pkgs/python-3.10.20-h267e890_1_cpython",
+      "allocated_size_bytes": 83374080,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0024",
+      "path": "/home/jiheon/miniconda3-official/pkgs/gcc_impl_linux-64-15.2.0-he0086c7_19.conda",
+      "allocated_size_bytes": 81182720,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0025",
+      "path": "/home/jiheon/miniconda3-official/pkgs/uv-0.11.29-h2112641_0",
+      "allocated_size_bytes": 74117120,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0028",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pygments-2.20.0-py310h06a4308_0",
+      "allocated_size_bytes": 58007552,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0031",
+      "path": "/home/jiheon/miniconda3-official/pkgs/gxx_impl_linux-64-15.2.0-hda75c37_19",
+      "allocated_size_bytes": 52342784,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0032",
+      "path": "/home/jiheon/miniconda3-official/pkgs/icu-78.3-h33c6efd_0",
+      "allocated_size_bytes": 49250304,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0037",
+      "path": "/home/jiheon/.cache/torch/hub",
+      "allocated_size_bytes": 46845952,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0038",
+      "path": "/home/jiheon/miniconda3-official/pkgs/py-rattler-0.25.0-py310hef7b95b_0",
+      "allocated_size_bytes": 42897408,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0039",
+      "path": "/home/jiheon/miniconda3-official/pkgs/sysroot_linux-64-2.34-h087de78_3.conda",
+      "allocated_size_bytes": 40779776,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0040",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libsanitizer-15.2.0-h90f66d4_19",
+      "allocated_size_bytes": 32735232,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0041",
+      "path": "/home/jiheon/miniconda3-official/pkgs/python-3.11.15-h7508c33_1_cpython.conda",
+      "allocated_size_bytes": 30908416,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0042",
+      "path": "/home/jiheon/miniconda3-official/pkgs/binutils_impl_linux-64-2.45.1-default_hfdba357_102",
+      "allocated_size_bytes": 30777344,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0043",
+      "path": "/home/jiheon/miniconda3-official/pkgs/openssl-3.5.7-h1b28b03_0",
+      "allocated_size_bytes": 28999680,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0044",
+      "path": "/home/jiheon/miniconda3-official/pkgs/python-3.10.20-h267e890_1_cpython.conda",
+      "allocated_size_bytes": 25403392,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0045",
+      "path": "/home/jiheon/miniconda3-official/pkgs/python-3.10.20-h17756b0_1.conda",
+      "allocated_size_bytes": 25370624,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0046",
+      "path": "/home/jiheon/miniconda3-official/pkgs/icu-78.3-h53478e7_1.conda",
+      "allocated_size_bytes": 24166400,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0047",
+      "path": "/home/jiheon/miniconda3-official/pkgs/gettext-tools-0.25.1-h6a67909_0",
+      "allocated_size_bytes": 22253568,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0048",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libstdcxx-15.2.0-h934c35e_19",
+      "allocated_size_bytes": 21639168,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0049",
+      "path": "/home/jiheon/miniconda3-official/pkgs/cmake-4.1.3-hc85cc9f_0.conda",
+      "allocated_size_bytes": 21262336,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0051",
+      "path": "/home/jiheon/miniconda3-official/pkgs/uv-0.11.29-h2112641_0.conda",
+      "allocated_size_bytes": 20783104,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0052",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libstdcxx-devel_linux-64-15.2.0-hd446a21_119.conda",
+      "allocated_size_bytes": 20766720,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0055",
+      "path": "/home/jiheon/miniconda3-official/pkgs/gxx_impl_linux-64-15.2.0-hda75c37_19.conda",
+      "allocated_size_bytes": 16359424,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0058",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libstdcxx-15.2.0-h39759b7_8",
+      "allocated_size_bytes": 14524416,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0059",
+      "path": "/home/jiheon/.cache/pip/wheels",
+      "allocated_size_bytes": 14098432,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0060",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tk-8.6.15-h54e0aa7_0",
+      "allocated_size_bytes": 13156352,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0061",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tk-8.6.13-noxft_hd70dff1_3",
+      "allocated_size_bytes": 13135872,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0062",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tk-8.6.13-noxft_h366c992_103",
+      "allocated_size_bytes": 13074432,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0063",
+      "path": "/home/jiheon/miniconda3-official/pkgs/icu-78.3-h33c6efd_0.conda",
+      "allocated_size_bytes": 12726272,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0065",
+      "path": "/home/jiheon/miniconda3-official/pkgs/openssl-3.6.3-h35e630c_0",
+      "allocated_size_bytes": 12369920,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0066",
+      "path": "/home/jiheon/miniconda3-official/pkgs/gettext-0.25.1-h92eb808_0",
+      "allocated_size_bytes": 12144640,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0068",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ncurses-6.5-h7934f7d_0",
+      "allocated_size_bytes": 11649024,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0069",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pcre2-10.46-hf426167_0",
+      "allocated_size_bytes": 11603968,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0070",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ncurses-6.6-hdb14827_0",
+      "allocated_size_bytes": 11362304,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0071",
+      "path": "/home/jiheon/miniconda3-official/pkgs/py-rattler-0.25.0-py310hef7b95b_0.conda",
+      "allocated_size_bytes": 10878976,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0072",
+      "path": "/home/jiheon/miniconda3-official/pkgs/cryptography-49.0.0-py310hef7b95b_0",
+      "allocated_size_bytes": 10518528,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0074",
+      "path": "/home/jiheon/miniconda3-official/pkgs/kernel-headers_linux-64-5.14.0-he073ed8_3",
+      "allocated_size_bytes": 9457664,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0079",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libmamba-2.3.2-he97f470_3",
+      "allocated_size_bytes": 8646656,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0080",
+      "path": "/home/jiheon/miniconda3-official/pkgs/setuptools-82.0.1-py310h06a4308_0",
+      "allocated_size_bytes": 8425472,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0081",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pydantic-core-2.46.4-py310h6e1b9ff_0",
+      "allocated_size_bytes": 8343552,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0082",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgcc-devel_linux-64-15.2.0-hcc6f6b0_119",
+      "allocated_size_bytes": 8265728,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0084",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libsanitizer-15.2.0-h90f66d4_19.conda",
+      "allocated_size_bytes": 7933952,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0087",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pip-26.1.2-pyh8b19718_0",
+      "allocated_size_bytes": 7245824,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0088",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pip-26.1.2-pyhc872135_0",
+      "allocated_size_bytes": 7237632,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0090",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pydantic-2.13.4-py310h06a4308_0",
+      "allocated_size_bytes": 6635520,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0092",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-26.5.3-py310h06a4308_0",
+      "allocated_size_bytes": 6164480,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0093",
+      "path": "/home/jiheon/miniconda3-official/pkgs/krb5-1.22.2-hbde042b_1",
+      "allocated_size_bytes": 6127616,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0096",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libstdcxx-15.2.0-h934c35e_19.conda",
+      "allocated_size_bytes": 5853184,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0097",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libarchive-3.8.7-hb3cce40_0",
+      "allocated_size_bytes": 5812224,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0100",
+      "path": "/home/jiheon/miniconda3-official/pkgs/openssl-3.5.7-h1b28b03_0.conda",
+      "allocated_size_bytes": 5730304,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0104",
+      "path": "/home/jiheon/miniconda3-official/pkgs/simdjson-3.10.1-hdb19cb5_0",
+      "allocated_size_bytes": 5451776,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0105",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tomlkit-0.13.3-py310h06a4308_0",
+      "allocated_size_bytes": 5419008,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0107",
+      "path": "/home/jiheon/miniconda3-official/pkgs/xorg-xorgproto-2024.1-h47b2149_2",
+      "allocated_size_bytes": 5107712,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0109",
+      "path": "/home/jiheon/miniconda3-official/pkgs/setuptools-83.0.0-pyh332efcf_0",
+      "allocated_size_bytes": 4997120,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0111",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pygments-2.20.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 4739072,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0117",
+      "path": "/home/jiheon/miniconda3-official/pkgs/sqlite-3.53.2-h795bf6d_0",
+      "allocated_size_bytes": 4468736,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0118",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tomli-2.4.0-py310h06a4308_0",
+      "allocated_size_bytes": 4435968,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0120",
+      "path": "/home/jiheon/miniconda3-official/pkgs/xorg-libx11-1.8.12-h9b100fa_1",
+      "allocated_size_bytes": 3960832,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0121",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libxcb-1.17.0-h9b100fa_0",
+      "allocated_size_bytes": 3936256,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0122",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libstdcxx-15.2.0-h39759b7_8.conda",
+      "allocated_size_bytes": 3903488,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0123",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgcc-15.2.0-he0feb66_19",
+      "allocated_size_bytes": 3846144,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0124",
+      "path": "/home/jiheon/miniconda3-official/pkgs/gettext-tools-0.25.1-h6a67909_0.conda",
+      "allocated_size_bytes": 3780608,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0125",
+      "path": "/home/jiheon/miniconda3-official/pkgs/rich-15.0.0-py310h06a4308_0",
+      "allocated_size_bytes": 3723264,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0128",
+      "path": "/home/jiheon/miniconda3-official/pkgs/binutils_impl_linux-64-2.45.1-default_hfdba357_102.conda",
+      "allocated_size_bytes": 3661824,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0129",
+      "path": "/home/jiheon/miniconda3-official/pkgs/dbus-1.16.2-h5bd4931_0",
+      "allocated_size_bytes": 3633152,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0130",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tk-8.6.15-h54e0aa7_0.conda",
+      "allocated_size_bytes": 3612672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0131",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tk-8.6.13-noxft_hd70dff1_3.conda",
+      "allocated_size_bytes": 3551232,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0132",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libiconv-1.18-h75a1612_0",
+      "allocated_size_bytes": 3506176,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0133",
+      "path": "/home/jiheon/miniconda3-official/pkgs/typer-0.25.1-py310h06a4308_0",
+      "allocated_size_bytes": 3469312,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0134",
+      "path": "/home/jiheon/miniconda3-official/pkgs/xz-5.8.2-h448239c_0",
+      "allocated_size_bytes": 3440640,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0135",
+      "path": "/home/jiheon/miniconda3-official/pkgs/zstd-1.5.7-h11fc155_0",
+      "allocated_size_bytes": 3350528,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0136",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libkrb5-1.22.2-hbd13c29_0",
+      "allocated_size_bytes": 3338240,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0137",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tk-8.6.13-noxft_h366c992_103.conda",
+      "allocated_size_bytes": 3301376,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0138",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ld_impl_linux-64-2.46.1-default_hbd61a6d_102",
+      "allocated_size_bytes": 3252224,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0139",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ld_impl_linux-64-2.44-h9e0c5a2_3",
+      "allocated_size_bytes": 3239936,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0140",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ld_impl_linux-64-2.45.1-default_hbd61a6d_102",
+      "allocated_size_bytes": 3203072,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0141",
+      "path": "/home/jiheon/miniconda3-official/pkgs/openssl-3.6.3-h35e630c_0.conda",
+      "allocated_size_bytes": 3162112,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0142",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgcc-15.2.0-h69a1729_8",
+      "allocated_size_bytes": 3121152,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0144",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgcc-devel_linux-64-15.2.0-hcc6f6b0_119.conda",
+      "allocated_size_bytes": 3096576,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0145",
+      "path": "/home/jiheon/miniconda3-official/pkgs/readline-8.3-hc2a1206_0",
+      "allocated_size_bytes": 3043328,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0146",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tzdata-2026b-he532380_0",
+      "allocated_size_bytes": 2953216,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0147",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tzdata-2026c-h151e31d_0",
+      "allocated_size_bytes": 2949120,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0148",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tzdata-2025c-hc9c84f9_1",
+      "allocated_size_bytes": 2945024,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0149",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libmambapy-2.3.2-py310heb26620_3",
+      "allocated_size_bytes": 2932736,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0150",
+      "path": "/home/jiheon/miniconda3-official/pkgs/make-4.4.1-hb9d3cd8_2",
+      "allocated_size_bytes": 2707456,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0153",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libsqlite-3.53.3-h0c1763c_0",
+      "allocated_size_bytes": 2621440,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0154",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libunistring-1.4.2-h34b0ebb_0",
+      "allocated_size_bytes": 2502656,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0155",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libnghttp2-1.69.0-hc59f8b6_0",
+      "allocated_size_bytes": 2494464,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0156",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libnghttp2-1.68.1-h877daf1_0",
+      "allocated_size_bytes": 2457600,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0157",
+      "path": "/home/jiheon/.cache/huggingface/xet/logs/xet_20260710T231939710+0900_87326.log",
+      "allocated_size_bytes": 2412544,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0158",
+      "path": "/home/jiheon/.cache/uv/sdists-v9",
+      "allocated_size_bytes": 2342912,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0159",
+      "path": "/home/jiheon/miniconda3-official/pkgs/boltons-25.0.0-py310h06a4308_0",
+      "allocated_size_bytes": 2322432,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0160",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libxml2-2.14.6-hf2a51f9_1",
+      "allocated_size_bytes": 2252800,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0161",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-pypi-0.11.0-py310h06a4308_0",
+      "allocated_size_bytes": 2244608,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0162",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libmamba-2.3.2-he97f470_3.conda",
+      "allocated_size_bytes": 2232320,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0163",
+      "path": "/home/jiheon/miniconda3-official/pkgs/backports.zstd-1.3.0-py310h89db63a_0",
+      "allocated_size_bytes": 2207744,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0164",
+      "path": "/home/jiheon/miniconda3-official/pkgs/idna-3.18-py310h06a4308_0",
+      "allocated_size_bytes": 2199552,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0167",
+      "path": "/home/jiheon/miniconda3-official/pkgs/lmdb-0.9.31-hb25bd0a_0",
+      "allocated_size_bytes": 2162688,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0168",
+      "path": "/home/jiheon/miniconda3-official/pkgs/readline-8.3-h853b02a_0",
+      "allocated_size_bytes": 2154496,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0170",
+      "path": "/home/jiheon/miniconda3-official/pkgs/menuinst-2.5.1-py310h06a4308_0",
+      "allocated_size_bytes": 2129920,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0172",
+      "path": "/home/jiheon/.cache/uv/wheels-v6",
+      "allocated_size_bytes": 2035712,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0173",
+      "path": "/home/jiheon/miniconda3-official/pkgs/urllib3-2.7.0-py310h06a4308_0",
+      "allocated_size_bytes": 2007040,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0174",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgomp-15.2.0-he0feb66_19",
+      "allocated_size_bytes": 1937408,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0176",
+      "path": "/home/jiheon/.cache/pip/http",
+      "allocated_size_bytes": 1900544,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0177",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pydantic-core-2.46.4-py310h6e1b9ff_0.conda",
+      "allocated_size_bytes": 1863680,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0179",
+      "path": "/home/jiheon/miniconda3-official/pkgs/cryptography-49.0.0-py310hef7b95b_0.conda",
+      "allocated_size_bytes": 1859584,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0180",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libssh2-1.11.1-hcf80075_0",
+      "allocated_size_bytes": 1859584,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0181",
+      "path": "/home/jiheon/miniconda3-official/pkgs/markdown-it-py-4.0.0-py310h06a4308_2",
+      "allocated_size_bytes": 1851392,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0182",
+      "path": "/home/jiheon/miniconda3-official/pkgs/zstd-1.5.7-hb78ec9c_6",
+      "allocated_size_bytes": 1839104,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0184",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libssh2-1.11.1-h251f7ec_0",
+      "allocated_size_bytes": 1802240,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0185",
+      "path": "/home/jiheon/miniconda3-official/pkgs/click-8.4.1-py310h06a4308_0",
+      "allocated_size_bytes": 1789952,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0187",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libsolv-0.7.39-h04d0c11_0",
+      "allocated_size_bytes": 1744896,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0188",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libffi-3.4.8-h06d3fd0_3",
+      "allocated_size_bytes": 1724416,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0189",
+      "path": "/home/jiheon/miniconda3-official/pkgs/anyio-4.12.1-py310h06a4308_0",
+      "allocated_size_bytes": 1716224,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0190",
+      "path": "/home/jiheon/miniconda3-official/pkgs/bzip2-1.0.8-hda65f42_9",
+      "allocated_size_bytes": 1708032,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0193",
+      "path": "/home/jiheon/miniconda3-official/pkgs/bzip2-1.0.8-h5eee18b_6",
+      "allocated_size_bytes": 1630208,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0194",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libcurl-8.20.0-hd8fa685_1",
+      "allocated_size_bytes": 1572864,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0195",
+      "path": "/home/jiheon/miniconda3-official/pkgs/zstandard-0.24.0-py310h3d778a8_0",
+      "allocated_size_bytes": 1560576,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0196",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jinja2-3.1.6-py310h06a4308_0",
+      "allocated_size_bytes": 1536000,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0198",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libcurl-8.21.0-hae6b9f4_2",
+      "allocated_size_bytes": 1527808,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0200",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pycparser-3.0-py310h06a4308_0",
+      "allocated_size_bytes": 1474560,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0201",
+      "path": "/home/jiheon/miniconda3-official/pkgs/c-ares-1.34.7-hd44998d_0",
+      "allocated_size_bytes": 1470464,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0202",
+      "path": "/home/jiheon/miniconda3-official/pkgs/c-ares-1.34.6-hb03c661_0",
+      "allocated_size_bytes": 1458176,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0207",
+      "path": "/home/jiheon/miniconda3-official/pkgs/kernel-headers_linux-64-5.14.0-he073ed8_3.conda",
+      "allocated_size_bytes": 1413120,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0208",
+      "path": "/home/jiheon/miniconda3-official/pkgs/krb5-1.22.2-hbde042b_1.conda",
+      "allocated_size_bytes": 1392640,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0209",
+      "path": "/home/jiheon/miniconda3-official/pkgs/httpx-0.28.1-py310h06a4308_1",
+      "allocated_size_bytes": 1388544,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0213",
+      "path": "/home/jiheon/miniconda3-official/pkgs/sqlite-3.53.2-h795bf6d_0.conda",
+      "allocated_size_bytes": 1302528,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0214",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pcre2-10.46-hf426167_0.conda",
+      "allocated_size_bytes": 1290240,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0218",
+      "path": "/home/jiheon/miniconda3-official/pkgs/setuptools-82.0.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 1273856,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0219",
+      "path": "/home/jiheon/miniconda3-official/pkgs/dbus-1.16.2-h5bd4931_0.conda",
+      "allocated_size_bytes": 1261568,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0222",
+      "path": "/home/jiheon/.cache/uv/simple-v22",
+      "allocated_size_bytes": 1224704,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0224",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgettextpo-0.25.1-hf2ab22a_0",
+      "allocated_size_bytes": 1216512,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0225",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libuv-1.52.1-h280c20c_0",
+      "allocated_size_bytes": 1216512,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0226",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pip-26.1.2-pyh8b19718_0.conda",
+      "allocated_size_bytes": 1204224,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0227",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pip-26.1.2-pyhc872135_0.conda",
+      "allocated_size_bytes": 1200128,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0230",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ruamel.yaml-0.18.16-py310h4aee224_0",
+      "allocated_size_bytes": 1187840,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0233",
+      "path": "/home/jiheon/miniconda3-official/pkgs/nlohmann_json-3.11.2-h6a678d5_0",
+      "allocated_size_bytes": 1171456,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0235",
+      "path": "/home/jiheon/miniconda3-official/pkgs/python-installer-1.0.0-pyhd3eb1b0_0",
+      "allocated_size_bytes": 1142784,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0236",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ncurses-6.5-h7934f7d_0.conda",
+      "allocated_size_bytes": 1138688,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0237",
+      "path": "/home/jiheon/miniconda3-official/pkgs/brotlicffi-1.2.0.0-py310h7354ed3_0",
+      "allocated_size_bytes": 1130496,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0238",
+      "path": "/home/jiheon/miniconda3-official/pkgs/packaging-26.0-py310h06a4308_0",
+      "allocated_size_bytes": 1110016,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0240",
+      "path": "/home/jiheon/miniconda3-official/pkgs/cffi-2.0.0-py310h4eded50_1",
+      "allocated_size_bytes": 1105920,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0242",
+      "path": "/home/jiheon/miniconda3-official/pkgs/requests-2.34.2-py310h06a4308_0",
+      "allocated_size_bytes": 1069056,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0243",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pydantic-settings-2.14.2-py310h06a4308_0",
+      "allocated_size_bytes": 1060864,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0244",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgcc-15.2.0-he0feb66_19.conda",
+      "allocated_size_bytes": 1044480,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0245",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-26.5.3-py310h06a4308_0.conda",
+      "allocated_size_bytes": 1032192,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0248",
+      "path": "/home/jiheon/miniconda3-official/pkgs/yaml-cpp-0.9.0-he852c71_1",
+      "allocated_size_bytes": 1011712,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0252",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libsqlite-3.53.3-h0c1763c_0.conda",
+      "allocated_size_bytes": 962560,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0254",
+      "path": "/home/jiheon/miniconda3-official/pkgs/more-itertools-11.0.2-py310h06a4308_0",
+      "allocated_size_bytes": 950272,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0257",
+      "path": "/home/jiheon/miniconda3-official/pkgs/fmt-12.1.0-h44f220b_0",
+      "allocated_size_bytes": 929792,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0258",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pydantic-2.13.4-py310h06a4308_0.conda",
+      "allocated_size_bytes": 929792,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0260",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ncurses-6.6-hdb14827_0.conda",
+      "allocated_size_bytes": 921600,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0261",
+      "path": "/home/jiheon/miniconda3-official/pkgs/xorg-libx11-1.8.12-h9b100fa_1.conda",
+      "allocated_size_bytes": 917504,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0264",
+      "path": "/home/jiheon/miniconda3-official/pkgs/unearth-0.18.2-py310h06a4308_0",
+      "allocated_size_bytes": 909312,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0266",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tqdm-4.68.2-py310h7040dfc_0",
+      "allocated_size_bytes": 897024,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0268",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libarchive-3.8.7-hb3cce40_0.conda",
+      "allocated_size_bytes": 888832,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0269",
+      "path": "/home/jiheon/miniconda3-official/pkgs/cpp-expected-1.1.0-hdb19cb5_0",
+      "allocated_size_bytes": 876544,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0270",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libbrotlienc-1.2.0-h2e96acb_0",
+      "allocated_size_bytes": 872448,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0271",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-rattler-solver-0.1.1-py310h06a4308_0",
+      "allocated_size_bytes": 847872,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0274",
+      "path": "/home/jiheon/miniconda3-official/pkgs/httpcore-1.0.9-py310h06a4308_0",
+      "allocated_size_bytes": 827392,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0275",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgcc-15.2.0-h69a1729_8.conda",
+      "allocated_size_bytes": 823296,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0277",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libkrb5-1.22.2-hbd13c29_0.conda",
+      "allocated_size_bytes": 806912,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0280",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libiconv-1.18-h75a1612_0.conda",
+      "allocated_size_bytes": 790528,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0284",
+      "path": "/home/jiheon/miniconda3-official/pkgs/archspec-0.2.6-py310h06a4308_0",
+      "allocated_size_bytes": 782336,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0287",
+      "path": "/home/jiheon/miniconda3-official/pkgs/python-build-1.3.0-py310h06a4308_1",
+      "allocated_size_bytes": 753664,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0288",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ld_impl_linux-64-2.44-h9e0c5a2_3.conda",
+      "allocated_size_bytes": 745472,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0289",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ld_impl_linux-64-2.46.1-default_hbd61a6d_102.conda",
+      "allocated_size_bytes": 745472,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0290",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pyjwt-2.13.0-py310h06a4308_0",
+      "allocated_size_bytes": 741376,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0291",
+      "path": "/home/jiheon/.cache/huggingface/xet/logs/xet_20260717T152226070+0900_373.log",
+      "allocated_size_bytes": 737280,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0292",
+      "path": "/home/jiheon/miniconda3-official/pkgs/anaconda-auth-0.15.1-py310h06a4308_0",
+      "allocated_size_bytes": 729088,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0293",
+      "path": "/home/jiheon/miniconda3-official/pkgs/keyutils-1.6.3-hb9d3cd8_0",
+      "allocated_size_bytes": 729088,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0294",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ld_impl_linux-64-2.45.1-default_hbd61a6d_102.conda",
+      "allocated_size_bytes": 729088,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0298",
+      "path": "/home/jiheon/miniconda3-official/pkgs/charset-normalizer-3.4.7-py310h06a4308_0",
+      "allocated_size_bytes": 700416,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0299",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libmambapy-2.3.2-py310heb26620_3.conda",
+      "allocated_size_bytes": 700416,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0301",
+      "path": "/home/jiheon/miniconda3-official/pkgs/lz4-c-1.9.4-h7354ed3_5",
+      "allocated_size_bytes": 688128,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0302",
+      "path": "/home/jiheon/.cache/huggingface/xet/logs/xet_20260711T124858341+0900_300.log",
+      "allocated_size_bytes": 688128,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0304",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libunistring-1.4.2-h34b0ebb_0.conda",
+      "allocated_size_bytes": 675840,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0306",
+      "path": "/home/jiheon/miniconda3-official/pkgs/filelock-3.29.4-py310h06a4308_0",
+      "allocated_size_bytes": 671744,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0310",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libnghttp2-1.68.1-h877daf1_0.conda",
+      "allocated_size_bytes": 663552,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0311",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libnghttp2-1.69.0-hc59f8b6_0.conda",
+      "allocated_size_bytes": 663552,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0312",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libxml2-2.14.6-hf2a51f9_1.conda",
+      "allocated_size_bytes": 663552,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0316",
+      "path": "/home/jiheon/miniconda3-official/pkgs/setuptools-83.0.0-pyh332efcf_0.conda",
+      "allocated_size_bytes": 643072,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0317",
+      "path": "/home/jiheon/miniconda3-official/pkgs/xz-5.8.2-h448239c_0.conda",
+      "allocated_size_bytes": 638976,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0319",
+      "path": "/home/jiheon/miniconda3-official/pkgs/zstd-1.5.7-h11fc155_0.conda",
+      "allocated_size_bytes": 626688,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0320",
+      "path": "/home/jiheon/miniconda3-official/pkgs/keyring-25.7.0-py310h06a4308_0",
+      "allocated_size_bytes": 618496,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0321",
+      "path": "/home/jiheon/miniconda3-official/pkgs/liblzma-5.8.3-hb03c661_0",
+      "allocated_size_bytes": 610304,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0322",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgomp-15.2.0-he0feb66_19.conda",
+      "allocated_size_bytes": 606208,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0324",
+      "path": "/home/jiheon/miniconda3-official/pkgs/zstd-1.5.7-hb78ec9c_6.conda",
+      "allocated_size_bytes": 602112,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0325",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-index-0.12.1-py310h06a4308_0",
+      "allocated_size_bytes": 589824,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0326",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-package-handling-2.5.0-py310h06a4308_0",
+      "allocated_size_bytes": 581632,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0327",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pycosat-0.6.6-py310h5eee18b_2",
+      "allocated_size_bytes": 581632,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0328",
+      "path": "/home/jiheon/miniconda3-official/pkgs/packaging-26.2-pyhc364b38_0",
+      "allocated_size_bytes": 565248,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0329",
+      "path": "/home/jiheon/miniconda3-official/pkgs/xorg-xorgproto-2024.1-h47b2149_2.conda",
+      "allocated_size_bytes": 565248,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0330",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libexpat-2.8.2-h7354ed3_1",
+      "allocated_size_bytes": 552960,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0332",
+      "path": "/home/jiheon/miniconda3-official/pkgs/gettext-0.25.1-h92eb808_0.conda",
+      "allocated_size_bytes": 536576,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0333",
+      "path": "/home/jiheon/miniconda3-official/pkgs/msgpack-python-1.2.1-py310h7354ed3_0",
+      "allocated_size_bytes": 524288,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0334",
+      "path": "/home/jiheon/miniconda3-official/pkgs/rhash-1.4.6-hb9d3cd8_1",
+      "allocated_size_bytes": 524288,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0336",
+      "path": "/home/jiheon/miniconda3-official/pkgs/make-4.4.1-hb9d3cd8_2.conda",
+      "allocated_size_bytes": 516096,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0337",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libasprintf-0.25.1-hf2ab22a_0",
+      "allocated_size_bytes": 512000,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0338",
+      "path": "/home/jiheon/miniconda3-official/pkgs/importlib-metadata-8.7.1-py310h06a4308_0",
+      "allocated_size_bytes": 507904,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0339",
+      "path": "/home/jiheon/miniconda3-official/pkgs/rich-15.0.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 507904,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0340",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libcurl-8.20.0-hd8fa685_1.conda",
+      "allocated_size_bytes": 503808,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0341",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libev-4.33-h7f8727e_1",
+      "allocated_size_bytes": 499712,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0342",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libev-4.33-hd590300_2",
+      "allocated_size_bytes": 499712,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0343",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ruamel.yaml.clib-0.2.14-py310h4aee224_0",
+      "allocated_size_bytes": 499712,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0344",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libedit-3.1.20250104-pl5321h7949ede_0",
+      "allocated_size_bytes": 495616,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0346",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libcurl-8.21.0-hae6b9f4_2.conda",
+      "allocated_size_bytes": 483328,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0347",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libsolv-0.7.39-h04d0c11_0.conda",
+      "allocated_size_bytes": 483328,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0348",
+      "path": "/home/jiheon/miniconda3-official/pkgs/lmdb-0.9.31-hb25bd0a_0.conda",
+      "allocated_size_bytes": 483328,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0349",
+      "path": "/home/jiheon/miniconda3-official/pkgs/readline-8.3-hc2a1206_0.conda",
+      "allocated_size_bytes": 483328,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0350",
+      "path": "/home/jiheon/miniconda3-official/pkgs/anaconda-cli-base-0.9.1-py310h06a4308_0",
+      "allocated_size_bytes": 479232,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0354",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pyproject_hooks-1.2.0-py310h06a4308_1",
+      "allocated_size_bytes": 462848,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0356",
+      "path": "/home/jiheon/miniconda3-official/pkgs/platformdirs-4.9.4-py310h06a4308_0",
+      "allocated_size_bytes": 454656,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0360",
+      "path": "/home/jiheon/miniconda3-official/pkgs/boltons-25.0.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 442368,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0361",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libxcb-1.17.0-h9b100fa_0.conda",
+      "allocated_size_bytes": 442368,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0363",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-content-trust-0.3.2-py310h06a4308_0",
+      "allocated_size_bytes": 430080,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0364",
+      "path": "/home/jiheon/miniconda3-official/pkgs/zlib-1.3.2-h47b2149_0",
+      "allocated_size_bytes": 425984,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0365",
+      "path": "/home/jiheon/miniconda3-official/pkgs/certifi-2026.6.17-py310h06a4308_0",
+      "allocated_size_bytes": 421888,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0366",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libuv-1.52.1-h280c20c_0.conda",
+      "allocated_size_bytes": 421888,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0367",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libxcrypt-4.4.36-hd590300_1",
+      "allocated_size_bytes": 421888,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0368",
+      "path": "/home/jiheon/miniconda3-official/pkgs/typing_extensions-4.15.0-py310h06a4308_0",
+      "allocated_size_bytes": 421888,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0370",
+      "path": "/home/jiheon/miniconda3-official/pkgs/frozendict-2.4.7-py310h47b2149_0",
+      "allocated_size_bytes": 413696,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0371",
+      "path": "/home/jiheon/miniconda3-official/pkgs/zstandard-0.24.0-py310h3d778a8_0.conda",
+      "allocated_size_bytes": 409600,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0373",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libffi-3.7.0-h3435931_0",
+      "allocated_size_bytes": 401408,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0374",
+      "path": "/home/jiheon/miniconda3-official/pkgs/wheel-0.47.0-py310h06a4308_0",
+      "allocated_size_bytes": 401408,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0379",
+      "path": "/home/jiheon/miniconda3-official/pkgs/brotlicffi-1.2.0.0-py310h7354ed3_0.conda",
+      "allocated_size_bytes": 380928,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0381",
+      "path": "/home/jiheon/miniconda3-official/pkgs/gcc_linux-64-15.2.0-h7be306e_27",
+      "allocated_size_bytes": 372736,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0382",
+      "path": "/home/jiheon/miniconda3-official/pkgs/semver-3.0.4-py310h06a4308_0",
+      "allocated_size_bytes": 372736,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0383",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jeepney-0.7.1-pyhd3eb1b0_0",
+      "allocated_size_bytes": 368640,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0384",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libffi-3.5.2-h3435931_0",
+      "allocated_size_bytes": 368640,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0385",
+      "path": "/home/jiheon/miniconda3-official/pkgs/python-dotenv-1.2.1-py310h06a4308_0",
+      "allocated_size_bytes": 368640,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0386",
+      "path": "/home/jiheon/miniconda3-official/pkgs/backports.tarfile-1.2.0-py310h06a4308_0",
+      "allocated_size_bytes": 364544,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0387",
+      "path": "/home/jiheon/miniconda3-official/pkgs/gxx_linux-64-15.2.0-hcb00b6d_27",
+      "allocated_size_bytes": 364544,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0390",
+      "path": "/home/jiheon/miniconda3-official/pkgs/h11-0.16.0-py310h06a4308_1",
+      "allocated_size_bytes": 356352,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0392",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libbrotlicommon-1.2.0-h32cd6e7_0",
+      "allocated_size_bytes": 352256,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0393",
+      "path": "/home/jiheon/miniconda3-official/pkgs/readline-8.3-h853b02a_0.conda",
+      "allocated_size_bytes": 348160,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0394",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ca-certificates-2026.6.17-hbd8a1cb_0",
+      "allocated_size_bytes": 339968,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0396",
+      "path": "/home/jiheon/miniconda3-official/pkgs/_openmp_mutex-4.5-20_gnu",
+      "allocated_size_bytes": 335872,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0397",
+      "path": "/home/jiheon/miniconda3-official/pkgs/exceptiongroup-1.3.1-py310h06a4308_0",
+      "allocated_size_bytes": 335872,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0399",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-anaconda-tos-0.2.2-py310h06a4308_1",
+      "allocated_size_bytes": 331776,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0400",
+      "path": "/home/jiheon/miniconda3-official/pkgs/unearth-0.18.2-py310h06a4308_0.conda",
+      "allocated_size_bytes": 331776,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0402",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-self-0.2.0-py310h06a4308_0",
+      "allocated_size_bytes": 327680,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0403",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libidn2-2.3.8-hf80d704_0",
+      "allocated_size_bytes": 327680,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0406",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgcc-ng-15.2.0-h69a702a_19",
+      "allocated_size_bytes": 315392,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0407",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libssh2-1.11.1-h251f7ec_0.conda",
+      "allocated_size_bytes": 315392,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0408",
+      "path": "/home/jiheon/miniconda3-official/pkgs/truststore-0.10.4-py310h06a4308_0",
+      "allocated_size_bytes": 315392,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0410",
+      "path": "/home/jiheon/miniconda3-official/pkgs/click-8.4.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 311296,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0411",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-libmamba-solver-26.6.0-pyh3785b3c_0",
+      "allocated_size_bytes": 311296,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0413",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libssh2-1.11.1-hcf80075_0.conda",
+      "allocated_size_bytes": 307200,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0414",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libstdcxx-ng-15.2.0-hc03a8fd_8",
+      "allocated_size_bytes": 307200,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0415",
+      "path": "/home/jiheon/miniconda3-official/pkgs/urllib3-2.7.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 307200,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0416",
+      "path": "/home/jiheon/miniconda3-official/pkgs/backports.zstd-1.3.0-py310h89db63a_0.conda",
+      "allocated_size_bytes": 303104,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0417",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgcc-ng-15.2.0-h166f726_8",
+      "allocated_size_bytes": 303104,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0418",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgettextpo-devel-0.25.1-hf2ab22a_0",
+      "allocated_size_bytes": 303104,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0422",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libexpat-2.8.1-hecca717_1",
+      "allocated_size_bytes": 299008,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0423",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libpsl-0.22.0-hd9031aa_0",
+      "allocated_size_bytes": 294912,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0424",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pluggy-1.6.0-py310h06a4308_0",
+      "allocated_size_bytes": 294912,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0427",
+      "path": "/home/jiheon/miniconda3-official/pkgs/binutils_linux-64-2.45.1-default_h4852527_102",
+      "allocated_size_bytes": 290816,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0428",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ca-certificates-2026.5.14-h06a4308_0",
+      "allocated_size_bytes": 290816,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0429",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libasprintf-devel-0.25.1-hf2ab22a_0",
+      "allocated_size_bytes": 290816,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0430",
+      "path": "/home/jiheon/miniconda3-official/pkgs/reproc-cpp-14.2.7-h7bdf020_0",
+      "allocated_size_bytes": 290816,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0431",
+      "path": "/home/jiheon/miniconda3-official/pkgs/zipp-3.23.0-py310h06a4308_0",
+      "allocated_size_bytes": 290816,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0433",
+      "path": "/home/jiheon/miniconda3-official/pkgs/distro-1.9.0-py310h06a4308_0",
+      "allocated_size_bytes": 286720,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0434",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jinja2-3.1.6-py310h06a4308_0.conda",
+      "allocated_size_bytes": 286720,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0435",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libbrotlienc-1.2.0-h2e96acb_0.conda",
+      "allocated_size_bytes": 282624,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0438",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-lockfiles-0.2.0-py310h06a4308_0",
+      "allocated_size_bytes": 278528,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0439",
+      "path": "/home/jiheon/miniconda3-official/pkgs/wheel-0.47.0-pyhd8ed1ab_0",
+      "allocated_size_bytes": 278528,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0443",
+      "path": "/home/jiheon/miniconda3-official/pkgs/bzip2-1.0.8-h5eee18b_6.conda",
+      "allocated_size_bytes": 270336,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0444",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-package-handling-2.5.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 270336,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0445",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jansson-2.15.0-hbcba0ee_0",
+      "allocated_size_bytes": 270336,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0446",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jsonpatch-1.33-py310h06a4308_1",
+      "allocated_size_bytes": 270336,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0447",
+      "path": "/home/jiheon/miniconda3-official/pkgs/readchar-4.2.2-py310h06a4308_0",
+      "allocated_size_bytes": 270336,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0451",
+      "path": "/home/jiheon/miniconda3-official/pkgs/simdjson-3.10.1-hdb19cb5_0.conda",
+      "allocated_size_bytes": 266240,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0452",
+      "path": "/home/jiheon/miniconda3-official/pkgs/bzip2-1.0.8-hda65f42_9.conda",
+      "allocated_size_bytes": 262144,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0453",
+      "path": "/home/jiheon/miniconda3-official/pkgs/typing-inspection-0.4.2-py310h06a4308_0",
+      "allocated_size_bytes": 262144,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0456",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-package-streaming-0.13.0-py310h06a4308_0",
+      "allocated_size_bytes": 258048,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0457",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libuuid-2.42.2-h5347b49_0",
+      "allocated_size_bytes": 258048,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0458",
+      "path": "/home/jiheon/miniconda3-official/pkgs/anyio-4.12.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 253952,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0459",
+      "path": "/home/jiheon/miniconda3-official/pkgs/mdurl-0.1.2-py310h06a4308_0",
+      "allocated_size_bytes": 253952,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0460",
+      "path": "/home/jiheon/miniconda3-official/pkgs/reproc-14.2.7-h7bdf020_0",
+      "allocated_size_bytes": 253952,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0462",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-pypi-0.11.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 249856,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0463",
+      "path": "/home/jiheon/miniconda3-official/pkgs/cffi-2.0.0-py310h4eded50_1.conda",
+      "allocated_size_bytes": 245760,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0465",
+      "path": "/home/jiheon/miniconda3-official/pkgs/menuinst-2.5.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 241664,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0467",
+      "path": "/home/jiheon/miniconda3-official/pkgs/anaconda-channel-guide-0.1.1-py310h06a4308_0",
+      "allocated_size_bytes": 237568,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0468",
+      "path": "/home/jiheon/miniconda3-official/pkgs/markupsafe-3.0.3-py310h47b2149_0",
+      "allocated_size_bytes": 237568,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0469",
+      "path": "/home/jiheon/miniconda3-official/pkgs/python-installer-1.0.0-pyhd3eb1b0_0.conda",
+      "allocated_size_bytes": 237568,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0470",
+      "path": "/home/jiheon/miniconda3-official/pkgs/yaml-cpp-0.9.0-he852c71_1.conda",
+      "allocated_size_bytes": 237568,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0473",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libzlib-1.3.2-h25fd6f3_2",
+      "allocated_size_bytes": 233472,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0476",
+      "path": "/home/jiheon/miniconda3-official/pkgs/secretstorage-3.5.0-py310h3e8c6aa_0",
+      "allocated_size_bytes": 229376,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0479",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libzlib-1.3.2-h47b2149_0",
+      "allocated_size_bytes": 225280,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0483",
+      "path": "/home/jiheon/miniconda3-official/pkgs/anaconda-anon-usage-0.8.1-pyhb46e38b_100",
+      "allocated_size_bytes": 221184,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0484",
+      "path": "/home/jiheon/miniconda3-official/pkgs/shellingham-1.5.4-py310h06a4308_0",
+      "allocated_size_bytes": 221184,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0487",
+      "path": "/home/jiheon/miniconda3-official/pkgs/c-ares-1.34.7-hd44998d_0.conda",
+      "allocated_size_bytes": 212992,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0488",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libnsl-2.0.1-hb9d3cd8_1",
+      "allocated_size_bytes": 212992,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0489",
+      "path": "/home/jiheon/miniconda3-official/pkgs/markdown-it-py-4.0.0-py310h06a4308_2.conda",
+      "allocated_size_bytes": 212992,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0490",
+      "path": "/home/jiheon/.cache/huggingface/xet/logs/xet_20260718T185604896+0900_396.log",
+      "allocated_size_bytes": 212992,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0493",
+      "path": "/home/jiheon/miniconda3-official/pkgs/c-ares-1.34.6-hb03c661_0.conda",
+      "allocated_size_bytes": 208896,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0496",
+      "path": "/home/jiheon/miniconda3-official/pkgs/annotated-types-0.6.0-py310h06a4308_1",
+      "allocated_size_bytes": 204800,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0497",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libnsl-2.0.0-h5eee18b_0",
+      "allocated_size_bytes": 204800,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0498",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libuuid-1.41.5-h5eee18b_0",
+      "allocated_size_bytes": 204800,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0499",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ruamel.yaml-0.18.16-py310h4aee224_0.conda",
+      "allocated_size_bytes": 204800,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0503",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pysocks-1.7.1-py310h06a4308_1",
+      "allocated_size_bytes": 200704,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0504",
+      "path": "/home/jiheon/miniconda3-official/pkgs/fmt-12.1.0-h44f220b_0.conda",
+      "allocated_size_bytes": 196608,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0505",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jaraco.functools-4.4.0-py310h06a4308_0",
+      "allocated_size_bytes": 196608,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0506",
+      "path": "/home/jiheon/miniconda3-official/pkgs/rhash-1.4.6-hb9d3cd8_1.conda",
+      "allocated_size_bytes": 196608,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0508",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jaraco.classes-3.4.0-py310h06a4308_0",
+      "allocated_size_bytes": 192512,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0509",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgettextpo-0.25.1-hf2ab22a_0.conda",
+      "allocated_size_bytes": 192512,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0511",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jsonpointer-3.1.1-py310h06a4308_0",
+      "allocated_size_bytes": 188416,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0512",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libbrotlidec-1.2.0-ha2c5f68_0",
+      "allocated_size_bytes": 188416,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0514",
+      "path": "/home/jiheon/miniconda3-official/pkgs/idna-3.18-py310h06a4308_0.conda",
+      "allocated_size_bytes": 184320,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0515",
+      "path": "/home/jiheon/miniconda3-official/pkgs/typer-0.25.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 184320,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0517",
+      "path": "/home/jiheon/miniconda3-official/pkgs/httpx-0.28.1-py310h06a4308_1.conda",
+      "allocated_size_bytes": 180224,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0519",
+      "path": "/home/jiheon/miniconda3-official/pkgs/packaging-26.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 172032,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0524",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jaraco.context-6.1.0-py310h06a4308_0",
+      "allocated_size_bytes": 167936,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0527",
+      "path": "/home/jiheon/miniconda3-official/pkgs/annotated-doc-0.0.4-py310h06a4308_0",
+      "allocated_size_bytes": 163840,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0528",
+      "path": "/home/jiheon/miniconda3-official/pkgs/expat-2.8.2-h7354ed3_1",
+      "allocated_size_bytes": 163840,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0529",
+      "path": "/home/jiheon/miniconda3-official/pkgs/requests-2.34.2-py310h06a4308_0.conda",
+      "allocated_size_bytes": 163840,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0530",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tomlkit-0.13.3-py310h06a4308_0.conda",
+      "allocated_size_bytes": 163840,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0532",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-anaconda-telemetry-0.3.0-pyhd3eb1b0_1",
+      "allocated_size_bytes": 159744,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0534",
+      "path": "/home/jiheon/miniconda3-official/pkgs/xorg-libxdmcp-1.1.5-h9b100fa_0",
+      "allocated_size_bytes": 155648,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0535",
+      "path": "/home/jiheon/miniconda3-official/pkgs/lz4-c-1.9.4-h7354ed3_5.conda",
+      "allocated_size_bytes": 151552,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0536",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pydantic-settings-2.14.2-py310h06a4308_0.conda",
+      "allocated_size_bytes": 151552,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0540",
+      "path": "/home/jiheon/miniconda3-official/pkgs/more-itertools-11.0.2-py310h06a4308_0.conda",
+      "allocated_size_bytes": 147456,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0541",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libffi-3.4.8-h06d3fd0_3.conda",
+      "allocated_size_bytes": 143360,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0542",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tomli-w-1.2.0-pyhd3eb1b0_0",
+      "allocated_size_bytes": 143360,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0543",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pkce-1.0.3-py310h06a4308_0",
+      "allocated_size_bytes": 139264,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0544",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pybind11-abi-4-hd3eb1b0_1",
+      "allocated_size_bytes": 139264,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0545",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ruamel.yaml.clib-0.2.14-py310h4aee224_0.conda",
+      "allocated_size_bytes": 139264,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0546",
+      "path": "/home/jiheon/miniconda3-official/pkgs/certifi-2026.6.17-py310h06a4308_0.conda",
+      "allocated_size_bytes": 135168,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0547",
+      "path": "/home/jiheon/miniconda3-official/pkgs/cpp-expected-1.1.0-hdb19cb5_0.conda",
+      "allocated_size_bytes": 135168,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0548",
+      "path": "/home/jiheon/miniconda3-official/pkgs/keyutils-1.6.3-hb9d3cd8_0.conda",
+      "allocated_size_bytes": 135168,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0549",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libedit-3.1.20250104-pl5321h7949ede_0.conda",
+      "allocated_size_bytes": 135168,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0550",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tqdm-4.68.2-py310h7040dfc_0.conda",
+      "allocated_size_bytes": 135168,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0551",
+      "path": "/home/jiheon/miniconda3-official/pkgs/xorg-libxau-1.0.12-h9b100fa_0",
+      "allocated_size_bytes": 135168,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0553",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ca-certificates-2026.6.17-hbd8a1cb_0.conda",
+      "allocated_size_bytes": 131072,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0554",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libexpat-2.8.2-h7354ed3_1.conda",
+      "allocated_size_bytes": 131072,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0555",
+      "path": "/home/jiheon/miniconda3-official/pkgs/nlohmann_json-3.11.2-h6a678d5_0.conda",
+      "allocated_size_bytes": 131072,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0556",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pycparser-3.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 131072,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0568",
+      "path": "/home/jiheon/miniconda3-official/pkgs/charset-normalizer-3.4.7-py310h06a4308_0.conda",
+      "allocated_size_bytes": 122880,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0569",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-rattler-solver-0.1.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 122880,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0570",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tzdata-2025c-hc9c84f9_1.conda",
+      "allocated_size_bytes": 122880,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0571",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tzdata-2026b-he532380_0.conda",
+      "allocated_size_bytes": 122880,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0572",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tzdata-2026c-h151e31d_0.conda",
+      "allocated_size_bytes": 122880,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0581",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libev-4.33-h7f8727e_1.conda",
+      "allocated_size_bytes": 114688,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0582",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libev-4.33-hd590300_2.conda",
+      "allocated_size_bytes": 114688,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0583",
+      "path": "/home/jiheon/miniconda3-official/pkgs/liblzma-5.8.3-hb03c661_0.conda",
+      "allocated_size_bytes": 114688,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0585",
+      "path": "/home/jiheon/miniconda3-official/pkgs/ca-certificates-2026.5.14-h06a4308_0.conda",
+      "allocated_size_bytes": 110592,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0590",
+      "path": "/home/jiheon/miniconda3-official/pkgs/msgpack-python-1.2.1-py310h7354ed3_0.conda",
+      "allocated_size_bytes": 106496,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0594",
+      "path": "/home/jiheon/miniconda3-official/pkgs/anaconda-auth-0.15.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 102400,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0595",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libxcrypt-4.4.36-hd590300_1.conda",
+      "allocated_size_bytes": 102400,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0597",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-index-0.12.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 98304,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0598",
+      "path": "/home/jiheon/miniconda3-official/pkgs/httpcore-1.0.9-py310h06a4308_0.conda",
+      "allocated_size_bytes": 98304,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0599",
+      "path": "/home/jiheon/.cache/torch/kernels",
+      "allocated_size_bytes": 98304,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0603",
+      "path": "/home/jiheon/miniconda3-official/pkgs/packaging-26.2-pyhc364b38_0.conda",
+      "allocated_size_bytes": 94208,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0604",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pthread-stubs-0.3-h0ce48e5_1",
+      "allocated_size_bytes": 94208,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0605",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pycosat-0.6.6-py310h5eee18b_2.conda",
+      "allocated_size_bytes": 94208,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0606",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pyjwt-2.13.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 94208,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0607",
+      "path": "/home/jiheon/miniconda3-official/pkgs/typing-extensions-4.15.0-py310h06a4308_0",
+      "allocated_size_bytes": 94208,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0608",
+      "path": "/home/jiheon/miniconda3-official/pkgs/zlib-1.3.2-h47b2149_0.conda",
+      "allocated_size_bytes": 94208,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0612",
+      "path": "/home/jiheon/miniconda3-official/pkgs/filelock-3.29.4-py310h06a4308_0.conda",
+      "allocated_size_bytes": 90112,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0613",
+      "path": "/home/jiheon/.cache/huggingface/xet/logs/xet_20260710T230427523+0900_86122.log",
+      "allocated_size_bytes": 90112,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0618",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libidn2-2.3.8-hf80d704_0.conda",
+      "allocated_size_bytes": 86016,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0619",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libpsl-0.22.0-hd9031aa_0.conda",
+      "allocated_size_bytes": 86016,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0620",
+      "path": "/home/jiheon/miniconda3-official/pkgs/typing_extensions-4.15.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 86016,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0625",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libbrotlicommon-1.2.0-h32cd6e7_0.conda",
+      "allocated_size_bytes": 81920,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0626",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libexpat-2.8.1-hecca717_1.conda",
+      "allocated_size_bytes": 81920,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0627",
+      "path": "/home/jiheon/miniconda3-official/pkgs/python-build-1.3.0-py310h06a4308_1.conda",
+      "allocated_size_bytes": 81920,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0629",
+      "path": "/home/jiheon/miniconda3-official/pkgs/_openmp_mutex-5.1-52_gnu",
+      "allocated_size_bytes": 77824,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0630",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tomli-2.4.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 77824,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0633",
+      "path": "/home/jiheon/miniconda3-official/pkgs/anaconda-cli-base-0.9.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 73728,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0634",
+      "path": "/home/jiheon/miniconda3-official/pkgs/archspec-0.2.6-py310h06a4308_0.conda",
+      "allocated_size_bytes": 73728,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0636",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jansson-2.15.0-hbcba0ee_0.conda",
+      "allocated_size_bytes": 69632,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0637",
+      "path": "/home/jiheon/miniconda3-official/pkgs/keyring-25.7.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 69632,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0638",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libffi-3.7.0-h3435931_0.conda",
+      "allocated_size_bytes": 69632,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0640",
+      "path": "/home/jiheon/miniconda3-official/pkgs/importlib-metadata-8.7.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 65536,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0641",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libzlib-1.3.2-h25fd6f3_2.conda",
+      "allocated_size_bytes": 65536,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0642",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libzlib-1.3.2-h47b2149_0.conda",
+      "allocated_size_bytes": 65536,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0650",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-content-trust-0.3.2-py310h06a4308_0.conda",
+      "allocated_size_bytes": 61440,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0651",
+      "path": "/home/jiheon/miniconda3-official/pkgs/frozendict-2.4.7-py310h47b2149_0.conda",
+      "allocated_size_bytes": 61440,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0652",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libffi-3.5.2-h3435931_0.conda",
+      "allocated_size_bytes": 61440,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0653",
+      "path": "/home/jiheon/miniconda3-official/pkgs/wheel-0.47.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 61440,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0659",
+      "path": "/home/jiheon/miniconda3-official/pkgs/backports.tarfile-1.2.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 57344,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0660",
+      "path": "/home/jiheon/miniconda3-official/pkgs/h11-0.16.0-py310h06a4308_1.conda",
+      "allocated_size_bytes": 57344,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0666",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libasprintf-0.25.1-hf2ab22a_0.conda",
+      "allocated_size_bytes": 53248,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0671",
+      "path": "/home/jiheon/miniconda3-official/pkgs/_libgcc_mutex-0.1-main",
+      "allocated_size_bytes": 49152,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0672",
+      "path": "/home/jiheon/miniconda3-official/pkgs/platformdirs-4.9.4-py310h06a4308_0.conda",
+      "allocated_size_bytes": 49152,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0676",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-libmamba-solver-26.6.0-pyh3785b3c_0.conda",
+      "allocated_size_bytes": 45056,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0677",
+      "path": "/home/jiheon/miniconda3-official/pkgs/exceptiongroup-1.3.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 45056,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0678",
+      "path": "/home/jiheon/miniconda3-official/pkgs/python-dotenv-1.2.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 45056,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0679",
+      "path": "/home/jiheon/miniconda3-official/pkgs/truststore-0.10.4-py310h06a4308_0.conda",
+      "allocated_size_bytes": 45056,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0682",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-anaconda-tos-0.2.2-py310h06a4308_1.conda",
+      "allocated_size_bytes": 40960,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0683",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jeepney-0.7.1-pyhd3eb1b0_0.conda",
+      "allocated_size_bytes": 40960,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0684",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libuuid-2.42.2-h5347b49_0.conda",
+      "allocated_size_bytes": 40960,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0685",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pluggy-1.6.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 40960,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0686",
+      "path": "/home/jiheon/miniconda3-official/pkgs/semver-3.0.4-py310h06a4308_0.conda",
+      "allocated_size_bytes": 40960,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0691",
+      "path": "/home/jiheon/miniconda3-official/pkgs/binutils_linux-64-2.45.1-default_h4852527_102.conda",
+      "allocated_size_bytes": 36864,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0692",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-package-streaming-0.13.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 36864,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0693",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-self-0.2.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 36864,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0694",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libasprintf-devel-0.25.1-hf2ab22a_0.conda",
+      "allocated_size_bytes": 36864,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0695",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libbrotlidec-1.2.0-ha2c5f68_0.conda",
+      "allocated_size_bytes": 36864,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0696",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgettextpo-devel-0.25.1-hf2ab22a_0.conda",
+      "allocated_size_bytes": 36864,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0697",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libnsl-2.0.1-hb9d3cd8_1.conda",
+      "allocated_size_bytes": 36864,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0698",
+      "path": "/home/jiheon/miniconda3-official/pkgs/reproc-14.2.7-h7bdf020_0.conda",
+      "allocated_size_bytes": 36864,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0699",
+      "path": "/home/jiheon/miniconda3-official/pkgs/wheel-0.47.0-pyhd8ed1ab_0.conda",
+      "allocated_size_bytes": 36864,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0703",
+      "path": "/home/jiheon/miniconda3-official/pkgs/_openmp_mutex-4.5-20_gnu.conda",
+      "allocated_size_bytes": 32768,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0704",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-lockfiles-0.2.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 32768,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0705",
+      "path": "/home/jiheon/miniconda3-official/pkgs/distro-1.9.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 32768,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0706",
+      "path": "/home/jiheon/miniconda3-official/pkgs/gcc_linux-64-15.2.0-h7be306e_27.conda",
+      "allocated_size_bytes": 32768,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0707",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jsonpatch-1.33-py310h06a4308_1.conda",
+      "allocated_size_bytes": 32768,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0708",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libnsl-2.0.0-h5eee18b_0.conda",
+      "allocated_size_bytes": 32768,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0709",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pysocks-1.7.1-py310h06a4308_1.conda",
+      "allocated_size_bytes": 32768,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0711",
+      "path": "/home/jiheon/miniconda3-official/pkgs/anaconda-anon-usage-0.8.1-pyhb46e38b_100.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0712",
+      "path": "/home/jiheon/miniconda3-official/pkgs/anaconda-channel-guide-0.1.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0713",
+      "path": "/home/jiheon/miniconda3-official/pkgs/expat-2.8.2-h7354ed3_1.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0714",
+      "path": "/home/jiheon/miniconda3-official/pkgs/gxx_linux-64-15.2.0-hcb00b6d_27.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0715",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgcc-ng-15.2.0-h166f726_8.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0716",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libgcc-ng-15.2.0-h69a702a_19.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0717",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libstdcxx-ng-15.2.0-hc03a8fd_8.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0718",
+      "path": "/home/jiheon/miniconda3-official/pkgs/libuuid-1.41.5-h5eee18b_0.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0719",
+      "path": "/home/jiheon/miniconda3-official/pkgs/markupsafe-3.0.3-py310h47b2149_0.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0720",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pyproject_hooks-1.2.0-py310h06a4308_1.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0721",
+      "path": "/home/jiheon/miniconda3-official/pkgs/reproc-cpp-14.2.7-h7bdf020_0.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0722",
+      "path": "/home/jiheon/miniconda3-official/pkgs/secretstorage-3.5.0-py310h3e8c6aa_0.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0723",
+      "path": "/home/jiheon/miniconda3-official/pkgs/typing-inspection-0.4.2-py310h06a4308_0.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0724",
+      "path": "/home/jiheon/miniconda3-official/pkgs/zipp-3.23.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 28672,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0729",
+      "path": "/home/jiheon/.cache/pip/selfcheck",
+      "allocated_size_bytes": 24576,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0730",
+      "path": "/home/jiheon/miniconda3-official/pkgs/annotated-types-0.6.0-py310h06a4308_1.conda",
+      "allocated_size_bytes": 24576,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0731",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jaraco.functools-4.4.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 24576,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0732",
+      "path": "/home/jiheon/miniconda3-official/pkgs/mdurl-0.1.2-py310h06a4308_0.conda",
+      "allocated_size_bytes": 24576,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0736",
+      "path": "/home/jiheon/.cache/uv/interpreter-v4",
+      "allocated_size_bytes": 20480,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0737",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jaraco.classes-3.4.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 20480,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0738",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jsonpointer-3.1.1-py310h06a4308_0.conda",
+      "allocated_size_bytes": 20480,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0739",
+      "path": "/home/jiheon/miniconda3-official/pkgs/readchar-4.2.2-py310h06a4308_0.conda",
+      "allocated_size_bytes": 20480,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0740",
+      "path": "/home/jiheon/miniconda3-official/pkgs/shellingham-1.5.4-py310h06a4308_0.conda",
+      "allocated_size_bytes": 20480,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0741",
+      "path": "/home/jiheon/miniconda3-official/pkgs/urls",
+      "allocated_size_bytes": 20480,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0742",
+      "path": "/home/jiheon/miniconda3-official/pkgs/urls.txt",
+      "allocated_size_bytes": 20480,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0743",
+      "path": "/home/jiheon/miniconda3-official/pkgs/xorg-libxdmcp-1.1.5-h9b100fa_0.conda",
+      "allocated_size_bytes": 20480,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0753",
+      "path": "/home/jiheon/miniconda3-official/pkgs/conda-anaconda-telemetry-0.3.0-pyhd3eb1b0_1.conda",
+      "allocated_size_bytes": 16384,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0754",
+      "path": "/home/jiheon/miniconda3-official/pkgs/jaraco.context-6.1.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 16384,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0755",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pybind11-abi-4-hd3eb1b0_1.conda",
+      "allocated_size_bytes": 16384,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0756",
+      "path": "/home/jiheon/miniconda3-official/pkgs/xorg-libxau-1.0.12-h9b100fa_0.conda",
+      "allocated_size_bytes": 16384,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0762",
+      "path": "/home/jiheon/miniconda3-official/pkgs/annotated-doc-0.0.4-py310h06a4308_0.conda",
+      "allocated_size_bytes": 12288,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0763",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pkce-1.0.3-py310h06a4308_0.conda",
+      "allocated_size_bytes": 12288,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0764",
+      "path": "/home/jiheon/miniconda3-official/pkgs/tomli-w-1.2.0-pyhd3eb1b0_0.conda",
+      "allocated_size_bytes": 12288,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0765",
+      "path": "/home/jiheon/miniconda3-official/pkgs/typing-extensions-4.15.0-py310h06a4308_0.conda",
+      "allocated_size_bytes": 12288,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0766",
+      "path": "/home/jiheon/.cache/huggingface/hub/models--TTJiang--LightVLA-libero-10",
+      "allocated_size_bytes": 12288,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0770",
+      "path": "/home/jiheon/miniconda3-official/pkgs/_openmp_mutex-5.1-52_gnu.conda",
+      "allocated_size_bytes": 8192,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0771",
+      "path": "/home/jiheon/miniconda3-official/pkgs/pthread-stubs-0.3-h0ce48e5_1.conda",
+      "allocated_size_bytes": 8192,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0774",
+      "path": "/home/jiheon/.cache/uv/.gitignore",
+      "allocated_size_bytes": 4096,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0775",
+      "path": "/home/jiheon/.cache/uv/CACHEDIR.TAG",
+      "allocated_size_bytes": 4096,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0776",
+      "path": "/home/jiheon/.cache/uv/builds-v0",
+      "allocated_size_bytes": 4096,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0777",
+      "path": "/home/jiheon/miniconda3-official/pkgs/.constructor-build.info",
+      "allocated_size_bytes": 4096,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0778",
+      "path": "/home/jiheon/miniconda3-official/pkgs/_libgcc_mutex-0.1-main.conda",
+      "allocated_size_bytes": 4096,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0779",
+      "path": "/home/jiheon/.cache/huggingface/hub/.locks/models--HuggingFaceTB--SmolVLM2-500M-Video-Instruct",
+      "allocated_size_bytes": 4096,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0780",
+      "path": "/home/jiheon/.cache/huggingface/hub/.locks/models--openai--clip-vit-base-patch32",
+      "allocated_size_bytes": 4096,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    },
+    {
+      "target_id": "wsl-0784",
+      "path": "/home/jiheon/.cache/uv/.lock",
+      "allocated_size_bytes": 0,
+      "status": "DELETED",
+      "open_handle_check": "PASS"
+    }
+  ]
+}

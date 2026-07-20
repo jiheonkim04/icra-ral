@@ -1,0 +1,113 @@
+{
+  "schema_version": "storage_cleanup.dependency_graph.v1",
+  "generated_at": "2026-07-20T12:51:53.921658+09:00",
+  "nodes": [
+    {
+      "id": "git_archive",
+      "path": "C:\\Users\\jiheo\\tca_map",
+      "class": "KEEP"
+    },
+    {
+      "id": "epoch6_state",
+      "path": "reports/epoch6_campaign_state.json",
+      "class": "KEEP_OR_REVIEW"
+    },
+    {
+      "id": "epoch6_stage0",
+      "path": "reports/epoch6_schedule_invariant_evaluation/stage0_result.json",
+      "class": "KEEP"
+    },
+    {
+      "id": "epoch6_closed_loop",
+      "path": "reports/epoch6_schedule_invariant_evaluation",
+      "class": "KEEP_OR_REVIEW"
+    },
+    {
+      "id": "xvla_checkpoint",
+      "path": "/home/jiheon/assets/checkpoints/xvla_hf_cache",
+      "class": "KEEP"
+    },
+    {
+      "id": "xvla_source",
+      "path": "C:\\assets\\repos\\X-VLA",
+      "class": "KEEP"
+    },
+    {
+      "id": "xvla_environment",
+      "path": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero",
+      "class": "KEEP"
+    },
+    {
+      "id": "libero_runtime",
+      "path": "/home/jiheon/assets/repos/LIBERO",
+      "class": "KEEP"
+    },
+    {
+      "id": "libero_data",
+      "path": "C:\\assets\\data\\libero",
+      "class": "KEEP"
+    },
+    {
+      "id": "protected_rollouts",
+      "paths": [
+        "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_17",
+        "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_18"
+      ],
+      "class": "PROTECTED"
+    },
+    {
+      "id": "openvla_reacquisition",
+      "source": "https://huggingface.co/moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10",
+      "revision": "638918f3d1c2e43a39a8a20772bdb8b91835e4b7",
+      "class": "REACQUIRE_RECIPE"
+    }
+  ],
+  "edges": [
+    {
+      "from": "epoch6_state",
+      "to": "epoch6_stage0",
+      "relation": "indexes"
+    },
+    {
+      "from": "epoch6_state",
+      "to": "epoch6_closed_loop",
+      "relation": "archives_pending_schedule"
+    },
+    {
+      "from": "epoch6_stage0",
+      "to": "xvla_checkpoint",
+      "relation": "requires_for_resume"
+    },
+    {
+      "from": "epoch6_stage0",
+      "to": "xvla_source",
+      "relation": "requires_code"
+    },
+    {
+      "from": "xvla_checkpoint",
+      "to": "xvla_environment",
+      "relation": "loads_in"
+    },
+    {
+      "from": "epoch6_closed_loop",
+      "to": "libero_runtime",
+      "relation": "requires_simulator"
+    },
+    {
+      "from": "epoch6_stage0",
+      "to": "libero_data",
+      "relation": "uses_demonstrations"
+    },
+    {
+      "from": "git_archive",
+      "to": "openvla_reacquisition",
+      "relation": "retains_checksums_and_recipe"
+    }
+  ],
+  "closure_assertions": {
+    "selected_snapshot_and_blobs_resolve": true,
+    "protected_rollouts_excluded_from_deletion": true,
+    "overlap_state_excluded_from_deletion": true,
+    "one_runnable_vla_libero_path_preserved": true
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "schema_version": "storage_cleanup.post_inventory.v1",
+  "generated_at": "2026-07-20T13:07:11.271350+09:00",
+  "git": {
+    "branch": "codex/epoch6-ral-submission-convergence-v2",
+    "local_head": "a621a993234847894c0bb54b05ac091a70729aaa",
+    "origin_head": "a621a993234847894c0bb54b05ac091a70729aaa",
+    "merge_base": "a621a993234847894c0bb54b05ac091a70729aaa",
+    "ahead_behind": "0\t0",
+    "status_short_branch": [
+      "## codex/epoch6-ral-submission-convergence-v2...origin/codex/epoch6-ral-submission-convergence-v2",
+      "?? reports/storage_cleanup/",
+      "?? rollouts/2026_07_17/",
+      "?? rollouts/2026_07_18/",
+      "?? scripts/invoke_windows_storage_cleanup.ps1",
+      "?? scripts/invoke_wsl_storage_cleanup.py",
+      "?? scripts/storage_cleanup_archive.py"
+    ],
+    "diff_stat": [],
+    "cached_diff_stat": []
+  },
+  "workers": {
+    "captured_at": "2026-07-20T13:07:11.865877+09:00",
+    "windows_candidate_processes": [
+      {
+        "ProcessId": 5880,
+        "ParentProcessId": 1636,
+        "Name": "wslservice.exe",
+        "CreationDate": "/Date(1784486063459)/",
+        "ExecutablePath": null,
+        "CommandLine": null
+      },
+      {
+        "ProcessId": 19448,
+        "ParentProcessId": 13564,
+        "Name": "vmmemWSL",
+        "CreationDate": "/Date(1784520424160)/",
+        "ExecutablePath": null,
+        "CommandLine": null
+      },
+      {
+        "ProcessId": 11580,
+        "ParentProcessId": 5880,
+        "Name": "wslrelay.exe",
+        "CreationDate": "/Date(1784520425043)/",
+        "ExecutablePath": "C:\\Program Files\\WSL\\wslrelay.exe",
+        "CommandLine": " --mode 1 --vm-id {63c197db-a0d7-4001-bf21-3e253a053c4c} --handle 1644"
+      },
+      {
+        "ProcessId": 17804,
+        "ParentProcessId": 5880,
+        "Name": "wslhost.exe",
+        "CreationDate": "/Date(1784520425424)/",
+        "ExecutablePath": "C:\\Program Files\\WSL\\wslhost.exe",
+        "CommandLine": " --vm-id {63c197db-a0d7-4001-bf21-3e253a053c4c} --handle 2316"
+      },
+      {
+        "ProcessId": 9132,
+        "ParentProcessId": 5880,
+        "Name": "wslhost.exe",
+        "CreationDate": "/Date(1784520425508)/",
+        "ExecutablePath": "C:\\Program Files\\WSL\\wslhost.exe",
+        "CommandLine": " --vm-id {63c197db-a0d7-4001-bf21-3e253a053c4c} --handle 2108"
+      }
+    ],
+    "wsl_research_processes": [],
+    "gpu_research_compute_processes": [],
+    "relevant_worker_active": false,
+    "note": "wslservice/system services and the auditing shell are not research workers"
+  },
+  "storage_before": {
+    "captured_at": "2026-07-20T12:51:54.552664+09:00",
+    "windows_c": {
+      "total_bytes": 999134588928,
+      "used_bytes": 736168349696,
+      "free_bytes": 262966239232
+    },
+    "wsl_root": {
+      "total_bytes": 1081101176832,
+      "used_bytes": 93533679616,
+      "free_bytes": 932575141888,
+      "percent_used": "10%",
+      "mount": "/"
+    },
+    "vhdx": {
+      "distribution": "Ubuntu-22.04",
+      "path": "C:\\Users\\jiheo\\AppData\\Local\\wsl\\{180ce51e-73f9-4a6b-91f0-3a4f1842ad61}\\ext4.vhdx",
+      "physical_size_bytes": 94967431168
+    }
+  },
+  "storage_after": {
+    "captured_at": "2026-07-20T13:07:07.181631+09:00",
+    "windows_c": {
+      "total_bytes": 999134588928,
+      "used_bytes": 686337429504,
+      "free_bytes": 312797159424
+    },
+    "wsl_root": {
+      "total_bytes": 1081101176832,
+      "used_bytes": 61343514624,
+      "free_bytes": 964765306880,
+      "percent_used": "6%",
+      "mount": "/"
+    },
+    "vhdx": {
+      "distribution": "Ubuntu-22.04",
+      "path": "C:\\Users\\jiheo\\AppData\\Local\\wsl\\{180ce51e-73f9-4a6b-91f0-3a4f1842ad61}\\ext4.vhdx",
+      "physical_size_bytes": 94967431168
+    }
+  },
+  "deltas": {
+    "windows_free_bytes": 49830920192,
+    "wsl_internal_free_bytes": 32190164992,
+    "vhdx_physical_bytes": 0
+  },
+  "manifest_target_count": 784,
+  "remaining_manifest_targets": [],
+  "selected_xvla_closure_after": {
+    "model_id": "2toINF/X-VLA-Libero",
+    "revision": "129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "root": "/home/jiheon/assets/checkpoints/xvla_hf_cache",
+    "snapshot": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590",
+    "root_metrics": {
+      "exists": true,
+      "path": "/home/jiheon/assets/checkpoints/xvla_hf_cache",
+      "resolved_path": "/home/jiheon/assets/checkpoints/xvla_hf_cache",
+      "item_type": "directory",
+      "apparent_size_bytes": 3522222830,
+      "allocated_size_bytes": 3522318336,
+      "file_count": 47,
+      "mtime": "2026-07-17T07:54:37+00:00",
+      "hardlink_count_top_level": 7,
+      "top_level_symlink": false,
+      "overlap_window_modified_file_count": 0,
+      "allocated_size_method": "GNU du -sx -B1"
+    },
+    "snapshot_symlink_count": 8,
+    "required_snapshot_links_and_blobs": [
+      {
+        "blob_sha256": "394FDC63C71AABE0A9B97117F5D62FB5FCC4D59B2B3EA929A3929E6A53217B3C",
+        "blob_size_bytes": 1099884,
+        "link": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590/vocab.json",
+        "link_target": "../../blobs/94a2f4fd50e976bda926c700291522ea1a79323f",
+        "resolved_blob": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/94a2f4fd50e976bda926c700291522ea1a79323f"
+      },
+      {
+        "blob_sha256": "79FFCF43AF8EBDA99D165F61D243180DA2E2639952E41E71E11611C18770489C",
+        "blob_size_bytes": 34,
+        "link": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590/tokenizer_config.json",
+        "link_target": "../../blobs/44784bc58d4cb18d3549ad71e062efcf032d9ef5",
+        "resolved_blob": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/44784bc58d4cb18d3549ad71e062efcf032d9ef5"
+      },
+      {
+        "blob_sha256": "0A4E041CB57D07F735844A3D06A89BACE2C9EB2A46EB6DDC2E6FBDAE17504692",
+        "blob_size_bytes": 766,
+        "link": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590/preprocessor_config.json",
+        "link_target": "../../blobs/edfb64565c036ca62ef0a2fb7c8581617be50fd7",
+        "resolved_blob": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/edfb64565c036ca62ef0a2fb7c8581617be50fd7"
+      },
+      {
+        "blob_sha256": "260CC58869125B826E93BCAA60BCA3EA37BCC7AAF893D368A991CA14FDE9F0C8",
+        "blob_size_bytes": 3519068172,
+        "link": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590/model.safetensors",
+        "link_target": "../../blobs/260cc58869125b826e93bcaa60bca3ea37bcc7aaf893d368a991ca14fde9f0c8",
+        "resolved_blob": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/260cc58869125b826e93bcaa60bca3ea37bcc7aaf893d368a991ca14fde9f0c8"
+      },
+      {
+        "blob_sha256": "DE2E45A975B3582DE05D2F4D963A3E9F9A3D20DCCF78D28E0052932A0BE93BDF",
+        "blob_size_bytes": 15119,
+        "link": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590/configuration_florence2.py",
+        "link_target": "../../blobs/b8869617ef8dfd0f04d421cf59b83ca662c363ad",
+        "resolved_blob": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/b8869617ef8dfd0f04d421cf59b83ca662c363ad"
+      },
+      {
+        "blob_sha256": "847BBEAB6174D66A88898F729D52FA8D355FAFE1BEA101CF960DD404581DF70E",
+        "blob_size_bytes": 1355863,
+        "link": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590/tokenizer.json",
+        "link_target": "../../blobs/ad0bcbeb288f0d1373d88e0762e66357f55b8311",
+        "resolved_blob": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/ad0bcbeb288f0d1373d88e0762e66357f55b8311"
+      },
+      {
+        "blob_sha256": "872AC07859E9AEC9E01F72F448F8DF33CE9914D60C5EDB8FE8BE615ABB23133F",
+        "blob_size_bytes": 6261,
+        "link": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590/config.json",
+        "link_target": "../../blobs/bfd4ced79bb712954921a836e2d521c20af24a85",
+        "resolved_blob": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/bfd4ced79bb712954921a836e2d521c20af24a85"
+      },
+      {
+        "blob_sha256": "7B65FEA79C870A5C5C3741A2085DEF160541F4BA7C73DAFBD9369E64620702FE",
+        "blob_size_bytes": 3389,
+        "link": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/snapshots/129e71460678b7236cee6fc9707f09d9fa0c3590/configuration_xvla.py",
+        "link_target": "../../blobs/df9e17da8699826e7739736b4d9c3cd439c1a1ba",
+        "resolved_blob": "/home/jiheon/assets/checkpoints/xvla_hf_cache/transformers/models--2toINF--X-VLA-Libero/blobs/df9e17da8699826e7739736b4d9c3cd439c1a1ba"
+      }
+    ],
+    "all_links_resolve_inside_selected_root": true
+  },
+  "protected_rollouts_exist": {
+    "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_17": true,
+    "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_18": true
+  }
+}

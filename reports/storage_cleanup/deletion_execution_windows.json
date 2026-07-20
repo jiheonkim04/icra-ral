@@ -1,0 +1,1901 @@
+﻿{
+    "schema_version":  "storage_cleanup.windows_execution.v1",
+    "timestamp":  "2026-07-20T13:05:33.5802446+09:00",
+    "execute":  true,
+    "branch":  "codex/epoch6-ral-submission-convergence-v2",
+    "head":  "a621a993234847894c0bb54b05ac091a70729aaa",
+    "target_count":  315,
+    "allocated_size_bytes":  50275757391,
+    "results":  [
+                    {
+                        "target_id":  "windows-0001",
+                        "path":  "C:\\Users\\jiheo\\AppData\\Local\\Temp\\wsl-crashes\\wsl-crash-1784097862-307-_home_jiheon_miniconda3-official_envs_official-smolvla-libero_bin_python3.10-6.dmp",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  20145311744
+                    },
+                    {
+                        "target_id":  "windows-0002",
+                        "path":  "C:\\Users\\jiheo\\AppData\\Local\\Temp\\wsl-crashes\\wsl-crash-1784097610-314-_home_jiheon_miniconda3-official_envs_official-smolvla-libero_bin_python3.10-6.dmp",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  19798007808
+                    },
+                    {
+                        "target_id":  "windows-0005",
+                        "path":  "C:\\Users\\jiheo\\AppData\\Local\\pip\\cache\\http-v2",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  4125038798
+                    },
+                    {
+                        "target_id":  "windows-0008",
+                        "path":  "C:\\Users\\jiheo\\.cache\\huggingface\\hub\\models--HuggingFaceTB--SmolVLM2-500M-Video-Instruct",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  2034845205
+                    },
+                    {
+                        "target_id":  "windows-0009",
+                        "path":  "C:\\assets\\repos\\PCD",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1723045303
+                    },
+                    {
+                        "target_id":  "windows-0010",
+                        "path":  "C:\\assets\\repos\\VLA-Arena",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1393649023
+                    },
+                    {
+                        "target_id":  "windows-0016",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\cache",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  124059671
+                    },
+                    {
+                        "target_id":  "windows-0020",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libmamba-2.3.2-hc213065_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  86766620
+                    },
+                    {
+                        "target_id":  "windows-0026",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\python-3.11.15-hb00fc5c_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  68456680
+                    },
+                    {
+                        "target_id":  "windows-0027",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\python-3.13.12-h39c999c_100_cp313",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  63945433
+                    },
+                    {
+                        "target_id":  "windows-0029",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\python-3.10.20-hb00fc5c_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  57358086
+                    },
+                    {
+                        "target_id":  "windows-0030",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\python-3.10.20-h1044e36_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  57340632
+                    },
+                    {
+                        "target_id":  "windows-0033",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\openssl-3.5.7-hbb43b14_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  48434701
+                    },
+                    {
+                        "target_id":  "windows-0034",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\openssl-3.5.6-hbb43b14_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  48421294
+                    },
+                    {
+                        "target_id":  "windows-0035",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pygments-2.19.2-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  48386735
+                    },
+                    {
+                        "target_id":  "windows-0036",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\openssl-3.5.5-hbb43b14_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  48378617
+                    },
+                    {
+                        "target_id":  "windows-0050",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\yaml-cpp-0.8.0-hd77b12b_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  21050256
+                    },
+                    {
+                        "target_id":  "windows-0053",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\python-3.11.15-hb00fc5c_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  18595571
+                    },
+                    {
+                        "target_id":  "windows-0054",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\python-3.13.12-h39c999c_100_cp313.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  16714237
+                    },
+                    {
+                        "target_id":  "windows-0056",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\python-3.10.20-h1044e36_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  16214600
+                    },
+                    {
+                        "target_id":  "windows-0057",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\python-3.10.20-hb00fc5c_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  16076078
+                    },
+                    {
+                        "target_id":  "windows-0064",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tk-8.6.15-hf199647_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  12520792
+                    },
+                    {
+                        "target_id":  "windows-0067",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libxml2-2.13.9-h6201b9f_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  12002492
+                    },
+                    {
+                        "target_id":  "windows-0073",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pcre2-10.46-h5740b90_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  10336073
+                    },
+                    {
+                        "target_id":  "windows-0075",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\openssl-3.5.7-hbb43b14_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  9374085
+                    },
+                    {
+                        "target_id":  "windows-0076",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\openssl-3.5.6-hbb43b14_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  9344164
+                    },
+                    {
+                        "target_id":  "windows-0077",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\openssl-3.5.5-hbb43b14_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  9306859
+                    },
+                    {
+                        "target_id":  "windows-0078",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pydantic-core-2.41.5-py313h114bc41_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  8969742
+                    },
+                    {
+                        "target_id":  "windows-0083",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libarchive-3.8.2-h6c023e8_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  8136153
+                    },
+                    {
+                        "target_id":  "windows-0085",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\setuptools-80.10.2-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  7772355
+                    },
+                    {
+                        "target_id":  "windows-0086",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\setuptools-82.0.1-py311haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  7713848
+                    },
+                    {
+                        "target_id":  "windows-0089",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\cryptography-46.0.5-py313hbfe00f4_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  7070779
+                    },
+                    {
+                        "target_id":  "windows-0091",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\zstd-1.5.7-h56299aa_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  6385792
+                    },
+                    {
+                        "target_id":  "windows-0094",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\setuptools-82.0.1-py310haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  6104563
+                    },
+                    {
+                        "target_id":  "windows-0095",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pydantic-2.12.4-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  5857873
+                    },
+                    {
+                        "target_id":  "windows-0098",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pip-26.1.2-pyhc872135_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  5775772
+                    },
+                    {
+                        "target_id":  "windows-0099",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pip-26.1.1-pyhc872135_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  5774665
+                    },
+                    {
+                        "target_id":  "windows-0101",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pip-26.0.1-pyhc872135_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  5648621
+                    },
+                    {
+                        "target_id":  "windows-0102",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pip-26.0.1-pyhc872135_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  5648202
+                    },
+                    {
+                        "target_id":  "windows-0103",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\simdjson-3.10.1-h214f63a_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  5511662
+                    },
+                    {
+                        "target_id":  "windows-0106",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-26.1.1-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  5223396
+                    },
+                    {
+                        "target_id":  "windows-0108",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\vc14_runtime-14.44.35208-h4927774_10",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  5029743
+                    },
+                    {
+                        "target_id":  "windows-0110",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pygments-2.19.2-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  4977368
+                    },
+                    {
+                        "target_id":  "windows-0112",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\sqlite-3.53.2-hee5a0db_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  4720398
+                    },
+                    {
+                        "target_id":  "windows-0113",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\vc14_runtime-14.44.35208-h4927774_12",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  4638803
+                    },
+                    {
+                        "target_id":  "windows-0114",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\sqlite-3.51.2-hee5a0db_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  4613418
+                    },
+                    {
+                        "target_id":  "windows-0115",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libmamba-2.3.2-hc213065_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  4596223
+                    },
+                    {
+                        "target_id":  "windows-0116",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\sqlite-3.51.1-hda9a48d_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  4592439
+                    },
+                    {
+                        "target_id":  "windows-0119",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\ucrt-10.0.22621.0-haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  4376532
+                    },
+                    {
+                        "target_id":  "windows-0126",
+                        "path":  "C:\\Users\\jiheo\\AppData\\Local\\pip\\cache\\wheels",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  3702220
+                    },
+                    {
+                        "target_id":  "windows-0127",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tk-8.6.15-hf199647_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  3700492
+                    },
+                    {
+                        "target_id":  "windows-0143",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libkrb5-1.22.1-hb237eb7_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  3109986
+                    },
+                    {
+                        "target_id":  "windows-0151",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\packaging-25.0-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  2678688
+                    },
+                    {
+                        "target_id":  "windows-0152",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\rich-14.2.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  2636771
+                    },
+                    {
+                        "target_id":  "windows-0165",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tomlkit-0.13.3-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  2177982
+                    },
+                    {
+                        "target_id":  "windows-0166",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\yaml-cpp-0.8.0-hd77b12b_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  2166174
+                    },
+                    {
+                        "target_id":  "windows-0169",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\idna-3.11-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  2147674
+                    },
+                    {
+                        "target_id":  "windows-0171",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\boltons-25.0.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  2107026
+                    },
+                    {
+                        "target_id":  "windows-0175",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pydantic-core-2.41.5-py313h114bc41_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1922906
+                    },
+                    {
+                        "target_id":  "windows-0178",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libarchive-3.8.2-h6c023e8_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1860635
+                    },
+                    {
+                        "target_id":  "windows-0183",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libmambapy-2.3.2-py313h364efb6_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1805452
+                    },
+                    {
+                        "target_id":  "windows-0186",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\setuptools-80.10.2-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1778711
+                    },
+                    {
+                        "target_id":  "windows-0191",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\urllib3-2.6.3-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1683320
+                    },
+                    {
+                        "target_id":  "windows-0192",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\setuptools-82.0.1-py311haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1666911
+                    },
+                    {
+                        "target_id":  "windows-0197",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libxml2-2.13.9-h6201b9f_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1531227
+                    },
+                    {
+                        "target_id":  "windows-0199",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\cryptography-46.0.5-py313hbfe00f4_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1482011
+                    },
+                    {
+                        "target_id":  "windows-0203",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\anyio-4.10.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1442923
+                    },
+                    {
+                        "target_id":  "windows-0204",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\menuinst-2.4.2-py313h885b0b7_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1436635
+                    },
+                    {
+                        "target_id":  "windows-0205",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pycparser-2.23-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1428950
+                    },
+                    {
+                        "target_id":  "windows-0206",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libsolv-0.7.30-h23a355e_2",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1426499
+                    },
+                    {
+                        "target_id":  "windows-0210",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\markdown-it-py-4.0.0-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1331509
+                    },
+                    {
+                        "target_id":  "windows-0211",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libiconv-1.18-hc89ec93_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1325666
+                    },
+                    {
+                        "target_id":  "windows-0212",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pcre2-10.46-h5740b90_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1317213
+                    },
+                    {
+                        "target_id":  "windows-0215",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\zlib-1.3.2-h1c6eee0_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1280773
+                    },
+                    {
+                        "target_id":  "windows-0216",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\setuptools-82.0.1-py310haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1275340
+                    },
+                    {
+                        "target_id":  "windows-0217",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-26.1.1-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1275313
+                    },
+                    {
+                        "target_id":  "windows-0220",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\click-8.2.1-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1247506
+                    },
+                    {
+                        "target_id":  "windows-0221",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\ruamel.yaml-0.18.16-py313hb9a58be_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1226863
+                    },
+                    {
+                        "target_id":  "windows-0223",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\httpx-0.28.1-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1217216
+                    },
+                    {
+                        "target_id":  "windows-0228",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pip-26.1.2-pyhc872135_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1198003
+                    },
+                    {
+                        "target_id":  "windows-0229",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pip-26.1.1-pyhc872135_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1195513
+                    },
+                    {
+                        "target_id":  "windows-0231",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pip-26.0.1-pyhc872135_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1181205
+                    },
+                    {
+                        "target_id":  "windows-0232",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pip-26.0.1-pyhc872135_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1178932
+                    },
+                    {
+                        "target_id":  "windows-0234",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\zstandard-0.24.0-py313he335c29_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1151127
+                    },
+                    {
+                        "target_id":  "windows-0239",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pydantic-2.12.4-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1108845
+                    },
+                    {
+                        "target_id":  "windows-0241",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libssh2-1.11.1-h2addb87_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1074151
+                    },
+                    {
+                        "target_id":  "windows-0246",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\cffi-2.0.0-py313h02ab6af_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1032140
+                    },
+                    {
+                        "target_id":  "windows-0247",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libcurl-8.18.0-he215731_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  1031055
+                    },
+                    {
+                        "target_id":  "windows-0249",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\brotlicffi-1.2.0.0-py313h885b0b7_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  969026
+                    },
+                    {
+                        "target_id":  "windows-0250",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\sqlite-3.53.2-hee5a0db_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  967158
+                    },
+                    {
+                        "target_id":  "windows-0251",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\nlohmann_json-3.11.2-h6c2663c_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  963254
+                    },
+                    {
+                        "target_id":  "windows-0253",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\xz-5.8.2-h53af0af_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  954584
+                    },
+                    {
+                        "target_id":  "windows-0255",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\sqlite-3.51.2-hee5a0db_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  938682
+                    },
+                    {
+                        "target_id":  "windows-0256",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\sqlite-3.51.1-hda9a48d_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  938532
+                    },
+                    {
+                        "target_id":  "windows-0259",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\packaging-26.0-py311haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  923146
+                    },
+                    {
+                        "target_id":  "windows-0262",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libffi-3.4.8-h2b21627_2",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  913996
+                    },
+                    {
+                        "target_id":  "windows-0263",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libffi-3.4.8-h42d73b9_3",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  913929
+                    },
+                    {
+                        "target_id":  "windows-0265",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\typer-0.20.0-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  907777
+                    },
+                    {
+                        "target_id":  "windows-0267",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libffi-3.4.4-hd77b12b_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  894526
+                    },
+                    {
+                        "target_id":  "windows-0272",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\zlib-1.3.2-h1c6eee0_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  847370
+                    },
+                    {
+                        "target_id":  "windows-0273",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\vc14_runtime-14.44.35208-h4927774_10.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  845189
+                    },
+                    {
+                        "target_id":  "windows-0276",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\packaging-26.0-py310haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  819982
+                    },
+                    {
+                        "target_id":  "windows-0278",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\more-itertools-10.8.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  802842
+                    },
+                    {
+                        "target_id":  "windows-0279",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\anaconda_prompt-1.1.0-haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  801483
+                    },
+                    {
+                        "target_id":  "windows-0281",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\cpp-expected-1.1.0-h214f63a_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  789302
+                    },
+                    {
+                        "target_id":  "windows-0282",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libexpat-2.8.1-hd7fb8db_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  788630
+                    },
+                    {
+                        "target_id":  "windows-0283",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libexpat-2.8.0-hd7fb8db_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  785803
+                    },
+                    {
+                        "target_id":  "windows-0285",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\fmt-11.2.0-h58b7f6e_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  782021
+                    },
+                    {
+                        "target_id":  "windows-0286",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libexpat-2.7.4-hd7fb8db_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  775936
+                    },
+                    {
+                        "target_id":  "windows-0295",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libbrotlienc-1.2.0-h483e6b9_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  722220
+                    },
+                    {
+                        "target_id":  "windows-0296",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libiconv-1.18-hc89ec93_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  703101
+                    },
+                    {
+                        "target_id":  "windows-0297",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pydantic-settings-2.12.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  701526
+                    },
+                    {
+                        "target_id":  "windows-0300",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libkrb5-1.22.1-hb237eb7_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  688479
+                    },
+                    {
+                        "target_id":  "windows-0303",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\vc14_runtime-14.44.35208-h4927774_12.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  679595
+                    },
+                    {
+                        "target_id":  "windows-0305",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\httpcore-1.0.9-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  672283
+                    },
+                    {
+                        "target_id":  "windows-0307",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tzdata-2026b-he532380_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  670042
+                    },
+                    {
+                        "target_id":  "windows-0308",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tzdata-2026a-he532380_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  669229
+                    },
+                    {
+                        "target_id":  "windows-0309",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tzdata-2025c-he532380_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  668452
+                    },
+                    {
+                        "target_id":  "windows-0313",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\zstd-1.5.7-h56299aa_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  660146
+                    },
+                    {
+                        "target_id":  "windows-0314",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\requests-2.32.5-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  654122
+                    },
+                    {
+                        "target_id":  "windows-0315",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tqdm-4.67.3-py313h4442805_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  647602
+                    },
+                    {
+                        "target_id":  "windows-0318",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\ucrt-10.0.22621.0-haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  634816
+                    },
+                    {
+                        "target_id":  "windows-0323",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\rich-14.2.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  604180
+                    },
+                    {
+                        "target_id":  "windows-0331",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\anaconda_prompt-1.1.0-haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  541784
+                    },
+                    {
+                        "target_id":  "windows-0335",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\boltons-25.0.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  523882
+                    },
+                    {
+                        "target_id":  "windows-0345",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\bzip2-1.0.8-h2bbff1b_6",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  489536
+                    },
+                    {
+                        "target_id":  "windows-0351",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\anaconda-auth-0.13.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  470054
+                    },
+                    {
+                        "target_id":  "windows-0352",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-package-handling-2.4.0-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  465025
+                    },
+                    {
+                        "target_id":  "windows-0353",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\ca-certificates-2026.3.19-haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  464415
+                    },
+                    {
+                        "target_id":  "windows-0355",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\ca-certificates-2025.12.2-haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  462573
+                    },
+                    {
+                        "target_id":  "windows-0357",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libmambapy-2.3.2-py313h364efb6_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  454648
+                    },
+                    {
+                        "target_id":  "windows-0358",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\lz4-c-1.9.4-h2bbff1b_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  444366
+                    },
+                    {
+                        "target_id":  "windows-0359",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libsolv-0.7.30-h23a355e_2.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  444021
+                    },
+                    {
+                        "target_id":  "windows-0362",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pycosat-0.6.6-py313h827c3e9_2",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  431514
+                    },
+                    {
+                        "target_id":  "windows-0369",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\typer-slim-0.20.0-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  419194
+                    },
+                    {
+                        "target_id":  "windows-0372",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\charset-normalizer-3.4.4-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  409110
+                    },
+                    {
+                        "target_id":  "windows-0375",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\ca-certificates-2026.5.14-haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  390994
+                    },
+                    {
+                        "target_id":  "windows-0376",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\zlib-1.3.1-h02ab6af_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  389473
+                    },
+                    {
+                        "target_id":  "windows-0377",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libcurl-8.18.0-he215731_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  388870
+                    },
+                    {
+                        "target_id":  "windows-0378",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\zlib-1.3.1-h1c6eee0_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  383574
+                    },
+                    {
+                        "target_id":  "windows-0380",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\typing_extensions-4.15.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  380039
+                    },
+                    {
+                        "target_id":  "windows-0388",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\urllib3-2.6.3-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  358116
+                    },
+                    {
+                        "target_id":  "windows-0389",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pyjwt-2.10.1-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  357089
+                    },
+                    {
+                        "target_id":  "windows-0391",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\brotlicffi-1.2.0.0-py313h885b0b7_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  355904
+                    },
+                    {
+                        "target_id":  "windows-0395",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\zstandard-0.24.0-py313he335c29_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  337202
+                    },
+                    {
+                        "target_id":  "windows-0398",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\keyring-25.7.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  332507
+                    },
+                    {
+                        "target_id":  "windows-0401",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\click-8.2.1-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  328826
+                    },
+                    {
+                        "target_id":  "windows-0404",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\msgpack-python-1.1.1-py313h5da7b33_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  320154
+                    },
+                    {
+                        "target_id":  "windows-0405",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libssh2-1.11.1-h2addb87_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  319541
+                    },
+                    {
+                        "target_id":  "windows-0409",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\anaconda_powershell_prompt-1.1.0-haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  312165
+                    },
+                    {
+                        "target_id":  "windows-0412",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-package-handling-2.4.0-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  309759
+                    },
+                    {
+                        "target_id":  "windows-0419",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\certifi-2026.01.04-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  302870
+                    },
+                    {
+                        "target_id":  "windows-0420",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\anyio-4.10.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  300076
+                    },
+                    {
+                        "target_id":  "windows-0421",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\cffi-2.0.0-py313h02ab6af_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  299121
+                    },
+                    {
+                        "target_id":  "windows-0425",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\wheel-0.47.0-py311haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  294781
+                    },
+                    {
+                        "target_id":  "windows-0426",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\archspec-0.2.5-pyhd3eb1b0_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  293557
+                    },
+                    {
+                        "target_id":  "windows-0432",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-content-trust-0.2.0-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  288050
+                    },
+                    {
+                        "target_id":  "windows-0436",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\simdjson-3.10.1-h214f63a_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  281697
+                    },
+                    {
+                        "target_id":  "windows-0437",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\ruamel.yaml.clib-0.2.14-py313hb9a58be_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  279270
+                    },
+                    {
+                        "target_id":  "windows-0440",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\ruamel.yaml-0.18.16-py313hb9a58be_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  271852
+                    },
+                    {
+                        "target_id":  "windows-0441",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\xz-5.8.2-h53af0af_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  271653
+                    },
+                    {
+                        "target_id":  "windows-0442",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\anaconda-cli-base-0.8.1-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  270711
+                    },
+                    {
+                        "target_id":  "windows-0448",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\wheel-0.46.3-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  269041
+                    },
+                    {
+                        "target_id":  "windows-0449",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\markdown-it-py-4.0.0-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  268521
+                    },
+                    {
+                        "target_id":  "windows-0450",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pycparser-2.23-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  268174
+                    },
+                    {
+                        "target_id":  "windows-0454",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\jsonpatch-1.33-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  261463
+                    },
+                    {
+                        "target_id":  "windows-0455",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libbrotlienc-1.2.0-h483e6b9_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  259203
+                    },
+                    {
+                        "target_id":  "windows-0461",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\menuinst-2.4.2-py313h885b0b7_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  253213
+                    },
+                    {
+                        "target_id":  "windows-0464",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\httpx-0.28.1-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  242095
+                    },
+                    {
+                        "target_id":  "windows-0466",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\wheel-0.47.0-py310haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  238828
+                    },
+                    {
+                        "target_id":  "windows-0471",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\python-dotenv-1.2.1-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  234787
+                    },
+                    {
+                        "target_id":  "windows-0472",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libmpdec-4.0.0-h827c3e9_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  234108
+                    },
+                    {
+                        "target_id":  "windows-0474",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libbrotlicommon-1.2.0-h907acca_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  230727
+                    },
+                    {
+                        "target_id":  "windows-0475",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libzlib-1.3.1-h02ab6af_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  230609
+                    },
+                    {
+                        "target_id":  "windows-0477",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\wheel-0.46.3-py310haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  229036
+                    },
+                    {
+                        "target_id":  "windows-0478",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\semver-3.0.4-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  226773
+                    },
+                    {
+                        "target_id":  "windows-0480",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libzlib-1.3.2-h1c6eee0_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  224949
+                    },
+                    {
+                        "target_id":  "windows-0481",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-libmamba-solver-25.11.0-pyhdf14ebd_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  222235
+                    },
+                    {
+                        "target_id":  "windows-0482",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libzlib-1.3.1-h1c6eee0_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  222150
+                    },
+                    {
+                        "target_id":  "windows-0485",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tomli-2.4.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  220063
+                    },
+                    {
+                        "target_id":  "windows-0486",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\platformdirs-4.5.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  214591
+                    },
+                    {
+                        "target_id":  "windows-0491",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pywin32-ctypes-0.2.3-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  210539
+                    },
+                    {
+                        "target_id":  "windows-0492",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\fmt-11.2.0-h58b7f6e_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  209011
+                    },
+                    {
+                        "target_id":  "windows-0494",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\distro-1.9.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  208678
+                    },
+                    {
+                        "target_id":  "windows-0495",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\h11-0.16.0-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  206440
+                    },
+                    {
+                        "target_id":  "windows-0500",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\idna-3.11-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  203986
+                    },
+                    {
+                        "target_id":  "windows-0501",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\packaging-26.0-py311haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  202121
+                    },
+                    {
+                        "target_id":  "windows-0502",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\colorama-0.4.6-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  200991
+                    },
+                    {
+                        "target_id":  "windows-0507",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\packaging-25.0-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  194481
+                    },
+                    {
+                        "target_id":  "windows-0510",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tomlkit-0.13.3-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  189958
+                    },
+                    {
+                        "target_id":  "windows-0513",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tqdm-4.67.3-py313h4442805_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  185961
+                    },
+                    {
+                        "target_id":  "windows-0516",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\typer-0.20.0-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  182475
+                    },
+                    {
+                        "target_id":  "windows-0518",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\anaconda_powershell_prompt-1.1.0-haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  173115
+                    },
+                    {
+                        "target_id":  "windows-0520",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-anaconda-tos-0.2.2-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  171833
+                    },
+                    {
+                        "target_id":  "windows-0521",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\requests-2.32.5-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  171691
+                    },
+                    {
+                        "target_id":  "windows-0522",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\packaging-26.0-py310haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  169547
+                    },
+                    {
+                        "target_id":  "windows-0523",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\more-itertools-10.8.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  169455
+                    },
+                    {
+                        "target_id":  "windows-0525",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\truststore-0.10.1-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  166482
+                    },
+                    {
+                        "target_id":  "windows-0526",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\frozendict-2.4.6-py313h02ab6af_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  165213
+                    },
+                    {
+                        "target_id":  "windows-0531",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pluggy-1.5.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  163622
+                    },
+                    {
+                        "target_id":  "windows-0533",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\lz4-c-1.9.4-h2bbff1b_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  155711
+                    },
+                    {
+                        "target_id":  "windows-0537",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\certifi-2026.01.04-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  151549
+                    },
+                    {
+                        "target_id":  "windows-0538",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pydantic-settings-2.12.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  150711
+                    },
+                    {
+                        "target_id":  "windows-0539",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\anaconda-auth-0.13.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  147880
+                    },
+                    {
+                        "target_id":  "windows-0552",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\cpp-expected-1.1.0-h214f63a_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  133944
+                    },
+                    {
+                        "target_id":  "windows-0557",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\httpcore-1.0.9-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  131010
+                    },
+                    {
+                        "target_id":  "windows-0558",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\ca-certificates-2026.3.19-haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  128933
+                    },
+                    {
+                        "target_id":  "windows-0559",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\nlohmann_json-3.11.2-h6c2663c_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  128841
+                    },
+                    {
+                        "target_id":  "windows-0560",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\ca-certificates-2025.12.2-haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  128415
+                    },
+                    {
+                        "target_id":  "windows-0561",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\typing-inspection-0.4.2-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  126197
+                    },
+                    {
+                        "target_id":  "windows-0562",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libexpat-2.8.1-hd7fb8db_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  126188
+                    },
+                    {
+                        "target_id":  "windows-0563",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libexpat-2.8.0-hd7fb8db_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  125078
+                    },
+                    {
+                        "target_id":  "windows-0564",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\charset-normalizer-3.4.4-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  124770
+                    },
+                    {
+                        "target_id":  "windows-0565",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libffi-3.4.4-hd77b12b_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  124747
+                    },
+                    {
+                        "target_id":  "windows-0566",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libexpat-2.7.4-hd7fb8db_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  123910
+                    },
+                    {
+                        "target_id":  "windows-0567",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\jsonpointer-3.0.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  123607
+                    },
+                    {
+                        "target_id":  "windows-0573",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tzdata-2025c-he532380_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  121242
+                    },
+                    {
+                        "target_id":  "windows-0574",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libffi-3.4.8-h42d73b9_3.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  120818
+                    },
+                    {
+                        "target_id":  "windows-0575",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tzdata-2026b-he532380_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  120718
+                    },
+                    {
+                        "target_id":  "windows-0576",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libffi-3.4.8-h2b21627_2.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  120596
+                    },
+                    {
+                        "target_id":  "windows-0577",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tzdata-2026a-he532380_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  120000
+                    },
+                    {
+                        "target_id":  "windows-0578",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-package-streaming-0.12.0-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  119630
+                    },
+                    {
+                        "target_id":  "windows-0579",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\zlib-1.3.1-h02ab6af_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  115567
+                    },
+                    {
+                        "target_id":  "windows-0580",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\msgpack-python-1.1.1-py313h5da7b33_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  114961
+                    },
+                    {
+                        "target_id":  "windows-0584",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\typer-slim-0.20.0-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  112460
+                    },
+                    {
+                        "target_id":  "windows-0586",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\ca-certificates-2026.5.14-haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  110063
+                    },
+                    {
+                        "target_id":  "windows-0587",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\ruamel.yaml.clib-0.2.14-py313hb9a58be_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  108685
+                    },
+                    {
+                        "target_id":  "windows-0588",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\keyring-25.7.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  108233
+                    },
+                    {
+                        "target_id":  "windows-0589",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pysocks-1.7.1-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  107773
+                    },
+                    {
+                        "target_id":  "windows-0591",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\zlib-1.3.1-h1c6eee0_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  106377
+                    },
+                    {
+                        "target_id":  "windows-0592",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\reproc-14.2.4-hd77b12b_2",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  104110
+                    },
+                    {
+                        "target_id":  "windows-0593",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\typing_extensions-4.15.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  103139
+                    },
+                    {
+                        "target_id":  "windows-0596",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\wheel-0.47.0-py311haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  101615
+                    },
+                    {
+                        "target_id":  "windows-0600",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libmpdec-4.0.0-h827c3e9_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  96993
+                    },
+                    {
+                        "target_id":  "windows-0601",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\reproc-cpp-14.2.4-hd77b12b_2",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  96009
+                    },
+                    {
+                        "target_id":  "windows-0602",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\wheel-0.46.3-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  95652
+                    },
+                    {
+                        "target_id":  "windows-0609",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libbrotlidec-1.2.0-h02c67a5_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  93602
+                    },
+                    {
+                        "target_id":  "windows-0610",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pycosat-0.6.6-py313h827c3e9_2.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  92654
+                    },
+                    {
+                        "target_id":  "windows-0611",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\bzip2-1.0.8-h2bbff1b_6.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  91870
+                    },
+                    {
+                        "target_id":  "windows-0614",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pyjwt-2.10.1-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  88234
+                    },
+                    {
+                        "target_id":  "windows-0615",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libbrotlicommon-1.2.0-h907acca_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  87952
+                    },
+                    {
+                        "target_id":  "windows-0616",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-content-trust-0.2.0-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  87369
+                    },
+                    {
+                        "target_id":  "windows-0617",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\anaconda-cli-base-0.8.1-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  86397
+                    },
+                    {
+                        "target_id":  "windows-0621",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\annotated-types-0.6.0-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  85617
+                    },
+                    {
+                        "target_id":  "windows-0622",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\mdurl-0.1.2-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  85022
+                    },
+                    {
+                        "target_id":  "windows-0623",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\wheel-0.47.0-py310haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  82575
+                    },
+                    {
+                        "target_id":  "windows-0624",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\tomli-2.4.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  82570
+                    },
+                    {
+                        "target_id":  "windows-0628",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\wheel-0.46.3-py310haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  79861
+                    },
+                    {
+                        "target_id":  "windows-0631",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\python-dotenv-1.2.1-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  76112
+                    },
+                    {
+                        "target_id":  "windows-0632",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\jaraco.functools-4.4.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  75664
+                    },
+                    {
+                        "target_id":  "windows-0635",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\semver-3.0.4-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  70112
+                    },
+                    {
+                        "target_id":  "windows-0639",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libzlib-1.3.1-h02ab6af_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  65950
+                    },
+                    {
+                        "target_id":  "windows-0643",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\jaraco.classes-3.4.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  65139
+                    },
+                    {
+                        "target_id":  "windows-0644",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libzlib-1.3.2-h1c6eee0_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  64908
+                    },
+                    {
+                        "target_id":  "windows-0645",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\h11-0.16.0-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  64663
+                    },
+                    {
+                        "target_id":  "windows-0646",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libzlib-1.3.1-h1c6eee0_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  63482
+                    },
+                    {
+                        "target_id":  "windows-0647",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\distro-1.9.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  63476
+                    },
+                    {
+                        "target_id":  "windows-0648",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\jsonpatch-1.33-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  61903
+                    },
+                    {
+                        "target_id":  "windows-0649",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\sniffio-1.3.1-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  61538
+                    },
+                    {
+                        "target_id":  "windows-0654",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\vc-14.3-h2df5915_10",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  60642
+                    },
+                    {
+                        "target_id":  "windows-0655",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\vs2015_runtime-14.44.35208-ha6b5a95_10",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  60190
+                    },
+                    {
+                        "target_id":  "windows-0656",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\shellingham-1.5.4-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  59749
+                    },
+                    {
+                        "target_id":  "windows-0657",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\readchar-4.2.1-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  58529
+                    },
+                    {
+                        "target_id":  "windows-0658",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\anaconda-anon-usage-0.7.5-pyhb46e38b_100",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  57634
+                    },
+                    {
+                        "target_id":  "windows-0661",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pywin32-ctypes-0.2.3-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  55951
+                    },
+                    {
+                        "target_id":  "windows-0662",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\vc-14.3-h2df5915_12",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  55244
+                    },
+                    {
+                        "target_id":  "windows-0663",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-libmamba-solver-25.11.0-pyhdf14ebd_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  55219
+                    },
+                    {
+                        "target_id":  "windows-0664",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\colorama-0.4.6-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  55002
+                    },
+                    {
+                        "target_id":  "windows-0665",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\vs2015_runtime-14.44.35208-ha6b5a95_12",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  54792
+                    },
+                    {
+                        "target_id":  "windows-0667",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-anaconda-tos-0.2.2-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  50752
+                    },
+                    {
+                        "target_id":  "windows-0668",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\truststore-0.10.1-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  49487
+                    },
+                    {
+                        "target_id":  "windows-0669",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pluggy-1.5.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  49337
+                    },
+                    {
+                        "target_id":  "windows-0670",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\archspec-0.2.5-pyhd3eb1b0_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  49261
+                    },
+                    {
+                        "target_id":  "windows-0673",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\jsonpointer-3.0.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  47321
+                    },
+                    {
+                        "target_id":  "windows-0674",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\jaraco.context-6.1.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  45936
+                    },
+                    {
+                        "target_id":  "windows-0675",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pybind11-abi-5-hd3eb1b0_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  45843
+                    },
+                    {
+                        "target_id":  "windows-0680",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\platformdirs-4.5.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  42686
+                    },
+                    {
+                        "target_id":  "windows-0681",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\reproc-14.2.4-hd77b12b_2.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  41178
+                    },
+                    {
+                        "target_id":  "windows-0687",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-anaconda-telemetry-0.3.0-pyhd3eb1b0_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  40824
+                    },
+                    {
+                        "target_id":  "windows-0688",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\libbrotlidec-1.2.0-h02c67a5_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  40440
+                    },
+                    {
+                        "target_id":  "windows-0689",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\frozendict-2.4.6-py313h02ab6af_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  39675
+                    },
+                    {
+                        "target_id":  "windows-0690",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-package-streaming-0.12.0-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  38102
+                    },
+                    {
+                        "target_id":  "windows-0700",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\typing-extensions-4.15.0-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  36114
+                    },
+                    {
+                        "target_id":  "windows-0701",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pysocks-1.7.1-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  35859
+                    },
+                    {
+                        "target_id":  "windows-0702",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\reproc-cpp-14.2.4-hd77b12b_2.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  35033
+                    },
+                    {
+                        "target_id":  "windows-0710",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\typing-inspection-0.4.2-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  32527
+                    },
+                    {
+                        "target_id":  "windows-0725",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pkce-1.0.3-py313haa95532_0",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  27112
+                    },
+                    {
+                        "target_id":  "windows-0726",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\mdurl-0.1.2-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  26954
+                    },
+                    {
+                        "target_id":  "windows-0727",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\win_inet_pton-1.1.0-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  26324
+                    },
+                    {
+                        "target_id":  "windows-0728",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\annotated-types-0.6.0-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  26185
+                    },
+                    {
+                        "target_id":  "windows-0733",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\jaraco.functools-4.4.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  24310
+                    },
+                    {
+                        "target_id":  "windows-0734",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\shellingham-1.5.4-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  23375
+                    },
+                    {
+                        "target_id":  "windows-0735",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\jaraco.classes-3.4.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  21078
+                    },
+                    {
+                        "target_id":  "windows-0744",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\readchar-4.2.1-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  20322
+                    },
+                    {
+                        "target_id":  "windows-0745",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\anaconda-anon-usage-0.7.5-pyhb46e38b_100.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  19548
+                    },
+                    {
+                        "target_id":  "windows-0746",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\vs2015_runtime-14.44.35208-ha6b5a95_10.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  19526
+                    },
+                    {
+                        "target_id":  "windows-0747",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\vc-14.3-h2df5915_10.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  19506
+                    },
+                    {
+                        "target_id":  "windows-0748",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\typer-slim-standard-0.20.0-py313haa95532_1",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  19459
+                    },
+                    {
+                        "target_id":  "windows-0749",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\sniffio-1.3.1-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  17469
+                    },
+                    {
+                        "target_id":  "windows-0750",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\jaraco.context-6.1.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  16899
+                    },
+                    {
+                        "target_id":  "windows-0751",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\vs2015_runtime-14.44.35208-ha6b5a95_12.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  16841
+                    },
+                    {
+                        "target_id":  "windows-0752",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\vc-14.3-h2df5915_12.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  16822
+                    },
+                    {
+                        "target_id":  "windows-0757",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pybind11-abi-5-hd3eb1b0_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  14215
+                    },
+                    {
+                        "target_id":  "windows-0758",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\python_abi-3.13-3_cp313",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  14131
+                    },
+                    {
+                        "target_id":  "windows-0759",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\conda-anaconda-telemetry-0.3.0-pyhd3eb1b0_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  13808
+                    },
+                    {
+                        "target_id":  "windows-0760",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\urls",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  13631
+                    },
+                    {
+                        "target_id":  "windows-0761",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\typing-extensions-4.15.0-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  12368
+                    },
+                    {
+                        "target_id":  "windows-0767",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\urls.txt",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  12215
+                    },
+                    {
+                        "target_id":  "windows-0768",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\win_inet_pton-1.1.0-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  10272
+                    },
+                    {
+                        "target_id":  "windows-0769",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\pkce-1.0.3-py313haa95532_0.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  10112
+                    },
+                    {
+                        "target_id":  "windows-0772",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\typer-slim-standard-0.20.0-py313haa95532_1.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  7252
+                    },
+                    {
+                        "target_id":  "windows-0773",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\python_abi-3.13-3_cp313.conda",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  6092
+                    },
+                    {
+                        "target_id":  "windows-0781",
+                        "path":  "C:\\Users\\jiheo\\AppData\\Local\\pip\\cache\\selfcheck",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  620
+                    },
+                    {
+                        "target_id":  "windows-0782",
+                        "path":  "C:\\Users\\jiheo\\miniconda3\\pkgs\\post_install.bat",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  250
+                    },
+                    {
+                        "target_id":  "windows-0783",
+                        "path":  "C:\\Users\\jiheo\\.cache\\huggingface\\hub\\.locks\\models--HuggingFaceTB--SmolVLM2-500M-Video-Instruct",
+                        "status":  "DELETED",
+                        "allocated_size_bytes":  0
+                    }
+                ]
+}
