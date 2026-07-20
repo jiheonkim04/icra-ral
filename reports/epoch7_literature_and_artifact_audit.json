@@ -1,7 +1,7 @@
 {
-  "schema_version": "epoch7_literature_artifact_audit_v3",
+  "schema_version": "epoch7_literature_artifact_audit_v4",
   "audit_date": "2026-07-20",
-  "status": "ROTATION2_PRIMARY_NO_LEGAL_HEADROOM_FALLBACK_AUDIT_ACTIVE",
+  "status": "ROTATION2_EXHAUSTED_FRESH_PORTFOLIO_ROTATION_REQUIRED",
   "cycle1": {
     "problem": "meaning_preserving_instruction_robustness_with_intent_selectivity",
     "published_xvla_goal_success_percent": 97.8,
@@ -155,9 +155,11 @@
   },
   "selected_fallback": {
     "thesis_id": "policy_rng_reliability",
-    "status": "ACTIVE_FOR_FOCUSED_OVERLAP_AND_PAPERABILITY_AUDIT_ONLY",
+    "status": "CLOSED_TOO_OVERLAPPING_OR_TRIVIAL",
     "closest_prior": "SDN and distributional robot-policy evaluation",
-    "cheapest_falsifier": "three tasks x three resets x five policy-seed schedules with all simulator inputs fixed"
+    "cheapest_falsifier": "not run because paperability failed before outcomes",
+    "closure_path": "reports/epoch7_policy_rng_reliability/overlap_adjudication.json",
+    "rollouts_run": 0
   },
-  "next_gate": "AUDIT_POLICY_RNG_RELIABILITY_AGAINST_SDN_AND_ARCHIVED_STOCHASTIC_ROUTES"
+  "next_gate": "FRESH_METHOD_BENCHMARK_SYSTEMS_PORTFOLIO_ROTATION"
 }

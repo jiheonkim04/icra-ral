@@ -116,8 +116,8 @@ The remaining distinction is not “add paraphrases,” “make actions consiste
 
 ## Audit conclusion
 
-`ROTATION2_PRIMARY_NO_LEGAL_HEADROOM_FALLBACK_AUDIT_ACTIVE`.
+`ROTATION2_EXHAUSTED_FRESH_PORTFOLIO_ROTATION_REQUIRED`.
 
 The language method space is saturated and the selected real-action mechanism failed, so no weaker language rescue is authorized. The latent-dynamics benchmark also closed before any policy rollout: its outcome-free simulator preflight passed all four tasks, but its frozen standard-only demonstration oracle established altered-condition success for only drawer opening and bowl placement. That is two tasks across two collapsed families, below the prespecified requirement of three tasks spanning all three families. The decision is `NO_LEGAL_HEADROOM`; it does not claim the failed altered tasks are impossible.
 
-The prespecified policy-RNG reliability fallback is now active only for a focused audit against SDN and the archived stochastic schedule/uncertainty routes. No empirical fallback result is authorized until that boundary survives and a new contract is frozen.
+The prespecified policy-RNG reliability fallback also closed before outcomes. Its direct policy-seed factor is only one material change from the unresolved Epoch 6 schedule-invariant stochastic VLA thesis, which already established action-level schedule dependence. Reset-versus-policy variance decomposition is standard reporting, and a candidate-selection method collides with SDN. Candidate H is therefore `TOO_OVERLAPPING_OR_TRIVIAL` with zero rollouts. Rotation 2 is exhausted and a fresh method/benchmark/systems portfolio is required.

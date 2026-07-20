@@ -1,0 +1,70 @@
+{
+  "schema_version": "epoch7.policy_rng_reliability.overlap_adjudication.v1",
+  "adjudicated_at": "2026-07-20T16:42:00+09:00",
+  "thesis_id": "policy_rng_reliability",
+  "decision": "TOO_OVERLAPPING_OR_TRIVIAL",
+  "stage": "PAPERABILITY_AND_CLOSEST_OVERLAP_AUDIT",
+  "empirical_execution_authorized": false,
+  "policy_loaded_or_queried": false,
+  "rollouts_run": 0,
+  "closest_local_route": {
+    "id": "epoch6_schedule_invariant_stochastic_vla_evaluation",
+    "paperability_contract": "reports/epoch6_schedule_invariant_evaluation/paperability_contract.md",
+    "problem_protocol": "reports/epoch6_schedule_invariant_evaluation/problem_verification_protocol.json",
+    "stage0_result": "reports/epoch6_schedule_invariant_evaluation/stage0_result.json",
+    "stage0_decision": "ACTION_LEVEL_SCHEDULE_DEPENDENCE_GO",
+    "closed_loop_status": "INFRASTRUCTURE_OR_RESOURCE_BLOCKED",
+    "scientific_status": "closed-loop materiality unresolved, not scientifically negative"
+  },
+  "overlap_analysis": {
+    "shared_problem": "stochastic VLA action samples assigned under a fixed episode/reset manifest can alter trajectories and evaluation conclusions",
+    "shared_intervention": "control or reassign diffusion/flow noise by a logged model-query identity while holding policy inputs fixed",
+    "shared_endpoints": [
+      "action-trace disagreement",
+      "official closed-loop success disagreement",
+      "evaluation reliability and reproducibility"
+    ],
+    "candidate_h_only_residual": "factorial separation of policy-noise variance from reset variance",
+    "residual_assessment": "standard statistical reporting rather than a new robotics method or benchmark contribution"
+  },
+  "closest_primary_work": [
+    {
+      "title": "Self-Improving VLA Policies: Selected Diffusion Noise for Spurious-Robust Action Smoothing",
+      "arxiv": "2606.14084",
+      "relevance": "treats initial action-generation noise as a controllable variable, samples 12 noise candidates per inference step, and selects candidates for grounding and smoothness with closed-loop success gains"
+    },
+    {
+      "title": "PhAIL: A Real-Robot VLA Benchmark and Distributional Methodology",
+      "arxiv": "2605.29710",
+      "relevance": "makes rollout outcome distributions and confidence-aware comparison the evaluation primitive"
+    },
+    {
+      "title": "Beyond Binary Success: Sample-Efficient and Statistically Rigorous Robot Policy Comparison",
+      "arxiv": "2603.13616",
+      "relevance": "provides general finite-sample sequential comparison for binary and trajectory-level metrics"
+    }
+  ],
+  "reconsideration_test": {
+    "minimum_material_changes_required": 2,
+    "material_changes_found": 1,
+    "change_found": "schedule-induced sample reassignment becomes direct seed-factor variance decomposition",
+    "unchanged_dimensions": [
+      "policy-randomness problem axis",
+      "ordinary RGB/proprioception/language inputs",
+      "noise-seed intervention",
+      "LIBERO closed-loop benchmark",
+      "X-VLA discovery Base",
+      "success and trajectory endpoints",
+      "evaluation/reproducibility archetype"
+    ],
+    "pass": false
+  },
+  "prohibited_rescues": [
+    "serial policy-seed sweep presented as a fresh replacement for the frozen four-shard Epoch 6 intervention",
+    "generic reset-versus-policy variance table presented as the primary contribution",
+    "renamed episode-addressed or call-addressed RNG contract",
+    "seed or action-candidate selection without direct SDN comparison and a new independently verified problem",
+    "post-outcome best-seed selection"
+  ],
+  "next_action": "FRESH_PORTFOLIO_ROTATION_REQUIRED"
+}

@@ -329,6 +329,23 @@
         "post-hoc deletion of the planar-push family or relaxation of family coverage",
         "recasting the failed benchmark gate as a latent-dynamics adaptation method"
       ]
+    },
+    {
+      "id": "epoch7_policy_rng_reliability",
+      "decision": "TOO_OVERLAPPING_OR_TRIVIAL",
+      "stage": "paperability_and_closest_overlap_audit",
+      "scope": "direct policy-seed reliability and reset-versus-policy variance decomposition on X-VLA/LIBERO",
+      "policy_loaded_or_queried": false,
+      "scientific_policy_efficacy_adjudicated": false,
+      "closest_local_route": "epoch6_schedule_invariant_stochastic_vla_evaluation",
+      "material_changes_from_closest_route": 1,
+      "prohibited_rescues": [
+        "serial policy-seed sweep as a replacement for the frozen four-shard schedule intervention",
+        "generic reset-versus-policy variance decomposition as the paper contribution",
+        "renamed episode-addressed or call-addressed randomness",
+        "SDN-like seed or candidate selection without a new independently verified problem",
+        "post-outcome best-seed selection"
+      ]
     }
   ],
   "reconsideration_contract": {

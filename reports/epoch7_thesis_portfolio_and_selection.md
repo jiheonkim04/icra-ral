@@ -69,7 +69,7 @@ Assessment: `BLOCKED`.
 
 ## Candidate H — policy-RNG reliability as a closed-loop evaluation primitive
 
-Assessment: `PLAUSIBLE`; selected fallback, but only after Candidate F closes or reaches a terminal decision.
+Assessment: `CLOSED_TOO_OVERLAPPING_OR_TRIVIAL`; the prespecified fallback failed its paperability audit before outcomes.
 
 - One-sentence thesis: stochastic action-generation seed is an unreported deployment variable whose closed-loop outcome distribution should be measured and controlled separately from environment-reset variability.
 - Robotics problem and importance: identical scenes and commands can yield different diffusion/flow action samples, making a single reported rollout seed an unreliable estimate of a stochastic robot policy.
@@ -92,6 +92,8 @@ Assessment: `PLAUSIBLE`; selected fallback, but only after Candidate F closes or
 - Required main table: variance decomposition by reset RNG and policy RNG, distributional success intervals, tail risk, trajectory dispersion, cross-backbone replication, and a direct SDN-aligned control.
 - Contribution if successful: a paired protocol showing when policy sampling noise, rather than environment variability, dominates closed-loop robot reliability.
 
+Closure: Candidate H changes the archived Epoch 6 schedule-induced noise reassignment into a direct policy-seed factor, but retains the same stochastic-policy problem axis, X-VLA/LIBERO stack, noise intervention, trajectory/success endpoints, and evaluation archetype. Epoch 6 already established action-level schedule dependence and remains scientifically unresolved at closed loop. A reset-versus-policy variance decomposition is a standard analysis rather than a second material scientific change, while any candidate selector collides directly with SDN. The decision is `TOO_OVERLAPPING_OR_TRIVIAL`; no policy was loaded and no rollout was run.
+
 ## Candidate I — serial low-memory VLA evaluation runtime
 
 Assessment: `WEAK`; infrastructure only.
@@ -110,8 +112,8 @@ Assessment: `WEAK`; infrastructure only.
 ## Selection and execution order
 
 - Closed primary: Candidate F, thesis id `latent_dynamics_attribution`, decision `NO_LEGAL_HEADROOM` before any policy rollout.
-- Active fallback: Candidate H, thesis id `policy_rng_reliability`, clearly different stochastic-evaluation question. It is authorized for a focused closest-overlap and archived-route audit, followed by a frozen paperability contract only if that audit survives.
+- Closed fallback: Candidate H, thesis id `policy_rng_reliability`, decision `TOO_OVERLAPPING_OR_TRIVIAL` at the paperability audit with zero rollouts.
 - Candidates G and I are not empirically authorized.
 - No Ours design or training is authorized in Cycle 2.
 
-Candidate F rotated because exact-init expert replay did not establish legal headroom across all three required families. Candidate H now receives only its paperability/overlap audit; empirical execution remains unauthorized until its own claim, prior boundary, controls, and kill conditions are frozen.
+Candidate F rotated because exact-init expert replay did not establish legal headroom across all three required families. Candidate H then closed because it supplied fewer than two material changes relative to the unresolved Epoch 6 stochastic-schedule route and collided with SDN at the method boundary. A fresh portfolio rotation is required; Candidates G and I remain blocked/weak and are not promoted.
