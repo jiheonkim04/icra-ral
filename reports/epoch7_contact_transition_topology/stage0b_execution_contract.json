@@ -1,0 +1,119 @@
+{
+  "schema_version": "epoch7.contact_topology.stage0b_execution_contract.v1",
+  "frozen_at": "2026-07-20T17:18:00+09:00",
+  "execution_type": "DISCOVERY_PREMETHOD_PREDICTABILITY_AND_ACTION_HEADROOM",
+  "scientific_protocol": {
+    "path": "reports/epoch6_contact_transition_topology/problem_verification_protocol.json",
+    "sha256": "7FA28AAEEAC9886F36DD5CCD059CA7AC4CD65B21FABFBBCA4AFFA53B0A256240",
+    "status": "UNCHANGED_AND_BINDING"
+  },
+  "stage0a_authorization": {
+    "decision": "CONTACT_TOPOLOGY_LABEL_GATE_GO",
+    "source_result_sha256": "3D18F9D7C6FA2E6311E4667853D1247FFC515B1BCD3325671A46BB0994160E06"
+  },
+  "root_seed": 620260721,
+  "seeds": [
+    620260721,
+    620260722,
+    620260723
+  ],
+  "row_alignment": {
+    "eligible_t": "For each demo, integer t from 3 through T-1 inclusive.",
+    "label": "The ten-dimensional debounced typed birth/death vector at state t; any-transition is its logical OR.",
+    "visual_target": "Predict the exact state-t labels.",
+    "arm_target": "actions[t-1,0:6].",
+    "robot_state": "Concatenate obs/ee_pos, obs/ee_ori, obs/gripper_states, and obs/joint_states at t-1.",
+    "action_history": "Concatenate actions[t-2,:] and actions[t-3,:].",
+    "time": "t divided by T-1.",
+    "oracle_boundary_subset": "Retain row t iff any exact typed transition occurs at an index in [t-2,t+2] within the same demo.",
+    "oracle_contact_features": "Use only the exact-t logical-OR and exact-t ten-dimensional typed vector, never a future/window aggregate."
+  },
+  "data_access": {
+    "allowed": [
+      "actions",
+      "obs/agentview_rgb",
+      "obs/eye_in_hand_rgb",
+      "obs/ee_pos",
+      "obs/ee_ori",
+      "obs/gripper_states",
+      "obs/joint_states",
+      "Stage 0A typed_transitions and alignment arrays"
+    ],
+    "forbidden": [
+      "rewards",
+      "dones",
+      "success checks",
+      "simulator stepping",
+      "policy inference"
+    ]
+  },
+  "visual_probe": {
+    "image_tensor": "Concatenate agent[t-1], agent[t], wrist[t-1], and wrist[t] as twelve channels after 64x64 area resize; scale uint8 to [-1,1]; no augmentation.",
+    "nonvisual_tensor": "Robot state, two-action history, and normalized time, standardized using development_train statistics only.",
+    "visual_architecture": [
+      "Conv2d(12,16,3,stride=2,padding=1), GroupNorm(4,16), ReLU",
+      "Conv2d(16,32,3,stride=2,padding=1), GroupNorm(8,32), ReLU",
+      "Conv2d(32,64,3,stride=2,padding=1), GroupNorm(8,64), ReLU",
+      "Conv2d(64,64,3,stride=2,padding=1), GroupNorm(8,64), ReLU",
+      "adaptive global average pooling",
+      "concatenate standardized nonvisual tensor, Linear-to-64, ReLU, Linear-to-11 logits"
+    ],
+    "nonvisual_control": "Standardized nonvisual tensor, Linear-to-64, ReLU, Linear-to-11 logits.",
+    "loss": "Unweighted binary cross entropy with logits over any-transition plus ten typed bins.",
+    "optimizer": "AdamW learning_rate=0.0003 weight_decay=0.0001 batch_size=128 maximum_epochs=20.",
+    "selection": "For each model and seed, select the epoch with highest pooled development_tune any-transition AUPRC; break ties toward the earlier epoch.",
+    "validation_summary": "Report medians over the three frozen seeds for pooled and per-task validation metrics.",
+    "prevalence_control": "Constant development-train any-transition prevalence score, evaluated on validation.",
+    "supported_typed_bins": "Bins with at least ten positive rows on the full frozen panel, matching the Stage 0A support rule.",
+    "metric_edge_case": "Average precision is zero when a reported slice has no positive target and one when all targets are positive."
+  },
+  "oracle_action_headroom": {
+    "base": "Development-train-standardized robot state, two-action history, and normalized time.",
+    "gripper_stage_control": "Base plus the action[t-1] gripper-sign change indicator and a four-bin one-hot temporal quartile.",
+    "binary_control": "Base plus exact-t binary any-transition.",
+    "strongest_control": "Whichever augmented control has lower pooled development_tune NRMSE after its own alpha selection; break ties toward gripper_stage_control.",
+    "full": "The strongest control plus the exact-t ten-dimensional typed transition vector.",
+    "estimator": "Multi-output ridge. Fit X and each arm target dimension standardizers on development_train only; report RMSE in development-train-standardized arm units.",
+    "alphas": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "alpha_selection": "Minimize pooled development_tune NRMSE; break ties toward the smaller alpha.",
+    "task_metric": "Compute validation NRMSE separately per frozen validation task.",
+    "shuffle": "For each of fifty root-seed-derived controls, independently permute exact-t typed vectors within each task-demo group in development_train, development_tune, and validation; reselect alpha on development_tune.",
+    "shuffle_fraction": "Median over shuffles of (strongest validation NRMSE - shuffled validation NRMSE) divided by (strongest validation NRMSE - full validation NRMSE). A nonpositive full gain fails and has null fraction.",
+    "finite_fraction": "Fraction of finite validation prediction scalars across the three real controls, full model, and all fifty shuffled models."
+  },
+  "frozen_gates": {
+    "visual": {
+      "any_transition_auprc_over_prevalence_ratio_min": 2.0,
+      "any_transition_auprc_over_nonvisual_min": 0.1,
+      "supported_typed_bin_macro_ap_over_nonvisual_min": 0.05,
+      "validation_tasks_beating_nonvisual_any_transition_min": 3
+    },
+    "oracle": {
+      "aggregate_arm_nrmse_relative_reduction_min": 0.05,
+      "validation_tasks_with_lower_arm_nrmse_min": 3,
+      "shuffled_topology_fraction_of_full_gain_max": 0.2,
+      "finite_prediction_fraction_min": 1.0
+    }
+  },
+  "decision_logic": {
+    "go": "All visual and all oracle gates pass -> CONTACT_TOPOLOGY_PREMETHOD_STAGE0_GO.",
+    "trivial_equivalence": "Valid execution with visual signal failing both nonvisual advantage gates, or oracle typed gain not exceeding its strongest control -> STAGE0_TRIVIAL_EQUIVALENCE.",
+    "no_headroom": "Otherwise, any valid scientific gate failure -> STAGE0_NO_HEADROOM.",
+    "invalid": "Any data-integrity, forbidden-access, nonfinite, implementation, or resource failure -> STAGE0_DATA_OR_SUPERVISION_FAILURE or STAGE0_IMPLEMENTATION_OR_RESOURCE_FAILURE as applicable."
+  },
+  "prohibitions": {
+    "threshold_change_after_freeze": true,
+    "method_or_ours_name": true,
+    "vla_training": true,
+    "policy_rollout": true,
+    "paper_generation": true
+  }
+}
