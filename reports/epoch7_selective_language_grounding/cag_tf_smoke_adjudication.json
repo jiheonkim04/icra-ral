@@ -1,0 +1,75 @@
+{
+  "schema_version": "epoch7.cag_tf_smoke_adjudication.v1",
+  "adjudicated_at": "2026-07-20T14:21:00+09:00",
+  "execution_type": "CAG_TF_PRIOR_CANONICAL_CLOSED_LOOP_SMOKE_NO_OURS",
+  "decision": "CAG_ACTION_CONNECTION_PASS_CANONICAL_RETENTION_WARNING",
+  "scope_limit": "One canonical failure cannot adjudicate the Prior, but it forbids treating CAG-TF as retention-safe without the frozen full panel.",
+  "identity": {
+    "episode_id": "cag_eval0_act_canonical",
+    "eval_id": 0,
+    "family_pair": "act",
+    "condition": "canonical",
+    "goal_bddl": "open_the_middle_drawer_of_the_cabinet.bddl",
+    "seed": 7,
+    "model_seed": 7000000,
+    "initial_state_index": 0
+  },
+  "prior": {
+    "name": "CAG-TF local mechanism-faithful port",
+    "reference": "arXiv:2602.17659v2",
+    "formula": "a_cond + 1.5 * (a_cond - a_empty)",
+    "omega": 1.5,
+    "same_observation_per_branch": true,
+    "shared_restored_rng_state_per_chunk": true,
+    "one_model_resident": true,
+    "mixing_space": "native X-VLA 20D output before the unchanged first-10D absolute LIBERO action conversion",
+    "author_code_claimed": false
+  },
+  "result": {
+    "completed": true,
+    "official_success": false,
+    "actions_executed": 300,
+    "guided_chunks": 10,
+    "branch_queries": 20,
+    "guided_chunk_finite": true,
+    "guided_min": -1.36551570892334,
+    "guided_max": 1.32534503936768,
+    "mean_absolute_language_delta_across_chunks": 0.017767,
+    "maximum_absolute_language_delta": 0.60099,
+    "elapsed_seconds": 25.55,
+    "matched_base_smoke_success": true,
+    "canonical_retention_warning": true,
+    "exception": null
+  },
+  "resources": {
+    "maximum_cuda_allocated_gib": 3.436,
+    "wsl_swap_used_kib_after_episode": 0,
+    "one_live_environment_limit_respected": true
+  },
+  "artifacts": [
+    {
+      "path": "runs/epoch7_language_grounding/cag_smoke_eval0_act_canonical/result.json",
+      "bytes": 10861,
+      "sha256": "973e3d5d397bb997ecb96329c175d89e76c6656af5f53a48c9d311d974045221"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/cag_smoke_eval0_act_canonical/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/cag_smoke_eval0_act_canonical/stderr.log",
+      "bytes": 1872,
+      "sha256": "b530874289223d8626474b92c79d50599dc0493a981f976e80ca205ed189b455"
+    }
+  ],
+  "integrity": {
+    "scale_tuned_after_outcome": false,
+    "training_happened": false,
+    "optimizer_step_happened": false,
+    "checkpoint_written": false,
+    "ours_design_happened": false,
+    "ours_rollout_happened": false
+  },
+  "next_action": "Run the complete frozen CAG-TF canonical/paraphrase panel at omega=1.5. Do not rescue retention by tuning the scale on discovery outcomes."
+}
