@@ -1,0 +1,49 @@
+{
+  "schema_version": "epoch7.contact_topology.resource_qualification_result.v1",
+  "adjudicated_at": "2026-07-20T17:07:00+09:00",
+  "run_id": "epoch7_contact_stage0a_20260720_1710_kst",
+  "run_root": "runs/epoch7_contact_transition_topology/stage0a/epoch7_contact_stage0a_20260720_1710_kst",
+  "scientific_protocol_sha256": "7FA28AAEEAC9886F36DD5CCD059CA7AC4CD65B21FABFBBCA4AFFA53B0A256240",
+  "resource_amendment_sha256": "7CCDCE5D9AA0B24C356AF873D0481AF76312D3C7FCF6871C4CA80FD6621ACFEB",
+  "artifacts": {
+    "static_preflight": {
+      "path": "runs/epoch7_contact_transition_topology/stage0a/epoch7_contact_stage0a_20260720_1710_kst/static_preflight.json",
+      "sha256": "125184D690CE0D63A671514DAF036FA6FB75F0F48A04DBF295251992B761FEE3",
+      "status": "STATIC_PREFLIGHT_PASS"
+    },
+    "internal_smoke": {
+      "path": "runs/epoch7_contact_transition_topology/stage0a/epoch7_contact_stage0a_20260720_1710_kst/resource_smoke.json",
+      "sha256": "AB483DCF7FBF6F65AD57725CC2789CA7BA8FFA446F4CF2BA480F3BC1553700F7",
+      "status": "ACTUAL_PATH_CONTACT_RESOURCE_SMOKE_PASS"
+    },
+    "host_smoke": {
+      "path": "runs/epoch7_contact_transition_topology/stage0a/epoch7_contact_stage0a_20260720_1710_kst/resource_smoke_host.json",
+      "sha256": "229C6F1D5C63F9D238096129A90CE906507158D18E29FA2C1F026D60D6D711CC",
+      "status": "EPOCH7_CONTACT_STAGE0A_RESOURCE_SMOKE_PASS"
+    }
+  },
+  "resource_observations": {
+    "host_baseline_used_fraction": 0.45950024909317733,
+    "host_peak_used_fraction": 0.5738536979014415,
+    "host_peak_used_fraction_max": 0.85,
+    "pagefile_current_growth_mib": 0,
+    "pagefile_allocation_growth_mib_max": 16,
+    "pagefile_write_activity": false,
+    "wsl_swap_used_bytes": 0,
+    "memory_release_verified": true,
+    "gpu_release_verified": true,
+    "free_disk_bytes_at_preflight": 309051895808
+  },
+  "scientific_firewall": {
+    "contact_label_gate_rows": 0,
+    "forbidden_dataset_access_count": 0,
+    "simulator_actions_executed": 0,
+    "success_check_calls": 0,
+    "reward_success_done_read": false,
+    "policy_loaded": false,
+    "outcomes_exposed": false
+  },
+  "runner_acceptance_recheck": true,
+  "decision": "EPOCH7_CONTACT_STAGE0A_RESOURCE_QUALIFIED",
+  "authorization": "Execute only the unchanged frozen Stage 0A label gate on the frozen ten-task, six-demo panel. Stage 0B and all method, VLA, rollout, and paper work remain unauthorized."
+}
