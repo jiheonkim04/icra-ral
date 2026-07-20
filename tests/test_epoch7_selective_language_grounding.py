@@ -14,6 +14,7 @@ from tca_map.epoch7_selective_language_grounding import (
     validate_protocol,
 )
 from scripts.run_epoch7_semantic_canonicalizer_preflight import metadata_row_to_bddl
+from scripts.run_epoch7_language_grounding_base import build_semantic_episode_plan
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -111,3 +112,31 @@ def test_metadata_row_to_bddl_matches_benchmark_naming() -> None:
             "batch_idx": "7",
         }
     ) == "comp_lexical+pragmatical_addition_deletion+hint_eval2_ver7.bddl"
+
+
+def test_semantic_control_mismatch_plan_uses_mapping_not_outcomes() -> None:
+    protocol = load_json(PROTOCOL_PATH)
+    specs = list(iter_pair_specs(protocol))[:2]
+    mapping = {
+        "frozen_discovery_panel": {
+            "predictions": [
+                {
+                    "pair_id": specs[0]["pair_id"],
+                    "mapping_correct": True,
+                    "predicted_instruction": specs[0]["canonical_instruction"],
+                },
+                {
+                    "pair_id": specs[1]["pair_id"],
+                    "mapping_correct": False,
+                    "predicted_instruction": "turn on the stove",
+                },
+            ]
+        }
+    }
+    plan = build_semantic_episode_plan(specs, mapping, mismatches_only=True)
+
+    assert len(plan) == 1
+    assert plan[0]["pair_id"] == specs[1]["pair_id"]
+    assert plan[0]["instruction"] == "turn on the stove"
+    assert "success" not in plan[0]
+    assert "reward" not in plan[0]

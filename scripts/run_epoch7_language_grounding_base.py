@@ -234,6 +234,33 @@ def build_episode_plan(
     return plan
 
 
+def build_semantic_episode_plan(
+    specs: list[dict[str, Any]], semantic_mapping: dict[str, Any], mismatches_only: bool
+) -> list[dict[str, Any]]:
+    predictions = {
+        str(item["pair_id"]): item
+        for item in semantic_mapping["frozen_discovery_panel"]["predictions"]
+    }
+    plan: list[dict[str, Any]] = []
+    for spec in specs:
+        mapping = predictions.get(spec["pair_id"])
+        if mapping is None:
+            raise ValueError(f"semantic map lacks pair {spec['pair_id']}")
+        if mismatches_only and bool(mapping["mapping_correct"]):
+            continue
+        plan.append(
+            {
+                **spec,
+                "condition": "semantic_canonicalizer_control",
+                "instruction": str(mapping["predicted_instruction"]),
+                "source_paraphrase_instruction": None,
+                "semantic_canonicalizer": dict(mapping),
+                "episode_id": f"semantic_control_{spec['pair_id']}",
+            }
+        )
+    return plan
+
+
 def run_episode(
     *,
     episode: dict[str, Any],
@@ -352,7 +379,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--para-root", type=Path, default=DEFAULT_PARA_ROOT)
     parser.add_argument("--xvla-root", type=Path, default=DEFAULT_XVLA_ROOT)
-    parser.add_argument("--role", choices=("base", "control", "cag"), default="base")
+    parser.add_argument("--role", choices=("base", "control", "semantic_control", "cag"), default="base")
     parser.add_argument("--pair", action="append", default=[], help="Frozen pair ID such as eval0_act; repeatable.")
     parser.add_argument(
         "--condition",
@@ -362,6 +389,8 @@ def main(argv: list[str] | None = None) -> int:
         help="Limit the episode conditions for a bounded smoke; repeatable.",
     )
     parser.add_argument("--max-pairs", type=int)
+    parser.add_argument("--semantic-map", type=Path)
+    parser.add_argument("--semantic-mismatches-only", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--continue-on-error", action="store_true")
     args = parser.parse_args(argv)
@@ -392,7 +421,13 @@ def main(argv: list[str] | None = None) -> int:
     para_bddl_dir = args.para_root / "libero/libero/bddl_files/libero_para"
     goal_bddl_dir = args.para_root / "libero/libero/bddl_files/libero_goal"
     init_dir = args.para_root / "libero/libero/init_files/libero_para"
-    plan = build_episode_plan(selected_specs, args.role, para_bddl_dir)
+    if args.role == "semantic_control":
+        if args.semantic_map is None:
+            raise ValueError("--semantic-map is required for semantic_control")
+        semantic_mapping = load_json(args.semantic_map)
+        plan = build_semantic_episode_plan(selected_specs, semantic_mapping, args.semantic_mismatches_only)
+    else:
+        plan = build_episode_plan(selected_specs, args.role, para_bddl_dir)
     if args.role == "control":
         full_catalog = {int(spec["eval_id"]): str(spec["canonical_instruction"]) for spec in all_specs}
         for episode in plan:
@@ -404,7 +439,11 @@ def main(argv: list[str] | None = None) -> int:
         legal_conditions = (
             {"canonical", "paraphrase"}
             if args.role in {"base", "cag"}
-            else {"canonicalizer_control"}
+            else (
+                {"canonicalizer_control"}
+                if args.role == "control"
+                else {"semantic_canonicalizer_control"}
+            )
         )
         if not requested_conditions <= legal_conditions:
             raise ValueError(
@@ -445,6 +484,13 @@ def main(argv: list[str] | None = None) -> int:
             "resource_after_load": None,
             "summary": {},
         }
+        if args.role == "semantic_control":
+            result["semantic_control"] = {
+                "mapping_path": str(args.semantic_map),
+                "mismatches_only": bool(args.semantic_mismatches_only),
+                "correct_mapping_pairs_reused_from_base": 25 if args.semantic_mismatches_only else 0,
+                "reuse_outcomes_written_into_this_result": False,
+            }
         if args.role == "cag":
             result["prior"] = {
                 "name": protocol["prior"]["name"],

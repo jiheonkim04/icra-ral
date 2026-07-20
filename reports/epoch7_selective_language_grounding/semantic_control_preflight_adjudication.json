@@ -1,0 +1,61 @@
+{
+  "schema_version": "epoch7.semantic_control_preflight_adjudication.v1",
+  "adjudicated_at": "2026-07-20T14:55:00+09:00",
+  "execution_type": "TEXT_ONLY_SEMANTIC_CONTROL_NO_SIMULATOR_NO_VLA_NO_OUTCOMES",
+  "decision": "SEMANTIC_CONTROL_STRONG_MAPPING_RESIDUAL_REQUIRES_FIVE_CLOSED_LOOP_CHECKS",
+  "model": {
+    "id": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "loaded_commit": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "license": "Apache-2.0",
+    "reported_parameter_count": 22700000,
+    "embedding_dimension": 384,
+    "snapshot_mib": 87.33
+  },
+  "implementation": "Hugging Face Transformers AutoTokenizer/AutoModel; attention-mask mean pooling; L2 normalization; cosine nearest neighbor over the fixed ten canonical instructions",
+  "mapping_results": {
+    "full_benchmark": {"correct": 3585, "total": 4092, "accuracy": 0.876099706744868},
+    "frozen_discovery_panel": {"correct": 25, "total": 30, "accuracy": 0.8333333333333334},
+    "panel_wrong_pairs": ["eval4_act", "eval5_act", "eval8_act", "eval8_obj", "eval8_comp"]
+  },
+  "closed_loop_plan": {
+    "correct_mapping_pairs_reused_from_matched_canonical_base": 25,
+    "reuse_justification": "The selected instruction string, environment, initial state, environment seed, model-query seed, action pipeline, horizon, and endpoint are exactly identical to the completed Base canonical episode.",
+    "wrong_mapping_pairs_to_execute": 5,
+    "selection_uses_closed_loop_outcomes": false,
+    "selection_uses_text_mapping_correctness_only": true,
+    "if_all_wrong_mapping_rollouts_fail_expected_control_result": "25/30",
+    "if_all_wrong_mapping_rollouts_succeed_expected_control_result": "30/30"
+  },
+  "artifacts": [
+    {
+      "path": "runs/epoch7_language_grounding/semantic_control_preflight_v1/result.json",
+      "bytes": 64301,
+      "sha256": "a1868a0cd10ebd465f10faf38462cbc18c662a02b5aed81555e5c282a5947984"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/semantic_control_preflight_v1/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/semantic_control_preflight_v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/epoch7_language_grounding/semantic_control_preflight_v1/exit_code.txt",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    }
+  ],
+  "integrity": {
+    "simulator_episode_count": 0,
+    "vla_model_loaded": false,
+    "closed_loop_outcome_read": false,
+    "training_happened": false,
+    "ours_design_happened": false,
+    "ours_rollout_happened": false
+  },
+  "next_action": "Execute the five frozen wrong-mapping episodes and combine them with 25 exact-equivalence Base episodes to adjudicate the strong semantic Control."
+}

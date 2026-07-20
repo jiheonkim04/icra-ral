@@ -65,7 +65,18 @@
     "forbidden_inputs": ["BDDL filename", "eval_id", "simulator state", "reward", "done", "success", "outcome"],
     "selection_or_tuning_on_panel_mapping_results": false,
     "selection_or_tuning_on_closed_loop_outcomes": false,
-    "status": "FROZEN_BEFORE_MODEL_DOWNLOAD_OR_MAPPING_RESULTS"
+    "status": "MAPPING_COMPLETE_CLOSED_LOOP_MISMATCH_CHECK_FROZEN",
+    "mapping_results": {
+      "full_benchmark": {"correct": 3585, "total": 4092, "fraction": 0.876099706744868},
+      "discovery_panel": {"correct": 25, "total": 30, "fraction": 0.8333333333333334},
+      "wrong_pair_ids": ["eval4_act", "eval5_act", "eval8_act", "eval8_obj", "eval8_comp"]
+    },
+    "closed_loop_plan": {
+      "reuse_exact_canonical_base_pairs": 25,
+      "execute_all_wrong_mapping_pairs": 5,
+      "selection_uses_text_mapping_only": true,
+      "selection_uses_closed_loop_outcomes": false
+    }
   },
   "pairing": {
     "act": {"seed": 7, "initial_state_index": 0},
