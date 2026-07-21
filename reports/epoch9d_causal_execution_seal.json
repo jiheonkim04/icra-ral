@@ -1,0 +1,54 @@
+{
+  "adjudicator_path": "scripts/adjudicate_epoch9d_causal_panel.py",
+  "adjudicator_sha256": "80B2467975E69A0D1C15E6A687778827BB0DA1F8D47DD581A0ECC954AFDAB871",
+  "branch": "codex/epoch9d-causal-probe-bounded-convergence",
+  "calibration_path": "reports/epoch9b_dynamic_nudge/controller_calibration_repair1.json",
+  "calibration_sha256": "10AE3D151E47A030BBDCC2DAB0850B69926A4A903F8E2B830B38450F8B2EEB7B",
+  "causal_protocol_path": "reports/epoch9d_causal_panel_protocol.json",
+  "causal_protocol_sha256": "654058639199BA1E822737652FEBB5BD198410F33BD050760CF8F448596BD2B6",
+  "confirmation_accessed": false,
+  "frozen_counts": {
+    "base_states": 16,
+    "candidate_probes": 64,
+    "primary_assignments": 32,
+    "sham_rows": 16
+  },
+  "frozen_decisions": {
+    "fail": "ACTIVE_DYNAMIC_PROBE_CAUSAL_SIGNAL_NOT_CONFIRMED",
+    "go": "CAUSAL_SIGNAL_GO",
+    "near_miss": {
+      "eligible_only_if": "no collision, identity swap, leakage, missing row, or protocol violation and exactly one numerical signal gate misses by no more than one scene or two probes",
+      "pooling": false,
+      "replication": "one independently frozen fresh identical panel that must independently pass every gate",
+      "second_replication": false
+    }
+  },
+  "frozen_score": {
+    "name": "original_back_slot_rgb_response_threshold_score",
+    "secondary_score": null,
+    "threshold_m": 0.005219466062047384
+  },
+  "host_wrapper_path": "scripts/run_epoch9d_causal_panel_host.ps1",
+  "host_wrapper_sha256": "BE2B90C6613DA8D054B5A9C5ACD3CF9825F46D0F9FE881B4066ECD4F70316188",
+  "original_controller_freeze_path": "reports/epoch9b_dynamic_nudge/controller_freeze.json",
+  "original_controller_freeze_sha256": "C985931BBA917D06C491B4D4E7061BB8CF9E9C6C2753517E71C36BD7DBB871FB",
+  "original_epoch9b_runner_path": "scripts/run_epoch9b_dynamic_nudge.py",
+  "original_epoch9b_runner_sha256": "45427C721C497229818AEAC49CE813C9CBE46FB0B3C04EDC110BBC832736C083",
+  "outcomes_accessed_before_seal": false,
+  "runner_path": "scripts/run_epoch9d_causal_panel.py",
+  "runner_sha256": "98BBEDAA1DE0364ACAF909C23AB234F0191B9BEF52DE9EB0E07B11F8533B9886",
+  "runtime": {
+    "mujoco_gl": "egl",
+    "output": "reports/epoch9d_causal_panel/result.json",
+    "python": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python",
+    "resident_vla_models": 0,
+    "resume": "missing row_key only",
+    "serial": true,
+    "simulator_environments_at_once": 1,
+    "wsl_distribution": "Ubuntu-22.04"
+  },
+  "schema_version": "epoch9d.causal_execution_seal.v1",
+  "sealed_at": "2026-07-21T12:57:34+09:00",
+  "source_checkpoint": "c5cd1b1fb9da6c57e3d7f578a0a7bb0f1c949a6c",
+  "validation_accessed": false
+}
