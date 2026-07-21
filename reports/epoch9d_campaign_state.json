@@ -280,6 +280,16 @@
   },
   "paper_status": "PAPER_NOT_AUTHORIZED",
   "phase_a_evidence": {
+    "causal_execution_preflight": {
+      "assignments_checked": [
+        "A",
+        "B"
+      ],
+      "exact_pair_first_rgb": true,
+      "path": "reports/epoch9d_causal_execution_preflight.json",
+      "sha256": "B871311CC402A8FAC8BEC8568CC2DCADBEDCE66A7B4E74049BDE7AE85DF5E1A3",
+      "wsl_swap_used_bytes": 0
+    },
     "causal_panel_protocol": {
       "base_state_count": 16,
       "first_base_state_sha256": "781EE15BC9D2450B5968CDBA2060D8B09AC9F819D7A238CD3F47D2826B594C5B",
@@ -300,7 +310,7 @@
   },
   "phase_status": {
     "A_existing_trace_causal_diagnosis": "COMPLETED_PRIMARY_SCORE_FROZEN",
-    "B_mass_swap_causal_panel": "FROZEN_READY_TO_RUN",
+    "B_mass_swap_causal_panel": "FROZEN_PREFLIGHT_PASS_READY_TO_RUN",
     "C_task_preserving_controller": "LOCKED_PENDING_CAUSAL_SIGNAL_GO",
     "D_model_validation": "LOCKED_PENDING_CONTROLLER_GO",
     "E_official_and_confirmation": "LOCKED_PENDING_MODEL_VALIDATION_GO",
@@ -360,6 +370,6 @@
     "sha256": "66A11F26B52579A18C3532901A9A84AEE0D7D37587995004DEB606902787BEC1"
   },
   "starting_checkpoint": "fee058a022e0af347f413f7a8b0361f3cd9074c9",
-  "timestamp": "2026-07-21T12:46:37+09:00",
+  "timestamp": "2026-07-21T12:58:30+09:00",
   "validation_accessed": false
 }

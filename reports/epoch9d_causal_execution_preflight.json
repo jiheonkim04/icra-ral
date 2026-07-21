@@ -1,0 +1,21 @@
+{
+  "assignments_checked": [
+    "A",
+    "B"
+  ],
+  "base_identity_id": 56,
+  "exact_pair_first_rgb": true,
+  "first_rgb_hashes": [
+    "CD79F279380392E43694D469D96394A6E4030515ABF079D469AB2D1557307996",
+    "CD79F279380392E43694D469D96394A6E4030515ABF079D469AB2D1557307996"
+  ],
+  "mass_factors_change_only_model_dynamics": true,
+  "outcomes_accessed": [],
+  "resource": {
+    "process_max_rss_bytes": 2228305920,
+    "wsl_mem_used_bytes": 1963003904,
+    "wsl_swap_used_bytes": 0
+  },
+  "schema_version": "epoch9d.causal_execution_preflight.v1",
+  "timestamp": "2026-07-21T12:58:14+09:00"
+}

@@ -80,7 +80,10 @@ def test_epoch9d_causal_protocol_is_exact_balanced_and_sealed() -> None:
         assert pair[0]["mass_factor"] == {"front": 1.0, "back": 8.0}
         assert pair[1]["mass_factor"] == {"front": 8.0, "back": 1.0}
         assert pair[0]["probe_order"] == pair[1]["probe_order"]
-    assert state["phase_status"]["B_mass_swap_causal_panel"] == "FROZEN_READY_TO_RUN"
+    assert state["phase_status"]["B_mass_swap_causal_panel"] in {
+        "FROZEN_READY_TO_RUN",
+        "FROZEN_PREFLIGHT_PASS_READY_TO_RUN",
+    }
 
 
 def test_epoch9d_causal_protocol_hashes_and_gates_are_fixed() -> None:
