@@ -1,0 +1,168 @@
+{
+  "branch": "codex/epoch9e-nondrag-disengagement-convergence",
+  "campaign_state": {
+    "path": "reports/epoch9e_campaign_state.json",
+    "sha256": "6966CEFE84316D9180978BA098C919DE4A0CD31BEC1E6885C009355A8A1CB25A"
+  },
+  "confirmation_accessed": false,
+  "episode_accounting": {
+    "joint_candidate_probes": {
+      "admitted_complete_row_probes": 2,
+      "failed_row_trace_files": 2,
+      "planned": 48,
+      "trace_files_written": 4,
+      "unexecuted": 44
+    },
+    "joint_completion_oracles": {
+      "executed": 1,
+      "failures": 0,
+      "planned": 24,
+      "successes": 1,
+      "unexecuted": 23
+    },
+    "joint_primary_assignments": {
+      "completed": 1,
+      "launched": 2,
+      "planned": 24,
+      "protocol_failed": 1,
+      "unexecuted": 22
+    },
+    "joint_sham_rows": {
+      "completed": 0,
+      "failed": 0,
+      "launched": 0,
+      "planned": 12,
+      "unexecuted": 12
+    },
+    "mechanics_smoke": {
+      "completed_probes": 16,
+      "completed_scenes": 8,
+      "planned_probes": 16,
+      "planned_scenes": 8
+    }
+  },
+  "evidence_index": {
+    "path": "reports/epoch9e_evidence_index.json",
+    "sha256": "C9D214A47928F19EA5569773D00A3C640C769418D4FB1C3501530C85B54BE34B"
+  },
+  "failure": {
+    "exception": "RuntimeError: trace does not contain the frozen five-step response window: /mnt/c/Users/jiheo/tca_map/reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_back.npz",
+    "response_window_missing_trace": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_back.npz",
+    "row_key": "primary:epoch9e_joint_base_20261134_assignment_B"
+  },
+  "hash_schema_checks": {
+    "all_execution_bindings": true,
+    "evidence_index_sha256": "C9D214A47928F19EA5569773D00A3C640C769418D4FB1C3501530C85B54BE34B",
+    "trace_hashes_pass": true
+  },
+  "identities": {
+    "confirmation_demo_ids_sealed": [
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "joint_scientific_execution_accessed": [
+      20261134
+    ],
+    "joint_scientific_execution_unexecuted": [
+      20261135,
+      20261136,
+      20261137,
+      20261138,
+      20261139,
+      20261140,
+      20261141,
+      20261142,
+      20261143,
+      20261144,
+      20261145
+    ],
+    "joint_state_rgb_only_preflight_accessed": [
+      20261134,
+      20261135,
+      20261136,
+      20261137,
+      20261138,
+      20261139,
+      20261140,
+      20261141,
+      20261142,
+      20261143,
+      20261144,
+      20261145
+    ],
+    "mechanics_outcome_accessed": [
+      20261126,
+      20261127,
+      20261128,
+      20261129,
+      20261130,
+      20261131,
+      20261132,
+      20261133
+    ],
+    "validation_demo_ids_sealed": [
+      40,
+      41,
+      42,
+      43,
+      44
+    ]
+  },
+  "outcome_checkpoint": "70eb0c23a513a7bf8a9fba354c4f24f18ff8842f",
+  "paper_paths": [],
+  "paper_status": "PAPER_NOT_AUTHORIZED",
+  "protected_untracked_manifests": [
+    {
+      "file_count": 27,
+      "manifest_sha256": "25DE8FF5AA6112D7EFF8BCF38D3A4C3F0F3C8C8EE0458E5FA83D17438719EC54",
+      "path": "rollouts/2026_07_17/",
+      "total_bytes": 5143751
+    },
+    {
+      "file_count": 10,
+      "manifest_sha256": "CF701D6F73D4783F016E48A72C093DC9FD6D940B7081DA8FBEC128DB94C24A00",
+      "path": "rollouts/2026_07_18/",
+      "total_bytes": 924633
+    }
+  ],
+  "required_stop": "STOP_CAMPAIGN_NO_RERUN_NO_CONTROLLER_OR_ATTRIBUTION_ROTATION",
+  "resources": {
+    "peak_gpu_used_mib": 2287,
+    "peak_host_ram_percent": 56.87494699050152,
+    "peak_host_used_physical_bytes": 14145376256,
+    "process_max_rss_bytes": 2199375872,
+    "runner_exit_code": 0,
+    "wsl_mem_used_peak_bytes": 1946521600,
+    "wsl_swap_used_peak_bytes": 0
+  },
+  "schema_version": "epoch9e.terminal_handoff.v1",
+  "source_checkpoint": "74dd66c32a8b8595e187b13d3ccafe05cae6753b",
+  "statistics": {
+    "complete_exact_pairs": 0,
+    "completed_scene_only_descriptive_record": {
+      "both_candidates_excited": 1,
+      "denominator": 1,
+      "oracle_completion_success": 1,
+      "rank_correct": 0
+    },
+    "interpretation": "No complete A/B exact pair exists. Unexecuted rows are not failures and no pooled or repaired estimate is reported.",
+    "one_sided_sign_test_p": 1.0,
+    "paired_95_interval_m": [
+      null,
+      null
+    ],
+    "paired_contrast_m": null
+  },
+  "terminal_state": "EPOCH9E_NONDRAG_DISENGAGEMENT_FROZEN_NO_GO_ACTIVE_ROUTE_CLOSED",
+  "tests": {
+    "final_terminal_artifact_suite": "42 passed in 11.24s",
+    "joint_seal_regression": "16 passed",
+    "post_terminal_evidence_regression": "21 passed",
+    "pre_execution_regression": "36 passed"
+  },
+  "timestamp": "2026-07-21T15:33:09+09:00",
+  "validation_accessed": false
+}

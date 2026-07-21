@@ -1,0 +1,376 @@
+{
+  "active_epoch9_scientific_workers": [],
+  "branch": "codex/epoch9e-nondrag-disengagement-convergence",
+  "confirmation_accessed": false,
+  "continuous_trace_disclosure": [
+    {
+      "candidate_distractor_collision": false,
+      "candidate_pair_collision": false,
+      "continuous_candidate_lane_signed_margin_summary_m": {
+        "back": {
+          "maximum_m": 0.010514866828918445,
+          "median_m": 0.010386597633361805,
+          "minimum_m": 0.010318290710449207
+        },
+        "front": {
+          "maximum_m": 0.002265039086341847,
+          "median_m": 0.002265039086341847,
+          "minimum_m": 0.002265039086341847
+        }
+      },
+      "continuous_estimated_displacement_summary_m": {
+        "maximum": 0.012762953527271748,
+        "median": 0.0006229881983017549,
+        "minimum": 7.547261338913813e-05
+      },
+      "frozen_response_window_complete": true,
+      "frozen_response_window_steps": 5,
+      "full_continuous_arrays_preserved_in_npz": true,
+      "maximum_absolute_action_component": 1.0,
+      "minimum_rgb_quality": 0.6948423981666565,
+      "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_A_back.npz",
+      "phase_counts": {
+        "contact_verify_observe": 7,
+        "descend_paddle": 12,
+        "fixed_micro_impulse": 3,
+        "guarded_incremental_approach": 51,
+        "nondrag_high_clearance_reposition": 5,
+        "nondrag_response_clearance_descend": 9,
+        "nondrag_separation_observe": 3,
+        "nondrag_vertical_liftoff": 6,
+        "post_impulse_response": 2,
+        "preclose_paddle": 8,
+        "retreat_high": 15,
+        "retreat_side": 10,
+        "return_neutral": 22,
+        "transit_high": 23
+      },
+      "sampled_target_contact": true,
+      "sha256": "BB3D520CE7E9E746ED92391A0A600FA74ADF824D02F6859FADAD770321F75CE6",
+      "slot": "back",
+      "steps": 176
+    },
+    {
+      "candidate_distractor_collision": false,
+      "candidate_pair_collision": false,
+      "continuous_candidate_lane_signed_margin_summary_m": {
+        "back": {
+          "maximum_m": 0.010388028144836414,
+          "median_m": 0.010386597633361805,
+          "minimum_m": 0.010386597633361805
+        },
+        "front": {
+          "maximum_m": 0.004999998211860646,
+          "median_m": 0.002712923288345326,
+          "minimum_m": 0.002265039086341847
+        }
+      },
+      "continuous_estimated_displacement_summary_m": {
+        "maximum": 0.008228456601500511,
+        "median": 0.006224526558071375,
+        "minimum": 7.701799040660262e-05
+      },
+      "frozen_response_window_complete": true,
+      "frozen_response_window_steps": 5,
+      "full_continuous_arrays_preserved_in_npz": true,
+      "maximum_absolute_action_component": 1.0,
+      "minimum_rgb_quality": 0.5870419144630432,
+      "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_A_front.npz",
+      "phase_counts": {
+        "contact_verify_observe": 14,
+        "descend_paddle": 11,
+        "fixed_micro_impulse": 3,
+        "guarded_incremental_approach": 53,
+        "nondrag_high_clearance_reposition": 19,
+        "nondrag_response_clearance_descend": 48,
+        "nondrag_separation_observe": 6,
+        "nondrag_vertical_liftoff": 10,
+        "post_impulse_response": 2,
+        "preclose_paddle": 8,
+        "retreat_high": 14,
+        "retreat_side": 13,
+        "return_neutral": 30,
+        "transit_high": 33
+      },
+      "sampled_target_contact": true,
+      "sha256": "E338FACB56A3CDA9514D05B4EFAD6EEB6B3993B0F3D4F26D93EE753365569513",
+      "slot": "front",
+      "steps": 264
+    },
+    {
+      "candidate_distractor_collision": false,
+      "candidate_pair_collision": false,
+      "continuous_candidate_lane_signed_margin_summary_m": {
+        "back": {
+          "maximum_m": 0.010666262626647938,
+          "median_m": 0.01040710163116454,
+          "minimum_m": 0.010278772830963123
+        },
+        "front": {
+          "maximum_m": 0.0022438198328018077,
+          "median_m": 0.0022438198328018077,
+          "minimum_m": 0.0022438198328018077
+        }
+      },
+      "continuous_estimated_displacement_summary_m": {
+        "maximum": 0.007434472907334566,
+        "median": 0.00616497965529561,
+        "minimum": 8.25104143586941e-05
+      },
+      "frozen_response_window_complete": false,
+      "frozen_response_window_steps": 0,
+      "full_continuous_arrays_preserved_in_npz": true,
+      "maximum_absolute_action_component": 1.0,
+      "minimum_rgb_quality": 0.6922954320907593,
+      "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_back.npz",
+      "phase_counts": {
+        "contact_verify_observe": 42,
+        "descend_paddle": 12,
+        "guarded_incremental_approach": 60,
+        "nondrag_high_clearance_reposition": 46,
+        "nondrag_response_clearance_descend": 51,
+        "nondrag_separation_observe": 18,
+        "nondrag_vertical_liftoff": 33,
+        "preclose_paddle": 8,
+        "retreat_high": 15,
+        "retreat_side": 10,
+        "return_neutral": 24,
+        "transit_high": 23
+      },
+      "sampled_target_contact": true,
+      "sha256": "4E7D1316E8B8094638D3A7D43D3E29587D0A4203BA6CF71592CC26B1BE2E9A5F",
+      "slot": "back",
+      "steps": 342
+    },
+    {
+      "candidate_distractor_collision": false,
+      "candidate_pair_collision": false,
+      "continuous_candidate_lane_signed_margin_summary_m": {
+        "back": {
+          "maximum_m": 0.01040710163116454,
+          "median_m": 0.01040710163116454,
+          "minimum_m": 0.01040710163116454
+        },
+        "front": {
+          "maximum_m": 0.005000251531600941,
+          "median_m": 0.0029357850551605114,
+          "minimum_m": 0.0022438198328018077
+        }
+      },
+      "continuous_estimated_displacement_summary_m": {
+        "maximum": 0.012536115944385529,
+        "median": 0.003233784344047308,
+        "minimum": 7.882183854235336e-05
+      },
+      "frozen_response_window_complete": true,
+      "frozen_response_window_steps": 5,
+      "full_continuous_arrays_preserved_in_npz": true,
+      "maximum_absolute_action_component": 1.0,
+      "minimum_rgb_quality": 0.5767565369606018,
+      "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_front.npz",
+      "phase_counts": {
+        "contact_verify_observe": 7,
+        "descend_paddle": 11,
+        "fixed_micro_impulse": 3,
+        "guarded_incremental_approach": 52,
+        "nondrag_high_clearance_reposition": 10,
+        "nondrag_response_clearance_descend": 26,
+        "nondrag_separation_observe": 3,
+        "nondrag_vertical_liftoff": 5,
+        "post_impulse_response": 2,
+        "preclose_paddle": 8,
+        "retreat_high": 14,
+        "retreat_side": 13,
+        "return_neutral": 31,
+        "transit_high": 33
+      },
+      "sampled_target_contact": true,
+      "sha256": "0DD916B36A6FE253EF0A20269FA45AE27913700E5CE28DD268A2E5ADF12425BC",
+      "slot": "front",
+      "steps": 218
+    }
+  ],
+  "episode_accounting": {
+    "joint_candidate_probes": {
+      "admitted_complete_row_probes": 2,
+      "failed_row_trace_files": 2,
+      "planned": 48,
+      "trace_files_written": 4,
+      "unexecuted": 44
+    },
+    "joint_completion_oracles": {
+      "executed": 1,
+      "failures": 0,
+      "planned": 24,
+      "successes": 1,
+      "unexecuted": 23
+    },
+    "joint_primary_assignments": {
+      "completed": 1,
+      "launched": 2,
+      "planned": 24,
+      "protocol_failed": 1,
+      "unexecuted": 22
+    },
+    "joint_sham_rows": {
+      "completed": 0,
+      "failed": 0,
+      "launched": 0,
+      "planned": 12,
+      "unexecuted": 12
+    },
+    "mechanics_smoke": {
+      "completed_probes": 16,
+      "completed_scenes": 8,
+      "planned_probes": 16,
+      "planned_scenes": 8
+    }
+  },
+  "epoch9d_paths_changed_since_source": [],
+  "epoch9d_separate_baseline": {
+    "exact_pair_denominator": 16,
+    "exact_pair_flips": 12,
+    "mean_contrast_m": 0.006593329847616967,
+    "not_pooled_with_epoch9e": true,
+    "one_sided_sign_test_p": 0.0002593994140625,
+    "paired_95_interval_m": [
+      0.004073638133887584,
+      0.00911302156134635
+    ],
+    "rank_correct": 28,
+    "rank_denominator": 32,
+    "status": "CAUSAL_MASS_SIGNAL_CONFIRMED"
+  },
+  "estimator_development_started": false,
+  "frozen_prior_status": [
+    "CAUSAL_MASS_SIGNAL_CONFIRMED",
+    "VARIANT1_PILOT_FROZEN_NO_GO",
+    "PRE_RESPONSE_DISENGAGEMENT_UNRESOLVED",
+    "PAPER_NOT_AUTHORIZED"
+  ],
+  "hash_schema_checks": {
+    "all_execution_bindings": true,
+    "evidence_index_sha256": "C9D214A47928F19EA5569773D00A3C640C769418D4FB1C3501530C85B54BE34B",
+    "trace_hashes_pass": true
+  },
+  "identities": {
+    "confirmation_demo_ids_sealed": [
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "joint_scientific_execution_accessed": [
+      20261134
+    ],
+    "joint_scientific_execution_unexecuted": [
+      20261135,
+      20261136,
+      20261137,
+      20261138,
+      20261139,
+      20261140,
+      20261141,
+      20261142,
+      20261143,
+      20261144,
+      20261145
+    ],
+    "joint_state_rgb_only_preflight_accessed": [
+      20261134,
+      20261135,
+      20261136,
+      20261137,
+      20261138,
+      20261139,
+      20261140,
+      20261141,
+      20261142,
+      20261143,
+      20261144,
+      20261145
+    ],
+    "mechanics_outcome_accessed": [
+      20261126,
+      20261127,
+      20261128,
+      20261129,
+      20261130,
+      20261131,
+      20261132,
+      20261133
+    ],
+    "validation_demo_ids_sealed": [
+      40,
+      41,
+      42,
+      43,
+      44
+    ]
+  },
+  "joint_failure": {
+    "exception": "RuntimeError: trace does not contain the frozen five-step response window: /mnt/c/Users/jiheo/tca_map/reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_back.npz",
+    "response_window_missing_trace": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_back.npz",
+    "row_key": "primary:epoch9e_joint_base_20261134_assignment_B"
+  },
+  "mechanics_status": "MECHANICS_SMOKE_PASS_FREEZE_CONTROLLER",
+  "next_action": "STOP_CAMPAIGN_NO_RERUN_NO_CONTROLLER_OR_ATTRIBUTION_ROTATION",
+  "official_evaluation_started": false,
+  "outcome_checkpoint": "70eb0c23a513a7bf8a9fba354c4f24f18ff8842f",
+  "paper_paths": [],
+  "paper_status": "PAPER_NOT_AUTHORIZED",
+  "protected_untracked_manifests": [
+    {
+      "file_count": 27,
+      "manifest_sha256": "25DE8FF5AA6112D7EFF8BCF38D3A4C3F0F3C8C8EE0458E5FA83D17438719EC54",
+      "path": "rollouts/2026_07_17/",
+      "total_bytes": 5143751
+    },
+    {
+      "file_count": 10,
+      "manifest_sha256": "CF701D6F73D4783F016E48A72C093DC9FD6D940B7081DA8FBEC128DB94C24A00",
+      "path": "rollouts/2026_07_18/",
+      "total_bytes": 924633
+    }
+  ],
+  "remote_checkpoint_before_terminal_reporting": "70eb0c23a513a7bf8a9fba354c4f24f18ff8842f",
+  "resource": {
+    "peak_gpu_used_mib": 2287,
+    "peak_host_ram_percent": 56.87494699050152,
+    "peak_host_used_physical_bytes": 14145376256,
+    "process_max_rss_bytes": 2199375872,
+    "runner_exit_code": 0,
+    "wsl_mem_used_peak_bytes": 1946521600,
+    "wsl_swap_used_peak_bytes": 0
+  },
+  "schema_version": "epoch9e.campaign_state.v1",
+  "source_checkpoint": "74dd66c32a8b8595e187b13d3ccafe05cae6753b",
+  "source_is_ancestor": true,
+  "statistics": {
+    "complete_exact_pairs": 0,
+    "completed_scene_only_descriptive_record": {
+      "both_candidates_excited": 1,
+      "denominator": 1,
+      "oracle_completion_success": 1,
+      "rank_correct": 0
+    },
+    "interpretation": "No complete A/B exact pair exists. Unexecuted rows are not failures and no pooled or repaired estimate is reported.",
+    "one_sided_sign_test_p": 1.0,
+    "paired_95_interval_m": [
+      null,
+      null
+    ],
+    "paired_contrast_m": null
+  },
+  "terminal_state": "EPOCH9E_NONDRAG_DISENGAGEMENT_FROZEN_NO_GO_ACTIVE_ROUTE_CLOSED",
+  "timestamp": "2026-07-21T15:33:09+09:00",
+  "validation_accessed": false,
+  "wrapper_status_anomaly": {
+    "host_monitor_runner_exit_code": 0,
+    "outer_powershell_exit_code": 1,
+    "python_stderr_contains_unhandled_runtime_error": true,
+    "reason": "The complete-manifest and controller-audit gates fail independently; no execution continuation is authorized.",
+    "scientific_interpretation_changed": false
+  }
+}

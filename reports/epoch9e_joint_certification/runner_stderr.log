@@ -1,0 +1,10 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/jiheon/miniconda3-official/envs/official-smolvla-libero/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Dropped Escape call with ulEscapeCode : 0x03007703
+Traceback (most recent call last):
+  File "/mnt/c/Users/jiheo/tca_map/scripts/run_epoch9e_joint_certification.py", line 502, in <module>
+    raise SystemExit(main())
+  File "/mnt/c/Users/jiheo/tca_map/scripts/run_epoch9e_joint_certification.py", line 490, in main
+    raise RuntimeError(f"joint row failed and was preserved without resume authority: {row['row_key']} {row['exception']}")
+RuntimeError: joint row failed and was preserved without resume authority: primary:epoch9e_joint_base_20261134_assignment_B RuntimeError: trace does not contain the frozen five-step response window: /mnt/c/Users/jiheo/tca_map/reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_back.npz
