@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+import hashlib
 import inspect
 from pathlib import Path
 
 from scripts import adjudicate_epoch9e_joint_certification as adjudicator
+from scripts import build_epoch9e_joint_execution_seal as seal_builder
 from scripts import run_epoch9e_joint_certification as runner
 
 
@@ -87,3 +89,9 @@ def test_interval_helpers_fail_closed() -> None:
     assert adjudicator.interval_includes_zero([None, None]) is False
     assert adjudicator.interval_lower_positive([0.0, 1.0]) is False
     assert adjudicator.interval_includes_zero([-0.1, 0.1]) is True
+
+
+def test_joint_seal_uses_byte_identity_to_head_not_client_worktree_metadata() -> None:
+    path = ROOT / "scripts" / "run_epoch9e_joint_certification.py"
+    working_digest = hashlib.sha256(path.read_bytes()).hexdigest().upper()
+    assert seal_builder.committed_sha256(path) == working_digest

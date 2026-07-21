@@ -1,0 +1,28 @@
+{
+  "schema_version": "epoch9e.joint_seal_preoutcome_git_boundary_repair.v1",
+  "timestamp": "2026-07-21T15:24:22+09:00",
+  "source_checkpoint": "e3857f8bc83c4b9ffecbb5d484e9ee53c30a718f",
+  "stage": "before joint execution seal and before any joint outcome",
+  "observed_failure": "The WSL git client reported repository-wide working-tree differences because its file-mode and line-ending interpretation differs from the Windows git client used for the committed workspace.",
+  "failure_location": "scripts/build_epoch9e_joint_execution_seal.py global git status clean-worktree guard",
+  "joint_execution_seal_exists_at_failure": false,
+  "joint_result_exists_at_failure": false,
+  "joint_adjudication_exists_at_failure": false,
+  "scientific_outcomes_accessed": false,
+  "repair": "Replace the cross-client global status check with byte-for-byte SHA-256 comparisons between each exact sealed input in the working tree and its HEAD git blob.",
+  "repair_scope": [
+    "scripts/build_epoch9e_joint_execution_seal.py"
+  ],
+  "original_builder_sha256": "DA672893ABD737283D4D35EBBE577B6F5A1E0F67C00B50D92223EC4CF6615595",
+  "repaired_builder_sha256": "050E2BB47582BBB49D42BF6C33C984F9E14245CDF7AE437DDB872DCBD5B56B5B",
+  "scientific_fields_changed": false,
+  "controller_changed": false,
+  "joint_protocol_changed": false,
+  "runner_changed": false,
+  "adjudicator_changed": false,
+  "host_wrapper_changed": false,
+  "thresholds_changed": false,
+  "rerun_or_resume_authority_added": false,
+  "validation_accessed": false,
+  "confirmation_accessed": false
+}

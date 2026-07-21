@@ -47,6 +47,13 @@ def load(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
+def committed_sha256(path: Path) -> str:
+    payload = subprocess.check_output(
+        ["git", "show", f"HEAD:{relative(path)}"], cwd=ROOT
+    )
+    return hashlib.sha256(payload).hexdigest().upper()
+
+
 def main() -> int:
     if OUTPUT.exists():
         raise FileExistsError("refusing to overwrite joint execution seal")
@@ -61,11 +68,8 @@ def main() -> int:
     for path in paths:
         if not path.is_file():
             raise FileNotFoundError(path)
-    tracked_changes = subprocess.check_output(
-        ["git", "status", "--porcelain", "--untracked-files=no"], cwd=ROOT, text=True
-    ).strip()
-    if tracked_changes:
-        raise RuntimeError(f"tracked files must be committed before sealing: {tracked_changes}")
+        if sha256(path) != committed_sha256(path):
+            raise RuntimeError(f"sealed input is not byte-identical to HEAD: {relative(path)}")
     protocol = load(PROTOCOL)
     mechanics_seal = load(MECHANICS_SEAL)
     mechanics = load(MECHANICS_ADJUDICATION)
