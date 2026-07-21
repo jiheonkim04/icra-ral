@@ -1,0 +1,744 @@
+{
+  "confirmation_accessed": false,
+  "controller_config": {
+    "approach_control_steps_per_increment": 4,
+    "approach_increment_m": 0.003,
+    "approach_start_offset_x_m": -0.095,
+    "approach_stop_offset_x_m": -0.04,
+    "back_heavy_threshold_m": 0.005219466062047384,
+    "close_steps": 8,
+    "coast_steps": 2,
+    "contact_verify_retract_m": 0.008,
+    "contact_verify_steps": 7,
+    "controller_error_consecutive_steps": 2,
+    "controller_error_contact_m": 0.012,
+    "controller_error_over_baseline_m": 0.006,
+    "front_centered_contact": false,
+    "front_clear_approach_y_m": 0.105,
+    "front_contact_transition_offset_x_m": -0.062,
+    "front_inward_contact": false,
+    "front_lane_mid_y_m": 0.145,
+    "gripper_closed_command": 1.0,
+    "impulse_action_x": 0.65,
+    "impulse_steps": 3,
+    "move_gain_denominator_m": 0.04,
+    "neutral_tolerance_m": 0.004,
+    "paddle_y_offset_m": 0.018,
+    "paddle_z_m": 0.93,
+    "visual_contact_threshold_pixels": 0.55,
+    "visual_quality_min": 0.5
+  },
+  "controller_name": "epoch9e_one_shot_nondrag_disengagement",
+  "evidence_partition": "EPOCH9E_JOINT_CERTIFICATION_ONE_SHOT",
+  "execution_seal_path": "reports/epoch9e_joint_execution_seal.json",
+  "execution_seal_sha256": "99ED27CFEE1F9402F1270036ED208EC495D8A423ADEEA2DBF48AF5501B4F9870",
+  "one_shot_no_resume": true,
+  "pid": 435,
+  "protocol_path": "reports/epoch9e_joint_certification_protocol.json",
+  "protocol_sha256": "7D481F280D62F27702C6AF8942DFA092340B377F0EDD1CB65FF9B724E67E6D84",
+  "resource_monitor": {
+    "gpu_initial": {
+      "query": "NVIDIA GeForce RTX 5080, 16303, 2277",
+      "status": "AVAILABLE"
+    },
+    "last_sample": {
+      "process_max_rss_bytes": 2199375872,
+      "wsl_mem_used_bytes": 1946521600,
+      "wsl_swap_used_bytes": 0
+    },
+    "process_max_rss_bytes": 2199375872,
+    "wsl_mem_used_peak_bytes": 1946521600,
+    "wsl_swap_used_peak_bytes": 0
+  },
+  "rows": [
+    {
+      "assignment": "A",
+      "base_identity_id": 20261134,
+      "both_candidates_excited_eval_only": true,
+      "candidate_scores_m": {
+        "back": 0.0011888139265684742,
+        "front": -0.0011888139265684742
+      },
+      "completed": true,
+      "completion_target_slot_eval_only": "back",
+      "exact_state_audit": {
+        "applied_body_mass_eval_construction_only": {
+          "back": 0.04473037264639999,
+          "front": 0.005591296580799999
+        },
+        "base_state_vector_sha256": "1196CF0A885750BDD4A78ACA4DCE36D789DC152604A3DEC0D66C1DFF41826228",
+        "baseline_body_mass_eval_construction_only": {
+          "back": 0.005591296580799999,
+          "front": 0.005591296580799999
+        },
+        "expected_first_rgb_sha256": "882B528B0B03B4F1F1BE491DB0CB4ADD68916BF76633C8F0D072B96127BB2C9F",
+        "first_rgb_after_mass_sha256": "882B528B0B03B4F1F1BE491DB0CB4ADD68916BF76633C8F0D072B96127BB2C9F",
+        "first_rgb_before_mass_sha256": "882B528B0B03B4F1F1BE491DB0CB4ADD68916BF76633C8F0D072B96127BB2C9F",
+        "first_rgb_exact": true,
+        "initial_rgb_localization_audit": {
+          "back": {
+            "quality": 0.765676736831665,
+            "subpixel_dx": -0.7058300794607746,
+            "subpixel_dy": 1.1970774514537759
+          },
+          "front": {
+            "quality": 0.639510989189148,
+            "subpixel_dx": 2.207825719277867,
+            "subpixel_dy": 4.778914095524055
+          }
+        },
+        "initial_rgb_localization_matches_frozen_base": true,
+        "mass_factor_eval_construction_only": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl"
+      },
+      "exception": null,
+      "heavy_rank_correct_eval_only": false,
+      "heavy_slot_eval_only": "back",
+      "instruction_property": "heaviest",
+      "method_information_boundary": {
+        "mass_assignment_used_only_to_construct_intervention": true,
+        "mass_property_simulator_pose_force_reward_success_segmentation_oracle_passed_to_probe_or_score": false,
+        "oracle_privilege_evaluation_only_after_both_probes": true,
+        "probe_and_score_inputs": [
+          "ordinary RGB",
+          "proprioception",
+          "frozen geometry",
+          "action trace"
+        ]
+      },
+      "oracle_completion": {
+        "finite_bounded_actions": true,
+        "official_task_success": true,
+        "oracle_privileged_pose_used": true,
+        "stages_reached": {
+          "above_grasp": true,
+          "above_plate": true,
+          "at_grasp": true,
+          "lift": true,
+          "release_pose": true
+        },
+        "steps": 146,
+        "target_object_positions_eval_only": {
+          "after_close": [
+            -0.16128634464038816,
+            0.04632876140956258,
+            0.9005346076074544
+          ],
+          "after_lift": [
+            -0.16323094995067006,
+            0.04668733305306583,
+            1.059629665130034
+          ],
+          "after_release": [
+            0.017765541480643788,
+            0.004321897593607905,
+            0.9068017643159908
+          ],
+          "initial": [
+            -0.1575049562836052,
+            0.050499501247855,
+            0.898386615352325
+          ],
+          "plate": [
+            0.007508877784397378,
+            0.0019679049762731226,
+            0.902506338529415
+          ]
+        },
+        "target_slot_eval_only": "back"
+      },
+      "predicted_heavy_slot": "front",
+      "probe_audits": {
+        "back": {
+          "candidate_positions_finite": true,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "identity_ordering_reversed": false,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "nondrag_all_separations_verified": true,
+          "nondrag_attempt_count": 1,
+          "nondrag_forbidden_inputs_used": [],
+          "nondrag_liftoff_planar_commands_exact_zero": true,
+          "observation_response_expected_axis_by_step_m": [
+            8.69017094373703e-05,
+            0.0004771305248141289,
+            0.002105103339999914,
+            0.004925295244902372,
+            0.006408280227333307
+          ],
+          "observation_response_expected_axis_peak_m": 0.006408280227333307,
+          "response_tracker_quality_min": 0.7096977233886719,
+          "response_window_indices": [
+            124,
+            125,
+            126,
+            127,
+            128
+          ],
+          "sampled_target_contact": true,
+          "simulator_state_used_for_actions": false,
+          "trace_path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_A_back.npz",
+          "trace_sha256": "BB3D520CE7E9E746ED92391A0A600FA74ADF824D02F6859FADAD770321F75CE6",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        },
+        "front": {
+          "candidate_positions_finite": true,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "identity_ordering_reversed": false,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "nondrag_all_separations_verified": true,
+          "nondrag_attempt_count": 2,
+          "nondrag_forbidden_inputs_used": [],
+          "nondrag_liftoff_planar_commands_exact_zero": true,
+          "observation_response_expected_axis_by_step_m": [
+            -4.190951585769653e-09,
+            0.0,
+            -4.206458106637001e-05,
+            0.00031959637999534607,
+            0.00039815623313188553
+          ],
+          "observation_response_expected_axis_peak_m": 0.00039815623313188553,
+          "response_tracker_quality_min": 0.6932317614555359,
+          "response_window_indices": [
+            202,
+            203,
+            204,
+            205,
+            206
+          ],
+          "sampled_target_contact": true,
+          "simulator_state_used_for_actions": false,
+          "trace_path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_A_front.npz",
+          "trace_sha256": "E338FACB56A3CDA9514D05B4EFAD6EEB6B3993B0F3D4F26D93EE753365569513",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        }
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "probes": [
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_distractor_contact_records_eval_only": [],
+          "candidate_final_displacement_m_eval_only": {
+            "back": 2.0462125778295133e-05,
+            "front": 0.008243300438342078
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "persistent_rgb_after_retract",
+          "contact_verification": [
+            {
+              "approach_offset_x_m": -0.055999999999999966,
+              "persistent_subpixel_motion_pixels": 1.0746993586962916,
+              "retract_reached": false,
+              "tracker_quality": 0.7110388278961182,
+              "trigger": "visual_event",
+              "trigger_subpixel_motion_pixels": 1.1467472082484598,
+              "trigger_tracker_quality": 0.6898587942123413,
+              "verified": false
+            },
+            {
+              "approach_offset_x_m": -0.052999999999999964,
+              "persistent_subpixel_motion_pixels": 1.0746990076847807,
+              "retract_reached": true,
+              "tracker_quality": 0.711037278175354,
+              "trigger": "visual_event",
+              "trigger_subpixel_motion_pixels": 1.0746980936534933,
+              "trigger_tracker_quality": 0.7110388278961182,
+              "verified": true
+            }
+          ],
+          "epoch9e_nondrag_disengagement": {
+            "all_actions_label_blind": true,
+            "all_liftoff_planar_commands_exact_zero": true,
+            "attempts": [
+              {
+                "actual_proprioceptive_lift_m": 0.04897840961607336,
+                "commanded_direction_world_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "high_clearance_reposition_reached": true,
+                "lift_action_count": 5,
+                "lift_target_reached": true,
+                "mass_property_score_reward_success_or_oracle_used_for_control": false,
+                "maximum_absolute_commanded_planar_component": 0.0,
+                "response_clearance_descend_reached": false,
+                "separation_verified_ordinary_observations": true,
+                "simulator_contact_or_force_used_for_control": false,
+                "start_eef_xyz_m": [
+                  0.023853002324265096,
+                  0.1928999895508662,
+                  0.9304510717099751
+                ],
+                "tracker_quality_after_lift": 0.6783634424209595
+              },
+              {
+                "actual_proprioceptive_lift_m": 0.043433648599322305,
+                "commanded_direction_world_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "high_clearance_reposition_reached": true,
+                "lift_action_count": 5,
+                "lift_target_reached": true,
+                "mass_property_score_reward_success_or_oracle_used_for_control": false,
+                "maximum_absolute_commanded_planar_component": 0.0,
+                "response_clearance_descend_reached": true,
+                "separation_verified_ordinary_observations": true,
+                "simulator_contact_or_force_used_for_control": false,
+                "start_eef_xyz_m": [
+                  0.019670718883946742,
+                  0.19187470836005605,
+                  0.9328414391456628
+                ],
+                "tracker_quality_after_lift": 0.7110388278961182
+              }
+            ],
+            "controller_name": "epoch9e_one_shot_nondrag_disengagement",
+            "forbidden_inputs_used": [],
+            "orientation_events": [
+              {
+                "approach_offset_x_m": -0.06199999999999997,
+                "approach_y_m": 0.1885891380170714,
+                "estimated_target_y_m": 0.1705891380170714,
+                "lower_lane_margin_m": 0.055589138017071396,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "upper",
+                "slot": "front",
+                "upper_lane_margin_m": 0.004410861982928588
+              },
+              {
+                "approach_offset_x_m": -0.05899999999999997,
+                "approach_y_m": 0.1885891380170714,
+                "estimated_target_y_m": 0.1705891380170714,
+                "lower_lane_margin_m": 0.055589138017071396,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "upper",
+                "slot": "front",
+                "upper_lane_margin_m": 0.004410861982928588
+              },
+              {
+                "approach_offset_x_m": -0.055999999999999966,
+                "approach_y_m": 0.1885891380170714,
+                "estimated_target_y_m": 0.1705891380170714,
+                "lower_lane_margin_m": 0.055589138017071396,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "upper",
+                "slot": "front",
+                "upper_lane_margin_m": 0.004410861982928588
+              },
+              {
+                "approach_offset_x_m": -0.052999999999999964,
+                "approach_y_m": 0.1885891380170714,
+                "estimated_target_y_m": 0.1705891380170714,
+                "lower_lane_margin_m": 0.055589138017071396,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "upper",
+                "slot": "front",
+                "upper_lane_margin_m": 0.004410861982928588
+              }
+            ]
+          },
+          "estimated_initial_target_xyz_m": [
+            0.08107471588180003,
+            0.1705891380170714,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.0018436516284080229,
+          "final_eef_z_m": 1.1744030937343197,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.008243300438342078,
+          "intended_target_contact_eval_only": true,
+          "intended_target_contact_or_excitation_eval_only": true,
+          "intended_target_excitation_peak_m_eval_only": 0.008243300438342078,
+          "intended_target_excited_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.28091984794548114,
+          "online_localization": {
+            "center_xy": [
+              92,
+              28
+            ],
+            "dx": 2.0,
+            "dy": 5.0,
+            "magnitude_pixels": 5.385164807134504,
+            "quality": 0.639510989189148,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "subpixel_dx": 2.207825719277867,
+            "subpixel_dy": 4.778914095524055,
+            "subpixel_magnitude_pixels": 5.264267692576369,
+            "template_bounds_xyxy": [
+              85,
+              21,
+              99,
+              35
+            ],
+            "template_std_gray": 37.3400427833409
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "preimpulse_clearance": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.00039815606824824754,
+          "response_eval_only_expected_axis_peak_m": 0.0009581404945220584,
+          "response_incremental_expected_axis_peak_m": 0.00039815606824824754,
+          "response_incremental_expected_axis_settled_m": 0.00035887631828083544,
+          "response_peak_estimated_displacement_m": 0.0009379483961973508,
+          "response_tracker_quality_min": 0.6932317614555359,
+          "response_visual_displacement_pixels": 1.2346841444575027,
+          "simulator_state_used_for_actions": false,
+          "slot": "front",
+          "steps": 264,
+          "trace_path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_A_front.npz"
+        },
+        {
+          "candidate_distractor_collision_eval_only": false,
+          "candidate_distractor_contact_records_eval_only": [],
+          "candidate_final_displacement_m_eval_only": {
+            "back": 0.012504840930506782,
+            "front": 0.0
+          },
+          "candidate_pair_collision_eval_only": false,
+          "contact_detected_online": true,
+          "contact_trigger": "persistent_rgb_after_retract",
+          "contact_verification": [
+            {
+              "approach_offset_x_m": -0.055999999999999966,
+              "persistent_subpixel_motion_pixels": 0.5674804389786972,
+              "retract_reached": true,
+              "tracker_quality": 0.7096977233886719,
+              "trigger": "visual_event",
+              "trigger_subpixel_motion_pixels": 0.5689269621179253,
+              "trigger_tracker_quality": 0.7092681527137756,
+              "verified": true
+            }
+          ],
+          "epoch9e_nondrag_disengagement": {
+            "all_actions_label_blind": true,
+            "all_liftoff_planar_commands_exact_zero": true,
+            "attempts": [
+              {
+                "actual_proprioceptive_lift_m": 0.04943574342273127,
+                "commanded_direction_world_xyz": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "high_clearance_reposition_reached": true,
+                "lift_action_count": 6,
+                "lift_target_reached": true,
+                "mass_property_score_reward_success_or_oracle_used_for_control": false,
+                "maximum_absolute_commanded_planar_component": 0.0,
+                "response_clearance_descend_reached": true,
+                "separation_verified_ordinary_observations": true,
+                "simulator_contact_or_force_used_for_control": false,
+                "start_eef_xyz_m": [
+                  -0.22819642867620737,
+                  0.031166722337997943,
+                  0.9296380914924218
+                ],
+                "tracker_quality_after_lift": 0.7096965909004211
+              }
+            ],
+            "controller_name": "epoch9e_one_shot_nondrag_disengagement",
+            "forbidden_inputs_used": [],
+            "orientation_events": [
+              {
+                "approach_offset_x_m": -0.095,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              },
+              {
+                "approach_offset_x_m": -0.092,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              },
+              {
+                "approach_offset_x_m": -0.089,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              },
+              {
+                "approach_offset_x_m": -0.086,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              },
+              {
+                "approach_offset_x_m": -0.08299999999999999,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              },
+              {
+                "approach_offset_x_m": -0.07999999999999999,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              },
+              {
+                "approach_offset_x_m": -0.07699999999999999,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              },
+              {
+                "approach_offset_x_m": -0.07399999999999998,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              },
+              {
+                "approach_offset_x_m": -0.07099999999999998,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              },
+              {
+                "approach_offset_x_m": -0.06799999999999998,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              },
+              {
+                "approach_offset_x_m": -0.06499999999999997,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              },
+              {
+                "approach_offset_x_m": -0.06199999999999997,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              },
+              {
+                "approach_offset_x_m": -0.05899999999999997,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              },
+              {
+                "approach_offset_x_m": -0.055999999999999966,
+                "approach_y_m": 0.030928862112257757,
+                "estimated_target_y_m": 0.048928862112257755,
+                "lower_lane_margin_m": 0.033928862112257756,
+                "mass_or_property_input": false,
+                "mode": "inward_facing_contact",
+                "nearest_boundary": "lower",
+                "slot": "back",
+                "upper_lane_margin_m": 0.04107113788774224
+              }
+            ]
+          },
+          "estimated_initial_target_xyz_m": [
+            -0.17005498652316106,
+            0.048928862112257755,
+            0.8984041495967313
+          ],
+          "final_eef_displacement_m": 0.000702720676187178,
+          "final_eef_z_m": 1.1748369484399208,
+          "finite_bounded_actions": true,
+          "forbidden_online_inputs_used": [],
+          "intended_candidate_displacement_m_eval_only": 0.012504840930506782,
+          "intended_target_contact_eval_only": true,
+          "intended_target_contact_or_excitation_eval_only": true,
+          "intended_target_excitation_peak_m_eval_only": 0.012504840930506782,
+          "intended_target_excited_eval_only": true,
+          "lane_and_reachability_continuous_pass": true,
+          "mass_or_property_used_for_actions": false,
+          "maximum_intended_displacement_limit_pass": true,
+          "minimum_candidate_center_separation_m_eval_only": 0.277637693247019,
+          "online_localization": {
+            "center_xy": [
+              71,
+              60
+            ],
+            "dx": -1.0,
+            "dy": 1.0,
+            "magnitude_pixels": 1.4142135623730951,
+            "quality": 0.7739906311035156,
+            "search_pixels_effective": 18,
+            "search_pixels_requested": 18,
+            "subpixel_dx": -0.7277152964703397,
+            "subpixel_dy": 1.1829860705861606,
+            "subpixel_magnitude_pixels": 1.3888936589666607,
+            "template_bounds_xyxy": [
+              64,
+              53,
+              78,
+              67
+            ],
+            "template_std_gray": 42.819828336477855
+          },
+          "phases_reached": {
+            "descend_paddle": true,
+            "preimpulse_clearance": true,
+            "retreat_high": true,
+            "retreat_side": true,
+            "return_neutral": true,
+            "transit_high": true
+          },
+          "response_estimated_displacement_m": 0.006408279988615858,
+          "response_eval_only_expected_axis_peak_m": 0.006696375658418491,
+          "response_incremental_expected_axis_peak_m": 0.006408279988615858,
+          "response_incremental_expected_axis_settled_m": 0.005666787945583961,
+          "response_peak_estimated_displacement_m": 0.006409361281353331,
+          "response_tracker_quality_min": 0.7096977233886719,
+          "response_visual_displacement_pixels": 1.1277119840761174,
+          "simulator_state_used_for_actions": false,
+          "slot": "back",
+          "steps": 176,
+          "trace_path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_A_back.npz"
+        }
+      ],
+      "resource_after_row": {
+        "process_max_rss_bytes": 2112954368,
+        "wsl_mem_used_bytes": 1875017728,
+        "wsl_swap_used_bytes": 0
+      },
+      "responses_m": {
+        "back": 0.006408279988615858,
+        "front": 0.00039815606824824754
+      },
+      "row_key": "primary:epoch9e_joint_base_20261134_assignment_A",
+      "row_type": "PRIMARY_ASSIGNMENT",
+      "scene_id": "epoch9e_joint_base_20261134_assignment_A",
+      "wall_seconds": 24.321056337000016
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261134,
+      "completed": false,
+      "completion_target_slot_eval_only": "front",
+      "exception": "RuntimeError: trace does not contain the frozen five-step response window: /mnt/c/Users/jiheo/tca_map/reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_back.npz",
+      "heavy_slot_eval_only": "front",
+      "instruction_property": "heaviest",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "resource_after_row": {
+        "process_max_rss_bytes": 2199375872,
+        "wsl_mem_used_bytes": 1946521600,
+        "wsl_swap_used_bytes": 0
+      },
+      "row_key": "primary:epoch9e_joint_base_20261134_assignment_B",
+      "row_type": "PRIMARY_ASSIGNMENT",
+      "scene_id": "epoch9e_joint_base_20261134_assignment_B",
+      "wall_seconds": 21.91996967
+    }
+  ],
+  "runner_sha256": "E8D72A8AF421727E262F90026C24ECFCEA0A2A0AA68E4D2FE0AE11AC4B6542D4",
+  "schema_version": "epoch9e.joint_certification_result.v1",
+  "started_at": "2026-07-21T15:26:01+09:00",
+  "summary": {
+    "complete_rows": 1,
+    "exceptions": 1,
+    "primary_rows": 2,
+    "rows": 2,
+    "sham_rows": 0
+  },
+  "validation_accessed": false
+}

@@ -1,0 +1,211 @@
+{
+  "confirmation_accessed": false,
+  "counts": {
+    "both_candidates_excited": 1,
+    "candidate_probes": 2,
+    "collisions": 0,
+    "completion_by_heavy_position": {
+      "back": {
+        "success": 1,
+        "total": 1
+      },
+      "front": {
+        "success": 0,
+        "total": 0
+      }
+    },
+    "completion_oracle": 1,
+    "exact_pair_correct_flips": 0,
+    "falls": 0,
+    "finite_bounded_actions": 2,
+    "full_trajectory_lane_reachable": 2,
+    "identity_swaps": 0,
+    "intended_contact_or_excitation": 2,
+    "primary_scenes": 1,
+    "rank_by_heavy_position": {
+      "back": {
+        "correct": 0,
+        "total": 1
+      },
+      "front": {
+        "correct": 0,
+        "total": 0
+      }
+    },
+    "rank_correct": 0,
+    "sham_rows": 0,
+    "unrecoverable_track_losses": 0,
+    "workspace_exits": 0
+  },
+  "decision": "EPOCH9E_NONDRAG_DISENGAGEMENT_FROZEN_NO_GO_ACTIVE_ROUTE_CLOSED",
+  "execution_bindings": {
+    "adjudicator": true,
+    "controller": true,
+    "host": true,
+    "mechanics_adjudication": true,
+    "original_runner": true,
+    "protocol": true,
+    "result_host_hash": true,
+    "result_protocol": true,
+    "result_seal": true,
+    "runner": true
+  },
+  "gates": {
+    "adjusted_hc3_interval_excludes_zero_positive": false,
+    "admissible_observation_only_method": true,
+    "both_candidates_excited_at_least_22_of_24": false,
+    "complete_unique_manifest_36_rows": false,
+    "completion_each_heavy_position_at_least_9_of_12": false,
+    "completion_oracle_at_least_20_of_24": false,
+    "exact_pair_flips_at_least_9_of_12": false,
+    "execution_and_resource_contract_pass": true,
+    "finite_bounded_actions_48_of_48": false,
+    "full_trajectory_lane_reachable_48_of_48": false,
+    "intended_contact_or_excitation_at_least_46_of_48": false,
+    "one_sided_sign_test_p_strictly_below_0_01": false,
+    "paired_95_interval_excludes_zero_positive": false,
+    "precontact_position_order_control_pass": false,
+    "rank_at_least_20_of_24": false,
+    "rank_each_heavy_position_at_least_10_of_12": false,
+    "sealed_nondrag_controller_audit_pass": false,
+    "sham_control_pass": false,
+    "trace_hashes_pass": true,
+    "zero_collision_identity_swap_fall_workspace_exit_track_loss": true
+  },
+  "implementation_or_scientific_repair_used": false,
+  "integrity": {
+    "complete_unique_manifest": false,
+    "execution_and_resource": true,
+    "information_boundary": true,
+    "nondrag_controller": false,
+    "trace_hashes": true
+  },
+  "joint_certification_go": false,
+  "misses": [
+    {
+      "exception": "RuntimeError: trace does not contain the frozen five-step response window: /mnt/c/Users/jiheo/tca_map/reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_back.npz",
+      "row_key": "primary:epoch9e_joint_base_20261134_assignment_B"
+    },
+    {
+      "gate": "complete_unique_manifest_36_rows"
+    },
+    {
+      "gate": "finite_bounded_actions_48_of_48"
+    },
+    {
+      "gate": "intended_contact_or_excitation_at_least_46_of_48"
+    },
+    {
+      "gate": "both_candidates_excited_at_least_22_of_24"
+    },
+    {
+      "gate": "full_trajectory_lane_reachable_48_of_48"
+    },
+    {
+      "gate": "rank_at_least_20_of_24"
+    },
+    {
+      "gate": "rank_each_heavy_position_at_least_10_of_12"
+    },
+    {
+      "gate": "exact_pair_flips_at_least_9_of_12"
+    },
+    {
+      "gate": "one_sided_sign_test_p_strictly_below_0_01"
+    },
+    {
+      "gate": "paired_95_interval_excludes_zero_positive"
+    },
+    {
+      "gate": "adjusted_hc3_interval_excludes_zero_positive"
+    },
+    {
+      "gate": "precontact_position_order_control_pass"
+    },
+    {
+      "gate": "sham_control_pass"
+    },
+    {
+      "gate": "completion_oracle_at_least_20_of_24"
+    },
+    {
+      "gate": "completion_each_heavy_position_at_least_9_of_12"
+    },
+    {
+      "gate": "sealed_nondrag_controller_audit_pass"
+    }
+  ],
+  "near_miss_rerun_authorized": false,
+  "pair_rows": [],
+  "paired_mass_intervention": {
+    "adjusted_position_lane_order": {
+      "covariates_centered": [
+        "initial back x",
+        "initial back y",
+        "initial back lane margin",
+        "back-first probe order"
+      ],
+      "degrees_of_freedom": null,
+      "estimate_m": null,
+      "hc3_95_interval_m": [
+        null,
+        null
+      ],
+      "hc3_standard_error_m": null,
+      "valid": false
+    },
+    "contrasts_m": [],
+    "definition": "back response light (assignment B) minus back response heavy (assignment A)",
+    "mean_m": null,
+    "median_m": null,
+    "negative_pairs": 0,
+    "one_sided_exact_sign_test_p": 1.0,
+    "paired_student_t_95_interval_m": [
+      null,
+      null
+    ],
+    "positive_pairs": 0,
+    "standard_deviation_m": null,
+    "zero_pairs": 0
+  },
+  "paper_status": "PAPER_NOT_AUTHORIZED",
+  "precontact_position_order_control": {
+    "denominator": 24,
+    "first_rgb_exact_pairs": 0,
+    "initial_localization_exact_pairs": 0,
+    "pair_flips": 0,
+    "pass": false,
+    "theoretical_correct": 0
+  },
+  "resource_summary": {
+    "peak_gpu_used_mib": 2287,
+    "peak_host_ram_percent": 56.87494699050152,
+    "peak_host_used_physical_bytes": 14145376256,
+    "process_max_rss_bytes": 2199375872,
+    "runner_exit_code": 0,
+    "wsl_mem_used_peak_bytes": 1946521600,
+    "wsl_swap_used_peak_bytes": 0
+  },
+  "schema_version": "epoch9e.joint_certification_adjudication.v1",
+  "sham_control": {
+    "base_pairs": 0,
+    "collision_rows": 0,
+    "contrasts_m": [],
+    "paired_student_t_95_interval_m": [
+      null,
+      null
+    ],
+    "pass": false,
+    "prediction_flips": 0,
+    "rows": 0,
+    "sampled_contact_rows": 0
+  },
+  "source_hashes": {
+    "host": "04CA269D5803549789406A5E4E509629885876BACD61045966C0D4FE67C4A2F1",
+    "protocol": "7D481F280D62F27702C6AF8942DFA092340B377F0EDD1CB65FF9B724E67E6D84",
+    "result": "BC9E772479ABAFF477D9EA56399E4A4BB407F1874439A7ACE20E8B84F3C332C8",
+    "seal": "99ED27CFEE1F9402F1270036ED208EC495D8A423ADEEA2DBF48AF5501B4F9870"
+  },
+  "timestamp": "2026-07-21T15:27:16+09:00",
+  "validation_accessed": false
+}
