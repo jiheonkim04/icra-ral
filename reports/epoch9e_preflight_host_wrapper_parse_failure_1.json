@@ -1,0 +1,16 @@
+{
+  "schema_version": "epoch9e.preflight_host_wrapper_parse_failure.v1",
+  "recorded_at": "2026-07-21T14:58:00+09:00",
+  "command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run_epoch9e_outcome_suppressed_preflight_host.ps1 -Mode exact_pairs",
+  "failure": "PowerShell ParserError in the dormant host-ceiling termination command string",
+  "runner_started": false,
+  "simulator_environment_started": false,
+  "result_rows": 0,
+  "scientific_outcomes_accessed": false,
+  "repair_scope": "replace only the malformed interpolated termination string with a single-quoted template and literal script-name substitution",
+  "controller_code_changed": false,
+  "protocol_changed": false,
+  "threshold_changed": false,
+  "validation_accessed": false,
+  "confirmation_accessed": false
+}

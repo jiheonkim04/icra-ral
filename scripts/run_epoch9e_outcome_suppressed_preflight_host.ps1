@@ -51,7 +51,8 @@ while (-not $process.HasExited) {
     if ($sample.gpu_used_mib_system_wide -gt $peakGpu) { $peakGpu = $sample.gpu_used_mib_system_wide }
     if ($sample.host_ram_percent -ge $hostCeilingPercent) {
         $ceilingBreached = $true
-        $killCommand = "pids=`$(pgrep -f '^/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python $($settings.Script)`$' || true); if [ -n \"`$pids\" ]; then kill -TERM `$pids; fi"
+        $killCommand = 'pids=$(pgrep -f ''^/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python __SCRIPT__$'' || true); if [ -n "$pids" ]; then kill -TERM $pids; fi'
+        $killCommand = $killCommand.Replace("__SCRIPT__", $settings.Script)
         & wsl.exe -e bash -lc $killCommand | Out-Null
         break
     }
