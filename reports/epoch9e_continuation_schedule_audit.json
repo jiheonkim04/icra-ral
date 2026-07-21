@@ -1,0 +1,275 @@
+{
+  "confirmation_accessed": false,
+  "frozen_at": "2026-07-21T15:58:05+09:00",
+  "host_ram_ceiling_percent": 82.0,
+  "never_recompute_keys": [
+    "primary:epoch9e_joint_base_20261134_assignment_A",
+    "primary:epoch9e_joint_base_20261134_assignment_B"
+  ],
+  "original_result_rows_preserved": [
+    "primary:epoch9e_joint_base_20261134_assignment_A",
+    "primary:epoch9e_joint_base_20261134_assignment_B"
+  ],
+  "original_trace_count": 4,
+  "pending_primary_count": 22,
+  "pending_primary_rows": [
+    {
+      "assignment": "A",
+      "base_identity_id": 20261135,
+      "row_key": "primary:epoch9e_joint_base_20261135_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261135,
+      "row_key": "primary:epoch9e_joint_base_20261135_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261136,
+      "row_key": "primary:epoch9e_joint_base_20261136_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261136,
+      "row_key": "primary:epoch9e_joint_base_20261136_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261137,
+      "row_key": "primary:epoch9e_joint_base_20261137_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261137,
+      "row_key": "primary:epoch9e_joint_base_20261137_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261138,
+      "row_key": "primary:epoch9e_joint_base_20261138_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261138,
+      "row_key": "primary:epoch9e_joint_base_20261138_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261139,
+      "row_key": "primary:epoch9e_joint_base_20261139_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261139,
+      "row_key": "primary:epoch9e_joint_base_20261139_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261140,
+      "row_key": "primary:epoch9e_joint_base_20261140_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261140,
+      "row_key": "primary:epoch9e_joint_base_20261140_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261141,
+      "row_key": "primary:epoch9e_joint_base_20261141_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261141,
+      "row_key": "primary:epoch9e_joint_base_20261141_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261142,
+      "row_key": "primary:epoch9e_joint_base_20261142_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261142,
+      "row_key": "primary:epoch9e_joint_base_20261142_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261143,
+      "row_key": "primary:epoch9e_joint_base_20261143_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261143,
+      "row_key": "primary:epoch9e_joint_base_20261143_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261144,
+      "row_key": "primary:epoch9e_joint_base_20261144_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261144,
+      "row_key": "primary:epoch9e_joint_base_20261144_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261145,
+      "row_key": "primary:epoch9e_joint_base_20261145_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261145,
+      "row_key": "primary:epoch9e_joint_base_20261145_assignment_B"
+    }
+  ],
+  "pending_scientific_outcomes_opened": false,
+  "pending_sham_count": 12,
+  "pending_sham_rows": [
+    {
+      "assignment": "A",
+      "base_identity_id": 20261134,
+      "row_key": "sham:epoch9e_joint_sham_base_20261134_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261134,
+      "row_key": "sham:epoch9e_joint_sham_base_20261134_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261135,
+      "row_key": "sham:epoch9e_joint_sham_base_20261135_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261135,
+      "row_key": "sham:epoch9e_joint_sham_base_20261135_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261136,
+      "row_key": "sham:epoch9e_joint_sham_base_20261136_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261136,
+      "row_key": "sham:epoch9e_joint_sham_base_20261136_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261137,
+      "row_key": "sham:epoch9e_joint_sham_base_20261137_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261137,
+      "row_key": "sham:epoch9e_joint_sham_base_20261137_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261138,
+      "row_key": "sham:epoch9e_joint_sham_base_20261138_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261138,
+      "row_key": "sham:epoch9e_joint_sham_base_20261138_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 20261139,
+      "row_key": "sham:epoch9e_joint_sham_base_20261139_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 20261139,
+      "row_key": "sham:epoch9e_joint_sham_base_20261139_assignment_B"
+    }
+  ],
+  "preflight_actions_executed": 0,
+  "preflight_reward_done_success_accessed": false,
+  "primary_assignment_order": [
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B"
+  ],
+  "primary_identity_order": [
+    20261135,
+    20261135,
+    20261136,
+    20261136,
+    20261137,
+    20261137,
+    20261138,
+    20261138,
+    20261139,
+    20261139,
+    20261140,
+    20261140,
+    20261141,
+    20261141,
+    20261142,
+    20261142,
+    20261143,
+    20261143,
+    20261144,
+    20261144,
+    20261145,
+    20261145
+  ],
+  "schema_version": "epoch9e.failfast_continuation_schedule_audit.v1",
+  "serial": true,
+  "sham_assignment_order": [
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B",
+    "A",
+    "B"
+  ],
+  "sham_identity_order": [
+    20261134,
+    20261134,
+    20261135,
+    20261135,
+    20261136,
+    20261136,
+    20261137,
+    20261137,
+    20261138,
+    20261138,
+    20261139,
+    20261139
+  ],
+  "starting_checkpoint": "4f57ecb94a3c84e0a5889bc0bd60cbd53ad415e8",
+  "state_rgb_only_preflight_disclosed": true,
+  "validation_accessed": false,
+  "wsl_swap_used_peak_bytes": 0
+}

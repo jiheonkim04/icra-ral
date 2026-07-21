@@ -1,0 +1,14 @@
+{
+  "allowance_consumed": false,
+  "authority_path": "/mnt/c/Users/jiheo/Downloads/epoch9e_failfast_runner_continuation_authorization.md",
+  "authority_sha256": "A70E137D2C92E0395F47E13CF99692702F0FDB86E2CC714B5C219D66618EC9E7",
+  "authorized_change": "one integrity-only fail-fast runner/adjudicator repair",
+  "confirmation_accessed": false,
+  "controller_or_scientific_change_authorized": false,
+  "recorded_at": "2026-07-21T15:58:05+09:00",
+  "replacement_pair_authorized": false,
+  "rerun_20261134_authorized": false,
+  "schema_version": "epoch9e.failfast_continuation_authorization.v1",
+  "starting_checkpoint": "4f57ecb94a3c84e0a5889bc0bd60cbd53ad415e8",
+  "validation_accessed": false
+}

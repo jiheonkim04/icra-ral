@@ -1,0 +1,34 @@
+{
+  "assignment_B_missing_response_physically_admissible_range_m": [
+    0.0,
+    0.05
+  ],
+  "confirmation_accessed": false,
+  "contrast_definition": "assignment B back-light response minus assignment A back-heavy response",
+  "frozen_at": "2026-07-21T15:58:05+09:00",
+  "missing_base_identity_id": 20261134,
+  "missing_contrast_physically_admissible_range_m": [
+    -0.006408279988615858,
+    0.043591720011384144
+  ],
+  "observed_assignment_A_back_heavy_response_m": 0.006408279988615858,
+  "outcomes_after_20261134_accessed_before_freeze": false,
+  "paired_gate_pass_requires": [
+    "complete-case mean positive and 95% Student-t lower endpoint > 0",
+    "complete-case centered HC3 estimate positive and lower endpoint > 0",
+    "fixed-denominator one-sided exact sign p < 0.01 with missing pair nonpositive",
+    "worst-case augmented Student-t lower endpoint > 0",
+    "worst-case augmented centered HC3 estimate positive and lower endpoint > 0"
+  ],
+  "rules": {
+    "binary_fixed_denominator": "Count base 20261134 as nonpositive and nonflip in the fixed 12-pair exact sign and flip evidence.",
+    "complete_case": "Report mean, median, Student-t 95% interval, exact sample count, sign counts, and centered position/lane/order HC3 interval using complete physical contrasts only; maximum n is 11.",
+    "reporting": "Never label the sensitivity-augmented estimate as an observed 12-pair physical mean or CI.",
+    "significance": "Require a one-sided exact binomial sign-test p < 0.01 with positives counted over fixed n=12, so the missing pair can never help.",
+    "tipping_point": "Solve and disclose the missing contrast at which the augmented 12-pair Student-t lower endpoint first reaches zero over the admissible range; PASS requires the worst-case bound to be above that tipping point.",
+    "worst_case_augmented": "Append the preregistered worst-case missing contrast (B response 0 minus observed A response) to the complete contrasts; require its 12-pair Student-t interval lower endpoint and centered HC3 interval lower endpoint to remain strictly positive."
+  },
+  "schema_version": "epoch9e.missing_pair_sensitivity_protocol.v1",
+  "validation_accessed": false,
+  "worst_case_missing_contrast_m": -0.006408279988615858
+}

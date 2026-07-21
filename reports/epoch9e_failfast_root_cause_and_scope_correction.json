@@ -1,0 +1,201 @@
+{
+  "confirmation_accessed": false,
+  "fixed_handling_20261134": {
+    "assignment_A": "completed; observed rank miss; successful oracle completion; never rerun",
+    "assignment_B": "failed/incomplete primary assignment in fixed intention-to-treat denominators",
+    "assignment_B_back": "contacted but invalid/missing response window; never scored or rerun",
+    "assignment_B_front": "complete mechanics trace retained; never rerun",
+    "exact_pair": "fixed adverse/nonflip for binary flip and sign evidence; excluded from physical-contrast mean/CI"
+  },
+  "frozen_hashes": {
+    "controller": {
+      "path": "scripts/epoch9e_nondrag_controller.py",
+      "sha256": "99DA452B5AD3603A9FDD1209704479B18F302987E79C65EA8C4B9622E16657D7"
+    },
+    "existing_traces": [
+      {
+        "actions_finite_and_bounded": true,
+        "contact_verify_rgb_displacement_pixels_max": 0.5674851536750793,
+        "contact_verify_rgb_displacement_pixels_min": 0.5674763321876526,
+        "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_A_back.npz",
+        "phase_counts": {
+          "contact_verify_observe": 7,
+          "descend_paddle": 12,
+          "fixed_micro_impulse": 3,
+          "guarded_incremental_approach": 51,
+          "nondrag_high_clearance_reposition": 5,
+          "nondrag_response_clearance_descend": 9,
+          "nondrag_separation_observe": 3,
+          "nondrag_vertical_liftoff": 6,
+          "post_impulse_response": 2,
+          "preclose_paddle": 8,
+          "retreat_high": 15,
+          "retreat_side": 10,
+          "return_neutral": 22,
+          "transit_high": 23
+        },
+        "response_window_steps": 5,
+        "response_window_valid": true,
+        "sampled_physical_contact": true,
+        "sha256": "BB3D520CE7E9E746ED92391A0A600FA74ADF824D02F6859FADAD770321F75CE6",
+        "steps": 176
+      },
+      {
+        "actions_finite_and_bounded": true,
+        "contact_verify_rgb_displacement_pixels_max": 1.0747013092041016,
+        "contact_verify_rgb_displacement_pixels_min": 1.0746963024139404,
+        "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_A_front.npz",
+        "phase_counts": {
+          "contact_verify_observe": 14,
+          "descend_paddle": 11,
+          "fixed_micro_impulse": 3,
+          "guarded_incremental_approach": 53,
+          "nondrag_high_clearance_reposition": 19,
+          "nondrag_response_clearance_descend": 48,
+          "nondrag_separation_observe": 6,
+          "nondrag_vertical_liftoff": 10,
+          "post_impulse_response": 2,
+          "preclose_paddle": 8,
+          "retreat_high": 14,
+          "retreat_side": 13,
+          "return_neutral": 30,
+          "transit_high": 33
+        },
+        "response_window_steps": 5,
+        "response_window_valid": true,
+        "sampled_physical_contact": true,
+        "sha256": "E338FACB56A3CDA9514D05B4EFAD6EEB6B3993B0F3D4F26D93EE753365569513",
+        "steps": 264
+      },
+      {
+        "actions_finite_and_bounded": true,
+        "contact_verify_rgb_displacement_pixels_max": 0.5482444763183594,
+        "contact_verify_rgb_displacement_pixels_min": 0.5463839173316956,
+        "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_back.npz",
+        "phase_counts": {
+          "contact_verify_observe": 42,
+          "descend_paddle": 12,
+          "guarded_incremental_approach": 60,
+          "nondrag_high_clearance_reposition": 46,
+          "nondrag_response_clearance_descend": 51,
+          "nondrag_separation_observe": 18,
+          "nondrag_vertical_liftoff": 33,
+          "preclose_paddle": 8,
+          "retreat_high": 15,
+          "retreat_side": 10,
+          "return_neutral": 24,
+          "transit_high": 23
+        },
+        "response_window_steps": 0,
+        "response_window_valid": false,
+        "sampled_physical_contact": true,
+        "sha256": "4E7D1316E8B8094638D3A7D43D3E29587D0A4203BA6CF71592CC26B1BE2E9A5F",
+        "steps": 342
+      },
+      {
+        "actions_finite_and_bounded": true,
+        "contact_verify_rgb_displacement_pixels_max": 1.0878989696502686,
+        "contact_verify_rgb_displacement_pixels_min": 1.0878962278366089,
+        "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_front.npz",
+        "phase_counts": {
+          "contact_verify_observe": 7,
+          "descend_paddle": 11,
+          "fixed_micro_impulse": 3,
+          "guarded_incremental_approach": 52,
+          "nondrag_high_clearance_reposition": 10,
+          "nondrag_response_clearance_descend": 26,
+          "nondrag_separation_observe": 3,
+          "nondrag_vertical_liftoff": 5,
+          "post_impulse_response": 2,
+          "preclose_paddle": 8,
+          "retreat_high": 14,
+          "retreat_side": 13,
+          "return_neutral": 31,
+          "transit_high": 33
+        },
+        "response_window_steps": 5,
+        "response_window_valid": true,
+        "sampled_physical_contact": true,
+        "sha256": "0DD916B36A6FE253EF0A20269FA45AE27913700E5CE28DD268A2E5ADF12425BC",
+        "steps": 218
+      }
+    ],
+    "interrupted_adjudication": {
+      "path": "reports/epoch9e_joint_certification_adjudication.json",
+      "sha256": "A7EA168ECAED502F61A3BFCF3E21F7EF2A688F5BE82D2413D26FCC4FD8A07022"
+    },
+    "interrupted_result": {
+      "path": "reports/epoch9e_joint_certification/result.json",
+      "sha256": "BC9E772479ABAFF477D9EA56399E4A4BB407F1874439A7ACE20E8B84F3C332C8"
+    },
+    "joint_protocol": {
+      "path": "reports/epoch9e_joint_certification_protocol.json",
+      "sha256": "7D481F280D62F27702C6AF8942DFA092340B377F0EDD1CB65FF9B724E67E6D84"
+    },
+    "original_adjudicator": {
+      "path": "scripts/adjudicate_epoch9e_joint_certification.py",
+      "sha256": "2534E6438168435B1C34FB62E600CEDD6E69D7DD604D1B9DF9D2D5EA8AAD7318"
+    },
+    "original_execution_seal": {
+      "path": "reports/epoch9e_joint_execution_seal.json",
+      "sha256": "99ED27CFEE1F9402F1270036ED208EC495D8A423ADEEA2DBF48AF5501B4F9870"
+    },
+    "original_host_wrapper": {
+      "path": "scripts/run_epoch9e_joint_certification_host.ps1",
+      "sha256": "CBAB368C65076D8FBBDBB3987A2816ECAB61B4858D172CC0BEEC20CD34BA4C9E"
+    },
+    "original_runner": {
+      "path": "scripts/run_epoch9e_joint_certification.py",
+      "sha256": "E8D72A8AF421727E262F90026C24ECFCEA0A2A0AA68E4D2FE0AE11AC4B6542D4"
+    }
+  },
+  "historical_terminal_artifacts_edited": false,
+  "implementation_defect": {
+    "description": "run_primary converted the missing response window into a failed row, then main raised for every failed row instead of retaining the classified scientific miss and continuing untouched keys.",
+    "missing_window_detection_line": {
+      "line": 207,
+      "path": "scripts/run_epoch9e_joint_certification.py"
+    },
+    "whole_batch_abort_lines": {
+      "lines": [
+        489,
+        490
+      ],
+      "path": "scripts/run_epoch9e_joint_certification.py"
+    }
+  },
+  "prospective_status": [
+    "EPOCH9E_JOINT_EXECUTION_INTERRUPTED_BY_FAIL_FAST_RUNNER_DEFECT",
+    "ACTIVE_ROUTE_NOT_YET_ADJUDICABLE",
+    "PAPER_NOT_AUTHORIZED"
+  ],
+  "protected_untracked_manifests": [
+    {
+      "file_count": 27,
+      "manifest_sha256": "25DE8FF5AA6112D7EFF8BCF38D3A4C3F0F3C8C8EE0458E5FA83D17438719EC54",
+      "path": "rollouts/2026_07_17/",
+      "total_bytes": 5143751
+    },
+    {
+      "file_count": 10,
+      "manifest_sha256": "CF701D6F73D4783F016E48A72C093DC9FD6D940B7081DA8FBEC128DB94C24A00",
+      "path": "rollouts/2026_07_18/",
+      "total_bytes": 924633
+    }
+  ],
+  "recorded_at": "2026-07-21T15:58:05+09:00",
+  "schema_version": "epoch9e.failfast_root_cause_scope_correction.v1",
+  "scientific_miss": {
+    "frozen_response_window_steps": 0,
+    "frozen_transition_threshold_pixels": 0.55,
+    "immutable": true,
+    "observed_verification_range_pixels": [
+      0.5463839173316956,
+      0.5482444763183594
+    ],
+    "physical_contact": true,
+    "probe": "back",
+    "row_key": "primary:epoch9e_joint_base_20261134_assignment_B"
+  },
+  "validation_accessed": false
+}
