@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "campaign": "epoch10_icae_vla",
+  "recorded_at": "2026-07-21T17:10:59.6275550+09:00",
+  "repository": {
+    "path": "C:\\Users\\jiheo\\tca_map",
+    "source_commit": "2463ef93f9326fb780f7c053fe40c0051aca901c",
+    "source_branch": "codex/epoch9e-nondrag-disengagement-convergence",
+    "working_branch": "codex/epoch10-icae-vla-evaluation",
+    "source_is_exact_authoritative_epoch9e_commit": true,
+    "newer_clean_descendant_selected": false,
+    "remote": "https://github.com/jiheonkim04/icra-ral.git"
+  },
+  "worktree_at_branch_creation": {
+    "tracked_changes": [],
+    "untracked_protected_directories": [
+      {
+        "path": "rollouts/2026_07_17",
+        "file_count": 27,
+        "bytes": 5143751,
+        "sha256_of_sorted_relative_path_and_file_sha256_ledger": "91ca6d290dad4a803f5579d24968e1583f528ed2eee29ee9ba60b015739c19de"
+      },
+      {
+        "path": "rollouts/2026_07_18",
+        "file_count": 10,
+        "bytes": 924633,
+        "sha256_of_sorted_relative_path_and_file_sha256_ledger": "3788430499e72c8f33448c083bccb6248a0fd2ea067682ad3800ee55c21ff586"
+      }
+    ]
+  },
+  "active_worker_audit": {
+    "duplicate_scientific_worker_found": false,
+    "note": "Only the WSL service and the audit shell were present; no Python, LeRobot, LIBERO, rollout, training, or Epoch 9/10 worker was active."
+  },
+  "resources": {
+    "host_ram_total_bytes": 24871014400,
+    "host_ram_free_bytes_at_audit": 14284464128,
+    "system_drive_free_bytes": 307202691072,
+    "gpu": "NVIDIA GeForce RTX 5080",
+    "gpu_driver": "596.21",
+    "gpu_vram_total_mib": 16303,
+    "gpu_vram_used_mib_at_audit": 2242,
+    "gpu_vram_free_mib_at_audit": 13738,
+    "wsl_ram_total_bytes": 12096454656,
+    "wsl_ram_available_bytes_at_audit": 11459907584,
+    "wsl_swap_total_bytes": 3221225472,
+    "wsl_swap_used_bytes_at_audit": 0,
+    "serial_execution_required": true,
+    "max_resident_vla_models": 1,
+    "max_simulator_environments": 1
+  },
+  "environments": {
+    "host_python": "C:\\Users\\jiheo\\miniconda3\\envs\\tca_map\\python.exe",
+    "host_python_version": "3.10.20",
+    "host_packages": {
+      "torch": "2.10.0+cu128",
+      "lerobot": "0.4.4",
+      "transformers": "4.57.6",
+      "peft": "0.19.1",
+      "datasets": "4.8.5",
+      "h5py": "3.16.0",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3"
+    },
+    "official_wsl_python": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python",
+    "official_wsl_environment_lock_sha256": "0da247d8cdc653561f00ac4735c878b4a36d5de4eb8e8d28a2e25dcac4a04691",
+    "official_wsl_packages_from_frozen_400_episode_run": {
+      "torch": "2.10.0+cu128",
+      "lerobot": "0.4.4",
+      "transformers": "4.57.6",
+      "peft": "0.19.1",
+      "hf_libero": "0.1.4",
+      "robosuite": "1.4.0",
+      "mujoco": "3.8.1"
+    }
+  },
+  "asset_hashes": {
+    "smolvla_libero_model_safetensors": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8",
+    "lerobot_libero_info_json": "630630a1a4f07fc9fc1f1b2b7987ed3bd034bd8cffaaf8a0e6939ae9c468445d",
+    "lerobot_libero_stats_json": "d4e03a22ef5d89a910e32c233a509465ad0d265381a06745917d69fd8924a635",
+    "rank4_lora_seed_11_adapter": "af73fa2be701aa3681e76a2520fe1acc367a44dc5168947571fc5d48cb88db89",
+    "rank4_lora_seed_22_adapter": "4cd5432572c38191944f17d270183ab8dba72201f60dc5cdf3c9528f9461c0e9",
+    "rank4_lora_seed_33_adapter": "5d46eb6a78df0be8bf02a260711aec006ad1b8756ff138abd490f905712f2d6b"
+  }
+}

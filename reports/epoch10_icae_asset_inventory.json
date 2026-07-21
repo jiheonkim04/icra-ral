@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "date": "2026-07-21",
+  "decision": "ASSETS_SUFFICIENT_TO_BUILD_PROSPECTIVE_PANEL_AND_RUN_SERIAL_LIBERO",
+  "base_policy": {
+    "identity": "smolvla_libero_frozen_base",
+    "path_windows": "C:\\assets\\checkpoints\\smolvla_libero",
+    "path_wsl": "/home/jiheon/assets/checkpoints/smolvla_libero",
+    "model_bytes": 906712520,
+    "model_sha256": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8"
+  },
+  "historical_development_only_policy_identities": [
+    {
+      "identity": "frozen_base",
+      "lineage": "released SmolVLA-LIBERO base",
+      "known_official_episodes": 100,
+      "known_successes": 74
+    },
+    {
+      "identity": "rank4_lora_seed_11",
+      "lineage": "standard rank-4 LoRA, seed 11, 100 optimizer steps",
+      "adapter_sha256": "af73fa2be701aa3681e76a2520fe1acc367a44dc5168947571fc5d48cb88db89",
+      "known_official_episodes": 100,
+      "known_successes": 74
+    },
+    {
+      "identity": "rank4_lora_seed_22",
+      "lineage": "standard rank-4 LoRA, seed 22, 100 optimizer steps",
+      "adapter_sha256": "4cd5432572c38191944f17d270183ab8dba72201f60dc5cdf3c9528f9461c0e9",
+      "known_official_episodes": 100,
+      "known_successes": 68
+    },
+    {
+      "identity": "rank4_lora_seed_33",
+      "lineage": "standard rank-4 LoRA, seed 33, 100 optimizer steps",
+      "adapter_sha256": "5d46eb6a78df0be8bf02a260711aec006ad1b8756ff138abd490f905712f2d6b",
+      "known_official_episodes": 100,
+      "known_successes": 66
+    }
+  ],
+  "prospective_panel_gap": {
+    "genuine_existing_paper_eligible_checkpoints": 4,
+    "minimum_required": 12,
+    "existing_panel_sufficient_without_training": false,
+    "authorized_resolution": "Train four matched standard rank-4 LoRA seeds and save three predeclared training stages per seed."
+  },
+  "dataset": {
+    "path_windows": "C:\\assets\\datasets\\lerobot_libero",
+    "path_wsl": "/home/jiheon/assets/datasets/lerobot_libero",
+    "bytes": 1935570335,
+    "files": 915,
+    "episodes": 1693,
+    "frames": 273465,
+    "tasks": 40,
+    "fps": 10,
+    "info_sha256": "630630a1a4f07fc9fc1f1b2b7987ed3bd034bd8cffaaf8a0e6939ae9c468445d",
+    "stats_sha256": "d4e03a22ef5d89a910e32c233a509465ad0d265381a06745917d69fd8924a635"
+  },
+  "simulator": {
+    "libero_source_windows": "C:\\assets\\repos\\LIBERO",
+    "libero_files": 1159,
+    "libero_bytes": 446832606,
+    "official_suites": [
+      "libero_spatial",
+      "libero_object",
+      "libero_goal",
+      "libero_10"
+    ],
+    "exact_state_restore_substrate": true,
+    "official_serial_route_completed_episodes": 400,
+    "official_serial_route_infrastructure_failures": 0
+  },
+  "repository_checkpoint_artifacts": {
+    "total_candidate_weight_files_found_under_runs": 224,
+    "paper_panel_policy": "Do not count method heads, test artifacts, synthetic perturbations, renamed copies, or unrelated adapters as independent checkpoint identities."
+  },
+  "storage_and_compute": {
+    "system_drive_free_bytes": 307202691072,
+    "gpu_vram_total_mib": 16303,
+    "gpu_vram_free_mib_at_audit": 13738,
+    "host_ram_total_bytes": 24871014400,
+    "serial_route_required": true
+  }
+}
