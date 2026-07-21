@@ -6,6 +6,7 @@ from pathlib import Path
 
 from scripts import run_epoch9b_dynamic_nudge as campaign
 from scripts.epoch9e_nondrag_controller import inward_approach_y, vertical_liftoff_action
+from scripts.adjudicate_epoch9e_mechanics_smoke import smoke_gates
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,3 +39,12 @@ def test_inward_orientation_is_mirrored_from_rgb_lane_geometry_only() -> None:
     transit, event = inward_approach_y("front", 0.170, -0.080, config, protocol)
     assert transit == config.front_clear_approach_y_m
     assert event["mode"] == "front_high_clear_transit"
+
+
+def test_mechanics_gate_is_exact_and_does_not_include_scientific_scores() -> None:
+    counts = {"complete_scenes": 8, "finite_bounded_actions": 16, "intended_contact_or_excitation": 15, "both_candidates_excited_scenes": 7, "full_trajectory_lane_reachable": 16, "safety_or_track_events": 0, "liftoff_zero_planar_probes": 16, "separation_verified_probes": 16}
+    gates = smoke_gates(counts)
+    assert all(gates.values())
+    assert not any("rank" in key or "oracle" in key or "response" in key for key in gates)
+    counts["full_trajectory_lane_reachable"] = 15
+    assert smoke_gates(counts)["full_trajectory_lane_reachable_16_of_16"] is False
