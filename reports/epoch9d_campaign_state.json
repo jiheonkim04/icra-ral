@@ -6,7 +6,10 @@
     "reason": "The value-complete preregistered identity/seed inventory spans 4,584 historical evidence files and intentionally exceeds 5,000 generated JSON lines. It is a bounded 2.4 MB audit artifact, not source-code expansion, copied rollout data, or regenerated historical evidence.",
     "phase_a_expected_file_count": 7,
     "phase_a_generated_all_row_diagnostic_line_count": 14566,
-    "phase_a_reason": "The Phase A JSON intentionally retains all 64 scene rows and 128 candidate trace reconstructions, including continuous response dynamics, nuisance covariates, oracle failure metrics, and immutable source hashes. The 0.63 MB generated report is required all-row scientific evidence, not duplicated raw NPZ data."
+    "phase_a_reason": "The Phase A JSON intentionally retains all 64 scene rows and 128 candidate trace reconstructions, including continuous response dynamics, nuisance covariates, oracle failure metrics, and immutable source hashes. The 0.63 MB generated report is required all-row scientific evidence, not duplicated raw NPZ data.",
+    "phase_b_expected_generated_file_count": 86,
+    "phase_b_result_line_count": 12040,
+    "phase_b_reason": "The complete causal checkpoint preserves all 48 rows, 80 raw NPZ traces, stdout/stderr, host resource telemetry, and the sealed adjudication. The 1.46 MB panel directory is immutable all-row evidence required by the protocol and exceeds 5,000 generated JSON lines only because no row or trace metric is omitted."
   },
   "branch": "codex/epoch9d-causal-probe-bounded-convergence",
   "confirmation_accessed": false,
@@ -308,15 +311,42 @@
     "primary_threshold_m": 0.005219466062047384,
     "secondary_score_frozen": false
   },
+  "phase_b_evidence": {
+    "adjudication_json": {
+      "path": "reports/epoch9d_causal_panel_adjudication.json",
+      "sha256": "F4984DEDE601FD591BC559998FC1DA0BDA50CE070AC034CD723475FE988FFEF0"
+    },
+    "adjudication_markdown": {
+      "path": "reports/epoch9d_causal_panel_adjudication.md",
+      "sha256": "C081877C08D0BA1680F1C8CB5C2A4FC5DC74B7471EAACDEC72747C82D117AA29"
+    },
+    "decision": "CAUSAL_SIGNAL_GO",
+    "host_resource_monitor": {
+      "path": "reports/epoch9d_causal_panel/host_resource_monitor.json",
+      "sha256": "2099690EA835F823BE71463FBA746BF1E459D6492769EF90019D02216A692510"
+    },
+    "paired_mass_contrast_mean_m": 0.006593329847616967,
+    "paired_sign_test_one_sided_p": 0.0002593994140625,
+    "raw_result": {
+      "path": "reports/epoch9d_causal_panel/result.json",
+      "sha256": "F61A62277CF313BECE6307B983D17A8D678BD60BD5DB1003AEEBB81212C00A4A"
+    },
+    "resource_peaks": {
+      "host_ram_percent": 58.703134456791595,
+      "process_rss_bytes": 2426753024,
+      "system_wide_gpu_used_mib": 2137,
+      "wsl_swap_used_bytes": 0
+    }
+  },
   "phase_status": {
     "A_existing_trace_causal_diagnosis": "COMPLETED_PRIMARY_SCORE_FROZEN",
-    "B_mass_swap_causal_panel": "FROZEN_PREFLIGHT_PASS_READY_TO_RUN",
-    "C_task_preserving_controller": "LOCKED_PENDING_CAUSAL_SIGNAL_GO",
+    "B_mass_swap_causal_panel": "CAUSAL_SIGNAL_GO",
+    "C_task_preserving_controller": "AUTHORIZED_BOUNDED_DEVELOPMENT",
     "D_model_validation": "LOCKED_PENDING_CONTROLLER_GO",
     "E_official_and_confirmation": "LOCKED_PENDING_MODEL_VALIDATION_GO",
     "paper_package": "LOCKED_PENDING_POSITIVE_CONFIRMATION"
   },
-  "program_status": "ACTIVE_DYNAMIC_PROBE_CAUSAL_SIGNAL_AND_TASK_HEADROOM_UNRESOLVED",
+  "program_status": "ACTIVE_DYNAMIC_PROBE_SIGNAL_CONFIRMED_TASK_PRESERVATION_UNRESOLVED",
   "protected_rollouts": [
     {
       "file_count": 27,
@@ -370,6 +400,6 @@
     "sha256": "66A11F26B52579A18C3532901A9A84AEE0D7D37587995004DEB606902787BEC1"
   },
   "starting_checkpoint": "fee058a022e0af347f413f7a8b0361f3cd9074c9",
-  "timestamp": "2026-07-21T12:58:30+09:00",
+  "timestamp": "2026-07-21T13:11:54+09:00",
   "validation_accessed": false
 }

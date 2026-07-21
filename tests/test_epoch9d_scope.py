@@ -30,7 +30,11 @@ def protected_snapshot(path: Path) -> tuple[int, int, str]:
 def test_epoch9d_scope_correction_preserves_historical_records() -> None:
     state = json.loads((REPORTS / "epoch9d_campaign_state.json").read_text(encoding="utf-8"))
     scope = (REPORTS / "epoch9d_scope_correction.md").read_text(encoding="utf-8")
-    assert state["program_status"] == "ACTIVE_DYNAMIC_PROBE_CAUSAL_SIGNAL_AND_TASK_HEADROOM_UNRESOLVED"
+    assert state["program_status"] in {
+        "ACTIVE_DYNAMIC_PROBE_CAUSAL_SIGNAL_AND_TASK_HEADROOM_UNRESOLVED",
+        "ACTIVE_DYNAMIC_PROBE_SIGNAL_CONFIRMED_TASK_PRESERVATION_UNRESOLVED",
+    }
+    assert "ACTIVE_DYNAMIC_PROBE_CAUSAL_SIGNAL_AND_TASK_HEADROOM_UNRESOLVED" in scope
     assert state["paper_status"] == "PAPER_NOT_AUTHORIZED"
     assert state["validation_accessed"] is False
     assert state["confirmation_accessed"] is False

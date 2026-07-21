@@ -83,6 +83,7 @@ def test_epoch9d_causal_protocol_is_exact_balanced_and_sealed() -> None:
     assert state["phase_status"]["B_mass_swap_causal_panel"] in {
         "FROZEN_READY_TO_RUN",
         "FROZEN_PREFLIGHT_PASS_READY_TO_RUN",
+        "CAUSAL_SIGNAL_GO",
     }
 
 
