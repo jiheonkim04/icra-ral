@@ -1,0 +1,356 @@
+{
+  "authorized_next_stage": "STOP_ACTIVE_ROUTE_NO_RERUN_NO_ESTIMATOR_VALIDATION_CONFIRMATION_OR_PAPER",
+  "base_20261134_endpoint_handling": {
+    "assignment_A": "completed; observed rank miss; oracle success; never rerun",
+    "assignment_B_back": "physical contact with 0/5 valid response steps; immutable missing response; never rerun or imputed",
+    "assignment_B_completion": "failure in fixed 24-assignment intention-to-treat endpoint",
+    "assignment_B_front": "valid mechanics trace retained; never rerun",
+    "assignment_B_rank": "failure in fixed 24-assignment intention-to-treat endpoint",
+    "binary_pair": "adverse/nonflip in fixed 12-pair flip and sign endpoints",
+    "continuous_pair": "missing and excluded from the 11-pair observed mean/CI",
+    "sensitivity_contrast_range_m": [
+      -0.006408279988615858,
+      0.04359172001138414
+    ],
+    "worst_case_contrast_m": -0.006408279988615858
+  },
+  "branch": "codex/epoch9e-nondrag-disengagement-convergence",
+  "commit_chain": {
+    "attempt_1_status_correction_seal": "d9d2f68d3773368189b91fd3d5d5247972cfbcb5",
+    "authority_and_sensitivity_freeze": "db1b10bc012715c678f716d0f19ca5ce09e682f1",
+    "completed_panel_adjudication": "aad1afc54834b120aebe38f74d89afaab05e7f2c",
+    "continuation_sealer": "a6f7738d20eca57ec903ffbca747206c0d8a32d8",
+    "preoutcome_execution_seal": "f099979173415f73a565436ec7db0d41d82916e3",
+    "prospective_exit_status_serialization_repair": "04362e37480de14f4519cbf6c675e7269599dd5b",
+    "raw_continuation_evidence": "8398fe68115997700782a074c67168b4bb98c360",
+    "starting_checkpoint": "4f57ecb94a3c84e0a5889bc0bd60cbd53ad415e8",
+    "status_repair_contract_test": "2ded8877c0ea366af76cc9344a147fca1ac48f3c",
+    "wrapper_repair": "7368b5679eadc1c4f95f2208546b27c8858e87d9"
+  },
+  "confirmation_accessed": false,
+  "estimator_development_started": false,
+  "evidence_index_v2_path": "reports/epoch9e_failfast_continuation_evidence_index_v2.json",
+  "failed_gates": [
+    "rank_at_least_20_of_24",
+    "rank_each_heavy_position_at_least_10_of_12",
+    "exact_pair_flips_at_least_9_of_12_with_missing_adverse",
+    "fixed_denominator_one_sided_sign_p_below_0_01"
+  ],
+  "fixed_denominator_accounting": {
+    "candidate_probes": {
+      "contact_or_excitation": 48,
+      "finite_bounded": 48,
+      "invalid_other": 0,
+      "missing_response_windows": 1,
+      "planned": 48,
+      "unexecuted": 0,
+      "valid_response_windows": 47
+    },
+    "completion_oracle_fixed_denominator": {
+      "failure_or_incomplete": 2,
+      "planned": 24,
+      "success": 22,
+      "unexecuted": 0
+    },
+    "exact_state_pairs": {
+      "binary_denominator": 12,
+      "missing_physical_contrasts": 1,
+      "observed_physical_contrasts": 11
+    },
+    "primary_assignments": {
+      "completed": 23,
+      "failed_missing_response": 1,
+      "invalid_other": 0,
+      "planned": 24,
+      "unexecuted": 0
+    },
+    "shams": {
+      "completed": 12,
+      "failed": 0,
+      "invalid_other": 0,
+      "planned": 12,
+      "unexecuted": 0
+    }
+  },
+  "frozen_hash_proof": {
+    "all_final_execution_bindings_pass": true,
+    "continuation_result": {
+      "path": "reports/epoch9e_joint_continuation/result.json",
+      "sha256": "ED0C1D2787BEF2598B58C932351DB47520B803FE75F99D908E0A08213A810136"
+    },
+    "controller": {
+      "path": "scripts/epoch9e_nondrag_controller.py",
+      "sha256": "99DA452B5AD3603A9FDD1209704479B18F302987E79C65EA8C4B9622E16657D7"
+    },
+    "final_adjudication": {
+      "path": "reports/epoch9e_joint_continuation_adjudication.json",
+      "sha256": "D67ABEDD7EA834E7A9B388F00E3781412B7406851B729702646DF7F0B463CF93"
+    },
+    "historical_interrupted_result": {
+      "path": "reports/epoch9e_joint_certification/result.json",
+      "sha256": "BC9E772479ABAFF477D9EA56399E4A4BB407F1874439A7ACE20E8B84F3C332C8"
+    },
+    "historical_trace_hashes": [
+      {
+        "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_A_back.npz",
+        "sha256": "BB3D520CE7E9E746ED92391A0A600FA74ADF824D02F6859FADAD770321F75CE6"
+      },
+      {
+        "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_A_front.npz",
+        "sha256": "E338FACB56A3CDA9514D05B4EFAD6EEB6B3993B0F3D4F26D93EE753365569513"
+      },
+      {
+        "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_back.npz",
+        "sha256": "4E7D1316E8B8094638D3A7D43D3E29587D0A4203BA6CF71592CC26B1BE2E9A5F"
+      },
+      {
+        "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_front.npz",
+        "sha256": "0DD916B36A6FE253EF0A20269FA45AE27913700E5CE28DD268A2E5ADF12425BC"
+      }
+    ],
+    "scientific_contract_sha256": "B57E4E5143DC604CE0BF74A395B8186112248078F823E34457765875C5BC8C42"
+  },
+  "gates": {
+    "all_trace_hashes_and_continuous_disclosures_pass": true,
+    "both_candidates_excited_at_least_22_of_24": true,
+    "complete_case_hc3_interval_positive": true,
+    "complete_case_student_t_interval_positive": true,
+    "complete_fixed_manifest_24_primary_12_sham": true,
+    "completion_each_heavy_position_at_least_9_of_12": true,
+    "completion_oracle_at_least_20_of_24": true,
+    "exact_pair_flips_at_least_9_of_12_with_missing_adverse": false,
+    "execution_and_resource_contract_pass": true,
+    "finite_bounded_actions_48_of_48": true,
+    "fixed_denominator_one_sided_sign_p_below_0_01": false,
+    "full_trajectory_lane_reachable_48_of_48": true,
+    "intended_contact_or_excitation_at_least_46_of_48": true,
+    "precontact_position_order_control_pass": true,
+    "rank_at_least_20_of_24": false,
+    "rank_each_heavy_position_at_least_10_of_12": false,
+    "sealed_controller_and_information_boundary": true,
+    "sham_control_pass": true,
+    "worst_case_sensitivity_hc3_interval_positive": true,
+    "worst_case_sensitivity_student_t_interval_positive": true,
+    "zero_collision_identity_swap_fall_workspace_exit_track_loss": true
+  },
+  "historical_append_only_preservation": {
+    "historical_artifacts_edited": false,
+    "prior_evidence_index": {
+      "path": "reports/epoch9e_evidence_index.json",
+      "sha256": "C9D214A47928F19EA5569773D00A3C640C769418D4FB1C3501530C85B54BE34B"
+    },
+    "prior_terminal_handoff": {
+      "path": "reports/epoch9e_terminal_handoff.json",
+      "sha256": "07692543684C053E497E0556D46452FFF93F7029D3C48EDA4AEBFE78990266B3"
+    }
+  },
+  "identity_and_outcome_access": {
+    "before_continuation": {
+      "pending_scientific_outcomes_opened": false,
+      "scientific_primary_base_ids": [
+        20261134
+      ],
+      "scientific_primary_rows": {
+        "assignment_A": "completed; observed rank miss; successful oracle completion; never rerun",
+        "assignment_B": "failed/incomplete primary assignment in fixed intention-to-treat denominators",
+        "assignment_B_back": "contacted but invalid/missing response window; never scored or rerun",
+        "assignment_B_front": "complete mechanics trace retained; never rerun",
+        "exact_pair": "fixed adverse/nonflip for binary flip and sign evidence; excluded from physical-contrast mean/CI"
+      },
+      "scientific_sham_rows": [],
+      "state_rgb_only_preflight_base_ids": [
+        20261134,
+        20261135,
+        20261136,
+        20261137,
+        20261138,
+        20261139,
+        20261140,
+        20261141,
+        20261142,
+        20261143,
+        20261144,
+        20261145
+      ]
+    },
+    "continuation": {
+      "base_20261134_primary_rerun": false,
+      "primary_base_ids": [
+        20261135,
+        20261136,
+        20261137,
+        20261138,
+        20261139,
+        20261140,
+        20261141,
+        20261142,
+        20261143,
+        20261144,
+        20261145
+      ],
+      "primary_rows": 22,
+      "schedule_order_unchanged": true,
+      "serial_single_environment": true,
+      "sham_base_ids": [
+        20261134,
+        20261135,
+        20261136,
+        20261137,
+        20261138,
+        20261139
+      ],
+      "sham_rows": 12
+    },
+    "sealed": {
+      "confirmation_accessed": false,
+      "confirmation_demo_ids": [
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "validation_accessed": false,
+      "validation_demo_ids": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ]
+    }
+  },
+  "joint_certification_go": false,
+  "official_evaluation_started": false,
+  "outcome_checkpoint": "aad1afc54834b120aebe38f74d89afaab05e7f2c",
+  "paper_paths": [],
+  "paper_status": "PAPER_NOT_AUTHORIZED",
+  "protected_untracked_manifests": [
+    {
+      "file_count": 27,
+      "manifest_sha256": "25DE8FF5AA6112D7EFF8BCF38D3A4C3F0F3C8C8EE0458E5FA83D17438719EC54",
+      "path": "rollouts/2026_07_17/",
+      "total_bytes": 5143751
+    },
+    {
+      "file_count": 10,
+      "manifest_sha256": "CF701D6F73D4783F016E48A72C093DC9FD6D940B7081DA8FBEC128DB94C24A00",
+      "path": "rollouts/2026_07_18/",
+      "total_bytes": 924633
+    }
+  ],
+  "regression_and_schema_checks": {
+    "adjudication_schema_version": "epoch9e.joint_continuation_adjudication.v1",
+    "all_integrity_groups_pass": true,
+    "continuation_result_schema_version": "epoch9e.joint_continuation_result.v1",
+    "epoch9e_suite_before_terminal_artifact_addition": "38 passed",
+    "final_terminal_artifact_suite": "43 passed",
+    "parser_repair_schema_version": "epoch9e.continuation_adjudicator_parser_repair.v1",
+    "status_correction_schema_version": "epoch9e.continuation_host_exit_status_correction.v1",
+    "targeted_failfast_suite": "13 passed"
+  },
+  "remote_checkpoint_before_final_reporting": "aad1afc54834b120aebe38f74d89afaab05e7f2c",
+  "resources": {
+    "attempt_1_raw_status_serialization": "0n",
+    "attempt_1_status_correction_hash_bound": true,
+    "baseline_host_ram_percent": 45.08329593504638,
+    "effective_authoritative_runner_exit_code": 0,
+    "final_host_ram_percent": 54.8602319654481,
+    "host_ceiling_breached": false,
+    "host_ram_ceiling_percent": 82.0,
+    "peak_host_ram_percent": 59.06578118502477,
+    "peak_system_wide_gpu_used_mib": 2502,
+    "scientific_process_max_rss_bytes": 2377920512,
+    "scientific_rerun_for_status_correction": false,
+    "wsl_memory_used_peak_bytes": 2136010752,
+    "wsl_swap_used_peak_bytes": 0
+  },
+  "schema_version": "epoch9e.failfast_continuation_terminal_handoff.v1",
+  "scientific_results": {
+    "complete_case_physical": {
+      "hc3_95_interval_m": [
+        0.0013609694310689228,
+        0.015042001280948885
+      ],
+      "mean_m": 0.008201485356008904,
+      "n": 11,
+      "student_t_95_interval_m": [
+        0.004466844599650237,
+        0.011936126112367572
+      ]
+    },
+    "completion_oracle": {
+      "by_heavy_position": {
+        "back": {
+          "success": 11,
+          "total": 12
+        },
+        "front": {
+          "success": 11,
+          "total": 12
+        }
+      },
+      "denominator": 24,
+      "success": 22
+    },
+    "exact_correct_flips": {
+      "correct": 7,
+      "denominator": 12
+    },
+    "fixed_denominator_sign": {
+      "n": 12,
+      "nonpositive_or_missing": 2,
+      "one_sided_exact_p": 0.019287109375,
+      "positive": 10
+    },
+    "rank": {
+      "by_heavy_position": {
+        "back": {
+          "correct": 8,
+          "total": 12
+        },
+        "front": {
+          "correct": 10,
+          "total": 12
+        }
+      },
+      "correct": 18,
+      "denominator": 24
+    },
+    "twelve_pair_observed_physical_mean_or_ci_reported": false,
+    "worst_case_sensitivity": {
+      "hc3_95_interval_m": [
+        0.00026279233073756535,
+        0.01370521749050945
+      ],
+      "student_t_95_interval_m": [
+        0.00268029201153083,
+        0.011287717809716186
+      ],
+      "tipping_point": {
+        "classification": "SURVIVES_FULL_ADMISSIBLE_RANGE",
+        "lower_at_admissible_high_m": 0.0038379455691337832,
+        "lower_at_admissible_low_m": 0.00268029201153083,
+        "threshold_contrast_m": -0.006408279988615858
+      }
+    }
+  },
+  "starting_checkpoint": "4f57ecb94a3c84e0a5889bc0bd60cbd53ad415e8",
+  "terminal_state": "EPOCH9E_NONDRAG_DISENGAGEMENT_FROZEN_NO_GO_ACTIVE_ROUTE_CLOSED",
+  "timestamp": "2026-07-21T16:33:02+09:00",
+  "validation_accessed": false,
+  "wrapper_repair_boundary": {
+    "after_commit": "7368b5679eadc1c4f95f2208546b27c8858e87d9",
+    "before_commit": "db1b10bc012715c678f716d0f19ca5ce09e682f1",
+    "cause": "run_primary converted the missing response window into a failed row, then main raised for every failed row instead of retaining the classified scientific miss and continuing untouched keys.",
+    "cause_path": "scripts/run_epoch9e_joint_certification.py",
+    "controller_or_scientific_semantics_changed": false,
+    "integrity_only_allowance_consumed": true,
+    "missing_window_detection_line": 207,
+    "repair_scope": "continuation runner/adjudicator and host integrity wrappers only",
+    "whole_batch_abort_lines": [
+      489,
+      490
+    ]
+  }
+}
