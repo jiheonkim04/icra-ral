@@ -1,6 +1,6 @@
 # Epoch 10 execution log
 
-Date: 2026-07-21 KST  
+Date: 2026-07-21 KST
 Branch: `codex/epoch10-icae-vla-evaluation`
 
 ## Completed phases
