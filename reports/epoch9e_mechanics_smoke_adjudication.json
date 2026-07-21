@@ -1,0 +1,49 @@
+{
+  "adjudicated_at": "2026-07-21T15:11:55+09:00",
+  "confirmation_accessed": false,
+  "counts": {
+    "both_candidates_excited_scenes": 8,
+    "complete_scenes": 8,
+    "finite_bounded_actions": 16,
+    "full_trajectory_lane_reachable": 16,
+    "intended_contact_or_excitation": 16,
+    "liftoff_zero_planar_probes": 16,
+    "probes": 16,
+    "safety_or_track_events": 0,
+    "scenes": 8,
+    "separation_verified_probes": 16
+  },
+  "decision": "MECHANICS_SMOKE_PASS_FREEZE_CONTROLLER",
+  "execution_bindings": {
+    "adjudicator": true,
+    "controller": true,
+    "host": true,
+    "protocol": true,
+    "result": true,
+    "runner": true
+  },
+  "gates": {
+    "both_candidates_excited_at_least_7_of_8": true,
+    "complete_scenes_8_of_8": true,
+    "finite_bounded_actions_16_of_16": true,
+    "full_trajectory_lane_reachable_16_of_16": true,
+    "intended_contact_or_excitation_at_least_15_of_16": true,
+    "liftoff_planar_commands_exact_zero_16_of_16": true,
+    "separation_verified_16_of_16": true,
+    "zero_safety_or_track_events": true
+  },
+  "implementation_repair_used": false,
+  "information_boundary_pass": true,
+  "mechanics_smoke_pass": true,
+  "protocol_clean": true,
+  "schema_version": "epoch9e.mechanics_smoke_adjudication.v1",
+  "scientific_outcomes_accessed": false,
+  "source_hashes": {
+    "host": "051901369577C6B53DBEB501E567A7ADB274E090EFC1939938C91756AAE64A3D",
+    "protocol": "7288299EB627305A27DC2BA2A2231680ECAC874D2976A759F14BA843914C0ACA",
+    "result": "508F2ACEDD0A0A389232DD6E1C31E9C17C3EB26FFEBC40A2BD62853D64F446D2",
+    "seal": "6B97A1BC3A1FF4AA6038DC47FC2F4443F1706A1C5B69905E4E4DEDD5D985205B"
+  },
+  "trace_hashes_pass": true,
+  "validation_accessed": false
+}

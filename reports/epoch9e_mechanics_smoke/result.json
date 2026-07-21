@@ -1,0 +1,1306 @@
+{
+  "completed_at": "2026-07-21T15:11:31+09:00",
+  "confirmation_accessed": false,
+  "execution_seal_path": "reports/epoch9e_mechanics_execution_seal.json",
+  "execution_seal_sha256": "6B97A1BC3A1FF4AA6038DC47FC2F4443F1706A1C5B69905E4E4DEDD5D985205B",
+  "mass_conditioned_response_computed_or_revealed": false,
+  "mass_rank_computed": false,
+  "oracle_task_success_accessed": false,
+  "pid": 377,
+  "protocol_path": "reports/epoch9e_mechanics_smoke_protocol.json",
+  "protocol_sha256": "7288299EB627305A27DC2BA2A2231680ECAC874D2976A759F14BA843914C0ACA",
+  "resource": {
+    "process_max_rss_bytes": 2324840448,
+    "wsl_mem_used_peak_bytes": 2116169728,
+    "wsl_swap_used_peak_bytes": 0
+  },
+  "reward_done_success_accessed": false,
+  "rows": [
+    {
+      "completed": true,
+      "exact_state_audit": {
+        "first_rgb_exact": true,
+        "initial_localization_exact": true,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 1.0
+        }
+      },
+      "exception": null,
+      "mass_conditioned_response_computed_or_revealed": false,
+      "mass_rank_computed": false,
+      "oracle_task_success_accessed": false,
+      "probe_audits": [
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 2,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.01040710163116454,
+            "front": 0.0026817649602889904
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.04895859446052109,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": false,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                0.023533222382226736,
+                0.1930604091466802,
+                0.9301553582874855
+              ],
+              "tracker_quality_after_lift": 0.6402794122695923
+            },
+            {
+              "actual_proprioceptive_lift_m": 0.041896086961711765,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                0.021114835421712386,
+                0.19265803578096793,
+                0.9336701169095274
+              ],
+              "tracker_quality_after_lift": 0.6307042241096497
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 14,
+            "descend_paddle": 11,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 53,
+            "nondrag_high_clearance_reposition": 18,
+            "nondrag_response_clearance_descend": 48,
+            "nondrag_separation_observe": 6,
+            "nondrag_vertical_liftoff": 10,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 13,
+            "retreat_side": 23,
+            "return_neutral": 30,
+            "transit_high": 33
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "front",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261126_front.npz",
+          "trace_sha256": "28ECEE42764D6DA3FC5AED796B4177F0B8FEA91F319C2FD369D25FBDCEF31090",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        },
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.010312807083129871,
+            "front": 0.0026817649602889904
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.04111345593726734,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                -0.22808503688039797,
+                0.03133448034185485,
+                0.9297654712763629
+              ],
+              "tracker_quality_after_lift": 0.713004469871521
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 12,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 51,
+            "nondrag_high_clearance_reposition": 5,
+            "nondrag_response_clearance_descend": 8,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 15,
+            "retreat_side": 11,
+            "return_neutral": 22,
+            "transit_high": 23
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "back",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261126_back.npz",
+          "trace_sha256": "97123CCD9D7BFB65D0857A13252BA890F8F7BC1F567F200F8BEB9B63453EF766",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        }
+      ],
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "reward_done_success_accessed": false,
+      "row_key": "epoch9e_mechanics_smoke_20261126",
+      "scene_identity": 20261126,
+      "spatial_stratum": "front_upper_edge",
+      "wall_seconds": 18.873024849000004
+    },
+    {
+      "completed": true,
+      "exact_state_audit": {
+        "first_rgb_exact": true,
+        "initial_localization_exact": true,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 1.0
+        }
+      },
+      "exception": null,
+      "mass_conditioned_response_computed_or_revealed": false,
+      "mass_rank_computed": false,
+      "oracle_task_success_accessed": false,
+      "probe_audits": [
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.010114144802093494,
+            "front": 0.00499999731779098
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.04151081689022207,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                -0.1990493535315205,
+                0.03372703698343202,
+                0.9298034449255023
+              ],
+              "tracker_quality_after_lift": 0.6778676509857178
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 11,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 46,
+            "nondrag_high_clearance_reposition": 6,
+            "nondrag_response_clearance_descend": 8,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 14,
+            "retreat_side": 10,
+            "return_neutral": 15,
+            "transit_high": 20
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "back",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261127_back.npz",
+          "trace_sha256": "A029DBAC9A5BC677FEE8881DEE00A0DB88747ECADB8334A4D13105C03D716C42",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        },
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.01040710163116454,
+            "front": 0.0044935813546180675
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.04509828393829163,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                0.043343557080224575,
+                0.10367562778337493,
+                0.9298634138829518
+              ],
+              "tracker_quality_after_lift": 0.5575759410858154
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 11,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 49,
+            "nondrag_high_clearance_reposition": 9,
+            "nondrag_response_clearance_descend": 11,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 15,
+            "retreat_side": 12,
+            "return_neutral": 32,
+            "transit_high": 36
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "front",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261127_front.npz",
+          "trace_sha256": "64CAF87BD51BA44D52AC5451C4A44438ABEAB132B482FCFA732ECA0956FC1136",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        }
+      ],
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "reward_done_success_accessed": false,
+      "row_key": "epoch9e_mechanics_smoke_20261127",
+      "scene_identity": 20261127,
+      "spatial_stratum": "front_lower_edge",
+      "wall_seconds": 14.530833915999999
+    },
+    {
+      "completed": true,
+      "exact_state_audit": {
+        "first_rgb_exact": true,
+        "initial_localization_exact": true,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 1.0
+        }
+      },
+      "exception": null,
+      "mass_conditioned_response_computed_or_revealed": false,
+      "mass_rank_computed": false,
+      "oracle_task_success_accessed": false,
+      "probe_audits": [
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.004999999105930325,
+            "front": 0.009975265979766834
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.0475979120947807,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                0.023980329175722983,
+                0.17011446706248937,
+                0.9300994153716704
+              ],
+              "tracker_quality_after_lift": 0.6701223850250244
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 11,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 51,
+            "nondrag_high_clearance_reposition": 10,
+            "nondrag_response_clearance_descend": 12,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 13,
+            "retreat_side": 14,
+            "return_neutral": 30,
+            "transit_high": 33
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "front",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261128_front.npz",
+          "trace_sha256": "E2A02FCABBC39CDB8E0CB1767EB9113841C792299BFE6502A06326200F3BF0E7",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        },
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.0049834215641021695,
+            "front": 0.01040710163116454
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.041077351960797426,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                -0.20923428925622486,
+                0.10409225840730073,
+                0.9298089768257402
+              ],
+              "tracker_quality_after_lift": 0.7246407866477966
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 12,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 48,
+            "nondrag_high_clearance_reposition": 5,
+            "nondrag_response_clearance_descend": 8,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 15,
+            "retreat_side": 11,
+            "return_neutral": 15,
+            "transit_high": 21
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "back",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261128_back.npz",
+          "trace_sha256": "E70E5A58E407BF94D8F8C62E3C279C958A5020C8596577473F9A3ABE07D02768",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        }
+      ],
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "reward_done_success_accessed": false,
+      "row_key": "epoch9e_mechanics_smoke_20261128",
+      "scene_identity": 20261128,
+      "spatial_stratum": "back_upper_edge",
+      "wall_seconds": 15.673083003000002
+    },
+    {
+      "completed": true,
+      "exact_state_audit": {
+        "first_rgb_exact": true,
+        "initial_localization_exact": true,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 1.0
+        }
+      },
+      "exception": null,
+      "mass_conditioned_response_computed_or_revealed": false,
+      "mass_rank_computed": false,
+      "oracle_task_success_accessed": false,
+      "probe_audits": [
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.004999999552965165,
+            "front": 0.01040710163116454
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.041349933640340675,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                -0.2181483169057766,
+                0.0016912534449149844,
+                0.929799693731934
+              ],
+              "tracker_quality_after_lift": 0.6995858550071716
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 12,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 50,
+            "nondrag_high_clearance_reposition": 6,
+            "nondrag_response_clearance_descend": 8,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 14,
+            "retreat_side": 10,
+            "return_neutral": 20,
+            "transit_high": 22
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "back",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261129_back.npz",
+          "trace_sha256": "6D25277B9405A8FE966A0A193C70FF2FAE4D5410318BE7EB84DE0DEC8E945AC9",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        },
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.005403364673256875,
+            "front": 0.009822320461273182
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.04616533564622827,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                0.043393180296283265,
+                0.12797556624404152,
+                0.9297321875135675
+              ],
+              "tracker_quality_after_lift": 0.6336699724197388
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 11,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 49,
+            "nondrag_high_clearance_reposition": 10,
+            "nondrag_response_clearance_descend": 12,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 13,
+            "retreat_side": 24,
+            "return_neutral": 31,
+            "transit_high": 36
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "front",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261129_front.npz",
+          "trace_sha256": "3668D3A5E1BF98A46B06361E14971820FA1D9007117622B64FA7A079545AE442",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        }
+      ],
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "reward_done_success_accessed": false,
+      "row_key": "epoch9e_mechanics_smoke_20261129",
+      "scene_identity": 20261129,
+      "spatial_stratum": "back_lower_edge",
+      "wall_seconds": 16.120864459999993
+    },
+    {
+      "completed": true,
+      "exact_state_audit": {
+        "first_rgb_exact": true,
+        "initial_localization_exact": true,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 1.0
+        }
+      },
+      "exception": null,
+      "mass_conditioned_response_computed_or_revealed": false,
+      "mass_rank_computed": false,
+      "oracle_task_success_accessed": false,
+      "probe_audits": [
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.006999999880790711,
+            "front": 0.0044975459575652965
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.04910282825199874,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                0.023158289643118772,
+                0.19150209810993996,
+                0.9294922891079964
+              ],
+              "tracker_quality_after_lift": 0.6569843888282776
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 11,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 51,
+            "nondrag_high_clearance_reposition": 11,
+            "nondrag_response_clearance_descend": 12,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 14,
+            "retreat_side": 12,
+            "return_neutral": 31,
+            "transit_high": 34
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "front",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261130_front.npz",
+          "trace_sha256": "27CB27530775849C5FFD85C00BCBF1AF18904F8FC8D64C09D5A4E49DAC589523",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        },
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.006999999880790711,
+            "front": 0.004645007848739613
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.04122133254239435,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                -0.22827125832664216,
+                0.0034938435776016154,
+                0.9298111696921758
+              ],
+              "tracker_quality_after_lift": 0.727268397808075
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 12,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 52,
+            "nondrag_high_clearance_reposition": 6,
+            "nondrag_response_clearance_descend": 8,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 15,
+            "retreat_side": 10,
+            "return_neutral": 22,
+            "transit_high": 23
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "back",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261130_back.npz",
+          "trace_sha256": "6BAD9707C2F1EAACE0B171163566E062776BEAAFCBD97DFBBF242C5A14A30D40",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        }
+      ],
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "reward_done_success_accessed": false,
+      "row_key": "epoch9e_mechanics_smoke_20261130",
+      "scene_identity": 20261130,
+      "spatial_stratum": "dual_edge",
+      "wall_seconds": 16.632449499999993
+    },
+    {
+      "completed": true,
+      "exact_state_audit": {
+        "first_rgb_exact": true,
+        "initial_localization_exact": true,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 1.0
+        }
+      },
+      "exception": null,
+      "mass_conditioned_response_computed_or_revealed": false,
+      "mass_rank_computed": false,
+      "oracle_task_success_accessed": false,
+      "probe_audits": [
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.010336172103881824,
+            "front": 0.01040710163116454
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.04143525051005981,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                -0.19896053484483245,
+                0.07085032023954682,
+                0.9297764372487936
+              ],
+              "tracker_quality_after_lift": 0.7324842810630798
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 11,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 48,
+            "nondrag_high_clearance_reposition": 6,
+            "nondrag_response_clearance_descend": 8,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 15,
+            "retreat_side": 11,
+            "return_neutral": 15,
+            "transit_high": 20
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "back",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261131_back.npz",
+          "trace_sha256": "50A4FCDBB622D306CC90E993A5AD9C1BCDA4F108BD154077E173438C11B511AF",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        },
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.01040710163116454,
+            "front": 0.009826075553894031
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.04616866713100143,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                0.043390202539125906,
+                0.12797287742961164,
+                0.9297333034319872
+              ],
+              "tracker_quality_after_lift": 0.6309051513671875
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 11,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 49,
+            "nondrag_high_clearance_reposition": 10,
+            "nondrag_response_clearance_descend": 12,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 13,
+            "retreat_side": 14,
+            "return_neutral": 32,
+            "transit_high": 36
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "front",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261131_front.npz",
+          "trace_sha256": "98AC9B2BF35BD69FAA3790DF085C63D2A84A0A4FAF0F2A9A92A6AAE9F31FE75C",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        }
+      ],
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "reward_done_success_accessed": false,
+      "row_key": "epoch9e_mechanics_smoke_20261131",
+      "scene_identity": 20261131,
+      "spatial_stratum": "interior",
+      "wall_seconds": 15.045269840000003
+    },
+    {
+      "completed": true,
+      "exact_state_audit": {
+        "first_rgb_exact": true,
+        "initial_localization_exact": true,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 1.0
+        }
+      },
+      "exception": null,
+      "mass_conditioned_response_computed_or_revealed": false,
+      "mass_rank_computed": false,
+      "oracle_task_success_accessed": false,
+      "probe_audits": [
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.004999999552965165,
+            "front": 0.0023680657148361095
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.050406508544127315,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                0.0527260006267551,
+                0.1885819386390426,
+                0.9283493507875626
+              ],
+              "tracker_quality_after_lift": 0.6577958464622498
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 13,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 50,
+            "nondrag_high_clearance_reposition": 13,
+            "nondrag_response_clearance_descend": 14,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 15,
+            "retreat_side": 13,
+            "return_neutral": 33,
+            "transit_high": 24
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "front",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261132_front.npz",
+          "trace_sha256": "AD2E4CA5527A98EFB6950FB8C843D151C07F457E93817F0072F640A7A835F1AC",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        },
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.004999999552965165,
+            "front": 0.002827423810958851
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.04148547952480319,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                -0.20790663186494127,
+                0.002349161289190597,
+                0.9298096678171455
+              ],
+              "tracker_quality_after_lift": 0.7170635461807251
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 12,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 49,
+            "nondrag_high_clearance_reposition": 6,
+            "nondrag_response_clearance_descend": 8,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 14,
+            "retreat_side": 11,
+            "return_neutral": 15,
+            "transit_high": 22
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "back",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261132_back.npz",
+          "trace_sha256": "993956CC159F2B48F7F0837D7D1A771D795E6FFD26F1E55708F74FC777632690",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        }
+      ],
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "reward_done_success_accessed": false,
+      "row_key": "epoch9e_mechanics_smoke_20261132",
+      "scene_identity": 20261132,
+      "spatial_stratum": "dual_opposed_edge",
+      "wall_seconds": 16.320784505000006
+    },
+    {
+      "completed": true,
+      "exact_state_audit": {
+        "first_rgb_exact": true,
+        "initial_localization_exact": true,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 1.0
+        }
+      },
+      "exception": null,
+      "mass_conditioned_response_computed_or_revealed": false,
+      "mass_rank_computed": false,
+      "oracle_task_success_accessed": false,
+      "probe_audits": [
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.00492451727390289,
+            "front": 0.00499999731779098
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.04144797966907765,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                -0.1892925958143657,
+                0.10619519772683099,
+                0.9298346070706042
+              ],
+              "tracker_quality_after_lift": 0.6938508749008179
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 11,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 45,
+            "nondrag_high_clearance_reposition": 6,
+            "nondrag_response_clearance_descend": 8,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 15,
+            "retreat_side": 11,
+            "return_neutral": 16,
+            "transit_high": 17
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "back",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261133_back.npz",
+          "trace_sha256": "7F36858BD498D74C5F10249F39C791291C2EE634A8203882B5D37399C2382144",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        },
+        {
+          "all_attempts_separation_verified": true,
+          "all_liftoff_planar_commands_exact_zero": true,
+          "disengagement_attempt_count": 1,
+          "fall": false,
+          "finite_bounded_actions": true,
+          "full_trajectory_lane_reachable": true,
+          "identity_swap": false,
+          "intended_contact_or_excitation": true,
+          "mass_conditioned_response_computed_or_revealed": false,
+          "mass_rank_computed": false,
+          "minimum_continuous_lane_margin_m_eval_only": {
+            "back": 0.005410019457340237,
+            "front": 0.00499999731779098
+          },
+          "nondrag_attempts": [
+            {
+              "actual_proprioceptive_lift_m": 0.044952201056352115,
+              "commanded_direction_world_xyz": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "high_clearance_reposition_reached": true,
+              "lift_action_count": 5,
+              "lift_target_reached": true,
+              "mass_property_score_reward_success_or_oracle_used_for_control": false,
+              "maximum_absolute_commanded_planar_component": 0.0,
+              "response_clearance_descend_reached": true,
+              "separation_verified_ordinary_observations": true,
+              "simulator_contact_or_force_used_for_control": false,
+              "start_eef_xyz_m": [
+                0.03394961871482476,
+                0.10622178002484661,
+                0.9298706071948569
+              ],
+              "tracker_quality_after_lift": 0.6715250611305237
+            }
+          ],
+          "oracle_task_success_accessed": false,
+          "phase_counts": {
+            "contact_verify_observe": 7,
+            "descend_paddle": 11,
+            "fixed_micro_impulse": 3,
+            "guarded_incremental_approach": 49,
+            "nondrag_high_clearance_reposition": 9,
+            "nondrag_response_clearance_descend": 9,
+            "nondrag_separation_observe": 3,
+            "nondrag_vertical_liftoff": 5,
+            "post_impulse_response": 2,
+            "preclose_paddle": 8,
+            "retreat_high": 14,
+            "retreat_side": 12,
+            "return_neutral": 31,
+            "transit_high": 35
+          },
+          "reward_done_success_accessed": false,
+          "sampled_intended_contact": true,
+          "slot": "front",
+          "trace_path": "reports/epoch9e_mechanics_smoke/traces/epoch9e_mechanics_smoke_20261133_front.npz",
+          "trace_sha256": "3EC4A6DDB18C205132EBE220780A665967CDCD9DD413CD97B2E140EF0B086A39",
+          "unintended_collision": false,
+          "unrecoverable_track_loss": false,
+          "workspace_exit": false
+        }
+      ],
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "reward_done_success_accessed": false,
+      "row_key": "epoch9e_mechanics_smoke_20261133",
+      "scene_identity": 20261133,
+      "spatial_stratum": "dual_inverse_edge",
+      "wall_seconds": 16.41153922699999
+    }
+  ],
+  "runner_sha256": "5B65E1EA579BF7A84555AC62EF4853ADDB379FB68505830E63560A0FED68131C",
+  "schema_version": "epoch9e.mechanics_smoke_result.v1",
+  "started_at": "2026-07-21T15:09:26+09:00",
+  "summary": {
+    "both_candidates_excited_scenes": 8,
+    "complete_scenes": 8,
+    "finite_bounded_actions": 16,
+    "full_trajectory_lane_reachable": 16,
+    "intended_contact_or_excitation": 16,
+    "liftoff_zero_planar_probes": 16,
+    "probes": 16,
+    "safety_or_track_events": 0,
+    "scenes": 8,
+    "separation_verified_probes": 16
+  },
+  "validation_accessed": false
+}

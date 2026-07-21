@@ -1,0 +1,23 @@
+﻿{
+    "schema_version":  "epoch9e.mechanics_smoke_host_resource.v1",
+    "started_at":  "2026-07-21T15:09:27.1378283+09:00",
+    "completed_at":  "2026-07-21T15:11:32.7901251+09:00",
+    "command":  "set -e; cd /mnt/c/Users/jiheo/tca_map; export MUJOCO_GL=egl; export PYTHONUNBUFFERED=1; exec /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_epoch9e_mechanics_smoke.py",
+    "resume":  false,
+    "runner_exit_code":  0,
+    "baseline_host_ram_percent":  49.937590836664867,
+    "peak_host_ram_percent":  64.7017592977631,
+    "final_host_ram_percent":  61.643290335596447,
+    "peak_host_used_physical_bytes":  16091983872,
+    "baseline_gpu_used_mib":  2771,
+    "peak_gpu_used_mib":  2781,
+    "final_gpu_used_mib":  2760,
+    "host_ram_ceiling_percent":  82,
+    "host_ram_ceiling_breached":  false,
+    "scientific_result_path":  "reports/epoch9e_mechanics_smoke/result.json",
+    "scientific_result_sha256_after_runner":  "508F2ACEDD0A0A389232DD6E1C31E9C17C3EB26FFEBC40A2BD62853D64F446D2",
+    "stdout_path":  "reports/epoch9e_mechanics_smoke/runner_stdout.log",
+    "stdout_sha256":  "E407ECF078F419043078D24ACF0A10F6B2D81D4690A1DE1ECEFF8AC44BD3260A",
+    "stderr_path":  "reports/epoch9e_mechanics_smoke/runner_stderr.log",
+    "stderr_sha256":  "CA32C29CECFADCF9EB3F19FBEDAE36B6780A0176325BBF3D697BF4256D667380"
+}
