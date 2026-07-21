@@ -1,0 +1,130 @@
+{
+  "adjudicator_path": "scripts/adjudicate_epoch9d_controller_pilot.py",
+  "adjudicator_sha256": "24EF6BA18FD48A5FF77709DFE21D7B17101A9F2D35D89C5FABB7907290514C17",
+  "branch": "codex/epoch9d-causal-probe-bounded-convergence",
+  "calibration_path": "reports/epoch9b_dynamic_nudge/controller_calibration_repair1.json",
+  "calibration_sha256": "10AE3D151E47A030BBDCC2DAB0850B69926A4A903F8E2B830B38450F8B2EEB7B",
+  "confirmation_accessed": false,
+  "frozen_conditional_adjustment": {
+    "authorized_only_if": "the initial pilot passes contact, safety, ranking, and oracle gates but has one or more lane failures whose pre-contact RGB signed margin lies in (0.010, 0.014] m",
+    "fresh_identity_ids": [
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95
+    ],
+    "only_change": "increase guard trigger signed y margin from 0.010 m to 0.014 m",
+    "otherwise_run": false
+  },
+  "frozen_controller": {
+    "base_controller_config": {
+      "approach_control_steps_per_increment": 4,
+      "approach_increment_m": 0.003,
+      "approach_start_offset_x_m": -0.095,
+      "approach_stop_offset_x_m": -0.04,
+      "back_heavy_threshold_m": 0.005219466062047384,
+      "close_steps": 8,
+      "coast_steps": 2,
+      "contact_verify_retract_m": 0.008,
+      "contact_verify_steps": 7,
+      "controller_error_consecutive_steps": 2,
+      "controller_error_contact_m": 0.012,
+      "controller_error_over_baseline_m": 0.006,
+      "front_clear_approach_y_m": 0.105,
+      "front_contact_transition_offset_x_m": -0.062,
+      "gripper_closed_command": 1.0,
+      "impulse_action_x": 0.65,
+      "impulse_steps": 3,
+      "move_gain_denominator_m": 0.04,
+      "neutral_tolerance_m": 0.004,
+      "paddle_y_offset_m": 0.018,
+      "paddle_z_m": 0.93,
+      "visual_contact_threshold_pixels": 0.55,
+      "visual_quality_min": 0.5
+    },
+    "guard": {
+      "action": "place the paddle on the nearer y-boundary side of the candidate so any incidental lateral component points toward lane interior; otherwise retain the original slot-specific approach",
+      "active_only_after_approach_x_offset_m_at_or_above": -0.062,
+      "admissible_position_source": "ordinary RGB localization through the frozen pixel-to-world calibration",
+      "identical_for_heavy_and_light": true,
+      "lane_source": "offline frozen workspace geometry",
+      "mass_or_property_input": false,
+      "trigger_derivation": "0.007188 m maximum historical observation-derived lateral excursion plus a conservative margin, rounded to 0.010 m",
+      "trigger_signed_y_margin_m_at_or_below": 0.01
+    },
+    "name": "original_response_with_predictive_inward_lane_guard_and_neutral_retract",
+    "neutral_retract": "unchanged label-blind -x side retreat, vertical clearance, and proprioceptive neutral return after the five-step response window",
+    "response_window_unchanged": true,
+    "score_and_threshold_unchanged": true
+  },
+  "frozen_counts": {
+    "candidate_probes": 24,
+    "scenes": 12
+  },
+  "frozen_selection_gate": {
+    "complete_scenes": {
+      "denominator": 12,
+      "minimum": 12
+    },
+    "finite_bounded_actions": {
+      "denominator": 24,
+      "minimum": 24
+    },
+    "intended_contact_or_excitation": {
+      "denominator": 24,
+      "minimum": 23
+    },
+    "lane_and_reachability": {
+      "denominator": 24,
+      "minimum": 24
+    },
+    "oracle_completion": {
+      "denominator": 12,
+      "minimum": 10
+    },
+    "rank_correct": {
+      "denominator": 12,
+      "minimum": 10
+    },
+    "rank_each_heavy_position": {
+      "denominator": 6,
+      "minimum": 5
+    },
+    "zero_collision_identity_swap_fall_workspace_exit": true
+  },
+  "host_wrapper_path": "scripts/run_epoch9d_controller_pilot_host.ps1",
+  "host_wrapper_sha256": "6D72651AE50A84E66BA096837CD6C8C951D7237941A60A308B461D53232353AC",
+  "original_controller_freeze_path": "reports/epoch9b_dynamic_nudge/controller_freeze.json",
+  "original_controller_freeze_sha256": "C985931BBA917D06C491B4D4E7061BB8CF9E9C6C2753517E71C36BD7DBB871FB",
+  "original_epoch9b_runner_path": "scripts/run_epoch9b_dynamic_nudge.py",
+  "original_epoch9b_runner_sha256": "45427C721C497229818AEAC49CE813C9CBE46FB0B3C04EDC110BBC832736C083",
+  "outcomes_accessed_before_seal": false,
+  "protocol_path": "reports/epoch9d_controller_development_protocol.json",
+  "protocol_sha256": "02E7DBE1CAF84D3E03B954CAFD68AAF51A056F03A7C75E9BC9B8720B78E81175",
+  "runner_path": "scripts/run_epoch9d_controller_pilot.py",
+  "runner_sha256": "59C6D1E29C23FCB9335909BB728F11A3649A94106A66F5F5603E0C78B267B755",
+  "runtime": {
+    "host_ram_ceiling_percent": 82.0,
+    "mujoco_gl": "egl",
+    "output": "reports/epoch9d_controller_development/variant1_pilot_result.json",
+    "python": "/home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python",
+    "resident_vla_models": 0,
+    "resume": "missing row_key only",
+    "serial": true,
+    "simulator_environments_at_once": 1,
+    "wsl_distribution": "Ubuntu-22.04",
+    "wsl_swap_allowed_bytes": 0
+  },
+  "schema_version": "epoch9d.controller_pilot_execution_seal.v1",
+  "sealed_at": "2026-07-21T13:27:21+09:00",
+  "source_checkpoint": "84476b8c74c4c5dfef1f4b95886546f277b21cca",
+  "validation_accessed": false
+}
