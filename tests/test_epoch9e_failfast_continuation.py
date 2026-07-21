@@ -20,7 +20,7 @@ def sha256(path: Path) -> str:
 
 
 def load(name: str) -> dict:
-    return json.loads((REPORTS / name).read_text(encoding="utf-8"))
+    return json.loads((REPORTS / name).read_text(encoding="utf-8-sig"))
 
 
 def test_explicit_continuation_authority_and_scope_are_append_only() -> None:
@@ -222,12 +222,14 @@ def test_continuation_execution_seal_binds_changed_wrappers_and_unchanged_scienc
         "original_execution_seal": ROOT / seal["original_execution_seal_path"],
     }
     for name, path in bindings.items():
-        if name != "continuation_adjudicator":
+        if name not in {"continuation_adjudicator", "continuation_host"}:
             assert sha256(path) == seal[f"{name}_sha256"]
     parser_repair = load("epoch9e_continuation_adjudicator_parser_repair.json")
     status_correction = load("epoch9e_continuation_host_exit_status_correction.json")
     assert parser_repair["original_sealed_adjudicator_sha256"] == seal["continuation_adjudicator_sha256"]
     assert parser_repair["repaired_adjudicator_sha256"] == sha256(bindings["continuation_adjudicator"])
+    assert parser_repair["executed_sealed_host_sha256"] == seal["continuation_host_sha256"]
+    assert parser_repair["future_repaired_host_sha256"] == sha256(bindings["continuation_host"])
     assert parser_repair["scientific_fields_changed"] is False
     monitor = load("epoch9e_joint_continuation/host_resource_monitor_attempt_1.json")
     assert final_adjudicator.effective_runner_exit_code(monitor, status_correction) == 0
