@@ -1,6 +1,8 @@
 {
+  "all_disk_reloads_passed": true,
   "campaign": "epoch10_icae_vla",
-  "elapsed_seconds": 0.016,
+  "checkpoint_count": 12,
+  "elapsed_seconds": 204.0,
   "official_outcomes_opened": false,
   "package_versions": {
     "datasets": "4.8.5",
@@ -49,8 +51,381 @@
     ]
   },
   "schema_version": 1,
-  "seeds": [],
+  "seeds": [
+    {
+      "checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "8f49912a7e9f499d90c33d491dac725a62520e88d03c9776e57ce771992941b2",
+          "bundle_file_count": 14,
+          "lineage_cluster": "epoch10_rank4_seed_101",
+          "panel_partition": "checkpoint_development_panel",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_101\\step_0010",
+          "policy_identity": "epoch10_rank4_seed_101_step_0010",
+          "reload_smoke": {
+            "action_finite": true,
+            "action_max_abs": 0.996978,
+            "action_shape": [
+              7
+            ],
+            "loaded_from_disk": true,
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "scientific_performance_screen": false,
+            "simulator_outcome_read": false,
+            "smoke_sample_id": "train_task0_episode0_frame0"
+          },
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "66356583d306c74594f7e587f639d19a766aec694d556a68e31cca89c2810ec5",
+          "bundle_file_count": 14,
+          "lineage_cluster": "epoch10_rank4_seed_101",
+          "panel_partition": "checkpoint_development_panel",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_101\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_101_step_0030",
+          "reload_smoke": {
+            "action_finite": true,
+            "action_max_abs": 1.001731,
+            "action_shape": [
+              7
+            ],
+            "loaded_from_disk": true,
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "scientific_performance_screen": false,
+            "simulator_outcome_read": false,
+            "smoke_sample_id": "train_task0_episode0_frame0"
+          },
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "8611b8c50e0af0251dcda12be32624896202d26d47ad9e564dfdc7c70a5efbd5",
+          "bundle_file_count": 14,
+          "lineage_cluster": "epoch10_rank4_seed_101",
+          "panel_partition": "checkpoint_development_panel",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_101\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_101_step_0100",
+          "reload_smoke": {
+            "action_finite": true,
+            "action_max_abs": 1.003677,
+            "action_shape": [
+              7
+            ],
+            "loaded_from_disk": true,
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "scientific_performance_screen": false,
+            "simulator_outcome_read": false,
+            "smoke_sample_id": "train_task0_episode0_frame0"
+          },
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        }
+      ],
+      "cuda": {
+        "allocated_mb": 20.187,
+        "max_allocated_mb": 1104.466
+      },
+      "last_gradient": {
+        "grad_norm": 0.014392178,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.002337623,
+        "nonzero_grad_tensors": 74,
+        "step": 100,
+        "trainable_tensors": 74
+      },
+      "lineage_cluster": "epoch10_rank4_seed_101",
+      "loss_first": 0.0023380364291369915,
+      "loss_last": 0.00510901864618063,
+      "panel_partition": "checkpoint_development_panel",
+      "peak_host_ram_percent": 49.5,
+      "seed": 101,
+      "training_elapsed_seconds": 40.203,
+      "training_steps": 100
+    },
+    {
+      "checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "ec04bcd58facfe64b91548602e73d9f0b5cabe167922ef8994dd23f6079c089b",
+          "bundle_file_count": 14,
+          "lineage_cluster": "epoch10_rank4_seed_202",
+          "panel_partition": "checkpoint_development_panel",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_202\\step_0010",
+          "policy_identity": "epoch10_rank4_seed_202_step_0010",
+          "reload_smoke": {
+            "action_finite": true,
+            "action_max_abs": 1.0019,
+            "action_shape": [
+              7
+            ],
+            "loaded_from_disk": true,
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "scientific_performance_screen": false,
+            "simulator_outcome_read": false,
+            "smoke_sample_id": "train_task0_episode0_frame0"
+          },
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "163892350da849da1690d71b192bbba3cdde77ea6b62e51603b9ffd84bb6dca5",
+          "bundle_file_count": 14,
+          "lineage_cluster": "epoch10_rank4_seed_202",
+          "panel_partition": "checkpoint_development_panel",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_202\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_202_step_0030",
+          "reload_smoke": {
+            "action_finite": true,
+            "action_max_abs": 1.001265,
+            "action_shape": [
+              7
+            ],
+            "loaded_from_disk": true,
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "scientific_performance_screen": false,
+            "simulator_outcome_read": false,
+            "smoke_sample_id": "train_task0_episode0_frame0"
+          },
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "56ba84d7a7ac86d22851595a60e6698d20fe72c258cc613f6198b970839bac06",
+          "bundle_file_count": 14,
+          "lineage_cluster": "epoch10_rank4_seed_202",
+          "panel_partition": "checkpoint_development_panel",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_202\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_202_step_0100",
+          "reload_smoke": {
+            "action_finite": true,
+            "action_max_abs": 1.003119,
+            "action_shape": [
+              7
+            ],
+            "loaded_from_disk": true,
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "scientific_performance_screen": false,
+            "simulator_outcome_read": false,
+            "smoke_sample_id": "train_task0_episode0_frame0"
+          },
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        }
+      ],
+      "cuda": {
+        "allocated_mb": 20.187,
+        "max_allocated_mb": 1105.569
+      },
+      "last_gradient": {
+        "grad_norm": 0.015422637,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.005483909,
+        "nonzero_grad_tensors": 74,
+        "step": 100,
+        "trainable_tensors": 74
+      },
+      "lineage_cluster": "epoch10_rank4_seed_202",
+      "loss_first": 0.0010074550518766046,
+      "loss_last": 0.0014471262693405151,
+      "panel_partition": "checkpoint_development_panel",
+      "peak_host_ram_percent": 51.0,
+      "seed": 202,
+      "training_elapsed_seconds": 39.157,
+      "training_steps": 100
+    },
+    {
+      "checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "5d135da126c1c392b6e87f9f65ebef95e5d6653ee69b8b7312190a06fd124af4",
+          "bundle_file_count": 14,
+          "lineage_cluster": "epoch10_rank4_seed_303",
+          "panel_partition": "checkpoint_holdout_panel",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_303\\step_0010",
+          "policy_identity": "epoch10_rank4_seed_303_step_0010",
+          "reload_smoke": {
+            "action_finite": true,
+            "action_max_abs": 0.979757,
+            "action_shape": [
+              7
+            ],
+            "loaded_from_disk": true,
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "scientific_performance_screen": false,
+            "simulator_outcome_read": false,
+            "smoke_sample_id": "train_task0_episode0_frame0"
+          },
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "d224002038842e7f97b3b942acf7d0cdfb77131e2873ff4ce3517a2ff9ba2325",
+          "bundle_file_count": 14,
+          "lineage_cluster": "epoch10_rank4_seed_303",
+          "panel_partition": "checkpoint_holdout_panel",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_303\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_303_step_0030",
+          "reload_smoke": {
+            "action_finite": true,
+            "action_max_abs": 1.002491,
+            "action_shape": [
+              7
+            ],
+            "loaded_from_disk": true,
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "scientific_performance_screen": false,
+            "simulator_outcome_read": false,
+            "smoke_sample_id": "train_task0_episode0_frame0"
+          },
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "72a51f5b539551734692634438ffd413e7290fbb046ca1c6063e36e04f14d4fc",
+          "bundle_file_count": 14,
+          "lineage_cluster": "epoch10_rank4_seed_303",
+          "panel_partition": "checkpoint_holdout_panel",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_303\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_303_step_0100",
+          "reload_smoke": {
+            "action_finite": true,
+            "action_max_abs": 1.002904,
+            "action_shape": [
+              7
+            ],
+            "loaded_from_disk": true,
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "scientific_performance_screen": false,
+            "simulator_outcome_read": false,
+            "smoke_sample_id": "train_task0_episode0_frame0"
+          },
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        }
+      ],
+      "cuda": {
+        "allocated_mb": 20.187,
+        "max_allocated_mb": 1105.569
+      },
+      "last_gradient": {
+        "grad_norm": 0.033391872,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.006626636,
+        "nonzero_grad_tensors": 74,
+        "step": 100,
+        "trainable_tensors": 74
+      },
+      "lineage_cluster": "epoch10_rank4_seed_303",
+      "loss_first": 0.0013323560124263167,
+      "loss_last": 0.013157849200069904,
+      "panel_partition": "checkpoint_holdout_panel",
+      "peak_host_ram_percent": 50.7,
+      "seed": 303,
+      "training_elapsed_seconds": 39.016,
+      "training_steps": 100
+    },
+    {
+      "checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "780f1f6f0c8bd08bce6bd254375691865b8bf0fe0ca72c76bddd12f7599d0f5b",
+          "bundle_file_count": 14,
+          "lineage_cluster": "epoch10_rank4_seed_404",
+          "panel_partition": "checkpoint_holdout_panel",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_404\\step_0010",
+          "policy_identity": "epoch10_rank4_seed_404_step_0010",
+          "reload_smoke": {
+            "action_finite": true,
+            "action_max_abs": 1.001208,
+            "action_shape": [
+              7
+            ],
+            "loaded_from_disk": true,
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "scientific_performance_screen": false,
+            "simulator_outcome_read": false,
+            "smoke_sample_id": "train_task0_episode0_frame0"
+          },
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "ad7f8b9d2b271e863a1f987513ea1356c6d1317bdd6fba7014b4cc720902c370",
+          "bundle_file_count": 14,
+          "lineage_cluster": "epoch10_rank4_seed_404",
+          "panel_partition": "checkpoint_holdout_panel",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_404\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_404_step_0030",
+          "reload_smoke": {
+            "action_finite": true,
+            "action_max_abs": 1.008428,
+            "action_shape": [
+              7
+            ],
+            "loaded_from_disk": true,
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "scientific_performance_screen": false,
+            "simulator_outcome_read": false,
+            "smoke_sample_id": "train_task0_episode0_frame0"
+          },
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "a9c7f11b8d3d70fc92074f49055a84f634ca9834fdd1db7db081bfbdfc7f883e",
+          "bundle_file_count": 14,
+          "lineage_cluster": "epoch10_rank4_seed_404",
+          "panel_partition": "checkpoint_holdout_panel",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_404\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_404_step_0100",
+          "reload_smoke": {
+            "action_finite": true,
+            "action_max_abs": 1.005093,
+            "action_shape": [
+              7
+            ],
+            "loaded_from_disk": true,
+            "model_parameter_device": "cuda:0",
+            "model_parameter_dtype": "torch.bfloat16",
+            "scientific_performance_screen": false,
+            "simulator_outcome_read": false,
+            "smoke_sample_id": "train_task0_episode0_frame0"
+          },
+          "status": "CHECKPOINT_COMPLETE_VERIFIED"
+        }
+      ],
+      "cuda": {
+        "allocated_mb": 20.187,
+        "max_allocated_mb": 1105.569
+      },
+      "last_gradient": {
+        "grad_norm": 0.013917623,
+        "grad_tensors": 74,
+        "max_abs_grad": 0.00285475,
+        "nonzero_grad_tensors": 74,
+        "step": 100,
+        "trainable_tensors": 74
+      },
+      "lineage_cluster": "epoch10_rank4_seed_404",
+      "loss_first": 0.002252539386972785,
+      "loss_last": 0.0024373785126954317,
+      "panel_partition": "checkpoint_holdout_panel",
+      "peak_host_ram_percent": 50.2,
+      "seed": 404,
+      "training_elapsed_seconds": 39.688,
+      "training_steps": 100
+    }
+  ],
   "simulator_outcomes_read": false,
-  "source_commit": "603cd2b39baa26038285ec34840f8935eac44ac2",
-  "status": "PREFLIGHT_PASS"
+  "source_commit": "7f7e9da0889e5139ee068d7dc25112e32c240c80",
+  "status": "PROSPECTIVE_CHECKPOINT_PANEL_COMPLETE"
 }

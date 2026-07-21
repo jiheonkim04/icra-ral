@@ -2,7 +2,8 @@
   "schema_version": 1,
   "campaign": "epoch10_icae_vla",
   "frozen_at": "2026-07-21T17:20:00+09:00",
-  "status": "FROZEN_PENDING_TRAINING",
+  "status": "PROSPECTIVE_CHECKPOINT_PANEL_COMPLETE",
+  "completed_at": "2026-07-21T17:20:44.5202198+09:00",
   "base_reference": {
     "identity": "smolvla_libero_frozen_base",
     "counts_as_independent_training_run": false,
@@ -34,6 +35,27 @@
     "official_outcomes_known_at_freeze": false
   },
   "prospective_checkpoint_count": 12,
+  "generation_evidence": {
+    "result_path": "reports/epoch10_checkpoint_generation_result.json",
+    "elapsed_seconds": 204.0,
+    "all_disk_reloads_passed": true,
+    "simulator_outcomes_read": false,
+    "official_outcomes_opened": false,
+    "adapter_sha256_in_seed_stage_order": [
+      "8f49912a7e9f499d90c33d491dac725a62520e88d03c9776e57ce771992941b2",
+      "66356583d306c74594f7e587f639d19a766aec694d556a68e31cca89c2810ec5",
+      "8611b8c50e0af0251dcda12be32624896202d26d47ad9e564dfdc7c70a5efbd5",
+      "ec04bcd58facfe64b91548602e73d9f0b5cabe167922ef8994dd23f6079c089b",
+      "163892350da849da1690d71b192bbba3cdde77ea6b62e51603b9ffd84bb6dca5",
+      "56ba84d7a7ac86d22851595a60e6698d20fe72c258cc613f6198b970839bac06",
+      "5d135da126c1c392b6e87f9f65ebef95e5d6653ee69b8b7312190a06fd124af4",
+      "d224002038842e7f97b3b942acf7d0cdfb77131e2873ff4ce3517a2ff9ba2325",
+      "72a51f5b539551734692634438ffd413e7290fbb046ca1c6063e36e04f14d4fc",
+      "780f1f6f0c8bd08bce6bd254375691865b8bf0fe0ca72c76bddd12f7599d0f5b",
+      "ad7f8b9d2b271e863a1f987513ea1356c6d1317bdd6fba7014b4cc720902c370",
+      "a9c7f11b8d3d70fc92074f49055a84f634ca9834fdd1db7db081bfbdfc7f883e"
+    ]
+  },
   "competitive_subset_rule": "For each seed, include only the predeclared intermediate and converged snapshots (steps 30 and 100). This rule uses training stage only and cannot inspect intervention or official outcomes.",
   "competitive_subset_checkpoint_count": 8,
   "historical_development_only_anchors": [
