@@ -1,0 +1,3026 @@
+{
+  "assignment_scene_count": 32,
+  "assignments": [
+    {
+      "assignment": "A",
+      "base_identity_id": 56,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_056_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 56,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_056_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 57,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_057_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 57,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_057_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 58,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_058_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 58,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_058_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 59,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_059_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 59,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_059_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 60,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_060_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 60,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_060_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 61,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_061_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 61,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_061_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 62,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_062_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 62,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_062_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 63,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_063_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 63,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_063_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 64,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_064_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 64,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_064_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 65,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_065_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 65,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_065_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 66,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_066_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 66,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_066_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 67,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_067_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 67,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_067_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 68,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_068_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 68,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_068_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 69,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_069_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 69,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_069_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 70,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_070_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 70,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "scene_id": "epoch9d_causal_base_070_assignment_B"
+    },
+    {
+      "assignment": "A",
+      "base_identity_id": 71,
+      "heavy_slot_eval_only": "back",
+      "mass_factor": {
+        "back": 8.0,
+        "front": 1.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_071_assignment_A"
+    },
+    {
+      "assignment": "B",
+      "base_identity_id": 71,
+      "heavy_slot_eval_only": "front",
+      "mass_factor": {
+        "back": 1.0,
+        "front": 8.0
+      },
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "scene_id": "epoch9d_causal_base_071_assignment_B"
+    }
+  ],
+  "balance_requirements": {
+    "assignments_per_base": 2,
+    "exact_pair_rule": "A and B load the same frozen float64 simulator state, use the same geometry, rendering, robot state, probe order, and controller; only body mass/inertia factors differ. First RGB hashes must match exactly.",
+    "heavy_position_counts": {
+      "back": 16,
+      "front": 16
+    },
+    "probe_order_counts": {
+      "back_first": 16,
+      "front_first": 16
+    },
+    "spatial_strata": {
+      "spatial_0": 4,
+      "spatial_1": 4,
+      "spatial_2": 4,
+      "spatial_3": 4
+    }
+  },
+  "base_state_count": 16,
+  "base_states": [
+    {
+      "base_identity_id": 56,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.082,
+        0.128,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319829509e-05,
+        1.6673002342726983e-06,
+        0.7071067792293566,
+        -0.056391281553685356,
+        0.2226582272484242,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.387475531982499e-05,
+        1.6673002342653342e-06,
+        0.7071067792293566,
+        -0.172,
+        0.02799999999999992,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319831665e-05,
+        1.6673002342710333e-06,
+        0.7071067792293566,
+        -0.02371816359143708,
+        0.016835641901292015,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.3218930757425832e-05,
+        5.905204028471264e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        -2.4459380383287278e-18,
+        1.6633412838103313e-17,
+        1.485795665022213e-14,
+        -1.352490756627715e-15,
+        7.620971512521479e-15,
+        -2.9812518952740972e-18,
+        8.435352738462309e-19,
+        2.4279162341879112e-17,
+        1.492711646520247e-14,
+        9.160174489180792e-16,
+        3.630955491683168e-15,
+        -1.185799381455426e-18,
+        4.856279694469511e-18,
+        -1.8412569180429645e-17,
+        1.5091866279065885e-14,
+        2.62055084900674e-16,
+        -3.721942152934887e-15,
+        -2.6144575041404418e-18,
+        -1.2947118351339537e-17,
+        -9.632115981978588e-18,
+        1.639705565740279e-14,
+        -3.737353654237392e-15,
+        -3.864055384294178e-15,
+        -1.761498690334074e-17,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "781EE15BC9D2450B5968CDBA2060D8B09AC9F819D7A238CD3F47D2826B594C5B",
+      "candidate_center_separation_m_eval_only": 0.27297618943783364,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.172,
+          0.028
+        ],
+        "front": [
+          0.082,
+          0.128
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.172,
+          0.02799999999999992,
+          0.8984070750980836
+        ],
+        "front": [
+          0.082,
+          0.128,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "CD79F279380392E43694D469D96394A6E4030515ABF079D469AB2D1557307996",
+      "generator_seed": 914100,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.6536713242530823,
+          "subpixel_dx": -3.750642811249108,
+          "subpixel_dy": 1.4959026761546248
+        },
+        "front": {
+          "quality": 0.7116847038269043,
+          "subpixel_dx": -4.962703534621539,
+          "subpixel_dy": 4.908626529992798
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "spatial_stratum": "spatial_0"
+    },
+    {
+      "base_identity_id": 57,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.094,
+        0.142,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319828626e-05,
+        1.6673002342703957e-06,
+        0.7071067792293566,
+        -0.03876514801290061,
+        0.204386825963428,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319821045e-05,
+        1.6673002342649675e-06,
+        0.7071067792293566,
+        -0.144,
+        0.04399999999999992,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.387475531983713e-05,
+        1.667300234284448e-06,
+        0.7071067792293566,
+        0.0167327802480205,
+        -0.005288695857953329,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.3218930757408717e-05,
+        5.9052040285323505e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        -2.7649304255431073e-18,
+        2.8290827654652715e-17,
+        1.4901668321943303e-14,
+        -1.2696808340398853e-15,
+        5.039665484575335e-15,
+        7.299178429052082e-18,
+        -6.053581130567882e-19,
+        3.4148056354535875e-17,
+        1.4924446404178567e-14,
+        -1.1672695387843307e-16,
+        3.3150758856376846e-15,
+        4.949045433387857e-18,
+        -4.926609660980407e-18,
+        1.7988157702360682e-17,
+        1.4632414691700373e-14,
+        -9.232873108749993e-16,
+        1.983051075992293e-14,
+        -8.249309690432105e-18,
+        -1.2017527821071104e-17,
+        -5.9757499636188166e-18,
+        1.6409176179136904e-14,
+        -5.0038567665537095e-15,
+        -1.4307776300043068e-15,
+        -4.440253343079971e-20,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "B67E1B53A9285B6EE65F7566B8631FB89579914ABF878B2F82C52AA3AD03DE95",
+      "candidate_center_separation_m_eval_only": 0.2573868683519033,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.144,
+          0.044
+        ],
+        "front": [
+          0.094,
+          0.142
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.144,
+          0.04399999999999992,
+          0.8984070750980836
+        ],
+        "front": [
+          0.094,
+          0.142,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "7253AE000940C8643DE3B827CCAC60D1E3049F6ACB8E80A7A2E61DC5BAAC8BAC",
+      "generator_seed": 914101,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.7838107347488403,
+          "subpixel_dx": -1.173098855024179,
+          "subpixel_dy": -1.1831793111710063
+        },
+        "front": {
+          "quality": 0.7530748248100281,
+          "subpixel_dx": -1.9685227227679007,
+          "subpixel_dy": 2.9931207107068403
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "spatial_stratum": "spatial_1"
+    },
+    {
+      "base_identity_id": 58,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.106,
+        0.156,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319826896e-05,
+        1.6673002342709204e-06,
+        0.7071067792293566,
+        -0.04532941823150513,
+        0.19787024023405253,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319825043e-05,
+        1.6673002342666054e-06,
+        0.7071067792293566,
+        -0.172,
+        0.05999999999999992,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319831672e-05,
+        1.6673002342819316e-06,
+        0.7071067792293566,
+        -0.01815327058195731,
+        0.012278919653841588,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.3218930757425213e-05,
+        5.905204028463223e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        -2.5190560281534657e-18,
+        1.9091110419410753e-17,
+        1.4904357560187587e-14,
+        -1.0428051490946328e-15,
+        5.182069788485967e-15,
+        6.071795741312581e-19,
+        2.7460117059947787e-18,
+        1.610156510388108e-17,
+        1.4922322558961726e-14,
+        8.986981105699865e-16,
+        3.701387886645287e-15,
+        -6.4240305492428104e-18,
+        4.5851397613921574e-18,
+        -4.865136625704086e-17,
+        1.516306843249521e-14,
+        1.8949560031509107e-15,
+        -8.04833506239875e-15,
+        -5.006784147921506e-18,
+        -1.0655425294063465e-17,
+        -1.1250554137807207e-17,
+        1.6406961900575816e-14,
+        -3.795673805403772e-15,
+        -3.9501500692106726e-15,
+        -8.023466263925677e-18,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "0AC8A1297B3EF2CAAD4A8765F17C771227AA8FC571D9A577CEC76F3C5D9F59DC",
+      "candidate_center_separation_m_eval_only": 0.29410882339705485,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.172,
+          0.06
+        ],
+        "front": [
+          0.106,
+          0.156
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.172,
+          0.05999999999999992,
+          0.8984070750980836
+        ],
+        "front": [
+          0.106,
+          0.156,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "ECC213CF2FF450AB4DA0FB32836D73FDFDE431994E16917F6C336BE4ABF19E4E",
+      "generator_seed": 914102,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.6937195062637329,
+          "subpixel_dx": 0.7988877917152521,
+          "subpixel_dy": 1.5338640158555918
+        },
+        "front": {
+          "quality": 0.6907674670219421,
+          "subpixel_dx": 0.9523081330772989,
+          "subpixel_dy": 1.0938057879309397
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "spatial_stratum": "spatial_2"
+    },
+    {
+      "base_identity_id": 59,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.118,
+        0.164,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319822665e-05,
+        1.6673002342716256e-06,
+        0.7071067792293566,
+        -0.06648540912868571,
+        0.19198504861650442,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.387475531982504e-05,
+        1.6673002342653849e-06,
+        0.7071067792293566,
+        -0.144,
+        0.076,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319822897e-05,
+        1.6673002342648449e-06,
+        0.7071067792293566,
+        -0.0007068760318938548,
+        0.01690335768825515,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.3218930757409448e-05,
+        5.905204028530604e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        -3.4150736352900276e-18,
+        3.688264555613289e-17,
+        1.4758574613241872e-14,
+        5.278655069135183e-16,
+        1.2352834811507073e-14,
+        -1.8449025976710377e-18,
+        2.0130082891521784e-18,
+        1.6373809561751904e-17,
+        1.4932373829645413e-14,
+        8.886761247784709e-16,
+        3.753983741353536e-15,
+        -5.218852287558645e-18,
+        2.4764836540158876e-18,
+        1.263051576245348e-17,
+        1.4932450406997092e-14,
+        -2.1677870753912186e-16,
+        3.5380960116162675e-15,
+        -9.728539608302303e-18,
+        -1.1744523035233776e-17,
+        -5.202758276752514e-18,
+        1.6419887735796778e-14,
+        -5.2239793930606e-15,
+        -1.5963274224848544e-15,
+        1.3577252615009764e-18,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "92F267D052A7C6FA4BE6604F18FA345E8D69213029E7A17EB92908E0041CCA59",
+      "candidate_center_separation_m_eval_only": 0.2763837911311009,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.144,
+          0.076
+        ],
+        "front": [
+          0.118,
+          0.164
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.144,
+          0.076,
+          0.8984070750980836
+        ],
+        "front": [
+          0.118,
+          0.164,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "F5A46DF90444622C878E752DFAF6FFC8754BCB5B3901F01F6AD7D31DFB8A3A4B",
+      "generator_seed": 914103,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.7161443829536438,
+          "subpixel_dx": 3.2996656057873786,
+          "subpixel_dy": -1.167637083093478
+        },
+        "front": {
+          "quality": 0.6081575155258179,
+          "subpixel_dx": 2.3491552710447436,
+          "subpixel_dy": -0.7062424647916146
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "spatial_stratum": "spatial_3"
+    },
+    {
+      "base_identity_id": 60,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.094,
+        0.128,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319833612e-05,
+        1.667300234273822e-06,
+        0.7071067792293566,
+        -0.040333509591840705,
+        0.18222745177429087,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.38747553198298e-05,
+        1.6673002342724339e-06,
+        0.7071067792293566,
+        -0.158,
+        0.02799999999999992,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319828612e-05,
+        1.6673002342819892e-06,
+        0.7071067792293566,
+        -0.014945152369435197,
+        0.005771621046879575,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.3218930757425803e-05,
+        5.905204028476589e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        -2.013425262714927e-18,
+        2.1418491049347915e-17,
+        1.4838012914477833e-14,
+        -1.6174166396029481e-15,
+        8.611064027241926e-15,
+        2.5228454591668157e-18,
+        5.926544462314532e-18,
+        -1.9833299007991703e-17,
+        1.5094373003127547e-14,
+        1.6171940765945551e-16,
+        -3.733551208582557e-15,
+        -3.552931411322834e-18,
+        -2.073537878801219e-18,
+        -1.8036783540226896e-17,
+        1.5034339007900863e-14,
+        -3.118828415389217e-16,
+        -1.8697017820626686e-15,
+        -3.028247669241135e-19,
+        -8.83217784171006e-18,
+        -8.568593387024547e-18,
+        1.6394746011461276e-14,
+        -3.746260846279263e-15,
+        -3.701183440776611e-15,
+        2.6153051014265334e-18,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "1D01311715D72A6A538B78FEA44BA543F12C4383A64425E52B9570CE73052C36",
+      "candidate_center_separation_m_eval_only": 0.27111621124528873,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.158,
+          0.028
+        ],
+        "front": [
+          0.094,
+          0.128
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.158,
+          0.02799999999999992,
+          0.8984070750980836
+        ],
+        "front": [
+          0.094,
+          0.128,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "5A05373B7ECE5836F95F5F402EB02899D87B7BD38085E7469CC47540ED0AA32A",
+      "generator_seed": 914104,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.8082275986671448,
+          "subpixel_dx": -3.746296052853971,
+          "subpixel_dy": 0.09963838518566703
+        },
+        "front": {
+          "quality": 0.7082780599594116,
+          "subpixel_dx": -4.841593320751469,
+          "subpixel_dy": 3.0110586042406027
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "spatial_stratum": "spatial_0"
+    },
+    {
+      "base_identity_id": 61,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.106,
+        0.142,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319830444e-05,
+        1.6673002342744326e-06,
+        0.7071067792293566,
+        -0.05598177976012056,
+        0.2114592803178232,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319825412e-05,
+        1.6673002342747785e-06,
+        0.7071067792293566,
+        -0.13,
+        0.04399999999999992,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319830916e-05,
+        1.667300234247851e-06,
+        0.7071067792293565,
+        -0.008240883554783278,
+        -0.014336557577189086,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.3218930757417238e-05,
+        5.905204028455492e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        1.1039224216557912e-18,
+        -1.5294658893654064e-17,
+        1.5028325886342813e-14,
+        1.1626893564238823e-16,
+        -5.4448355897488854e-17,
+        1.0282757035184431e-18,
+        -2.4817395875374973e-18,
+        2.437343172350908e-17,
+        1.485476264135215e-14,
+        -1.6216740920645766e-15,
+        7.247333010441658e-15,
+        1.3506091983156478e-18,
+        -3.2674280369163568e-18,
+        4.4059231646337583e-17,
+        1.4707420155755596e-14,
+        -1.836820349007979e-15,
+        1.6599681036318128e-14,
+        5.534350722336174e-18,
+        -5.3533917176158456e-18,
+        -1.0237035136544204e-17,
+        1.6374282918768777e-14,
+        -2.1350305408501816e-15,
+        -4.133531865293669e-15,
+        2.8928068172380403e-19,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "9D122D3BB1EC68ADE37099666AD995618066B05C72D203A7B0987C941541750F",
+      "candidate_center_separation_m_eval_only": 0.25553864678361277,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.13,
+          0.044
+        ],
+        "front": [
+          0.106,
+          0.142
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.13,
+          0.04399999999999992,
+          0.8984070750980836
+        ],
+        "front": [
+          0.106,
+          0.142,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "327304DB94C05EF22F27EEB6569232A69F4196837795CC07C50F6FE95237EB29",
+      "generator_seed": 914105,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.7048349380493164,
+          "subpixel_dx": -1.164005459993355,
+          "subpixel_dy": -2.627434251125905
+        },
+        "front": {
+          "quality": 0.7382512092590332,
+          "subpixel_dx": -1.8987574502387616,
+          "subpixel_dy": 1.132854528766675
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "spatial_stratum": "spatial_1"
+    },
+    {
+      "base_identity_id": 62,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.118,
+        0.156,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319819132e-05,
+        1.667300234270499e-06,
+        0.7071067792293566,
+        -0.04404239696822096,
+        0.1949089602528965,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319828679e-05,
+        1.6673002342709698e-06,
+        0.7071067792293566,
+        -0.158,
+        0.05999999999999992,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.387475531983866e-05,
+        1.6673002342881317e-06,
+        0.7071067792293566,
+        -0.012906287678739843,
+        0.01962046187569079,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.3218930757414017e-05,
+        5.905204028518815e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        9.295472292557727e-19,
+        -6.896122186687363e-18,
+        1.513008847029724e-14,
+        -5.85933639060374e-16,
+        -6.744484460104206e-15,
+        3.3631005564865426e-18,
+        -8.098242061977523e-19,
+        -1.819876486411873e-17,
+        1.5105846892032762e-14,
+        -4.3025972214404463e-16,
+        -4.277390775626255e-15,
+        -1.2613757688991062e-18,
+        -2.27981838146856e-19,
+        -1.5425155790072752e-17,
+        1.4957652276215755e-14,
+        8.474682117207096e-16,
+        2.8579601564859382e-15,
+        7.87483183225676e-18,
+        -1.750587310572863e-17,
+        -4.077643601207223e-18,
+        1.641836718577717e-14,
+        -4.965401394968014e-15,
+        -2.183267663805482e-15,
+        -1.1895293067815538e-17,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "F5860C52269F67F9D7FADA075237DB1372113ED366BDC17BB0F42509CAC0EC77",
+      "candidate_center_separation_m_eval_only": 0.2922190958852621,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.158,
+          0.06
+        ],
+        "front": [
+          0.118,
+          0.156
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.158,
+          0.05999999999999992,
+          0.8984070750980836
+        ],
+        "front": [
+          0.118,
+          0.156,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "24E2B067E3EAC669D358C464C0E670BB380AB482ED13D57DAC30BB8B257393E4",
+      "generator_seed": 914106,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.7889822125434875,
+          "subpixel_dx": 0.9288646373875409,
+          "subpixel_dy": 0.08814532322443824
+        },
+        "front": {
+          "quality": 0.6550272703170776,
+          "subpixel_dx": 1.146896881030596,
+          "subpixel_dy": -0.6667508104995541
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "spatial_stratum": "spatial_2"
+    },
+    {
+      "base_identity_id": 63,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.082,
+        0.164,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319828421e-05,
+        1.6673002342702343e-06,
+        0.7071067792293566,
+        -0.033919800549638605,
+        0.17656529393725542,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319836041e-05,
+        1.6673002342719972e-06,
+        0.7071067792293566,
+        -0.13,
+        0.076,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319838228e-05,
+        1.6673002342876076e-06,
+        0.7071067792293566,
+        -0.00963462178593134,
+        -0.01213039930059987,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.3218930757380797e-05,
+        5.905204028560406e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        -3.854101195750893e-18,
+        2.2160466014202855e-17,
+        1.489929950273635e-14,
+        -9.862427589575297e-16,
+        5.1531686858794224e-15,
+        3.549030653878202e-18,
+        1.7835582597281543e-19,
+        2.0253315564261448e-17,
+        1.4840647995336248e-14,
+        -1.8390895980589113e-15,
+        8.628438832405024e-15,
+        3.305023754118058e-19,
+        9.461293995606404e-19,
+        -2.4636441028430152e-17,
+        1.4960422868700867e-14,
+        7.931734000653019e-16,
+        2.9726288315073717e-15,
+        1.2354636423604216e-18,
+        -9.21933783850036e-18,
+        5.096381618495407e-19,
+        1.6345173214706695e-14,
+        -3.251601733954117e-15,
+        -2.090364248695158e-16,
+        -1.4085269440776903e-18,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "A8BCEF6C9C39870FE59C76C0348DF393B3DEE7D0FEAD4814B4AEFB46E2626C8F",
+      "candidate_center_separation_m_eval_only": 0.22953866776645718,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.13,
+          0.076
+        ],
+        "front": [
+          0.082,
+          0.164
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.13,
+          0.076,
+          0.8984070750980836
+        ],
+        "front": [
+          0.082,
+          0.164,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "C387EBFC78CEA6CD0DE69B47F9B81C3AE89778347557787FF06B3B47B244FDB4",
+      "generator_seed": 914107,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.7168878316879272,
+          "subpixel_dx": 3.4922388018122277,
+          "subpixel_dy": -2.6529587101173124
+        },
+        "front": {
+          "quality": 0.7232192158699036,
+          "subpixel_dx": 1.328240366759747,
+          "subpixel_dy": 4.937395693533418
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "spatial_stratum": "spatial_3"
+    },
+    {
+      "base_identity_id": 64,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.106,
+        0.128,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.387475531982889e-05,
+        1.667300234272277e-06,
+        0.7071067792293566,
+        -0.05440205083006558,
+        0.18660313765621786,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319835228e-05,
+        1.667300234275245e-06,
+        0.7071067792293566,
+        -0.144,
+        0.02799999999999992,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319830374e-05,
+        1.6673002342698064e-06,
+        0.7071067792293566,
+        0.018657066860791466,
+        0.008943104724652474,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.3218930757418703e-05,
+        5.905204028521099e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        -2.212430391826666e-18,
+        1.4287386361672736e-17,
+        1.4911266104101325e-14,
+        -1.0877029491767599e-16,
+        5.157397124332912e-15,
+        -3.0808453066972083e-18,
+        -3.625370510504529e-18,
+        2.9346145037582655e-17,
+        1.4733029848093127e-14,
+        -6.392973369703172e-16,
+        1.3949010448522973e-14,
+        -2.4922329888702956e-18,
+        4.360191268025525e-19,
+        2.3091707678872426e-17,
+        1.485513262566267e-14,
+        -4.2786838290597073e-16,
+        7.679283562275026e-15,
+        9.792416616090548e-19,
+        -1.3000353032651169e-17,
+        -7.54907722669118e-18,
+        1.641791904815097e-14,
+        -5.3723908026668906e-15,
+        -2.5820475434588307e-15,
+        1.965712182680259e-18,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "BCA2F71012EE16BCC683204B263D7BA5FF91BAD6132B0F62AA24B1485D6F52A5",
+      "candidate_center_separation_m_eval_only": 0.26925824035672524,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.144,
+          0.028
+        ],
+        "front": [
+          0.106,
+          0.128
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.144,
+          0.02799999999999992,
+          0.8984070750980836
+        ],
+        "front": [
+          0.106,
+          0.128,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "685DBA133B8E9FD936E72E3D8D5EA77B328F68AA6B8D371C11B5475EA9B5A103",
+      "generator_seed": 914108,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.7729329466819763,
+          "subpixel_dx": -3.8039073149894627,
+          "subpixel_dy": -1.1681568175384847
+        },
+        "front": {
+          "quality": 0.7017257809638977,
+          "subpixel_dx": -4.242200803695949,
+          "subpixel_dy": 1.0885062073630465
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "spatial_stratum": "spatial_0"
+    },
+    {
+      "base_identity_id": 65,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.118,
+        0.142,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319823622e-05,
+        1.6673002342751014e-06,
+        0.7071067792293566,
+        -0.04586678874079797,
+        0.18097616683450377,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319831587e-05,
+        1.6673002342698724e-06,
+        0.7071067792293566,
+        -0.172,
+        0.04399999999999992,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319828279e-05,
+        1.6673002342731854e-06,
+        0.7071067792293566,
+        -0.016855343577579517,
+        -0.021265856932624658,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.3218930757422765e-05,
+        5.905204028504977e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        -3.970386370833311e-18,
+        1.7672201104164847e-17,
+        1.4894248161949192e-14,
+        -1.1841975370094597e-15,
+        3.979906365048816e-15,
+        -4.8308104782590705e-19,
+        3.9084595836410214e-18,
+        -1.2278150402087336e-17,
+        1.5081893273953817e-14,
+        2.882809895174343e-16,
+        -3.736507995700193e-15,
+        2.2803459553622363e-18,
+        -2.0298749755943278e-18,
+        6.033850574972986e-18,
+        1.49015267804116e-14,
+        1.7990382783192045e-16,
+        5.304698181216518e-15,
+        -7.475741728130252e-18,
+        -1.0980927142116192e-17,
+        -7.723099668414759e-18,
+        1.6403723838810552e-14,
+        -4.972976576862895e-15,
+        -2.8865699421221087e-15,
+        3.3033920914706962e-18,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "73E6BFA547BDFCA1B739B4AF081252AF2D26D4D80132D71C037D9EB1B1A2126D",
+      "candidate_center_separation_m_eval_only": 0.30611109094575456,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.172,
+          0.044
+        ],
+        "front": [
+          0.118,
+          0.142
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.172,
+          0.04399999999999992,
+          0.8984070750980836
+        ],
+        "front": [
+          0.118,
+          0.142,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "AA736F2C528C6FC0C8DFD142F7755F62F95C6EB538D0023B769D45D0D76B4A5F",
+      "generator_seed": 914109,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.678736686706543,
+          "subpixel_dx": -1.391834233088563,
+          "subpixel_dy": 1.602221715442834
+        },
+        "front": {
+          "quality": 0.6022782921791077,
+          "subpixel_dx": -1.6029427035447377,
+          "subpixel_dy": -0.7119369054033413
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "spatial_stratum": "spatial_1"
+    },
+    {
+      "base_identity_id": 66,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.082,
+        0.156,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319833454e-05,
+        1.667300234276405e-06,
+        0.7071067792293566,
+        -0.040525874854032876,
+        0.20935422036680748,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319828326e-05,
+        1.6673002342828951e-06,
+        0.7071067792293566,
+        -0.144,
+        0.05999999999999992,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319831645e-05,
+        1.6673002342694847e-06,
+        0.7071067792293566,
+        -0.02325006217908606,
+        0.018629580994265274,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.3218930757406048e-05,
+        5.905204028445886e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        3.5950711634819984e-18,
+        -4.825958586579128e-18,
+        1.502512174660354e-14,
+        5.8744973889244e-16,
+        -2.6542402272599755e-16,
+        6.239823830191659e-18,
+        -6.657283547446998e-18,
+        4.389874149999275e-17,
+        1.4743871523954957e-14,
+        -9.323136844900899e-16,
+        1.2105134274883515e-14,
+        5.3591806131441574e-18,
+        4.278991558907216e-18,
+        -1.503384436183389e-17,
+        1.5089392034126468e-14,
+        5.275842465536168e-16,
+        -3.658782160557425e-15,
+        1.571500941521765e-18,
+        -4.376092652729418e-18,
+        -1.060492001207622e-17,
+        1.633006047413567e-14,
+        -4.893257167322626e-17,
+        -3.4696338094168074e-15,
+        -2.3865028605524342e-17,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "23523E0B8BD24F2D5ADAB2DCBFC7BC421C55D349F7E057D148DEA4AE7A6B16FE",
+      "candidate_center_separation_m_eval_only": 0.24554429335661623,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.144,
+          0.06
+        ],
+        "front": [
+          0.082,
+          0.156
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.144,
+          0.05999999999999992,
+          0.8984070750980836
+        ],
+        "front": [
+          0.082,
+          0.156,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "CD1B85308963F542D84EC307300AF7A2AD92A8C5067123786B384E892EDBD60F",
+      "generator_seed": 914110,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.7661607265472412,
+          "subpixel_dx": 0.9364757923237974,
+          "subpixel_dy": -1.2050245988564647
+        },
+        "front": {
+          "quality": 0.7399362921714783,
+          "subpixel_dx": -0.03480285470962485,
+          "subpixel_dy": 4.849907801303367
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "spatial_stratum": "spatial_2"
+    },
+    {
+      "base_identity_id": 67,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.094,
+        0.164,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.387475531983299e-05,
+        1.6673002342830972e-06,
+        0.7071067792293566,
+        -0.03084020840808574,
+        0.19055290745144968,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319834582e-05,
+        1.6673002342752149e-06,
+        0.7071067792293566,
+        -0.172,
+        0.076,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319830325e-05,
+        1.667300234270604e-06,
+        0.7071067792293566,
+        -0.0068010857865712865,
+        -0.006536078862588096,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.321893075739242e-05,
+        5.905204028436967e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        4.012761096673195e-18,
+        -4.407870634966607e-17,
+        1.5167941924632363e-14,
+        1.9123389482106726e-15,
+        -8.083800607632621e-15,
+        -2.0397628038041708e-18,
+        4.557604616301886e-18,
+        -1.5381922751679923e-17,
+        1.5018159013454056e-14,
+        1.0002941503729722e-16,
+        -1.637419240646857e-16,
+        -2.9297164447149844e-19,
+        -1.5060492472160967e-18,
+        2.353316203451824e-17,
+        1.4857933292188074e-14,
+        -1.5780010983067611e-15,
+        7.559811778415709e-15,
+        1.6613760115667701e-18,
+        1.0719976714123745e-17,
+        -8.806970951914168e-18,
+        1.6355421326118153e-14,
+        1.5853970552635334e-15,
+        -3.359615513782563e-15,
+        2.1883974419920633e-17,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "415D36F55056A6F8BB2A43AF8EFF610027B807B0CB307EFBEB146A6C9A5B526F",
+      "candidate_center_separation_m_eval_only": 0.280178514522438,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.172,
+          0.076
+        ],
+        "front": [
+          0.094,
+          0.164
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.172,
+          0.076,
+          0.8984070750980836
+        ],
+        "front": [
+          0.094,
+          0.164,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "B1908D9D80CB804E7887237F566F9DF6DD3D38C3C1AD935BC4E237356A782FED",
+      "generator_seed": 914111,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.7020388841629028,
+          "subpixel_dx": 3.0247894103230664,
+          "subpixel_dy": 1.61521111500495
+        },
+        "front": {
+          "quality": 0.7453957200050354,
+          "subpixel_dx": 1.9275705787458968,
+          "subpixel_dy": 2.9723075141927673
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "spatial_stratum": "spatial_3"
+    },
+    {
+      "base_identity_id": 68,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.118,
+        0.128,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319819122e-05,
+        1.6673002342629998e-06,
+        0.7071067792293566,
+        -0.04568464240289857,
+        0.1777584910277156,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319813447e-05,
+        1.6673002342612755e-06,
+        0.7071067792293566,
+        -0.13561473422075945,
+        0.029146098855114284,
+        0.8984070750980836,
+        0.7080289311964106,
+        -1.3872567736011998e-05,
+        1.6854048980311945e-06,
+        0.7061834268754692,
+        -0.017616677477722,
+        -0.004018070676838488,
+        0.902506338529415,
+        0.709999676540841,
+        -1.3194611089867769e-05,
+        5.959345867519744e-06,
+        0.7042020016318385,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        2.364745187263333e-18,
+        -2.4954854309158518e-17,
+        1.525646658430056e-14,
+        -5.620122089230077e-17,
+        -1.2154589137992175e-14,
+        -8.88277755058234e-19,
+        -5.304911249458763e-19,
+        -2.4926257972412467e-17,
+        1.5309689071224565e-14,
+        1.8654504472219327e-15,
+        -1.5593200114015333e-14,
+        9.360916982521018e-20,
+        3.2695898390483284e-18,
+        -2.4708198270745463e-17,
+        1.7082150533314034e-14,
+        -7.386102770042527e-16,
+        -9.445663725080354e-15,
+        1.7805758634187585e-18,
+        -2.1271118368991637e-17,
+        2.0073771056643004e-17,
+        1.6151702952324026e-14,
+        -7.068610469940647e-15,
+        8.611196510206716e-15,
+        -5.626415335025964e-18,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "60462FD302C710D9DEE4A00653441C59F135BB769E69B9640BA4F8DC29A1F6D6",
+      "candidate_center_separation_m_eval_only": 0.2721994253951122,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.13,
+          0.028
+        ],
+        "front": [
+          0.118,
+          0.128
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.13561473422075945,
+          0.029146098855114284,
+          0.8984070750980836
+        ],
+        "front": [
+          0.118,
+          0.128,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "B4E7D97312883E8179F7390AE6031922B64BC13BF7C1D8B3C09BFC8CFF09E13B",
+      "generator_seed": 914112,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.7554773688316345,
+          "subpixel_dx": -3.467785849450811,
+          "subpixel_dy": -2.0571389524890105
+        },
+        "front": {
+          "quality": 0.6376316547393799,
+          "subpixel_dx": -4.0567745384131975,
+          "subpixel_dy": -0.7541367934592955
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "spatial_stratum": "spatial_0"
+    },
+    {
+      "base_identity_id": 69,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.082,
+        0.142,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319824382e-05,
+        1.6673002342660737e-06,
+        0.7071067792293566,
+        -0.029497548139241894,
+        0.1896573280679208,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319821296e-05,
+        1.667300234265052e-06,
+        0.7071067792293566,
+        -0.158,
+        0.04399999999999992,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319814104e-05,
+        1.6673002342605206e-06,
+        0.7071067792293566,
+        -0.020479273420356905,
+        0.021717181403154713,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.321893075738492e-05,
+        5.905204028556674e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        1.6646343048404621e-18,
+        2.2731608201435403e-17,
+        1.4932599451795614e-14,
+        1.064811308906244e-16,
+        3.676518223986962e-15,
+        -1.970662252208702e-18,
+        -5.6644350902653655e-19,
+        2.7606833541396343e-17,
+        1.493186030219924e-14,
+        3.350305985831187e-16,
+        3.4034864258470326e-15,
+        1.4159821781635617e-18,
+        2.2065170485788603e-18,
+        -4.2199816505721086e-17,
+        1.5312637666688397e-14,
+        1.6281869500455077e-15,
+        -1.5441655189125452e-14,
+        -9.907821691097923e-18,
+        -1.1189937416154048e-17,
+        -4.0540339301607263e-19,
+        1.6372466031505935e-14,
+        -4.313966720579448e-15,
+        2.6887198050453444e-16,
+        -8.538658551148046e-19,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "816E97BD14F13A34CCBD16966FEA86AFC417DE46FAC4F87A8760E46848D81AE0",
+      "candidate_center_separation_m_eval_only": 0.2592373429890069,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.158,
+          0.044
+        ],
+        "front": [
+          0.082,
+          0.142
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.158,
+          0.04399999999999992,
+          0.8984070750980836
+        ],
+        "front": [
+          0.082,
+          0.142,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "8D3538D141CACA8B31CCC4D2F0D34FFEBA7F6EC8239E6DCE13BD73CC88C6722D",
+      "generator_seed": 914113,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.7744661569595337,
+          "subpixel_dx": -1.39669938076878,
+          "subpixel_dy": 0.1321307783193575
+        },
+        "front": {
+          "quality": 0.6923802495002747,
+          "subpixel_dx": -2.6249332355707704,
+          "subpixel_dy": 4.912053916096831
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "spatial_stratum": "spatial_1"
+    },
+    {
+      "base_identity_id": 70,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.094,
+        0.156,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.387475531981943e-05,
+        1.6673002342600812e-06,
+        0.7071067792293566,
+        -0.03474101642611654,
+        0.20316503063423103,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319831298e-05,
+        1.667300234274472e-06,
+        0.7071067792293566,
+        -0.13,
+        0.05999999999999992,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319834506e-05,
+        1.667300234274896e-06,
+        0.7071067792293566,
+        -0.01233552394301095,
+        0.01955641909541792,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.321893075742632e-05,
+        5.905204028461014e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        3.1481119438619e-18,
+        -2.4754232331784198e-17,
+        1.5248646509903753e-14,
+        5.070652928546311e-16,
+        -1.2192276534298192e-14,
+        -1.0727587724444762e-18,
+        1.0679437778173998e-18,
+        -7.109111611272108e-18,
+        1.5033095763611624e-14,
+        1.0746935449450692e-16,
+        -1.4132923334972153e-16,
+        6.832138854533956e-18,
+        -1.5078368396227697e-19,
+        1.589683272890595e-17,
+        1.4735370458923078e-14,
+        4.917824662527977e-16,
+        1.4142398344534897e-14,
+        -1.218816814468356e-17,
+        -1.3789016914925527e-17,
+        -7.636526602164206e-18,
+        1.6399246893618467e-14,
+        -3.703587980145991e-15,
+        -3.998466907052141e-15,
+        -1.2672242268376204e-17,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "9826552423C13967668BBBC296A7F74D092C9F6BF3158F7904F80F9978502B9B",
+      "candidate_center_separation_m_eval_only": 0.24370473938764511,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.13,
+          0.06
+        ],
+        "front": [
+          0.094,
+          0.156
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.13,
+          0.05999999999999992,
+          0.8984070750980836
+        ],
+        "front": [
+          0.094,
+          0.156,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "3CA57FCB0C97431BA92B2A2629A72BCC2300B1A20C3CDE4FB21F830FE24EA485",
+      "generator_seed": 914114,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.7129302024841309,
+          "subpixel_dx": 1.1782196543040655,
+          "subpixel_dy": -2.676015733323549
+        },
+        "front": {
+          "quality": 0.7157120108604431,
+          "subpixel_dx": 0.5011730566790256,
+          "subpixel_dy": 2.919310282040101
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "spatial_stratum": "spatial_2"
+    },
+    {
+      "base_identity_id": 71,
+      "base_state_vector_float64": [
+        1.0000000000000007,
+        1.5232469055479818e-12,
+        -0.16103738899999961,
+        3.88068879844111e-12,
+        -2.44459747,
+        1.881638294068402e-12,
+        2.2267522,
+        0.7853981633980791,
+        0.0007744102568659568,
+        -0.0007743499386278653,
+        0.106,
+        0.164,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319833976e-05,
+        1.6673002342757193e-06,
+        0.7071067792293566,
+        -0.05017783233880772,
+        0.20107139192395362,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319824899e-05,
+        1.667300234274528e-06,
+        0.7071067792293566,
+        -0.158,
+        0.076,
+        0.8984070750980836,
+        0.707106783005648,
+        -1.3874755319827444e-05,
+        1.6673002342728557e-06,
+        0.7071067792293566,
+        -0.009427268136909216,
+        -0.005716634488598559,
+        0.902506338529415,
+        0.7071068099946488,
+        -1.3218930757424488e-05,
+        5.905204028479277e-06,
+        0.7071067522302282,
+        0.0,
+        0.0,
+        0.0,
+        -7.28122573243373e-14,
+        2.6122186009367728e-17,
+        -1.457566909682819e-13,
+        5.878687663620256e-17,
+        -7.066226102894023e-14,
+        1.2222625275748324e-16,
+        5.42797427200673e-13,
+        -0.0006795347672367717,
+        0.0006795348079483988,
+        3.907556826494251e-18,
+        -1.4072421628129543e-17,
+        1.50230525922568e-14,
+        5.801451052662743e-16,
+        -8.593957944263984e-17,
+        1.3788481874210752e-18,
+        -1.4430434082186374e-18,
+        1.6807308579838604e-17,
+        1.4905414514706303e-14,
+        -1.402718965578266e-15,
+        4.475161306717279e-15,
+        -1.7868399754795e-18,
+        -2.3001538198250856e-18,
+        1.7430013046336903e-17,
+        1.4898765117430705e-14,
+        1.6508607599849123e-16,
+        5.1783513323004115e-15,
+        -2.0342272142492694e-19,
+        -9.13761704094939e-18,
+        -9.429969590694978e-18,
+        1.6394705909879497e-14,
+        -3.731159450911813e-15,
+        -3.586607507054936e-15,
+        1.6917804742396532e-18,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_state_vector_sha256": "3CC0123ABB38595AF250F17461E897C240DA95356EBF488B9D97F53EE2C04B09",
+      "candidate_center_separation_m_eval_only": 0.2782804340948174,
+      "candidate_initial_lane_margin_m_eval_only": {
+        "back": 0.010407075098083585,
+        "front": 0.010407075098083585
+      },
+      "candidate_initial_xy_command_m": {
+        "back": [
+          -0.158,
+          0.076
+        ],
+        "front": [
+          0.106,
+          0.164
+        ]
+      },
+      "candidate_initial_xyz_eval_only": {
+        "back": [
+          -0.158,
+          0.076,
+          0.8984070750980836
+        ],
+        "front": [
+          0.106,
+          0.164,
+          0.8984070750980836
+        ]
+      },
+      "candidate_mapping": {
+        "candidate_1": "front",
+        "candidate_2": "back"
+      },
+      "first_agentview_rgb_sha256": "D1D0A10D5F20F200A389ED7361B7300A9CD331169702B17B3520AD71C22891CB",
+      "generator_seed": 914115,
+      "initial_rgb_localization_audit": {
+        "back": {
+          "quality": 0.8000726103782654,
+          "subpixel_dx": 3.0680678865600264,
+          "subpixel_dy": 0.12631825667859786
+        },
+        "front": {
+          "quality": 0.751833975315094,
+          "subpixel_dx": 2.0673699483050427,
+          "subpixel_dy": 1.1222060198174013
+        }
+      },
+      "mass_assignment_applied_during_construction": false,
+      "outcomes_accessed_during_construction": [],
+      "partition": "DEVELOPMENT_CAUSAL_PANEL",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "spatial_stratum": "spatial_3"
+    }
+  ],
+  "branch": "codex/epoch9d-causal-probe-bounded-convergence",
+  "candidate_probe_count": 64,
+  "causal_signal_go": {
+    "all_rows_reported": true,
+    "both_candidates_excited_scenes": {
+      "denominator": 32,
+      "minimum": 29
+    },
+    "collision_identity_swap_fall_workspace_exit_unrecoverable_track_loss": {
+      "maximum": 0
+    },
+    "correct_heavy_light_rank_scenes": {
+      "denominator": 32,
+      "minimum": 26
+    },
+    "correct_rank_each_heavy_position_stratum": {
+      "denominator": 16,
+      "minimum": 12
+    },
+    "exact_state_pairs_both_assignments_flip_correctly": {
+      "denominator": 16,
+      "minimum": 12
+    },
+    "finite_bounded_actions_probes": {
+      "denominator": 64,
+      "minimum": 64
+    },
+    "intended_contact_or_excitation_probes": {
+      "denominator": 64,
+      "minimum": 61
+    },
+    "mass_intervention_test": {
+      "expected_direction": "positive",
+      "one_sided_exact_sign_test_p_strictly_less_than": 0.01,
+      "pair_contrast": "back_response_when_back_light_assignment_B - back_response_when_back_heavy_assignment_A",
+      "paired_interval": "two-sided 95% Student-t interval for the mean of 16 exact-pair contrasts",
+      "paired_interval_required": "lower endpoint > 0",
+      "zero_differences": "discard only for the exact sign test and report count"
+    },
+    "position_lane_order_adjustment": {
+      "effect": "intercept at centered covariates",
+      "model": "OLS on the 16 pair contrasts with centered initial back x, centered initial back y, centered initial back lane margin, probe-order indicator, and three spatial-stratum indicators",
+      "pairing_note": "exact swapping already blocks every base-state fixed nuisance",
+      "required": "positive intercept and lower interval endpoint > 0",
+      "uncertainty": "HC3 two-sided 95% interval"
+    },
+    "precontact_and_position_controls": {
+      "first_rgb_hash_match_pairs": {
+        "denominator": 16,
+        "minimum": 16
+      },
+      "position_order_only_max_correct": {
+        "denominator": 32,
+        "maximum": 16
+      },
+      "position_order_only_max_pair_flips": 0,
+      "precontact_rgb_assignment_contrast": "must be exactly zero for hash and stored localization fields",
+      "sham_must_not_reproduce_primary_signal": true
+    },
+    "primary_score_inputs_must_be_admissible": true
+  },
+  "confirmation_accessed": false,
+  "evidence_partition": "DEVELOPMENT_CAUSAL_INTERVENTION",
+  "failure_decision": "ACTIVE_DYNAMIC_PROBE_CAUSAL_SIGNAL_NOT_CONFIRMED",
+  "frozen_at": "2026-07-21T12:45:50+09:00",
+  "near_miss_replication": {
+    "eligible_only_if": "no collision, identity swap, leakage, missing row, or protocol violation and exactly one numerical signal gate misses by no more than one scene or two probes",
+    "pooling": false,
+    "replication": "one independently frozen fresh identical panel that must independently pass every gate",
+    "second_replication": false
+  },
+  "original_controller_freeze": {
+    "controller_config": {
+      "approach_control_steps_per_increment": 4,
+      "approach_increment_m": 0.003,
+      "approach_start_offset_x_m": -0.095,
+      "approach_stop_offset_x_m": -0.04,
+      "back_heavy_threshold_m": 0.005219466062047384,
+      "close_steps": 8,
+      "coast_steps": 2,
+      "contact_verify_retract_m": 0.008,
+      "contact_verify_steps": 7,
+      "controller_error_consecutive_steps": 2,
+      "controller_error_contact_m": 0.012,
+      "controller_error_over_baseline_m": 0.006,
+      "front_clear_approach_y_m": 0.105,
+      "front_contact_transition_offset_x_m": -0.062,
+      "gripper_closed_command": 1.0,
+      "impulse_action_x": 0.65,
+      "impulse_steps": 3,
+      "move_gain_denominator_m": 0.04,
+      "neutral_tolerance_m": 0.004,
+      "paddle_y_offset_m": 0.018,
+      "paddle_z_m": 0.93,
+      "visual_contact_threshold_pixels": 0.55,
+      "visual_quality_min": 0.5
+    },
+    "controller_must_match_exactly": true,
+    "path": "reports/epoch9b_dynamic_nudge/controller_freeze.json",
+    "sha256": "C985931BBA917D06C491B4D4E7061BB8CF9E9C6C2753517E71C36BD7DBB871FB"
+  },
+  "original_response_window": {
+    "action_sequence_x": [
+      0.65,
+      0.65,
+      0.65,
+      0.0,
+      0.0
+    ],
+    "coast_steps": 2,
+    "impulse_action_x": 0.65,
+    "impulse_steps": 3,
+    "safety_supervisor_inside_window_authorized": false,
+    "window_steps": 5
+  },
+  "outcomes_accessed_during_protocol_construction": [],
+  "phase_a_diagnostic": {
+    "path": "reports/epoch9d_existing_trace_causal_diagnostic.json",
+    "sha256": "EC201EB00C5A5D1D4E558A433F4232E64B628A0D202267C3FAE74F1260A3CF25"
+  },
+  "primary_score": {
+    "admissible_inputs": [
+      "ordinary agentview RGB",
+      "offline-frozen RGB pixel-to-world calibration",
+      "commanded action history",
+      "elapsed control steps"
+    ],
+    "back_response_definition": "max(0, max_t e_x^T T_back (delta_pixel_t - median(delta_pixel over the three immediately preceding stored steps)))",
+    "candidate_scores_smaller_predicts_heavier": {
+      "back": "back_response_m - threshold_m",
+      "front": "threshold_m - back_response_m"
+    },
+    "forbidden_inputs": [
+      "simulator mass",
+      "simulator object pose",
+      "segmentation",
+      "force",
+      "reward",
+      "success",
+      "oracle target"
+    ],
+    "name": "original_back_slot_rgb_response_threshold_score",
+    "pixel_to_world_transform_source": "reports/epoch9b_dynamic_nudge/controller_calibration_repair1.json",
+    "primary": true,
+    "rationale": "This exactly reconstructs the original 22/24 frozen near-pass from raw observation-derived traces, uses the original response window, introduces no panel-derived threshold, and is simpler than a new model.",
+    "response_window": "exact five consecutive stored control steps whose phase is fixed_micro_impulse or post_impulse_response",
+    "secondary_score_frozen": false,
+    "threshold_m": 0.005219466062047384
+  },
+  "resource_contract": {
+    "hidden_offload": false,
+    "host_ram_ceiling_percent": 82.0,
+    "missing_key_only_resume": true,
+    "resident_vla_models": 0,
+    "result_changing_precision": false,
+    "serial_execution": true,
+    "simulator_environments_at_once": 1,
+    "wsl_swap_peak_bytes": 0
+  },
+  "safety_definitions": {
+    "collision": "any candidate-pair or candidate-distractor contact; intended paddle-candidate contact is not a collision",
+    "fall": "either candidate center z < 0.85 m at any stored step",
+    "identity_swap": "front or back body crosses into the other candidate's frozen lane or their x ordering reverses",
+    "unrecoverable_track_loss": "initial localization or any response-window tracker quality below 0.50, or a non-finite observation-derived response",
+    "workspace_exit": "either candidate center leaves x [-0.25,0.25], y [-0.05,0.25], z [0.85,1.10] m"
+  },
+  "schema_version": "epoch9d.causal_mass_swap_panel_protocol.v1",
+  "secondary_score": null,
+  "sham_control": {
+    "base_state_count": 8,
+    "manifest": [
+      {
+        "assignment": "A",
+        "base_identity_id": 56,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_056_assignment_A",
+        "slot": "back"
+      },
+      {
+        "assignment": "B",
+        "base_identity_id": 56,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_056_assignment_B",
+        "slot": "back"
+      },
+      {
+        "assignment": "A",
+        "base_identity_id": 57,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_057_assignment_A",
+        "slot": "back"
+      },
+      {
+        "assignment": "B",
+        "base_identity_id": 57,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_057_assignment_B",
+        "slot": "back"
+      },
+      {
+        "assignment": "A",
+        "base_identity_id": 58,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_058_assignment_A",
+        "slot": "back"
+      },
+      {
+        "assignment": "B",
+        "base_identity_id": 58,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_058_assignment_B",
+        "slot": "back"
+      },
+      {
+        "assignment": "A",
+        "base_identity_id": 59,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_059_assignment_A",
+        "slot": "back"
+      },
+      {
+        "assignment": "B",
+        "base_identity_id": 59,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_059_assignment_B",
+        "slot": "back"
+      },
+      {
+        "assignment": "A",
+        "base_identity_id": 60,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_060_assignment_A",
+        "slot": "back"
+      },
+      {
+        "assignment": "B",
+        "base_identity_id": 60,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_060_assignment_B",
+        "slot": "back"
+      },
+      {
+        "assignment": "A",
+        "base_identity_id": 61,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_061_assignment_A",
+        "slot": "back"
+      },
+      {
+        "assignment": "B",
+        "base_identity_id": 61,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_061_assignment_B",
+        "slot": "back"
+      },
+      {
+        "assignment": "A",
+        "base_identity_id": 62,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_062_assignment_A",
+        "slot": "back"
+      },
+      {
+        "assignment": "B",
+        "base_identity_id": 62,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_062_assignment_B",
+        "slot": "back"
+      },
+      {
+        "assignment": "A",
+        "base_identity_id": 63,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 8.0,
+          "front": 1.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_063_assignment_A",
+        "slot": "back"
+      },
+      {
+        "assignment": "B",
+        "base_identity_id": 63,
+        "counts_toward_32_scene_accuracy_gate": false,
+        "mass_factor": {
+          "back": 1.0,
+          "front": 8.0
+        },
+        "sham_action": "hold at the original high-clearance approach-start pose; apply the identical three +x action=0.65 steps and two zero-action response steps without entering the guarded contact approach",
+        "sham_id": "epoch9d_sham_base_063_assignment_B",
+        "slot": "back"
+      }
+    ],
+    "required_findings": {
+      "assignment_pair_prediction_flips": 0,
+      "intended_or_sampled_contact_rows": 0,
+      "paired_mass_contrast_95_interval_must_include_zero": true,
+      "ranking_rows_do_not_count_toward_primary_gate": true,
+      "unintended_collision_rows": 0
+    },
+    "sham_row_count": 16
+  },
+  "source_checkpoint": "af09ca11bc63d47ee04ffcd6aec6cb71edc730d0",
+  "success_decision": "CAUSAL_SIGNAL_GO",
+  "validation_accessed": false
+}
