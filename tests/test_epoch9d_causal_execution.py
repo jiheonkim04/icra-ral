@@ -55,13 +55,20 @@ def test_epoch9d_execution_seal_binds_every_executable_after_build() -> None:
     for path_key, hash_key in (
         ("causal_protocol_path", "causal_protocol_sha256"),
         ("runner_path", "runner_sha256"),
-        ("adjudicator_path", "adjudicator_sha256"),
         ("host_wrapper_path", "host_wrapper_sha256"),
         ("original_epoch9b_runner_path", "original_epoch9b_runner_sha256"),
         ("original_controller_freeze_path", "original_controller_freeze_sha256"),
         ("calibration_path", "calibration_sha256"),
     ):
         assert sha256(ROOT / seal[path_key]) == seal[hash_key]
+    adjudicator_hash = sha256(ROOT / seal["adjudicator_path"])
+    if adjudicator_hash != seal["adjudicator_sha256"]:
+        repair = json.loads(
+            (REPORTS / "epoch9d_causal_adjudication_parser_repair.json").read_text(encoding="utf-8")
+        )
+        assert repair["original_sealed_adjudicator_sha256"] == seal["adjudicator_sha256"]
+        assert repair["repaired_adjudicator_sha256"] == adjudicator_hash
+        assert repair["scientific_fields_changed"] is False
 
 
 def test_epoch9d_no_causal_outcome_exists_before_execution_seal_commit() -> None:

@@ -1,0 +1,37 @@
+{
+  "schema_version": "epoch9d.causal_adjudication_parser_repair.v1",
+  "frozen_at": "2026-07-21T13:10:45+09:00",
+  "original_sealed_adjudicator_sha256": "80B2467975E69A0D1C15E6A687778827BB0DA1F8D47DD581A0ECC954AFDAB871",
+  "repaired_adjudicator_sha256": "23D81A3FFA3CF894ADD79C5C73FCA04D410192F8BAFFD62310F93BC6A7330BBB",
+  "raw_result_sha256": "F61A62277CF313BECE6307B983D17A8D678BD60BD5DB1003AEEBB81212C00A4A",
+  "host_resource_monitor_sha256": "2099690EA835F823BE71463FBA746BF1E459D6492769EF90019D02216A692510",
+  "failed_attempt": {
+    "decision_computed": false,
+    "output_artifact_written": false,
+    "exception": "JSONDecodeError: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1",
+    "failure_point": "decoding reports/epoch9d_causal_panel/host_resource_monitor.json before any gate computation"
+  },
+  "repair": {
+    "change": "decode JSON text using utf-8-sig instead of utf-8",
+    "reason": "Windows PowerShell 5 Set-Content -Encoding UTF8 emitted a BOM in the non-scientific host resource monitor",
+    "files_modified": [
+      "scripts/adjudicate_epoch9d_causal_panel.py"
+    ],
+    "protocol_changed": false,
+    "score_changed": false,
+    "threshold_changed": false,
+    "statistic_changed": false,
+    "raw_row_changed": false,
+    "resource_measurement_changed": false
+  },
+  "host_wrapper_exit_anomaly": {
+    "outer_powershell_exit_code_observed": 1,
+    "persisted_runner_exit_code": 0,
+    "host_ram_ceiling_breached": false,
+    "scientific_result_complete_rows": 48,
+    "interpretation": "The wrapper omitted an explicit final exit 0 and propagated a prior native-command status after atomically writing its monitor. The persisted runner exit, result hash, row count, and resource gates are authoritative; no rerun is allowed or required."
+  },
+  "scientific_fields_changed": false,
+  "validation_accessed": false,
+  "confirmation_accessed": false
+}

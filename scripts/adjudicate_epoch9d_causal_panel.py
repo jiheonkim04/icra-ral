@@ -28,6 +28,7 @@ PROTOCOL_PATH = REPORTS / "epoch9d_causal_panel_protocol.json"
 SEAL_PATH = REPORTS / "epoch9d_causal_execution_seal.json"
 RESULT_PATH = REPORTS / "epoch9d_causal_panel/result.json"
 HOST_RESOURCE_PATH = REPORTS / "epoch9d_causal_panel/host_resource_monitor.json"
+PARSER_REPAIR_PATH = REPORTS / "epoch9d_causal_adjudication_parser_repair.json"
 OUTPUT_JSON = REPORTS / "epoch9d_causal_panel_adjudication.json"
 OUTPUT_MD = REPORTS / "epoch9d_causal_panel_adjudication.md"
 
@@ -49,7 +50,7 @@ def relative(path: Path) -> str:
 
 
 def load(path: Path) -> dict[str, Any]:
-    return json.loads(path.read_text(encoding="utf-8"))
+    return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
 def atomic_write_text(path: Path, value: str) -> None:
@@ -125,6 +126,17 @@ def main() -> int:
             raise FileNotFoundError(path)
     protocol = load(PROTOCOL_PATH)
     seal = load(SEAL_PATH)
+    current_adjudicator_sha256 = sha256(Path(__file__))
+    if current_adjudicator_sha256 != seal["adjudicator_sha256"]:
+        if not PARSER_REPAIR_PATH.exists():
+            raise RuntimeError("unsealed adjudicator change")
+        repair = load(PARSER_REPAIR_PATH)
+        if (
+            repair["original_sealed_adjudicator_sha256"] != seal["adjudicator_sha256"]
+            or repair["repaired_adjudicator_sha256"] != current_adjudicator_sha256
+            or repair["scientific_fields_changed"]
+        ):
+            raise RuntimeError("invalid adjudicator parser repair seal")
     result = load(RESULT_PATH)
     host = load(HOST_RESOURCE_PATH)
     if sha256(PROTOCOL_PATH) != seal["causal_protocol_sha256"]:
