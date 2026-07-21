@@ -1,0 +1,1060 @@
+{
+  "confirmation_accessed": false,
+  "created_at": "2026-07-21T14:37:46+09:00",
+  "joint_certification_endpoint_decision": {
+    "chosen_using_new_outcomes": false,
+    "full_trajectory_lane_reachability_gate": "48/48 RETAINED",
+    "replacement_endpoint": null,
+    "score_window_sign_changed": false
+  },
+  "phase_b_raw_reproduction": {
+    "adjudication": {
+      "path": "reports/epoch9d_causal_panel_adjudication.json",
+      "sha256": "F4984DEDE601FD591BC559998FC1DA0BDA50CE070AC034CD723475FE988FFEF0"
+    },
+    "all_trace_hashes_match_raw_rows": true,
+    "counts": {
+      "both_candidates_excited": 32,
+      "candidate_probes": 64,
+      "collisions": 0,
+      "exact_pair_correct_flips": 12,
+      "falls": 0,
+      "finite_bounded_actions": 64,
+      "first_rgb_exact_pairs": 16,
+      "identity_swaps": 0,
+      "initial_localization_exact_pairs": 16,
+      "intended_contact_or_excitation": 64,
+      "primary_scenes": 32,
+      "rank_by_heavy_position": {
+        "back": {
+          "correct": 13,
+          "total": 16
+        },
+        "front": {
+          "correct": 15,
+          "total": 16
+        }
+      },
+      "rank_correct": 28,
+      "sham_rows": 16,
+      "unrecoverable_track_losses": 0,
+      "workspace_exits": 0
+    },
+    "decision": "CAUSAL_SIGNAL_GO",
+    "execution_seal": {
+      "path": "reports/epoch9d_causal_execution_seal.json",
+      "sha256": "417F1FB58A083C50B133C2580A860A75A2D06AC6553E108E1D8A1D633678319E"
+    },
+    "gates": {
+      "adjusted_hc3_interval_excludes_zero_positive": true,
+      "admissible_observation_only_score": true,
+      "both_candidates_excited_at_least_29_of_32": true,
+      "complete_unique_manifest_48_rows": true,
+      "exact_pair_flips_at_least_12_of_16": true,
+      "finite_bounded_actions_64_of_64": true,
+      "intended_contact_or_excitation_at_least_61_of_64": true,
+      "one_sided_sign_test_p_below_0_01": true,
+      "paired_95_interval_excludes_zero_positive": true,
+      "precontact_position_order_controls_cannot_reproduce": true,
+      "rank_at_least_26_of_32": true,
+      "rank_each_heavy_position_at_least_12_of_16": true,
+      "resource_contract": true,
+      "sham_does_not_reproduce": true,
+      "zero_collision_identity_swap_fall_workspace_exit_track_loss": true
+    },
+    "host_resource": {
+      "path": "reports/epoch9d_causal_panel/host_resource_monitor.json",
+      "sha256": "2099690EA835F823BE71463FBA746BF1E459D6492769EF90019D02216A692510"
+    },
+    "matches_frozen_adjudication": true,
+    "paired_mass_intervention": {
+      "adjusted_position_lane_order": {
+        "covariates_centered": [
+          "initial back x",
+          "initial back y",
+          "initial back lane margin",
+          "back-first probe order",
+          "spatial stratum spatial_1",
+          "spatial stratum spatial_2",
+          "spatial stratum spatial_3"
+        ],
+        "degrees_of_freedom": 8,
+        "estimate_m": 0.006593329847616966,
+        "hc3_95_interval_m": [
+          0.003395883057077894,
+          0.00979077663815604
+        ],
+        "hc3_standard_error_m": 0.0013865746126495914
+      },
+      "contrasts_m": [
+        0.00285835113470536,
+        0.008204002652585283,
+        0.000793426222634664,
+        0.01039161731998436,
+        0.010568830877867775,
+        0.00747501621692007,
+        0.007299743056206226,
+        -0.005002985372102128,
+        0.007636353698106153,
+        0.011563258566278479,
+        0.010823023542706338,
+        0.013395561589489525,
+        0.005376577116158263,
+        0.0051074991397154525,
+        0.007403254242373426,
+        0.0015997475582422245
+      ],
+      "mean_m": 0.006593329847616967,
+      "median_m": 0.007439135229646747,
+      "negative_pairs": 1,
+      "one_sided_exact_sign_test_p": 0.0002593994140625,
+      "paired_student_t_95_interval_m": [
+        0.004073638133887584,
+        0.00911302156134635
+      ],
+      "positive_pairs": 15
+    },
+    "position_order_precontact_control": {
+      "denominator": 32,
+      "first_rgb_exact_pairs": 16,
+      "initial_localization_exact_pairs": 16,
+      "pair_flips": 0,
+      "theoretical_correct": 16
+    },
+    "protocol": {
+      "path": "reports/epoch9d_causal_panel_protocol.json",
+      "sha256": "654058639199BA1E822737652FEBB5BD198410F33BD050760CF8F448596BD2B6"
+    },
+    "raw_result": {
+      "path": "reports/epoch9d_causal_panel/result.json",
+      "sha256": "F61A62277CF313BECE6307B983D17A8D678BD60BD5DB1003AEEBB81212C00A4A"
+    },
+    "sham_control": {
+      "collision_rows": 0,
+      "mean_m": -5.513656020639246e-07,
+      "paired_student_t_95_interval_m": [
+        -1.661211864740013e-06,
+        5.584806606121638e-07
+      ],
+      "pairs": 8,
+      "prediction_flips": 0,
+      "sampled_contact_rows": 0
+    },
+    "trace_binding_count": 80,
+    "trace_bindings": [
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_056_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_056_assignment_A",
+        "sha256": "462230B4200FAB46E9F1BB0A4BA7FE843A7A5BAB007CFF63426E14B90D65522D",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_056_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_056_assignment_A",
+        "sha256": "D79CCAD7CB3756CD59A7072715F0EB0023E010690439CA0CB28BA87602C66B1D",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_056_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_056_assignment_B",
+        "sha256": "1239FEE9A27C302AFD29AE88B175875B74329C62C0000FD930DDB98F827F2008",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_056_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_056_assignment_B",
+        "sha256": "E1A20155792883A5F3FD9A08F885CD7F7C7209515C72290DA4EB9C4900602647",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_057_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_057_assignment_A",
+        "sha256": "5F72D85EA9737968C02F9DF409E784BDD0C2DE037BF195968224F68766AAEF99",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_057_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_057_assignment_A",
+        "sha256": "9BEA48CEAFBF0ABC7104FBC8B9508E11A29F8D7583B3CD4170EB3630B4684045",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_057_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_057_assignment_B",
+        "sha256": "E4C9F1DC775EB8899465DA277B76AAE21B6B51F0FF7EF495666DDE5677E9C427",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_057_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_057_assignment_B",
+        "sha256": "A6297BBF50B8BFE28A8B938CC3CB907C885550DCE894DE1CD600498D0CC3148A",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_058_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_058_assignment_A",
+        "sha256": "90402DA6C20E20B6A5F5875216C0602DA797C86CA96E6B326C62F6A954696CD6",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_058_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_058_assignment_A",
+        "sha256": "EC2175FC7025CDC8AB31B4CB9CF6A8A1573B8015EC30FDF91E728AA0BB6AA96C",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_058_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_058_assignment_B",
+        "sha256": "68034CBC4CA5A249928231DDA9601F4F942BD0ED24E8ACD4DA2962433F0DE73A",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_058_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_058_assignment_B",
+        "sha256": "E7D0CFED848C0CD3CFDBA27A75016A051161554304F057ECBD3F11C7B7C4E21A",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_059_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_059_assignment_A",
+        "sha256": "1A292D0AE68D4479213097E14C151E51C3AC7BF8C850EC782E99FB272D271A17",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_059_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_059_assignment_A",
+        "sha256": "56B2324DFBDDBDDE2CF9BD46693F781E334739BE12DBCE730DA4B0F77B9CBFA2",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_059_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_059_assignment_B",
+        "sha256": "548D7234A3BEE7A125A87B768E60B821038DE88FA898CD0B740BED94C401304A",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_059_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_059_assignment_B",
+        "sha256": "F66E3773B5D852F3420425DFE7DF64CDD0B78D57759AD4F88C6EA554249EEFCC",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_060_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_060_assignment_A",
+        "sha256": "C7F078AAC96DD835F6D26678BD8ED56A55B1CDA990B717B13881AF71AF637AEC",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_060_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_060_assignment_A",
+        "sha256": "D827DCD108D756214581CB4E8C9E2101A78F4C305F2E8AA329F1329FB3493D13",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_060_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_060_assignment_B",
+        "sha256": "E74A4DED559C992F6480FC07EF4E4D41C652B2BAC5C706563AB657C0A4BC7FB9",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_060_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_060_assignment_B",
+        "sha256": "7D7B77D09652D8C450AC369CCC6E600545AFEA102101DD099CF92C5FCF09A747",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_061_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_061_assignment_A",
+        "sha256": "6458877BD286EED1A3A575504CC32808DBC6FABA2D57C25BAAAC750ED5BB71B3",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_061_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_061_assignment_A",
+        "sha256": "2187D82E7174A858D5F4D113F9283C7FE98D37BB9D851F6482002CFE41460BBA",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_061_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_061_assignment_B",
+        "sha256": "5EEB25A10A11E192E536F61798A2A49744F9B27353EDFDC931CC78B58CD3E818",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_061_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_061_assignment_B",
+        "sha256": "8C890BCE96FB00B4669C27D0475A2DD32FA466DC9DC493FCE0DE516DBC27FD7B",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_062_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_062_assignment_A",
+        "sha256": "FAA0E19374CACF1D489499A6EFAB5FB7EF6A0A9529F419679B0B298859D5B32F",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_062_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_062_assignment_A",
+        "sha256": "64C57F2C1778AA1D9BE1D695698F0E80E0E74B9BD810B496F379E515AA8BF595",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_062_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_062_assignment_B",
+        "sha256": "2B7FA0002BA987D9C6C1159EE22C668E90726E4ECE17DBD556C63DA375A51E1F",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_062_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_062_assignment_B",
+        "sha256": "BD3E709E1D4DDD7ECE12654F42B3A077C0B86C546DD85EE86DCD9E528F866BE1",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_063_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_063_assignment_A",
+        "sha256": "F95E9DB2CEC1A6C850408C4CB437E1A43E493D215D892865303FCE2BD9CC7C21",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_063_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_063_assignment_A",
+        "sha256": "7E2882C3B859EEC0911C52183A4DDEFAB9A65CA8A88B8BE8F332332260635775",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_063_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_063_assignment_B",
+        "sha256": "4625E31F375B56EE677BA3F23EEE8A1C9FB780CE4CA4FB5FB28471E11E867026",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_063_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_063_assignment_B",
+        "sha256": "59AF69B5624777729D91E6EF7854B6A037F97DEC4EF7D92F4BE2A9DB8B310662",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_064_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_064_assignment_A",
+        "sha256": "E71C175C8C5CFE56B8FB1B1EC7098312929B8B0CB7189AC999BAC1256919AB7A",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_064_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_064_assignment_A",
+        "sha256": "1A0293BD4A70E0CEE27D8AF44F15EBDB5B4674C0BB82CBBE7B0384F37A74E668",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_064_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_064_assignment_B",
+        "sha256": "1D63A6CC6CFFB4AE66B1EDDF9D669359486FAC200E6B3078081081ACD6AA97E6",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_064_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_064_assignment_B",
+        "sha256": "BCFD51EEB42C887EAF1474015707FF833DBC688BBF1E3B7069C685D7A06ED7FC",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_065_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_065_assignment_A",
+        "sha256": "CD38F33EB09670FC3DEFB2B6E231AEA6B71EB8182253205C19743FAD34FB82C0",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_065_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_065_assignment_A",
+        "sha256": "C2E2A587A6939209F4612910577BE866D8CBDA24BCB6E7D5471556789B6667F7",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_065_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_065_assignment_B",
+        "sha256": "F88790F72344211FDA0D0B791E8A4C028C64EE7529FEEB8795A639496132F34B",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_065_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_065_assignment_B",
+        "sha256": "482B1FF1B32A9F0D50FAC0DD468405BA77B2D4E1824BFEEFF91457E9902329C5",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_066_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_066_assignment_A",
+        "sha256": "3B97B29C670846928916A55A87D37438CFA98247773B2A0B7B588063DECEB8E1",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_066_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_066_assignment_A",
+        "sha256": "FBD33C0DC857141586283D219A644FB082A30295060BD7CA15949ACF5678E9C1",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_066_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_066_assignment_B",
+        "sha256": "1C427D326B5ADE24AACDEF5EFB90145D4D392D8380963A2DA2A9A259FB449F84",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_066_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_066_assignment_B",
+        "sha256": "D3FD346C9EE24F07F2AFF0604684D487A6CCBEB9314CD88F6C3A7BDC3F8A8BD8",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_067_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_067_assignment_A",
+        "sha256": "EF81829D2B39EA6C78E4C60A1F5FF05CE7C7AC79CD56382720B0434E7FB68DDC",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_067_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_067_assignment_A",
+        "sha256": "B37E2D0D7690F2C15E2D4D829DFBBE98874D992EE96D6DF2B383E13C752A07F2",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_067_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_067_assignment_B",
+        "sha256": "F1D4D6988C599BB5CAA3A8C45B01661367D8FF58D6CCDBCDD3144BAEC61D632F",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_067_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_067_assignment_B",
+        "sha256": "B770933EAF69C500BEB2813D582BE418162C65B1C13E820042205F435DCAF083",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_068_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_068_assignment_A",
+        "sha256": "C7B985A195F1C669F5BAADCB40CBC8610A54E4A0CA6B8E4946F8686EF123BC29",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_068_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_068_assignment_A",
+        "sha256": "67C3E65EBEAFEA3461A0DDE760403A52B329FB9BBC8F902617413C8F63F75DDE",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_068_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_068_assignment_B",
+        "sha256": "7C2A9E06E3568E8E9F3A727008C599240A48FE445D0776C4199C9F11232EBA4A",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_068_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_068_assignment_B",
+        "sha256": "5FE904E52FCD54464D040D23CB8CA7C763D282BA8995B0FF1FB3080504AF9F15",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_069_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_069_assignment_A",
+        "sha256": "C8CB01621BB2BCBC3BC5BD1323D69C288DB580A0797A61E01B03251CD96B1DD9",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_069_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_069_assignment_A",
+        "sha256": "E25C7DABE5A375A9F5A0C0CB3EBB9FB5E91F5CA8A8CB87914F8C67CEC22CA208",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_069_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_069_assignment_B",
+        "sha256": "79E71682EFE4DE634C3BA11FAF06E29258476F0A6017AA136593E7E4ED9A412F",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_069_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_069_assignment_B",
+        "sha256": "18ED115D87AF61151D02EF18ECF9AE95BB5DA2661F36F11F9CE5810A6050F6D1",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_070_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_070_assignment_A",
+        "sha256": "32F62FCA9DB21807C3829254FCD764C632DF8B7F2FFEDEC72AAB78075FC76228",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_070_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_070_assignment_A",
+        "sha256": "00DBDDC5EC33775098453E99BB775E8651DD19A8374E0B74E2475C6A0342B57B",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_070_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_070_assignment_B",
+        "sha256": "5B90C0C5058BCD47A63894CCD1EBDDFDD64DF89BEA37FB7AC2EE134D5D209CBE",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_070_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_070_assignment_B",
+        "sha256": "8CBB104E9FE77D2128D9806D96C286B278DC137BF8E04AA371A865964AAE33C3",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_071_assignment_A_back.npz",
+        "row_key": "primary:epoch9d_causal_base_071_assignment_A",
+        "sha256": "0BA5787269C87D164ADD4373851A397F36BC79F82915B54DD01A908ECF2E2416",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_071_assignment_A_front.npz",
+        "row_key": "primary:epoch9d_causal_base_071_assignment_A",
+        "sha256": "4898586B0C89726C492D1AAF4EBD467DF76C5725A7D53313FA9B4EF757AF514A",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_071_assignment_B_back.npz",
+        "row_key": "primary:epoch9d_causal_base_071_assignment_B",
+        "sha256": "D5015BE8DDD20FCFD5340B9AC1A7EDA4F39624E01A708B8CD6AE68A9EC91C334",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/traces/epoch9d_causal_base_071_assignment_B_front.npz",
+        "row_key": "primary:epoch9d_causal_base_071_assignment_B",
+        "sha256": "E23D3054745ED7BD5803A42E4A5F0A06342BA596B128386C7E1B47913D3B39E4",
+        "slot": "front"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_056_assignment_A_back.npz",
+        "row_key": "sham:epoch9d_sham_base_056_assignment_A",
+        "sha256": "FF95A5C1DB2A67ADF39B90B612C71DCAAD71E42DB424805B81574699733D0772",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_056_assignment_B_back.npz",
+        "row_key": "sham:epoch9d_sham_base_056_assignment_B",
+        "sha256": "00C0CB614CB56E7F684EF3738F6C5DCBE34054C39C007EFEF0EF34D72586E9F0",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_057_assignment_A_back.npz",
+        "row_key": "sham:epoch9d_sham_base_057_assignment_A",
+        "sha256": "CF9561119B23BB6C3481FDA97C8E32CB4D9F85673D1E5C8096E965D6A82E814B",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_057_assignment_B_back.npz",
+        "row_key": "sham:epoch9d_sham_base_057_assignment_B",
+        "sha256": "B8E13B0A088DC895C185B4568000A1306BE678153B0224687486C58EB101B848",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_058_assignment_A_back.npz",
+        "row_key": "sham:epoch9d_sham_base_058_assignment_A",
+        "sha256": "94F921B056779C2CE3A602F2E6A09F9A07F064B369F25D574ADB03D025D94C56",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_058_assignment_B_back.npz",
+        "row_key": "sham:epoch9d_sham_base_058_assignment_B",
+        "sha256": "FC226C9D9AA2FF1F8F5E7B6EAAD400C2D71B402A1C98397E9192609EA4E13ED8",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_059_assignment_A_back.npz",
+        "row_key": "sham:epoch9d_sham_base_059_assignment_A",
+        "sha256": "171BFDE82A88D9D0AEE84C737B52AB6A6390B96B8B6CBB67849EA4755F56F698",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_059_assignment_B_back.npz",
+        "row_key": "sham:epoch9d_sham_base_059_assignment_B",
+        "sha256": "69A5071B85D918493F749502F6A0DBE7C740D3549A023A793E0EF4B29F095E31",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_060_assignment_A_back.npz",
+        "row_key": "sham:epoch9d_sham_base_060_assignment_A",
+        "sha256": "A713CF7316C46B552A85B02BE0B3C01FE2DBD519FC567B1C1D2E779FB9F4684D",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_060_assignment_B_back.npz",
+        "row_key": "sham:epoch9d_sham_base_060_assignment_B",
+        "sha256": "9E35AC18484192081D5E2ED2149C2D975E3EB9DC0019C114A4CA0B895D54B2F8",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_061_assignment_A_back.npz",
+        "row_key": "sham:epoch9d_sham_base_061_assignment_A",
+        "sha256": "9ABF0A87A3D0FED52EECBBAA88F69DA2C6BAD4F052FBA31EBC058385A66E0A8A",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_061_assignment_B_back.npz",
+        "row_key": "sham:epoch9d_sham_base_061_assignment_B",
+        "sha256": "0631B81620BAA6794FAA0262B1A3BCDCC1E93FE3CC03A3B33676935745CE42B9",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_062_assignment_A_back.npz",
+        "row_key": "sham:epoch9d_sham_base_062_assignment_A",
+        "sha256": "CB32BA29D5565A7C2A392E54BE063FDF7D258FF46D33BD106E667982772C1E6E",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_062_assignment_B_back.npz",
+        "row_key": "sham:epoch9d_sham_base_062_assignment_B",
+        "sha256": "51BD9014C32ED8C81C5009E0DDDDFD4F74A81FB88F1AB4326980ADD745D4B0BE",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_063_assignment_A_back.npz",
+        "row_key": "sham:epoch9d_sham_base_063_assignment_A",
+        "sha256": "AF4AD3717805BFCBE95E696E047780E568C9E042EB67BE0A599DA507DE21B07C",
+        "slot": "back"
+      },
+      {
+        "matches_row": true,
+        "path": "reports/epoch9d_causal_panel/sham_traces/epoch9d_sham_base_063_assignment_B_back.npz",
+        "row_key": "sham:epoch9d_sham_base_063_assignment_B",
+        "sha256": "E308CFB294E76CE59ED6FDC1CF7543564CF482F5FF4EB77D769DA6E614846CB8",
+        "slot": "back"
+      }
+    ]
+  },
+  "schema_version": "epoch9e.endpoint_construct_audit.v1",
+  "validation_accessed": false,
+  "variant1_lane_failure_reconstruction": {
+    "causal_exit_count": 2,
+    "causal_exit_phases": [
+      "contact_verify_retract",
+      "contact_verify_retract"
+    ],
+    "conditional_adjustment_was_ineligible": true,
+    "construct": {
+      "absolute_displacement_rule": {
+        "justification": [
+          "0.05 m is below the independently reconstructed 0.053949 m bowl collision radius, limiting a probe to less than one object radius.",
+          "The largest clean coordinate span over untouched development resets is 0.045015 m; the cap covers the task's natural placement scale while the lane rule separately prevents cross-lane motion.",
+          "Expanding the observed initial XY extrema by 0.05 m only along the intended +x nudge and by 0.01 m cross-lane yields the frozen rectangles below.",
+          "The absolute limit is subordinate to official post-probe task recoverability: meeting distance alone never makes a probe valid."
+        ],
+        "legacy_v1_reference_m_reported_only": 0.03,
+        "limit_m": 0.05,
+        "threshold_set_from_epoch9_v1_0419m_outcome": false
+      },
+      "actual_validity_endpoints_also_required": [
+        "zero actual safety events",
+        "post-probe completion oracle >=20/24 overall and >=9/12 per heavy-position stratum"
+      ],
+      "classification": "CONSERVATIVE_SURROGATE_RETAINED_AS_FROZEN_HARD_CERTIFICATION_GATE",
+      "classification_basis": [
+        "lane rectangles were built from clean-reset extrema expanded by a fixed 0.01 m cross-lane margin, not from an exact collision boundary",
+        "the collision radius supports the separate displacement cap but does not make each lane edge a physical collision surface",
+        "Epoch 9D achieved 12/12 oracle completion and zero actual safety events despite two causal lane exits, so lane violation did not imply observed task impossibility",
+        "the rectangle still protects identity separation, fixture-side trackability, and a consistent reachable workspace construct"
+      ],
+      "clean_reset_basis": {
+        "by_slot": {
+          "back": {
+            "center_xyz_max_m": [
+              -0.1345530900616681,
+              0.0742914787821129,
+              0.8984070750980836
+            ],
+            "center_xyz_min_m": [
+              -0.17437676452400264,
+              0.029276045131800908,
+              0.8984070750980836
+            ],
+            "center_xyz_sample_std_m": [
+              0.014247103652699428,
+              0.01526451917159799,
+              0.0
+            ],
+            "center_xyz_span_m": [
+              0.039823674462334535,
+              0.04501543365031199,
+              0.0
+            ],
+            "development_demo_indices": [
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39
+            ],
+            "identity_count": 10,
+            "maximum_within_identity_repeat_span_m": 0.0
+          },
+          "front": {
+            "center_xyz_max_m": [
+              0.11788620086912945,
+              0.16220434488250052,
+              0.8984070750980836
+            ],
+            "center_xyz_min_m": [
+              0.07707662408966764,
+              0.12698537993426176,
+              0.8984070750980836
+            ],
+            "center_xyz_sample_std_m": [
+              0.014861133649711311,
+              0.012392405315712252,
+              0.0
+            ],
+            "center_xyz_span_m": [
+              0.0408095767794618,
+              0.03521896494823876,
+              0.0
+            ],
+            "development_demo_indices": [
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39
+            ],
+            "identity_count": 10,
+            "maximum_within_identity_repeat_span_m": 0.0
+          }
+        },
+        "source": "reports/epoch9_relational_probe_dataset/development/paired_v1/result.json",
+        "source_sha256": "10F452353AFFEC2810F0FA17531D28DD09D00C056ABC6CA2C9D31CEC41403617",
+        "untouched_first_probe_only": true,
+        "validation_or_confirmation_identity_used": false
+      },
+      "continuous_lane_margin_reporting": "primary hard gate plus full disclosed distribution",
+      "epoch9e_rule": "retain the original full-trajectory lane/reachability requirement at 48/48; adopt no replacement endpoint",
+      "geometric_basis": {
+        "collision_box_count": 40,
+        "maximum_planar_collision_diameter_m": 0.10789828667147298,
+        "maximum_planar_collision_radius_m": 0.05394914333573649,
+        "method": "maximum XY radius over every rotated vertex of every group-0 collision box",
+        "source": "C:/assets/repos/LIBERO/libero/libero/assets/stable_scanned_objects/akita_black_bowl/akita_black_bowl.xml",
+        "source_sha256": "D266D22492296C9C98353A1B1F0B055F6359372D2079AD89579504FC0A44A417"
+      },
+      "reachable_center_envelope_m": {
+        "verification": "pose-adaptive scripted completion must grasp from the observed post-probe pose and achieve official task success",
+        "x": [
+          -0.195,
+          0.19
+        ],
+        "y": [
+          0.005,
+          0.185
+        ],
+        "z": [
+          0.888,
+          0.915
+        ]
+      },
+      "replacement_selected_from_old_rows": false,
+      "safe_center_lanes_m": {
+        "back": {
+          "x": [
+            -0.185,
+            -0.07
+          ],
+          "y": [
+            0.015,
+            0.09
+          ]
+        },
+        "candidate_pair_minimum_center_separation_m": 0.11289828667147299,
+        "coordinate_frame": "LIBERO world XY; evaluation only",
+        "front": {
+          "x": [
+            0.065,
+            0.18
+          ],
+          "y": [
+            0.115,
+            0.175
+          ]
+        },
+        "intended_nudge_axis": "+x for both candidates",
+        "lane_membership_checked_continuously": true
+      },
+      "source_protocol": {
+        "path": "reports/epoch9b_v2_task_preservation_protocol.json",
+        "sha256": "73372173E2A6D9064D2200EE24000BE061CA04FF9757D07F86A4DAAB919AD484"
+      }
+    },
+    "failed_probe_rows": [
+      {
+        "failed_slots": [
+          "front"
+        ],
+        "first_failure_index": 101,
+        "first_failure_phase": "contact_verify_retract",
+        "first_failure_positions_m_eval_only": {
+          "front": [
+            0.08610522001981735,
+            0.17613811790943146,
+            0.8989279270172119
+          ]
+        },
+        "guard_events": [
+          {
+            "approach_offset_x_m": -0.06199999999999997,
+            "estimated_target_y_m": 0.174563895766979,
+            "guarded_approach_y_m": 0.192563895766979,
+            "nearest_boundary": "upper",
+            "original_approach_y_m": 0.15656389576697902,
+            "signed_y_lane_margin_m": 0.0004361042330209841,
+            "slot": "front"
+          },
+          {
+            "approach_offset_x_m": -0.05899999999999997,
+            "estimated_target_y_m": 0.174563895766979,
+            "guarded_approach_y_m": 0.192563895766979,
+            "nearest_boundary": "upper",
+            "original_approach_y_m": 0.15656389576697902,
+            "signed_y_lane_margin_m": 0.0004361042330209841,
+            "slot": "front"
+          }
+        ],
+        "probe_order": [
+          "front",
+          "back"
+        ],
+        "probe_slot": "front",
+        "row_key": "epoch9d_controller_pilot_072",
+        "source": "causal_exit_in_this_probe",
+        "trace_path": "reports/epoch9d_controller_development/variant1_pilot_traces/epoch9d_controller_pilot_072_front.npz",
+        "trace_sha256": "3AC568502AC6B6463CCC1EA49561A4B6D5C8CF14F7367B3FE6EF0C70B3600027"
+      },
+      {
+        "failed_slots": [
+          "front"
+        ],
+        "first_failure_index": 0,
+        "first_failure_phase": "preclose_paddle",
+        "first_failure_positions_m_eval_only": {
+          "front": [
+            0.09179333597421646,
+            0.1768476814031601,
+            0.8983865976333618
+          ]
+        },
+        "guard_events": [],
+        "probe_order": [
+          "front",
+          "back"
+        ],
+        "probe_slot": "back",
+        "row_key": "epoch9d_controller_pilot_072",
+        "source": "inherited_from_prior_probe",
+        "trace_path": "reports/epoch9d_controller_development/variant1_pilot_traces/epoch9d_controller_pilot_072_back.npz",
+        "trace_sha256": "98D89E8CA96AF35B8D75F93995897452ECE33040DBE5E4118A66E873A383DB7E"
+      },
+      {
+        "failed_slots": [
+          "back"
+        ],
+        "first_failure_index": 85,
+        "first_failure_phase": "contact_verify_retract",
+        "first_failure_positions_m_eval_only": {
+          "back": [
+            -0.15866248309612274,
+            0.014436244033277035,
+            0.8986891508102417
+          ]
+        },
+        "guard_events": [
+          {
+            "approach_offset_x_m": -0.06199999999999997,
+            "estimated_target_y_m": 0.018189290734460746,
+            "guarded_approach_y_m": 0.00018929073446074737,
+            "nearest_boundary": "lower",
+            "original_approach_y_m": 0.03618929073446074,
+            "signed_y_lane_margin_m": 0.0031892907344607466,
+            "slot": "back"
+          }
+        ],
+        "probe_order": [
+          "back",
+          "front"
+        ],
+        "probe_slot": "back",
+        "row_key": "epoch9d_controller_pilot_075",
+        "source": "causal_exit_in_this_probe",
+        "trace_path": "reports/epoch9d_controller_development/variant1_pilot_traces/epoch9d_controller_pilot_075_back.npz",
+        "trace_sha256": "D28F42B8DD78130C8AFBC7C95909ABD26A74845A059599AC383D31B100CAF925"
+      },
+      {
+        "failed_slots": [
+          "back"
+        ],
+        "first_failure_index": 0,
+        "first_failure_phase": "preclose_paddle",
+        "first_failure_positions_m_eval_only": {
+          "back": [
+            -0.15433037281036377,
+            0.014128925278782845,
+            0.8983865976333618
+          ]
+        },
+        "guard_events": [],
+        "probe_order": [
+          "back",
+          "front"
+        ],
+        "probe_slot": "front",
+        "row_key": "epoch9d_controller_pilot_075",
+        "source": "inherited_from_prior_probe",
+        "trace_path": "reports/epoch9d_controller_development/variant1_pilot_traces/epoch9d_controller_pilot_075_front.npz",
+        "trace_sha256": "C1B4C6C3380A5CA7EB8ABD57840A11201FFE07108CF8717FF8D73AE64DA9F53A"
+      }
+    ],
+    "frozen_conditional_adjustment": {
+      "authorized_only_if": "the initial pilot passes contact, safety, ranking, and oracle gates but has one or more lane failures whose pre-contact RGB signed margin lies in (0.010, 0.014] m",
+      "fresh_identity_ids": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "only_change": "increase guard trigger signed y margin from 0.010 m to 0.014 m",
+      "otherwise_run": false
+    },
+    "frozen_variant1_protocol": {
+      "path": "reports/epoch9d_controller_development_protocol.json",
+      "sha256": "02E7DBE1CAF84D3E03B954CAFD68AAF51A056F03A7C75E9BC9B8720B78E81175"
+    },
+    "inherited_failure_count": 2,
+    "pilot_counts": {
+      "collisions": 0,
+      "complete_scenes": 12,
+      "falls": 0,
+      "finite_bounded_actions": 24,
+      "guard_triggered_probes": 12,
+      "identity_swaps": 0,
+      "intended_contact_or_excitation": 24,
+      "lane_and_reachability": 20,
+      "oracle_completion": 12,
+      "pilot_selection_gate": false,
+      "probes": 24,
+      "rank_by_heavy_position": {
+        "back": {
+          "correct": 3,
+          "total": 6
+        },
+        "front": {
+          "correct": 6,
+          "total": 6
+        }
+      },
+      "rank_correct": 9,
+      "scenes": 12,
+      "track_losses": 0,
+      "workspace_exits": 0
+    },
+    "pilot_result": {
+      "path": "reports/epoch9d_controller_development/variant1_pilot_result.json",
+      "sha256": "B2BEACC5763ED69B1C322917441CEA5B107BF0F748D87197556F9A2BA66A528C"
+    },
+    "post_response_pose_variant_was_inapplicable": true
+  }
+}

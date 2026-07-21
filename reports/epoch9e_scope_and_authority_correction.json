@@ -1,0 +1,110 @@
+{
+  "append_only": true,
+  "authority_source": {
+    "path": "/mnt/c/Users/jiheo/Downloads/epoch9e_nondrag_disengagement_ral_convergence_prompt.md",
+    "role": "newest controlling user instruction",
+    "sha256": "C49CBFB70150F2DB2CBE86B30E5FA54B9E117F69821E82279C59836801EE60EF"
+  },
+  "confirmation_accessed": false,
+  "created_at": "2026-07-21T14:37:46+09:00",
+  "epoch9d_files_modified": [],
+  "epoch9d_scientific_scope_correction": {
+    "causal_phase_b": {
+      "exact_pair_correct_flips": 12,
+      "exact_pair_total": 16,
+      "paired_95_interval_m": [
+        0.004073638133887584,
+        0.00911302156134635
+      ],
+      "paired_mass_response_contrast_m": 0.006593329847616967,
+      "rank_correct": 28,
+      "rank_total": 32
+    },
+    "exact_interpretation": [
+      "CAUSAL_MASS_SIGNAL_CONFIRMED",
+      "VARIANT1_PILOT_FROZEN_NO_GO",
+      "PRE_RESPONSE_DISENGAGEMENT_UNRESOLVED",
+      "PAPER_NOT_AUTHORIZED"
+    ],
+    "joint_gate_meaning": "task-preservation-not-achieved was a frozen joint gate failure, not 0/12 completion or physical impossibility",
+    "variant1_pilot": {
+      "actual_safety_events": 0,
+      "back_heavy_rank_correct": 3,
+      "contact_excitation": 24,
+      "lane_reach": 20,
+      "oracle_completion": 12,
+      "probe_total": 24,
+      "rank_correct": 9,
+      "scene_total": 12
+    }
+  },
+  "epoch9e_branch": "codex/epoch9e-nondrag-disengagement-convergence",
+  "historical_evidence": {
+    "campaign_state": {
+      "path": "reports/epoch9d_campaign_state.json",
+      "sha256": "76E13180460908E70733AE3F87BD7C661F4814EC025A5A9CB914BC642963D11D"
+    },
+    "causal_adjudication": {
+      "path": "reports/epoch9d_causal_panel_adjudication.json",
+      "sha256": "F4984DEDE601FD591BC559998FC1DA0BDA50CE070AC034CD723475FE988FFEF0"
+    },
+    "controller_failure": {
+      "path": "reports/epoch9d_controller_bounded_failure.json",
+      "sha256": "6FF008A49F05118A28F1BA43EAA31DB5FFB94D7AFD1F0078A995F3E533B58733"
+    }
+  },
+  "one_shot_authority": {
+    "controller_family": "NONDRAG_DISENGAGEMENT_ONLY",
+    "controller_rotation_after_failure": false,
+    "joint_certification_panels": 1,
+    "near_miss_rerun": false
+  },
+  "paper_status": "PAPER_NOT_AUTHORIZED",
+  "protected_rollouts": [
+    {
+      "file_count": 27,
+      "manifest_sha256": "25DE8FF5AA6112D7EFF8BCF38D3A4C3F0F3C8C8EE0458E5FA83D17438719EC54",
+      "path": "rollouts/2026_07_17/",
+      "total_bytes": 5143751,
+      "touched_by_epoch9e": false
+    },
+    {
+      "file_count": 10,
+      "manifest_sha256": "CF701D6F73D4783F016E48A72C093DC9FD6D940B7081DA8FBEC128DB94C24A00",
+      "path": "rollouts/2026_07_18/",
+      "total_bytes": 924633,
+      "touched_by_epoch9e": false
+    }
+  ],
+  "repository": "/mnt/c/Users/jiheo/tca_map",
+  "resource_contract": {
+    "host_physical_bytes": 24871014400,
+    "host_ram_ceiling_percent": 82.0,
+    "model_offload_allowed": false,
+    "resident_models_at_once": 1,
+    "simulator_environments_at_once": 1,
+    "two_four_shard_schedule_invariance_required": false,
+    "wsl_swap_use_allowed_bytes": 0
+  },
+  "schema_version": "epoch9e.scope_and_authority_correction.v1",
+  "sealed_source_demo_identities": {
+    "accessed_by_epoch9e": [],
+    "confirmation": [
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "validation": [
+      40,
+      41,
+      42,
+      43,
+      44
+    ]
+  },
+  "source_branch": "codex/epoch9d-causal-probe-bounded-convergence",
+  "source_commit_full": "74dd66c32a8b8595e187b13d3ccafe05cae6753b",
+  "validation_accessed": false
+}
