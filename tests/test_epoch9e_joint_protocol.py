@@ -140,3 +140,30 @@ def test_epoch9e_mechanics_smoke_protocol_is_fresh_label_blind_and_unscored() ->
     assert monitor["runner_exit_code"] == 0
     assert monitor["host_ram_ceiling_breached"] is False
     assert monitor["result_sha256"] == sha256(smoke_path)
+
+
+def test_epoch9e_mechanics_execution_seal_binds_frozen_inputs_and_executables() -> None:
+    seal = json.loads((REPORTS / "epoch9e_mechanics_execution_seal.json").read_text(encoding="utf-8"))
+    bindings = {
+        "smoke_protocol": ROOT / seal["smoke_protocol_path"],
+        "joint_protocol": ROOT / seal["joint_protocol_path"],
+        "runner": ROOT / seal["runner_path"],
+        "adjudicator": ROOT / seal["adjudicator_path"],
+        "host_wrapper": ROOT / seal["host_wrapper_path"],
+        "controller": ROOT / seal["controller_path"],
+        "original_runner": ROOT / seal["original_runner_path"],
+    }
+    for name, path in bindings.items():
+        assert path.is_file()
+        assert seal[f"{name}_sha256"] == sha256(path)
+    assert seal["outcomes_accessed_before_seal"] is False
+    assert seal["validation_accessed"] is False
+    assert seal["confirmation_accessed"] is False
+    assert seal["forbidden_outputs"] == ["mass rank", "mass-conditioned response", "oracle task success"]
+    assert seal["runtime"] == {
+        "serial": True,
+        "environments_at_once": 1,
+        "models": 0,
+        "host_ram_ceiling_percent": 82.0,
+        "wsl_swap_used_peak_bytes": 0,
+    }

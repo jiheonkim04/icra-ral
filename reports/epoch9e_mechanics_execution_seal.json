@@ -1,0 +1,45 @@
+{
+  "adjudicator_path": "scripts/adjudicate_epoch9e_mechanics_smoke.py",
+  "adjudicator_sha256": "48BF2229814C2AE30BAFEEE428B368751F24792B7C21D58C5C3C24051C3D33E0",
+  "branch": "codex/epoch9e-nondrag-disengagement-convergence",
+  "confirmation_accessed": false,
+  "controller_path": "scripts/epoch9e_nondrag_controller.py",
+  "controller_sha256": "99DA452B5AD3603A9FDD1209704479B18F302987E79C65EA8C4B9622E16657D7",
+  "forbidden_outputs": [
+    "mass rank",
+    "mass-conditioned response",
+    "oracle task success"
+  ],
+  "frozen_mechanics_gate": {
+    "all_disengagement_attempts_separation_verified": true,
+    "all_liftoff_planar_commands_exact_zero": true,
+    "both_candidates_excited_scenes_minimum": 7,
+    "complete_scenes": 8,
+    "finite_bounded_actions": 16,
+    "full_trajectory_lane_reachable": 16,
+    "intended_contact_or_excitation_minimum": 15,
+    "zero_collision_identity_swap_fall_workspace_exit_track_loss": true
+  },
+  "host_wrapper_path": "scripts/run_epoch9e_mechanics_smoke_host.ps1",
+  "host_wrapper_sha256": "09A82A62C6737692BE60820CDC0DBD1256B71C0EB0E4EA4BD56C2010B08719C9",
+  "joint_protocol_path": "reports/epoch9e_joint_certification_protocol.json",
+  "joint_protocol_sha256": "7D481F280D62F27702C6AF8942DFA092340B377F0EDD1CB65FF9B724E67E6D84",
+  "original_runner_path": "scripts/run_epoch9b_dynamic_nudge.py",
+  "original_runner_sha256": "45427C721C497229818AEAC49CE813C9CBE46FB0B3C04EDC110BBC832736C083",
+  "outcomes_accessed_before_seal": false,
+  "runner_path": "scripts/run_epoch9e_mechanics_smoke.py",
+  "runner_sha256": "5B65E1EA579BF7A84555AC62EF4853ADDB379FB68505830E63560A0FED68131C",
+  "runtime": {
+    "environments_at_once": 1,
+    "host_ram_ceiling_percent": 82.0,
+    "models": 0,
+    "serial": true,
+    "wsl_swap_used_peak_bytes": 0
+  },
+  "schema_version": "epoch9e.mechanics_execution_seal.v1",
+  "sealed_at": "2026-07-21T15:07:10+09:00",
+  "smoke_protocol_path": "reports/epoch9e_mechanics_smoke_protocol.json",
+  "smoke_protocol_sha256": "7288299EB627305A27DC2BA2A2231680ECAC874D2976A759F14BA843914C0ACA",
+  "source_checkpoint": "3bca29fb64c20992241d22217d69fd6118f09b5e",
+  "validation_accessed": false
+}
