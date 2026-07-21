@@ -1,0 +1,421 @@
+{
+  "completed_at": "2026-07-21T15:02:17+09:00",
+  "confirmation_accessed": false,
+  "pair_rows": [
+    {
+      "a_b_localization_exact": true,
+      "a_b_rgb_exact": true,
+      "base_identity_id": 20261134
+    },
+    {
+      "a_b_localization_exact": true,
+      "a_b_rgb_exact": true,
+      "base_identity_id": 20261135
+    },
+    {
+      "a_b_localization_exact": true,
+      "a_b_rgb_exact": true,
+      "base_identity_id": 20261136
+    },
+    {
+      "a_b_localization_exact": true,
+      "a_b_rgb_exact": true,
+      "base_identity_id": 20261137
+    },
+    {
+      "a_b_localization_exact": true,
+      "a_b_rgb_exact": true,
+      "base_identity_id": 20261138
+    },
+    {
+      "a_b_localization_exact": true,
+      "a_b_rgb_exact": true,
+      "base_identity_id": 20261139
+    },
+    {
+      "a_b_localization_exact": true,
+      "a_b_rgb_exact": true,
+      "base_identity_id": 20261140
+    },
+    {
+      "a_b_localization_exact": true,
+      "a_b_rgb_exact": true,
+      "base_identity_id": 20261141
+    },
+    {
+      "a_b_localization_exact": true,
+      "a_b_rgb_exact": true,
+      "base_identity_id": 20261142
+    },
+    {
+      "a_b_localization_exact": true,
+      "a_b_rgb_exact": true,
+      "base_identity_id": 20261143
+    },
+    {
+      "a_b_localization_exact": true,
+      "a_b_rgb_exact": true,
+      "base_identity_id": 20261144
+    },
+    {
+      "a_b_localization_exact": true,
+      "a_b_rgb_exact": true,
+      "base_identity_id": 20261145
+    }
+  ],
+  "protocol_path": "reports/epoch9e_joint_certification_protocol.json",
+  "protocol_sha256": "7D481F280D62F27702C6AF8942DFA092340B377F0EDD1CB65FF9B724E67E6D84",
+  "resource": {
+    "process_max_rss_bytes": 2361331712,
+    "wsl_mem_used_peak_bytes": 2197716992,
+    "wsl_swap_used_peak_bytes": 0
+  },
+  "rows": [
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "882B528B0B03B4F1F1BE491DB0CB4ADD68916BF76633C8F0D072B96127BB2C9F",
+      "assignment": "A",
+      "base_identity_id": 20261134,
+      "before_mass_rgb_sha256": "882B528B0B03B4F1F1BE491DB0CB4ADD68916BF76633C8F0D072B96127BB2C9F",
+      "expected_first_rgb_sha256": "882B528B0B03B4F1F1BE491DB0CB4ADD68916BF76633C8F0D072B96127BB2C9F",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261134_assignment_A",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "882B528B0B03B4F1F1BE491DB0CB4ADD68916BF76633C8F0D072B96127BB2C9F",
+      "assignment": "B",
+      "base_identity_id": 20261134,
+      "before_mass_rgb_sha256": "882B528B0B03B4F1F1BE491DB0CB4ADD68916BF76633C8F0D072B96127BB2C9F",
+      "expected_first_rgb_sha256": "882B528B0B03B4F1F1BE491DB0CB4ADD68916BF76633C8F0D072B96127BB2C9F",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261134_assignment_B",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "AEDE941059D97FB850C53CAB855813FAFC438D6A15D244869F68827D0E9B0ED6",
+      "assignment": "A",
+      "base_identity_id": 20261135,
+      "before_mass_rgb_sha256": "AEDE941059D97FB850C53CAB855813FAFC438D6A15D244869F68827D0E9B0ED6",
+      "expected_first_rgb_sha256": "AEDE941059D97FB850C53CAB855813FAFC438D6A15D244869F68827D0E9B0ED6",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261135_assignment_A",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "AEDE941059D97FB850C53CAB855813FAFC438D6A15D244869F68827D0E9B0ED6",
+      "assignment": "B",
+      "base_identity_id": 20261135,
+      "before_mass_rgb_sha256": "AEDE941059D97FB850C53CAB855813FAFC438D6A15D244869F68827D0E9B0ED6",
+      "expected_first_rgb_sha256": "AEDE941059D97FB850C53CAB855813FAFC438D6A15D244869F68827D0E9B0ED6",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261135_assignment_B",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "C5F6951DAE42A6A856AB5FFE7AD6C00F94C0D0534232630E26EDBD1AE8FFDD56",
+      "assignment": "A",
+      "base_identity_id": 20261136,
+      "before_mass_rgb_sha256": "C5F6951DAE42A6A856AB5FFE7AD6C00F94C0D0534232630E26EDBD1AE8FFDD56",
+      "expected_first_rgb_sha256": "C5F6951DAE42A6A856AB5FFE7AD6C00F94C0D0534232630E26EDBD1AE8FFDD56",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261136_assignment_A",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "C5F6951DAE42A6A856AB5FFE7AD6C00F94C0D0534232630E26EDBD1AE8FFDD56",
+      "assignment": "B",
+      "base_identity_id": 20261136,
+      "before_mass_rgb_sha256": "C5F6951DAE42A6A856AB5FFE7AD6C00F94C0D0534232630E26EDBD1AE8FFDD56",
+      "expected_first_rgb_sha256": "C5F6951DAE42A6A856AB5FFE7AD6C00F94C0D0534232630E26EDBD1AE8FFDD56",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261136_assignment_B",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "F43B8C5FE8CAB4A24FA048DF50089459E40646BF43FDE3F726680C484A8EAE59",
+      "assignment": "A",
+      "base_identity_id": 20261137,
+      "before_mass_rgb_sha256": "F43B8C5FE8CAB4A24FA048DF50089459E40646BF43FDE3F726680C484A8EAE59",
+      "expected_first_rgb_sha256": "F43B8C5FE8CAB4A24FA048DF50089459E40646BF43FDE3F726680C484A8EAE59",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261137_assignment_A",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "F43B8C5FE8CAB4A24FA048DF50089459E40646BF43FDE3F726680C484A8EAE59",
+      "assignment": "B",
+      "base_identity_id": 20261137,
+      "before_mass_rgb_sha256": "F43B8C5FE8CAB4A24FA048DF50089459E40646BF43FDE3F726680C484A8EAE59",
+      "expected_first_rgb_sha256": "F43B8C5FE8CAB4A24FA048DF50089459E40646BF43FDE3F726680C484A8EAE59",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261137_assignment_B",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "F74BC0276F2CFAE1EC3B00EE8A5E9E89CE7B36D21B2934F7209E0F8816A9B4AD",
+      "assignment": "A",
+      "base_identity_id": 20261138,
+      "before_mass_rgb_sha256": "F74BC0276F2CFAE1EC3B00EE8A5E9E89CE7B36D21B2934F7209E0F8816A9B4AD",
+      "expected_first_rgb_sha256": "F74BC0276F2CFAE1EC3B00EE8A5E9E89CE7B36D21B2934F7209E0F8816A9B4AD",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261138_assignment_A",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "F74BC0276F2CFAE1EC3B00EE8A5E9E89CE7B36D21B2934F7209E0F8816A9B4AD",
+      "assignment": "B",
+      "base_identity_id": 20261138,
+      "before_mass_rgb_sha256": "F74BC0276F2CFAE1EC3B00EE8A5E9E89CE7B36D21B2934F7209E0F8816A9B4AD",
+      "expected_first_rgb_sha256": "F74BC0276F2CFAE1EC3B00EE8A5E9E89CE7B36D21B2934F7209E0F8816A9B4AD",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261138_assignment_B",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "F8CF5117D30EB17D21FA1257BDBE20FA1340C6091C6FE4CEF52DF676B92A1732",
+      "assignment": "A",
+      "base_identity_id": 20261139,
+      "before_mass_rgb_sha256": "F8CF5117D30EB17D21FA1257BDBE20FA1340C6091C6FE4CEF52DF676B92A1732",
+      "expected_first_rgb_sha256": "F8CF5117D30EB17D21FA1257BDBE20FA1340C6091C6FE4CEF52DF676B92A1732",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261139_assignment_A",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "F8CF5117D30EB17D21FA1257BDBE20FA1340C6091C6FE4CEF52DF676B92A1732",
+      "assignment": "B",
+      "base_identity_id": 20261139,
+      "before_mass_rgb_sha256": "F8CF5117D30EB17D21FA1257BDBE20FA1340C6091C6FE4CEF52DF676B92A1732",
+      "expected_first_rgb_sha256": "F8CF5117D30EB17D21FA1257BDBE20FA1340C6091C6FE4CEF52DF676B92A1732",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261139_assignment_B",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "88CCB8564BFE7C45CBF37C088A53CF5CE6A153F11DDA81C83B6E37586A6426E3",
+      "assignment": "A",
+      "base_identity_id": 20261140,
+      "before_mass_rgb_sha256": "88CCB8564BFE7C45CBF37C088A53CF5CE6A153F11DDA81C83B6E37586A6426E3",
+      "expected_first_rgb_sha256": "88CCB8564BFE7C45CBF37C088A53CF5CE6A153F11DDA81C83B6E37586A6426E3",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261140_assignment_A",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "88CCB8564BFE7C45CBF37C088A53CF5CE6A153F11DDA81C83B6E37586A6426E3",
+      "assignment": "B",
+      "base_identity_id": 20261140,
+      "before_mass_rgb_sha256": "88CCB8564BFE7C45CBF37C088A53CF5CE6A153F11DDA81C83B6E37586A6426E3",
+      "expected_first_rgb_sha256": "88CCB8564BFE7C45CBF37C088A53CF5CE6A153F11DDA81C83B6E37586A6426E3",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261140_assignment_B",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "44D046ADA955EF8210722CF9D354F92F3BF5485F679DE3C7536D9292EFA52067",
+      "assignment": "A",
+      "base_identity_id": 20261141,
+      "before_mass_rgb_sha256": "44D046ADA955EF8210722CF9D354F92F3BF5485F679DE3C7536D9292EFA52067",
+      "expected_first_rgb_sha256": "44D046ADA955EF8210722CF9D354F92F3BF5485F679DE3C7536D9292EFA52067",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261141_assignment_A",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "44D046ADA955EF8210722CF9D354F92F3BF5485F679DE3C7536D9292EFA52067",
+      "assignment": "B",
+      "base_identity_id": 20261141,
+      "before_mass_rgb_sha256": "44D046ADA955EF8210722CF9D354F92F3BF5485F679DE3C7536D9292EFA52067",
+      "expected_first_rgb_sha256": "44D046ADA955EF8210722CF9D354F92F3BF5485F679DE3C7536D9292EFA52067",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261141_assignment_B",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "B848BCAEE90AD40F4E890138E0CB135C61FBF3F4F4E7883BCCECFD46DF7310E8",
+      "assignment": "A",
+      "base_identity_id": 20261142,
+      "before_mass_rgb_sha256": "B848BCAEE90AD40F4E890138E0CB135C61FBF3F4F4E7883BCCECFD46DF7310E8",
+      "expected_first_rgb_sha256": "B848BCAEE90AD40F4E890138E0CB135C61FBF3F4F4E7883BCCECFD46DF7310E8",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261142_assignment_A",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "B848BCAEE90AD40F4E890138E0CB135C61FBF3F4F4E7883BCCECFD46DF7310E8",
+      "assignment": "B",
+      "base_identity_id": 20261142,
+      "before_mass_rgb_sha256": "B848BCAEE90AD40F4E890138E0CB135C61FBF3F4F4E7883BCCECFD46DF7310E8",
+      "expected_first_rgb_sha256": "B848BCAEE90AD40F4E890138E0CB135C61FBF3F4F4E7883BCCECFD46DF7310E8",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261142_assignment_B",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "C1780CFE43751E2DF08987C4DA53A74BBABBFDFAAAFA8B90EE083F0DC382B209",
+      "assignment": "A",
+      "base_identity_id": 20261143,
+      "before_mass_rgb_sha256": "C1780CFE43751E2DF08987C4DA53A74BBABBFDFAAAFA8B90EE083F0DC382B209",
+      "expected_first_rgb_sha256": "C1780CFE43751E2DF08987C4DA53A74BBABBFDFAAAFA8B90EE083F0DC382B209",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261143_assignment_A",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "C1780CFE43751E2DF08987C4DA53A74BBABBFDFAAAFA8B90EE083F0DC382B209",
+      "assignment": "B",
+      "base_identity_id": 20261143,
+      "before_mass_rgb_sha256": "C1780CFE43751E2DF08987C4DA53A74BBABBFDFAAAFA8B90EE083F0DC382B209",
+      "expected_first_rgb_sha256": "C1780CFE43751E2DF08987C4DA53A74BBABBFDFAAAFA8B90EE083F0DC382B209",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261143_assignment_B",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "A84E6C3E76540E6FDC9A901BF6EAD63D938635473663972E05A5E1FB766C571B",
+      "assignment": "A",
+      "base_identity_id": 20261144,
+      "before_mass_rgb_sha256": "A84E6C3E76540E6FDC9A901BF6EAD63D938635473663972E05A5E1FB766C571B",
+      "expected_first_rgb_sha256": "A84E6C3E76540E6FDC9A901BF6EAD63D938635473663972E05A5E1FB766C571B",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261144_assignment_A",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "A84E6C3E76540E6FDC9A901BF6EAD63D938635473663972E05A5E1FB766C571B",
+      "assignment": "B",
+      "base_identity_id": 20261144,
+      "before_mass_rgb_sha256": "A84E6C3E76540E6FDC9A901BF6EAD63D938635473663972E05A5E1FB766C571B",
+      "expected_first_rgb_sha256": "A84E6C3E76540E6FDC9A901BF6EAD63D938635473663972E05A5E1FB766C571B",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261144_assignment_B",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "0E84DB45E1A76EEAF7E06025CEE0951A34B47C39502A9F434D14114CA16D7A27",
+      "assignment": "A",
+      "base_identity_id": 20261145,
+      "before_mass_rgb_sha256": "0E84DB45E1A76EEAF7E06025CEE0951A34B47C39502A9F434D14114CA16D7A27",
+      "expected_first_rgb_sha256": "0E84DB45E1A76EEAF7E06025CEE0951A34B47C39502A9F434D14114CA16D7A27",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261145_assignment_A",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_front_on_the_plate.bddl"
+    },
+    {
+      "actions_executed": 0,
+      "after_mass_rgb_sha256": "0E84DB45E1A76EEAF7E06025CEE0951A34B47C39502A9F434D14114CA16D7A27",
+      "assignment": "B",
+      "base_identity_id": 20261145,
+      "before_mass_rgb_sha256": "0E84DB45E1A76EEAF7E06025CEE0951A34B47C39502A9F434D14114CA16D7A27",
+      "expected_first_rgb_sha256": "0E84DB45E1A76EEAF7E06025CEE0951A34B47C39502A9F434D14114CA16D7A27",
+      "first_rgb_exact": true,
+      "initial_localization_exact": true,
+      "mass_assignment_only_mutation": true,
+      "reward_done_success_accessed": false,
+      "scene_id": "epoch9e_joint_base_20261145_assignment_B",
+      "task_bddl": "KITCHEN_SCENE2_put_the_black_bowl_at_the_back_on_the_plate.bddl"
+    }
+  ],
+  "schema_version": "epoch9e.exact_pair_preflight.v1",
+  "scientific_outcomes_accessed": false,
+  "summary": {
+    "a_b_localization_exact_pairs": 12,
+    "a_b_rgb_exact_pairs": 12,
+    "assignment_rows": 24,
+    "first_rgb_exact_rows": 24,
+    "initial_localization_exact_rows": 24
+  },
+  "validation_accessed": false
+}

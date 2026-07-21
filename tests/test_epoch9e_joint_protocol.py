@@ -97,3 +97,46 @@ def test_epoch9e_protocol_builder_resource_record_binds_protocol() -> None:
     assert monitor["peak_host_ram_percent"] < 82.0
     assert monitor["scientific_outcomes_accessed"] is False
     assert monitor["protocol_sha256"] == sha256(protocol_path)
+
+
+def test_epoch9e_exact_pair_preflight_is_outcome_suppressed_and_exact() -> None:
+    result_path = REPORTS / "epoch9e_exact_pair_preflight.json"
+    result = json.loads(result_path.read_text(encoding="utf-8"))
+    monitor = json.loads((REPORTS / "epoch9e_exact_pair_preflight_host_resource.json").read_text(encoding="utf-8-sig"))
+    assert result["summary"] == {
+        "assignment_rows": 24,
+        "first_rgb_exact_rows": 24,
+        "initial_localization_exact_rows": 24,
+        "a_b_rgb_exact_pairs": 12,
+        "a_b_localization_exact_pairs": 12,
+    }
+    assert all(row["actions_executed"] == 0 for row in result["rows"])
+    assert all(row["reward_done_success_accessed"] is False for row in result["rows"])
+    assert result["resource"]["wsl_swap_used_peak_bytes"] == 0
+    assert result["scientific_outcomes_accessed"] is False
+    assert result["validation_accessed"] is False
+    assert result["confirmation_accessed"] is False
+    assert monitor["runner_exit_code"] == 0
+    assert monitor["host_ram_ceiling_breached"] is False
+    assert monitor["peak_host_ram_percent"] < 82.0
+    assert monitor["result_sha256"] == sha256(result_path)
+
+
+def test_epoch9e_mechanics_smoke_protocol_is_fresh_label_blind_and_unscored() -> None:
+    smoke_path = REPORTS / "epoch9e_mechanics_smoke_protocol.json"
+    smoke = json.loads(smoke_path.read_text(encoding="utf-8"))
+    identities = json.loads((REPORTS / "epoch9e_fresh_identity_manifest.json").read_text(encoding="utf-8"))
+    allocation = identities["allocations"]["mechanics_smoke"]
+    monitor = json.loads((REPORTS / "epoch9e_mechanics_smoke_protocol_host_resource.json").read_text(encoding="utf-8-sig"))
+    assert smoke["scene_count"] == 8
+    assert smoke["candidate_probe_count"] == 16
+    assert [row["generated_identity_id"] for row in smoke["manifest"]] == allocation["identity_ids"]
+    assert [row["generator_seed"] for row in smoke["manifest"]] == allocation["generator_seeds"]
+    assert all(row["mass_factor"] == {"front": 1.0, "back": 1.0} for row in smoke["manifest"])
+    assert all(row["mass_rank_authorized"] is False for row in smoke["manifest"])
+    assert all(row["oracle_success_authorized"] is False for row in smoke["manifest"])
+    assert smoke["must_not_compute_or_reveal"] == ["mass rank", "mass-conditioned response", "oracle task success"]
+    assert smoke["scientific_outcomes_accessed"] is False
+    assert monitor["runner_exit_code"] == 0
+    assert monitor["host_ram_ceiling_breached"] is False
+    assert monitor["result_sha256"] == sha256(smoke_path)
