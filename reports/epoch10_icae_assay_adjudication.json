@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "campaign": "epoch10_icae_vla",
+  "status": "TERMINAL",
+  "terminal_state": "EPOCH10_ICAE_INTERVENTION_ASSAY_INVALID",
+  "terminal_scope": "ICAE as executed under the frozen Epoch 10 exact-state candidate-action splice protocol; not all VLA evaluation or robot-learning research",
+  "adjudicated_at": "2026-07-21T17:45:00+09:00",
+  "source_commit": "42613a8",
+  "phase_reached": "PHASE_C_MECHANICS_CALIBRATION_AND_ASSAY_GATE",
+  "earlier_gates": {
+    "exact_prior_collision": false,
+    "prospective_checkpoint_panel": {
+      "pass": true,
+      "real_loadable_checkpoints": 12,
+      "whole_training_seeds": 4,
+      "predeclared_training_stages": 3,
+      "heldout_checkpoints": 6
+    },
+    "task_coverage": {
+      "pass": true,
+      "tasks": 4,
+      "suites": 4,
+      "interaction_families": 4,
+      "registered_states": 128,
+      "exact_restore_rows": 128
+    }
+  },
+  "repair_budget": {
+    "maximum": 1,
+    "used": 1,
+    "invalid_original_retained": "reports/epoch10_icae_exact_state_preflight.json",
+    "repair": "Access native goal state through the inner LIBERO task rather than the outer OffScreenRenderEnv wrapper.",
+    "complete_repaired_rerun": "reports/epoch10_icae_exact_state_preflight_attempt2.json",
+    "repaired_rerun_rows": 128,
+    "repaired_rerun_errors": 0,
+    "additional_repair_authorized": false
+  },
+  "mechanics_evidence": {
+    "path": "reports/epoch10_icae_mechanics_calibration.json",
+    "file_sha256": "dce035353ef5f9a7eb54dcd62086042606c4dcb86d5d1ade589e42f46b3b3fc3",
+    "rows": 96,
+    "mechanics_states": 32,
+    "horizon_candidates": [4, 8, 16],
+    "all_expert_targets_native_success": true,
+    "checkpoint_actions_queried": 0,
+    "prospective_checkpoint_outcomes_read": false,
+    "official_outcomes_opened": false
+  },
+  "horizon_adjudication": [
+    {
+      "horizon": 4,
+      "restore_sham_equivalence_rate": 0.46875,
+      "minimum_required": 0.95,
+      "valid_nominal_response_rate": 1.0,
+      "minimum_valid_required": 0.9,
+      "maximum_nominal_sham_state_l2": 3.4407292223982067,
+      "medium_minus_small_pooled_deterioration": 0.0003531083337595846,
+      "grouped_bootstrap_95_interval": [-0.006604756495995179, 0.005771399601856253],
+      "monotone_with_grouped_uncertainty": false,
+      "pass": false
+    },
+    {
+      "horizon": 8,
+      "restore_sham_equivalence_rate": 0.8125,
+      "minimum_required": 0.95,
+      "valid_nominal_response_rate": 0.96875,
+      "minimum_valid_required": 0.9,
+      "maximum_nominal_sham_state_l2": 0.10909473993148791,
+      "medium_minus_small_pooled_deterioration": 0.0033956085219960085,
+      "grouped_bootstrap_95_interval": [-0.0062255316449280704, 0.012234204974041676],
+      "monotone_with_grouped_uncertainty": false,
+      "pass": false
+    },
+    {
+      "horizon": 16,
+      "restore_sham_equivalence_rate": 0.9375,
+      "minimum_required": 0.95,
+      "valid_nominal_response_rate": 0.90625,
+      "minimum_valid_required": 0.9,
+      "maximum_nominal_sham_state_l2": 1.4474210094262088,
+      "medium_minus_small_pooled_deterioration": 0.0013005744353379294,
+      "grouped_bootstrap_95_interval": [-0.006566327014435016, 0.008819019601861822],
+      "monotone_with_grouped_uncertainty": false,
+      "pass": false
+    }
+  ],
+  "failed_required_gates": [
+    "No candidate horizon achieved exact restore/sham equivalence in at least 95% of calibration states.",
+    "Every candidate horizon showed a material nominal-twin branch-order effect above the frozen 1e-6 tolerance.",
+    "No candidate horizon established medium perturbation deterioration at least as large as small perturbation deterioration with grouped uncertainty in the expected direction."
+  ],
+  "mechanistic_diagnosis": {
+    "finding": "A flattened MuJoCo simulator state is insufficient to reproduce an independently restored branch when the reused controller retains internal goal/integrator state outside the flattened physics vector.",
+    "evidence": "The pre-action physics restore itself is exact (128/128 rows, maximum restore L2 0), but nominal branches with identical registered state, first action, and continuation diverge as a function of randomized branch order.",
+    "possible_future_research_not_executed": "A future campaign could freeze and restore controller state or instantiate a fresh controller/environment per branch, but that is a second assay repair and is prohibited after this protocol's repair allowance was consumed."
+  },
+  "unreached_gates": {
+    "development_checkpoint_rank_repeatability": "not run after mechanics invalidation",
+    "all_checkpoint_action_roundtrip_and_scene": "disk reload action smoke passed during panel generation; simulator scene phase not run after mechanics invalidation",
+    "official_checkpoint_clipping_rate": "not opened or computed",
+    "stage0_closed_loop_labels": "not opened",
+    "heldout_intervention_scores": "not computed",
+    "official_heldout_outcomes": "not opened",
+    "paper_gate": "not evaluated"
+  },
+  "decision_rule": "The frozen protocol allows one mechanics/adapter repair and mandates EPOCH10_ICAE_INTERVENTION_ASSAY_INVALID if the assay still fails. The repair is exhausted and all three horizons fail multiple required assay gates.",
+  "positive_paper_authorized": false
+}

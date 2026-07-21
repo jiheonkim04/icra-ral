@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "campaign": "epoch10_icae_vla",
+  "branch": "codex/epoch10-icae-vla-evaluation",
+  "terminal": true,
+  "terminal_state": "EPOCH10_ICAE_INTERVENTION_ASSAY_INVALID",
+  "terminal_phase": "PHASE_C_MECHANICS_CALIBRATION_AND_ASSAY_GATE",
+  "source_epoch9e_commit": "2463ef93f9326fb780f7c053fe40c0051aca901c",
+  "assay_protocol_commit": "42613a8",
+  "checkpoint_panel_status": "PASS_12_REAL_CHECKPOINTS",
+  "task_coverage_status": "PASS_4_TASKS_4_SUITES",
+  "novelty_status": "NO_EXACT_PRIOR_COLLISION_FOUND",
+  "assay_status": "FAIL_AFTER_ONE_ALLOWED_REPAIR",
+  "selected_horizon": null,
+  "stage0_executed": false,
+  "stage0_nonexecution_reason": "The mandatory Phase C assay gate failed before checkpoint ranking; executing Stage 0 would violate the frozen order.",
+  "new_prospective_checkpoint_outcomes_opened": false,
+  "official_heldout_outcomes_opened": false,
+  "positive_paper_authorized": false,
+  "active_scientific_workers": 0,
+  "next_action": "none; terminal reached",
+  "resume_required": false
+}
