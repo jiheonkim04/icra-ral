@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "campaign": "epoch10_icae_vla",
+  "frozen_at": "2026-07-21T17:20:00+09:00",
+  "status": "FROZEN_PENDING_TRAINING",
+  "base_reference": {
+    "identity": "smolvla_libero_frozen_base",
+    "counts_as_independent_training_run": false,
+    "model_sha256": "9a9f6413e42c0f332fccbce9a0dc796af2790f82cf002f791cdbf7e01e1afca8"
+  },
+  "recipe": {
+    "method": "standard_rank4_lora",
+    "learning_rate": 0.0002,
+    "batch_size": 1,
+    "optimizer": "AdamW",
+    "scheduler": null,
+    "max_optimizer_steps": 100,
+    "snapshot_steps": [10, 30, 100],
+    "stage_names": ["early", "intermediate", "converged"],
+    "chunk_size": 50,
+    "source_verified_recipe_sha256": "343e6465dbfa3ff52606d3e414e8334f61db18e407705ba84d57ca9a5ba9b076",
+    "split_manifest_sha256": "1279f939648cf13e2f599084e42631681e1dfa5606b5d9b0851ffeb32710934b",
+    "repro_lock_sha256": "c603d36b02e59505c2699f3bea15c64807468b188e862c0e33f275de04f351a5",
+    "metric_protocol_sha256": "64430225940c5168b3734bb40f9f48ad02877e0ba04dc804367afbb214ae486e"
+  },
+  "new_training_seeds": [101, 202, 303, 404],
+  "checkpoint_development_panel": {
+    "whole_seeds": [101, 202],
+    "checkpoint_count": 6
+  },
+  "checkpoint_holdout_panel": {
+    "whole_seeds": [303, 404],
+    "checkpoint_count": 6,
+    "official_outcomes_known_at_freeze": false
+  },
+  "prospective_checkpoint_count": 12,
+  "competitive_subset_rule": "For each seed, include only the predeclared intermediate and converged snapshots (steps 30 and 100). This rule uses training stage only and cannot inspect intervention or official outcomes.",
+  "competitive_subset_checkpoint_count": 8,
+  "historical_development_only_anchors": [
+    "frozen_base",
+    "rank4_lora_seed_11",
+    "rank4_lora_seed_22",
+    "rank4_lora_seed_33"
+  ],
+  "prohibited_identity_construction": [
+    "synthetic_action_corruption",
+    "noise_injection",
+    "renamed_checkpoint_copy",
+    "post_hoc_weight_interpolation",
+    "outcome_selected_snapshot"
+  ],
+  "output_root": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4"
+}

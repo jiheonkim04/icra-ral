@@ -1,0 +1,56 @@
+{
+  "campaign": "epoch10_icae_vla",
+  "elapsed_seconds": 0.016,
+  "official_outcomes_opened": false,
+  "package_versions": {
+    "datasets": "4.8.5",
+    "lerobot": "0.4.4",
+    "numpy": "2.2.6",
+    "peft": "0.19.1",
+    "safetensors": "0.8.0",
+    "torch": "2.10.0+cu128",
+    "transformers": "4.57.6"
+  },
+  "preflight": {
+    "checkpoint_count": 12,
+    "historical_outcomes_read": false,
+    "output_root": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4",
+    "partitions": {
+      "101": "checkpoint_development_panel",
+      "202": "checkpoint_development_panel",
+      "303": "checkpoint_holdout_panel",
+      "404": "checkpoint_holdout_panel"
+    },
+    "required_hashes": {
+      "metric_protocol": "64430225940c5168b3734bb40f9f48ad02877e0ba04dc804367afbb214ae486e",
+      "source_repro_lock": "c603d36b02e59505c2699f3bea15c64807468b188e862c0e33f275de04f351a5",
+      "split_manifest": "1279f939648cf13e2f599084e42631681e1dfa5606b5d9b0851ffeb32710934b"
+    },
+    "required_paths": {
+      "checkpoint_path": "C:\\assets\\checkpoints\\smolvla_libero",
+      "dataset_root": "C:\\assets\\datasets\\lerobot_libero",
+      "hf_home": "C:\\assets\\hf_home",
+      "metric_protocol": "C:\\Users\\jiheo\\tca_map\\reports\\official_smolvla_metric_protocol.md",
+      "source_repro_lock": "C:\\Users\\jiheo\\tca_map\\configs\\official_smolvla_repro_lock.yaml",
+      "split_manifest": "C:\\Users\\jiheo\\tca_map\\reports\\official_smolvla_split_manifest.json",
+      "vlm_root": "C:\\assets\\hf_home\\HuggingFaceTB\\SmolVLM2-500M-Video-Instruct"
+    },
+    "seeds": [
+      101,
+      202,
+      303,
+      404
+    ],
+    "simulator_outcomes_read": false,
+    "stages": [
+      10,
+      30,
+      100
+    ]
+  },
+  "schema_version": 1,
+  "seeds": [],
+  "simulator_outcomes_read": false,
+  "source_commit": "603cd2b39baa26038285ec34840f8935eac44ac2",
+  "status": "PREFLIGHT_PASS"
+}

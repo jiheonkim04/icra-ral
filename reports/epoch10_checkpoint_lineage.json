@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "campaign": "epoch10_icae_vla",
+  "uncertainty_unit": "whole_training_seed",
+  "lineages": [
+    {
+      "lineage_cluster": "epoch10_rank4_seed_101",
+      "seed": 101,
+      "partition": "checkpoint_development_panel",
+      "checkpoints": ["epoch10_rank4_seed_101_step_0010", "epoch10_rank4_seed_101_step_0030", "epoch10_rank4_seed_101_step_0100"]
+    },
+    {
+      "lineage_cluster": "epoch10_rank4_seed_202",
+      "seed": 202,
+      "partition": "checkpoint_development_panel",
+      "checkpoints": ["epoch10_rank4_seed_202_step_0010", "epoch10_rank4_seed_202_step_0030", "epoch10_rank4_seed_202_step_0100"]
+    },
+    {
+      "lineage_cluster": "epoch10_rank4_seed_303",
+      "seed": 303,
+      "partition": "checkpoint_holdout_panel",
+      "checkpoints": ["epoch10_rank4_seed_303_step_0010", "epoch10_rank4_seed_303_step_0030", "epoch10_rank4_seed_303_step_0100"]
+    },
+    {
+      "lineage_cluster": "epoch10_rank4_seed_404",
+      "seed": 404,
+      "partition": "checkpoint_holdout_panel",
+      "checkpoints": ["epoch10_rank4_seed_404_step_0010", "epoch10_rank4_seed_404_step_0030", "epoch10_rank4_seed_404_step_0100"]
+    }
+  ],
+  "analysis_rule": "Adjacent snapshots are correlated repeated measures and are never treated as independent policy draws. Bootstrap and sensitivity analyses cluster by lineage_cluster."
+}
