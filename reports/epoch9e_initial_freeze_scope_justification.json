@@ -1,0 +1,12 @@
+{
+  "schema_version": "epoch9e.initial_freeze_scope_justification.v1",
+  "recorded_at": "2026-07-21T14:48:00+09:00",
+  "commit": "20344e4",
+  "changed_file_count": 7,
+  "changed_line_count": 13231,
+  "reason": "The value-complete fresh-identity manifest enumerates every concrete identity reference and all 9,061 distinct prior seed values across reports, rollouts, and evidence ledgers. Its 11,368 generated lines dominate the checkpoint. The endpoint audit additionally preserves all 80 raw Epoch 9D trace bindings and every recomputed gate. These are bounded append-only scientific provenance artifacts, not duplicated rollout payloads or source expansion.",
+  "historical_epoch9d_files_modified": [],
+  "scientific_threshold_changed": false,
+  "validation_accessed": false,
+  "confirmation_accessed": false
+}
