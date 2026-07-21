@@ -53,7 +53,7 @@ function Get-HostSample {
 }
 
 $resumeArgument = if ($Resume) { " --resume" } else { "" }
-$bashCommand = 'set +e; cd /mnt/c/Users/jiheo/tca_map; export MUJOCO_GL=egl; export PYTHONUNBUFFERED=1; /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_epoch9e_joint_continuation.py' + $resumeArgument + '; code=$?; printf "%s\n" "$code" > ' + $exitStatusRelative + '; exit "$code"'
+$bashCommand = 'set +e; cd /mnt/c/Users/jiheo/tca_map; export MUJOCO_GL=egl; export PYTHONUNBUFFERED=1; /home/jiheon/miniconda3-official/envs/official-smolvla-libero/bin/python scripts/run_epoch9e_joint_continuation.py' + $resumeArgument + '; code=$?; printf "%s" "$code" > ' + $exitStatusRelative + '; exit "$code"'
 $argumentString = "-e bash -lc `"$bashCommand`""
 $baseline = Get-HostSample
 $peak = $baseline

@@ -201,6 +201,7 @@ def test_host_wrapper_captures_authoritative_python_exit_and_only_resumes_missin
     assert "missing_key_only" in source
     assert "run_epoch9e_joint_continuation.py" in source
     assert "run_epoch9e_joint_certification.py" not in source
+    assert 'printf "%s" "$code"' in source
 
 
 def test_continuation_execution_seal_binds_changed_wrappers_and_unchanged_science() -> None:

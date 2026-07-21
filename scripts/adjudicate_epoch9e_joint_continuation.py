@@ -31,6 +31,8 @@ CONTINUATION_RESULT_PATH = REPORTS / "epoch9e_joint_continuation/result.json"
 SEAL_PATH = REPORTS / "epoch9e_joint_continuation_execution_seal.json"
 SENSITIVITY_PATH = REPORTS / "epoch9e_missing_pair_sensitivity_protocol.json"
 CORRECTION_PATH = REPORTS / "epoch9e_failfast_root_cause_and_scope_correction.json"
+STATUS_CORRECTION_PATH = REPORTS / "epoch9e_continuation_host_exit_status_correction.json"
+PARSER_REPAIR_PATH = REPORTS / "epoch9e_continuation_adjudicator_parser_repair.json"
 OUTPUT_JSON = REPORTS / "epoch9e_joint_continuation_adjudication.json"
 OUTPUT_MD = REPORTS / "epoch9e_joint_continuation_adjudication.md"
 TRACE_ROOT = REPORTS / "epoch9e_joint_certification/traces"
@@ -81,6 +83,41 @@ def lower_positive(interval: list[float | None]) -> bool:
 
 def interval_includes_zero(interval: list[float | None]) -> bool:
     return interval[0] is not None and interval[1] is not None and float(interval[0]) <= 0.0 <= float(interval[1])
+
+
+def adjudicator_binding_valid(seal: dict[str, Any], parser_repair: dict[str, Any], status_correction: dict[str, Any]) -> bool:
+    current = sha256(Path(__file__))
+    if current == seal["continuation_adjudicator_sha256"]:
+        return True
+    return bool(
+        parser_repair["original_sealed_adjudicator_sha256"] == seal["continuation_adjudicator_sha256"]
+        and parser_repair["repaired_adjudicator_sha256"] == current
+        and parser_repair["status_correction_sha256"] == sha256(STATUS_CORRECTION_PATH)
+        and parser_repair["scientific_fields_changed"] is False
+        and parser_repair["outcomes_recomputed_or_rerun"] is False
+        and status_correction["scientific_result_changed"] is False
+    )
+
+
+def effective_runner_exit_code(monitor: dict[str, Any], status_correction: dict[str, Any]) -> int:
+    recorded = int(monitor.get("authoritative_runner_exit_code", 255))
+    if recorded == 0:
+        return 0
+    if int(monitor.get("attempt", -1)) != int(status_correction["attempt"]):
+        return recorded
+    monitor_path = ROOT / status_correction["host_monitor_path"]
+    status_path = ROOT / status_correction["raw_status_path"]
+    if (
+        monitor_path.is_file()
+        and status_path.is_file()
+        and sha256(monitor_path) == status_correction["host_monitor_sha256"]
+        and sha256(status_path) == status_correction["raw_status_sha256"]
+        and status_path.read_text(encoding="utf-8") == status_correction["raw_status_text"] == "0n"
+        and int(monitor.get("wsl_process_exit_code", -1)) == 0
+        and int(status_correction["corrected_authoritative_runner_exit_code"]) == 0
+    ):
+        return 0
+    return recorded
 
 
 def adjusted_hc3(pair_rows: list[dict[str, Any]], bases: dict[int, dict[str, Any]], contrasts: list[float]) -> dict[str, Any]:
@@ -236,18 +273,19 @@ def final_gates(counts: dict[str, Any], paired: dict[str, Any], controls: dict[s
 def main() -> int:
     if OUTPUT_JSON.exists() or OUTPUT_MD.exists():
         raise FileExistsError("refusing to overwrite continuation adjudication")
-    required = (PROTOCOL_PATH, ORIGINAL_PROTOCOL_PATH, PREFLIGHT_PATH, ORIGINAL_RESULT_PATH, CONTINUATION_RESULT_PATH, SEAL_PATH, SENSITIVITY_PATH, CORRECTION_PATH)
+    required = (PROTOCOL_PATH, ORIGINAL_PROTOCOL_PATH, PREFLIGHT_PATH, ORIGINAL_RESULT_PATH, CONTINUATION_RESULT_PATH, SEAL_PATH, SENSITIVITY_PATH, CORRECTION_PATH, STATUS_CORRECTION_PATH, PARSER_REPAIR_PATH)
     for path in required:
         if not path.is_file():
             raise FileNotFoundError(path)
     protocol, original_protocol, preflight = load(PROTOCOL_PATH), load(ORIGINAL_PROTOCOL_PATH), load(PREFLIGHT_PATH)
     original_result, continuation, seal = load(ORIGINAL_RESULT_PATH), load(CONTINUATION_RESULT_PATH), load(SEAL_PATH)
     sensitivity, correction = load(SENSITIVITY_PATH), load(CORRECTION_PATH)
+    status_correction, parser_repair = load(STATUS_CORRECTION_PATH), load(PARSER_REPAIR_PATH)
     bindings = {
         "protocol": sha256(PROTOCOL_PATH) == seal["joint_protocol_sha256"],
         "original_result": sha256(ORIGINAL_RESULT_PATH) == seal["interrupted_result_sha256"],
         "continuation_runner": sha256(ROOT / seal["continuation_runner_path"]) == seal["continuation_runner_sha256"],
-        "continuation_adjudicator": sha256(Path(__file__)) == seal["continuation_adjudicator_sha256"],
+        "continuation_adjudicator": adjudicator_binding_valid(seal, parser_repair, status_correction),
         "controller": sha256(ROOT / seal["controller_path"]) == seal["controller_sha256"],
         "sensitivity": sha256(SENSITIVITY_PATH) == seal["missing_pair_sensitivity_sha256"],
         "continuation_result_protocol": continuation["protocol_sha256"] == sha256(PROTOCOL_PATH),
@@ -376,7 +414,8 @@ def main() -> int:
     no_privilege = all(not audit["forbidden_online_inputs_used"] and not audit["simulator_state_used_for_actions"] and not audit["mass_or_property_used_for_actions"] for audit in trace_disclosures)
     monitors = [load(path) for path in sorted((REPORTS / "epoch9e_joint_continuation").glob("host_resource_monitor_attempt_*.json"))]
     latest_result_hash = monitors[-1].get("scientific_result_sha256_after_runner") if monitors else None
-    resource_ok = bool(monitors and all(monitor.get("authoritative_runner_exit_code") == 0 and monitor.get("host_ram_ceiling_breached") is False and float(monitor.get("peak_host_ram_percent", 100.0)) < 82.0 for monitor in monitors) and latest_result_hash == sha256(CONTINUATION_RESULT_PATH) and int(continuation["resource_monitor"]["wsl_swap_used_peak_bytes"]) == 0)
+    effective_exit_codes = [effective_runner_exit_code(monitor, status_correction) for monitor in monitors]
+    resource_ok = bool(monitors and all(code == 0 for code in effective_exit_codes) and all(monitor.get("host_ram_ceiling_breached") is False and float(monitor.get("peak_host_ram_percent", 100.0)) < 82.0 for monitor in monitors) and latest_result_hash == sha256(CONTINUATION_RESULT_PATH) and int(continuation["resource_monitor"]["wsl_swap_used_peak_bytes"]) == 0)
     controller_hash_ok = bindings["controller"] and seal["controller_sha256"] == correction["frozen_hashes"]["controller"]["sha256"]
     integrity = {
         "complete_fixed_manifest": complete_fixed_manifest,
@@ -433,6 +472,9 @@ def main() -> int:
         "gates": gates,
         "failed_gates": [name for name, value in gates.items() if not value],
         "resource_attempts": monitors,
+        "resource_effective_authoritative_exit_codes": effective_exit_codes,
+        "host_exit_status_correction": status_correction,
+        "adjudicator_parser_repair": parser_repair,
         "source_hashes": {"protocol": sha256(PROTOCOL_PATH), "original_result": sha256(ORIGINAL_RESULT_PATH), "continuation_result": sha256(CONTINUATION_RESULT_PATH), "seal": sha256(SEAL_PATH), "sensitivity": sha256(SENSITIVITY_PATH)},
         "validation_accessed": False,
         "confirmation_accessed": False,
