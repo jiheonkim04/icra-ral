@@ -33,6 +33,7 @@ def test_epoch9d_scope_correction_preserves_historical_records() -> None:
     assert state["program_status"] in {
         "ACTIVE_DYNAMIC_PROBE_CAUSAL_SIGNAL_AND_TASK_HEADROOM_UNRESOLVED",
         "ACTIVE_DYNAMIC_PROBE_SIGNAL_CONFIRMED_TASK_PRESERVATION_UNRESOLVED",
+        "ACTIVE_DYNAMIC_PROBE_SIGNAL_CONFIRMED_TASK_PRESERVATION_NOT_ACHIEVED",
     }
     assert "ACTIVE_DYNAMIC_PROBE_CAUSAL_SIGNAL_AND_TASK_HEADROOM_UNRESOLVED" in scope
     assert state["paper_status"] == "PAPER_NOT_AUTHORIZED"

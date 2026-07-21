@@ -9,7 +9,9 @@
     "phase_a_reason": "The Phase A JSON intentionally retains all 64 scene rows and 128 candidate trace reconstructions, including continuous response dynamics, nuisance covariates, oracle failure metrics, and immutable source hashes. The 0.63 MB generated report is required all-row scientific evidence, not duplicated raw NPZ data.",
     "phase_b_expected_generated_file_count": 86,
     "phase_b_result_line_count": 12040,
-    "phase_b_reason": "The complete causal checkpoint preserves all 48 rows, 80 raw NPZ traces, stdout/stderr, host resource telemetry, and the sealed adjudication. The 1.46 MB panel directory is immutable all-row evidence required by the protocol and exceeds 5,000 generated JSON lines only because no row or trace metric is omitted."
+    "phase_b_reason": "The complete causal checkpoint preserves all 48 rows, 80 raw NPZ traces, stdout/stderr, host resource telemetry, and the sealed adjudication. The 1.46 MB panel directory is immutable all-row evidence required by the protocol and exceeds 5,000 generated JSON lines only because no row or trace metric is omitted.",
+    "phase_c_expected_generated_file_count": 34,
+    "phase_c_reason": "The bounded controller checkpoint preserves the frozen protocol and seal, all 12 pilot rows, 24 raw NPZ traces, stdout/stderr, host resource telemetry, the sealed adjudication, and the trace-phase terminal diagnosis. These are immutable all-row controller evidence; no validation or confirmation artifact was opened."
   },
   "branch": "codex/epoch9d-causal-probe-bounded-convergence",
   "confirmation_accessed": false,
@@ -338,15 +340,70 @@
       "wsl_swap_used_bytes": 0
     }
   },
+  "phase_c_evidence": {
+    "bounded_failure_json": {
+      "path": "reports/epoch9d_controller_bounded_failure.json",
+      "sha256": "6FF008A49F05118A28F1BA43EAA31DB5FFB94D7AFD1F0078A995F3E533B58733"
+    },
+    "bounded_failure_markdown": {
+      "path": "reports/epoch9d_controller_bounded_failure.md",
+      "sha256": "595823799E6246CFCF5CC565D1819527A95A69371E80EAACEE3C2B8331F49413"
+    },
+    "conditional_adjustment_eligible": false,
+    "controller_protocol": {
+      "path": "reports/epoch9d_controller_development_protocol.json",
+      "sha256": "02E7DBE1CAF84D3E03B954CAFD68AAF51A056F03A7C75E9BC9B8720B78E81175"
+    },
+    "decision": "ACTIVE_DYNAMIC_PROBE_SIGNAL_CONFIRMED_TASK_PRESERVATION_NOT_ACHIEVED",
+    "execution_seal": {
+      "path": "reports/epoch9d_controller_pilot_execution_seal.json",
+      "sha256": "9320BD4253D6FC9EDE5632483212A06D305571B5AEBCA731FCB86D380BD6AE90"
+    },
+    "host_resource_monitor": {
+      "path": "reports/epoch9d_controller_development/variant1_pilot_host_resource_monitor.json",
+      "sha256": "838D851A3B229836C2BBFD9A0CB65753EAB666B72E824AC47CFF3E3AAE3D8351"
+    },
+    "pilot_adjudication_json": {
+      "path": "reports/epoch9d_controller_variant1_pilot_adjudication.json",
+      "sha256": "ECD62D309FB6716DCC6F4A9A539A169FA5EF2126942C3CFA7333C8287D677B09"
+    },
+    "pilot_adjudication_markdown": {
+      "path": "reports/epoch9d_controller_variant1_pilot_adjudication.md",
+      "sha256": "8D1EF0F2DAB6644D4A46E5A1694684628C51768C307EF399E72E0FF7C9680008"
+    },
+    "pilot_counts": {
+      "both_candidates_contacted_or_excited_scenes": 12,
+      "collisions_identity_swaps_falls_workspace_exits": 0,
+      "finite_bounded_actions": 24,
+      "intended_contact_or_excitation": 24,
+      "lane_and_reachability": 20,
+      "oracle_completion": 12,
+      "rank_back_heavy": 3,
+      "rank_correct": 9,
+      "rank_front_heavy": 6
+    },
+    "raw_result": {
+      "path": "reports/epoch9d_controller_development/variant1_pilot_result.json",
+      "sha256": "B2BEACC5763ED69B1C322917441CEA5B107BF0F748D87197556F9A2BA66A528C"
+    },
+    "resource_peaks": {
+      "host_ram_percent": 58.75891485954027,
+      "process_rss_bytes": 2378194944,
+      "system_wide_gpu_used_mib": 2136,
+      "wsl_mem_used_bytes": 2132656128,
+      "wsl_swap_used_bytes": 0
+    },
+    "variant2_authorized": false
+  },
   "phase_status": {
     "A_existing_trace_causal_diagnosis": "COMPLETED_PRIMARY_SCORE_FROZEN",
     "B_mass_swap_causal_panel": "CAUSAL_SIGNAL_GO",
-    "C_task_preserving_controller": "AUTHORIZED_BOUNDED_DEVELOPMENT",
-    "D_model_validation": "LOCKED_PENDING_CONTROLLER_GO",
-    "E_official_and_confirmation": "LOCKED_PENDING_MODEL_VALIDATION_GO",
-    "paper_package": "LOCKED_PENDING_POSITIVE_CONFIRMATION"
+    "C_task_preserving_controller": "TERMINAL_TASK_PRESERVATION_NOT_ACHIEVED",
+    "D_model_validation": "NOT_AUTHORIZED_CONTROLLER_GO_FAILED",
+    "E_official_and_confirmation": "NOT_AUTHORIZED_CONTROLLER_GO_FAILED",
+    "paper_package": "NOT_AUTHORIZED_CONTROLLER_GO_FAILED"
   },
-  "program_status": "ACTIVE_DYNAMIC_PROBE_SIGNAL_CONFIRMED_TASK_PRESERVATION_UNRESOLVED",
+  "program_status": "ACTIVE_DYNAMIC_PROBE_SIGNAL_CONFIRMED_TASK_PRESERVATION_NOT_ACHIEVED",
   "protected_rollouts": [
     {
       "file_count": 27,
@@ -400,6 +457,6 @@
     "sha256": "66A11F26B52579A18C3532901A9A84AEE0D7D37587995004DEB606902787BEC1"
   },
   "starting_checkpoint": "fee058a022e0af347f413f7a8b0361f3cd9074c9",
-  "timestamp": "2026-07-21T13:11:54+09:00",
+  "timestamp": "2026-07-21T13:35:07+09:00",
   "validation_accessed": false
 }

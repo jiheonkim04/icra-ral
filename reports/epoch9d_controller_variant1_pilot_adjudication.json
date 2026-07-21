@@ -1,0 +1,132 @@
+{
+  "adjudicated_at": "2026-07-21T13:32:17+09:00",
+  "conditional_adjustment_eligible": false,
+  "confirmation_accessed": false,
+  "controller": {
+    "base_controller_config": {
+      "approach_control_steps_per_increment": 4,
+      "approach_increment_m": 0.003,
+      "approach_start_offset_x_m": -0.095,
+      "approach_stop_offset_x_m": -0.04,
+      "back_heavy_threshold_m": 0.005219466062047384,
+      "close_steps": 8,
+      "coast_steps": 2,
+      "contact_verify_retract_m": 0.008,
+      "contact_verify_steps": 7,
+      "controller_error_consecutive_steps": 2,
+      "controller_error_contact_m": 0.012,
+      "controller_error_over_baseline_m": 0.006,
+      "front_clear_approach_y_m": 0.105,
+      "front_contact_transition_offset_x_m": -0.062,
+      "gripper_closed_command": 1.0,
+      "impulse_action_x": 0.65,
+      "impulse_steps": 3,
+      "move_gain_denominator_m": 0.04,
+      "neutral_tolerance_m": 0.004,
+      "paddle_y_offset_m": 0.018,
+      "paddle_z_m": 0.93,
+      "visual_contact_threshold_pixels": 0.55,
+      "visual_quality_min": 0.5
+    },
+    "guard": {
+      "action": "place the paddle on the nearer y-boundary side of the candidate so any incidental lateral component points toward lane interior; otherwise retain the original slot-specific approach",
+      "active_only_after_approach_x_offset_m_at_or_above": -0.062,
+      "admissible_position_source": "ordinary RGB localization through the frozen pixel-to-world calibration",
+      "identical_for_heavy_and_light": true,
+      "lane_source": "offline frozen workspace geometry",
+      "mass_or_property_input": false,
+      "trigger_derivation": "0.007188 m maximum historical observation-derived lateral excursion plus a conservative margin, rounded to 0.010 m",
+      "trigger_signed_y_margin_m_at_or_below": 0.01
+    },
+    "name": "original_response_with_predictive_inward_lane_guard_and_neutral_retract",
+    "neutral_retract": "unchanged label-blind -x side retreat, vertical clearance, and proprioceptive neutral return after the five-step response window",
+    "response_window_unchanged": true,
+    "score_and_threshold_unchanged": true
+  },
+  "controller_protocol_path": "reports/epoch9d_controller_development_protocol.json",
+  "controller_protocol_sha256": "02E7DBE1CAF84D3E03B954CAFD68AAF51A056F03A7C75E9BC9B8720B78E81175",
+  "counts": {
+    "both_candidates_contacted_or_excited_scenes": 12,
+    "collisions": 0,
+    "complete_scenes": 12,
+    "falls": 0,
+    "finite_bounded_actions": 24,
+    "guard_triggered_probes": 12,
+    "identity_swaps": 0,
+    "intended_contact_or_excitation": 24,
+    "lane_and_reachability": 20,
+    "oracle_completion": 12,
+    "probes": 24,
+    "rank_by_heavy_position": {
+      "back": {
+        "correct": 3,
+        "total": 6
+      },
+      "front": {
+        "correct": 6,
+        "total": 6
+      }
+    },
+    "rank_correct": 9,
+    "scenes": 12,
+    "track_losses": 0,
+    "workspace_exits": 0
+  },
+  "decision": "VARIANT1_PILOT_NOT_SELECTED",
+  "execution_bindings": {
+    "adjudicator": true,
+    "calibration": true,
+    "controller_freeze": true,
+    "host_wrapper": true,
+    "original_runner": true,
+    "protocol": true,
+    "runner": true
+  },
+  "execution_seal_path": "reports/epoch9d_controller_pilot_execution_seal.json",
+  "execution_seal_sha256": "9320BD4253D6FC9EDE5632483212A06D305571B5AEBCA731FCB86D380BD6AE90",
+  "failed_lane_probe_adjustment_audit": [
+    {
+      "precontact_rgb_signed_y_margin_m": 0.0004361042330209841,
+      "row_key": "epoch9d_controller_pilot_072",
+      "slot": "front",
+      "within_frozen_adjustment_interval": false
+    },
+    {
+      "precontact_rgb_signed_y_margin_m": 0.03416771086440137,
+      "row_key": "epoch9d_controller_pilot_072",
+      "slot": "back",
+      "within_frozen_adjustment_interval": false
+    },
+    {
+      "precontact_rgb_signed_y_margin_m": 0.0031892907344607466,
+      "row_key": "epoch9d_controller_pilot_075",
+      "slot": "back",
+      "within_frozen_adjustment_interval": false
+    },
+    {
+      "precontact_rgb_signed_y_margin_m": 0.02763632985592515,
+      "row_key": "epoch9d_controller_pilot_075",
+      "slot": "front",
+      "within_frozen_adjustment_interval": false
+    }
+  ],
+  "gates": {
+    "complete_scenes_12_of_12": true,
+    "finite_bounded_actions_24_of_24": true,
+    "intended_contact_or_excitation_at_least_23_of_24": true,
+    "lane_and_reachability_24_of_24": false,
+    "oracle_completion_at_least_10_of_12": true,
+    "rank_back_heavy_at_least_5_of_6": false,
+    "rank_correct_at_least_10_of_12": false,
+    "rank_front_heavy_at_least_5_of_6": true,
+    "zero_collision_identity_swap_fall_workspace_exit": true
+  },
+  "host_resource_path": "reports/epoch9d_controller_development/variant1_pilot_host_resource_monitor.json",
+  "host_resource_sha256": "838D851A3B229836C2BBFD9A0CB65753EAB666B72E824AC47CFF3E3AAE3D8351",
+  "pilot_selection_go": false,
+  "protocol_violations": [],
+  "result_path": "reports/epoch9d_controller_development/variant1_pilot_result.json",
+  "result_sha256": "B2BEACC5763ED69B1C322917441CEA5B107BF0F748D87197556F9A2BA66A528C",
+  "schema_version": "epoch9d.controller_variant1_pilot_adjudication.v1",
+  "validation_accessed": false
+}

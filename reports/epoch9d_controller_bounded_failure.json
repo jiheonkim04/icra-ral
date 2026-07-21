@@ -1,0 +1,258 @@
+{
+  "causal_signal_status": "CAUSAL_SIGNAL_GO_REMAINS_ESTABLISHED",
+  "closed_at": "2026-07-21T13:34:45+09:00",
+  "conditional_adjustment_eligible": false,
+  "confirmation_accessed": false,
+  "downstream_stage_authority": {
+    "confirmation": false,
+    "estimator_training": false,
+    "fresh_24_scene_controller_feasibility": false,
+    "official_closed_loop": false,
+    "paper_package": false,
+    "validation": false
+  },
+  "failed_selection_gates": [
+    "lane_and_reachability_24_of_24",
+    "rank_back_heavy_at_least_5_of_6",
+    "rank_correct_at_least_10_of_12"
+  ],
+  "inherited_lane_failure_probe_count": 2,
+  "lane_failure_probe_rows": [
+    {
+      "failure_sample_count": 90,
+      "first_failure_index": 101,
+      "first_failure_phase": "contact_verify_retract",
+      "first_failure_positions_m_eval_only": {
+        "front": [
+          0.08610522001981735,
+          0.17613811790943146,
+          0.8989279270172119
+        ]
+      },
+      "first_failure_slots": [
+        "front"
+      ],
+      "guard_events": [
+        {
+          "approach_offset_x_m": -0.06199999999999997,
+          "estimated_target_y_m": 0.174563895766979,
+          "guarded_approach_y_m": 0.192563895766979,
+          "nearest_boundary": "upper",
+          "original_approach_y_m": 0.15656389576697902,
+          "signed_y_lane_margin_m": 0.0004361042330209841,
+          "slot": "front"
+        },
+        {
+          "approach_offset_x_m": -0.05899999999999997,
+          "estimated_target_y_m": 0.174563895766979,
+          "guarded_approach_y_m": 0.192563895766979,
+          "nearest_boundary": "upper",
+          "original_approach_y_m": 0.15656389576697902,
+          "signed_y_lane_margin_m": 0.0004361042330209841,
+          "slot": "front"
+        }
+      ],
+      "heavy_slot": "front",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "probe_slot": "front",
+      "response_estimated_displacement_m": 0.004833180096284121,
+      "row_key": "epoch9d_controller_pilot_072",
+      "source": "new_exit_in_this_probe",
+      "spatial_stratum": "front_upper_edge",
+      "trace_path": "reports/epoch9d_controller_development/variant1_pilot_traces/epoch9d_controller_pilot_072_front.npz",
+      "trace_sha256": "3AC568502AC6B6463CCC1EA49561A4B6D5C8CF14F7367B3FE6EF0C70B3600027"
+    },
+    {
+      "failure_sample_count": 163,
+      "first_failure_index": 0,
+      "first_failure_phase": "preclose_paddle",
+      "first_failure_positions_m_eval_only": {
+        "front": [
+          0.09179333597421646,
+          0.1768476814031601,
+          0.8983865976333618
+        ]
+      },
+      "first_failure_slots": [
+        "front"
+      ],
+      "guard_events": [],
+      "heavy_slot": "front",
+      "probe_order": [
+        "front",
+        "back"
+      ],
+      "probe_slot": "back",
+      "response_estimated_displacement_m": 0.010747898234435317,
+      "row_key": "epoch9d_controller_pilot_072",
+      "source": "inherited_from_prior_probe",
+      "spatial_stratum": "front_upper_edge",
+      "trace_path": "reports/epoch9d_controller_development/variant1_pilot_traces/epoch9d_controller_pilot_072_back.npz",
+      "trace_sha256": "98D89E8CA96AF35B8D75F93995897452ECE33040DBE5E4118A66E873A383DB7E"
+    },
+    {
+      "failure_sample_count": 67,
+      "first_failure_index": 85,
+      "first_failure_phase": "contact_verify_retract",
+      "first_failure_positions_m_eval_only": {
+        "back": [
+          -0.15866248309612274,
+          0.014436244033277035,
+          0.8986891508102417
+        ]
+      },
+      "first_failure_slots": [
+        "back"
+      ],
+      "guard_events": [
+        {
+          "approach_offset_x_m": -0.06199999999999997,
+          "estimated_target_y_m": 0.018189290734460746,
+          "guarded_approach_y_m": 0.00018929073446074737,
+          "nearest_boundary": "lower",
+          "original_approach_y_m": 0.03618929073446074,
+          "signed_y_lane_margin_m": 0.0031892907344607466,
+          "slot": "back"
+        }
+      ],
+      "heavy_slot": "back",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "probe_slot": "back",
+      "response_estimated_displacement_m": 0.00536474015369,
+      "row_key": "epoch9d_controller_pilot_075",
+      "source": "new_exit_in_this_probe",
+      "spatial_stratum": "back_lower_edge",
+      "trace_path": "reports/epoch9d_controller_development/variant1_pilot_traces/epoch9d_controller_pilot_075_back.npz",
+      "trace_sha256": "D28F42B8DD78130C8AFBC7C95909ABD26A74845A059599AC383D31B100CAF925"
+    },
+    {
+      "failure_sample_count": 223,
+      "first_failure_index": 0,
+      "first_failure_phase": "preclose_paddle",
+      "first_failure_positions_m_eval_only": {
+        "back": [
+          -0.15433037281036377,
+          0.014128925278782845,
+          0.8983865976333618
+        ]
+      },
+      "first_failure_slots": [
+        "back"
+      ],
+      "guard_events": [],
+      "heavy_slot": "back",
+      "probe_order": [
+        "back",
+        "front"
+      ],
+      "probe_slot": "front",
+      "response_estimated_displacement_m": 0.001292643890486827,
+      "row_key": "epoch9d_controller_pilot_075",
+      "source": "inherited_from_prior_probe",
+      "spatial_stratum": "back_lower_edge",
+      "trace_path": "reports/epoch9d_controller_development/variant1_pilot_traces/epoch9d_controller_pilot_075_front.npz",
+      "trace_sha256": "C1B4C6C3380A5CA7EB8ABD57840A11201FFE07108CF8717FF8D73AE64DA9F53A"
+    }
+  ],
+  "new_lane_exit_count": 2,
+  "new_lane_exit_phases": [
+    "contact_verify_retract",
+    "contact_verify_retract"
+  ],
+  "post_probe_pose_is_sole_limiting_cause": false,
+  "protocol_violations": [],
+  "rank_failure_rows": [
+    {
+      "back_response_minus_threshold_m": 0.00014527409164261616,
+      "heavy_slot": "back",
+      "responses_m": {
+        "back": 0.00536474015369,
+        "front": 0.001292643890486827
+      },
+      "row_key": "epoch9d_controller_pilot_075",
+      "spatial_stratum": "back_lower_edge"
+    },
+    {
+      "back_response_minus_threshold_m": 0.0015068027367967788,
+      "heavy_slot": "back",
+      "responses_m": {
+        "back": 0.006726268798844162,
+        "front": 0.0006649922561319244
+      },
+      "row_key": "epoch9d_controller_pilot_082",
+      "spatial_stratum": "dual_edge"
+    },
+    {
+      "back_response_minus_threshold_m": 0.0007295340333653873,
+      "heavy_slot": "back",
+      "responses_m": {
+        "back": 0.005949000095412771,
+        "front": 0.000738193184688843
+      },
+      "row_key": "epoch9d_controller_pilot_083",
+      "spatial_stratum": "interior"
+    }
+  ],
+  "schema_version": "epoch9d.bounded_controller_failure.v1",
+  "search_budget_audit": {
+    "fresh_pilot_scenes_executed": 12,
+    "maximum_fresh_pilot_scenes": 24,
+    "maximum_variants_beyond_original": 2,
+    "reason_no_further_pilot": "the only frozen Variant 1 adjustment condition failed and the frozen Variant 2 authorization condition failed",
+    "remaining_budget_is_not_authority": true,
+    "variants_executed": 1
+  },
+  "source_evidence": {
+    "adjudication": {
+      "path": "reports/epoch9d_controller_variant1_pilot_adjudication.json",
+      "sha256": "ECD62D309FB6716DCC6F4A9A539A169FA5EF2126942C3CFA7333C8287D677B09"
+    },
+    "protocol": {
+      "path": "reports/epoch9d_controller_development_protocol.json",
+      "sha256": "02E7DBE1CAF84D3E03B954CAFD68AAF51A056F03A7C75E9BC9B8720B78E81175"
+    },
+    "result": {
+      "path": "reports/epoch9d_controller_development/variant1_pilot_result.json",
+      "sha256": "B2BEACC5763ED69B1C322917441CEA5B107BF0F748D87197556F9A2BA66A528C"
+    }
+  },
+  "task_preserving_controller_go": false,
+  "terminal_program_status": "ACTIVE_DYNAMIC_PROBE_SIGNAL_CONFIRMED_TASK_PRESERVATION_NOT_ACHIEVED",
+  "validation_accessed": false,
+  "variant1_pilot_counts": {
+    "both_candidates_contacted_or_excited_scenes": 12,
+    "collisions": 0,
+    "complete_scenes": 12,
+    "falls": 0,
+    "finite_bounded_actions": 24,
+    "guard_triggered_probes": 12,
+    "identity_swaps": 0,
+    "intended_contact_or_excitation": 24,
+    "lane_and_reachability": 20,
+    "oracle_completion": 12,
+    "probes": 24,
+    "rank_by_heavy_position": {
+      "back": {
+        "correct": 3,
+        "total": 6
+      },
+      "front": {
+        "correct": 6,
+        "total": 6
+      }
+    },
+    "rank_correct": 9,
+    "scenes": 12,
+    "track_losses": 0,
+    "workspace_exits": 0
+  },
+  "variant1_pilot_decision": "VARIANT1_PILOT_NOT_SELECTED",
+  "variant2_authorized": false,
+  "variant2_rejection_reason": "Both causal lane exits began during contact_verify_retract before the fixed five-step response window; they are not post-probe pose/restoration failures. The pilot also missed the overall and back-heavy ranking gates, which a later recovery stage cannot change without violating the frozen response window."
+}

@@ -100,3 +100,24 @@ def test_controller_pilot_execution_seal_binds_every_executable_after_build() ->
         ("calibration_path", "calibration_sha256"),
     ):
         assert sha256(ROOT / seal[path_key]) == seal[hash_key]
+
+
+def test_bounded_controller_failure_closes_downstream_authority_if_present() -> None:
+    failure_path = REPORTS / "epoch9d_controller_bounded_failure.json"
+    if not failure_path.exists():
+        return
+    failure = json.loads(failure_path.read_text(encoding="utf-8"))
+    state = json.loads((REPORTS / "epoch9d_campaign_state.json").read_text(encoding="utf-8"))
+    assert failure["terminal_program_status"] == (
+        "ACTIVE_DYNAMIC_PROBE_SIGNAL_CONFIRMED_TASK_PRESERVATION_NOT_ACHIEVED"
+    )
+    assert failure["new_lane_exit_phases"] == ["contact_verify_retract", "contact_verify_retract"]
+    assert failure["conditional_adjustment_eligible"] is False
+    assert failure["variant2_authorized"] is False
+    assert not any(failure["downstream_stage_authority"].values())
+    assert failure["validation_accessed"] is False
+    assert failure["confirmation_accessed"] is False
+    assert state["program_status"] == failure["terminal_program_status"]
+    assert state["phase_status"]["C_task_preserving_controller"] == (
+        "TERMINAL_TASK_PRESERVATION_NOT_ACHIEVED"
+    )
