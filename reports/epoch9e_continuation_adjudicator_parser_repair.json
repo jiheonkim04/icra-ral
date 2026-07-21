@@ -1,0 +1,19 @@
+{
+  "confirmation_accessed": false,
+  "executed_sealed_host_sha256": "2696C37A2B5E1DA039C474119AE3D03AB206CF88065FD762DAB84B8156FEB949",
+  "future_repaired_host_path": "scripts/run_epoch9e_joint_continuation_host.ps1",
+  "future_repaired_host_sha256": "15CF9E77F60B81B3EB1AFEBC6B492BF30E74E952288F6A279F399CC8DC078D28",
+  "original_sealed_adjudicator_sha256": "FF2828E4759F4C238E814711EC23793A7B760154AA0990F305D50AF9A1556786",
+  "outcomes_recomputed_or_rerun": false,
+  "recorded_at": "2026-07-21T16:23:38+09:00",
+  "repair_scope": "accept only the hash-bound attempt-1 raw status text `0n` as exit 0 when WSL process exit, completed stdout summary, result hash, and absence of exception all agree",
+  "repaired_adjudicator_path": "scripts/adjudicate_epoch9e_joint_continuation.py",
+  "repaired_adjudicator_sha256": "1E4AA585BA0046A299656CD5484BFA1DB82EDA2F66744C3DD5A2373F5C7B57A8",
+  "schema_version": "epoch9e.continuation_adjudicator_parser_repair.v1",
+  "scientific_fields_changed": false,
+  "source_checkpoint": "04362e37480de14f4519cbf6c675e7269599dd5b",
+  "status_correction_path": "reports/epoch9e_continuation_host_exit_status_correction.json",
+  "status_correction_sha256": "AF54C1E1DFC9848848C7628F6993492CE90D5D3ECCE42C7AF00892A27957C599",
+  "threshold_score_endpoint_gate_or_missing_pair_rule_changed": false,
+  "validation_accessed": false
+}

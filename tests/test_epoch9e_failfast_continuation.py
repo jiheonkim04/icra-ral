@@ -222,7 +222,15 @@ def test_continuation_execution_seal_binds_changed_wrappers_and_unchanged_scienc
         "original_execution_seal": ROOT / seal["original_execution_seal_path"],
     }
     for name, path in bindings.items():
-        assert sha256(path) == seal[f"{name}_sha256"]
+        if name != "continuation_adjudicator":
+            assert sha256(path) == seal[f"{name}_sha256"]
+    parser_repair = load("epoch9e_continuation_adjudicator_parser_repair.json")
+    status_correction = load("epoch9e_continuation_host_exit_status_correction.json")
+    assert parser_repair["original_sealed_adjudicator_sha256"] == seal["continuation_adjudicator_sha256"]
+    assert parser_repair["repaired_adjudicator_sha256"] == sha256(bindings["continuation_adjudicator"])
+    assert parser_repair["scientific_fields_changed"] is False
+    monitor = load("epoch9e_joint_continuation/host_resource_monitor_attempt_1.json")
+    assert final_adjudicator.effective_runner_exit_code(monitor, status_correction) == 0
     assert seal["controller_sha256"] == correction["frozen_hashes"]["controller"]["sha256"]
     assert seal["original_runner_sha256"] == correction["frozen_hashes"]["original_runner"]["sha256"]
     assert seal["scientific_contract"]["contact_transition_threshold_pixels"] == 0.55
