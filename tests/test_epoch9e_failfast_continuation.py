@@ -201,3 +201,35 @@ def test_host_wrapper_captures_authoritative_python_exit_and_only_resumes_missin
     assert "missing_key_only" in source
     assert "run_epoch9e_joint_continuation.py" in source
     assert "run_epoch9e_joint_certification.py" not in source
+
+
+def test_continuation_execution_seal_binds_changed_wrappers_and_unchanged_science() -> None:
+    seal = load("epoch9e_joint_continuation_execution_seal.json")
+    correction = load("epoch9e_failfast_root_cause_and_scope_correction.json")
+    bindings = {
+        "joint_protocol": ROOT / seal["joint_protocol_path"],
+        "controller": ROOT / seal["controller_path"],
+        "original_runner": ROOT / seal["original_runner_path"],
+        "continuation_runner": ROOT / seal["continuation_runner_path"],
+        "continuation_adjudicator": ROOT / seal["continuation_adjudicator_path"],
+        "continuation_host": ROOT / seal["continuation_host_path"],
+        "continuation_schedule": ROOT / seal["continuation_schedule_path"],
+        "missing_pair_sensitivity": ROOT / seal["missing_pair_sensitivity_path"],
+        "root_cause_correction": ROOT / seal["root_cause_correction_path"],
+        "interrupted_result": ROOT / seal["interrupted_result_path"],
+        "interrupted_adjudication": ROOT / seal["interrupted_adjudication_path"],
+        "original_execution_seal": ROOT / seal["original_execution_seal_path"],
+    }
+    for name, path in bindings.items():
+        assert sha256(path) == seal[f"{name}_sha256"]
+    assert seal["controller_sha256"] == correction["frozen_hashes"]["controller"]["sha256"]
+    assert seal["original_runner_sha256"] == correction["frozen_hashes"]["original_runner"]["sha256"]
+    assert seal["scientific_contract"]["contact_transition_threshold_pixels"] == 0.55
+    assert seal["scientific_contract"]["primary_score"]["threshold_m"] == 0.005219466062047384
+    assert seal["integrity_only_repair_allowance_consumed"] is True
+    assert seal["controller_or_scientific_repair_used"] is False
+    assert all("20261134" not in key for key in seal["pending_primary_row_keys"])
+    assert seal["never_recompute_keys"] == [
+        "primary:epoch9e_joint_base_20261134_assignment_A",
+        "primary:epoch9e_joint_base_20261134_assignment_B",
+    ]

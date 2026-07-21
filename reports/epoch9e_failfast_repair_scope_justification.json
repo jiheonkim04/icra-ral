@@ -1,0 +1,26 @@
+{
+  "allowed_behavior_change": "finalize exactly classified missing frozen response windows and continue subsequent untouched keys",
+  "authority_freeze_checkpoint": "db1b10b",
+  "base_20261134_rerun": false,
+  "confirmation_accessed": false,
+  "historical_files_modified": [],
+  "new_runtime_files": [
+    "scripts/run_epoch9e_joint_continuation.py",
+    "scripts/adjudicate_epoch9e_joint_continuation.py",
+    "scripts/run_epoch9e_joint_continuation_host.ps1"
+  ],
+  "other_exceptions_swallowed": false,
+  "pending_outcomes_accessed_before_seal": false,
+  "recorded_at": "2026-07-21T16:09:18+09:00",
+  "schema_version": "epoch9e.failfast_repair_scope_justification.v1",
+  "scientific_hashes_unchanged": {
+    "controller": "99DA452B5AD3603A9FDD1209704479B18F302987E79C65EA8C4B9622E16657D7",
+    "original_runner": "E8D72A8AF421727E262F90026C24ECFCEA0A2A0AA68E4D2FE0AE11AC4B6542D4",
+    "protocol": "7D481F280D62F27702C6AF8942DFA092340B377F0EDD1CB65FF9B724E67E6D84",
+    "scientific_contract": "B57E4E5143DC604CE0BF74A395B8186112248078F823E34457765875C5BC8C42"
+  },
+  "seal_source_checkpoint": "a6f7738d20eca57ec903ffbca747206c0d8a32d8",
+  "starting_checkpoint": "4f57ecb94a3c84e0a5889bc0bd60cbd53ad415e8",
+  "validation_accessed": false,
+  "wrapper_repair_checkpoint": "7368b56"
+}

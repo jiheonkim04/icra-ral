@@ -1,0 +1,226 @@
+{
+  "authority_document_sha256": "A70E137D2C92E0395F47E13CF99692702F0FDB86E2CC714B5C219D66618EC9E7",
+  "authorized_exception_prefix": "RuntimeError: trace does not contain the frozen five-step response window: ",
+  "branch": "codex/epoch9e-nondrag-disengagement-convergence",
+  "confirmation_accessed": false,
+  "continuation_adjudicator_path": "scripts/adjudicate_epoch9e_joint_continuation.py",
+  "continuation_adjudicator_sha256": "FF2828E4759F4C238E814711EC23793A7B760154AA0990F305D50AF9A1556786",
+  "continuation_host_path": "scripts/run_epoch9e_joint_continuation_host.ps1",
+  "continuation_host_sha256": "2696C37A2B5E1DA039C474119AE3D03AB206CF88065FD762DAB84B8156FEB949",
+  "continuation_runner_path": "scripts/run_epoch9e_joint_continuation.py",
+  "continuation_runner_sha256": "767F11D8648304306E0847C7AD50DFB7BC8F9C74FAC3423F55674F755C0491BC",
+  "continuation_schedule_path": "reports/epoch9e_continuation_schedule_audit.json",
+  "continuation_schedule_sha256": "EA1625539E65EA8D35723C0A4D3DF1687CAF7E97EDCD678BDB5A38EE92FF8EC9",
+  "controller_or_scientific_repair_used": false,
+  "controller_path": "scripts/epoch9e_nondrag_controller.py",
+  "controller_sha256": "99DA452B5AD3603A9FDD1209704479B18F302987E79C65EA8C4B9622E16657D7",
+  "explicit_authority_path": "reports/epoch9e_failfast_continuation_authorization.json",
+  "explicit_authority_sha256": "BB443AE06515C5B83E86422497C952A34590360D431BC7AF1B4B5A10432F1AFE",
+  "immutable_existing_traces": [
+    {
+      "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_A_back.npz",
+      "sha256": "BB3D520CE7E9E746ED92391A0A600FA74ADF824D02F6859FADAD770321F75CE6"
+    },
+    {
+      "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_A_front.npz",
+      "sha256": "E338FACB56A3CDA9514D05B4EFAD6EEB6B3993B0F3D4F26D93EE753365569513"
+    },
+    {
+      "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_back.npz",
+      "sha256": "4E7D1316E8B8094638D3A7D43D3E29587D0A4203BA6CF71592CC26B1BE2E9A5F"
+    },
+    {
+      "path": "reports/epoch9e_joint_certification/traces/epoch9e_joint_base_20261134_assignment_B_front.npz",
+      "sha256": "0DD916B36A6FE253EF0A20269FA45AE27913700E5CE28DD268A2E5ADF12425BC"
+    }
+  ],
+  "integrity_only_repair_allowance_consumed": true,
+  "interrupted_adjudication_path": "reports/epoch9e_joint_certification_adjudication.json",
+  "interrupted_adjudication_sha256": "A7EA168ECAED502F61A3BFCF3E21F7EF2A688F5BE82D2413D26FCC4FD8A07022",
+  "interrupted_result_path": "reports/epoch9e_joint_certification/result.json",
+  "interrupted_result_sha256": "BC9E772479ABAFF477D9EA56399E4A4BB407F1874439A7ACE20E8B84F3C332C8",
+  "joint_protocol_path": "reports/epoch9e_joint_certification_protocol.json",
+  "joint_protocol_sha256": "7D481F280D62F27702C6AF8942DFA092340B377F0EDD1CB65FF9B724E67E6D84",
+  "missing_pair_sensitivity_path": "reports/epoch9e_missing_pair_sensitivity_protocol.json",
+  "missing_pair_sensitivity_sha256": "5336BD71E33A36AFFD472480080C03015564D5C8E476EC1C21C9A4F765E2CE89",
+  "never_recompute_keys": [
+    "primary:epoch9e_joint_base_20261134_assignment_A",
+    "primary:epoch9e_joint_base_20261134_assignment_B"
+  ],
+  "original_execution_seal_path": "reports/epoch9e_joint_execution_seal.json",
+  "original_execution_seal_sha256": "99ED27CFEE1F9402F1270036ED208EC495D8A423ADEEA2DBF48AF5501B4F9870",
+  "original_runner_path": "scripts/run_epoch9e_joint_certification.py",
+  "original_runner_sha256": "E8D72A8AF421727E262F90026C24ECFCEA0A2A0AA68E4D2FE0AE11AC4B6542D4",
+  "pending_outcomes_accessed_before_seal": false,
+  "pending_primary_row_keys": [
+    "primary:epoch9e_joint_base_20261135_assignment_A",
+    "primary:epoch9e_joint_base_20261135_assignment_B",
+    "primary:epoch9e_joint_base_20261136_assignment_A",
+    "primary:epoch9e_joint_base_20261136_assignment_B",
+    "primary:epoch9e_joint_base_20261137_assignment_A",
+    "primary:epoch9e_joint_base_20261137_assignment_B",
+    "primary:epoch9e_joint_base_20261138_assignment_A",
+    "primary:epoch9e_joint_base_20261138_assignment_B",
+    "primary:epoch9e_joint_base_20261139_assignment_A",
+    "primary:epoch9e_joint_base_20261139_assignment_B",
+    "primary:epoch9e_joint_base_20261140_assignment_A",
+    "primary:epoch9e_joint_base_20261140_assignment_B",
+    "primary:epoch9e_joint_base_20261141_assignment_A",
+    "primary:epoch9e_joint_base_20261141_assignment_B",
+    "primary:epoch9e_joint_base_20261142_assignment_A",
+    "primary:epoch9e_joint_base_20261142_assignment_B",
+    "primary:epoch9e_joint_base_20261143_assignment_A",
+    "primary:epoch9e_joint_base_20261143_assignment_B",
+    "primary:epoch9e_joint_base_20261144_assignment_A",
+    "primary:epoch9e_joint_base_20261144_assignment_B",
+    "primary:epoch9e_joint_base_20261145_assignment_A",
+    "primary:epoch9e_joint_base_20261145_assignment_B"
+  ],
+  "pending_sham_row_keys": [
+    "sham:epoch9e_joint_sham_base_20261134_assignment_A",
+    "sham:epoch9e_joint_sham_base_20261134_assignment_B",
+    "sham:epoch9e_joint_sham_base_20261135_assignment_A",
+    "sham:epoch9e_joint_sham_base_20261135_assignment_B",
+    "sham:epoch9e_joint_sham_base_20261136_assignment_A",
+    "sham:epoch9e_joint_sham_base_20261136_assignment_B",
+    "sham:epoch9e_joint_sham_base_20261137_assignment_A",
+    "sham:epoch9e_joint_sham_base_20261137_assignment_B",
+    "sham:epoch9e_joint_sham_base_20261138_assignment_A",
+    "sham:epoch9e_joint_sham_base_20261138_assignment_B",
+    "sham:epoch9e_joint_sham_base_20261139_assignment_A",
+    "sham:epoch9e_joint_sham_base_20261139_assignment_B"
+  ],
+  "root_cause_correction_path": "reports/epoch9e_failfast_root_cause_and_scope_correction.json",
+  "root_cause_correction_sha256": "7C72595666A286A0E6E36FE62906C41441342D85FE511A49A2AE9514E7CCB5D2",
+  "runtime": {
+    "environments_at_once": 1,
+    "host_ram_ceiling_percent": 82.0,
+    "missing_key_resume": true,
+    "models_at_once": 0,
+    "serial": true,
+    "wsl_swap_used_peak_bytes": 0
+  },
+  "schema_version": "epoch9e.joint_continuation_execution_seal.v1",
+  "scientific_contract": {
+    "contact_transition_threshold_pixels": 0.55,
+    "controller_config": {
+      "approach_control_steps_per_increment": 4,
+      "approach_increment_m": 0.003,
+      "approach_start_offset_x_m": -0.095,
+      "approach_stop_offset_x_m": -0.04,
+      "back_heavy_threshold_m": 0.005219466062047384,
+      "close_steps": 8,
+      "coast_steps": 2,
+      "contact_verify_retract_m": 0.008,
+      "contact_verify_steps": 7,
+      "controller_error_consecutive_steps": 2,
+      "controller_error_contact_m": 0.012,
+      "controller_error_over_baseline_m": 0.006,
+      "front_clear_approach_y_m": 0.105,
+      "front_contact_transition_offset_x_m": -0.062,
+      "gripper_closed_command": 1.0,
+      "impulse_action_x": 0.65,
+      "impulse_steps": 3,
+      "move_gain_denominator_m": 0.04,
+      "neutral_tolerance_m": 0.004,
+      "paddle_y_offset_m": 0.018,
+      "paddle_z_m": 0.93,
+      "visual_contact_threshold_pixels": 0.55,
+      "visual_quality_min": 0.5
+    },
+    "controller_name": "epoch9e_one_shot_nondrag_disengagement",
+    "joint_go": {
+      "all_misses_and_continuous_lane_displacement_disclosed": true,
+      "both_candidates_excited": {
+        "denominator": 24,
+        "minimum": 22
+      },
+      "collision_identity_swap_fall_workspace_exit_track_loss": {
+        "maximum": 0
+      },
+      "completion_oracle": {
+        "denominator": 24,
+        "minimum": 20
+      },
+      "completion_oracle_each_heavy_position": {
+        "denominator": 12,
+        "minimum": 9
+      },
+      "exact_pair_both_assignments_flip_correctly": {
+        "denominator": 12,
+        "minimum": 9
+      },
+      "finite_bounded_actions": {
+        "denominator": 48,
+        "minimum": 48
+      },
+      "full_trajectory_lane_reachable": {
+        "denominator": 48,
+        "minimum": 48
+      },
+      "intended_contact_or_excitation": {
+        "denominator": 48,
+        "minimum": 46
+      },
+      "paired_mass_response_test": "paired_test must pass",
+      "precontact_position_order_sham_controls": "all controls must pass",
+      "rank_correct": {
+        "denominator": 24,
+        "minimum": 20
+      },
+      "rank_correct_each_heavy_position": {
+        "denominator": 12,
+        "minimum": 10
+      }
+    },
+    "paired_test": {
+      "contrast": "back_response_when_back_light_B minus back_response_when_back_heavy_A",
+      "expected_direction": "positive",
+      "interval_requirement": "lower endpoint > 0",
+      "p_strictly_less_than": 0.01,
+      "paired_interval": "two-sided 95% Student-t interval for 12 exact-pair contrasts",
+      "primary_one_sided_test": "exact sign test discarding and reporting zeros"
+    },
+    "position_order_control": {
+      "adjusted_model": "OLS pair contrast on centered initial back x, back y, back lane margin, and back-first indicator with HC3 95% interval",
+      "adjusted_requirement": "positive estimate and lower endpoint > 0",
+      "first_rgb_exact_pairs": 12,
+      "initial_localization_exact_pairs": 12,
+      "position_order_only_denominator": 24,
+      "position_order_only_max_correct": 12,
+      "position_order_only_pair_flips": 0
+    },
+    "primary_score": {
+      "back_score_m": "back_response - threshold",
+      "front_score_m": "threshold - back_response",
+      "smaller_score_predicts_heavy": true,
+      "threshold_m": 0.005219466062047384,
+      "unchanged": true
+    },
+    "response_window": {
+      "action_sequence_x": [
+        0.65,
+        0.65,
+        0.65,
+        0.0,
+        0.0
+      ],
+      "coast_steps": 2,
+      "impulse_action_x": 0.65,
+      "impulse_steps": 3,
+      "unchanged": true,
+      "window_steps": 5
+    },
+    "sham_required": {
+      "collision_rows": 0,
+      "paired_mass_contrast_95_interval_includes_zero": true,
+      "prediction_flips": 0,
+      "sampled_contact_rows": 0
+    }
+  },
+  "scientific_contract_sha256": "B57E4E5143DC604CE0BF74A395B8186112248078F823E34457765875C5BC8C42",
+  "sealed_at": "2026-07-21T16:09:18+09:00",
+  "source_checkpoint": "a6f7738d20eca57ec903ffbca747206c0d8a32d8",
+  "starting_checkpoint": "4f57ecb94a3c84e0a5889bc0bd60cbd53ad415e8",
+  "validation_accessed": false
+}
