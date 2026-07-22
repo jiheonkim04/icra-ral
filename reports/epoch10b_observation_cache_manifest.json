@@ -1,0 +1,21 @@
+{
+  "all_environments_closed": true,
+  "all_restore_l2_within_1e_8": true,
+  "asset_bytes": 16758421,
+  "asset_root": "/mnt/c/assets/cache/epoch10b_stage0_observations",
+  "campaign": "epoch10b_icae_fresh_controller",
+  "checkpoint_actions_queried": 0,
+  "elapsed_seconds": 1201.884,
+  "freeze_sha256": "8328cd0fba7c888d8bdda15441f2b0c87b18ce7d47d487c1982facd5f02269ca",
+  "peak_host_ram_percent": 67.1774,
+  "peak_wsl_memory_used_bytes": 2370736128,
+  "peak_wsl_swap_used_bytes": 0,
+  "raw_path": "runs/epoch10b_stage0_action_cache/development_observations.jsonl",
+  "raw_sha256": "ff5f2313a64b0ea9a76c376d7d9c29ddae15c70fce6f1a232c9c37840ced9cd5",
+  "row_count": 109,
+  "schema_version": 1,
+  "simulator_outcomes_used": false,
+  "source_commit": "b9ab8f1be1c8c6eb6728ee6ef400e1abc991e116",
+  "status": "EPOCH10B_DEVELOPMENT_OBSERVATION_CACHE_COMPLETE",
+  "unique_key_count": 109
+}
