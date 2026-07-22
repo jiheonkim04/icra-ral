@@ -1,0 +1,189 @@
+{
+  "authority": {
+    "continuation_prompt_sha256": "29abb6edf9a4c662a42ac0eea7f8543ac5c1e88f42294056d1b1f4b07b0db420",
+    "erratum_parent_commit": "9216ac1aaf93caaeb2a00597832e6d9d0afaddbe",
+    "original_prompt_sha256": "24c2198d83ea262ff4133ffe7d44d63af65bd7ab93f237fdebcd4a47aeaefa66"
+  },
+  "campaign": "epoch10b_icae_fresh_controller",
+  "development_seeds": [
+    101,
+    202,
+    505,
+    606,
+    707,
+    808,
+    909,
+    1010
+  ],
+  "frozen_total_lineages": 12,
+  "hard_minimum_lineages": 8,
+  "heldout_seeds": [
+    303,
+    404,
+    1111,
+    1212
+  ],
+  "leakage_boundaries": {
+    "checkpoint_actions_queried": 0,
+    "comparative_simulator_outcomes_opened": false,
+    "confirmation_results_opened": false,
+    "development_success_labels_opened": false,
+    "heldout_success_labels_opened": false
+  },
+  "new_output_root": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4",
+  "new_retained_optimizer_steps": [
+    30,
+    100
+  ],
+  "new_training_seeds": [
+    505,
+    606,
+    707,
+    808,
+    909,
+    1010,
+    1111,
+    1212
+  ],
+  "original_adapter_inventory": [
+    {
+      "adapter_sha256": "8f49912a7e9f499d90c33d491dac725a62520e88d03c9776e57ce771992941b2",
+      "lineage_cluster": "epoch10_rank4_seed_101",
+      "optimizer_step": 10,
+      "partition": "checkpoint_development_panel",
+      "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_101\\step_0010",
+      "policy_identity": "epoch10_rank4_seed_101_step_0010",
+      "seed": 101,
+      "source": "immutable_epoch10_panel"
+    },
+    {
+      "adapter_sha256": "66356583d306c74594f7e587f639d19a766aec694d556a68e31cca89c2810ec5",
+      "lineage_cluster": "epoch10_rank4_seed_101",
+      "optimizer_step": 30,
+      "partition": "checkpoint_development_panel",
+      "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_101\\step_0030",
+      "policy_identity": "epoch10_rank4_seed_101_step_0030",
+      "seed": 101,
+      "source": "immutable_epoch10_panel"
+    },
+    {
+      "adapter_sha256": "8611b8c50e0af0251dcda12be32624896202d26d47ad9e564dfdc7c70a5efbd5",
+      "lineage_cluster": "epoch10_rank4_seed_101",
+      "optimizer_step": 100,
+      "partition": "checkpoint_development_panel",
+      "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_101\\step_0100",
+      "policy_identity": "epoch10_rank4_seed_101_step_0100",
+      "seed": 101,
+      "source": "immutable_epoch10_panel"
+    },
+    {
+      "adapter_sha256": "ec04bcd58facfe64b91548602e73d9f0b5cabe167922ef8994dd23f6079c089b",
+      "lineage_cluster": "epoch10_rank4_seed_202",
+      "optimizer_step": 10,
+      "partition": "checkpoint_development_panel",
+      "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_202\\step_0010",
+      "policy_identity": "epoch10_rank4_seed_202_step_0010",
+      "seed": 202,
+      "source": "immutable_epoch10_panel"
+    },
+    {
+      "adapter_sha256": "163892350da849da1690d71b192bbba3cdde77ea6b62e51603b9ffd84bb6dca5",
+      "lineage_cluster": "epoch10_rank4_seed_202",
+      "optimizer_step": 30,
+      "partition": "checkpoint_development_panel",
+      "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_202\\step_0030",
+      "policy_identity": "epoch10_rank4_seed_202_step_0030",
+      "seed": 202,
+      "source": "immutable_epoch10_panel"
+    },
+    {
+      "adapter_sha256": "56ba84d7a7ac86d22851595a60e6698d20fe72c258cc613f6198b970839bac06",
+      "lineage_cluster": "epoch10_rank4_seed_202",
+      "optimizer_step": 100,
+      "partition": "checkpoint_development_panel",
+      "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_202\\step_0100",
+      "policy_identity": "epoch10_rank4_seed_202_step_0100",
+      "seed": 202,
+      "source": "immutable_epoch10_panel"
+    },
+    {
+      "adapter_sha256": "5d135da126c1c392b6e87f9f65ebef95e5d6653ee69b8b7312190a06fd124af4",
+      "lineage_cluster": "epoch10_rank4_seed_303",
+      "optimizer_step": 10,
+      "partition": "checkpoint_holdout_panel",
+      "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_303\\step_0010",
+      "policy_identity": "epoch10_rank4_seed_303_step_0010",
+      "seed": 303,
+      "source": "immutable_epoch10_panel"
+    },
+    {
+      "adapter_sha256": "d224002038842e7f97b3b942acf7d0cdfb77131e2873ff4ce3517a2ff9ba2325",
+      "lineage_cluster": "epoch10_rank4_seed_303",
+      "optimizer_step": 30,
+      "partition": "checkpoint_holdout_panel",
+      "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_303\\step_0030",
+      "policy_identity": "epoch10_rank4_seed_303_step_0030",
+      "seed": 303,
+      "source": "immutable_epoch10_panel"
+    },
+    {
+      "adapter_sha256": "72a51f5b539551734692634438ffd413e7290fbb046ca1c6063e36e04f14d4fc",
+      "lineage_cluster": "epoch10_rank4_seed_303",
+      "optimizer_step": 100,
+      "partition": "checkpoint_holdout_panel",
+      "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_303\\step_0100",
+      "policy_identity": "epoch10_rank4_seed_303_step_0100",
+      "seed": 303,
+      "source": "immutable_epoch10_panel"
+    },
+    {
+      "adapter_sha256": "780f1f6f0c8bd08bce6bd254375691865b8bf0fe0ca72c76bddd12f7599d0f5b",
+      "lineage_cluster": "epoch10_rank4_seed_404",
+      "optimizer_step": 10,
+      "partition": "checkpoint_holdout_panel",
+      "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_404\\step_0010",
+      "policy_identity": "epoch10_rank4_seed_404_step_0010",
+      "seed": 404,
+      "source": "immutable_epoch10_panel"
+    },
+    {
+      "adapter_sha256": "ad7f8b9d2b271e863a1f987513ea1356c6d1317bdd6fba7014b4cc720902c370",
+      "lineage_cluster": "epoch10_rank4_seed_404",
+      "optimizer_step": 30,
+      "partition": "checkpoint_holdout_panel",
+      "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_404\\step_0030",
+      "policy_identity": "epoch10_rank4_seed_404_step_0030",
+      "seed": 404,
+      "source": "immutable_epoch10_panel"
+    },
+    {
+      "adapter_sha256": "a9c7f11b8d3d70fc92074f49055a84f634ca9834fdd1db7db081bfbdfc7f883e",
+      "lineage_cluster": "epoch10_rank4_seed_404",
+      "optimizer_step": 100,
+      "partition": "checkpoint_holdout_panel",
+      "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_404\\step_0100",
+      "policy_identity": "epoch10_rank4_seed_404_step_0100",
+      "seed": 404,
+      "source": "immutable_epoch10_panel"
+    }
+  ],
+  "prohibited_identity_construction": [
+    "synthetic_action_noise",
+    "renamed_checkpoint_copy",
+    "weight_interpolation",
+    "outcome_selected_training_step"
+  ],
+  "retained_stage_rationale": "Predeclared intermediate and converged steps 30 and 100 match the Epoch 10 competitive-subset rule; no outcome selects a step.",
+  "schema_version": 1,
+  "status": "FROZEN_BEFORE_LINEAGE_EXPANSION_OR_CHECKPOINT_ACTION_QUERY",
+  "target_lineages": 12,
+  "training_recipe": {
+    "batch_size": 1,
+    "learning_rate": 0.0002,
+    "maximum_optimizer_steps": 100,
+    "method": "standard_rank4_lora",
+    "optimizer": "AdamW",
+    "training_path": "scripts/run_epoch10_checkpoint_panel.py reused without changing the protected Epoch 10 asset root"
+  },
+  "uncertainty_unit": "whole_training_seed_lineage"
+}
