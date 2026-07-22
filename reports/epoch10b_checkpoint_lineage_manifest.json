@@ -1,0 +1,392 @@
+{
+  "campaign": "epoch10b_icae_fresh_controller",
+  "development_lineage_count": 8,
+  "heldout_checkpoint_actions_queried": 0,
+  "heldout_lineage_count": 4,
+  "heldout_outcomes_opened": false,
+  "lineages": [
+    {
+      "independent_training_run": true,
+      "lineage_cluster": "epoch10_rank4_seed_101",
+      "nested_stages_are_not_independent": true,
+      "official_panel_checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "66356583d306c74594f7e587f639d19a766aec694d556a68e31cca89c2810ec5",
+          "lineage_cluster": "epoch10_rank4_seed_101",
+          "optimizer_step": 30,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_101\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_101_step_0030",
+          "seed": 101,
+          "source": "immutable_epoch10_panel"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "8611b8c50e0af0251dcda12be32624896202d26d47ad9e564dfdc7c70a5efbd5",
+          "lineage_cluster": "epoch10_rank4_seed_101",
+          "optimizer_step": 100,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_101\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_101_step_0100",
+          "seed": 101,
+          "source": "immutable_epoch10_panel"
+        }
+      ],
+      "partition": "development",
+      "seed": 101
+    },
+    {
+      "independent_training_run": true,
+      "lineage_cluster": "epoch10_rank4_seed_202",
+      "nested_stages_are_not_independent": true,
+      "official_panel_checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "163892350da849da1690d71b192bbba3cdde77ea6b62e51603b9ffd84bb6dca5",
+          "lineage_cluster": "epoch10_rank4_seed_202",
+          "optimizer_step": 30,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_202\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_202_step_0030",
+          "seed": 202,
+          "source": "immutable_epoch10_panel"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "56ba84d7a7ac86d22851595a60e6698d20fe72c258cc613f6198b970839bac06",
+          "lineage_cluster": "epoch10_rank4_seed_202",
+          "optimizer_step": 100,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_202\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_202_step_0100",
+          "seed": 202,
+          "source": "immutable_epoch10_panel"
+        }
+      ],
+      "partition": "development",
+      "seed": 202
+    },
+    {
+      "independent_training_run": true,
+      "lineage_cluster": "epoch10_rank4_seed_303",
+      "nested_stages_are_not_independent": true,
+      "official_panel_checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "d224002038842e7f97b3b942acf7d0cdfb77131e2873ff4ce3517a2ff9ba2325",
+          "lineage_cluster": "epoch10_rank4_seed_303",
+          "optimizer_step": 30,
+          "partition": "heldout",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_303\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_303_step_0030",
+          "seed": 303,
+          "source": "immutable_epoch10_panel"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "72a51f5b539551734692634438ffd413e7290fbb046ca1c6063e36e04f14d4fc",
+          "lineage_cluster": "epoch10_rank4_seed_303",
+          "optimizer_step": 100,
+          "partition": "heldout",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_303\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_303_step_0100",
+          "seed": 303,
+          "source": "immutable_epoch10_panel"
+        }
+      ],
+      "partition": "heldout",
+      "seed": 303
+    },
+    {
+      "independent_training_run": true,
+      "lineage_cluster": "epoch10_rank4_seed_404",
+      "nested_stages_are_not_independent": true,
+      "official_panel_checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "ad7f8b9d2b271e863a1f987513ea1356c6d1317bdd6fba7014b4cc720902c370",
+          "lineage_cluster": "epoch10_rank4_seed_404",
+          "optimizer_step": 30,
+          "partition": "heldout",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_404\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_404_step_0030",
+          "seed": 404,
+          "source": "immutable_epoch10_panel"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "a9c7f11b8d3d70fc92074f49055a84f634ca9834fdd1db7db081bfbdfc7f883e",
+          "lineage_cluster": "epoch10_rank4_seed_404",
+          "optimizer_step": 100,
+          "partition": "heldout",
+          "path": "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4\\seed_404\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_404_step_0100",
+          "seed": 404,
+          "source": "immutable_epoch10_panel"
+        }
+      ],
+      "partition": "heldout",
+      "seed": 404
+    },
+    {
+      "independent_training_run": true,
+      "lineage_cluster": "epoch10_rank4_seed_505",
+      "nested_stages_are_not_independent": true,
+      "official_panel_checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "427ca9402ce9a78bacbaebc2d8b7ad19046c5502d6a9e9a1faa97b6e17fa4bc7",
+          "lineage_cluster": "epoch10_rank4_seed_505",
+          "optimizer_step": 30,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_505\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_505_step_0030",
+          "seed": 505,
+          "source": "epoch10b_expansion"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "4e8c2dffcfdc9e713ec3425170ed321e7610d418f23376d4bedda7661ccd552c",
+          "lineage_cluster": "epoch10_rank4_seed_505",
+          "optimizer_step": 100,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_505\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_505_step_0100",
+          "seed": 505,
+          "source": "epoch10b_expansion"
+        }
+      ],
+      "partition": "development",
+      "seed": 505
+    },
+    {
+      "independent_training_run": true,
+      "lineage_cluster": "epoch10_rank4_seed_606",
+      "nested_stages_are_not_independent": true,
+      "official_panel_checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "ed67272cb7550c52353c24ee08dc7e5a9ee2080416861ba9bd736d0a80210c6d",
+          "lineage_cluster": "epoch10_rank4_seed_606",
+          "optimizer_step": 30,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_606\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_606_step_0030",
+          "seed": 606,
+          "source": "epoch10b_expansion"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "b9b92e6ee48531662e97c09d5fd756c95cd06b3eac381d46d2bebc36b463556d",
+          "lineage_cluster": "epoch10_rank4_seed_606",
+          "optimizer_step": 100,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_606\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_606_step_0100",
+          "seed": 606,
+          "source": "epoch10b_expansion"
+        }
+      ],
+      "partition": "development",
+      "seed": 606
+    },
+    {
+      "independent_training_run": true,
+      "lineage_cluster": "epoch10_rank4_seed_707",
+      "nested_stages_are_not_independent": true,
+      "official_panel_checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "870c413e318ca098dfb8bf485eedbb1b37d37176d4cc0d99d4e36631886c8897",
+          "lineage_cluster": "epoch10_rank4_seed_707",
+          "optimizer_step": 30,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_707\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_707_step_0030",
+          "seed": 707,
+          "source": "epoch10b_expansion"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "3f9f8a6a42644808011aa2bdaf60394aeaad6379120e60f4030c90dd98a8f8fc",
+          "lineage_cluster": "epoch10_rank4_seed_707",
+          "optimizer_step": 100,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_707\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_707_step_0100",
+          "seed": 707,
+          "source": "epoch10b_expansion"
+        }
+      ],
+      "partition": "development",
+      "seed": 707
+    },
+    {
+      "independent_training_run": true,
+      "lineage_cluster": "epoch10_rank4_seed_808",
+      "nested_stages_are_not_independent": true,
+      "official_panel_checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "c099f382dd655b4ffa933f2b7a4452aa4843786c1fecd354b6462322b469a13a",
+          "lineage_cluster": "epoch10_rank4_seed_808",
+          "optimizer_step": 30,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_808\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_808_step_0030",
+          "seed": 808,
+          "source": "epoch10b_expansion"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "404ca4f948abc958fa189239d7b4f1139fae4c29b6b442f54e6471d046d6bc52",
+          "lineage_cluster": "epoch10_rank4_seed_808",
+          "optimizer_step": 100,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_808\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_808_step_0100",
+          "seed": 808,
+          "source": "epoch10b_expansion"
+        }
+      ],
+      "partition": "development",
+      "seed": 808
+    },
+    {
+      "independent_training_run": true,
+      "lineage_cluster": "epoch10_rank4_seed_909",
+      "nested_stages_are_not_independent": true,
+      "official_panel_checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "2fb6a9e3f60711aa612fcf59841a58a79be828aa1588e2b613001eb3f6016fde",
+          "lineage_cluster": "epoch10_rank4_seed_909",
+          "optimizer_step": 30,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_909\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_909_step_0030",
+          "seed": 909,
+          "source": "epoch10b_expansion"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "a2dd8e93bdd9ad80acb3cd5b9d6cd979340b60fd4f8bdaf967dac4a4099fee10",
+          "lineage_cluster": "epoch10_rank4_seed_909",
+          "optimizer_step": 100,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_909\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_909_step_0100",
+          "seed": 909,
+          "source": "epoch10b_expansion"
+        }
+      ],
+      "partition": "development",
+      "seed": 909
+    },
+    {
+      "independent_training_run": true,
+      "lineage_cluster": "epoch10_rank4_seed_1010",
+      "nested_stages_are_not_independent": true,
+      "official_panel_checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "706e99a5d87b307610292157de3723f4a7eea08f8c9fdfbf13893dccd03cfc97",
+          "lineage_cluster": "epoch10_rank4_seed_1010",
+          "optimizer_step": 30,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_1010\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_1010_step_0030",
+          "seed": 1010,
+          "source": "epoch10b_expansion"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "34446bb8f6caabbd9b83be572b5dd132f1e009159d5a3d73898fe539c98fc78d",
+          "lineage_cluster": "epoch10_rank4_seed_1010",
+          "optimizer_step": 100,
+          "partition": "development",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_1010\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_1010_step_0100",
+          "seed": 1010,
+          "source": "epoch10b_expansion"
+        }
+      ],
+      "partition": "development",
+      "seed": 1010
+    },
+    {
+      "independent_training_run": true,
+      "lineage_cluster": "epoch10_rank4_seed_1111",
+      "nested_stages_are_not_independent": true,
+      "official_panel_checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "4cfad4c415fda9894e9eb7ca3f0b6b523e41f8ce78daaf669d597109a94e5296",
+          "lineage_cluster": "epoch10_rank4_seed_1111",
+          "optimizer_step": 30,
+          "partition": "heldout",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_1111\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_1111_step_0030",
+          "seed": 1111,
+          "source": "epoch10b_expansion"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "907c1b54f45192a230938ae68508a1e4db8f18d4f12c721808cafe8156258dae",
+          "lineage_cluster": "epoch10_rank4_seed_1111",
+          "optimizer_step": 100,
+          "partition": "heldout",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_1111\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_1111_step_0100",
+          "seed": 1111,
+          "source": "epoch10b_expansion"
+        }
+      ],
+      "partition": "heldout",
+      "seed": 1111
+    },
+    {
+      "independent_training_run": true,
+      "lineage_cluster": "epoch10_rank4_seed_1212",
+      "nested_stages_are_not_independent": true,
+      "official_panel_checkpoints": [
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "4540245a35d9a2b9d501b4edb0b74395f0ed0ab5facda20e583e123212db07b8",
+          "lineage_cluster": "epoch10_rank4_seed_1212",
+          "optimizer_step": 30,
+          "partition": "heldout",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_1212\\step_0030",
+          "policy_identity": "epoch10_rank4_seed_1212_step_0030",
+          "seed": 1212,
+          "source": "epoch10b_expansion"
+        },
+        {
+          "adapter_bytes": 753728,
+          "adapter_sha256": "b201f2ce00aa1ff1c60aa5079e370c4fbf02ff32e25dac892f3ba923e44984f6",
+          "lineage_cluster": "epoch10_rank4_seed_1212",
+          "optimizer_step": 100,
+          "partition": "heldout",
+          "path": "C:\\assets\\checkpoints\\epoch10b_icae_lineage_expansion\\rank4\\seed_1212\\step_0100",
+          "policy_identity": "epoch10_rank4_seed_1212_step_0100",
+          "seed": 1212,
+          "source": "epoch10b_expansion"
+        }
+      ],
+      "partition": "heldout",
+      "seed": 1212
+    }
+  ],
+  "official_checkpoint_count": 24,
+  "retained_stages": [
+    30,
+    100
+  ],
+  "schema_version": 1,
+  "source_generation_result": "reports/epoch10b_checkpoint_generation_result.json",
+  "source_generation_result_sha256": "d8fad9caf6a48bdeb5e34ca897ac381c30f49e68304d9633f3f577a6b89705cf",
+  "status": "EPOCH10B_CHECKPOINT_LINEAGE_TARGET_COMPLETE",
+  "uncertainty_unit": "whole_training_seed",
+  "whole_seed_lineage_count": 12
+}
