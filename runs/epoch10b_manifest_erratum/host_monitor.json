@@ -1,0 +1,329 @@
+{
+    "schema_version":  1,
+    "campaign":  "epoch10b_manifest_adjudicator_erratum",
+    "started_at":  "2026-07-22T12:39:52.8803936+09:00",
+    "ended_at":  "2026-07-22T12:40:07.3624812+09:00",
+    "pass":  true,
+    "runner_exit":  0,
+    "frozen_soft_host_ram_percent":  80,
+    "immediate_stop_before_percent":  90,
+    "baseline_host_ram_percent":  45.7297,
+    "peak_host_ram_percent":  62.8621,
+    "soft_warning_crossed":  false,
+    "controlled_stop":  false,
+    "peak_wsl_memory_used_bytes":  1932533760,
+    "peak_wsl_swap_used_bytes":  0,
+    "peak_gpu_vram_used_mib":  2224,
+    "wsl_shutdown_unconditional":  true,
+    "original_raw_sha256":  "a2f2992d03fae52177408f057ba311b4f522b3955d91ba78dcd74a165e55ced7",
+    "original_raw_unchanged":  true,
+    "protected_manifests_before":  {
+                                       "rollouts_2026_07_17":  {
+                                                                   "path":  "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_17",
+                                                                   "file_count":  27,
+                                                                   "bytes":  5143751,
+                                                                   "ledger_sha256":  "784101851d803df2145f3a02806815998e3d8260f4554e1f93cd6bada112a9fb"
+                                                               },
+                                       "rollouts_2026_07_18":  {
+                                                                   "path":  "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_18",
+                                                                   "file_count":  10,
+                                                                   "bytes":  924633,
+                                                                   "ledger_sha256":  "472b6247df0cd8a2dc5bd5726495851c57832779f32dd4b27a2b01e9c41b1d59"
+                                                               },
+                                       "adapter_panel_rank4":  {
+                                                                   "path":  "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4",
+                                                                   "file_count":  168,
+                                                                   "bytes":  28417918,
+                                                                   "ledger_sha256":  "12b46e4003284fe995e8769fe2605a08a218467dde8667149a07941e2caf4bd5"
+                                                               }
+                                   },
+    "protected_manifests_after":  {
+                                      "rollouts_2026_07_17":  {
+                                                                  "path":  "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_17",
+                                                                  "file_count":  27,
+                                                                  "bytes":  5143751,
+                                                                  "ledger_sha256":  "784101851d803df2145f3a02806815998e3d8260f4554e1f93cd6bada112a9fb"
+                                                              },
+                                      "rollouts_2026_07_18":  {
+                                                                  "path":  "C:\\Users\\jiheo\\tca_map\\rollouts\\2026_07_18",
+                                                                  "file_count":  10,
+                                                                  "bytes":  924633,
+                                                                  "ledger_sha256":  "472b6247df0cd8a2dc5bd5726495851c57832779f32dd4b27a2b01e9c41b1d59"
+                                                              },
+                                      "adapter_panel_rank4":  {
+                                                                  "path":  "C:\\assets\\checkpoints\\epoch10_icae_panel\\rank4",
+                                                                  "file_count":  168,
+                                                                  "bytes":  28417918,
+                                                                  "ledger_sha256":  "12b46e4003284fe995e8769fe2605a08a218467dde8667149a07941e2caf4bd5"
+                                                              }
+                                  },
+    "protected_manifests_unchanged":  true,
+    "material_system_event_count":  0,
+    "material_system_events":  [
+
+                               ],
+    "scientific_event_window_started_at":  "2026-07-22T12:34:35.9124802+09:00",
+    "preflight_compute_apps_query":  [
+                                         "1468, [Insufficient Permissions], [N/A]",
+                                         "9568, C:\\Windows\\explorer.exe, [N/A]",
+                                         "9988, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]",
+                                         "10688, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]",
+                                         "10680, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]",
+                                         "12412, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]",
+                                         "12788, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\150.0.4078.83\\msedgewebview2.exe, [N/A]",
+                                         "14924, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]",
+                                         "18668, C:\\Users\\jiheo\\AppData\\Local\\Discord\\app-1.0.9248\\Discord.exe, [N/A]",
+                                         "18560, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\150.0.4078.83\\msedgewebview2.exe, [N/A]",
+                                         "3152, C:\\Users\\jiheo\\AppData\\Local\\Programs\\cursor\\Cursor.exe, [N/A]",
+                                         "9648, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]",
+                                         "9276, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]",
+                                         "18580, C:\\Program Files\\WindowsApps\\Microsoft.ScreenSketch_11.2602.49.0_x64__8wekyb3d8bbwe\\SnippingTool\\SnippingTool.exe, [N/A]",
+                                         "11116, [Insufficient Permissions], [N/A]",
+                                         "23872, C:\\Windows\\System32\\ShellHost.exe, [N/A]",
+                                         "24184, C:\\Program Files\\WindowsApps\\Microsoft.WindowsNotepad_11.2605.34.0_x64__8wekyb3d8bbwe\\Notepad\\Notepad.exe, [N/A]",
+                                         "22668, C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe, [N/A]"
+                                     ],
+    "preflight_unrelated_compute_apps":  [
+
+                                         ],
+    "panel_state_path":  "runs/epoch10b_manifest_erratum/panel_state.json",
+    "panel_complete":  true,
+    "stdout_path":  "runs/epoch10b_manifest_erratum/runner_20260722_123952_stdout.log",
+    "stderr_path":  "runs/epoch10b_manifest_erratum/runner_20260722_123952_stderr.log",
+    "wrapper_samples":  [
+                            {
+                                "timestamp":  "2026-07-22T12:39:56.4275550+09:00",
+                                "host_ram_percent":  46.0254,
+                                "wsl_memory_used_bytes":  632721408,
+                                "wsl_swap_used_bytes":  0,
+                                "gpu_memory_used_mib":  2224,
+                                "gpu_utilization_percent":  1,
+                                "gpu_temperature_c":  35,
+                                "gpu_power_w":  9.23
+                            },
+                            {
+                                "timestamp":  "2026-07-22T12:39:57.5894533+09:00",
+                                "host_ram_percent":  52.4078,
+                                "wsl_memory_used_bytes":  657649664,
+                                "wsl_swap_used_bytes":  0,
+                                "gpu_memory_used_mib":  2222,
+                                "gpu_utilization_percent":  2,
+                                "gpu_temperature_c":  35,
+                                "gpu_power_w":  8.4
+                            },
+                            {
+                                "timestamp":  "2026-07-22T12:39:58.7496568+09:00",
+                                "host_ram_percent":  52.4091,
+                                "wsl_memory_used_bytes":  659251200,
+                                "wsl_swap_used_bytes":  0,
+                                "gpu_memory_used_mib":  2223,
+                                "gpu_utilization_percent":  2,
+                                "gpu_temperature_c":  35,
+                                "gpu_power_w":  8.69
+                            },
+                            {
+                                "timestamp":  "2026-07-22T12:39:59.9043464+09:00",
+                                "host_ram_percent":  55.56,
+                                "wsl_memory_used_bytes":  1245855744,
+                                "wsl_swap_used_bytes":  0,
+                                "gpu_memory_used_mib":  2217,
+                                "gpu_utilization_percent":  2,
+                                "gpu_temperature_c":  35,
+                                "gpu_power_w":  8.52
+                            },
+                            {
+                                "timestamp":  "2026-07-22T12:40:01.0433176+09:00",
+                                "host_ram_percent":  59.5117,
+                                "wsl_memory_used_bytes":  1728552960,
+                                "wsl_swap_used_bytes":  0,
+                                "gpu_memory_used_mib":  2213,
+                                "gpu_utilization_percent":  1,
+                                "gpu_temperature_c":  35,
+                                "gpu_power_w":  8.42
+                            },
+                            {
+                                "timestamp":  "2026-07-22T12:40:02.2007431+09:00",
+                                "host_ram_percent":  59.6173,
+                                "wsl_memory_used_bytes":  1759166464,
+                                "wsl_swap_used_bytes":  0,
+                                "gpu_memory_used_mib":  2218,
+                                "gpu_utilization_percent":  2,
+                                "gpu_temperature_c":  35,
+                                "gpu_power_w":  8.86
+                            },
+                            {
+                                "timestamp":  "2026-07-22T12:40:03.3570283+09:00",
+                                "host_ram_percent":  61.7748,
+                                "wsl_memory_used_bytes":  1932533760,
+                                "wsl_swap_used_bytes":  0,
+                                "gpu_memory_used_mib":  2219,
+                                "gpu_utilization_percent":  1,
+                                "gpu_temperature_c":  35,
+                                "gpu_power_w":  8.61
+                            }
+                        ],
+    "scientific_row_resource_samples":  [
+                                            {
+                                                "row_number":  1,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|medium_plus",
+                                                "sample":  "resource_before",
+                                                "host_ram_percent":  61.5807,
+                                                "wsl_memory_used_bytes":  1640423424,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2216
+                                            },
+                                            {
+                                                "row_number":  1,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|medium_plus",
+                                                "sample":  "resource_after",
+                                                "host_ram_percent":  61.8243,
+                                                "wsl_memory_used_bytes":  1698443264,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2216
+                                            },
+                                            {
+                                                "row_number":  2,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|nominal_b",
+                                                "sample":  "resource_before",
+                                                "host_ram_percent":  61.7934,
+                                                "wsl_memory_used_bytes":  1698959360,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2219
+                                            },
+                                            {
+                                                "row_number":  2,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|nominal_b",
+                                                "sample":  "resource_after",
+                                                "host_ram_percent":  61.5827,
+                                                "wsl_memory_used_bytes":  1754025984,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2217
+                                            },
+                                            {
+                                                "row_number":  3,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|small_plus",
+                                                "sample":  "resource_before",
+                                                "host_ram_percent":  61.6042,
+                                                "wsl_memory_used_bytes":  1752584192,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2219
+                                            },
+                                            {
+                                                "row_number":  3,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|small_plus",
+                                                "sample":  "resource_after",
+                                                "host_ram_percent":  61.6284,
+                                                "wsl_memory_used_bytes":  1780867072,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2219
+                                            },
+                                            {
+                                                "row_number":  4,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|medium_minus",
+                                                "sample":  "resource_before",
+                                                "host_ram_percent":  61.4886,
+                                                "wsl_memory_used_bytes":  1780723712,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2219
+                                            },
+                                            {
+                                                "row_number":  4,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|medium_minus",
+                                                "sample":  "resource_after",
+                                                "host_ram_percent":  62.8621,
+                                                "wsl_memory_used_bytes":  1820782592,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2217
+                                            },
+                                            {
+                                                "row_number":  5,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|nominal_a",
+                                                "sample":  "resource_before",
+                                                "host_ram_percent":  62.0627,
+                                                "wsl_memory_used_bytes":  1642541056,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2217
+                                            },
+                                            {
+                                                "row_number":  5,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|nominal_a",
+                                                "sample":  "resource_after",
+                                                "host_ram_percent":  62.2595,
+                                                "wsl_memory_used_bytes":  1742127104,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2219
+                                            },
+                                            {
+                                                "row_number":  6,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|sham",
+                                                "sample":  "resource_before",
+                                                "host_ram_percent":  62.291,
+                                                "wsl_memory_used_bytes":  1745207296,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2218
+                                            },
+                                            {
+                                                "row_number":  6,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|sham",
+                                                "sample":  "resource_after",
+                                                "host_ram_percent":  62.2535,
+                                                "wsl_memory_used_bytes":  1776422912,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2219
+                                            },
+                                            {
+                                                "row_number":  7,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|held_noop",
+                                                "sample":  "resource_before",
+                                                "host_ram_percent":  61.3435,
+                                                "wsl_memory_used_bytes":  1775595520,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2219
+                                            },
+                                            {
+                                                "row_number":  7,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|held_noop",
+                                                "sample":  "resource_after",
+                                                "host_ram_percent":  61.3087,
+                                                "wsl_memory_used_bytes":  1827938304,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2219
+                                            },
+                                            {
+                                                "row_number":  8,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|small_minus",
+                                                "sample":  "resource_before",
+                                                "host_ram_percent":  61.3975,
+                                                "wsl_memory_used_bytes":  1828761600,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2219
+                                            },
+                                            {
+                                                "row_number":  8,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|small_minus",
+                                                "sample":  "resource_after",
+                                                "host_ram_percent":  61.5888,
+                                                "wsl_memory_used_bytes":  1781714944,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2219
+                                            },
+                                            {
+                                                "row_number":  9,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|harmful_phase_matched",
+                                                "sample":  "resource_before",
+                                                "host_ram_percent":  61.6211,
+                                                "wsl_memory_used_bytes":  1781338112,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2219
+                                            },
+                                            {
+                                                "row_number":  9,
+                                                "branch_key":  "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|harmful_phase_matched",
+                                                "sample":  "resource_after",
+                                                "host_ram_percent":  61.5463,
+                                                "wsl_memory_used_bytes":  1818378240,
+                                                "wsl_swap_used_bytes":  0,
+                                                "gpu_memory_used_mib":  2218
+                                            }
+                                        ]
+}

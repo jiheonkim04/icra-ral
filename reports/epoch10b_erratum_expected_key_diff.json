@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "campaign": "epoch10b_manifest_adjudicator_erratum",
+  "created_before_erratum_execution": true,
+  "sources": {
+    "original_frozen_preregistration": {
+      "path": "reports/epoch10b_assay_preregistration.json",
+      "sha256": "5be914187a1374cfa527dea8bde110e121c54c27e4aea6f7d78c43afe94072c4"
+    },
+    "outcome_blind_collision_correction": {
+      "path": "runs/epoch10b_probation_recovery_archive_20260722/manifest_collision_correction.json",
+      "sha256": "2154616b81f7ff058ce55100d7f32dd273b40946005e25d7ceaed14b24cccbf6"
+    },
+    "collision_corrected_preregistration_pre_probation": {
+      "path": "runs/epoch10b_probation_recovery_archive_20260722/collision_corrected_preregistration_pre_probation.json",
+      "sha256": "2e5f2fe58153ed7dad17a88a11c41377275b7ebd56e7f71d989b30d073b8b6b6",
+      "canonical_payload_sha256": "439e25f4ad0502aa39faa73ac51001fb728f5669527231b0ea66c84f4b5fe5da"
+    },
+    "raw_log": {
+      "path": "runs/epoch10b_mechanics_certification/branches.jsonl",
+      "sha256": "a2f2992d03fae52177408f057ba311b4f522b3955d91ba78dcd74a165e55ced7",
+      "rows": 1287
+    }
+  },
+  "original_frozen_manifest_audit": {
+    "state_list_entries": 128,
+    "distinct_state_ids": 127,
+    "scheduled_branch_slots": 1296,
+    "distinct_scheduled_branch_keys": 1287,
+    "observed_distinct_branch_keys": 1287,
+    "missing_distinct_keys": [],
+    "extra_distinct_keys": [],
+    "conclusion": "The runner completed every distinct key it could serialize, but two preregistered phase slots serialized to the same state ID and nine primary keys therefore represented two slots."
+  },
+  "erratum_expected_set_rule": {
+    "primary_keys": "Use the 128 distinct primary state records frozen in the collision-corrected pre-probation preregistration and the unchanged SHA-256 deterministic per-state control order.",
+    "reverse_keys": "Retain the 16 complete reverse panels named by the original frozen preregistration and already present in the immutable raw log; the erratum prompt prohibits another reverse panel when the registered reverse cardinality is already complete.",
+    "scientific_definition_changed": false,
+    "expected_distinct_keys": 1296,
+    "observed_distinct_keys_before_erratum": 1287,
+    "expected_sorted_key_ledger_sha256": "9a045d197b5615e5880805a438f78349dfab65b001186d2f286e89069be649ba",
+    "observed_sorted_key_ledger_sha256": "f61cc327c101ec98d4e6c516ad7698b11e8d8ebebef3d3d968485c82904dda57",
+    "key_ledger_encoding": "sorted unique UTF-8 branch keys, one per line, with final LF"
+  },
+  "uniquely_identified_missing_primary_panel": {
+    "suite": "libero_spatial",
+    "task_id": 0,
+    "demo_name": "demo_8",
+    "demo_cluster": "libero_spatial|task_0|demo_8",
+    "episode_length": 79,
+    "fraction": 0.8,
+    "frame": 60,
+    "phase": "transport_goal",
+    "phase_index": 6,
+    "state_id": "libero_spatial|task_0|demo_8|frame_60|transport_goal",
+    "state_sha256": "83a7679534180c3933cfc6b46b9a7bc452b5812129fbe75c4d5910d4c30d9971",
+    "expert_action_sha256": "681bed04690c7eea5a9c01e73d6f0978f2b0dc194b6f93743e76eaae7be5a9f7",
+    "registered_seed": 1857632994,
+    "state_record_canonical_sha256": "aee67789b67949c5dbfc267ab89517d8f02fc497ecf46ebfec35e5fd76a7f6f3",
+    "hdf5_path": "/mnt/c/assets/data/libero/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_demo.hdf5",
+    "hdf5_sha256": "ff6f26121653c77280eb40a38773a74141c11a8509f3466058cb56dd2cc60ead",
+    "bddl_path": "/home/jiheon/assets/repos/LIBERO/libero/libero/bddl_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.bddl",
+    "bddl_sha256": "50e94eb43b9b1de3ba89dc92737e85e6fc4bac85cbca99ec9ae89d416231f239",
+    "deterministic_collision_rule": "For trajectory length 79 and horizon guard 17, the fixed 0.80 and 0.90 fractions both clamp to frame 61. Scanning the fixed phase slots backward makes the earlier slot frame 60 and leaves the later slot frame 61.",
+    "frozen_primary_control_order": [
+      "medium_plus",
+      "nominal_b",
+      "small_plus",
+      "medium_minus",
+      "nominal_a",
+      "sham",
+      "held_noop",
+      "small_minus",
+      "harmful_phase_matched"
+    ],
+    "expected_keys_in_execution_order": [
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|medium_plus",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|nominal_b",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|small_plus",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|medium_minus",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|nominal_a",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|sham",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|held_noop",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|small_minus",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|harmful_phase_matched"
+    ],
+    "expected_keys_in_execution_order_sha256": "ab515112a59f507aa88469f203f1f9b0f32bd23487830258999b59c738482d05"
+  },
+  "diff_before_erratum": {
+    "missing_key_count": 9,
+    "missing_keys": [
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|harmful_phase_matched",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|held_noop",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|medium_minus",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|medium_plus",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|nominal_a",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|nominal_b",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|sham",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|small_minus",
+      "certification|primary|libero_spatial|task_0|demo_8|frame_60|transport_goal|small_plus"
+    ],
+    "extra_key_count": 0,
+    "extra_keys": []
+  },
+  "leakage_boundary": {
+    "checkpoint_actions_queried": 0,
+    "checkpoint_scores_opened": false,
+    "closed_loop_success_labels_opened": false,
+    "validation_results_opened": false,
+    "confirmation_results_opened": false
+  }
+}

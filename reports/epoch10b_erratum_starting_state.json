@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "campaign": "epoch10b_manifest_adjudicator_erratum",
+  "recorded_at": "2026-07-22T12:21:12.6502185+09:00",
+  "append_only": true,
+  "authority": {
+    "erratum_prompt_path": "C:\\Users\\jiheo\\Downloads\\epoch10b_manifest_adjudicator_erratum_prompt.md",
+    "erratum_prompt_sha256": "e45a4c275374dde1e05c54dd0624a3abcc656ed28df674022440cf9eae4e8a80",
+    "erratum_prompt_bytes": 14596,
+    "erratum_prompt_lines": 209,
+    "original_continuation_prompt_path": "C:\\Users\\jiheo\\Downloads\\epoch10b_icae_fresh_controller_ral_continuation_prompt.md",
+    "original_continuation_prompt_sha256": "24c2198d83ea262ff4133ffe7d44d63af65bd7ab93f237fdebcd4a47aeaefa66",
+    "repository_governance_path": "reports/current_research_governance.md",
+    "repository_governance_sha256": "221337f5daf6aaeb322ab9a86b3bb830d2df2416a654e70772d343f1872a0b6b",
+    "agents_path": "AGENTS.md",
+    "agents_sha256": "0fcb1ec295412b478b8f3907e38dbc2afe30daa109be1d7db3b811713f54561b",
+    "authority_resolution": "The current user Goal and attached bounded Epoch 10B erratum are first in the repository authority order. They preserve all older outcomes while authorizing this audit and only the named erratum paths."
+  },
+  "repository": {
+    "path": "C:\\Users\\jiheo\\tca_map",
+    "source_branch": "codex/epoch10b-icae-fresh-controller-continuation",
+    "working_branch": "codex/epoch10b-manifest-adjudicator-erratum",
+    "head": "bffbb29d7e638f66d4da5a2c45c84a727da7abec",
+    "remote_source_branch_head": "bffbb29d7e638f66d4da5a2c45c84a727da7abec",
+    "remote_main_head": "8dc4de2fdbf576ace8bdf3699d190b761553c1fa",
+    "head_tree": "7bda3a584b6575feb83330dc59880919cad40ed6",
+    "reports_tree_at_head": "5d109a1008e15a58391c0a051b1b25e464878d97",
+    "scripts_tree_at_head": "0e553b2d406edf97cf34a05be24a895f8e820957",
+    "tests_tree_at_head": "5f0b1ac41969fda14f4dd9e08447e5fa3dc97247",
+    "git_fsck_full_no_dangling": "PASS",
+    "preexisting_untracked_status_entry_count": 34,
+    "unrelated_user_changes_preserved": true,
+    "force_push_allowed": false
+  },
+  "authoritative_artifacts": [
+    {
+      "path": "reports/epoch10b_assay_preregistration.json",
+      "bytes": 85169,
+      "lines": 2221,
+      "final_newline": true,
+      "json_valid": true,
+      "sha256": "5be914187a1374cfa527dea8bde110e121c54c27e4aea6f7d78c43afe94072c4"
+    },
+    {
+      "path": "runs/epoch10b_mechanics_certification/branches.jsonl",
+      "bytes": 15618820,
+      "lines": 1287,
+      "final_newline": true,
+      "json_valid_line_count": 1287,
+      "invalid_json_line_count": 0,
+      "unique_branch_key_count": 1287,
+      "duplicate_branch_key_count": 0,
+      "sha256": "a2f2992d03fae52177408f057ba311b4f522b3955d91ba78dcd74a165e55ced7",
+      "prefix_sha256": {
+        "19_rows": "8be991b8b0f9e8fa96d38bc7cb58cfd567eebf5b92ed7bf6b2ab53833c9ecd65",
+        "326_rows": "3250ccf43919fbde7af1787a899525549d6afcc7ae5da37a74cbe93b05cd4f66",
+        "330_rows": "f7e642d4f72d67b03a18901e4752c323667448617c11f571333f07af13a8f950"
+      }
+    },
+    {
+      "path": "reports/epoch10b_mechanics_certification.json",
+      "bytes": 40464,
+      "lines": 766,
+      "final_newline": true,
+      "json_valid": true,
+      "sha256": "cc334f50cac7b17a44af5ee80facae1569a9d3554dd13d2d97fcb1ecee8e716c"
+    },
+    {
+      "path": "reports/epoch10b_assay_adjudication.json",
+      "bytes": 665,
+      "lines": 12,
+      "final_newline": true,
+      "json_valid": true,
+      "sha256": "b0538e83f14fe6764260fb570b9a6f7877d283fcc6825f181a8c1541feba231e",
+      "terminal_state": "EPOCH10B_ICAE_ASSAY_INVALID_ROUTE_CLOSED"
+    },
+    {
+      "path": "scripts/run_epoch10b_fresh_controller_assay.py",
+      "bytes": 67757,
+      "lines": 1408,
+      "final_newline": true,
+      "sha256": "dae93a0c7ffd0bc405a4972543b9d4a8a0ffe7361a35f694bad04d9c20ecbb37"
+    },
+    {
+      "path": "runs/epoch10b_probation_recovery_archive_20260722/collision_corrected_preregistration_pre_probation.json",
+      "bytes": 85493,
+      "lines": 2229,
+      "final_newline": true,
+      "json_valid": true,
+      "sha256": "2e5f2fe58153ed7dad17a88a11c41377275b7ebd56e7f71d989b30d073b8b6b6"
+    },
+    {
+      "path": "runs/epoch10b_probation_recovery_archive_20260722/collision_corrected_runner_pre_probation.py",
+      "bytes": 70467,
+      "lines": 1457,
+      "final_newline": true,
+      "sha256": "c08e69398b010c9624d2be6672d8cf5a744471a430abebbaddcb74de433724f5"
+    },
+    {
+      "path": "runs/epoch10b_probation_recovery_archive_20260722/manifest_collision_correction.json",
+      "bytes": 3722,
+      "lines": 73,
+      "final_newline": true,
+      "json_valid": true,
+      "sha256": "2154616b81f7ff058ce55100d7f32dd273b40946005e25d7ceaed14b24cccbf6"
+    }
+  ],
+  "host_baseline": {
+    "total_ram_bytes": 24871014400,
+    "free_ram_bytes": 13239562240,
+    "used_ram_percent": 46.7671,
+    "system_drive_free_bytes": 316781596672,
+    "gpu": "NVIDIA GeForce RTX 5080",
+    "gpu_driver": "596.21",
+    "gpu_vram_total_mib": 16303,
+    "gpu_vram_used_mib": 2185,
+    "gpu_utilization_percent": 9,
+    "gpu_temperature_c": 41,
+    "wsl_distribution": "Ubuntu-22.04",
+    "wsl_state": "Stopped",
+    "active_scientific_workers": 0,
+    "game_sdk_process_present": true,
+    "active_game_or_unrelated_gpu_scientific_worker_found": false
+  },
+  "protected_evidence": {
+    "rollouts_2026_07_17": {
+      "file_count": 27,
+      "bytes": 5143751,
+      "ledger_sha256": "784101851d803df2145f3a02806815998e3d8260f4554e1f93cd6bada112a9fb",
+      "matches_epoch10b_starting_state": true
+    },
+    "rollouts_2026_07_18": {
+      "file_count": 10,
+      "bytes": 924633,
+      "ledger_sha256": "472b6247df0cd8a2dc5bd5726495851c57832779f32dd4b27a2b01e9c41b1d59",
+      "matches_epoch10b_starting_state": true
+    },
+    "adapter_panel_rank4": {
+      "file_count": 168,
+      "bytes": 28417918,
+      "current_documented_encoding_ledger_sha256": "b96cfb9a4408ca971ce4f32d158eb749c9f4546e0e76bdfb38cee95879d56e90",
+      "prior_reported_ledger_sha256": "12b46e4003284fe995e8769fe2605a08a218467dde8667149a07941e2caf4bd5",
+      "ledger_discrepancy": "The prior aggregate cannot be reproduced under the stated relative-path|sha256 encoding. File count and byte count are unchanged, and all 12 adapter_model.safetensors hashes exactly match reports/epoch10_checkpoint_panel_manifest.json.",
+      "all_12_registered_adapter_hashes_match": true,
+      "mutation_allowed": false
+    }
+  },
+  "leakage_boundary": {
+    "checkpoint_actions_queried": 0,
+    "checkpoint_scores_opened": false,
+    "adapter_inference_outcomes_opened": false,
+    "closed_loop_success_labels_opened": false,
+    "validation_results_opened": false,
+    "confirmation_results_opened": false,
+    "chkdsk_status": "UNAVAILABLE_INCONCLUSIVE",
+    "chkdsk_revisited": false
+  }
+}

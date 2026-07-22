@@ -1,0 +1,16 @@
+{
+  "active_branch_present": false,
+  "all_valid_finite_unique": true,
+  "campaign": "epoch10b_manifest_adjudicator_erratum",
+  "canonical_payload_sha256": "eeea8d0fcfaa4eb0ab9801375e2514aa0789c3febfaa29a46445d4c79af153bb",
+  "exact_expected_key_order": true,
+  "expected_row_count": 9,
+  "new_row_count": 0,
+  "original_raw_sha256_unchanged": true,
+  "raw_path": "runs/epoch10b_manifest_erratum/frame60_primary_panel.jsonl",
+  "raw_sha256": "e7f36aa798460d7a268d34c09b9ed4a401b9e0ebd7566298e8a572480b0fe03f",
+  "row_count": 9,
+  "schema_version": 1,
+  "status": "ERRATUM_PANEL_COMPLETE",
+  "wall_time_seconds": 0.008
+}
