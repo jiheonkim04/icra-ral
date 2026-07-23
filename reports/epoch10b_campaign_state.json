@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "campaign": "epoch10b_icae_fresh_controller",
+  "branch": "codex/epoch10b-stage0-paper-continuation",
+  "terminal": true,
+  "terminal_state": "EPOCH10B_ICAE_NO_PREDICTIVE_HEADROOM",
+  "terminal_phase": "PHASE_D_DEVELOPMENT_STAGE0",
+  "timestamp": "2026-07-23T22:19:02+09:00",
+  "authority": {
+    "certified_continuation_prompt": {
+      "path": "C:\\Users\\jiheo\\Downloads\\epoch10b_stage0_to_ral_paper_continuation_prompt.md",
+      "sha256": "29abb6edf9a4c662a42ac0eea7f8543ac5c1e88f42294056d1b1f4b07b0db420"
+    },
+    "original_frozen_prompt": {
+      "path": "C:\\Users\\jiheo\\Downloads\\epoch10b_icae_fresh_controller_ral_continuation_prompt.md",
+      "sha256": "24c2198d83ea262ff4133ffe7d44d63af65bd7ab93f237fdebcd4a47aeaefa66"
+    },
+    "stage0_rollout_checkpoint_commit": "4318656822eb45591aa0490b14bd14dc1dbc5381"
+  },
+  "mechanics_assay_status": "CERTIFIED_BY_VERSIONED_ERRATUM",
+  "stage0_status": "TERMINAL",
+  "stage0_result": "reports/epoch10b_stage0_result.json",
+  "stage0_result_canonical_payload_sha256": "6a0fe0baa1271903b098d630ef82558e74c391762c902154929cd013c32c306d",
+  "denominators": {
+    "whole_seed_lineages": 8,
+    "development_checkpoints": 16,
+    "tasks": 4,
+    "states_per_checkpoint": 240,
+    "fresh_branches": 11520,
+    "intervention_pairs": 3840,
+    "common_resets_per_task_checkpoint": 15,
+    "official_episodes": 960
+  },
+  "stage0_gate": {
+    "performance_identifiable": true,
+    "icae_concordance_at_least_0_60": false,
+    "gain_over_normalized_mse_at_least_0_08": false,
+    "bootstrap_probability_gain_positive_at_least_0_90": false,
+    "not_clearly_dominated_by_every_strong_baseline": true,
+    "negative_controls_do_not_reproduce_gain": true,
+    "total_icae_steps_at_most_20_percent": false
+  },
+  "primary_comparison": {
+    "icae_concordance": 0.4882369632312068,
+    "normalized_mse_concordance": 0.5694271171303177,
+    "gain": -0.08119015389911088,
+    "bootstrap_probability_gain_positive": 0.471
+  },
+  "cost": {
+    "total_icae_simulator_steps": 980322,
+    "exhaustive_full_rollout_step_budget": 331200,
+    "fraction": 2.959909420289855,
+    "maximum_allowed_fraction": 0.2
+  },
+  "development_success_labels_opened": true,
+  "heldout_checkpoint_actions_queried": 0,
+  "heldout_outcomes_opened": false,
+  "confirmation_outcomes_opened": false,
+  "positive_paper_authorized": false,
+  "active_scientific_workers": 0,
+  "next_action": "none; named scientific terminal reached",
+  "resume_required": false
+}

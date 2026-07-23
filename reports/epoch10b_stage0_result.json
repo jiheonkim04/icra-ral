@@ -1,0 +1,1727 @@
+{
+  "bootstrap": {
+    "best_checkpoint": "epoch10_rank4_seed_909_step_0100",
+    "best_minus_worst_success_ci95": [
+      0.016666666666666635,
+      0.4
+    ],
+    "metrics": {
+      "action_dimension_normalized_mse": {
+        "concordance_ci95": [
+          0.34741427075523473,
+          0.6921573092597775
+        ],
+        "finite_replicates": 10000,
+        "gain_over_normalized_mse_ci95": [
+          0.0,
+          0.0
+        ],
+        "probability_gain_over_normalized_mse_positive": 0.0
+      },
+      "icae": {
+        "concordance_ci95": [
+          0.3395245454927021,
+          0.6981518038010018
+        ],
+        "finite_replicates": 10000,
+        "gain_over_normalized_mse_ci95": [
+          -0.23156154994928307,
+          0.20862617526002322
+        ],
+        "probability_gain_over_normalized_mse_positive": 0.471
+      },
+      "state_shuffled_icae": {
+        "concordance_ci95": [
+          0.34646674673830585,
+          0.6849071650370544
+        ],
+        "finite_replicates": 10000,
+        "gain_over_normalized_mse_ci95": [
+          -0.24042062256158697,
+          0.21732012622834995
+        ],
+        "probability_gain_over_normalized_mse_positive": 0.4592
+      },
+      "unpaired_icae": {
+        "concordance_ci95": [
+          0.30501623376623377,
+          0.6885037889609451
+        ],
+        "finite_replicates": 10000,
+        "gain_over_normalized_mse_ci95": [
+          -0.29904420424022704,
+          0.24909595209890928
+        ],
+        "probability_gain_over_normalized_mse_positive": 0.3756
+      }
+    },
+    "replicates": 10000,
+    "seed": 20260722,
+    "worst_checkpoint": "epoch10_rank4_seed_1010_step_0100"
+  },
+  "campaign": "epoch10b_icae_fresh_controller",
+  "canonical_payload_sha256": "6a0fe0baa1271903b098d630ef82558e74c391762c902154929cd013c32c306d",
+  "ci_mse": "NOT_IMPLEMENTED_NO_PROXY_UNDER_FROZEN_ACTION_PROTOCOL",
+  "clearly_dominated_by_every_strong_baseline": false,
+  "confirmation_outcomes_opened": false,
+  "cost": {
+    "exhaustive_full_rollout_step_budget": 331200,
+    "fraction": 2.959909420289855,
+    "maximum_allowed_fraction": 0.2,
+    "prefix_simulator_steps": 922722,
+    "scored_simulator_steps_including_absorbing_scores": 57600,
+    "total_icae_simulator_steps": 980322
+  },
+  "denominators": {
+    "common_resets_per_task_checkpoint": 15,
+    "development_checkpoints": 16,
+    "fresh_branches": 11520,
+    "intervention_pairs": 3840,
+    "official_episodes": 960,
+    "states_per_checkpoint": 240,
+    "tasks": 4,
+    "whole_seed_lineages": 8
+  },
+  "freeze_sha256": "55abf480359f2a7b1562bedc9b8416cc1c5c60f5c34f3d52230bb07bfdb71aac",
+  "gate": {
+    "bootstrap_probability_gain_positive_at_least_0_90": false,
+    "gain_over_normalized_mse_at_least_0_08": false,
+    "icae_concordance_at_least_0_60": false,
+    "negative_controls_do_not_reproduce_gain": true,
+    "not_clearly_dominated_by_every_strong_baseline": true,
+    "performance_identifiable": true,
+    "total_icae_steps_at_most_20_percent": false
+  },
+  "heldout_checkpoint_actions_queried": 0,
+  "heldout_outcomes_opened": false,
+  "input_hashes": {
+    "actions": "fce3a894ea349c42a7fe787338391f8b9f5b7ae57a3ba5bb77b6ccbc9aaf13fb",
+    "intervention_manifest": "6258a9fc70a52845844c946c1a0877840257d9df462dd6c177ea2c223dbcd55a",
+    "paired_scores": "1c619ccd5aa7ec20c8ab3ef0406dde3c5d7f4addaf47eaca880d30245a69cda4",
+    "rollout_manifest": "03a5d020703d689967c1cf96103a23ebe27361da32f078b5ebb05635c5f79c45",
+    "rollout_rows": "b1c77adf5779d25832751ae798154c871218f554425f4c9a12eb0e83e1027508"
+  },
+  "metrics": {
+    "action_dimension_normalized_mse": {
+      "competitive_step100": {
+        "equal_task_cross_lineage_concordance": 0.6332717793715237,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.6818181818181818,
+            "informative_cross_lineage_pairs": 22,
+            "performance_ties_excluded": 6
+          },
+          "libero_goal": {
+            "concordance": 0.35294117647058826,
+            "informative_cross_lineage_pairs": 17,
+            "performance_ties_excluded": 11
+          },
+          "libero_object": {
+            "concordance": 0.8461538461538461,
+            "informative_cross_lineage_pairs": 26,
+            "performance_ties_excluded": 2
+          },
+          "libero_spatial": {
+            "concordance": 0.6521739130434783,
+            "informative_cross_lineage_pairs": 23,
+            "performance_ties_excluded": 5
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.1333333333333333,
+          "mean_selection_regret": 0.033333333333333326,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_101_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_10",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_202_step_0100",
+              "selection_regret": 0.1333333333333333,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_909_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_object",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_spatial",
+              "top1_correct": true,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.75,
+          "top3_accuracy": 0.75
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": 0.11987155965721318,
+          "spearman": 0.16426115047384005
+        }
+      },
+      "full": {
+        "equal_task_cross_lineage_concordance": 0.5694271171303177,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.6046511627906976,
+            "informative_cross_lineage_pairs": 86,
+            "performance_ties_excluded": 26
+          },
+          "libero_goal": {
+            "concordance": 0.4393939393939394,
+            "informative_cross_lineage_pairs": 66,
+            "performance_ties_excluded": 46
+          },
+          "libero_object": {
+            "concordance": 0.6336633663366337,
+            "informative_cross_lineage_pairs": 101,
+            "performance_ties_excluded": 11
+          },
+          "libero_spatial": {
+            "concordance": 0.6,
+            "informative_cross_lineage_pairs": 90,
+            "performance_ties_excluded": 22
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.13333333333333341,
+          "mean_selection_regret": 0.10000000000000003,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_101_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_10",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_202_step_0100",
+              "selection_regret": 0.1333333333333333,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_606_step_0030",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_object",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0030",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_spatial",
+              "top1_correct": false,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.25,
+          "top3_accuracy": 0.5
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": 0.06642342844420462,
+          "spearman": 0.09167677496582233
+        }
+      }
+    },
+    "arm_gripper_equal_weight_mse": {
+      "competitive_step100": {
+        "equal_task_cross_lineage_concordance": 0.6200481104573177,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.8181818181818182,
+            "informative_cross_lineage_pairs": 22,
+            "performance_ties_excluded": 6
+          },
+          "libero_goal": {
+            "concordance": 0.29411764705882354,
+            "informative_cross_lineage_pairs": 17,
+            "performance_ties_excluded": 11
+          },
+          "libero_object": {
+            "concordance": 0.8461538461538461,
+            "informative_cross_lineage_pairs": 26,
+            "performance_ties_excluded": 2
+          },
+          "libero_spatial": {
+            "concordance": 0.5217391304347826,
+            "informative_cross_lineage_pairs": 23,
+            "performance_ties_excluded": 5
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.1333333333333333,
+          "mean_selection_regret": 0.033333333333333326,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_101_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_10",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_202_step_0100",
+              "selection_regret": 0.1333333333333333,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_909_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_object",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_spatial",
+              "top1_correct": true,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.75,
+          "top3_accuracy": 0.75
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": 0.09920404937148676,
+          "spearman": 0.14071643909573084
+        }
+      },
+      "full": {
+        "equal_task_cross_lineage_concordance": 0.564652628053503,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.6976744186046512,
+            "informative_cross_lineage_pairs": 86,
+            "performance_ties_excluded": 26
+          },
+          "libero_goal": {
+            "concordance": 0.3939393939393939,
+            "informative_cross_lineage_pairs": 66,
+            "performance_ties_excluded": 46
+          },
+          "libero_object": {
+            "concordance": 0.6336633663366337,
+            "informative_cross_lineage_pairs": 101,
+            "performance_ties_excluded": 11
+          },
+          "libero_spatial": {
+            "concordance": 0.5333333333333333,
+            "informative_cross_lineage_pairs": 90,
+            "performance_ties_excluded": 22
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.13333333333333341,
+          "mean_selection_regret": 0.13333333333333336,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_606_step_0030",
+              "selection_regret": 0.13333333333333336,
+              "task": "libero_10",
+              "top1_correct": false,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_202_step_0100",
+              "selection_regret": 0.1333333333333333,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_606_step_0030",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_object",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0030",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_spatial",
+              "top1_correct": false,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.0,
+          "top3_accuracy": 0.5
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": 0.06335773174677979,
+          "spearman": 0.0890587508310268
+        }
+      }
+    },
+    "icae": {
+      "competitive_step100": {
+        "equal_task_cross_lineage_concordance": 0.46049666446085885,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.3181818181818182,
+            "informative_cross_lineage_pairs": 22,
+            "performance_ties_excluded": 6
+          },
+          "libero_goal": {
+            "concordance": 0.4117647058823529,
+            "informative_cross_lineage_pairs": 17,
+            "performance_ties_excluded": 11
+          },
+          "libero_object": {
+            "concordance": 0.8076923076923077,
+            "informative_cross_lineage_pairs": 26,
+            "performance_ties_excluded": 2
+          },
+          "libero_spatial": {
+            "concordance": 0.30434782608695654,
+            "informative_cross_lineage_pairs": 23,
+            "performance_ties_excluded": 5
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.13333333333333341,
+          "mean_selection_regret": 0.11666666666666671,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_202_step_0100",
+              "selection_regret": 0.06666666666666671,
+              "task": "libero_10",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0100",
+              "selection_regret": 0.1333333333333333,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_808_step_0100",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_object",
+              "top1_correct": false,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_808_step_0100",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_spatial",
+              "top1_correct": false,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.0,
+          "top3_accuracy": 0.75
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": -0.008267004114290565,
+          "spearman": -0.0036788611528295644
+        }
+      },
+      "full": {
+        "equal_task_cross_lineage_concordance": 0.4882369632312068,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.38372093023255816,
+            "informative_cross_lineage_pairs": 86,
+            "performance_ties_excluded": 26
+          },
+          "libero_goal": {
+            "concordance": 0.48484848484848486,
+            "informative_cross_lineage_pairs": 66,
+            "performance_ties_excluded": 46
+          },
+          "libero_object": {
+            "concordance": 0.6732673267326733,
+            "informative_cross_lineage_pairs": 101,
+            "performance_ties_excluded": 11
+          },
+          "libero_spatial": {
+            "concordance": 0.4111111111111111,
+            "informative_cross_lineage_pairs": 90,
+            "performance_ties_excluded": 22
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.13333333333333341,
+          "mean_selection_regret": 0.11666666666666671,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_202_step_0100",
+              "selection_regret": 0.06666666666666671,
+              "task": "libero_10",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0100",
+              "selection_regret": 0.1333333333333333,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_808_step_0100",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_object",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_101_step_0030",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_spatial",
+              "top1_correct": false,
+              "top3_hit": false
+            }
+          ],
+          "top1_accuracy": 0.0,
+          "top3_accuracy": 0.0
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": -0.006131393394849658,
+          "spearman": 0.004363373557992546
+        }
+      }
+    },
+    "phase_state_criticality_weighted_normalized_mse": {
+      "competitive_step100": {
+        "equal_task_cross_lineage_concordance": 0.6479776617244648,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.6818181818181818,
+            "informative_cross_lineage_pairs": 22,
+            "performance_ties_excluded": 6
+          },
+          "libero_goal": {
+            "concordance": 0.4117647058823529,
+            "informative_cross_lineage_pairs": 17,
+            "performance_ties_excluded": 11
+          },
+          "libero_object": {
+            "concordance": 0.8461538461538461,
+            "informative_cross_lineage_pairs": 26,
+            "performance_ties_excluded": 2
+          },
+          "libero_spatial": {
+            "concordance": 0.6521739130434783,
+            "informative_cross_lineage_pairs": 23,
+            "performance_ties_excluded": 5
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.1333333333333333,
+          "mean_selection_regret": 0.033333333333333326,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_101_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_10",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_202_step_0100",
+              "selection_regret": 0.1333333333333333,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_909_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_object",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_spatial",
+              "top1_correct": true,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.75,
+          "top3_accuracy": 1.0
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": 0.13227206582864903,
+          "spearman": 0.18265545623798787
+        }
+      },
+      "full": {
+        "equal_task_cross_lineage_concordance": 0.581800854504055,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.6046511627906976,
+            "informative_cross_lineage_pairs": 86,
+            "performance_ties_excluded": 26
+          },
+          "libero_goal": {
+            "concordance": 0.5,
+            "informative_cross_lineage_pairs": 66,
+            "performance_ties_excluded": 46
+          },
+          "libero_object": {
+            "concordance": 0.6336633663366337,
+            "informative_cross_lineage_pairs": 101,
+            "performance_ties_excluded": 11
+          },
+          "libero_spatial": {
+            "concordance": 0.5888888888888889,
+            "informative_cross_lineage_pairs": 90,
+            "performance_ties_excluded": 22
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.13333333333333341,
+          "mean_selection_regret": 0.10000000000000003,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_101_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_10",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_202_step_0100",
+              "selection_regret": 0.1333333333333333,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_606_step_0030",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_object",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0030",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_spatial",
+              "top1_correct": false,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.25,
+          "top3_accuracy": 0.5
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": 0.07051102404077106,
+          "spearman": 0.09962270786616663
+        }
+      }
+    },
+    "raw_mae": {
+      "competitive_step100": {
+        "equal_task_cross_lineage_concordance": 0.5961381968415217,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.6818181818181818,
+            "informative_cross_lineage_pairs": 22,
+            "performance_ties_excluded": 6
+          },
+          "libero_goal": {
+            "concordance": 0.4117647058823529,
+            "informative_cross_lineage_pairs": 17,
+            "performance_ties_excluded": 11
+          },
+          "libero_object": {
+            "concordance": 0.7692307692307693,
+            "informative_cross_lineage_pairs": 26,
+            "performance_ties_excluded": 2
+          },
+          "libero_spatial": {
+            "concordance": 0.5217391304347826,
+            "informative_cross_lineage_pairs": 23,
+            "performance_ties_excluded": 5
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.13333333333333341,
+          "mean_selection_regret": 0.06666666666666668,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_101_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_10",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_202_step_0100",
+              "selection_regret": 0.1333333333333333,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_909_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_object",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_808_step_0100",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_spatial",
+              "top1_correct": false,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.5,
+          "top3_accuracy": 1.0
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": 0.14880607405723015,
+          "spearman": 0.19001317854364702
+        }
+      },
+      "full": {
+        "equal_task_cross_lineage_concordance": 0.558521898701498,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.627906976744186,
+            "informative_cross_lineage_pairs": 86,
+            "performance_ties_excluded": 26
+          },
+          "libero_goal": {
+            "concordance": 0.5454545454545454,
+            "informative_cross_lineage_pairs": 66,
+            "performance_ties_excluded": 46
+          },
+          "libero_object": {
+            "concordance": 0.594059405940594,
+            "informative_cross_lineage_pairs": 101,
+            "performance_ties_excluded": 11
+          },
+          "libero_spatial": {
+            "concordance": 0.4666666666666667,
+            "informative_cross_lineage_pairs": 90,
+            "performance_ties_excluded": 22
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.2666666666666667,
+          "mean_selection_regret": 0.13333333333333336,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_101_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_10",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_202_step_0100",
+              "selection_regret": 0.1333333333333333,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_101_step_0030",
+              "selection_regret": 0.2666666666666667,
+              "task": "libero_object",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0030",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_spatial",
+              "top1_correct": false,
+              "top3_hit": false
+            }
+          ],
+          "top1_accuracy": 0.25,
+          "top3_accuracy": 0.5
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": 0.10321178881330256,
+          "spearman": 0.13645876674521953
+        }
+      }
+    },
+    "raw_mse": {
+      "competitive_step100": {
+        "equal_task_cross_lineage_concordance": 0.59299044944825,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.6818181818181818,
+            "informative_cross_lineage_pairs": 22,
+            "performance_ties_excluded": 6
+          },
+          "libero_goal": {
+            "concordance": 0.23529411764705882,
+            "informative_cross_lineage_pairs": 17,
+            "performance_ties_excluded": 11
+          },
+          "libero_object": {
+            "concordance": 0.8461538461538461,
+            "informative_cross_lineage_pairs": 26,
+            "performance_ties_excluded": 2
+          },
+          "libero_spatial": {
+            "concordance": 0.6086956521739131,
+            "informative_cross_lineage_pairs": 23,
+            "performance_ties_excluded": 5
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.1333333333333333,
+          "mean_selection_regret": 0.033333333333333326,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_101_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_10",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_202_step_0100",
+              "selection_regret": 0.1333333333333333,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_909_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_object",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_spatial",
+              "top1_correct": true,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.75,
+          "top3_accuracy": 0.75
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": 0.09920404937148676,
+          "spearman": 0.14402741413327744
+        }
+      },
+      "full": {
+        "equal_task_cross_lineage_concordance": 0.5489784443560635,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.627906976744186,
+            "informative_cross_lineage_pairs": 86,
+            "performance_ties_excluded": 26
+          },
+          "libero_goal": {
+            "concordance": 0.3787878787878788,
+            "informative_cross_lineage_pairs": 66,
+            "performance_ties_excluded": 46
+          },
+          "libero_object": {
+            "concordance": 0.6336633663366337,
+            "informative_cross_lineage_pairs": 101,
+            "performance_ties_excluded": 11
+          },
+          "libero_spatial": {
+            "concordance": 0.5555555555555556,
+            "informative_cross_lineage_pairs": 90,
+            "performance_ties_excluded": 22
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.13333333333333341,
+          "mean_selection_regret": 0.10000000000000003,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_101_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_10",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_202_step_0100",
+              "selection_regret": 0.1333333333333333,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_606_step_0030",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_object",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0030",
+              "selection_regret": 0.13333333333333341,
+              "task": "libero_spatial",
+              "top1_correct": false,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.25,
+          "top3_accuracy": 0.5
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": 0.05109494495708048,
+          "spearman": 0.0774613632163624
+        }
+      }
+    },
+    "response_magnitude_control": {
+      "competitive_step100": {
+        "equal_task_cross_lineage_concordance": 0.5051150895140665,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.5,
+            "informative_cross_lineage_pairs": 22,
+            "performance_ties_excluded": 6
+          },
+          "libero_goal": {
+            "concordance": 0.4117647058823529,
+            "informative_cross_lineage_pairs": 17,
+            "performance_ties_excluded": 11
+          },
+          "libero_object": {
+            "concordance": 0.5,
+            "informative_cross_lineage_pairs": 26,
+            "performance_ties_excluded": 2
+          },
+          "libero_spatial": {
+            "concordance": 0.6086956521739131,
+            "informative_cross_lineage_pairs": 23,
+            "performance_ties_excluded": 5
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.2666666666666667,
+          "mean_selection_regret": 0.11666666666666668,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_505_step_0100",
+              "selection_regret": 0.13333333333333336,
+              "task": "libero_10",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_505_step_0100",
+              "selection_regret": 0.06666666666666665,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_505_step_0100",
+              "selection_regret": 0.2666666666666667,
+              "task": "libero_object",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_505_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_spatial",
+              "top1_correct": true,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.25,
+          "top3_accuracy": 0.25
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": 0.008267004114290565,
+          "spearman": -0.0020233736340562604
+        }
+      },
+      "full": {
+        "equal_task_cross_lineage_concordance": 0.4489031461285663,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.45348837209302323,
+            "informative_cross_lineage_pairs": 86,
+            "performance_ties_excluded": 26
+          },
+          "libero_goal": {
+            "concordance": 0.22727272727272727,
+            "informative_cross_lineage_pairs": 66,
+            "performance_ties_excluded": 46
+          },
+          "libero_object": {
+            "concordance": 0.5148514851485149,
+            "informative_cross_lineage_pairs": 101,
+            "performance_ties_excluded": 11
+          },
+          "libero_spatial": {
+            "concordance": 0.6,
+            "informative_cross_lineage_pairs": 90,
+            "performance_ties_excluded": 22
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.2666666666666667,
+          "mean_selection_regret": 0.11666666666666668,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_1010_step_0030",
+              "selection_regret": 0.13333333333333336,
+              "task": "libero_10",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_505_step_0100",
+              "selection_regret": 0.06666666666666665,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_505_step_0100",
+              "selection_regret": 0.2666666666666667,
+              "task": "libero_object",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_505_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_spatial",
+              "top1_correct": true,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.25,
+          "top3_accuracy": 0.25
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": -0.04394165266308921,
+          "spearman": -0.06021455510029713
+        }
+      }
+    },
+    "state_shuffled_icae": {
+      "competitive_step100": {
+        "equal_task_cross_lineage_concordance": 0.5449761236206249,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.45454545454545453,
+            "informative_cross_lineage_pairs": 22,
+            "performance_ties_excluded": 6
+          },
+          "libero_goal": {
+            "concordance": 0.5882352941176471,
+            "informative_cross_lineage_pairs": 17,
+            "performance_ties_excluded": 11
+          },
+          "libero_object": {
+            "concordance": 0.6153846153846154,
+            "informative_cross_lineage_pairs": 26,
+            "performance_ties_excluded": 2
+          },
+          "libero_spatial": {
+            "concordance": 0.5217391304347826,
+            "informative_cross_lineage_pairs": 23,
+            "performance_ties_excluded": 5
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.4,
+          "mean_selection_regret": 0.16666666666666669,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_808_step_0100",
+              "selection_regret": 0.13333333333333336,
+              "task": "libero_10",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_202_step_0100",
+              "selection_regret": 0.1333333333333333,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0100",
+              "selection_regret": 0.4,
+              "task": "libero_object",
+              "top1_correct": false,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_spatial",
+              "top1_correct": true,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.25,
+          "top3_accuracy": 0.5
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": 0.11573805760006789,
+          "spearman": 0.14660261694025814
+        }
+      },
+      "full": {
+        "equal_task_cross_lineage_concordance": 0.5411958637724237,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.5465116279069767,
+            "informative_cross_lineage_pairs": 86,
+            "performance_ties_excluded": 26
+          },
+          "libero_goal": {
+            "concordance": 0.6060606060606061,
+            "informative_cross_lineage_pairs": 66,
+            "performance_ties_excluded": 46
+          },
+          "libero_object": {
+            "concordance": 0.44554455445544555,
+            "informative_cross_lineage_pairs": 101,
+            "performance_ties_excluded": 11
+          },
+          "libero_spatial": {
+            "concordance": 0.5666666666666667,
+            "informative_cross_lineage_pairs": 90,
+            "performance_ties_excluded": 22
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.4,
+          "mean_selection_regret": 0.15000000000000002,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_808_step_0100",
+              "selection_regret": 0.13333333333333336,
+              "task": "libero_10",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_808_step_0030",
+              "selection_regret": 0.06666666666666665,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0100",
+              "selection_regret": 0.4,
+              "task": "libero_object",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_707_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_spatial",
+              "top1_correct": true,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.25,
+          "top3_accuracy": 0.25
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": 0.056204439452788524,
+          "spearman": 0.08660148256415731
+        }
+      }
+    },
+    "unpaired_icae": {
+      "competitive_step100": {
+        "equal_task_cross_lineage_concordance": 0.45026424981667945,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.2727272727272727,
+            "informative_cross_lineage_pairs": 22,
+            "performance_ties_excluded": 6
+          },
+          "libero_goal": {
+            "concordance": 0.6470588235294118,
+            "informative_cross_lineage_pairs": 17,
+            "performance_ties_excluded": 11
+          },
+          "libero_object": {
+            "concordance": 0.5769230769230769,
+            "informative_cross_lineage_pairs": 26,
+            "performance_ties_excluded": 2
+          },
+          "libero_spatial": {
+            "concordance": 0.30434782608695654,
+            "informative_cross_lineage_pairs": 23,
+            "performance_ties_excluded": 5
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.20000000000000007,
+          "mean_selection_regret": 0.10000000000000002,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_909_step_0100",
+              "selection_regret": 0.2,
+              "task": "libero_10",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_909_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_goal",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_909_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_object",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_606_step_0100",
+              "selection_regret": 0.20000000000000007,
+              "task": "libero_spatial",
+              "top1_correct": false,
+              "top3_hit": true
+            }
+          ],
+          "top1_accuracy": 0.5,
+          "top3_accuracy": 0.75
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": -0.13227206582864903,
+          "spearman": -0.17934448120044127
+        }
+      },
+      "full": {
+        "equal_task_cross_lineage_concordance": 0.472790360431392,
+        "per_task": {
+          "libero_10": {
+            "concordance": 0.3488372093023256,
+            "informative_cross_lineage_pairs": 86,
+            "performance_ties_excluded": 26
+          },
+          "libero_goal": {
+            "concordance": 0.6818181818181818,
+            "informative_cross_lineage_pairs": 66,
+            "performance_ties_excluded": 46
+          },
+          "libero_object": {
+            "concordance": 0.504950495049505,
+            "informative_cross_lineage_pairs": 101,
+            "performance_ties_excluded": 11
+          },
+          "libero_spatial": {
+            "concordance": 0.35555555555555557,
+            "informative_cross_lineage_pairs": 90,
+            "performance_ties_excluded": 22
+          }
+        },
+        "selection": {
+          "maximum_selection_regret": 0.20000000000000007,
+          "mean_selection_regret": 0.10000000000000002,
+          "per_task": [
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_101_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_606_step_0030",
+              "selection_regret": 0.13333333333333336,
+              "task": "libero_10",
+              "top1_correct": false,
+              "top3_hit": false
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_909_step_0030",
+              "selection_regret": 0.06666666666666665,
+              "task": "libero_goal",
+              "top1_correct": false,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_909_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_909_step_0100",
+              "selection_regret": 0.0,
+              "task": "libero_object",
+              "top1_correct": true,
+              "top3_hit": true
+            },
+            {
+              "empirical_best": [
+                "epoch10_rank4_seed_202_step_0100",
+                "epoch10_rank4_seed_505_step_0100",
+                "epoch10_rank4_seed_707_step_0100"
+              ],
+              "selected": "epoch10_rank4_seed_606_step_0030",
+              "selection_regret": 0.20000000000000007,
+              "task": "libero_spatial",
+              "top1_correct": false,
+              "top3_hit": false
+            }
+          ],
+          "top1_accuracy": 0.25,
+          "top3_accuracy": 0.5
+        },
+        "task_centered_rank": {
+          "kendall_tau_b": -0.10423368771244418,
+          "spearman": -0.1579081925513513
+        }
+      }
+    }
+  },
+  "negative_controls": {
+    "state_shuffled_icae": {
+      "concordance": 0.5411958637724237,
+      "gain_over_normalized_mse": -0.028231253357894004,
+      "probability_gain_positive": 0.4592,
+      "reproduces_gain": false
+    },
+    "unpaired_icae": {
+      "concordance": 0.472790360431392,
+      "gain_over_normalized_mse": -0.09663675669892569,
+      "probability_gain_positive": 0.3756,
+      "reproduces_gain": false
+    }
+  },
+  "performance": {
+    "best_checkpoint": "epoch10_rank4_seed_909_step_0100",
+    "best_minus_worst_point": 0.18333333333333335,
+    "checkpoint_macro_success": {
+      "epoch10_rank4_seed_1010_step_0030": 0.5833333333333334,
+      "epoch10_rank4_seed_1010_step_0100": 0.5,
+      "epoch10_rank4_seed_101_step_0030": 0.6166666666666666,
+      "epoch10_rank4_seed_101_step_0100": 0.5666666666666667,
+      "epoch10_rank4_seed_202_step_0030": 0.5833333333333333,
+      "epoch10_rank4_seed_202_step_0100": 0.6499999999999999,
+      "epoch10_rank4_seed_505_step_0030": 0.65,
+      "epoch10_rank4_seed_505_step_0100": 0.6333333333333333,
+      "epoch10_rank4_seed_606_step_0030": 0.6,
+      "epoch10_rank4_seed_606_step_0100": 0.6166666666666667,
+      "epoch10_rank4_seed_707_step_0030": 0.6333333333333333,
+      "epoch10_rank4_seed_707_step_0100": 0.5833333333333333,
+      "epoch10_rank4_seed_808_step_0030": 0.6,
+      "epoch10_rank4_seed_808_step_0100": 0.6166666666666666,
+      "epoch10_rank4_seed_909_step_0030": 0.5833333333333334,
+      "epoch10_rank4_seed_909_step_0100": 0.6833333333333333
+    },
+    "checkpoint_task_success": {
+      "epoch10_rank4_seed_1010_step_0030": {
+        "libero_10": 0.26666666666666666,
+        "libero_goal": 0.8666666666666667,
+        "libero_object": 0.4666666666666667,
+        "libero_spatial": 0.7333333333333333
+      },
+      "epoch10_rank4_seed_1010_step_0100": {
+        "libero_10": 0.06666666666666667,
+        "libero_goal": 0.8666666666666667,
+        "libero_object": 0.3333333333333333,
+        "libero_spatial": 0.7333333333333333
+      },
+      "epoch10_rank4_seed_101_step_0030": {
+        "libero_10": 0.3333333333333333,
+        "libero_goal": 0.9333333333333333,
+        "libero_object": 0.5333333333333333,
+        "libero_spatial": 0.6666666666666666
+      },
+      "epoch10_rank4_seed_101_step_0100": {
+        "libero_10": 0.4,
+        "libero_goal": 0.8666666666666667,
+        "libero_object": 0.4,
+        "libero_spatial": 0.6
+      },
+      "epoch10_rank4_seed_202_step_0030": {
+        "libero_10": 0.3333333333333333,
+        "libero_goal": 0.9333333333333333,
+        "libero_object": 0.3333333333333333,
+        "libero_spatial": 0.7333333333333333
+      },
+      "epoch10_rank4_seed_202_step_0100": {
+        "libero_10": 0.3333333333333333,
+        "libero_goal": 0.8666666666666667,
+        "libero_object": 0.6,
+        "libero_spatial": 0.8
+      },
+      "epoch10_rank4_seed_505_step_0030": {
+        "libero_10": 0.2,
+        "libero_goal": 0.9333333333333333,
+        "libero_object": 0.7333333333333333,
+        "libero_spatial": 0.7333333333333333
+      },
+      "epoch10_rank4_seed_505_step_0100": {
+        "libero_10": 0.26666666666666666,
+        "libero_goal": 0.9333333333333333,
+        "libero_object": 0.5333333333333333,
+        "libero_spatial": 0.8
+      },
+      "epoch10_rank4_seed_606_step_0030": {
+        "libero_10": 0.26666666666666666,
+        "libero_goal": 0.8666666666666667,
+        "libero_object": 0.6666666666666666,
+        "libero_spatial": 0.6
+      },
+      "epoch10_rank4_seed_606_step_0100": {
+        "libero_10": 0.26666666666666666,
+        "libero_goal": 0.9333333333333333,
+        "libero_object": 0.6666666666666666,
+        "libero_spatial": 0.6
+      },
+      "epoch10_rank4_seed_707_step_0030": {
+        "libero_10": 0.3333333333333333,
+        "libero_goal": 0.8666666666666667,
+        "libero_object": 0.6666666666666666,
+        "libero_spatial": 0.6666666666666666
+      },
+      "epoch10_rank4_seed_707_step_0100": {
+        "libero_10": 0.26666666666666666,
+        "libero_goal": 0.8666666666666667,
+        "libero_object": 0.4,
+        "libero_spatial": 0.8
+      },
+      "epoch10_rank4_seed_808_step_0030": {
+        "libero_10": 0.26666666666666666,
+        "libero_goal": 0.9333333333333333,
+        "libero_object": 0.5333333333333333,
+        "libero_spatial": 0.6666666666666666
+      },
+      "epoch10_rank4_seed_808_step_0100": {
+        "libero_10": 0.26666666666666666,
+        "libero_goal": 0.8666666666666667,
+        "libero_object": 0.6666666666666666,
+        "libero_spatial": 0.6666666666666666
+      },
+      "epoch10_rank4_seed_909_step_0030": {
+        "libero_10": 0.2,
+        "libero_goal": 0.9333333333333333,
+        "libero_object": 0.6,
+        "libero_spatial": 0.6
+      },
+      "epoch10_rank4_seed_909_step_0100": {
+        "libero_10": 0.2,
+        "libero_goal": 1.0,
+        "libero_object": 0.8,
+        "libero_spatial": 0.7333333333333333
+      }
+    },
+    "distinguishable_by_bootstrap": true,
+    "occupied_band_count": 2,
+    "quality_bands": {
+      "high_[2/3,1]": [
+        "epoch10_rank4_seed_909_step_0100"
+      ],
+      "low_[0,1/3)": [],
+      "middle_[1/3,2/3)": [
+        "epoch10_rank4_seed_1010_step_0030",
+        "epoch10_rank4_seed_1010_step_0100",
+        "epoch10_rank4_seed_101_step_0030",
+        "epoch10_rank4_seed_101_step_0100",
+        "epoch10_rank4_seed_202_step_0030",
+        "epoch10_rank4_seed_202_step_0100",
+        "epoch10_rank4_seed_505_step_0030",
+        "epoch10_rank4_seed_505_step_0100",
+        "epoch10_rank4_seed_606_step_0030",
+        "epoch10_rank4_seed_606_step_0100",
+        "epoch10_rank4_seed_707_step_0030",
+        "epoch10_rank4_seed_707_step_0100",
+        "epoch10_rank4_seed_808_step_0030",
+        "epoch10_rank4_seed_808_step_0100",
+        "epoch10_rank4_seed_909_step_0030"
+      ]
+    },
+    "worst_checkpoint": "epoch10_rank4_seed_1010_step_0100"
+  },
+  "primary_comparison": {
+    "bootstrap_probability_gain_positive": 0.471,
+    "gain": -0.08119015389911088,
+    "icae_concordance": 0.4882369632312068,
+    "normalized_mse_concordance": 0.5694271171303177
+  },
+  "repeatability": {
+    "action_cache_maximum_abs": 0.0,
+    "fresh_branch_constructor_certified_before_stage0": true
+  },
+  "schema_version": 1,
+  "status": "TERMINAL",
+  "strong_baselines": {
+    "action_dimension_normalized_mse": 0.5694271171303177,
+    "arm_gripper_equal_weight_mse": 0.564652628053503,
+    "phase_state_criticality_weighted_normalized_mse": 0.581800854504055,
+    "raw_mae": 0.558521898701498,
+    "raw_mse": 0.5489784443560635,
+    "response_magnitude_control": 0.4489031461285663
+  },
+  "terminal_state": "EPOCH10B_ICAE_NO_PREDICTIVE_HEADROOM"
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "campaign": "epoch10b_icae_fresh_controller",
+  "terminal_state": "EPOCH10B_ICAE_NO_PREDICTIVE_HEADROOM",
+  "hash_algorithm": "sha256",
+  "authority": [
+    {
+      "path": "C:\\Users\\jiheo\\Downloads\\epoch10b_stage0_to_ral_paper_continuation_prompt.md",
+      "bytes": 5264,
+      "sha256": "29abb6edf9a4c662a42ac0eea7f8543ac5c1e88f42294056d1b1f4b07b0db420"
+    },
+    {
+      "path": "C:\\Users\\jiheo\\Downloads\\epoch10b_icae_fresh_controller_ral_continuation_prompt.md",
+      "bytes": 23662,
+      "sha256": "24c2198d83ea262ff4133ffe7d44d63af65bd7ab93f237fdebcd4a47aeaefa66"
+    }
+  ],
+  "frozen_stage0_protocol": [
+    {
+      "path": "reports/epoch10b_stage0_preregistration.json",
+      "bytes": 61331,
+      "sha256": "55abf480359f2a7b1562bedc9b8416cc1c5c60f5c34f3d52230bb07bfdb71aac"
+    },
+    {
+      "path": "reports/epoch10b_action_cache_freeze.json",
+      "bytes": 397702,
+      "sha256": "8328cd0fba7c888d8bdda15441f2b0c87b18ce7d47d487c1982facd5f02269ca"
+    },
+    {
+      "path": "reports/epoch10b_action_cache_manifest.json",
+      "bytes": 5762,
+      "sha256": "b6c401e381c027d214a4047d5612bd3eb89045b10bf5cfb383833baf59c93ec3"
+    },
+    {
+      "path": "scripts/run_epoch10b_stage0.py",
+      "bytes": 65409,
+      "sha256": "0a166ee4a94650883b438f804b49d62bbb10d8792602b1879ad22c4038cc3841"
+    },
+    {
+      "path": "scripts/run_epoch10b_stage0_host_guard.ps1",
+      "bytes": 6676,
+      "sha256": "65c2e09a13fa2980b828cd9e11cfddcdf6f2bab19e6e3160d9285270a3a83a41"
+    },
+    {
+      "path": "tests/test_epoch10b_stage0.py",
+      "bytes": 4310,
+      "sha256": "f2961f881fd8677b5d010828ed2e4893159f9b1272327b4d774ec1e95536e3bf"
+    }
+  ],
+  "stage0_execution_evidence": [
+    {
+      "path": "runs/epoch10b_stage0_action_cache/development_actions.jsonl",
+      "bytes": 6742622,
+      "sha256": "fce3a894ea349c42a7fe787338391f8b9f5b7ae57a3ba5bb77b6ccbc9aaf13fb"
+    },
+    {
+      "path": "reports/epoch10b_stage0_intervention_manifest.json",
+      "bytes": 1046,
+      "sha256": "6258a9fc70a52845844c946c1a0877840257d9df462dd6c177ea2c223dbcd55a"
+    },
+    {
+      "path": "runs/epoch10b_stage0_interventions/branches.jsonl",
+      "bytes": 128960756,
+      "sha256": "d6fa8f8aafd6d690033823966c01bdfa37d17e19cc6406ef4d70b214c8e62285"
+    },
+    {
+      "path": "runs/epoch10b_stage0_interventions/paired_scores.jsonl",
+      "bytes": 4537458,
+      "sha256": "1c619ccd5aa7ec20c8ab3ef0406dde3c5d7f4addaf47eaca880d30245a69cda4"
+    },
+    {
+      "path": "runs/epoch10b_stage0_interventions/host_monitor.json",
+      "bytes": 22426,
+      "sha256": "6d7d7bc54904fca5531e8012af9ec431d7bb317d1df5a01cf9e787ba4a09fc1b"
+    },
+    {
+      "path": "reports/epoch10b_stage0_rollout_manifest.json",
+      "bytes": 740,
+      "sha256": "03a5d020703d689967c1cf96103a23ebe27361da32f078b5ebb05635c5f79c45"
+    },
+    {
+      "path": "runs/epoch10b_stage0_rollouts/development_episodes.jsonl",
+      "bytes": 508200,
+      "sha256": "b1c77adf5779d25832751ae798154c871218f554425f4c9a12eb0e83e1027508"
+    },
+    {
+      "path": "runs/epoch10b_stage0_rollouts/host_monitor.json",
+      "bytes": 7125,
+      "sha256": "be673414bbf467121c02b38f7d098d645d6d9a2ee1039acf0fcc8f0d64c7cd93"
+    },
+    {
+      "path": "runs/epoch10b_stage0_rollouts/host_monitor_preflight_attempt1_missing_local_hf_cache.json",
+      "bytes": 919,
+      "sha256": "d59a8f60748bba933ed4c9667826e466c3370827f5ca88e7ab9d5430795d8999"
+    },
+    {
+      "path": "runs/epoch10b_stage0_rollouts/host_monitor_preflight_attempt2_newline_ref.json",
+      "bytes": 919,
+      "sha256": "19c3d50fe9441385e37900584c397c1a455a88210c396165ec714f469adbb57c"
+    }
+  ],
+  "terminal_evidence": [
+    {
+      "path": "reports/epoch10b_stage0_result.json",
+      "bytes": 61534,
+      "sha256": "f1f79b7153bfac8fe8bf89ec625a233e40a6b9b0276aeaa1261f8eb6f19be8ab",
+      "canonical_payload_sha256": "6a0fe0baa1271903b098d630ef82558e74c391762c902154929cd013c32c306d"
+    },
+    {
+      "path": "reports/epoch10b_campaign_state.json",
+      "bytes": 2504,
+      "sha256": "a294ae9b83cac5ad9d2f6ad50a4022911d4532ce5859a10b5fda6962f63d7c44"
+    },
+    {
+      "path": "reports/epoch10b_terminal_handoff.md",
+      "bytes": 4183,
+      "sha256": "ecdf96f97d96c396404d3d3c0c34d6f751ffdd5922ada2bb14ada393389f16e2"
+    }
+  ],
+  "protected_evidence_final": {
+    "rollouts_2026_07_17": {
+      "file_count": 27,
+      "bytes": 5143751,
+      "ledger_sha256": "784101851d803df2145f3a02806815998e3d8260f4554e1f93cd6bada112a9fb"
+    },
+    "rollouts_2026_07_18": {
+      "file_count": 10,
+      "bytes": 924633,
+      "ledger_sha256": "472b6247df0cd8a2dc5bd5726495851c57832779f32dd4b27a2b01e9c41b1d59"
+    },
+    "epoch10_adapter_panel_rank4": {
+      "file_count": 168,
+      "bytes": 28417918,
+      "ledger_sha256": "12b46e4003284fe995e8769fe2605a08a218467dde8667149a07941e2caf4bd5"
+    },
+    "all_unchanged": true
+  },
+  "validation": {
+    "focused_epoch10b_tests": "33 passed",
+    "current_research_governance_check": "PASS",
+    "rollout_exact_key_set_and_schema_audit": "PASS",
+    "manifest_canonical_hash_validation": "PASS",
+    "stage0_result_canonical_hash_validation": "PASS",
+    "protected_evidence_integrity": "PASS",
+    "git_diff_check": "PASS",
+    "git_object_connectivity": "PASS",
+    "host_monitor": "PASS",
+    "wsl_swap_used_bytes": 0,
+    "wsl_final_state": "Stopped",
+    "heldout_outcomes_opened": false,
+    "confirmation_outcomes_opened": false
+  }
+}
