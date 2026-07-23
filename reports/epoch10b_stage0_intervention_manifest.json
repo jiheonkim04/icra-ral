@@ -1,0 +1,25 @@
+{
+  "absorbing_scored_steps": 367,
+  "branch_count": 11520,
+  "campaign": "epoch10b_icae_fresh_controller",
+  "canonical_payload_sha256": "f909b7812724c42e8a5f63397d740d14fd5aadb5d7fc2ecc0e88536d2cca7a43",
+  "development_outcomes_opened": true,
+  "executed_post_splice_steps": 57233,
+  "heldout_outcomes_opened": false,
+  "invalid_materialized_branch_count": 0,
+  "pair_count": 3840,
+  "paired_path": "runs/epoch10b_stage0_interventions/paired_scores.jsonl",
+  "paired_sha256": "1c619ccd5aa7ec20c8ab3ef0406dde3c5d7f4addaf47eaca880d30245a69cda4",
+  "prefix_simulator_steps": 922722,
+  "raw_path": "runs/epoch10b_stage0_interventions/branches.jsonl",
+  "raw_sha256": "d6fa8f8aafd6d690033823966c01bdfa37d17e19cc6406ef4d70b214c8e62285",
+  "resource_telemetry": {
+    "peak_host_ram_percent": 0.0,
+    "peak_wsl_swap_used_bytes": 0,
+    "peak_wsl_used_bytes": 2987618304,
+    "wall_time_seconds_this_invocation": 178.278
+  },
+  "schema_version": 1,
+  "scored_simulator_steps": 57600,
+  "status": "EPOCH10B_STAGE0_DEVELOPMENT_INTERVENTIONS_COMPLETE"
+}

@@ -2,3 +2,4 @@
 reports/hest_vla/researcher_proposal.md text eol=lf
 reports/haste_vla/researcher_proposal.md text eol=lf
 reports/kite_vla/researcher_proposal.md text eol=lf
+runs/epoch10b_stage0_interventions/branches.jsonl filter=lfs diff=lfs merge=lfs -text

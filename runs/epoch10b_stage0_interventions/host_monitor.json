@@ -1,0 +1,463 @@
+{
+    "schema_version":  1,
+    "campaign":  "epoch10b_icae_fresh_controller",
+    "mode":  "interventions",
+    "started_at":  "2026-07-23T10:16:31.6974117+09:00",
+    "ended_at":  "2026-07-23T18:17:18.0579827+09:00",
+    "peak_host_ram_percent":  81.0567,
+    "soft_warning_crossed":  true,
+    "hard_stop_crossed":  false,
+    "terminal_runner_exit":  null,
+    "completion_manifest":  "C:\\Users\\jiheo\\tca_map\\reports\\epoch10b_stage0_intervention_manifest.json",
+    "complete":  true,
+    "batches":  [
+                    {
+                        "batch_started_at":  "2026-07-23T10:16:35.0946778+09:00",
+                        "baseline_host_ram_percent":  55.5648,
+                        "peak_host_ram_percent":  72.1851,
+                        "rows_before":  8211,
+                        "rows_after":  8271,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T10:26:47.9255641+09:00",
+                        "baseline_host_ram_percent":  63.1253,
+                        "peak_host_ram_percent":  74.215,
+                        "rows_before":  8271,
+                        "rows_after":  8331,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T10:34:34.5566993+09:00",
+                        "baseline_host_ram_percent":  64.1563,
+                        "peak_host_ram_percent":  74.198,
+                        "rows_before":  8331,
+                        "rows_after":  8391,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T10:41:17.0539967+09:00",
+                        "baseline_host_ram_percent":  63.2208,
+                        "peak_host_ram_percent":  73.3918,
+                        "rows_before":  8391,
+                        "rows_after":  8451,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T10:48:08.1473258+09:00",
+                        "baseline_host_ram_percent":  63.2403,
+                        "peak_host_ram_percent":  73.0831,
+                        "rows_before":  8451,
+                        "rows_after":  8511,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T10:55:49.1137112+09:00",
+                        "baseline_host_ram_percent":  64.0377,
+                        "peak_host_ram_percent":  73.3816,
+                        "rows_before":  8511,
+                        "rows_after":  8571,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T11:03:51.0916793+09:00",
+                        "baseline_host_ram_percent":  63.6605,
+                        "peak_host_ram_percent":  74.1369,
+                        "rows_before":  8571,
+                        "rows_after":  8631,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T11:11:37.7566771+09:00",
+                        "baseline_host_ram_percent":  65.2717,
+                        "peak_host_ram_percent":  73.4856,
+                        "rows_before":  8631,
+                        "rows_after":  8691,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T11:21:29.2950384+09:00",
+                        "baseline_host_ram_percent":  63.6708,
+                        "peak_host_ram_percent":  73.9133,
+                        "rows_before":  8691,
+                        "rows_after":  8751,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T11:32:09.8439075+09:00",
+                        "baseline_host_ram_percent":  63.3762,
+                        "peak_host_ram_percent":  71.9973,
+                        "rows_before":  8751,
+                        "rows_after":  8811,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T11:43:24.4723337+09:00",
+                        "baseline_host_ram_percent":  63.2072,
+                        "peak_host_ram_percent":  74.585,
+                        "rows_before":  8811,
+                        "rows_after":  8871,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T11:52:20.4103955+09:00",
+                        "baseline_host_ram_percent":  63.857,
+                        "peak_host_ram_percent":  73.911,
+                        "rows_before":  8871,
+                        "rows_after":  8931,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T12:00:52.9484337+09:00",
+                        "baseline_host_ram_percent":  64.8804,
+                        "peak_host_ram_percent":  74.0912,
+                        "rows_before":  8931,
+                        "rows_after":  8991,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T12:10:13.0288685+09:00",
+                        "baseline_host_ram_percent":  63.3138,
+                        "peak_host_ram_percent":  73.7341,
+                        "rows_before":  8991,
+                        "rows_after":  9051,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T12:18:00.9526829+09:00",
+                        "baseline_host_ram_percent":  64.4772,
+                        "peak_host_ram_percent":  73.4904,
+                        "rows_before":  9051,
+                        "rows_after":  9111,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T12:24:48.5132598+09:00",
+                        "baseline_host_ram_percent":  64.9079,
+                        "peak_host_ram_percent":  73.8516,
+                        "rows_before":  9111,
+                        "rows_after":  9171,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T12:31:45.4502202+09:00",
+                        "baseline_host_ram_percent":  64.8262,
+                        "peak_host_ram_percent":  76.0165,
+                        "rows_before":  9171,
+                        "rows_after":  9231,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T12:40:40.1292030+09:00",
+                        "baseline_host_ram_percent":  68.253,
+                        "peak_host_ram_percent":  80.0738,
+                        "rows_before":  9231,
+                        "rows_after":  9291,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T12:49:34.0811397+09:00",
+                        "baseline_host_ram_percent":  72.3028,
+                        "peak_host_ram_percent":  81.0567,
+                        "rows_before":  9291,
+                        "rows_after":  9351,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T12:57:42.5450449+09:00",
+                        "baseline_host_ram_percent":  68.3885,
+                        "peak_host_ram_percent":  77.4524,
+                        "rows_before":  9351,
+                        "rows_after":  9411,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T13:07:39.8333165+09:00",
+                        "baseline_host_ram_percent":  67.2319,
+                        "peak_host_ram_percent":  76.4036,
+                        "rows_before":  9411,
+                        "rows_after":  9471,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T13:18:27.1744541+09:00",
+                        "baseline_host_ram_percent":  66.8659,
+                        "peak_host_ram_percent":  77.3178,
+                        "rows_before":  9471,
+                        "rows_after":  9531,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T13:29:47.2352785+09:00",
+                        "baseline_host_ram_percent":  66.8779,
+                        "peak_host_ram_percent":  77.0828,
+                        "rows_before":  9531,
+                        "rows_after":  9591,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T13:38:54.9208067+09:00",
+                        "baseline_host_ram_percent":  68.5123,
+                        "peak_host_ram_percent":  76.4022,
+                        "rows_before":  9591,
+                        "rows_after":  9651,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T13:47:30.6807756+09:00",
+                        "baseline_host_ram_percent":  68.6723,
+                        "peak_host_ram_percent":  78.5813,
+                        "rows_before":  9651,
+                        "rows_after":  9711,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T13:56:53.4049314+09:00",
+                        "baseline_host_ram_percent":  67.933,
+                        "peak_host_ram_percent":  78.239,
+                        "rows_before":  9711,
+                        "rows_after":  9771,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T14:04:48.4335669+09:00",
+                        "baseline_host_ram_percent":  68.5372,
+                        "peak_host_ram_percent":  80.5772,
+                        "rows_before":  9771,
+                        "rows_after":  9831,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T14:12:04.4703769+09:00",
+                        "baseline_host_ram_percent":  68.621,
+                        "peak_host_ram_percent":  79.7722,
+                        "rows_before":  9831,
+                        "rows_after":  9891,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T14:19:16.2838266+09:00",
+                        "baseline_host_ram_percent":  68.8026,
+                        "peak_host_ram_percent":  77.1964,
+                        "rows_before":  9891,
+                        "rows_after":  9951,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T14:27:26.0609772+09:00",
+                        "baseline_host_ram_percent":  69.5747,
+                        "peak_host_ram_percent":  78.863,
+                        "rows_before":  9951,
+                        "rows_after":  10011,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T14:35:40.6273674+09:00",
+                        "baseline_host_ram_percent":  68.5752,
+                        "peak_host_ram_percent":  78.0866,
+                        "rows_before":  10011,
+                        "rows_after":  10071,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T14:43:38.4669492+09:00",
+                        "baseline_host_ram_percent":  67.3908,
+                        "peak_host_ram_percent":  76.6925,
+                        "rows_before":  10071,
+                        "rows_after":  10131,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T14:53:46.5374961+09:00",
+                        "baseline_host_ram_percent":  57.9399,
+                        "peak_host_ram_percent":  67.5596,
+                        "rows_before":  10131,
+                        "rows_after":  10191,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T15:04:37.5631897+09:00",
+                        "baseline_host_ram_percent":  57.0305,
+                        "peak_host_ram_percent":  69.0379,
+                        "rows_before":  10191,
+                        "rows_after":  10251,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T15:16:03.5387699+09:00",
+                        "baseline_host_ram_percent":  55.333,
+                        "peak_host_ram_percent":  70.0645,
+                        "rows_before":  10251,
+                        "rows_after":  10311,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T15:25:10.8771442+09:00",
+                        "baseline_host_ram_percent":  58.4236,
+                        "peak_host_ram_percent":  68.2232,
+                        "rows_before":  10311,
+                        "rows_after":  10371,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T15:33:47.4786120+09:00",
+                        "baseline_host_ram_percent":  56.5066,
+                        "peak_host_ram_percent":  67.7688,
+                        "rows_before":  10371,
+                        "rows_after":  10431,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T15:43:13.5423289+09:00",
+                        "baseline_host_ram_percent":  57.2493,
+                        "peak_host_ram_percent":  68.4474,
+                        "rows_before":  10431,
+                        "rows_after":  10491,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T15:51:08.6596005+09:00",
+                        "baseline_host_ram_percent":  59.2193,
+                        "peak_host_ram_percent":  68.9872,
+                        "rows_before":  10491,
+                        "rows_after":  10551,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T15:57:58.1505872+09:00",
+                        "baseline_host_ram_percent":  59.3115,
+                        "peak_host_ram_percent":  68.7232,
+                        "rows_before":  10551,
+                        "rows_after":  10611,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T16:04:57.2441427+09:00",
+                        "baseline_host_ram_percent":  58.6369,
+                        "peak_host_ram_percent":  69.5471,
+                        "rows_before":  10611,
+                        "rows_after":  10671,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T16:12:49.2396060+09:00",
+                        "baseline_host_ram_percent":  58.6106,
+                        "peak_host_ram_percent":  70.0814,
+                        "rows_before":  10671,
+                        "rows_after":  10731,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T16:21:05.5502362+09:00",
+                        "baseline_host_ram_percent":  60.1246,
+                        "peak_host_ram_percent":  71.9435,
+                        "rows_before":  10731,
+                        "rows_after":  10791,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T16:28:56.1048236+09:00",
+                        "baseline_host_ram_percent":  61.8601,
+                        "peak_host_ram_percent":  71.1955,
+                        "rows_before":  10791,
+                        "rows_after":  10851,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T16:39:01.0132401+09:00",
+                        "baseline_host_ram_percent":  59.5719,
+                        "peak_host_ram_percent":  67.7193,
+                        "rows_before":  10851,
+                        "rows_after":  10911,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T16:49:58.7709987+09:00",
+                        "baseline_host_ram_percent":  56.5153,
+                        "peak_host_ram_percent":  75.5951,
+                        "rows_before":  10911,
+                        "rows_after":  10971,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T17:01:43.2232647+09:00",
+                        "baseline_host_ram_percent":  62.5211,
+                        "peak_host_ram_percent":  72.46,
+                        "rows_before":  10971,
+                        "rows_after":  11031,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T17:10:54.5776735+09:00",
+                        "baseline_host_ram_percent":  60.8493,
+                        "peak_host_ram_percent":  71.5074,
+                        "rows_before":  11031,
+                        "rows_after":  11091,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T17:19:31.3018858+09:00",
+                        "baseline_host_ram_percent":  61.7459,
+                        "peak_host_ram_percent":  71.0981,
+                        "rows_before":  11091,
+                        "rows_after":  11151,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T17:28:52.7500798+09:00",
+                        "baseline_host_ram_percent":  60.7003,
+                        "peak_host_ram_percent":  71.8632,
+                        "rows_before":  11151,
+                        "rows_after":  11211,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T17:36:48.3133999+09:00",
+                        "baseline_host_ram_percent":  60.2325,
+                        "peak_host_ram_percent":  70.8825,
+                        "rows_before":  11211,
+                        "rows_after":  11271,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T17:43:43.4568778+09:00",
+                        "baseline_host_ram_percent":  61.7725,
+                        "peak_host_ram_percent":  70.8458,
+                        "rows_before":  11271,
+                        "rows_after":  11331,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T17:50:43.8822621+09:00",
+                        "baseline_host_ram_percent":  62.7552,
+                        "peak_host_ram_percent":  72.1764,
+                        "rows_before":  11331,
+                        "rows_after":  11391,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T17:58:32.0416064+09:00",
+                        "baseline_host_ram_percent":  60.0059,
+                        "peak_host_ram_percent":  71.3123,
+                        "rows_before":  11391,
+                        "rows_after":  11451,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T18:06:39.2466367+09:00",
+                        "baseline_host_ram_percent":  61.8175,
+                        "peak_host_ram_percent":  71.5331,
+                        "rows_before":  11451,
+                        "rows_after":  11511,
+                        "runner_exit":  0
+                    },
+                    {
+                        "batch_started_at":  "2026-07-23T18:14:23.0837027+09:00",
+                        "baseline_host_ram_percent":  61.9662,
+                        "peak_host_ram_percent":  71.7489,
+                        "rows_before":  11511,
+                        "rows_after":  11520,
+                        "runner_exit":  0
+                    }
+                ]
+}
