@@ -1,0 +1,23 @@
+{
+    "schema_version":  1,
+    "campaign":  "epoch10b_icae_fresh_controller",
+    "mode":  "rollouts",
+    "started_at":  "2026-07-23T18:25:26.5330455+09:00",
+    "ended_at":  "2026-07-23T18:25:39.9151981+09:00",
+    "peak_host_ram_percent":  60.2675,
+    "soft_warning_crossed":  false,
+    "hard_stop_crossed":  false,
+    "terminal_runner_exit":  1,
+    "completion_manifest":  "C:\\Users\\jiheo\\tca_map\\reports\\epoch10b_stage0_rollout_manifest.json",
+    "complete":  false,
+    "batches":  [
+                    {
+                        "batch_started_at":  "2026-07-23T18:25:29.5886820+09:00",
+                        "baseline_host_ram_percent":  53.2873,
+                        "peak_host_ram_percent":  60.2675,
+                        "rows_before":  0,
+                        "rows_after":  0,
+                        "runner_exit":  1
+                    }
+                ]
+}

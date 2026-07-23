@@ -1,0 +1,20 @@
+{
+  "campaign": "epoch10b_icae_fresh_controller",
+  "canonical_payload_sha256": "1b67ed4159d1dbbc5466ee14b448a5f7d8261816e6e389dbbe069bb81e05a696",
+  "checkpoint_count": 16,
+  "development_success_labels_opened": true,
+  "episode_rows": 960,
+  "heldout_outcomes_opened": false,
+  "invalid_or_unexecuted": 0,
+  "lineage_count": 8,
+  "new_block_audits": [],
+  "raw_path": "runs/epoch10b_stage0_rollouts/development_episodes.jsonl",
+  "raw_sha256": "b1c77adf5779d25832751ae798154c871218f554425f4c9a12eb0e83e1027508",
+  "reset_seed_count": 15,
+  "schema_version": 1,
+  "status": "EPOCH10B_STAGE0_DEVELOPMENT_ROLLOUTS_COMPLETE",
+  "successes": 582,
+  "task_count": 4,
+  "unique_episode_keys": 960,
+  "wall_time_seconds_this_invocation": 0.006
+}
